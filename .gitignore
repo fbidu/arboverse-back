@@ -328,3 +328,4 @@ arboverse/media/
 *.sqlite
 *.sqlite3
 
+data/
