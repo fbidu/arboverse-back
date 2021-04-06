@@ -329,3 +329,4 @@ arboverse/media/
 *.sqlite3
 
 data/
+env/
