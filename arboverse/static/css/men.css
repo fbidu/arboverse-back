@@ -1,0 +1,63 @@
+body{
+    font-size: 16px;
+    font-family: lato, sans-serif,serif;
+    background-color: hsl(0, 0%, 95%);
+    margin: 0 auto;
+}
+/*Navegador*/
+nav{
+    background-color: #002147;
+    font-size: 1.1rem;
+    font-family: lato, sans-serif, arial;
+    padding: 5px 15px;
+    border-radius: 8px;
+    width:100%;
+    position: fixed;
+    z-index: 2;
+    margin: 0 auto;
+    top:0;
+}
+#navegador-desktop{
+    display: flex;
+    flex-wrap: nowrap;
+    color: white;
+    height: 65px;
+    padding: 5px 15px;
+}
+.logo {
+    font-family: montserrat, lato, sans-serif, arial;
+    font-size: 0.8rem;
+    display: flex;
+    margin: auto 0;
+}
+.logo a{
+    text-decoration: none;
+    color:white
+}
+.logo h1{
+    padding-top: 3px;
+    padding-left: 5px;
+}
+h1 .color{
+    color:#ff8800;
+}
+.logo img {
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+}
+#navegador-desktop .menu{
+    margin: auto 0;
+}
+.menu-desktop li{
+    display: inline;
+    font-family: lato, sans-serif, arial;
+}
+.menu-desktop a {
+    text-decoration:none;
+    color: white;
+    padding: 0 10px;
+}
+.menu-bar{
+    display:none;
+}
