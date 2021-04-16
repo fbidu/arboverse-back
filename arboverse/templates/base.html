@@ -17,7 +17,11 @@
       rel="stylesheet"
     />
     <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/index.css' %}"
+    />
     <!--Jquery-->
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -41,11 +45,9 @@
   <body>
     <!--NAVEGADOR-->
     {% include "navbar.html" %}
-    {% block home %} {% endblock %} {% block arboverse %} {% endblock %}
+    {% block home %} {% endblock %}
+    {% block arboverse %} {% endblock %}
     <!--FOOTER-->
-    <footer>
-      <p>© Copyrights 2021 - Arboverse | All rights reserved</p>
-      <p>Web developer | Atsuko</p>
-    </footer>
+    {% include "footer.html" %}
   </body>
 </html>
