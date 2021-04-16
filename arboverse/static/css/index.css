@@ -19,7 +19,7 @@ body {
       hsla(212, 100%, 14%, 0.4),
       transparent
     ),
-    url("/Resources/images/Index/banner1.jpg");
+    url("../images/Index/banner1.jpg");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
