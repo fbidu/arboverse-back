@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% load static i18n %}<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -17,7 +17,7 @@
       rel="stylesheet"
     />
     <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="../static/css/index.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}" />
     <!--Jquery-->
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -32,7 +32,7 @@
     />
     <link
       rel="sortcut icon"
-      href="../static/images/Arboverse_logo-2.png"
+      href="{% static 'images/Arboverse_logo-2.png' %}"
       type="image/png"
     />
     <title>Arboverse Home</title>
@@ -43,7 +43,7 @@
     <div class="bannermenu">
       <nav>
         <div class="logo">
-          <img src="../static/images/Arboverse_logo-2.png" />
+          <img src="{% static 'images/Arboverse_logo-2.png' %}" />
           <h4>ARBO<span>VERSE</span></h4>
         </div>
         <ul class="nav-links">
@@ -101,7 +101,7 @@
       </script>
       <div class="hl"></div>
       <!--Script burgerbar toggler-->
-      <script src="../static/js/main.js"></script>
+      <script src="{% static 'js/main.js' %}"></script>
       <!--Banner information-->
       <h1>Arboverse</h1>
       <h3>Arbovirus | Disease | Ecology | Evolution</h3>
