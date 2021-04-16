@@ -1,0 +1,65 @@
+{% load static i18n %}
+<div class="bannermenu">
+  <nav>
+    <div class="logo">
+      <img src="{% static 'images/Arboverse_logo-2.png' %}" />
+      <h4>ARBO<span>VERSE</span></h4>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="{% url 'home' %}" aria-label="Link for home">HOME</a>
+      </li>
+      <li>
+        <a
+          href="{% url 'arboverse' %}"
+          aria-label="Link for arboverse plattform"
+          >ARBOVERSE</a
+        >
+      </li>
+      <li>
+        <a href="{% url 'research' %}" aria-label="Link for research"
+          >RESEARCH</a
+        >
+      </li>
+      <li>
+        <a href="{% url 'publications' %}" aria-label="Link for publications"
+          >PUBLICATIONS</a
+        >
+      </li>
+      <li>
+        <a href="{% url 'people' %}" aria-label="Link for collaborators"
+          >PEOPLE</a
+        >
+      </li>
+      <li>
+        <a href="{% url 'news' %}" aria-label="Link for biography">NEWS</a>
+      </li>
+    </ul>
+    <!--Burger Menu-->
+    <div class="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+  </nav>
+  <!--Script scrool navbar-->
+  <script>
+    let navbar = document.querySelector("nav");
+    let scrollPrevisous = window.pageYOffset;
+    window.onscroll = function () {
+      let scrollCurent = window.pageYOffset;
+      if (scrollPrevisous > scrollCurent) {
+        navbar.style.top = "0px";
+      } else {
+        navbar.style.top = "-90px";
+      }
+      scrollPrevisous = scrollCurent;
+    };
+  </script>
+  <div class="hl"></div>
+  <!--Script burgerbar toggler-->
+  <script src="{% static 'js/main.js' %}"></script>
+  <!--Banner information-->
+  <h1>Arboverse</h1>
+  <h3>Arbovirus | Disease | Ecology | Evolution</h3>
+</div>
