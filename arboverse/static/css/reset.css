@@ -1,13 +1,15 @@
-*{
-    margin: 0;
-    padding:0;
-    border:none;
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
 }
 
-body{
-    font-family: lato, serif;
+body {
+  font-family: lato, serif;
 }
 
-ul, ol, li{
-    list-style: none;
+ul,
+ol,
+li {
+  list-style: none;
 }

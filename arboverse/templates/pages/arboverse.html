@@ -1,689 +1,744 @@
-{% extends 'base.html' %}
-{% block arboverse %}
+{% extends 'base.html' %} {% block arboverse %}
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="Resources/css/arboverse.css">
-    <link rel="stylesheet" type="text/css"
-        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
-    <link rel="sortcut icon" href="Resources/images/Arboverse_logo-2.png" type="image/png" />
-    <title>Arboverse plattform</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <!-- Mapbox GL JS includes -->
-    <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
-    <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" type="text/css" href="Resources/css/arboverse.css" />
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css"
+  />
+  <link
+    rel="sortcut icon"
+    href="Resources/images/Arboverse_logo-2.png"
+    type="image/png"
+  />
+  <title>Arboverse plattform</title>
+  <meta
+    name="viewport"
+    content="initial-scale=1,maximum-scale=1,user-scalable=no"
+  />
+  <!-- Mapbox GL JS includes -->
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+  <link
+    href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css"
+    rel="stylesheet"
+  />
 </head>
 
-
 <div class="catalogue">
-    <h1>Catalogue here</h1>
+  <h1>Catalogue here</h1>
 </div>
 <div class="grid">
-    <!-- Main Menu Bar Filter-->
-    <div id="menulateral">
-        <div class="item-button" id="discovery">
-            <div class="button-wrapper">
-                <img src="../static/images/icons aboverse/discovery-01.png">
-                <span>Discovery</span>
-            </div>
-        </div>
-        <div class="item-button" id="distribution">
-            <div class="button-wrapper">
-                <img src="../static/images/icons aboverse/Distribution-01.png">
-                <span>Distribution</span>
-            </div>
-        </div>
-        <div class="item-button" id="vector">
-            <div class="button-wrapper">
-                <img src="../static/images/icons aboverse/vector-01.png">
-                <span>Vector</span>
-            </div>
-        </div>
-        <div class="item-button" id="climate">
-            <div class="button-wrapper">
-                <img src="../static/images/icons aboverse/Untitled-5-01.png">
-                <span>Climate</span>
-            </div>
-        </div>
-        <div class="item-button" id="forest">
-            <div class="button-wrapper forest">
-                <img src="../static/images/icons aboverse/forest cover-01.png">
-                <span>Forest Cover & Deforestation</span>
-            </div>
-        </div>
-        <div class="item-button" id="land">
-            <div class="button-wrapper">
-                <img src="../static/images/icons aboverse/land cover-01.png">
-                <span>Land Use</span>
-            </div>
-        </div>
-        <div class="item-button" id="mobility">
-            <div class="button-wrapper">
-                <img src="../static/images/icons aboverse/Humanmobility-01.png">
-                <span>Human Mobility</span>
-            </div>
-        </div>
+  <!-- Main Menu Bar Filter-->
+  <div id="menulateral">
+    <div class="item-button" id="discovery">
+      <div class="button-wrapper">
+        <img src="../static/images/icons aboverse/discovery-01.png" />
+        <span>Discovery</span>
+      </div>
     </div>
-    <!--lateral menu side close-->
-    <!--Discovery Menu-->
-    <div id="discovery-menu" class="sub-menu sub-1">
-        <div class="title-sub">
-            <h3>Virus Discovery</h3><i class="fa fa-info-circle" style="color:gray"></i>
-        </div>
-        <div class="info-input">
-            <input type="text" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Family</label>
-        </div>
-        <div class="info-input">
-            <input type="text" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Genus</label>
-        </div>
-        <div class="info-input">
-            <input type="text" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Species</label>
-        </div>
+    <div class="item-button" id="distribution">
+      <div class="button-wrapper">
+        <img src="../static/images/icons aboverse/Distribution-01.png" />
+        <span>Distribution</span>
+      </div>
     </div>
-    <!--Distribution Menu-->
-    <div id="distribution-menu" class="sub-menu sub-1">
-        <div class="title-sub">
-            <h3>Virus Distribution</h3><i class="fa fa-info-circle" style="color:gray"></i>
-        </div>
-        <div class="info-input">
-            <input type="text" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Family</label>
-        </div>
-        <div class="info-input">
-            <input type="text" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Genus</label>
-        </div>
-        <div class="info-input">
-            <input type="text" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Species</label>
-        </div>
+    <div class="item-button" id="vector">
+      <div class="button-wrapper">
+        <img src="../static/images/icons aboverse/vector-01.png" />
+        <span>Vector</span>
+      </div>
     </div>
-    <!--Vector Menu-->
-    <div id="vector-menu" class="sub-menu sub-2">
-        <div class="title-sub">
-            <h3>Vector Distribution</h3><i class="fa fa-info-circle" style="color:gray"></i>
+    <div class="item-button" id="climate">
+      <div class="button-wrapper">
+        <img src="../static/images/icons aboverse/Untitled-5-01.png" />
+        <span>Climate</span>
+      </div>
+    </div>
+    <div class="item-button" id="forest">
+      <div class="button-wrapper forest">
+        <img src="../static/images/icons aboverse/forest cover-01.png" />
+        <span>Forest Cover & Deforestation</span>
+      </div>
+    </div>
+    <div class="item-button" id="land">
+      <div class="button-wrapper">
+        <img src="../static/images/icons aboverse/land cover-01.png" />
+        <span>Land Use</span>
+      </div>
+    </div>
+    <div class="item-button" id="mobility">
+      <div class="button-wrapper">
+        <img src="../static/images/icons aboverse/Humanmobility-01.png" />
+        <span>Human Mobility</span>
+      </div>
+    </div>
+  </div>
+  <!--lateral menu side close-->
+  <!--Discovery Menu-->
+  <div id="discovery-menu" class="sub-menu sub-1">
+    <div class="title-sub">
+      <h3>Virus Discovery</h3>
+      <i class="fa fa-info-circle" style="color: gray"></i>
+    </div>
+    <div class="info-input">
+      <input type="text" required />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Family</label>
+    </div>
+    <div class="info-input">
+      <input type="text" required />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Genus</label>
+    </div>
+    <div class="info-input">
+      <input type="text" required />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Species</label>
+    </div>
+  </div>
+  <!--Distribution Menu-->
+  <div id="distribution-menu" class="sub-menu sub-1">
+    <div class="title-sub">
+      <h3>Virus Distribution</h3>
+      <i class="fa fa-info-circle" style="color: gray"></i>
+    </div>
+    <div class="info-input">
+      <input type="text" required />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Family</label>
+    </div>
+    <div class="info-input">
+      <input type="text" required />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Genus</label>
+    </div>
+    <div class="info-input">
+      <input type="text" required />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Species</label>
+    </div>
+  </div>
+  <!--Vector Menu-->
+  <div id="vector-menu" class="sub-menu sub-2">
+    <div class="title-sub">
+      <h3>Vector Distribution</h3>
+      <i class="fa fa-info-circle" style="color: gray"></i>
+    </div>
+    <div class="box">
+      <p>Vector Type</p>
+      <select name="vectortype">
+        <option value="mosquitoes">Mosquitoes</option>
+        <option value="ticks">Ticks</option>
+        <option value="sandflies">Sandflies</option>
+        <option value="Midges">Midges</option>
+        <option value="others">Others</option>
+      </select>
+    </div>
+    <div class="info-input">
+      <input type="text" required />
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Species</label>
+    </div>
+  </div>
+  <!--Climate Menu-->
+  <div id="climate-menu" class="sub-second-menu">
+    <h3>Climate</h3>
+    <div class="menu-btn">
+      <!--Temperature-->
+      <div class="unit-btn">
+        <div class="unit-toggle">
+          <div class="toggle">
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <!--toggle close tag-->
+          <h6>Temperature</h6>
+          <i class="fa fa-info-circle" style="color: gray"></i>
         </div>
-        <div class="box">
-            <p>Vector Type</p>
-            <select name="vectortype">
-                <option value="mosquitoes">Mosquitoes</option>
-                <option value="ticks">Ticks</option>
-                <option value="sandflies">Sandflies</option>
-                <option value="Midges">Midges</option>
-                <option value="others">Others</option>
+        <!--unit-toggle close tag-->
+        <div class="measure">
+          <div class="bar-mesur bluetopink"></div>
+          <div class="indice">
+            <label class="celsius">-50˚C </label>
+            <label class="celsius">0˚C </label>
+            <label class="celsius">-50˚C </label>
+          </div>
+          <!--indice close tag-->
+        </div>
+        <!--measure-->
+      </div>
+      <!--unit-btn close-->
+      <!--Precipitation-->
+      <div class="unit-btn">
+        <div class="unit-toggle">
+          <div class="toggle">
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <!--toggle close-->
+          <h6>Precipitation</h6>
+          <i class="fa fa-info-circle" style="color: gray"></i>
+        </div>
+        <!-- unit-toggle close-->
+        <div class="measure">
+          <div class="bar-mesur lightyellowgreen"></div>
+          <div class="indice">
+            <label class="cubicmm">0mm<sup>3</sup></label>
+            <label class="cubicmm">250mm<sup>3</sup></label>
+          </div>
+          <!--indice close-->
+        </div>
+        <!--measure close -->
+      </div>
+      <!--unit-btn close-->
+      <!--Humidity-->
+      <div class="unit-btn">
+        <div class="unit-toggle">
+          <div class="toggle">
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <!--toggle close-->
+          <h6>Humidity</h6>
+          <i class="fa fa-info-circle" style="color: gray"></i>
+        </div>
+        <!-- unit-toggle close-->
+        <div class="measure">
+          <div class="bar-mesur purple"></div>
+          <div class="indice">
+            <label class="percentage">25%</label>
+            <label class="percentage">80%</label>
+          </div>
+          <!--indice close-->
+        </div>
+        <!--measure close -->
+      </div>
+      <!--unit-btn close-->
+      <!--MENU climate TIMELINE-->
+      <div class="menu-timeslider">
+        <h6>Date (Year and Month)</h6>
+        <div class="map-timeline">
+          <!--Slide Range Year-->
+          <div class="range-value slidecontainer" id="rangeV"></div>
+          <input
+            id="range"
+            type="range"
+            min="1970"
+            max="2100"
+            value="1970"
+            step="1"
+            class="slideyear"
+          />
+        </div>
+        <!--map-timeline closer-->
+        <!--Slide Range month my month-->
+        <div class="slidecontainer">
+          <label id="month" class="legend"></label>
+          <input
+            type="range"
+            min="0"
+            max="11"
+            value="0"
+            class="slidemonth"
+            id="myRange"
+          />
+        </div>
+        <!--slidecontainer close-->
+      </div>
+      <!--menu-timeslider closer-->
+    </div>
+    <!--menu-btn-->
+  </div>
+  <!--FOREST COVER AND DEFORESTATION MENU-->
+  <div id="forestcover-menu" class="sub-th-menu">
+    <h3>Forest Cover & Desforestation</h3>
+    <div class="menu-btn">
+      <!--Desforestation Alerts-->
+      <div class="unit-btn2">
+        <div class="unit-toggle">
+          <div class="toggle">
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <!--toggle close-->
+          <h6>Deforestation alerts</h6>
+          <i class="fa fa-info-circle" style="color: gray"></i>
+        </div>
+        <!--Unit toggle close-->
+        <div class="marker">
+          <div class="point pink-orange"></div>
+          <labe class="point-mean">GLAD alerts</labe>
+        </div>
+        <div class="range-player">
+          <!--Add Buttom play here-->
+          <div class="play-year-range">
+            <button class="player">
+              <i class="fa fa-play-circle" style="color: gray"></i></button
+            ><input
+              type="range"
+              min="2001"
+              max="2021"
+              step="1"
+              value="2001"
+              class="playslider"
+            />
+          </div>
+        </div>
+      </div>
+      <!--unit btn close-->
+      <!--Tree Cover Loss by dominante driver-->
+      <div class="unit-btn2">
+        <div class="unit-toggle">
+          <div class="toggle">
+            <label class="switch">
+              <input
+                type="checkbox"
+                checked="false"
+                onclick="update_map(this, 'teste')"
+              />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <!--toggle close-->
+          <h6>Tree Cover Loss by Dominant Driver</h6>
+          <i class="fa fa-info-circle" style="color: gray"></i>
+        </div>
+        <!--Unit toggle close-->
+        <div class="marker">
+          <div class="point neonblue-p"></div>
+          <labe class="point-mean">Commodity driven deforestation</labe>
+        </div>
+        <div class="marker">
+          <div class="point patriarch-p"></div>
+          <labe class="point-mean">Shifting agriculture</labe>
+        </div>
+        <div class="marker">
+          <div class="point montaingreen-p"></div>
+          <labe class="point-mean">Foresty</labe>
+        </div>
+        <div class="marker">
+          <div class="point mango-p"></div>
+          <labe class="point-mean">Wildfire</labe>
+        </div>
+        <div class="marker">
+          <div class="point blush-p"></div>
+          <labe class="point-mean">Urbanization</labe>
+        </div>
+        <div class="canopy">
+          <p>
+            Displaying Tree cover loss by dominant driver with<select
+              class="canopy-percentage"
+            >
+              <option>>10%</option>
+              <option>>15%</option>
+              <option>>20%</option>
+              <option>>25%</option>
+              <option>>30%</option>
+              <option>>50%</option>
+              <option>>75%</option>
             </select>
+            canopy density
+          </p>
         </div>
-        <div class="info-input">
-            <input type="text" required>
-            <span class="highlight"></span>
-            <span class="bar"></span>
-            <label>Species</label>
+        <div class="range-player">
+          <!--Add Buttom play here-->
+          <div class="play-year-range">
+            <button class="player">
+              <i class="fa fa-play-circle" style="color: gray"></i></button
+            ><input
+              type="range"
+              min="2001"
+              max="2020"
+              step="1"
+              value="2001"
+              class="playslider"
+            />
+          </div>
         </div>
+      </div>
+      <!--unit btn close-->
+      <!--Primary Forest cover-->
+      <div class="unit-btn2">
+        <div class="unit-toggle">
+          <div class="toggle">
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <!--toggle close-->
+          <h6>Primary Forest</h6>
+          <i class="fa fa-info-circle" style="color: gray"></i>
+        </div>
+        <!--Unit toggle close-->
+        <div class="marker">
+          <div class="point musgo-p"></div>
+          <labe class="point-mean">Pan-Tropical (30m)</labe>
+        </div>
+        <!--close marker-->
+      </div>
+      <!--unit close-->
+      <!--Tree cover height-->
+      <div class="unit-btn2">
+        <div class="unit-toggle">
+          <div class="toggle">
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <!--toggle close-->
+          <h6>Tree Cover Height</h6>
+          <i class="fa fa-info-circle" style="color: gray"></i>
+        </div>
+        <!--Unit toggle close-->
+        <div class="measure">
+          <div class="bar-mesur green-s"></div>
+          <div class="indice">
+            <label class="percentage">3m</label>
+            <label class="percentage">30m</label>
+          </div>
+        </div>
+      </div>
+      <!--unit close-->
+      <!--Intact Forest Landscape-->
+      <div class="unit-btn2">
+        <div class="unit-toggle">
+          <div class="toggle">
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <!--toggle close-->
+          <h6>Intact Forest Landscapes</h6>
+          <i class="fa fa-info-circle" style="color: gray"></i>
+        </div>
+        <!--Unit toggle close-->
+        <div class="marker">
+          <div class="point green1-p"></div>
+          <labe class="point-mean">Intact forest landscapes</labe>
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point green2-p"></div>
+          <labe class="point-mean">Reduction in extent 2000-2013</labe>
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point green3-p"></div>
+          <labe class="point-mean">Reduction in extent 2013 -2016</labe>
+        </div>
+        <!--close marker-->
+      </div>
+      <!--unit close-->
     </div>
-    <!--Climate Menu-->
-    <div id="climate-menu" class="sub-second-menu">
-        <h3>Climate</h3>
-        <div class="menu-btn">
-            <!--Temperature-->
-            <div class="unit-btn">
-                <div class="unit-toggle">
-                    <div class="toggle">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <!--toggle close tag-->
-                    <h6>Temperature</h6>
-                    <i class="fa fa-info-circle" style="color:gray"></i>
-                </div>
-                <!--unit-toggle close tag-->
-                <div class="measure">
-                    <div class="bar-mesur bluetopink"></div>
-                    <div class="indice">
-                        <label class="celsius">-50˚C </label>
-                        <label class="celsius">0˚C </label>
-                        <label class="celsius">-50˚C </label>
-                    </div>
-                    <!--indice close tag-->
-                </div>
-                <!--measure-->
-            </div>
-            <!--unit-btn close-->
-            <!--Precipitation-->
-            <div class="unit-btn">
-                <div class="unit-toggle">
-                    <div class="toggle">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <!--toggle close-->
-                    <h6>Precipitation</h6>
-                    <i class="fa fa-info-circle" style="color:gray"></i>
-                </div><!-- unit-toggle close-->
-                <div class="measure">
-                    <div class="bar-mesur lightyellowgreen"></div>
-                    <div class="indice">
-                        <label class="cubicmm">0mm<sup>3</sup></label>
-                        <label class="cubicmm">250mm<sup>3</sup></label>
-                    </div>
-                    <!--indice close-->
-                </div>
-                <!--measure close -->
-            </div>
-            <!--unit-btn close-->
-            <!--Humidity-->
-            <div class="unit-btn">
-                <div class="unit-toggle">
-                    <div class="toggle">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <!--toggle close-->
-                    <h6>Humidity</h6>
-                    <i class="fa fa-info-circle" style="color:gray"></i>
-                </div><!-- unit-toggle close-->
-                <div class="measure">
-                    <div class="bar-mesur purple"></div>
-                    <div class="indice">
-                        <label class="percentage">25%</label>
-                        <label class="percentage">80%</label>
-                    </div>
-                    <!--indice close-->
-                </div>
-                <!--measure close -->
-            </div>
-            <!--unit-btn close-->
-            <!--MENU climate TIMELINE-->
-            <div class="menu-timeslider">
-                <h6>Date (Year and Month)</h6>
-                <div class="map-timeline">
-                    <!--Slide Range Year-->
-                    <div class="range-value slidecontainer" id="rangeV"></div>
-                    <input id="range" type="range" min="1970" max="2100" value="1970" step="1" class="slideyear">
-                </div>
-                <!--map-timeline closer-->
-                <!--Slide Range month my month-->
-                <div class="slidecontainer">
-                    <label id="month" class="legend"></label>
-                    <input type="range" min="0" max="11" value="0" class="slidemonth" id="myRange">
-                </div>
-                <!--slidecontainer close-->
-            </div>
-            <!--menu-timeslider closer-->
+    <!--menu btn close-->
+    <!--Forest landscape integrity index-->
+    <div class="unit-btn2">
+      <div class="unit-toggle">
+        <div class="toggle">
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider round"></span>
+          </label>
         </div>
-        <!--menu-btn-->
+        <!--toggle close-->
+        <h6>Forest Landscape integrity index</h6>
+        <i class="fa fa-info-circle" style="color: gray"></i>
+      </div>
+      <!--Unit toggle close-->
+      <div class="measure">
+        <div class="bar-mesur browngreen-s"></div>
+        <div class="indice">
+          <label class="index">0</label>
+          <label class="index">1</label>
+          <label class="index">2</label>
+          <label class="index">3</label>
+          <label class="index">4</label>
+          <label class="index">5</label>
+          <label class="index">6</label>
+          <label class="index">7</label>
+          <label class="index">8</label>
+          <label class="index">9</label>
+          <label class="index">10</label>
+        </div>
+        <div class="indice">
+          <label class="index">Low integrity</label>
+          <label class="index">High integrity</label>
+        </div>
+      </div>
     </div>
-    <!--FOREST COVER AND DEFORESTATION MENU-->
-    <div id="forestcover-menu" class="sub-th-menu">
-        <h3>Forest Cover & Desforestation</h3>
-        <div class="menu-btn">
-            <!--Desforestation Alerts-->
-            <div class="unit-btn2">
-                <div class="unit-toggle">
-                    <div class="toggle">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <!--toggle close-->
-                    <h6>Deforestation alerts</h6>
-                    <i class="fa fa-info-circle" style="color:gray"></i>
-                </div>
-                <!--Unit toggle close-->
-                <div class="marker">
-                    <div class="point pink-orange"></div>
-                    <labe class="point-mean">GLAD alerts</labe>
-                </div>
-                <div class="range-player">
-                    <!--Add Buttom play here-->
-                    <div class="play-year-range">
-                        <button class="player"><i class="fa fa-play-circle" style="color: gray"></i></button><input
-                            type="range" min="2001" max="2021" step="1" value="2001" class="playslider">
-                    </div>
-                </div>
-
-            </div>
-            <!--unit btn close-->
-            <!--Tree Cover Loss by dominante driver-->
-            <div class="unit-btn2">
-                <div class="unit-toggle">
-                    <div class="toggle">
-                        <label class="switch">
-                            <input type="checkbox" checked=false onclick="update_map(this, 'teste')">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <!--toggle close-->
-                    <h6>Tree Cover Loss by Dominant Driver</h6>
-                    <i class="fa fa-info-circle" style="color:gray"></i>
-                </div>
-                <!--Unit toggle close-->
-                <div class="marker">
-                    <div class="point neonblue-p"></div>
-                    <labe class="point-mean">Commodity driven deforestation</labe>
-                </div>
-                <div class="marker">
-                    <div class="point patriarch-p"></div>
-                    <labe class="point-mean">Shifting agriculture</labe>
-                </div>
-                <div class="marker">
-                    <div class="point montaingreen-p"></div>
-                    <labe class="point-mean">Foresty</labe>
-                </div>
-                <div class="marker">
-                    <div class="point mango-p"></div>
-                    <labe class="point-mean">Wildfire</labe>
-                </div>
-                <div class="marker">
-                    <div class="point blush-p"></div>
-                    <labe class="point-mean">Urbanization</labe>
-                </div>
-                <div class="canopy">
-                    <p>Displaying Tree cover loss by dominant driver with<select class="canopy-percentage">
-                            <option>>10%</option>
-                            <option>>15%</option>
-                            <option>>20%</option>
-                            <option>>25%</option>
-                            <option>>30%</option>
-                            <option>>50%</option>
-                            <option>>75%</option>
-                        </select> canopy density</p>
-                </div>
-                <div class="range-player">
-                    <!--Add Buttom play here-->
-                    <div class="play-year-range">
-                        <button class="player"><i class="fa fa-play-circle" style="color: gray"></i></button><input
-                            type="range" min="2001" max="2020" step="1" value="2001" class="playslider">
-                    </div>
-                </div>
-
-            </div>
-            <!--unit btn close-->
-            <!--Primary Forest cover-->
-            <div class="unit-btn2">
-                <div class="unit-toggle">
-                    <div class="toggle">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <!--toggle close-->
-                    <h6>Primary Forest</h6>
-                    <i class="fa fa-info-circle" style="color:gray"></i>
-                </div>
-                <!--Unit toggle close-->
-                <div class="marker">
-                    <div class="point musgo-p"></div>
-                    <labe class="point-mean">Pan-Tropical (30m)</labe>
-                </div>
-                <!--close marker-->
-            </div>
-            <!--unit close-->
-            <!--Tree cover height-->
-            <div class="unit-btn2">
-                <div class="unit-toggle">
-                    <div class="toggle">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <!--toggle close-->
-                    <h6>Tree Cover Height</h6>
-                    <i class="fa fa-info-circle" style="color:gray"></i>
-                </div>
-                <!--Unit toggle close-->
-                <div class="measure">
-                    <div class="bar-mesur green-s"></div>
-                    <div class="indice">
-                        <label class="percentage">3m</label>
-                        <label class="percentage">30m</label>
-                    </div>
-                </div>
-            </div>
-            <!--unit close-->
-            <!--Intact Forest Landscape-->
-            <div class="unit-btn2">
-                <div class="unit-toggle">
-                    <div class="toggle">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <!--toggle close-->
-                    <h6>Intact Forest Landscapes</h6>
-                    <i class="fa fa-info-circle" style="color:gray"></i>
-                </div>
-                <!--Unit toggle close-->
-                <div class="marker">
-                    <div class="point green1-p"></div>
-                    <labe class="point-mean">Intact forest landscapes</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point green2-p"></div>
-                    <labe class="point-mean">Reduction in extent 2000-2013</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point green3-p"></div>
-                    <labe class="point-mean">Reduction in extent 2013 -2016</labe>
-                </div>
-                <!--close marker-->
-            </div>
-            <!--unit close-->
+    <!--unit close-->
+  </div>
+  <!--Land COVER MENU-->
+  <div id="land-cover-menu" class="sub-fou-menu">
+    <h3>Land Use</h3>
+    <div clas="menu-btn">
+      <h5>Commodities</h5>
+      <!--Land cover-->
+      <div class="unit-btn2">
+        <div class="unit-toggle">
+          <div class="toggle">
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <!--toggle close-->
+          <h6>Land Cover</h6>
+          <i class="fa fa-info-circle" style="color: gray"></i>
         </div>
-        <!--menu btn close-->
-        <!--Forest landscape integrity index-->
-        <div class="unit-btn2">
-            <div class="unit-toggle">
-                <div class="toggle">
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                <!--toggle close-->
-                <h6>Forest Landscape integrity index</h6>
-                <i class="fa fa-info-circle" style="color:gray"></i>
-            </div>
-            <!--Unit toggle close-->
-            <div class="measure">
-                <div class="bar-mesur browngreen-s"></div>
-                <div class="indice">
-                    <label class="index">0</label>
-                    <label class="index">1</label>
-                    <label class="index">2</label>
-                    <label class="index">3</label>
-                    <label class="index">4</label>
-                    <label class="index">5</label>
-                    <label class="index">6</label>
-                    <label class="index">7</label>
-                    <label class="index">8</label>
-                    <label class="index">9</label>
-                    <label class="index">10</label>
-                </div>
-                <div class="indice">
-                    <label class="index">Low integrity</label>
-                    <label class="index">High integrity</label>
-                </div>
-            </div>
+        <!--Unit toggle close-->
+        <div class="marker">
+          <div class="point agriculture-p"></div>
+          <labe class="point-mean">Agriculture</labe>
         </div>
-        <!--unit close-->
+        <!--close marker-->
+        <div class="marker">
+          <div class="point forest-p"></div>
+          <labe class="point-mean">Forest</labe>
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point grass-p"></div>
+          <labe class="point-mean">Grassland</labe>
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point scrub-p"></div>
+          <labe class="point-mean">Scrubland</labe>
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point svegetation-p"></div>
+          <labe class="point-mean">Sparse vegetation</labe>
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point wetland-p"></div>
+          <labe class="point-mean">Wetlands</labe>
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point settlement-p"></div>
+          <labe class="point-mean">Settlement</labe>
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point vazio-p"></div>
+          <labe class="point-mean">Bare</labe>
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point bluewater-p"></div>
+          <labe class="point-mean">Water</labe>
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point ice-p"></div>
+          <labe class="point-mean">Permanent ice and snow</labe>
+        </div>
+        <!--close marker-->
+      </div>
+      <!--unit close-->
+      <!--Mining Concessions-->
+      <div class="unit-btn2">
+        <div class="unit-toggle">
+          <div class="toggle">
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <!--toggle close-->
+          <h6>Mining Concessions</h6>
+          <i class="fa fa-info-circle" style="color: gray"></i>
+        </div>
+        <!--Unit toggle close-->
+        <div class="marker">
+          <div class="point mining-p"></div>
+          <labe class="point-mean">Logging concessions</labe>
+        </div>
+        <!--close marker-->
+        <p>Layer available only for certain countries</p>
+      </div>
+      <!--unit close-->
+      <!--Logging Concessions-->
+      <div class="unit-btn2">
+        <div class="unit-toggle">
+          <div class="toggle">
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <!--toggle close-->
+          <h6>Logging Concessions</h6>
+          <i class="fa fa-info-circle" style="color: gray"></i>
+        </div>
+        <!--Unit toggle close-->
+        <div class="marker">
+          <div class="point logging-p"></div>
+          <labe class="point-mean">Logging concessions</labe>
+        </div>
+        <!--close marker-->
+        <p>Layer available only for certain countries</p>
+      </div>
+      <!--unit close-->
+      <!--RtRS guides for soy expansion -->
+      <div class="unit-btn2">
+        <div class="unit-toggle">
+          <div class="toggle">
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <!--toggle close-->
+          <h6>Guides for Responsible Soy Expansion</h6>
+          <i class="fa fa-info-circle" style="color: gray"></i>
+        </div>
+        <!--Unit toggle close-->
+        <div class="marker">
+          <div class="point noexpansion-p"></div>
+          <labe class="point-mean">No expansion allowed</labe>
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point potential-p"></div>
+          <labe class="point-mean"
+            >Expansion potentially allowed after HCVA assessment</labe
+          >
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point responsible-p"></div>
+          <labe class="point-mean"
+            >Responsible expansion as per legislation</labe
+          >
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point land-p"></div>
+          <labe class="point-mean">No land available for expansion</labe>
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point deforested-p"></div>
+          <labe class="point-mean">Areas deforested after 2009</labe>
+        </div>
+        <!--close marker-->
+        <p>Layer available only for certain countries</p>
+      </div>
+      <!--unit close-->
+      <h5>Infrastructure</h5>
+      <!--Main Dams-->
+      <div class="unit-btn2">
+        <div class="unit-toggle">
+          <div class="toggle">
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <!--toggle close-->
+          <h6>Major Dams</h6>
+          <i class="fa fa-info-circle" style="color: gray"></i>
+        </div>
+        <!--Unit toggle close-->
+        <div class="marker">
+          <div class="point operational-p"></div>
+          <labe class="point-mean">Operational</labe>
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point under-p"></div>
+          <labe class="point-mean">Under construction</labe>
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point planned-p"></div>
+          <labe class="point-mean">Planned</labe>
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point inventoried-p"></div>
+          <labe class="point-mean">Inventoried</labe>
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point suspended-p"></div>
+          <labe class="point-mean">Suspended</labe>
+        </div>
+        <!--close marker-->
+        <div class="marker">
+          <div class="point unknown-p"></div>
+          <labe class="point-mean">Unknown</labe>
+        </div>
+        <!--close marker-->
+      </div>
+      <!--unit close-->
+      <h5>People</h5>
+      <!--populational density-->
+      <div class="unit-btn2">
+        <div class="unit-toggle">
+          <div class="toggle">
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <!--toggle close-->
+          <h6>Population Density</h6>
+          <i class="fa fa-info-circle" style="color: gray"></i>
+        </div>
+        <!--unit-toggle close-->
+        <div class="measure">
+          <div class="bar-mesur people-s"></div>
+          <div class="indice">
+            <label class="millions">≤25</label>
+            <label class="millions">≤100</label>
+            <label class="millions">≤1k</label>
+            <label class="millions">≤5k</label>
+            <label class="millions">≤10k</label>
+            <label class="millions">≥10k</label>
+          </div>
+          <!--indice close-->
+        </div>
+        <!--measure close-->
+      </div>
+      <!--unit-btn close-->
     </div>
-    <!--Land COVER MENU-->
-    <div id="land-cover-menu" class="sub-fou-menu">
-        <h3>Land Use</h3>
-        <div clas="menu-btn">
-            <h5>Commodities</h5>
-            <!--Land cover-->
-            <div class="unit-btn2">
-                <div class="unit-toggle">
-                    <div class="toggle">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <!--toggle close-->
-                    <h6>Land Cover</h6>
-                    <i class="fa fa-info-circle" style="color:gray"></i>
-                </div>
-                <!--Unit toggle close-->
-                <div class="marker">
-                    <div class="point agriculture-p"></div>
-                    <labe class="point-mean">Agriculture</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point forest-p"></div>
-                    <labe class="point-mean">Forest</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point grass-p"></div>
-                    <labe class="point-mean">Grassland</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point scrub-p"></div>
-                    <labe class="point-mean">Scrubland</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point svegetation-p"></div>
-                    <labe class="point-mean">Sparse vegetation</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point wetland-p"></div>
-                    <labe class="point-mean">Wetlands</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point settlement-p"></div>
-                    <labe class="point-mean">Settlement</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point vazio-p"></div>
-                    <labe class="point-mean">Bare</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point bluewater-p"></div>
-                    <labe class="point-mean">Water</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point ice-p"></div>
-                    <labe class="point-mean">Permanent ice and snow</labe>
-                </div>
-                <!--close marker-->
-            </div>
-            <!--unit close-->
-            <!--Mining Concessions-->
-            <div class="unit-btn2">
-                <div class="unit-toggle">
-                    <div class="toggle">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <!--toggle close-->
-                    <h6>Mining Concessions</h6>
-                    <i class="fa fa-info-circle" style="color:gray"></i>
-                </div>
-                <!--Unit toggle close-->
-                <div class="marker">
-                    <div class="point mining-p"></div>
-                    <labe class="point-mean">Logging concessions</labe>
-                </div>
-                <!--close marker-->
-                <p>Layer available only for certain countries</p>
-            </div>
-            <!--unit close-->
-            <!--Logging Concessions-->
-            <div class="unit-btn2">
-                <div class="unit-toggle">
-                    <div class="toggle">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <!--toggle close-->
-                    <h6>Logging Concessions</h6>
-                    <i class="fa fa-info-circle" style="color:gray"></i>
-                </div>
-                <!--Unit toggle close-->
-                <div class="marker">
-                    <div class="point logging-p"></div>
-                    <labe class="point-mean">Logging concessions</labe>
-                </div>
-                <!--close marker-->
-                <p>Layer available only for certain countries</p>
-            </div>
-            <!--unit close-->
-            <!--RtRS guides for soy expansion -->
-            <div class="unit-btn2">
-                <div class="unit-toggle">
-                    <div class="toggle">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <!--toggle close-->
-                    <h6>Guides for Responsible Soy Expansion</h6>
-                    <i class="fa fa-info-circle" style="color:gray"></i>
-                </div>
-                <!--Unit toggle close-->
-                <div class="marker">
-                    <div class="point noexpansion-p"></div>
-                    <labe class="point-mean">No expansion allowed</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point potential-p"></div>
-                    <labe class="point-mean">Expansion potentially allowed after HCVA assessment</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point responsible-p"></div>
-                    <labe class="point-mean">Responsible expansion as per legislation</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point land-p"></div>
-                    <labe class="point-mean">No land available for expansion</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point deforested-p"></div>
-                    <labe class="point-mean">Areas deforested after 2009</labe>
-                </div>
-                <!--close marker-->
-                <p>Layer available only for certain countries</p>
-            </div>
-            <!--unit close-->
-            <h5>Infrastructure</h5>
-            <!--Main Dams-->
-            <div class="unit-btn2">
-                <div class="unit-toggle">
-                    <div class="toggle">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <!--toggle close-->
-                    <h6>Major Dams</h6>
-                    <i class="fa fa-info-circle" style="color:gray"></i>
-                </div>
-                <!--Unit toggle close-->
-                <div class="marker">
-                    <div class="point operational-p"></div>
-                    <labe class="point-mean">Operational</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point under-p"></div>
-                    <labe class="point-mean">Under construction</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point planned-p"></div>
-                    <labe class="point-mean">Planned</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point inventoried-p"></div>
-                    <labe class="point-mean">Inventoried</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point suspended-p"></div>
-                    <labe class="point-mean">Suspended</labe>
-                </div>
-                <!--close marker-->
-                <div class="marker">
-                    <div class="point unknown-p"></div>
-                    <labe class="point-mean">Unknown</labe>
-                </div>
-                <!--close marker-->
-            </div>
-            <!--unit close-->
-            <h5>People</h5>
-            <!--populational density-->
-            <div class="unit-btn2">
-                <div class="unit-toggle">
-                    <div class="toggle">
-                        <label class="switch">
-                            <input type="checkbox">
-                            <span class="slider round"></span>
-                        </label>
-                    </div>
-                    <!--toggle close-->
-                    <h6>Population Density</h6>
-                    <i class="fa fa-info-circle" style="color:gray"></i>
-                </div>
-                <!--unit-toggle close-->
-                <div class="measure">
-                    <div class="bar-mesur people-s"></div>
-                    <div class="indice">
-                        <label class="millions">≤25</label>
-                        <label class="millions">≤100</label>
-                        <label class="millions">≤1k</label>
-                        <label class="millions">≤5k</label>
-                        <label class="millions">≤10k</label>
-                        <label class="millions">≥10k</label>
-                    </div>
-                    <!--indice close-->
-                </div>
-                <!--measure close-->
-            </div>
-            <!--unit-btn close-->
-        </div>
-        <!--menu-btn close-->
-    </div>
+    <!--menu-btn close-->
+  </div>
 
-
-
-    <script src="../static/js/menu.js"></script>
-    <!--Menu js-->
-    <!--MAP-->
-    <div id="map"></div>
-
-
+  <script src="../static/js/menu.js"></script>
+  <!--Menu js-->
+  <!--MAP-->
+  <div id="map"></div>
 </div>
 <!--grid close-->
 <script src="../static/js/mapboxutil.js"></script>
