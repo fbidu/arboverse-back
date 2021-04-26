@@ -1,753 +1,2265 @@
-{% extends 'base.html' %}{% load static %}
-
-{% block meta %}
- <meta
-    name="viewport"
-    content="initial-scale=1,maximum-scale=1,user-scalable=no"
-  />
+{% extends 'base.html' %}{% load static %} {% block meta %}
+<meta
+  name="viewport"
+  content="initial-scale=1,maximum-scale=1,user-scalable=no"
+/>
 {% endblock %}
-
 {% block resources %}
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="{% static 'css/arboverse.css' %}"
-  />
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css"
-  />
-  <link
-    rel="sortcut icon"
-    href="Resources/images/Arboverse_logo-2.png"
-    type="image/png"
-  />
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="{% static 'css/arboverse.css' %}"
+/>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css"
+/>
+<link
+  rel="sortcut icon"
+  href="Resources/images/Arboverse_logo-2.png"
+  type="image/png"
+/>
 
-  <!-- Mapbox GL JS includes -->
-  <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
-  
-  <link
-    href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css"
-    rel="stylesheet"
-  />
+<!-- Mapbox GL JS includes -->
+<script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+
+<link
+  href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css"
+  rel="stylesheet"
+/>
 {% endblock %}
-
-{% block title %}
-Arboverse Platform
-{% endblock %}
-
- 
+{% block title %} Arboverse Platform {% endblock %}
 {% block content %}
-<div class="catalogue">
-  <h1>Catalogue here</h1>
-</div>
-<div class="grid">
-  <!-- Main Menu Bar Filter-->
-  <div id="menulateral">
-    <div class="item-button" id="discovery">
-      <div class="button-wrapper">
-        <img src="../static/images/icons aboverse/discovery-01.png" />
-        <span>Discovery</span>
-      </div>
-    </div>
-    <div class="item-button" id="distribution">
-      <div class="button-wrapper">
-        <img src="../static/images/icons aboverse/Distribution-01.png" />
-        <span>Distribution</span>
-      </div>
-    </div>
-    <div class="item-button" id="vector">
-      <div class="button-wrapper">
-        <img src="../static/images/icons aboverse/vector-01.png" />
-        <span>Vector</span>
-      </div>
-    </div>
-    <div class="item-button" id="climate">
-      <div class="button-wrapper">
-        <img src="../static/images/icons aboverse/Untitled-5-01.png" />
-        <span>Climate</span>
-      </div>
-    </div>
-    <div class="item-button" id="forest">
-      <div class="button-wrapper forest">
-        <img src="../static/images/icons aboverse/forest cover-01.png" />
-        <span>Forest Cover & Deforestation</span>
-      </div>
-    </div>
-    <div class="item-button" id="land">
-      <div class="button-wrapper">
-        <img src="../static/images/icons aboverse/land cover-01.png" />
-        <span>Land Use</span>
-      </div>
-    </div>
-    <div class="item-button" id="mobility">
-      <div class="button-wrapper">
-        <img src="../static/images/icons aboverse/Humanmobility-01.png" />
-        <span>Human Mobility</span>
-      </div>
-    </div>
+<main>
+  <div class="catalogue">
+    <h1>Catalogue here</h1>
   </div>
-  <!--lateral menu side close-->
-  <!--Discovery Menu-->
-  <div id="discovery-menu" class="sub-menu sub-1">
-    <div class="title-sub">
-      <h3>Virus Discovery</h3>
-      <i class="fa fa-info-circle" style="color: gray"></i>
-    </div>
-    <div class="info-input">
-      <input type="text" required />
-      <span class="highlight"></span>
-      <span class="bar"></span>
-      <label>Family</label>
-    </div>
-    <div class="info-input">
-      <input type="text" required />
-      <span class="highlight"></span>
-      <span class="bar"></span>
-      <label>Genus</label>
-    </div>
-    <div class="info-input">
-      <input type="text" required />
-      <span class="highlight"></span>
-      <span class="bar"></span>
-      <label>Species</label>
-    </div>
-  </div>
-  <!--Distribution Menu-->
-  <div id="distribution-menu" class="sub-menu sub-1">
-    <div class="title-sub">
-      <h3>Virus Distribution</h3>
-      <i class="fa fa-info-circle" style="color: gray"></i>
-    </div>
-    <div class="info-input">
-      <input type="text" required />
-      <span class="highlight"></span>
-      <span class="bar"></span>
-      <label>Family</label>
-    </div>
-    <div class="info-input">
-      <input type="text" required />
-      <span class="highlight"></span>
-      <span class="bar"></span>
-      <label>Genus</label>
-    </div>
-    <div class="info-input">
-      <input type="text" required />
-      <span class="highlight"></span>
-      <span class="bar"></span>
-      <label>Species</label>
-    </div>
-  </div>
-  <!--Vector Menu-->
-  <div id="vector-menu" class="sub-menu sub-2">
-    <div class="title-sub">
-      <h3>Vector Distribution</h3>
-      <i class="fa fa-info-circle" style="color: gray"></i>
-    </div>
-    <div class="box">
-      <p>Vector Type</p>
-      <select name="vectortype">
-        <option value="mosquitoes">Mosquitoes</option>
-        <option value="ticks">Ticks</option>
-        <option value="sandflies">Sandflies</option>
-        <option value="Midges">Midges</option>
-        <option value="others">Others</option>
-      </select>
-    </div>
-    <div class="info-input">
-      <input type="text" required />
-      <span class="highlight"></span>
-      <span class="bar"></span>
-      <label>Species</label>
-    </div>
-  </div>
-  <!--Climate Menu-->
-  <div id="climate-menu" class="sub-second-menu">
-    <h3>Climate</h3>
-    <div class="menu-btn">
-      <!--Temperature-->
-      <div class="unit-btn">
-        <div class="unit-toggle">
-          <div class="toggle">
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-          <!--toggle close tag-->
-          <h6>Temperature</h6>
-          <i class="fa fa-info-circle" style="color: gray"></i>
-        </div>
-        <!--unit-toggle close tag-->
-        <div class="measure">
-          <div class="bar-mesur bluetopink"></div>
-          <div class="indice">
-            <label class="celsius">-50˚C </label>
-            <label class="celsius">0˚C </label>
-            <label class="celsius">-50˚C </label>
-          </div>
-          <!--indice close tag-->
-        </div>
-        <!--measure-->
-      </div>
-      <!--unit-btn close-->
-      <!--Precipitation-->
-      <div class="unit-btn">
-        <div class="unit-toggle">
-          <div class="toggle">
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-          <!--toggle close-->
-          <h6>Precipitation</h6>
-          <i class="fa fa-info-circle" style="color: gray"></i>
-        </div>
-        <!-- unit-toggle close-->
-        <div class="measure">
-          <div class="bar-mesur lightyellowgreen"></div>
-          <div class="indice">
-            <label class="cubicmm">0mm<sup>3</sup></label>
-            <label class="cubicmm">250mm<sup>3</sup></label>
-          </div>
-          <!--indice close-->
-        </div>
-        <!--measure close -->
-      </div>
-      <!--unit-btn close-->
-      <!--Humidity-->
-      <div class="unit-btn">
-        <div class="unit-toggle">
-          <div class="toggle">
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-          <!--toggle close-->
-          <h6>Humidity</h6>
-          <i class="fa fa-info-circle" style="color: gray"></i>
-        </div>
-        <!-- unit-toggle close-->
-        <div class="measure">
-          <div class="bar-mesur purple"></div>
-          <div class="indice">
-            <label class="percentage">25%</label>
-            <label class="percentage">80%</label>
-          </div>
-          <!--indice close-->
-        </div>
-        <!--measure close -->
-      </div>
-      <!--unit-btn close-->
-      <!--MENU climate TIMELINE-->
-      <div class="menu-timeslider">
-        <h6>Date (Year and Month)</h6>
-        <div class="map-timeline">
-          <!--Slide Range Year-->
-          <div class="range-value slidecontainer" id="rangeV"></div>
-          <input
-            id="range"
-            type="range"
-            min="1970"
-            max="2100"
-            value="1970"
-            step="1"
-            class="slideyear"
-          />
-        </div>
-        <!--map-timeline closer-->
-        <!--Slide Range month my month-->
-        <div class="slidecontainer">
-          <label id="month" class="legend"></label>
-          <input
-            type="range"
-            min="0"
-            max="11"
-            value="0"
-            class="slidemonth"
-            id="myRange"
-          />
-        </div>
-        <!--slidecontainer close-->
-      </div>
-      <!--menu-timeslider closer-->
-    </div>
-    <!--menu-btn-->
-  </div>
-  <!--FOREST COVER AND DEFORESTATION MENU-->
-  <div id="forestcover-menu" class="sub-th-menu">
-    <h3>Forest Cover & Desforestation</h3>
-    <div class="menu-btn">
-      <!--Desforestation Alerts-->
-      <div class="unit-btn2">
-        <div class="unit-toggle">
-          <div class="toggle">
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-          <!--toggle close-->
-          <h6>Deforestation alerts</h6>
-          <i class="fa fa-info-circle" style="color: gray"></i>
-        </div>
-        <!--Unit toggle close-->
-        <div class="marker">
-          <div class="point pink-orange"></div>
-          <labe class="point-mean">GLAD alerts</labe>
-        </div>
-        <div class="range-player">
-          <!--Add Buttom play here-->
-          <div class="play-year-range">
-            <button class="player">
-              <i class="fa fa-play-circle" style="color: gray"></i></button
-            ><input
-              type="range"
-              min="2001"
-              max="2021"
-              step="1"
-              value="2001"
-              class="playslider"
-            />
-          </div>
+  <div class="grid">
+    <!-- Main Menu Bar Filter-->
+    <div id="menulateral">
+      <div class="item-button" id="discovery" onclick="openNav()">
+        <div class="button-wrapper">
+          <img src="{% static 'images/aboverse/discovery-01.png' %}" />
+          <span>Discovery</span>
         </div>
       </div>
-      <!--unit btn close-->
-      <!--Tree Cover Loss by dominante driver-->
-      <div class="unit-btn2">
-        <div class="unit-toggle">
-          <div class="toggle">
-            <label class="switch">
-              <input
-                type="checkbox"
-                checked="false"
-                onclick="update_map(this, 'teste')"
-              />
-              <span class="slider round"></span>
-            </label>
-          </div>
-          <!--toggle close-->
-          <h6>Tree Cover Loss by Dominant Driver</h6>
-          <i class="fa fa-info-circle" style="color: gray"></i>
-        </div>
-        <!--Unit toggle close-->
-        <div class="marker">
-          <div class="point neonblue-p"></div>
-          <labe class="point-mean">Commodity driven deforestation</labe>
-        </div>
-        <div class="marker">
-          <div class="point patriarch-p"></div>
-          <labe class="point-mean">Shifting agriculture</labe>
-        </div>
-        <div class="marker">
-          <div class="point montaingreen-p"></div>
-          <labe class="point-mean">Foresty</labe>
-        </div>
-        <div class="marker">
-          <div class="point mango-p"></div>
-          <labe class="point-mean">Wildfire</labe>
-        </div>
-        <div class="marker">
-          <div class="point blush-p"></div>
-          <labe class="point-mean">Urbanization</labe>
-        </div>
-        <div class="canopy">
-          <p>
-            Displaying Tree cover loss by dominant driver with<select
-              class="canopy-percentage"
-            >
-              <option>>10%</option>
-              <option>>15%</option>
-              <option>>20%</option>
-              <option>>25%</option>
-              <option>>30%</option>
-              <option>>50%</option>
-              <option>>75%</option>
-            </select>
-            canopy density
-          </p>
-        </div>
-        <div class="range-player">
-          <!--Add Buttom play here-->
-          <div class="play-year-range">
-            <button class="player">
-              <i class="fa fa-play-circle" style="color: gray"></i></button
-            ><input
-              type="range"
-              min="2001"
-              max="2020"
-              step="1"
-              value="2001"
-              class="playslider"
-            />
-          </div>
+      <div class="item-button" id="distribution" onclick="openNavdist()">
+        <div class="button-wrapper">
+          <img src="{% static 'images/aboverse/Distribution-01.png' %}" />
+          <span>Distribution</span>
         </div>
       </div>
-      <!--unit btn close-->
-      <!--Primary Forest cover-->
-      <div class="unit-btn2">
-        <div class="unit-toggle">
-          <div class="toggle">
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-          <!--toggle close-->
-          <h6>Primary Forest</h6>
-          <i class="fa fa-info-circle" style="color: gray"></i>
-        </div>
-        <!--Unit toggle close-->
-        <div class="marker">
-          <div class="point musgo-p"></div>
-          <labe class="point-mean">Pan-Tropical (30m)</labe>
-        </div>
-        <!--close marker-->
-      </div>
-      <!--unit close-->
-      <!--Tree cover height-->
-      <div class="unit-btn2">
-        <div class="unit-toggle">
-          <div class="toggle">
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-          <!--toggle close-->
-          <h6>Tree Cover Height</h6>
-          <i class="fa fa-info-circle" style="color: gray"></i>
-        </div>
-        <!--Unit toggle close-->
-        <div class="measure">
-          <div class="bar-mesur green-s"></div>
-          <div class="indice">
-            <label class="percentage">3m</label>
-            <label class="percentage">30m</label>
-          </div>
+      <div class="item-button" id="vector" onclick="openNavVec()">
+        <div class="button-wrapper">
+          <img src="{% static 'images/aboverse/vector-01.png' %}" />
+          <span>Vector</span>
         </div>
       </div>
-      <!--unit close-->
-      <!--Intact Forest Landscape-->
-      <div class="unit-btn2">
-        <div class="unit-toggle">
-          <div class="toggle">
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-          <!--toggle close-->
-          <h6>Intact Forest Landscapes</h6>
-          <i class="fa fa-info-circle" style="color: gray"></i>
+      <div class="item-button" id="climate" onclick="openNavCli()">
+        <div class="button-wrapper">
+          <img src="{% static 'images/aboverse/Untitled-5-01.png' %}" />
+          <span>Climate</span>
         </div>
-        <!--Unit toggle close-->
-        <div class="marker">
-          <div class="point green1-p"></div>
-          <labe class="point-mean">Intact forest landscapes</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point green2-p"></div>
-          <labe class="point-mean">Reduction in extent 2000-2013</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point green3-p"></div>
-          <labe class="point-mean">Reduction in extent 2013 -2016</labe>
-        </div>
-        <!--close marker-->
       </div>
-      <!--unit close-->
+      <div class="item-button" id="forest" onclick="openNavFor()">
+        <div class="button-wrapper forest">
+          <img src="{% static 'images/aboverse/forest cover-01.png' %}" />
+          <span>Forest Cover & Deforestation</span>
+        </div>
+      </div>
+      <div class="item-button" id="land" onclick="openNavLan()">
+        <div class="button-wrapper">
+          <img src="{% static 'images/aboverse/land cover-01.png' %}" />
+          <span>Land Use</span>
+        </div>
+      </div>
+      <div class="item-button" id="mobility" onclick="openNavMob()">
+        <div class="button-wrapper">
+          <img src="{% static 'images/aboverse/Humanmobility-01.png' %}" />
+          <span>Human Mobility</span>
+        </div>
+      </div>
     </div>
-    <!--menu btn close-->
-    <!--Forest landscape integrity index-->
-    <div class="unit-btn2">
-      <div class="unit-toggle">
-        <div class="toggle">
-          <label class="switch">
-            <input type="checkbox" />
-            <span class="slider round"></span>
-          </label>
-        </div>
-        <!--toggle close-->
-        <h6>Forest Landscape integrity index</h6>
+    <!--lateral menu side close-->
+    <!--Discovery Menu-->
+    <div id="discovery-menu" class="sub-menu sub-1">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+        >&times;</a
+      >
+      <div class="title-sub">
+        <h3>Virus Discovery</h3>
         <i class="fa fa-info-circle" style="color: gray"></i>
       </div>
-      <!--Unit toggle close-->
-      <div class="measure">
-        <div class="bar-mesur browngreen-s"></div>
-        <div class="indice">
-          <label class="index">0</label>
-          <label class="index">1</label>
-          <label class="index">2</label>
-          <label class="index">3</label>
-          <label class="index">4</label>
-          <label class="index">5</label>
-          <label class="index">6</label>
-          <label class="index">7</label>
-          <label class="index">8</label>
-          <label class="index">9</label>
-          <label class="index">10</label>
-        </div>
-        <div class="indice">
-          <label class="index">Low integrity</label>
-          <label class="index">High integrity</label>
-        </div>
+      <div class="info-input">
+        <input type="text" required />
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Family</label>
+      </div>
+      <div class="info-input">
+        <input type="text" required />
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Genus</label>
+      </div>
+      <div class="info-input">
+        <input type="text" required />
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Species</label>
       </div>
     </div>
-    <!--unit close-->
-  </div>
-  <!--Land COVER MENU-->
-  <div id="land-cover-menu" class="sub-fou-menu">
-    <h3>Land Use</h3>
-    <div clas="menu-btn">
-      <h5>Commodities</h5>
-      <!--Land cover-->
-      <div class="unit-btn2">
-        <div class="unit-toggle">
-          <div class="toggle">
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-          <!--toggle close-->
-          <h6>Land Cover</h6>
-          <i class="fa fa-info-circle" style="color: gray"></i>
-        </div>
-        <!--Unit toggle close-->
-        <div class="marker">
-          <div class="point agriculture-p"></div>
-          <labe class="point-mean">Agriculture</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point forest-p"></div>
-          <labe class="point-mean">Forest</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point grass-p"></div>
-          <labe class="point-mean">Grassland</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point scrub-p"></div>
-          <labe class="point-mean">Scrubland</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point svegetation-p"></div>
-          <labe class="point-mean">Sparse vegetation</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point wetland-p"></div>
-          <labe class="point-mean">Wetlands</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point settlement-p"></div>
-          <labe class="point-mean">Settlement</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point vazio-p"></div>
-          <labe class="point-mean">Bare</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point bluewater-p"></div>
-          <labe class="point-mean">Water</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point ice-p"></div>
-          <labe class="point-mean">Permanent ice and snow</labe>
-        </div>
-        <!--close marker-->
+    <!--Distribution Menu-->
+    <div id="distribution-menu" class="sub-menu sub-1">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNavdist()"
+        >&times;</a
+      >
+      <div class="title-sub">
+        <h3>Virus Distribution</h3>
+        <i class="fa fa-info-circle" style="color: gray"></i>
       </div>
-      <!--unit close-->
-      <!--Mining Concessions-->
-      <div class="unit-btn2">
-        <div class="unit-toggle">
-          <div class="toggle">
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-          <!--toggle close-->
-          <h6>Mining Concessions</h6>
-          <i class="fa fa-info-circle" style="color: gray"></i>
-        </div>
-        <!--Unit toggle close-->
-        <div class="marker">
-          <div class="point mining-p"></div>
-          <labe class="point-mean">Logging concessions</labe>
-        </div>
-        <!--close marker-->
-        <p>Layer available only for certain countries</p>
+      <div class="info-input">
+        <input type="text" required />
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Family</label>
       </div>
-      <!--unit close-->
-      <!--Logging Concessions-->
-      <div class="unit-btn2">
-        <div class="unit-toggle">
-          <div class="toggle">
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-          <!--toggle close-->
-          <h6>Logging Concessions</h6>
-          <i class="fa fa-info-circle" style="color: gray"></i>
-        </div>
-        <!--Unit toggle close-->
-        <div class="marker">
-          <div class="point logging-p"></div>
-          <labe class="point-mean">Logging concessions</labe>
-        </div>
-        <!--close marker-->
-        <p>Layer available only for certain countries</p>
+      <div class="info-input">
+        <input type="text" required />
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Genus</label>
       </div>
-      <!--unit close-->
-      <!--RtRS guides for soy expansion -->
-      <div class="unit-btn2">
-        <div class="unit-toggle">
-          <div class="toggle">
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-          <!--toggle close-->
-          <h6>Guides for Responsible Soy Expansion</h6>
-          <i class="fa fa-info-circle" style="color: gray"></i>
-        </div>
-        <!--Unit toggle close-->
-        <div class="marker">
-          <div class="point noexpansion-p"></div>
-          <labe class="point-mean">No expansion allowed</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point potential-p"></div>
-          <labe class="point-mean"
-            >Expansion potentially allowed after HCVA assessment</labe
-          >
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point responsible-p"></div>
-          <labe class="point-mean"
-            >Responsible expansion as per legislation</labe
-          >
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point land-p"></div>
-          <labe class="point-mean">No land available for expansion</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point deforested-p"></div>
-          <labe class="point-mean">Areas deforested after 2009</labe>
-        </div>
-        <!--close marker-->
-        <p>Layer available only for certain countries</p>
+      <div class="info-input">
+        <input type="text" required />
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Species</label>
       </div>
-      <!--unit close-->
-      <h5>Infrastructure</h5>
-      <!--Main Dams-->
-      <div class="unit-btn2">
-        <div class="unit-toggle">
-          <div class="toggle">
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-          <!--toggle close-->
-          <h6>Major Dams</h6>
-          <i class="fa fa-info-circle" style="color: gray"></i>
-        </div>
-        <!--Unit toggle close-->
-        <div class="marker">
-          <div class="point operational-p"></div>
-          <labe class="point-mean">Operational</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point under-p"></div>
-          <labe class="point-mean">Under construction</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point planned-p"></div>
-          <labe class="point-mean">Planned</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point inventoried-p"></div>
-          <labe class="point-mean">Inventoried</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point suspended-p"></div>
-          <labe class="point-mean">Suspended</labe>
-        </div>
-        <!--close marker-->
-        <div class="marker">
-          <div class="point unknown-p"></div>
-          <labe class="point-mean">Unknown</labe>
-        </div>
-        <!--close marker-->
-      </div>
-      <!--unit close-->
-      <h5>People</h5>
-      <!--populational density-->
-      <div class="unit-btn2">
-        <div class="unit-toggle">
-          <div class="toggle">
-            <label class="switch">
-              <input type="checkbox" />
-              <span class="slider round"></span>
-            </label>
-          </div>
-          <!--toggle close-->
-          <h6>Population Density</h6>
-          <i class="fa fa-info-circle" style="color: gray"></i>
-        </div>
-        <!--unit-toggle close-->
-        <div class="measure">
-          <div class="bar-mesur people-s"></div>
-          <div class="indice">
-            <label class="millions">≤25</label>
-            <label class="millions">≤100</label>
-            <label class="millions">≤1k</label>
-            <label class="millions">≤5k</label>
-            <label class="millions">≤10k</label>
-            <label class="millions">≥10k</label>
-          </div>
-          <!--indice close-->
-        </div>
-        <!--measure close-->
-      </div>
-      <!--unit-btn close-->
     </div>
-    <!--menu-btn close-->
-  </div>
+    <!--Vector Menu-->
+    <div id="vector-menu" class="sub-menu sub-2">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNavVec()"
+        >&times;</a
+      >
+      <div class="title-sub">
+        <h3>Vector Distribution</h3>
+        <i class="fa fa-info-circle" style="color: gray"></i>
+      </div>
+      <div class="box">
+        <p>Vector Type</p>
+        <select name="vectortype">
+          <option value="mosquitoes">Mosquitoes</option>
+          <option value="ticks">Ticks</option>
+          <option value="sandflies">Sandflies</option>
+          <option value="Midges">Midges</option>
+          <option value="others">Others</option>
+        </select>
+      </div>
+      <div class="info-input">
+        <input type="text" required />
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Species</label>
+      </div>
+    </div>
+    <!--Climate Menu-->
+    <div id="climate-menu" class="sub-second-menu">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNavCli()">&times;</a>
+      <h3>Climate</h3>
+      <div class="menu-btn">
+        <!--Temperature-->
+        <div class="unit-btn">
+          <div class="unit-toggle">
+            <div class="toggle">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <!--toggle close tag-->
+            <h6>Temperature</h6>
+            <div class="wrapper tooltip">
+              <a href="#demo-modal1"
+                ><i class="fa fa-info-circle" style="color: gray"></i
+              ></a>
+              <span class="tooltext"
+                >Temperature average according to selected year and month</span
+              >
+            </div>
+          </div>
+          <!--unit-toggle close tag-->
+          <div class="measure">
+            <div class="bar-mesur bluetopink"></div>
+            <div class="indice">
+              <label class="celsius">-50˚C </label>
+              <label class="celsius">0˚C </label>
+              <label class="celsius">-50˚C </label>
+            </div>
+            <!--indice close tag-->
+          </div>
+          <!--measure-->
+        </div>
+        <!--unit-btn close-->
+        <!--Precipitation-->
+        <div class="unit-btn">
+          <div class="unit-toggle">
+            <div class="toggle">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <!--toggle close-->
+            <h6>Precipitation</h6>
+            <div class="wrapper tooltip">
+              <a href="#demo-modal2"
+                ><i class="fa fa-info-circle" style="color: gray"></i
+              ></a>
+              <span class="tooltext"
+                >Precipitation month average according to selected year and
+                month</span
+              >
+            </div>
+          </div>
+          <!-- unit-toggle close-->
+          <div class="measure">
+            <div class="bar-mesur lightyellowgreen"></div>
+            <div class="indice">
+              <label class="cubicmm">0mm<sup>3</sup></label>
+              <label class="cubicmm">250mm<sup>3</sup></label>
+            </div>
+            <!--indice close-->
+          </div>
+          <!--measure close -->
+        </div>
+        <!--unit-btn close-->
+        <!--Humidity-->
+        <div class="unit-btn">
+          <div class="unit-toggle">
+            <div class="toggle">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <!--toggle close-->
+            <h6>Humidity</h6>
+            <div class="wrapper tooltip">
+              <a href="#demo-modal3"
+                ><i class="fa fa-info-circle" style="color: gray"></i
+              ></a>
+              <span class="tooltext"
+                >Humidity month average according to selected year and
+                month</span
+              >
+            </div>
+          </div>
+          <!-- unit-toggle close-->
+          <div class="measure">
+            <div class="bar-mesur purple"></div>
+            <div class="indice">
+              <label class="percentage">25%</label>
+              <label class="percentage">80%</label>
+            </div>
+            <!--indice close-->
+          </div>
+          <!--measure close -->
+        </div>
+        <!--unit-btn close-->
+        <!--MENU climate TIMELINE-->
+        <div class="menu-timeslider">
+          <h6>Date (Year and Month)</h6>
+          <div class="map-timeline">
+            <!--Slide Range Year-->
+            <div class="range-value slidecontainer" id="rangeV"></div>
+            <input
+              id="range"
+              type="range"
+              min="1970"
+              max="2100"
+              value="1970"
+              step="1"
+              class="slideyear"
+            />
+          </div>
+          <!--map-timeline closer-->
+          <!--Slide Range month my month-->
+          <div class="slidecontainer">
+            <label id="month" class="legend"></label>
+            <input
+              type="range"
+              min="0"
+              max="11"
+              value="0"
+              class="slidemonth"
+              id="myRange"
+            />
+          </div>
+          <!--slidecontainer close-->
+        </div>
+        <!--menu-timeslider closer-->
+      </div>
+      <!--menu-btn-->
+    </div>
+    <!--FOREST COVER AND DEFORESTATION MENU-->
+    <div id="forestcover-menu" class="sub-th-menu">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNavFor()"
+        >&times;</a
+      >
+      <h3>Forest Cover & Desforestation</h3>
+      <div class="menu-btn">
+        <!--Desforestation Alerts-->
+        <div class="unit-btn2">
+          <div class="unit-toggle">
+            <div class="toggle">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <!--toggle close-->
+            <h6>Deforestation alerts</h6>
+            <div class="wrapper tooltip">
+              <a href="#demo-modal4"
+                ><i
+                  class="fa fa-info-circle"
+                  style="color: gray; opacity: 0.8"
+                ></i
+              ></a>
+              <span class="tooltext"
+                >Indentifies areas of likely tree cover loss in near-real
+                time</span
+              >
+            </div>
+          </div>
+          <!--Unit toggle close-->
+          <div class="marker">
+            <div class="point pink-orange"></div>
+            <labe class="point-mean">GLAD alerts</labe>
+          </div>
+          <div class="range-player">
+            <!--Add Buttom play here-->
+            <div class="play-year-range">
+              <button class="player">
+                <i class="fa fa-play-circle" style="color: gray"></i></button
+              ><input
+                type="range"
+                min="2001"
+                max="2021"
+                step="1"
+                value="2001"
+                class="playslider"
+              />
+            </div>
+          </div>
+        </div>
+        <!--unit btn close-->
+        <!--Tree Cover Loss by dominante driver-->
+        <div class="unit-btn2">
+          <div class="unit-toggle">
+            <div class="toggle">
+              <label class="switch">
+                <input
+                  type="checkbox"
+                  checked="false"
+                  onclick="update_map(this, 'Tree-cover-loss-2001-2019')"
+                />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <!--toggle close-->
+            <h6>Tree Cover Loss by Dominant Driver</h6>
+            <div class="wrapper tooltip">
+              <a href="#demo-modal5"
+                ><i
+                  class="fa fa-info-circle"
+                  style="color: gray; opacity: 0.8"
+                ></i
+              ></a>
+              <span class="tooltext"
+                >Shows the dominant driver of tree cover loss within each 10 km
+                grid cell and the intensity of that loss for the time period
+                2001-2019</span
+              >
+            </div>
+          </div>
+          <!--Unit toggle close-->
+          <div class="marker">
+            <div class="point neonblue-p"></div>
+            <labe class="point-mean">Commodity driven deforestation</labe>
+          </div>
+          <div class="marker">
+            <div class="point patriarch-p"></div>
+            <labe class="point-mean">Shifting agriculture</labe>
+          </div>
+          <div class="marker">
+            <div class="point montaingreen-p"></div>
+            <labe class="point-mean">Foresty</labe>
+          </div>
+          <div class="marker">
+            <div class="point mango-p"></div>
+            <labe class="point-mean">Wildfire</labe>
+          </div>
+          <div class="marker">
+            <div class="point blush-p"></div>
+            <labe class="point-mean">Urbanization</labe>
+          </div>
+          <div class="canopy">
+            <p>
+              Displaying Tree cover loss by dominant driver with<select
+                class="canopy-percentage"
+              >
+                <option>>10%</option>
+                <option>>15%</option>
+                <option>>20%</option>
+                <option>>25%</option>
+                <option>>30%</option>
+                <option>>50%</option>
+                <option>>75%</option>
+              </select>
+              canopy density
+            </p>
+          </div>
+          <div class="range-player">
+            <!--Add Buttom play here-->
+            <div class="play-year-range">
+              <button class="player">
+                <i class="fa fa-play-circle" style="color: gray"></i></button
+              ><input
+                type="range"
+                min="2001"
+                max="2020"
+                step="1"
+                value="2001"
+                class="playslider"
+              />
+            </div>
+          </div>
+        </div>
+        <!--unit btn close-->
+        <!--Primary Forest cover-->
+        <div class="unit-btn2">
+          <div class="unit-toggle">
+            <div class="toggle">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <!--toggle close-->
+            <h6>Primary Forest</h6>
+            <div class="wrapper tooltip">
+              <a href="#demo-modal6"
+                ><i
+                  class="fa fa-info-circle"
+                  style="color: gray; opacity: 0.8"
+                ></i
+              ></a>
+              <span class="tooltext"
+                >This data set maps the extent of primary forests in the global
+                pan-tropical regions in 2001</span
+              >
+            </div>
+          </div>
+          <!--Unit toggle close-->
+          <div class="marker">
+            <div class="point musgo-p"></div>
+            <labe class="point-mean">Pan-Tropical (30m)</labe>
+          </div>
+          <!--close marker-->
+        </div>
+        <!--unit close-->
+        <!--Tree cover height-->
+        <div class="unit-btn2">
+          <div class="unit-toggle">
+            <div class="toggle">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <!--toggle close-->
+            <h6>Tree Cover Height</h6>
+            <div class="wrapper tooltip">
+              <a href="#demo-modal7"
+                ><i
+                  class="fa fa-info-circle"
+                  style="color: gray; opacity: 0.8"
+                ></i
+              ></a>
+              <span class="tooltext"
+                >Displays the height of global forest canopy in 2019</span
+              >
+            </div>
+          </div>
+          <!--Unit toggle close-->
+          <div class="measure">
+            <div class="bar-mesur green-s"></div>
+            <div class="indice">
+              <label class="percentage">3m</label>
+              <label class="percentage">30m</label>
+            </div>
+          </div>
+        </div>
+        <!--unit close-->
+        <!--Intact Forest Landscape-->
+        <div class="unit-btn2">
+          <div class="unit-toggle">
+            <div class="toggle">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <!--toggle close-->
+            <h6>Intact Forest Landscapes</h6>
+            <div class="wrapper tooltip">
+              <a href="#demo-modal8"
+                ><i
+                  class="fa fa-info-circle"
+                  style="color: gray; opacity: 0.8"
+                ></i
+              ></a>
+              <span class="tooltext"
+                >Identifies the world's last remaining unfragmented forest
+                landscapes, large enough to retain all native biodiversity and
+                showing no signs of human alteration as of the year 2013. This
+                layer also shows the reduction in the extent of Intact Forest
+                Landscapes from 2000 to 2016</span
+              >
+            </div>
+          </div>
+          <!--Unit toggle close-->
+          <div class="marker">
+            <div class="point green1-p"></div>
+            <labe class="point-mean">Intact forest landscapes</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point green2-p"></div>
+            <labe class="point-mean">Reduction in extent 2000-2013</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point green3-p"></div>
+            <labe class="point-mean">Reduction in extent 2013 -2016</labe>
+          </div>
+          <!--close marker-->
+        </div>
+        <!--Forest landscape integrity index-->
+        <div class="unit-btn2">
+          <div class="unit-toggle">
+            <div class="toggle">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <!--toggle close-->
+            <h6>Forest Landscape integrity index</h6>
+            <div class="wrapper tooltip">
+              <a href="#demo-modal9"
+                ><i
+                  class="fa fa-info-circle"
+                  style="color: gray; opacity: 0.8"
+                ></i
+              ></a>
+              <span class="tooltext"
+                >Displays forest condiction as a continuous index determined by
+                degree of anthropogenic modification</span
+              >
+            </div>
+          </div>
+          <!--Unit toggle close-->
+          <div class="measure">
+            <div class="bar-mesur browngreen-s"></div>
+            <div class="indice">
+              <label class="index">0</label>
+              <label class="index">1</label>
+              <label class="index">2</label>
+              <label class="index">3</label>
+              <label class="index">4</label>
+              <label class="index">5</label>
+              <label class="index">6</label>
+              <label class="index">7</label>
+              <label class="index">8</label>
+              <label class="index">9</label>
+              <label class="index">10</label>
+            </div>
+            <div class="indice">
+              <label class="index">Low integrity</label>
+              <label class="index">High integrity</label>
+            </div>
+          </div>
+        </div>
+        <!--unit close-->
+      </div>
+    </div>
+    <!--Land COVER MENU-->
+    <div id="land-cover-menu" class="sub-fou-menu">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNavLan()"
+        >&times;</a
+      >
+      <h3>Land Use</h3>
+      <div clas="menu-btn">
+        <h5>Commodities</h5>
+        <!--Land cover-->
+        <div class="unit-btn2">
+          <div class="unit-toggle">
+            <div class="toggle">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <!--toggle close-->
+            <h6>Land Cover</h6>
+            <div class="tooltip">
+              <i
+                class="fa fa-info-circle"
+                style="color: gray; opacity: 0.8"
+              ></i>
+              <span class="tooltext"
+                >Shows the global distribution of land cover in 2015</span
+              >
+            </div>
+          </div>
+          <!--Unit toggle close-->
+          <div class="marker">
+            <div class="point agriculture-p"></div>
+            <labe class="point-mean">Agriculture</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point forest-p"></div>
+            <labe class="point-mean">Forest</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point grass-p"></div>
+            <labe class="point-mean">Grassland</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point scrub-p"></div>
+            <labe class="point-mean">Scrubland</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point svegetation-p"></div>
+            <labe class="point-mean">Sparse vegetation</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point wetland-p"></div>
+            <labe class="point-mean">Wetlands</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point settlement-p"></div>
+            <labe class="point-mean">Settlement</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point vazio-p"></div>
+            <labe class="point-mean">Bare</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point bluewater-p"></div>
+            <labe class="point-mean">Water</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point ice-p"></div>
+            <labe class="point-mean">Permanent ice and snow</labe>
+          </div>
+          <!--close marker-->
+        </div>
+        <!--unit close-->
+        <!--Mining Concessions-->
+        <div class="unit-btn2">
+          <div class="unit-toggle">
+            <div class="toggle">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <!--toggle close-->
+            <h6>Mining Concessions</h6>
+            <div class="tooltip">
+              <i
+                class="fa fa-info-circle"
+                style="color: gray; opacity: 0.8"
+              ></i>
+              <span class="tooltext"
+                >Displays boundaries of areas allocated by governments to
+                companies for extration of minerals</span
+              >
+            </div>
+          </div>
+          <!--Unit toggle close-->
+          <div class="marker">
+            <div class="point mining-p"></div>
+            <labe class="point-mean">Mining concessions</labe>
+          </div>
+          <!--close marker-->
+          <div class="tooltip2">
+            <p>
+              Layer available only for
+              <span class="underline"> certain countries</span>
+            </p>
+            <span class="tooltext2"
+              >Brazil, Cambodia, Cameroon, Canada, Colombia, Democratic Republic
+              of the Congo, Gabon, Mexico, Peru, Republic of the Congo</span
+            >
+          </div>
+        </div>
+        <!--unit close-->
+        <!--Logging Concessions-->
+        <div class="unit-btn2">
+          <div class="unit-toggle">
+            <div class="toggle">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <!--toggle close-->
+            <h6>Logging Concessions</h6>
+            <div class="tooltip">
+              <i
+                class="fa fa-info-circle"
+                style="color: gray; opacity: 0.8"
+              ></i>
+              <span class="tooltext"
+                >Provides the boundaries of logging concessions for the
+                selective loggings of natural forests</span
+              >
+            </div>
+          </div>
+          <!--Unit toggle close-->
+          <div class="marker">
+            <div class="point logging-p"></div>
+            <labe class="point-mean">Logging concessions</labe>
+          </div>
+          <!--close marker-->
+          <div class="tooltip2">
+            <p>
+              Layer available only for
+              <span class="underline"> certain countries</span>
+            </p>
+            <span class="tooltext2"
+              >Cameroon, Canada, Central African Republic, Democratic Republic
+              of the Congo, Equatorial Guinea, Gabon, Indonesia, Liberia,
+              Malaysia, Republic of Congo</span
+            >
+          </div>
+        </div>
+        <!--unit close-->
+        <!--RtRS guides for soy expansion -->
+        <div class="unit-btn2">
+          <div class="unit-toggle">
+            <div class="toggle">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <!--toggle close-->
+            <h6>Guides for Responsible Soy Expansion</h6>
+            <div class="tooltip">
+              <i
+                class="fa fa-info-circle"
+                style="color: gray; opacity: 0.8"
+              ></i>
+              <span class="tooltext"
+                >Guide the expansion of responsible soy production and evaluate
+                in situ HCVAs according to the RTRS Standards</span
+              >
+            </div>
+          </div>
+          <!--Unit toggle close-->
+          <div class="marker">
+            <div class="point noexpansion-p"></div>
+            <labe class="point-mean">No expansion allowed</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point potential-p"></div>
+            <labe class="point-mean"
+              >Expansion potentially allowed after HCVA assessment</labe
+            >
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point responsible-p"></div>
+            <labe class="point-mean"
+              >Responsible expansion as per legislation</labe
+            >
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point land-p"></div>
+            <labe class="point-mean">No land available for expansion</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point deforested-p"></div>
+            <labe class="point-mean">Areas deforested after 2009</labe>
+          </div>
+          <!--close marker-->
+          <div class="tooltip2">
+            <p>
+              Layer available only for
+              <span class="underline"> certain countries</span>
+            </p>
+            <span class="tooltext2">Brazil, Paraguay</span>
+          </div>
+        </div>
+        <!--unit close-->
+        <h5>Infrastructure</h5>
+        <!--Main Dams-->
+        <div class="unit-btn2">
+          <div class="unit-toggle">
+            <div class="toggle">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <!--toggle close-->
+            <h6>Major Dams</h6>
+            <div class="tooltip">
+              <i
+                class="fa fa-info-circle"
+                style="color: gray; opacity: 0.8"
+              ></i>
+              <span class="tooltext"
+                >Identifies dam locations for the world's 50 major river
+                basins</span
+              >
+            </div>
+          </div>
+          <!--Unit toggle close-->
+          <div class="marker">
+            <div class="point operational-p"></div>
+            <labe class="point-mean">Operational</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point under-p"></div>
+            <labe class="point-mean">Under construction</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point planned-p"></div>
+            <labe class="point-mean">Planned</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point inventoried-p"></div>
+            <labe class="point-mean">Inventoried</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point suspended-p"></div>
+            <labe class="point-mean">Suspended</labe>
+          </div>
+          <!--close marker-->
+          <div class="marker">
+            <div class="point unknown-p"></div>
+            <labe class="point-mean">Unknown</labe>
+          </div>
+          <!--close marker-->
+        </div>
+        <!--unit close-->
+        <h5>People</h5>
+        <!--populational density-->
+        <div class="unit-btn2">
+          <div class="unit-toggle">
+            <div class="toggle">
+              <label class="switch">
+                <input type="checkbox" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <!--toggle close-->
+            <h6>Population Density</h6>
+            <div class="tooltip">
+              <i
+                class="fa fa-info-circle"
+                style="color: gray; opacity: 0.8"
+              ></i>
+              <span class="tooltext"
+                >Global estimate of human population density and
+                distribution</span
+              >
+            </div>
+          </div>
+          <!--unit-toggle close-->
+          <div class="measure">
+            <div class="bar-mesur people-s"></div>
+            <div class="indice">
+              <label class="millions">≤25</label>
+              <label class="millions">≤100</label>
+              <label class="millions">≤1k</label>
+              <label class="millions">≤5k</label>
+              <label class="millions">≤10k</label>
+              <label class="millions">≥10k</label>
+            </div>
+            <!--indice close-->
+          </div>
+          <!--measure close-->
+        </div>
+        <!--unit-btn close-->
+      </div>
+      <!--menu-btn close-->
+    </div>
 
-  <script src="../static/js/menu.js"></script>
-  <!--Menu js-->
-  <!--MAP-->
-  <div id="map"></div>
-</div>
-<!--grid close-->
+    <script src="{% static 'js/menu.js' %}"></script>
+    <!--Menu js-->
+    <!--MAP-->
+    <div id="map"></div>
+  </div>
+  <!--grid close-->
+  <!-- Temperature Modal Box-->
+  <div id="demo-modal1" class="modal">
+    <div class="modal__content">
+      <!--Title-->
+      <div class="modal-title">
+        <h3>Temperature Average</h3>
+        <p>(30m, tropics, UMD/GLAD)</p>
+      </div>
+      <!--Layer Information-->
+      <div class="arrow-table">
+        <h6>Fuction</h6>
+        <div class="p-wrapper">
+          <p>Identifies areas of likely tree cover loss in near-real time</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Resolution</h6>
+        <div class="p-wrapper">
+          <p>30 x 30 meters</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Geographic Coverage</h6>
+        <div class="p-wrapper">
+          <p>30 degrees north to 30 degrees south</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Source</h6>
+        <div class="p-wrapper">
+          <p>
+            Hansen, M.C., A. Krylov, A. Tyukavina, P.V. Potapov, S. Turubanova,
+            B. Zutta, S. Ifo, B. Margono, F. Stolle, and R. Moore. 2016. Humid
+            tropical forest disturbance alerts using Landsat data. Environmental
+            Research Letters, 11 (3).
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Frequency of updates</h6>
+        <div class="p-wrapper">
+          <p>Annually</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Date of content</h6>
+        <div class="p-wrapper">
+          <p>
+            January 1, 2018 - present (begins 2015 for select countries in the
+            Amazon and Congo Basins and insular Southeast Asia)
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Cautions</h6>
+        <div class="p-wrapper">
+          <p>
+            While Landsat 7 and 8 satellites together have a revisit period of 8
+            days, cloud cover can majorly limit the availability of imagery,
+            particularly in the wet season. Alert dates represent the instance
+            of detection, though tree cover loss could have taken place earlier,
+            possibly weeks earlier, due to persistent cloud cover.
+          </p>
+          <p>
+            In this data set, “tree cover” is defined as all vegetation greater
+            than 5 meters in height with greater than 60% canopy cover, and may
+            take the form of natural forests or plantations. “Tree cover loss”
+            indicates the canopy removal of at least half a pixel and can be due
+            to a variety of factors, including mechanical harvesting, fire,
+            disease, or storm damage. As such, “loss” does not equate to
+            deforestation.
+          </p>
+          <p>
+            In Peru, where the alert system was first developed, the authors
+            evaluated the data to have 13.5 percent false positives (loss
+            detected where none occurred), though the majority of those false
+            positives (9.5 percent) occur on the edges of clearings. On edges,
+            the 30 meter Landsat pixels show a mix of forest and other land
+            cover, which makes them prone to error in the system. The rate of
+            false positives drops to 1 percent when only considering high
+            confidence alerts. The data has 33 percent false negatives
+            (undetected loss where it has occurred), though most of these occur
+            in secondary forests—likely because the algorithm was created to
+            capture primary forest loss. The higher rate of false negatives
+            compared to false positives also indicates that the alerts are a
+            conservative estimate of the tree cover loss that is actually
+            occurring.
+          </p>
+          <p>
+            When zoomed out, this data layer displays some degree of inaccuracy
+            because the data points must be collapsed to be visible on a larger
+            scale. Zoom in for greater detail.
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>License</h6>
+        <div class="p-wrapper">
+          <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+        </div>
+      </div>
+      <!--Overview-->
+      <div class="column-table">
+        <h6>Overview</h6>
+        <div class="p-wrapper-column">
+          <p>
+            This data set, created by the GLAD (Global Land Analysis &
+            Discovery) lab at the University of Maryland and supported by Global
+            Forest Watch, is the first Landsat-based alert system for tree cover
+            loss. While most existing loss alert products use 250-meter
+            resolution MODIS imagery, these alerts have a 30-meter resolution
+            and thus can detect loss at a much finer spatial scale. The alerts
+            are operational for land areas between 30 degrees north and south.
+          </p>
+          <p>
+            New Landsat 7 and 8 images are downloaded as they are posted online,
+            assessed for cloud cover or poor data quality, and compared to the
+            three previous years of Landsat-derived metrics (including ranks,
+            means, and regressions of red, infrared and shortwave bands, and
+            ranks of NDVI, NBR, and NDWI). The metrics and the latest Landsat
+            image are run through seven decision trees to calculate a median
+            probability of forest disturbance. Pixels with probability >50% are
+            reported as tree cover loss alerts. The entire process is run in
+            Google Earth Engine to ensure reliable updates and scalability. For
+            more information on methodology, see the paper in Environmental
+            Research Letters.
+          </p>
+          <p>
+            Alerts are not classified as high confidence until two or more out
+            of four consecutive observations are labelled as tree cover loss.
+            Alerts are removed from the dataset after four consecutive
+            observations or more than 180 days if they are not classified as
+            high confidence. You can choose to view only high confidence alerts
+            in the menu, though keep in mind that using only high confidence
+            alerts misses the newest detections of tree cover loss.
+          </p>
+        </div>
+      </div>
+      <!--Citation-->
+      <div class="column-table">
+        <h6>Citation</h6>
+        <div class="p-wrapper-column">
+          <p>Use the following credit when these data are cited:</p>
+          <p>
+            Hansen, M.C., A. Krylov, A. Tyukavina, P.V. Potapov, S. Turubanova,
+            B. Zutta, S. Ifo, B. Margono, F. Stolle, and R. Moore. 2016. Humid
+            tropical forest disturbance alerts using Landsat data. Environmental
+            Research Letters, 11 (3). Accessed through Global Forest Watch on
+            14/04/2021. www.globalforestwatch.org
+          </p>
+          <a
+            href="https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008"
+            target="_blanks"
+            >Learn more</a
+          >
+        </div>
+      </div>
+      <!--Download data button-->
+      <div class="databtn">
+        <button class="download-data">
+          <a href="http://glad-forest-alert.appspot.com/" target="_blank"
+            >Download Data</a
+          >
+        </button>
+      </div>
+
+      <a href="#map" class="modal__close">&times;</a>
+    </div>
+  </div>
+  <!-- Temperature Modal Box-->
+  <div id="demo-modal2" class="modal">
+    <div class="modal__content">
+      <!--Title-->
+      <div class="modal-title">
+        <h3>Precipitation Average</h3>
+        <p>(30m, tropics, UMD/GLAD)</p>
+      </div>
+      <!--Layer Information-->
+      <div class="arrow-table">
+        <h6>Fuction</h6>
+        <div class="p-wrapper">
+          <p>Identifies areas of likely tree cover loss in near-real time</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Resolution</h6>
+        <div class="p-wrapper">
+          <p>30 x 30 meters</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Geographic Coverage</h6>
+        <div class="p-wrapper">
+          <p>30 degrees north to 30 degrees south</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Source</h6>
+        <div class="p-wrapper">
+          <p>
+            Hansen, M.C., A. Krylov, A. Tyukavina, P.V. Potapov, S. Turubanova,
+            B. Zutta, S. Ifo, B. Margono, F. Stolle, and R. Moore. 2016. Humid
+            tropical forest disturbance alerts using Landsat data. Environmental
+            Research Letters, 11 (3).
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Frequency of updates</h6>
+        <div class="p-wrapper">
+          <p>Annually</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Date of content</h6>
+        <div class="p-wrapper">
+          <p>
+            January 1, 2018 - present (begins 2015 for select countries in the
+            Amazon and Congo Basins and insular Southeast Asia)
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Cautions</h6>
+        <div class="p-wrapper">
+          <p>
+            While Landsat 7 and 8 satellites together have a revisit period of 8
+            days, cloud cover can majorly limit the availability of imagery,
+            particularly in the wet season. Alert dates represent the instance
+            of detection, though tree cover loss could have taken place earlier,
+            possibly weeks earlier, due to persistent cloud cover.
+          </p>
+          <p>
+            In this data set, “tree cover” is defined as all vegetation greater
+            than 5 meters in height with greater than 60% canopy cover, and may
+            take the form of natural forests or plantations. “Tree cover loss”
+            indicates the canopy removal of at least half a pixel and can be due
+            to a variety of factors, including mechanical harvesting, fire,
+            disease, or storm damage. As such, “loss” does not equate to
+            deforestation.
+          </p>
+          <p>
+            In Peru, where the alert system was first developed, the authors
+            evaluated the data to have 13.5 percent false positives (loss
+            detected where none occurred), though the majority of those false
+            positives (9.5 percent) occur on the edges of clearings. On edges,
+            the 30 meter Landsat pixels show a mix of forest and other land
+            cover, which makes them prone to error in the system. The rate of
+            false positives drops to 1 percent when only considering high
+            confidence alerts. The data has 33 percent false negatives
+            (undetected loss where it has occurred), though most of these occur
+            in secondary forests—likely because the algorithm was created to
+            capture primary forest loss. The higher rate of false negatives
+            compared to false positives also indicates that the alerts are a
+            conservative estimate of the tree cover loss that is actually
+            occurring.
+          </p>
+          <p>
+            When zoomed out, this data layer displays some degree of inaccuracy
+            because the data points must be collapsed to be visible on a larger
+            scale. Zoom in for greater detail.
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>License</h6>
+        <div class="p-wrapper">
+          <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+        </div>
+      </div>
+      <!--Overview-->
+      <div class="column-table">
+        <h6>Overview</h6>
+        <div class="p-wrapper-column">
+          <p>
+            This data set, created by the GLAD (Global Land Analysis &
+            Discovery) lab at the University of Maryland and supported by Global
+            Forest Watch, is the first Landsat-based alert system for tree cover
+            loss. While most existing loss alert products use 250-meter
+            resolution MODIS imagery, these alerts have a 30-meter resolution
+            and thus can detect loss at a much finer spatial scale. The alerts
+            are operational for land areas between 30 degrees north and south.
+          </p>
+          <p>
+            New Landsat 7 and 8 images are downloaded as they are posted online,
+            assessed for cloud cover or poor data quality, and compared to the
+            three previous years of Landsat-derived metrics (including ranks,
+            means, and regressions of red, infrared and shortwave bands, and
+            ranks of NDVI, NBR, and NDWI). The metrics and the latest Landsat
+            image are run through seven decision trees to calculate a median
+            probability of forest disturbance. Pixels with probability >50% are
+            reported as tree cover loss alerts. The entire process is run in
+            Google Earth Engine to ensure reliable updates and scalability. For
+            more information on methodology, see the paper in Environmental
+            Research Letters.
+          </p>
+          <p>
+            Alerts are not classified as high confidence until two or more out
+            of four consecutive observations are labelled as tree cover loss.
+            Alerts are removed from the dataset after four consecutive
+            observations or more than 180 days if they are not classified as
+            high confidence. You can choose to view only high confidence alerts
+            in the menu, though keep in mind that using only high confidence
+            alerts misses the newest detections of tree cover loss.
+          </p>
+        </div>
+      </div>
+      <!--Citation-->
+      <div class="column-table">
+        <h6>Citation</h6>
+        <div class="p-wrapper-column">
+          <p>Use the following credit when these data are displayed:</p>
+          <p>Source: GLAD/UMD, accessed through Global Forest Watch.</p>
+          <p>Use the following credit when these data are cited:</p>
+          <p>
+            Hansen, M.C., A. Krylov, A. Tyukavina, P.V. Potapov, S. Turubanova,
+            B. Zutta, S. Ifo, B. Margono, F. Stolle, and R. Moore. 2016. Humid
+            tropical forest disturbance alerts using Landsat data. Environmental
+            Research Letters, 11 (3). Accessed through Global Forest Watch on
+            14/04/2021. www.globalforestwatch.org
+          </p>
+          <a
+            href="https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008"
+            target="_blanks"
+            >Learn more</a
+          >
+        </div>
+      </div>
+      <!--Download data button-->
+      <div class="databtn">
+        <button class="download-data">
+          <a href="http://glad-forest-alert.appspot.com/" target="_blank"
+            >Download Data</a
+          >
+        </button>
+      </div>
+
+      <a href="#map" class="modal__close">&times;</a>
+    </div>
+  </div>
+  <!-- Humidity Modal Box-->
+  <div id="demo-modal3" class="modal">
+    <div class="modal__content">
+      <!--Title-->
+      <div class="modal-title">
+        <h3>Humidity Average</h3>
+        <p>(30m, tropics, UMD/GLAD)</p>
+      </div>
+      <!--Layer Information-->
+      <div class="arrow-table">
+        <h6>Fuction</h6>
+        <div class="p-wrapper">
+          <p>Identifies areas of likely tree cover loss in near-real time</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Resolution</h6>
+        <div class="p-wrapper">
+          <p>30 x 30 meters</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Geographic Coverage</h6>
+        <div class="p-wrapper">
+          <p>30 degrees north to 30 degrees south</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Source</h6>
+        <div class="p-wrapper">
+          <p>
+            Hansen, M.C., A. Krylov, A. Tyukavina, P.V. Potapov, S. Turubanova,
+            B. Zutta, S. Ifo, B. Margono, F. Stolle, and R. Moore. 2016. Humid
+            tropical forest disturbance alerts using Landsat data. Environmental
+            Research Letters, 11 (3).
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Frequency of updates</h6>
+        <div class="p-wrapper">
+          <p>Annually</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Date of content</h6>
+        <div class="p-wrapper">
+          <p>
+            January 1, 2018 - present (begins 2015 for select countries in the
+            Amazon and Congo Basins and insular Southeast Asia)
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Cautions</h6>
+        <div class="p-wrapper">
+          <p>
+            While Landsat 7 and 8 satellites together have a revisit period of 8
+            days, cloud cover can majorly limit the availability of imagery,
+            particularly in the wet season. Alert dates represent the instance
+            of detection, though tree cover loss could have taken place earlier,
+            possibly weeks earlier, due to persistent cloud cover.
+          </p>
+          <p>
+            In this data set, “tree cover” is defined as all vegetation greater
+            than 5 meters in height with greater than 60% canopy cover, and may
+            take the form of natural forests or plantations. “Tree cover loss”
+            indicates the canopy removal of at least half a pixel and can be due
+            to a variety of factors, including mechanical harvesting, fire,
+            disease, or storm damage. As such, “loss” does not equate to
+            deforestation.
+          </p>
+          <p>
+            In Peru, where the alert system was first developed, the authors
+            evaluated the data to have 13.5 percent false positives (loss
+            detected where none occurred), though the majority of those false
+            positives (9.5 percent) occur on the edges of clearings. On edges,
+            the 30 meter Landsat pixels show a mix of forest and other land
+            cover, which makes them prone to error in the system. The rate of
+            false positives drops to 1 percent when only considering high
+            confidence alerts. The data has 33 percent false negatives
+            (undetected loss where it has occurred), though most of these occur
+            in secondary forests—likely because the algorithm was created to
+            capture primary forest loss. The higher rate of false negatives
+            compared to false positives also indicates that the alerts are a
+            conservative estimate of the tree cover loss that is actually
+            occurring.
+          </p>
+          <p>
+            When zoomed out, this data layer displays some degree of inaccuracy
+            because the data points must be collapsed to be visible on a larger
+            scale. Zoom in for greater detail.
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>License</h6>
+        <div class="p-wrapper">
+          <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+        </div>
+      </div>
+      <!--Overview-->
+      <div class="column-table">
+        <h6>Overview</h6>
+        <div class="p-wrapper-column">
+          <p>
+            This data set, created by the GLAD (Global Land Analysis &
+            Discovery) lab at the University of Maryland and supported by Global
+            Forest Watch, is the first Landsat-based alert system for tree cover
+            loss. While most existing loss alert products use 250-meter
+            resolution MODIS imagery, these alerts have a 30-meter resolution
+            and thus can detect loss at a much finer spatial scale. The alerts
+            are operational for land areas between 30 degrees north and south.
+          </p>
+          <p>
+            New Landsat 7 and 8 images are downloaded as they are posted online,
+            assessed for cloud cover or poor data quality, and compared to the
+            three previous years of Landsat-derived metrics (including ranks,
+            means, and regressions of red, infrared and shortwave bands, and
+            ranks of NDVI, NBR, and NDWI). The metrics and the latest Landsat
+            image are run through seven decision trees to calculate a median
+            probability of forest disturbance. Pixels with probability >50% are
+            reported as tree cover loss alerts. The entire process is run in
+            Google Earth Engine to ensure reliable updates and scalability. For
+            more information on methodology, see the paper in Environmental
+            Research Letters.
+          </p>
+          <p>
+            Alerts are not classified as high confidence until two or more out
+            of four consecutive observations are labelled as tree cover loss.
+            Alerts are removed from the dataset after four consecutive
+            observations or more than 180 days if they are not classified as
+            high confidence. You can choose to view only high confidence alerts
+            in the menu, though keep in mind that using only high confidence
+            alerts misses the newest detections of tree cover loss.
+          </p>
+        </div>
+      </div>
+      <!--Citation-->
+      <div class="column-table">
+        <h6>Citation</h6>
+        <div class="p-wrapper-column">
+          <p>Use the following credit when these data are displayed:</p>
+          <p>Source: GLAD/UMD, accessed through Global Forest Watch.</p>
+          <p>Use the following credit when these data are cited:</p>
+          <p>
+            Hansen, M.C., A. Krylov, A. Tyukavina, P.V. Potapov, S. Turubanova,
+            B. Zutta, S. Ifo, B. Margono, F. Stolle, and R. Moore. 2016. Humid
+            tropical forest disturbance alerts using Landsat data. Environmental
+            Research Letters, 11 (3). Accessed through Global Forest Watch on
+            14/04/2021. www.globalforestwatch.org
+          </p>
+          <a
+            href="https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008"
+            target="_blanks"
+            >Learn more</a
+          >
+        </div>
+      </div>
+      <!--Download data button-->
+      <div class="databtn">
+        <button class="download-data">
+          <a href="http://glad-forest-alert.appspot.com/" target="_blank"
+            >Download Data</a
+          >
+        </button>
+      </div>
+
+      <a href="#map" class="modal__close">&times;</a>
+    </div>
+  </div>
+  <!-- GLAD alerts Modal Box-->
+  <div id="demo-modal4" class="modal">
+    <div class="modal__content">
+      <!--Title-->
+      <div class="modal-title">
+        <h3>GLAD Alerts</h3>
+        <p>(30m, tropics, UMD/GLAD)</p>
+      </div>
+      <!--Layer Information-->
+      <div class="arrow-table">
+        <h6>Fuction</h6>
+        <div class="p-wrapper">
+          <p>Identifies areas of likely tree cover loss in near-real time</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Resolution</h6>
+        <div class="p-wrapper">
+          <p>30 x 30 meters</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Geographic Coverage</h6>
+        <div class="p-wrapper">
+          <p>30 degrees north to 30 degrees south</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Source</h6>
+        <div class="p-wrapper">
+          <p>
+            Hansen, M.C., A. Krylov, A. Tyukavina, P.V. Potapov, S. Turubanova,
+            B. Zutta, S. Ifo, B. Margono, F. Stolle, and R. Moore. 2016. Humid
+            tropical forest disturbance alerts using Landsat data. Environmental
+            Research Letters, 11 (3).
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Frequency of updates</h6>
+        <div class="p-wrapper">
+          <p>Annually</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Date of content</h6>
+        <div class="p-wrapper">
+          <p>
+            January 1, 2018 - present (begins 2015 for select countries in the
+            Amazon and Congo Basins and insular Southeast Asia)
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Cautions</h6>
+        <div class="p-wrapper">
+          <p>
+            While Landsat 7 and 8 satellites together have a revisit period of 8
+            days, cloud cover can majorly limit the availability of imagery,
+            particularly in the wet season. Alert dates represent the instance
+            of detection, though tree cover loss could have taken place earlier,
+            possibly weeks earlier, due to persistent cloud cover.
+          </p>
+          <p>
+            In this data set, “tree cover” is defined as all vegetation greater
+            than 5 meters in height with greater than 60% canopy cover, and may
+            take the form of natural forests or plantations. “Tree cover loss”
+            indicates the canopy removal of at least half a pixel and can be due
+            to a variety of factors, including mechanical harvesting, fire,
+            disease, or storm damage. As such, “loss” does not equate to
+            deforestation.
+          </p>
+          <p>
+            In Peru, where the alert system was first developed, the authors
+            evaluated the data to have 13.5 percent false positives (loss
+            detected where none occurred), though the majority of those false
+            positives (9.5 percent) occur on the edges of clearings. On edges,
+            the 30 meter Landsat pixels show a mix of forest and other land
+            cover, which makes them prone to error in the system. The rate of
+            false positives drops to 1 percent when only considering high
+            confidence alerts. The data has 33 percent false negatives
+            (undetected loss where it has occurred), though most of these occur
+            in secondary forests—likely because the algorithm was created to
+            capture primary forest loss. The higher rate of false negatives
+            compared to false positives also indicates that the alerts are a
+            conservative estimate of the tree cover loss that is actually
+            occurring.
+          </p>
+          <p>
+            When zoomed out, this data layer displays some degree of inaccuracy
+            because the data points must be collapsed to be visible on a larger
+            scale. Zoom in for greater detail.
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>License</h6>
+        <div class="p-wrapper">
+          <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+        </div>
+      </div>
+      <!--Overview-->
+      <div class="column-table">
+        <h6>Overview</h6>
+        <div class="p-wrapper-column">
+          <p>
+            This data set, created by the GLAD (Global Land Analysis &
+            Discovery) lab at the University of Maryland and supported by Global
+            Forest Watch, is the first Landsat-based alert system for tree cover
+            loss. While most existing loss alert products use 250-meter
+            resolution MODIS imagery, these alerts have a 30-meter resolution
+            and thus can detect loss at a much finer spatial scale. The alerts
+            are operational for land areas between 30 degrees north and south.
+          </p>
+          <p>
+            New Landsat 7 and 8 images are downloaded as they are posted online,
+            assessed for cloud cover or poor data quality, and compared to the
+            three previous years of Landsat-derived metrics (including ranks,
+            means, and regressions of red, infrared and shortwave bands, and
+            ranks of NDVI, NBR, and NDWI). The metrics and the latest Landsat
+            image are run through seven decision trees to calculate a median
+            probability of forest disturbance. Pixels with probability >50% are
+            reported as tree cover loss alerts. The entire process is run in
+            Google Earth Engine to ensure reliable updates and scalability. For
+            more information on methodology, see the paper in Environmental
+            Research Letters.
+          </p>
+          <p>
+            Alerts are not classified as high confidence until two or more out
+            of four consecutive observations are labelled as tree cover loss.
+            Alerts are removed from the dataset after four consecutive
+            observations or more than 180 days if they are not classified as
+            high confidence. You can choose to view only high confidence alerts
+            in the menu, though keep in mind that using only high confidence
+            alerts misses the newest detections of tree cover loss.
+          </p>
+        </div>
+      </div>
+      <!--Citation-->
+      <div class="column-table">
+        <h6>Citation</h6>
+        <div class="p-wrapper-column">
+          <p>Use the following credit when these data are displayed:</p>
+          <p>Source: GLAD/UMD, accessed through Global Forest Watch.</p>
+          <p>Use the following credit when these data are cited:</p>
+          <p>
+            Hansen, M.C., A. Krylov, A. Tyukavina, P.V. Potapov, S. Turubanova,
+            B. Zutta, S. Ifo, B. Margono, F. Stolle, and R. Moore. 2016. Humid
+            tropical forest disturbance alerts using Landsat data. Environmental
+            Research Letters, 11 (3). Accessed through Global Forest Watch on
+            14/04/2021. www.globalforestwatch.org
+          </p>
+          <a
+            href="https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008"
+            target="_blanks"
+            >Learn more</a
+          >
+        </div>
+      </div>
+      <!--Download data button-->
+      <div class="databtn">
+        <button class="download-data">
+          <a href="http://glad-forest-alert.appspot.com/" target="_blank"
+            >Download Data</a
+          >
+        </button>
+      </div>
+
+      <a href="#map" class="modal__close">&times;</a>
+    </div>
+  </div>
+  <!--Tree cover Loss Modal Box-->
+  <div id="demo-modal5" class="modal">
+    <div class="modal__content">
+      <!--Title-->
+      <div class="modal-title">
+        <h3>Tree Cover Loss by Dominant Driver</h3>
+      </div>
+      <!--Layer Information-->
+      <div class="arrow-table">
+        <h6>Fuction</h6>
+        <div class="p-wrapper">
+          <p>
+            Shows the dominant driver of tree cover loss within each 10 km cell
+            and the intensity of that loss for the time period 2001-2018
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Resolution</h6>
+        <div class="p-wrapper">
+          <p>10 x 10 km</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Geographic Coverage</h6>
+        <div class="p-wrapper">
+          <p>Global</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Source</h6>
+        <div class="p-wrapper">
+          <p>
+            Curtis, P.G., C.M. Slay, N.L. Harris, A. Tyukavina, and M.C. Hansen.
+            2018. “Classifying Drivers of Global Forest Loss.” Science.
+            https://science.sciencemag.org/content/361/6407/1108
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Date of content</h6>
+        <div class="p-wrapper">
+          <p>2001-2018</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Cautions</h6>
+        <div class="p-wrapper">
+          <p>
+            This data set is intended for use at the global or regional scale,
+            not for individual pixels. Individual grid cells may have more than
+            one driver of tree cover loss, with variation over space and time.
+          </p>
+          <p>
+            Aside from the commodity-driven deforestation and urbanization
+            classes, which are assumed to represent permanent conversion from a
+            forest to non-forest state, this data set does not indicate the
+            stability or changing condition of the forest land use after the
+            tree cover loss occurs. The data set also does not distinguish
+            between natural or anthropogenic wildfires.
+          </p>
+          <p>
+            The accuracy of the data was assessed using a validation sample of
+            1,565 randomly selected grid cells. The overall accuracy of the
+            model was 89%, with individual class accuracies ranging from 55%
+            (urbanization) to 94% (commodity-driven deforestation).
+          </p>
+        </div>
+      </div>
+      <!--Overview-->
+      <div class="column-table">
+        <h6>Overview</h6>
+        <div class="p-wrapper-column">
+          <p>
+            This data set shows the dominant driver of tree cover loss from
+            2001-2018, using the following five categories:
+          </p>
+          <ul>
+            <li>
+              <strong>Commodity-driven deforestation:</strong> Lange-scale
+              deforestation linked to primarily to commercial agriculture
+              espansion
+            </li>
+            <li>
+              <strong>Shifting agriculture:</strong> Temporary loss or permanent
+              deforestation due to small- and medium-scale agriculture.
+            </li>
+            <li>
+              <strong>Forestry:</strong> Temporary loss from plantation and
+              natural forest harvesting, with some deforestation of primary
+              forests.
+            </li>
+            <li>
+              <strong>Wildfire:</strong> Temporary loss, does not include fire
+              clearing for agriculture.
+            </li>
+            <li>
+              <strong>Urbanization:</strong> Deforestation for expansion of
+              urban centers.
+            </li>
+          </ul>
+          <p>
+            The commodity-driven deforestation and urbanization categories
+            represent permanent deforestation, while tree cover usually regrows
+            in the other categories.
+          </p>
+          <p>
+            The data were generated using decision tree models to separate each
+            10 km grid cell into one of the five categories. The decision trees
+            were created using 4,699 sample grid cells, and use metrics derived
+            from the Hansen tree cover, tree cover gain, and tree cover loss,
+            NASA fires, global land cover, and population count. Separate
+            decision trees were created for each driver and each region (North
+            America, South America, Europe, Africa, Eurasia, Southeast Asia,
+            Oceania), for a total of 35 decision trees. The final outputs were
+            combined into a global map, which is then overlaid with tree cover
+            loss data to indicate the intensity of loss associated with each
+            driver around the world.
+          </p>
+          <p>
+            All model code, reference samples, decision trees, and the final
+            model are available in the Supplementary Materials of the paper.
+          </p>
+        </div>
+      </div>
+      <!--Citation-->
+      <div class="column-table">
+        <h6>Citation</h6>
+        <div class="p-wrapper-column">
+          <p>Use the following credit when these data are cited:</p>
+          <p>
+            Curtis, P.G., C.M. Slay, N.L. Harris, A. Tyukavina, and M.C. Hansen.
+            2018. “Classifying Drivers of Global Forest Loss.” Science. Accessed
+            through Global Forest Watch on 14/04/2021.
+            www.globalforestwatch.org.
+          </p>
+        </div>
+      </div>
+      <!--Download data button-->
+      <div class="databtn">
+        <button class="download-data">
+          <a
+            href="https://data.globalforestwatch.org/datasets/tree-cover-loss-by-dominant-driver"
+            target="_blank"
+            >Download Data</a
+          >
+        </button>
+      </div>
+
+      <a href="#map" class="modal__close">&times;</a>
+    </div>
+  </div>
+  <!-- Primary Forest Modal Box-->
+  <div id="demo-modal6" class="modal">
+    <div class="modal__content">
+      <!--Title-->
+      <div class="modal-title">
+        <h3>Primary Forests</h3>
+        <p>(30m, tropics, UMD/GLAD)</p>
+      </div>
+      <!--Layer Information-->
+      <div class="arrow-table">
+        <h6>Fuction</h6>
+        <div class="p-wrapper">
+          <p>
+            This data set maps the extent od primary forests in the global
+            pan-tropical regions in 2001
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Resolution</h6>
+        <div class="p-wrapper">
+          <p>30 x 30 meters</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Geographic Coverage</h6>
+        <div class="p-wrapper">
+          <p>Pan-Tropical</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Source</h6>
+        <div class="p-wrapper">
+          <p>
+            Turubanova, S., Potapov, P.V., Tyukavina, A. and Hansen, M.C., 2018.
+            Ongoing primary forest loss in Brazil, Democratic Republic of the
+            Congo, and Indonesia. Environmental Research Letters, 13(7),
+            p.074028.
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Date of content</h6>
+        <div class="p-wrapper">
+          <p>2001</p>
+        </div>
+      </div>
+      <!--Overview-->
+      <div class="column-table">
+        <h6>Overview</h6>
+        <div class="p-wrapper-column">
+          <p>
+            TPrimary forests are among the most biodiverse forests, providing a
+            multitude of ecosystem services, making them crucial to monitor for
+            national land use planning and carbon accounting. This data set
+            defines primary forests as "mature natural humid tropical forest
+            cover that has not been completely cleared and regrown in recent
+            history." Researchers classified Landsat images into primary forest
+            data, using a separate algorithm for each region.
+          </p>
+        </div>
+      </div>
+      <!--Citation-->
+      <div class="column-table">
+        <h6>Citation</h6>
+        <div class="p-wrapper-column">
+          <p>Use the following credit when these data are cited:</p>
+          <p>
+            Turubanova, S., Potapov, P.V., Tyukavina, A. and Hansen, M.C., 2018.
+            Ongoing primary forest loss in Brazil, Democratic Republic of the
+            Congo, and Indonesia. Environmental Research Letters, 13(7),
+            p.074028. Accessed through Global Forest Watch on 14/04/2021.
+            www.globalforestwatch.org.
+          </p>
+          <a
+            href="https://iopscience.iop.org/article/10.1088/1748-9326/aacd1c/meta"
+            target="_blanks"
+            >Learn more</a
+          >
+        </div>
+      </div>
+      <!--Download data button-->
+      <div class="databtn">
+        <button class="download-data">
+          <a
+            href="https://glad.umd.edu/dataset/primary-forest-humid-tropics"
+            target="_blank"
+            >Download Data</a
+          >
+        </button>
+      </div>
+
+      <a href="#map" class="modal__close">&times;</a>
+    </div>
+  </div>
+  <!-- Tree height Modal Box-->
+  <div id="demo-modal7" class="modal">
+    <div class="modal__content">
+      <!--Title-->
+      <div class="modal-title">
+        <h3>Tree Cover Height</h3>
+        <p>(2019, 30m, global, UMD/NASA GEDI)</p>
+      </div>
+      <!--Layer Information-->
+      <div class="arrow-table">
+        <h6>Fuction</h6>
+        <div class="p-wrapper">
+          <p>Show the height of global forest canopy in the year 2019</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Resolution</h6>
+        <div class="p-wrapper">
+          <p>30 x 30 meters</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Geographic Coverage</h6>
+        <div class="p-wrapper">
+          <p>Global, with prototype data above 52˚N</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Source</h6>
+        <div class="p-wrapper">
+          <p>
+            Potapov, P., Li, X., Hernandez-Serna, A., Tyukavina, A., Hansen, M.
+            C., Kommareddy, A., Pickens, A., Turubanova, S., Tang, H., Silva,
+            C.E., Armston, J., Dubayah, R., Blair, J.B. & Armston, J. (2020).
+            Mapping global forest canopy height through integration of GEDI and
+            Landsat data. Remote Sensing of Environment, 112165..
+            https://doi.org/10.1016/j.rse.2020.112165
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Date of content</h6>
+        <div class="p-wrapper">
+          <p>2019</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Cautions</h6>
+        <div class="p-wrapper">
+          <p>
+            The global forest height map is a prototype product that has known
+            issues related to GEDI data quality and Landsat data availability.
+            GEDI data overestimate forest height on slopes within temperate and
+            subtropical mountain grasslands, e.g. in New Zealand and Lesotho.
+            The tree height over cities and suburbs may be confounded with the
+            building height, as GEDI data do not discriminate between the height
+            of vegetation and man-made objects. The GEDI calibration
+            uncertainties (specifically, geolocation precision and land surface
+            height estimation) may be responsible for some of the map errors.
+            The tree height model saturated above 30m and may not adequately
+            represent the height of the tallest trees. The global product will
+            be updated in the future to address most of the issues.
+          </p>
+        </div>
+      </div>
+      <!--Overview-->
+      <div class="column-table">
+        <h6>Overview</h6>
+        <div class="p-wrapper-column">
+          <p>
+            A new, 30-m spatial resolution global forest canopy height map was
+            developed through the integration of the Global Ecosystem Dynamics
+            Investigation (GEDI) lidar forest structure measurements and Landsat
+            analysis-ready data time-series. The NASA GEDI is a spaceborne lidar
+            instrument operating onboard the International Space Station since
+            April 2019. It provides point-based measurements of vegetation
+            structure, including forest canopy height between 52°N and 52°S
+            globally. The Global Land Analysis and Discover team at the
+            University of Maryland (UMD GLAD) integrated the GEDI data available
+            to date (April-October 2019) with the year 2019 Landsat
+            analysis-ready time-series data (Landsat ARD). The GEDI RH95
+            (relative height at 95%) metric was used to calibrate the model. The
+            Landsat multi-temporal metrics that represent the surface phenology
+            serve as the independent variables for global forest height
+            modeling. The “moving window” locally calibrated and applied
+            regression tree ensemble model was implemented to ensure high
+            quality of forest height prediction and global map consistency. The
+            model was extrapolated in the boreal regions (beyond the GEDI data
+            range) to create the global forest height prototype map.
+          </p>
+        </div>
+      </div>
+      <!--Citation-->
+      <div class="column-table">
+        <h6>Citation</h6>
+        <div class="p-wrapper-column">
+          <p>Use the following credit when these data are cited:</p>
+          <p>
+            P. Potapov, X. Li, A. Hernandez-Serna, A. Tyukavina, M.C. Hansen, A.
+            Kommareddy, A. Pickens, S. Turubanova, H. Tang, C.E. Silva, J.
+            Armston, R. Dubayah, J. B. Blair, and M. Hofton. (2020). Mapping and
+            monitoring global forest canopy height through the integration of
+            GEDI and Landsat data. https://doi.org/10.5281/zenodo.4008406.
+            Accessed through Global Forest Watch on 14/04/2021.
+            www.globalforestwatch.org.
+          </p>
+          <a href="https://glad.umd.edu/dataset/gedi/" target="_blanks"
+            >Learn more</a
+          >
+        </div>
+      </div>
+      <!--Download data button-->
+      <div class="databtn">
+        <button class="download-data">
+          <a href="https://glad.umd.edu/dataset/gedi/" target="_blank"
+            >Download Data</a
+          >
+        </button>
+      </div>
+
+      <a href="#map" class="modal__close">&times;</a>
+    </div>
+  </div>
+  <!-- Intact Forest Landscape Modal Box-->
+  <div id="demo-modal8" class="modal">
+    <div class="modal__content">
+      <!--Title-->
+      <div class="modal-title">
+        <h3>Intact Forest Landscapes</h3>
+        <p>(2000 | 20013 | 2016)</p>
+      </div>
+      <!--Layer Information-->
+      <div class="arrow-table">
+        <h6>Fuction</h6>
+        <div class="p-wrapper">
+          <p>
+            Identifies the world’s last remaining unfragmented forest
+            landscapes, large enough to retain all native biodiversity and
+            showing no signs of human alteration as of the year 2016. This layer
+            also shows the reduction in the extent of Intact Forest Landscapes
+            from 2000 to 2016.
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Resolution</h6>
+        <div class="p-wrapper">
+          <p>Approximately 1:1,000,000</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Geographic Coverage</h6>
+        <div class="p-wrapper">
+          <p>Global</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Source</h6>
+        <div class="p-wrapper">
+          <p>
+            Potapov, P., M. C. Hansen, L. Laestadius, S. Turubanova, A.
+            Yaroshenko, C. Thies, W. Smith, I. Zhuravleva, A. Komarova, S.
+            Minnemeyer, and E. Esipova. 2017. "The last frontiers of wilderness:
+            Tracking loss of intact forest landscapes from 2000 to 2016."
+            Science Advances 3: e1600821.
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Date of content</h6>
+        <div class="p-wrapper">
+          <p>2000 | 20013 | 2016</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Cautions</h6>
+        <div class="p-wrapper">
+          <p>
+            The world IFL map was created through visual interpretation of
+            Landsat images by experts. The map may contain inaccuracies due to
+            limitations in the spatial resolution of the imagery and lack of
+            ancillary information about local land-use practices in some
+            regions. In addition, the methodology assumes that fires in
+            proximity to roads or other infrastructure may have been caused by
+            humans, and therefore constitute a form of anthropogenic
+            disturbance. This assumption could result in an underestimation of
+            IFL extent in the boreal biome.
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>License</h6>
+        <div class="p-wrapper">
+          <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+        </div>
+      </div>
+      <!--Overview-->
+      <div class="column-table">
+        <h6>Overview</h6>
+        <div class="p-wrapper-column">
+          <p>
+            The Intact Forest Landscapes (IFL) data set identifies unbroken
+            expanses of natural ecosystems within the zone of forest extent that
+            show no signs of significant human activity and are large enough
+            that all native biodiversity, including viable populations of
+            wide-ranging species, could be maintained. To map IFL areas, a set
+            of criteria was developed and designed to be globally applicable and
+            easily replicable, the latter to allow for repeated assessments over
+            time as well as verification. IFL areas were defined as unfragmented
+            landscapes, at least 50,000 hectares in size, and with a minimum
+            width of 10 kilometers. These were then mapped from Landsat
+            satellite imagery for the year 2000.
+          </p>
+          <p>
+            Changes in the extent of IFLs were identified within year 2000 IFL
+            boundary using the global wall-to-wall Landsat image composite for
+            year 2016 and the global forest cover loss dataset (Hansen et al.,
+            2016). Areas identified as “reduction in extent” met the IFL
+            criteria in 2000, but no longer met the criteria in 2013. The main
+            causes of change were clearing for agriculture and tree plantations,
+            industrial activity such as logging and mining, fragmentation due to
+            infrastructure and new roads, and fires assumed to be caused by
+            humans.
+          </p>
+          <p>
+            This data can be used to assess forest intactness, alteration, and
+            degradation at global and regional scales.
+          </p>
+        </div>
+      </div>
+      <!--Citation-->
+      <div class="column-table">
+        <h6>Citation</h6>
+        <div class="p-wrapper-column">
+          <p>Use the following credit when these data are cited:</p>
+          <p>
+            Greenpeace, University of Maryland, World Resources Institute and
+            Transparent World. “Intact Forest Landscapes. 2000/2013/2016”
+            Accessed through Global Forest Watch on 14/04/2021.
+            www.globalforestwatch.orgHa
+          </p>
+          <a href="http://www.intactforests.org/" target="_blanks"
+            >Learn more</a
+          >
+        </div>
+      </div>
+      <!--Download data button-->
+      <div class="databtn">
+        <button class="download-data">
+          <a
+            href="https://data.globalforestwatch.org/search?q=intact%20forest%20landscapes"
+            target="_blank"
+            >Download Data</a
+          >
+        </button>
+      </div>
+
+      <a href="#map" class="modal__close">&times;</a>
+    </div>
+  </div>
+  <!-- Forest Landscape index Modal Box-->
+  <div id="demo-modal9" class="modal">
+    <div class="modal__content">
+      <!--Title-->
+      <div class="modal-title">
+        <h3>Forest Landscape Integrity Index</h3>
+        <p>(Annual, 300m, global, WCS)</p>
+      </div>
+      <!--Layer Information-->
+      <div class="arrow-table">
+        <h6>Fuction</h6>
+        <div class="p-wrapper">
+          <p>
+            Displays forest condition as a continuous index determined by degree
+            of anthropogenic modification
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Resolution</h6>
+        <div class="p-wrapper">
+          <p>300 x 300m</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Geographic Coverage</h6>
+        <div class="p-wrapper">
+          <p>Global</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Source</h6>
+        <div class="p-wrapper">
+          <p>
+            Grantham, H. S. et al. (2020). Anthropogenic modification of forests
+            means only 40% of remaining forests have high ecosystem integrity.
+            Nature communications, 11(1), 1-10.
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Frequency of Updates</h6>
+        <div class="p-wrapper">
+          <p>Annual</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Date of content</h6>
+        <div class="p-wrapper">
+          <p>2019</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Cautions</h6>
+        <div class="p-wrapper">
+          <p>
+            The forest base map follows the Global Forest Cover product (Hansen
+            et. al. 2013) and as such includes both ‘natural’ forests and
+            planted trees. It uses 20% canopy cover threshold and is resampled
+            to 300 m. Cover losses 2000-2019 classed as temporary by Curtis et
+            al. (2018), i.e. rotational forestry and swidden, continue to be
+            treated as forest, with a due penalty for the modification
+            experienced. Levels of human modification mapped are conservative;
+            for example, no fires in are treated as anthropogenic (since in some
+            systems many are natural), and the effects of climate change are not
+            captured. Not all effects from geographical variations in levels of
+            governance are captured. Online tools are being developed to enable
+            users to tailor the global assumptions, weights, and criteria (e.g.
+            forest definitions, treatment of fire) to more local contexts.
+            Further caveats can be found in the paper. The paper categorizes the
+            continuous variable into illustrative classes of high, medium and
+            low forest integrity, benchmarked against known locations: high
+            integrity scores are those ≥9.6, medium integrity scores >6.0 but
+            &lt;9.6, and low integrity scores ≤6.0.
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>License</h6>
+        <div class="p-wrapper">
+          <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+        </div>
+      </div>
+      <!--Overview-->
+      <div class="column-table">
+        <h6>Overview</h6>
+        <div class="p-wrapper-column">
+          <p>
+            To produce the Forest Landscape Integrity Index (FLII), four data
+            sets were combined representing: (i) forest extent; (ii) ‘observed’
+            pressure from high impact, localized human activities for which
+            spatial datasets exist, specifically: infrastructure, agriculture,
+            and recent deforestation; (iii) ‘inferred’ pressure associated with
+            edge effects, and other diffuse processes, (e.g. activities such as
+            hunting and selective logging) modelled using proximity to observed
+            pressures; and iv) anthropogenic changes in forest connectivity due
+            to forest loss. These datasets were combined to produce an index
+            score for each forest pixel (300m), with the highest scores
+            reflecting the highest forest integrity, and applied to forest
+            extent for the start of 2019. Globally consistent parameters were
+            used for all elements (i.e. parameters do not vary geographically).
+            All calculations were conducted in Google Earth Engine.
+          </p>
+        </div>
+      </div>
+      <!--Citation-->
+      <div class="column-table">
+        <h6>Citation</h6>
+        <div class="p-wrapper-column">
+          <p>Use the following credit when these data are cited:</p>
+          <p>
+            Grantham, H. S. et al. (2020). “Forest Landscape Integrity Index”.
+            Accessed on 14/04/2021 from Global Forest Watch.
+          </p>
+          <a
+            href="https://www.forestintegrity.com/download-data"
+            target="_blanks"
+            >Learn more</a
+          >
+        </div>
+      </div>
+      <!--Download data button-->
+      <div class="databtn">
+        <button class="download-data">
+          <a href="https://www.forestintegrity.com/" target="_blank"
+            >Download Data</a
+          >
+        </button>
+      </div>
+
+      <a href="#map" class="modal__close">&times;</a>
+    </div>
+  </div>
+</main>
 <script src="../static/js/mapboxutil.js"></script>
+<script>
+  //Here Map box Token na frente do =
+  mapboxgl.accessToken = "pk.eyJ1IjoiamFjcXVlbGluZXRpZGEiLCJhIjoiY2tteHllYXVxMGQ4cTJycWtsbm1wYnNlZSJ9.WhX4YKrMo49sd5dA_JIMMw";
+  var map = new mapboxgl.Map({
+    container: "map",
+    style: "mapbox://styles/mapbox/light-v10", //type//
+    center: [-110, 37.8],
+    zoom: 1,
+  });
+  // Add zoom and rotation controls to the map.
+  map.addControl(new mapboxgl.NavigationControl());
+</script>
 {% endblock %}
