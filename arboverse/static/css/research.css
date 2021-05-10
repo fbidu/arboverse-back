@@ -17,7 +17,7 @@ body {
       hsla(212, 100%, 14%, 0.4),
       transparent
     ),
-    url("/Resources/images/Research/pexels-louis-2025872.jpg");
+    url("../images/Research/pexels-louis-2025872.jpg");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;

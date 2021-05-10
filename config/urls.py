@@ -8,7 +8,7 @@ from django.views import defaults as default_views
 urlpatterns = [
     path(
         "",
-        TemplateView.as_view(template_name="pages/home.html"),
+        TemplateView.as_view(template_name="home.html"),
         name="home",
     ),
     path(

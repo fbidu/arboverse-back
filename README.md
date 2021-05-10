@@ -11,6 +11,7 @@ Arboviruses geographic info
 2. Once in its root, run `docker-compose build`
 3. Start the database with `docker-compose up -d db`
 4. Then `docker-compose run --rm web sh -c 'python manage.py sqlcreate && python manage.py migrate'`
+5. And finally `docker-compose up -d`. Every other time, this is all you'll need.
 
 ### Running every other time
 
