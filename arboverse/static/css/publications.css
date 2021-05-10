@@ -17,7 +17,7 @@ body {
       hsla(212, 100%, 14%, 0.4),
       transparent
     ),
-    url("/Resources/images/Publications/bannerpublications.jpg");
+    url("../images/Publications/bannerpublications.jpg");
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
