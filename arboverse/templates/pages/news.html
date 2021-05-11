@@ -1,143 +1,98 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="preconnect" href="https://fonts.gstatic.com"> 
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-        <link href="Resources/css/news.css" rel="stylesheet" type="text/css">
-        <link href="Resources/calendar/evo-calendar.css" rel="stylesheet" type="text/css"/>
-        <link href="Resources/calendar/evo-calendar.midnight-blue.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
-        <link rel="sortcut icon" href="Resources/images/Arboverse_logo-2.png" type="image/png"/>
-        <title>News</title>
-    </head>
-    <body>
-        <!--NAVEGADOR-->
-        <div class="bannermenu">
-          <nav>
-              <div class="logo">
-                  <img src="Resources/images/Arboverse_logo-2.png">
-                  <h4>ARBO<span>VERSE</span></h4>
-              </div>
-                  <ul class="nav-links">
-                      <li><a href="index.html" aria-label="Link for home">HOME</a></li>
-                      <li><a href="arboverse.html" aria-label="Link for arboverse plattform">ARBOVERSE</a></li>
-                      <li><a href="research.html" aria-label="Link for research">RESEARCH</a></li>
-                      <li><a href="publications.html" aria-label="Link for publications">PUBLICATIONS</a></li>
-                      <li><a href="collaborators.html" aria-label="Link for collaborators">PEOPLE</a></li>
-                      <li><a href="news.html" aria-label="Link for biography">NEWS</a></li>
-                  </ul>
-              <!--Burger Menu-->    
-              <div class="burger">
-                  <div class="line1"></div>
-                  <div class="line2"></div>
-                  <div class="line3"></div>
-               </div>
-          </nav>
-          <!--Script scrool navbar-->
-              <script>
-                  let navbar = document.querySelector('nav');
-                  let scrollPrevisous = window.pageYOffset;
-                      window.onscroll = function(){
-                   let scrollCurent = window.pageYOffset;
-                      if(scrollPrevisous > scrollCurent){
-                           navbar.style.top = "0px";
-                      }else {
-                          navbar.style.top = "-90px";
-                      }
-                      scrollPrevisous = scrollCurent;
-                          }
-                  </script>
-                      <div class="hl"></div>
-                  <!--Script burgerbar toggler-->
-                  <script src="js/main.js"></script>
-                  <!--Banner information-->
-                      <h1>Events</h1>
-                      <h3>Meetings & Courses | Fellowship & Scolarship | Grants</h3>
-      </div>
-      <!--Calendar-->
-        <main>
-          <body class="light ">
-            <div class="calendar">
-                <div class="calendar-header">
-                    <span class="month-picker" id="month-picker">
-                        February
-                    </span>
-                    <div class="year-picker">
-                        <span class="year-change" id="prev-year">
-                            <pre><</pre>
-                        </span>
-                        <span id="year">2021</span>
-                        <span class="year-change" id="next-year">
-                            <pre>></pre>
-                        </span>
-                    </div>
-                </div>
-        
-                <div class="caledar-body">
-                    <div class="calendar-week-day">
-                        <div>Sun</div>
-                        <div>Mon</div>
-                        <div>Tue</div>
-                        <div>Wed</div>
-                        <div>Thu</div>
-                        <div>Fri</div>
-                        <div>Sat</div>
-                    </div>
-                    <div class="calendar-days">
-                        <div>
-                            1
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <div>2</div>
-                        <div>3</div> 
-                        <div>4</div>
-                        <div>5</div>
-                        <div>6</div>
-                        <div>7</div>
-                        <div>1</div>
-                        <div>2</div>
-                        <div>3</div> 
-                        <div>4</div>
-                        <div>5</div>
-                        <div>6</div>
-                        <div>7</div>
-                    </div>
-                </div>
-                <div class="calendar-footer">
-                    <div class="toggle">
-                        <span>Dark Mode</span>
-                        <div class="dark-mode-switch">
-                            <div class="dark-mode-switch-ident"></div>
-                        </div>
-                    </div>
-                </div>
-        
-                <div class="month-list"></div>
-            </div>
-            <script src="/js/calendar.js"></script>
-      <!--Twitter BOX-->
-            <div class="twitterbox">
-              <a class="twitter-timeline" data-width="1200" data-height="500" href="https://twitter.com/wmarciels?ref_src=twsrc%5Etfw">Tweets by wmarciels</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            </div>
-         </div>
-        </main> 
-        <div class="news">
-          <h1>Keep Following</h1>
+{% extends 'base.html' %}{% load static %}
+{% block resources %}
+  <link href="{% static 'css/news.css' %}" rel="stylesheet" type="text/css">
+  <link href="Resources/calendar/evo-calendar.css" rel="stylesheet" type="text/css"/>
+  <link href="Resources/calendar/evo-calendar.midnight-blue.css" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block title %}
+  News
+{% endblock %}
+
+{% block content %}
+  <main>
+
+    <body class="light ">
+      <div class="calendar">
+        <div class="calendar-header">
+          <span class="month-picker" id="month-picker">
+            February
+          </span>
+          <div class="year-picker">
+            <span class="year-change" id="prev-year">
+              <pre><</pre>
+            </span>
+            <span id="year">2021</span>
+            <span class="year-change" id="next-year">
+              <pre>></pre>
+            </span>
+          </div>
         </div>
-          <div class="thenews">
-            <div class="thenewsunit">
-              <h6>News 1</h6>
+
+        <div class="caledar-body">
+          <div class="calendar-week-day">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+          </div>
+          <div class="calendar-days">
+            <div>
+              1
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
-            <div class="thenewsunit">
-              <h6>News 2</h6>
-            </div>
-            <div class="thenewsunit">
-              <h6>News 3</h6>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+          </div>
+        </div>
+        <div class="calendar-footer">
+          <div class="toggle">
+            <span>Dark Mode</span>
+            <div class="dark-mode-switch">
+              <div class="dark-mode-switch-ident"></div>
             </div>
           </div>
-    </body>
-</html>
+        </div>
+
+        <div class="month-list"></div>
+      </div>
+      <script src="{% static 'js/calendar.js' %}"></script>
+      <!--Twitter BOX-->
+      <div class="twitterbox">
+        <a class="twitter-timeline" data-width="1200" data-height="500" href="https://twitter.com/wmarciels?ref_src=twsrc%5Etfw">Tweets by wmarciels</a>
+        <script async="async" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      </div>
+    </div>
+  </main>
+  <div class="news">
+    <h1>Keep Following</h1>
+  </div>
+  <div class="thenews">
+    <div class="thenewsunit">
+      <h6>News 1</h6>
+    </div>
+    <div class="thenewsunit">
+      <h6>News 2</h6>
+    </div>
+    <div class="thenewsunit">
+      <h6>News 3</h6>
+    </div>
+  </div>
+
+{% endblock %}

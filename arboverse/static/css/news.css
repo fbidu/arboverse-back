@@ -22,7 +22,7 @@ body {
       hsla(212, 100%, 14%, 0.4),
       transparent
     ),
-    url("/Resources/images/News/pexels-cliford-mervil-2469122.jpg");
+    url("../images/News/pexels-cliford-mervil-2469122.jpg");
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
