@@ -8,13 +8,33 @@ from django.views import defaults as default_views
 urlpatterns = [
     path(
         "",
-        TemplateView.as_view(template_name="pages/home.html"),
+        TemplateView.as_view(template_name="home.html"),
         name="home",
     ),
     path(
-        "about/",
-        TemplateView.as_view(template_name="pages/about.html"),
-        name="about",
+        "arboverse/",
+        TemplateView.as_view(template_name="pages/arboverse.html"),
+        name="arboverse",
+    ),
+    path(
+        "research/",
+        TemplateView.as_view(template_name="pages/research.html"),
+        name="research",
+    ),
+    path(
+        "publications/",
+        TemplateView.as_view(template_name="pages/publications.html"),
+        name="publications",
+    ),
+    path(
+        "people/",
+        TemplateView.as_view(template_name="pages/collaborators.html"),
+        name="people",
+    ),
+    path(
+        "news/",
+        TemplateView.as_view(template_name="pages/news.html"),
+        name="news",
     ),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
