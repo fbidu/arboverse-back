@@ -296,7 +296,7 @@ nav img {
 
 /*PUBLICATION AREA*/
 .main-content {
-  padding-top: 3rem;
+  padding-top: 10vh;
   display: flex;
   justify-content: space-between;
   width: 80%;
@@ -310,16 +310,21 @@ nav img {
 .publications-title {
   margin-top: 2rem;
   height: auto;
-  padding-left: 7rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
+section{
+  background: transparent;
+}
 table {
-  font-family: "Montserrat", sans sans-serif;
+  font-family: "Montserrat", serif;
   font-style: normal;
   color: hsl(255, 2%, 30%);
-  padding-left: 20px;
-  padding-right: 30px;
+  padding:0px 30px; 
   width: 90%;
+  margin: 0 auto;
   text-align: left;
 }
 .publications-title th {
@@ -353,7 +358,7 @@ table {
   width: 90%;
   margin: 0 auto;
 }
-#btn1 {
+button {
   cursor: pointer;
   margin-top: 8vh;
   font-family: "monteserrat", sans-serif;
@@ -369,7 +374,7 @@ table {
   transition: ease-out 0.5s;
   outline-offset: none;
 }
-#btn1:hover {
+button:hover {
   box-shadow: inset 200px 0 0 0 #ff8700;
 }
 
