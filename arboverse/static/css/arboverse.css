@@ -304,20 +304,232 @@ nav img {
     top: 8vh;
   }
 }
-/* Catalogue*/
-.catalogue {
-  margin-top: 10vh;
-  height: 30vh;
+/* ================CATALOGUE=========*/
+.catalogue{
+  margin: 5vh 0;
+  height: 100%;
   text-align: center;
 }
+.arbovirus-catalogue,
+.vector-catalogue{
+  padding: 30px 10px;
+  text-align: center;
+  width:45%;
+  margin: 20px;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.arbovirus-content h2,
+.vector-catalogue h2{
+  font-family: 'montserrat', serif;
+  color: var(--blue);
+}
+.sec-title{
+  color:var(--orange);
+}
+/*====Search catalogue area======*/
+.search{
+  width:100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 30px 20px;
+}
+.search-virus{
+  width: 70%;
+  border: solid 1px #FF8700;
+  border-right: none;
+  padding: 5px;
+  height: 30px;
+  border-radius:  5px 0 0 5px;
+  outline: none;
+  font-family: 'Montserrat', serif;
+  color:var(--dark-text);
+}
+.search-virus:focus{
+  color:#FF8700;
+}
+.searchbutton{
+  width: 40px;
+  height: 30px;
+  border: solid 1px #FF8700;
+  background: #FF8700;
+  text-align: center;
+  color: #fff;
+  border-radius:  0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+.searchbutton:hover,
+.searchbutton:active{
+  background: #e27902;
+}
+.search-vector{
+  width: 70%;
+  border: solid 1px #002147;
+  border-right: none;
+  padding: 5px;
+  height: 30px;
+  border-radius:  5px 0 0 5px;
+  outline: none;
+  font-family: 'Montserrat', serif;
+  color:var(--dark-text);
+}
+.search-vector:focus{
+  color:var(--blue);
+}
+.searchbutton-vector{
+  width: 40px;
+  height: 30px;
+  border: solid 1px #002147;
+  background: #210047;
+  text-align: center;
+  color: #fff;
+  border-radius:  0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+.searchbutton-vector:hover,
+.searchbutton-vector:active{
+  background: #003775;
+}
+/*====== Accordion Catalogue  Arbovirus / vector========*/
+.row-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.tab input{
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+.tabs{
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px -2px rgba(0,0,0,0,0.5);
+}
+.tab{
+  width: 100%;
+  overflow: hidden;  
+}
+.tab .tab-label{
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  border-bottom: solid 1px hsla(32, 100%, 50%,0.2);
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'montserrat', serif;
+  color:var(--dark-text);
+}
+.tab-label:hover{
+  background: hsla(32, 100%, 50%, 0.2);
+}
+.tab-label::after{
+  content: "\276F";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  transition: all 0.3s;
+  color:var(--orange);
+}
+.tab .tab-label-vec{
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  border-bottom: solid 1px hsla(212, 100%, 14%,0.2);
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'montserrat', serif;
+  color:var(--dark-text);
+}
+.tab-label-vec:hover{
+  background: hsla(212, 100%, 14%,0.2);
+}
+.tab-label-vec::after{
+  content: "\276F";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  transition: all 0.3s;
+  color: var(--blue);
+}
+.tab-content{
+  max-height: 0;
+  padding: 0 1em;
+  color: #002147;
+  background: white;
+  transition: all 0.3s;
+}
+.tab input:checked + .tab-label{
+  background: hsla(32, 100%, 50%, 0.3);
+}
+.tab input:checked + .tab-label-vec{
+  background: hsla(212, 100%, 14%,0.3);
+}
+.tab input:checked + .tab-label::after,
+.tab input:checked + .tab-label-vec::after
+{
+  transform: rotate(90deg);
+  color: var(--dark-text);
+}
+.tab input:checked ~ .tab-content{
+  max-height: 100vh;
+  padding: 1em;
+}
+.tab-content-unit{
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 1px hsla(0, 0%, 50%, 0.3);
+}
+.tab-content-unit h5{
+  width: 35%;
+  margin-left: 15px;
+  text-align: left;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.tab-content-unit output{
+  margin-left: 10px;
+  width: 55%;
+  text-align: left;
+  color:var(--dark-text);
+  font-size: 0.9rem;
+}
+@media screen and (max-width:900px){
+  .row-wrapper{
+    flex-direction: column;
+  }
+  .arbovirus-catalogue,
+  .vector-catalogue{
+    margin: 10px auto;
+    width: 85%;
+  }
+  .tab-content-unit{
+    padding: 10px 10px;
+  }
+}
+/* Mobile Catalogue*/
+@media screen and (max-width:450px){
+  .arbovirus-catalogue,
+  .vector-catalogue{
+    width: 90%;
+  }
+
+} 
 
 /* =======GRID=====*/
-.grid {
-  height: 100vh;
+.grid{
+  height: 95vh;
   width: 100%;
   overflow: hidden;
   display: grid;
-  grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+  grid-template-columns: [first] 80px [line2] 320px 1fr 1fr;
+  grid-template-rows:95% 5% ;
 }
 
 /*Main side menu*/
@@ -643,10 +855,75 @@ nav img {
   font-size: 3rem;
   text-align: center;
 }
-/*tooltip of info icon*/
+/*====== Tooltip of info icon=======*/
 .tooltip {
   position: relative;
 }
+/* Tooltip  for Catalogue*/
+.tooltip .tooltext-1 {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  visibility: hidden;
+  width: 200px;
+  background-color: #bdd9f9;
+  color: var(--dark-text);
+  text-align: center;
+  padding: 8px 3px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 15;
+  top: -5px;
+  left: 110%; 
+  opacity: 0;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+.tooltip .tooltext-1::after {
+  content: "";
+  position: absolute;
+  bottom: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-style: solid;
+  border-color:   transparent  #bdd9f9 transparent transparent ;
+}
+.tooltip:hover .tooltext-1 {
+  visibility: visible;
+  opacity: 1;
+}
+/*  Tooltip  for Discovery, distribution and vector*/
+.tooltip .tooltext-a {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  visibility: hidden;
+  width: 200px;
+  background-color: #bdd9f9;
+  color: var(--dark-text);
+  text-align: center;
+  padding: 8px 3px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 15;
+  top: 110%;
+  left: 50%;
+  margin-left: -190px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  cursor: pointer;
+}
+.tooltip .tooltext-a::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 93%;
+  border-style: solid;
+  border-color:  transparent transparent #bdd9f9 transparent;
+}
+.tooltip:hover .tooltext-a {
+  visibility: visible;
+  opacity: 1;
+}
+/*  Tooltip  for Climate, forest and land use*/
 .tooltip .tooltext {
   font-size: 0.75rem;
   line-height: 1.5;
@@ -671,7 +948,7 @@ nav img {
   top: 100%;
   left: 90%;
   border-style: solid;
-  border-color: #bdd9f9 transparent transparent transparent;
+  border-color: #BDD9F9 transparent transparent transparent;
 }
 .tooltip:hover .tooltext {
   visibility: visible;
@@ -1369,14 +1646,28 @@ input:focus ~ .bar:after {
 
 /*=====================  Map features ============================*/
 
-#map {
-  width: 99%;
-  position: absolute;
-  top: 120vh;
-  left: 0;
-  height: 95vh;
-  grid-area: 1 / 1 / 6 / 11;
-  z-index: 0;
+/*=====================  Map features ============================*/ 
+.map-area{
+  height: 100%;
+  padding: 20px 0;
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.map-area h2{
+  font-family: 'montserrat', serif;
+  color: var(--blue);
+  margin-bottom: 20px;
+}
+#map{
+    width: 98%;
+    position: relative;
+    left: 0;
+    height: 90vh;
+    grid-area: 1 / 1 / 3 / 5;
+    z-index: 0;
 }
 
 /*footer*/
