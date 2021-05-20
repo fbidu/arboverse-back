@@ -302,7 +302,16 @@ nav img {
   font-family: "Montserrat", sans-serif, arial;
   color: #666569;
 }
-
+.img_wrapper{
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+}
+.img_wrapper figcaption{
+  font-family: 'Montserrat', serif;
+  font-size: 0.65rem;
+  width: 90%;
+}
 .researchunit {
   padding: 20px 20px;
   line-height: 1.5;
@@ -318,7 +327,7 @@ nav img {
   justify-content: space-around;
 }
 .researchdescription img {
-  width: 25%;
+  width: 90%;
 }
 .research-content {
   width: 70%;
@@ -342,7 +351,6 @@ nav img {
 }
 .research-content h3 {
   font-weight: 400;
-  border-bottom: solid 0.4px rgba(121, 118, 118, 0.3);
   width: 20%;
   color: #002147;
 }
