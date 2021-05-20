@@ -302,6 +302,21 @@ nav img {
     top: 8vh;
   }
 }
+/* General content*/
+.general-content{
+  margin: 10vh 0;
+}
+.general-content p {
+  width: 85%;
+  padding-top: 25px;
+  font-family: 'Monteserrat', serif;
+  margin: 0 auto;
+  color: #666569;
+  line-height: 2;
+  font-size: 1.2rem;
+  word-spacing: 2px;
+  text-align: justify;
+}
 /*main content*/
 #main-content {
   padding: 90px 24px;
@@ -315,6 +330,7 @@ nav img {
   width: 70%;
   padding: 30px;
 }
+.general-content h2,
 .content h2 {
   font-family: "oswald", sans-serif;
   font-size: 1.8rem;
