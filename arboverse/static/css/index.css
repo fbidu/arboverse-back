@@ -304,12 +304,12 @@ nav img {
 }
 /* General content*/
 .general-content{
-  margin: 10vh 0;
+  margin: 20vh 0;
 }
 .general-content p {
   width: 85%;
   padding-top: 25px;
-  font-family: 'Monteserrat', serif;
+  font-family: "Montserrat", serif;
   margin: 0 auto;
   color: #666569;
   line-height: 2;
@@ -343,7 +343,7 @@ nav img {
 }
 .content p {
   padding-top: 25px;
-  font-family: "Quattrocento", Serif;
+  font-family: "Montserrat", Serif;
   width: 90%;
   margin: 0 auto;
   color: #666569;
@@ -351,6 +351,9 @@ nav img {
   font-size: 1.1rem;
   word-spacing: 2px;
   text-align: justify;
+}
+.content a{
+  color: #666569;
 }
 
 /*MAIN TABLET SIZE*/
@@ -431,15 +434,18 @@ section {
   line-height: 2;
 }
 .purpose-unit img {
-  width: 90px;
+  height: 90px;
   margin: 0 auto;
   padding: 20px;
 }
 .purpose-unit h4 {
-  font-family: "oswald", sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin-top: 10px;
   font-size: 1.5rem;
   color: #002147;
+}
+.orange{
+  color: #ff8700;
 }
 .purpose-unit h5 {
   font-family: "Montserrat", sans-serif;
@@ -510,23 +516,6 @@ section {
     font-weight: 400;
   }
 }
-/*ASIDE INFORMATION*/
-aside {
-  text-align: center;
-  color: #585656;
-  margin: 80px 0;
-}
-aside p {
-  font-family: "Quattrocento", sans-serif;
-  width: 70%;
-  margin: 0 auto;
-  text-align: justify;
-  line-height: 2;
-  color: #666569;
-  line-height: 2;
-  font-size: 1.1rem;
-  word-spacing: 2px;
-}
 .video {
   text-align: center;
   color: rgb(143, 140, 140);
@@ -535,10 +524,13 @@ aside p {
   justify-content: center;
 }
 .video h2 {
-  font-family: "Oswald", sans-serif;
+  font-family: "oswald", sans-serif;
   font-size: 1.8rem;
   letter-spacing: 1px;
-  font-weight: 500;
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+  color: #002147;
   margin-bottom: 40px;
 }
 .video video {
