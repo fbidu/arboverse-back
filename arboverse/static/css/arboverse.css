@@ -1187,7 +1187,7 @@ nav img {
 }
 .circles-scale{
   width: 50%;
-  height:90px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -1196,19 +1196,18 @@ nav img {
   width: 25%;
   display:flex;
   flex-direction: column;
-  height:90px;
+  height: 50px;
   justify-content: flex-end;
-  line-height: 1.5;
 }
 .scale-mi label{
   color: var(--dark-text);
   text-align: left;
-  font-size: 0.7rem;
+  font-size: 0.5rem;
   font-family: 'montserrat', serif;
 }
 .onex{
-  width: 20px;
-  height: 20px;
+  width: 5px;
+  height: 5px;
   background: #FAE0E4 ;
   border: solid 1px #efefef;
   border-radius: 50%;
@@ -1216,8 +1215,8 @@ nav img {
   z-index: 25;
 }
 .twox{
-  width: 35px;
-  height: 35px;
+  width: 15px;
+  height: 15px;
   background:#FBBBCB ;
   border: solid 1px #efefef;
   border-radius: 50%;
@@ -1226,8 +1225,8 @@ nav img {
 }
 
 .threex{
-  width: 50px;
-  height: 50px;
+  width: 25px;
+  height: 25px;
   background: #FC96B2;
   border: solid 1px #efefef;
   border-radius: 50%;
@@ -1235,8 +1234,8 @@ nav img {
   z-index: 23;
 }
 .fourx{
-  width: 70px;
-  height: 70px;
+  width: 35px;
+  height: 35px;
   background: #FD618E;
   border: solid 1px #efefef;
   border-radius: 50%;
@@ -1244,8 +1243,8 @@ nav img {
   z-index: 22;
 }
 .fivex{
-  width: 90px;
-  height: 90px;
+  width: 45px;
+  height: 45px;
   background: #ff0a54;
   border: solid 1px #efefef;
   border-radius: 50%;
@@ -1253,8 +1252,8 @@ nav img {
   z-index: 21;
 }
 .onex1{
-  width: 20px;
-  height: 20px;
+  width: 5px;
+  height: 5px;
   background:#ade8f4;
   border: solid 1px #efefef;
   border-radius: 50%;
@@ -1262,8 +1261,8 @@ nav img {
   z-index: 25;
 }
 .twox1{
-  width: 35px;
-  height: 35px;
+  width: 15px;
+  height: 15px;
   background: #48cae4;
   border: solid 1px #efefef;
   border-radius: 50%;
@@ -1272,8 +1271,8 @@ nav img {
 }
 
 .threex1{
-  width: 50px;
-  height: 50px;
+  width: 25px;
+  height: 25px;
   background: #0096c7;
   border: solid 1px #efefef;
   border-radius: 50%;
@@ -1281,23 +1280,69 @@ nav img {
   z-index: 23;
 }
 .fourx1{
-  width: 70px;
-  height: 70px;
-  background:#0077b6 ;
+  width: 35px;
+  height: 35px;
+  background:#0077b6;
   border: solid 1px #efefef;
   border-radius: 50%;
   position: absolute;
   z-index: 22;
 }
 .fivex1{
-  width: 90px;
-  height: 90px;
-  background:#023e8a ;
+  width: 45px;
+  height: 45px;
+  background:#023e8a;
   border: solid 1px #efefef;
   border-radius: 50%;
   position: absolute;
   z-index: 21;
 }
+.onex2{
+    width: 5px;
+    height: 5px;
+    background:#aacc00;
+    border: solid 1px #efefef;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 25;
+  }
+  .twox2{
+    width: 15px;
+    height: 15px;
+    background: #80b918;
+    border: solid 1px #efefef;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 24;
+  }
+  
+  .threex2{
+    width: 25px;
+    height: 25px;
+    background: #55a630;
+    border: solid 1px #efefef;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 23;
+  }
+  .fourx2{
+    width: 35px;
+    height: 35px;
+    background:#2b9348;
+    border: solid 1px #efefef;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 22;
+  }
+  .fivex2{
+    width: 45px;
+    height: 45px;
+    background:#007f5f;
+    border: solid 1px #efefef;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 21;
+  }
 /* Bar Mesurement color features GRADIENT */
 .bluetopink {
   background: linear-gradient(
