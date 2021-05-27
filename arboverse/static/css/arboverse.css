@@ -706,7 +706,7 @@ nav img {
   text-align: center;
   overflow-x: hidden;
   display: block;
-  height: 500px;
+  height: 501px;
   grid-area: 1 / 2 / 2 / 3;
   z-index: 11;
   position: relative;
@@ -741,7 +741,7 @@ nav img {
   width: 0;
   display: block;
   overflow-x: hidden;
-  height: 500px;
+  height: 501px;
   grid-area: 1 / 2 / 2 / 3;
   z-index: 12;
   position: relative;
