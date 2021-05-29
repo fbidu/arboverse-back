@@ -306,7 +306,7 @@ nav img {
   }
 }
 .tools-wrapper{
-  margin: 10vh 2vh;
+  margin: 15vh 2vh;
   height:auto;
   display: flex;
   flex-direction: row;
@@ -321,9 +321,16 @@ nav img {
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  overflow:scroll;
+  overflow-y:scroll;
   scroll-behavior: smooth;
-  overscroll-behavior: none;
+}
+#mural::-webkit-scrollbar{
+  width: 4px;
+  background: hsla(0, 0%, 50%, 0.3);
+}
+#mural::-webkit-scrollbar-thumb{
+  background: #969696;
+  border-radius: 10px;
 }
 .mural h1{
   font-family: 'montserrat', serif;
@@ -343,7 +350,7 @@ nav img {
 .vl{
   width: 3px;
   margin: auto 0;
-  height: 80px;
+  height: 60px;
   border-radius: 10px;
   margin-left: 5px;
   transform: translateX(10px);
@@ -394,13 +401,17 @@ nav img {
   border-radius: 50%;
   margin: 3px;
 }
+.date-wrapper{
+  display: flex;
+  flex-direction: column;
+}
 .activity2{
   background-color: hsla(0, 0%, 77%,0.2);
   font-size: 0.8rem;
   margin-top: 10px;
   margin-right: 10px;
   border-radius: 10px;
-  height: 70%;
+  height: 60%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -409,14 +420,19 @@ nav img {
   padding:10px;
   box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 }
-.activity2 h2,
-.activity2 h3{
+.open h2,
+.open h3{
   font-family: 'montserrat', serif;
   color:#002147;
 }
+.deadline h2,
+.deadline h3{
+  font-family: 'montserrat', serif;
+  color:#ff8700;
+}
 .read{
-  margin: 10px 5px;
-  width:90px;
+  margin: 5px 0px;
+  width: 90px;
   padding: 5px 8px;
   border-radius: 30px;
   border: none;
@@ -428,26 +444,6 @@ nav img {
 .read:hover{
   background-color: #f89b29;
 }
-
-
-.events {
-  width: 20%;
-  margin: 0 auto;
-  font-family: lato, sans-serif;
-  font-size: 1rem;
-  color: grey;
-  text-align: center;
-  padding-top: 30px;
-  border-bottom: solid 0.4px rgba(121, 118, 118, 0.3);
-}
-.twitterbox {
-  grid-column-start: 6;
-  grid-column-end: 7;
-  width: 22%;
-  height: 80px;
-  margin-bottom: 10px;
-}
-/* ==== Calendar ==*/
 /* CALENDAR */
 #calendar {
   -webkit-transform: translate3d(0, 0, 0);
@@ -797,4 +793,12 @@ nav img {
   text-align: center;
   padding-top: 30px;
   border-bottom: solid 0.4px rgba(121, 118, 118,0.3);
+}
+/* twitter*/
+.twitterbox {
+  grid-column-start: 6;
+  grid-column-end: 7;
+  width: 22%;
+  height: 85vh;
+  margin-bottom: 10px;
 }
