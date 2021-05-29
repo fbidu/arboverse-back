@@ -578,7 +578,7 @@ nav img {
 /*FOOTER*/
 footer {
   background-color: hsla(0, 0%, 35%, 0.7);
-  font-family: robot, sans-serif, arial;
+  font-family: 'roboto', sans-serif, arial;
   color: white;
   display: flex;
   justify-content: space-between;
