@@ -650,8 +650,8 @@ section {
   padding-top: 60px;
   text-align: center;
 }
-.media h5 {
-  font-family: "Montserrat", sans serif, arial;
+.media h4 {
+  font-family: "Montserrat", serif, arial;
   font-weight: 400;
   font-size: 1rem;
   color: white;
@@ -668,7 +668,7 @@ section {
   .media {
     width: 20%;
   }
-  .media h5 {
+  .media h4 {
     font-size: 0.9rem;
   }
 }
@@ -681,7 +681,7 @@ section {
     width: 40%;
     padding-top: 20px;
   }
-  .media h5 {
+  .media h4 {
     font-size: 0.8rem;
   }
 }
@@ -696,7 +696,7 @@ section {
 /*FOOTER*/
 footer {
   background-color: hsla(0, 0%, 35%, 0.7);
-  font-family: robot, sans-serif, arial;
+  font-family: 'Roboto', sans-serif, arial;
   color: white;
   display: flex;
   justify-content: space-between;
