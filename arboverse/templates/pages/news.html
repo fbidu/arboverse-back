@@ -1,8 +1,6 @@
 {% extends 'base.html' %}{% load static %}
 {% block resources %}
   <link href="{% static 'css/news.css' %}" rel="stylesheet" type="text/css">
-  <link href="Resources/calendar/evo-calendar.css" rel="stylesheet" type="text/css"/>
-  <link href="Resources/calendar/evo-calendar.midnight-blue.css" rel="stylesheet" type="text/css">
 {% endblock %}
 {% block title %}
   News
@@ -10,68 +8,86 @@
 
 {% block content %}
   <main>
-
-    <body class="light ">
-      <div class="calendar">
-        <div class="calendar-header">
-          <span class="month-picker" id="month-picker">
-            February
-          </span>
-          <div class="year-picker">
-            <span class="year-change" id="prev-year">
-              <pre><</pre>
-            </span>
-            <span id="year">2021</span>
-            <span class="year-change" id="next-year">
-              <pre>></pre>
-            </span>
-          </div>
-        </div>
-
-        <div class="caledar-body">
-          <div class="calendar-week-day">
-            <div>Sun</div>
-            <div>Mon</div>
-            <div>Tue</div>
-            <div>Wed</div>
-            <div>Thu</div>
-            <div>Fri</div>
-            <div>Sat</div>
-          </div>
-          <div class="calendar-days">
-            <div>
-              1
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+    <div class="tools-wrapper">
+      <!--Mural-->
+      <div class="mural">
+        <h1>Opportunities</h1>
+        <div class="mural-unit">
+          <div class="vl blue"></div>
+          <div class="activity">
+            <div class="activity-name">
+              <div class="activity1">
+                <h2>Grant one</h2>
+                <div class="details-wrapper">
+                  <span class="bullet blue"></span><span class="classification">Fellowship</span>
+                </div>
+              </div>
+              <div class="activity2">
+                <h2>10</h2>
+                <h3>June</h3>
+              </div>
             </div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div>
-            <div>6</div>
-            <div>7</div>
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>4</div>
-            <div>5</div>
-            <div>6</div>
-            <div>7</div>
+            <a href="#"><button class="read">Read more</button></a>
           </div>
         </div>
-        <div class="calendar-footer">
-          <div class="toggle">
-            <span>Dark Mode</span>
-            <div class="dark-mode-switch">
-              <div class="dark-mode-switch-ident"></div>
+        <div class="mural-unit">
+          <div class="vl green"></div>
+          <div class="activity">
+            <div class="activity-name">
+              <div class="activity1">
+                <h2>Grant two</h2>
+                <div class="details-wrapper">
+                  <span class="bullet green"></span><span class="classification">Grant</span>
+                </div>
+              </div>
+              <div class="activity2">
+                <h2>10</h2>
+                <h3>June</h3>
+              </div>
             </div>
+            <a href="#"><button class="read">Read more</button></a>
           </div>
         </div>
-
-        <div class="month-list"></div>
+        <div class="mural-unit">
+          <div class="vl blue"></div>
+          <div class="activity">
+            <div class="activity-name">
+              <div class="activity1">
+                <h2>Grant three</h2>
+                <div class="details-wrapper">
+                  <span class="bullet blue"></span><span class="classification">Fellowship</span>
+                </div>
+              </div>
+              <div class="activity2">
+                <h2>10</h2>
+                <h3>June</h3>
+              </div>
+            </div>
+            <a href="#"><button class="read">Read more</button></a>
+          </div>
+        </div>
+        <div class="mural-unit">
+          <div class="vl orange"></div>
+          <div class="activity">
+            <div class="activity-name">
+              <div class="activity1">
+                <h2>Grant four</h2>
+                <div class="details-wrapper">
+                  <span class="bullet orange"></span><span class="classification">Fellowship</span>
+                </div>
+              </div>
+              <div class="activity2">
+                <h2>10</h2>
+                <h3>June</h3>
+              </div>
+            </div>
+            <a href="#"><button class="read">Read more</button></a>
+          </div>
+        </div>
       </div>
+      <!--Calendar-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+      <div id="calendar"></div>
       <script src="{% static 'js/calendar.js' %}"></script>
       <!--Twitter BOX-->
       <div class="twitterbox">
@@ -79,20 +95,9 @@
         <script async="async" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
       </div>
     </div>
+      
+      
   </main>
-  <div class="news">
-    <h1>Keep Following</h1>
-  </div>
-  <div class="thenews">
-    <div class="thenewsunit">
-      <h6>News 1</h6>
-    </div>
-    <div class="thenewsunit">
-      <h6>News 2</h6>
-    </div>
-    <div class="thenewsunit">
-      <h6>News 3</h6>
-    </div>
-  </div>
+  
 
 {% endblock %}
