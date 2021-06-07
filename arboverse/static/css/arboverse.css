@@ -726,14 +726,7 @@ nav img {
   padding: 10px 0;
   color: var(--blue);
 }
-.canopy-percentage {
-  border: solid 1px rgb(205, 203, 203);
-  background: transparent;
-  font-size: 0.7rem;
-  margin: 0 2px;
-  border-radius: 5px;
-  color: var(--dark-text);
-}
+
 /* FOREST COVER LAND COVER and MOBILITY*/
 .sub-th-menu,
 .sub-fou-menu,
@@ -1158,7 +1151,7 @@ nav img {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  border: solid 0.5px rgba(62, 62, 62, 0.8);
+  border: solid 0.5px rgba(62, 62, 62, 0.5);
 }
 .bar-mesur {
   width: 280px;
@@ -1168,7 +1161,7 @@ nav img {
 }
 .marker {
   /* legend of layers */
-  width: 99%;
+  width: 95%;
   margin-left: 10px;
   display: flex;
   justify-content: flex-start;
@@ -1180,6 +1173,7 @@ nav img {
   width: 10px;
   height: 10px;
   border-radius: 2px;
+  border: solid 0.5px rgba(62, 62, 62, 0.5);
 }
 .point-mean {
   /* point legend*/
@@ -1398,45 +1392,33 @@ nav img {
   );
 }
 .green-s {
-  background: linear-gradient(
-    90deg,
-    #4cc9f0,
-    #4895ef,
-    #4361ee,
-    #3f37c9,
-    #3a0ca3,
-    #480ca8,
-    #560bad,
-    #7209b7,
-    #b5179e,
-    #f72585
-  );
+  background: linear-gradient(90deg, #9EF01Aff, #99EA1Aff, #93E51Bff, #8EDF1Bff, #88D91Bff, #83D41Cff, #7DCE1Cff, #78C81Cff, #72C21Cff, #6DBD1Dff, #68B71Dff, #62B11Dff, #5DAC1Eff, #57A61Eff, #52A01Eff, #4C9B1Fff, #47951Fff, #418F1Fff, #3C8A20ff, #368420ff, #317E20ff, #2C7921ff, #267321ff, #216D21ff, #1B6721ff, #166222ff, #105C22ff, #0B5622ff, #055123ff, #004B23ff);
 }
 .people-s {
   background: linear-gradient(
     90deg,
-    #47126bff,
-    #822fafff,
-    #c05299ff,
-    #ea698bff,
-    #f59059ff,
-    #ffb627ff
+    #180f3e,
+    #440f76,
+    #721f81,
+    #9e2f7f,
+    #cd3f71,
+    #f1605d
   );
 }
 .browngreen-s {
   background: linear-gradient(
     90deg,
-    hsla(15, 78%, 26%, 1) 0%,
-    hsla(23, 72%, 33%, 1) 10%,
-    hsla(30, 69%, 39%, 1) 20%,
-    hsla(37, 66%, 48%, 1) 30%,
-    hsla(41, 77%, 55%, 1) 40%,
-    hsla(44, 100%, 61%, 1) 50%,
-    hsla(49, 61%, 51%, 1) 60%,
-    hsla(55, 54%, 44%, 1) 70%,
-    hsla(60, 50%, 40%, 1) 80%,
-    hsla(70, 48%, 37%, 1) 90%,
-    hsla(92, 45%, 32%, 1) 100%
+    #774936 0%,
+    #92683E 10%,
+    #AC8746 20%,
+    #C7A64D 30%,
+    #E1C555 40%,
+    #FCE45D 50%,
+    #CACA4A 60%,
+    #97B138 70%,
+    #659725 80%,
+    #327E13 90%,
+    #006400 100%
   );
 }
 /*  Measurement size features */
@@ -1548,32 +1530,32 @@ nav img {
 .pink-orange {
   background-color: #ff5a5f;
 }
-.neonblue-p {
-  background: #5465ff;
+.comod {
+  background: #f94144;
 }
-.patriarch-p {
-  background-color: #7b1e7a;
+.shift {
+  background-color: #f9844a;
 }
 .montaingreen-p {
-  background-color: #09bc8a;
+  background-color: #43aa8b;
 }
 .mango-p {
-  background-color: #ffbe0b;
+  background-color: #f9c74f;
 }
 .blush-p {
-  background-color: #ea698b;
+  background-color: #6930c3;
 }
 .musgo-p {
-  background-color: #3a5a40;
+  background-color: #208b3a;
 }
 .green1-p {
-  background: #6f732f;
+  background: #90a955;
 }
 .green2-p {
-  background: #3c5233;
+  background: #4f762d;
 }
 .green3-p {
-  background: #264027;
+  background: #31572c;
 }
 .vazio-p {
   background-color: #eddcd2;
