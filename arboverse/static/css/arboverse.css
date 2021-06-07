@@ -1138,7 +1138,28 @@ nav img {
   padding: 5px;
   margin: 2px 0;
 }
-
+.kp_measure{
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.kp_group{
+  display: flex;
+  flex-direction: column;
+}
+.kp_unit{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.kp_circle{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: solid 0.5px rgba(62, 62, 62, 0.8);
+}
 .bar-mesur {
   width: 280px;
   margin: 0 auto; /* Bar Measurement Area */
@@ -1364,51 +1385,31 @@ nav img {
 .lightyellowgreen {
   background: linear-gradient(
     90deg,
-    hsla(92, 62%, 72%, 1) 0%,
-    hsla(98, 56%, 71%, 1) 10%,
-    hsla(105, 51%, 71%, 1) 20%,
-    hsla(112, 46%, 70%, 1) 30%,
-    hsla(123, 42%, 69%, 1) 40%,
-    hsla(132, 42%, 66%, 1) 50%,
-    hsla(139, 42%, 64%, 1) 60%,
-    hsla(145, 41%, 61%, 1) 70%,
-    hsla(152, 41%, 58%, 1) 80%,
-    hsla(157, 41%, 55%, 1) 90%,
-    hsla(163, 41%, 52%, 1) 100%,
-    hsla(151, 42%, 58%, 1) 100%,
-    hsla(157, 41%, 55%, 1) 100%
-  );
-}
-.purple {
-  background: linear-gradient(
-    to right,
-    #f5e4fe,
-    #f1d7fd,
-    #ecc9fc,
-    #e7bcfb,
-    #e2aefb,
-    #dda1fa,
-    #d893f9,
-    #d486f8,
-    #cf78f8,
-    #ca6bf7,
-    #c55df6
+    #4cc9f0,
+    #4895ef,
+    #4361ee,
+    #3f37c9,
+    #3a0ca3,
+    #480ca8,
+    #560bad,
+    #7209b7,
+    #b5179e,
+    #f72585
   );
 }
 .green-s {
   background: linear-gradient(
     90deg,
-    hsla(85, 53%, 63%, 1) 0%,
-    hsla(86, 44%, 58%, 1) 10%,
-    hsla(88, 39%, 55%, 1) 20%,
-    hsla(89, 34%, 52%, 1) 30%,
-    hsla(91, 32%, 48%, 1) 40%,
-    hsla(94, 32%, 44%, 1) 50%,
-    hsla(97, 32%, 39%, 1) 60%,
-    hsla(100, 33%, 35%, 1) 70%,
-    hsla(103, 33%, 33%, 1) 80%,
-    hsla(108, 33%, 29%, 1) 90%,
-    hsla(113, 33%, 26%, 1) 100%
+    #4cc9f0,
+    #4895ef,
+    #4361ee,
+    #3f37c9,
+    #3a0ca3,
+    #480ca8,
+    #560bad,
+    #7209b7,
+    #b5179e,
+    #f72585
   );
 }
 .people-s {
@@ -1447,8 +1448,103 @@ nav img {
   font-size: 0.7rem;
   color: var(--dark-text);
 }
+.kp{
+  font-size:0.6rem;
+  color:var(--dark-text);
+  margin-left: 1px;
+}
 
 /* Point color features  */
+.af{
+  background: #0000ff;
+}
+.am{
+  background:#0077ff;
+}
+.aw{
+  background:#47aafa;
+}
+.bwh{
+  background:#ff0000;
+}
+.bwk{
+  background:#ff9494;
+}
+.bsh{
+  background:#f5a300;
+}
+.bsk{
+  background:#ffdb66;
+}
+.csa{
+  background: #ffff00;
+}
+.csb{
+  background:rgb(200, 200, 0);
+}
+.csc{
+  background:rgb(150, 150, 0);
+}
+.cwa{
+  background: rgb(150, 255, 150);
+}
+.cwb{
+  background:rgb(100, 200, 100);
+}
+.cwc{
+  background:rgb(50, 150, 50);
+}
+.cfa{
+  background: rgb(200, 255, 80);
+}
+.cfb{
+  background:rgb(100, 255, 80);
+}
+.cfc{
+  background:rgb(50, 200, 0);
+}
+.dsa{
+  background: rgb(255, 0, 255);
+}
+.dsb{
+  background: rgb(200, 0, 200);
+}
+.dsc{
+  background: rgb(150, 50, 155);
+}
+.dsd{
+  background: rgb(150, 100, 150);
+}
+.dwa{
+  background: rgb(170, 175, 255);
+}
+.dwb{
+  background: rgb(90, 120, 220);
+}
+.dwc{
+  background: rgb(75, 80, 180);
+}
+.dwd{
+  background: rgb(50, 0, 135);
+}
+.dfa{
+  background: rgb(0, 255, 255);
+}
+.dfb{
+  background: rgb(55, 200, 255);
+}
+.dfc{
+  background: rgb(0, 125, 125);
+}
+.dfd{
+  background: rgb(0, 70, 95);
+}
+.et{
+  background: rgb(178, 178, 178);
+}
+.ef{
+  background: rgb(102, 102, 102);
+}
 .pink-orange {
   background-color: #ff5a5f;
 }
