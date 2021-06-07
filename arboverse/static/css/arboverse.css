@@ -1347,17 +1347,18 @@ nav img {
 .bluetopink {
   background: linear-gradient(
     to right,
-    #0091ad,
-    #1085a4,
-    #247699,
-    #316c92,
-    #4a5a85,
-    #5c4d7c,
-    #6e3f72,
-    #7d346a,
-    #8c2962,
-    #9f1b58,
-    #b7094c
+    #003566,
+    #094876,
+    #135d88,
+    #1b6d95,
+    #227ca2,
+    #2a8db0,
+    #319bbc,
+    #48cae4,
+    #ffdd00,
+    #ffc300,
+    #ffa200,
+    #ff8800
   );
 }
 .lightyellowgreen {
