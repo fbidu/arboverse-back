@@ -1753,7 +1753,7 @@ input:focus ~ .bar:after {
 .box {
   position: relative;
   margin-bottom: 40px;
-  margin-left: 20px;
+  margin-left: 15px;
 }
 .box p {
   text-align: left;
@@ -1776,6 +1776,7 @@ input:focus ~ .bar:after {
   position: relative;
   right: 15px;
   -webkit-appearance: button;
+  -moz-appearance: button;
   appearance: button;
   outline: none;
 }
@@ -1851,7 +1852,7 @@ input:focus ~ .bar:after {
   flex-direction: column;
   align-items: center;
   margin: 10px 0;
-  background: hsla(0, 0%, 86%, 0.4);
+  background: hsla(0, 0%, 86%, 0.3);
   padding: 10px;
 }
 form {
@@ -1969,7 +1970,7 @@ form:valid #time-amount-slider input:checked + label::before {
   flex-direction: column;
   align-items: center;
   margin: 10px 0;
-  background: hsla(0, 0%, 86%, 0.4);
+  background: hsla(0, 0%, 86%, 0.3);
 }
 form #month-amount-slider {
   display: flex;
