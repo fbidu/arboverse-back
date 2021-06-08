@@ -665,28 +665,47 @@
                 <label class="cubicmm">0mm<sup>3</sup></label>
                 <label class="cubicmm">3000mm<sup>3</sup></label>
               </div>
-              <!--indice close-->
             </div>
-            <!--measure close -->
           </div>
-          <!--unit-btn close-->
-          <!--MENU climate TIMELINE-->
-          <div class="menu-timeslider">
-            <h6>Date (Year and Month)</h6>
-            <div class="map-timeline">
-              <!--Slide Range Year-->
-              <div class="range-value slidecontainer" id="rangeV"></div>
-              <input id="range" type="range" min="1970" max="2100" value="1970" step="1" class="slideyear" />
+        </div>
+        <!--Time selector-->
+        <div id="time-month-wrapper">
+          <form action="/p/quote.php" method="get">
+            <h5 id="form-title">Select layer time</h5>
+            <h5 id="form-title">(temperature and precipitation)</h5>
+            <div id="time-amount-slider">
+              <input type="radio" name="time-amount" id="tp-1" value="tp-1" required>
+              <label for="tp-1" data-time-amount="Present (1970-2000)"></label>
+              <input type="radio" name="time-amount" id="tp-2" value="tp-2" required>
+              <label for="tp-2" data-time-amount="Future (2081-2100)"></label>
             </div>
-            <!--map-timeline closer-->
-            <!--Slide Range month my month-->
-            <div class="slidecontainer">
-              <label id="month" class="legend"></label>
-              <input type="range" min="0" max="11" value="0" class="slidemonth" id="myRange" />
+            <div id="month-amount-slider">
+              <input type="radio" name="month-amount" id="m-1" value="m-1" required>
+              <label for="m-1" data-time-amount="Jan"></label>
+              <input type="radio" name="month-amount" id="m-2" value="m-2" required>
+              <label for="m-2" data-time-amount="Feb"></label>
+              <input type="radio" name="month-amount" id="m-3" value="m-3" required>
+              <label for="m-3" data-time-amount="Mar"></label>
+              <input type="radio" name="month-amount" id="m-4" value="m-4" required>
+              <label for="m-4" data-time-amount="Apr"></label>
+              <input type="radio" name="month-amount" id="m-5" value="m-5" required>
+              <label for="m-5" data-time-amount="May"></label>
+              <input type="radio" name="month-amount" id="m-6" value="m-6" required>
+              <label for="m-6" data-time-amount="Jun"></label>
+              <input type="radio" name="month-amount" id="m-7" value="m-7" required>
+              <label for="m-7" data-time-amount="Jul"></label>
+              <input type="radio" name="month-amount" id="m-8" value="m-8" required>
+              <label for="m-8" data-time-amount="Aug"></label>
+              <input type="radio" name="month-amount" id="m-9" value="m-9" required>
+              <label for="m-9" data-time-amount="Sep"></label>
+              <input type="radio" name="month-amount" id="m-10" value="m-10" required>
+              <label for="m-10" data-time-amount="Oct"></label>
+              <input type="radio" name="month-amount" id="m-11" value="m-11" required>
+              <label for="m-11" data-time-amount="Nov"></label>
+              <input type="radio" name="month-amount" id="m-12" value="m-12" required>
+              <label for="m-12" data-time-amount="Dec"></label>
             </div>
-            <!--slidecontainer close-->
-          </div>
-          <!--menu-timeslider closer-->
+          </form>
         </div>
         <!--menu-btn-->
         <!--Koppen Geiger -->
@@ -699,7 +718,7 @@
               </label>
             </div>
             <!--toggle close-->
-            <h6>Köppen-Geiger Climate Classification</h6>
+            <h6>Köppen-Geiger Classification</h6>
             <div class="wrapper tooltip">
               <a href="#demo-modal1.1"><i class="fa fa-info-circle" style="color: gray"></i></a>
               <span class="tooltext">Köppen-Geiger climate classification for the present day (1980-2016) and for projected future conditions (2071-2100).</span>
