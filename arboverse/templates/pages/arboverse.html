@@ -887,13 +887,55 @@
               <div class="point pink-orange"></div>
               <labe class="point-mean">GLAD alerts</labe>
             </div>
-            <div class="range-player">
-              <!--Add Buttom play here-->
-              <div class="play-year-range">
-                <button class="player">
-                  <i class="fa fa-play-circle" style="color: gray"></i></button><input type="range" min="2001"
-                  max="2021" step="1" value="2001" class="playslider" />
-              </div>
+            <!--time selector-->
+            <div id="year-time-wrapper">
+              <form action="/p/quote.php" method="get">
+                <h5 id="form-title">Select layer time</h5>
+                <div id="time-year-slider">
+                  <input type="radio" name="year-amount" id="d-1" value="d-1" required>
+                  <label for="d-1" data-time-amount="2001"></label>
+                  <input type="radio" name="year-amount" id="d-2" value="d-2" required>
+                  <label for="d-2" data-time-amount="2002"></label>
+                  <input type="radio" name="year-amount" id="d-3" value="d-3" required>
+                  <label for="d-3" data-time-amount="2003"></label>
+                  <input type="radio" name="year-amount" id="d-4" value="d-4" required>
+                  <label for="d-4" data-time-amount="2004"></label>
+                  <input type="radio" name="year-amount" id="d-5" value="d-5" required>
+                  <label for="d-5" data-time-amount="2005"></label>
+                  <input type="radio" name="year-amount" id="d-6" value="d-6" required>
+                  <label for="d-6" data-time-amount="2006"></label>
+                  <input type="radio" name="year-amount" id="d-7" value="d-7" required>
+                  <label for="d-7" data-time-amount="2007"></label>
+                  <input type="radio" name="year-amount" id="d-8" value="d-8" required>
+                  <label for="d-8" data-time-amount="2008"></label>
+                  <input type="radio" name="year-amount" id="d-9" value="d-9" required>
+                  <label for="d-9" data-time-amount="2009"></label>
+                  <input type="radio" name="year-amount" id="d-10" value="d-10" required>
+                  <label for="d-10" data-time-amount="2010"></label>
+                </div>
+                <div id="time-year-slider">
+                  <input type="radio" name="year-amount" id="d-11" value="d-11" required>
+                  <label for="d-11" data-time-amount="2011"></label>
+                  <input type="radio" name="year-amount" id="d-12" value="d-12" required>
+                  <label for="d-12" data-time-amount="2012"></label>
+                  <input type="radio" name="year-amount" id="d-13" value="d-13" required>
+                  <label for="d-13" data-time-amount="2013"></label>
+                  <input type="radio" name="year-amount" id="d-14" value="d-14" required>
+                  <label for="d-14" data-time-amount="2004"></label>
+                  <input type="radio" name="year-amount" id="d-15" value="d-15" required>
+                  <label for="d-15" data-time-amount="2015"></label>
+                  <input type="radio" name="year-amount" id="d-16" value="d-16" required>
+                  <label for="d-16" data-time-amount="2016"></label>
+                  <input type="radio" name="year-amount" id="d-17" value="d-17" required>
+                  <label for="d-17" data-time-amount="2017"></label>
+                  <input type="radio" name="year-amount" id="d-18" value="d-18" required>
+                  <label for="d-18" data-time-amount="2018"></label>
+                  <input type="radio" name="year-amount" id="d-19" value="d-19" required>
+                  <label for="d-19" data-time-amount="2019"></label>
+                  <input type="radio" name="year-amount" id="d-20" value="d-20" required>
+                  <label for="d-20" data-time-amount="2020"></label>
+                </div>
+              </form>
             </div>
           </div>
           <!--Tree Cover Loss by dominante driver-->
