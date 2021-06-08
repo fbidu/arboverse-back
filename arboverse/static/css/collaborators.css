@@ -506,8 +506,16 @@ nav img {
   width: 80%;
   margin: 0 auto;
 }
-.share-icons i {
-  padding: 10px;
+.share-icons {
+  margin-top: 10px;
+}
+.share-icons a{
+  color:white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.share-icons i{
+  margin-right: 5px;
 }
 /*SOCIAL MEDIA TABLET SIZE*/
 @media screen and (max-width: 900px) {
