@@ -705,6 +705,18 @@
               <span class="tooltext">Köppen-Geiger climate classification for the present day (1980-2016) and for projected future conditions (2071-2100).</span>
             </div>
           </div>
+          <!--Time selector-->
+          <div id="time-wrapper">
+            <form action="/p/quote.php" method="get">
+              <h5 id="form-title">Select layer time</h5>
+              <div id="time-amount-slider">
+                <input type="radio" name="time-amount" id="kp-1" value="kp-1" required>
+                <label for="kp-1" data-time-amount="Present (1980-2016)"></label>
+                <input type="radio" name="time-amount" id="kp-2" value="kp-2" required>
+                <label for="kp-2" data-time-amount="Future (2071-2100)"></label>
+              </div>
+            </form>
+          </div>
           <!-- unit-toggle close-->
           <div class="kp_measure">
             <div class="kp_group">
