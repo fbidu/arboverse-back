@@ -393,6 +393,7 @@ button:hover {
   }
   .publications-title th {
     font-size: 0.8rem;
+    text-align: justify;
   }
   .publications-title a:hover {
     font-size: 0.9rem;
@@ -408,6 +409,9 @@ button:hover {
   }
   .publications-title th {
     font-size: 0.7rem;
+  }
+  .publications-title a{
+    font-weight: bold;
   }
   .publications-title a:hover {
     font-size: 0.8rem;
