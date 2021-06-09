@@ -3,7 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-size: 16px;
   font-family: "Montserrat", sans-serif, serif;
@@ -136,14 +135,11 @@ nav img {
     width: 60%;
   }
 }
-
 /* NAVIGATOR TABLET SIZE*/
-
 @media screen and (max-width: 900px) {
   body {
     overflow-x: hidden;
   }
-
   .nav-links {
     position: absolute;
     right: 0;
@@ -172,9 +168,7 @@ nav img {
     transform: translateX(0%);
   }
 }
-
 /*LINK FADE*/
-
 @keyframes navLinkFade {
   from {
     opacity: 0;
@@ -185,7 +179,7 @@ nav img {
     transform: translateX(0px);
   }
 }
-
+/*-----Burger-----*/
 .toggle .line1 {
   transform: rotate(-45deg) translate(-5px, 6px);
 }
@@ -195,7 +189,6 @@ nav img {
 .toggle .line3 {
   transform: rotate(45deg) translate(-5px, -6px);
 }
-
 /* NAVIGATOR MOBILE SIZE*/
 @media screen and (max-width: 450px) {
   nav {
@@ -232,7 +225,6 @@ nav img {
   }
 }
 /*NAVIGATOR FOR LANDSCAPE*/
-
 @media screen and (min-width: 650px) and (max-width: 750px) and (orientation: landscape) {
   nav {
     height: 15vh;
@@ -304,7 +296,7 @@ nav img {
     top: 8vh;
   }
 }
-/* ================CATALOGUE=========*/
+/* ================ CATALOGUE ==========*/
 .catalogue{
   margin: 5vh 0;
   height: 100%;
@@ -327,7 +319,7 @@ nav img {
 .sec-title{
   color:var(--orange);
 }
-/*====Search catalogue area======*/
+/*==== Search catalogue area ======*/
 .search{
   width:100%;
   position: relative;
@@ -522,7 +514,7 @@ nav img {
 
 } 
 
-/* =======GRID=====*/
+/* ======= GRID for Map =======*/
 .grid{
   height: 95vh;
   width: 100%;
@@ -727,7 +719,7 @@ nav img {
   color: var(--blue);
 }
 
-/* FOREST COVER LAND COVER and MOBILITY*/
+/* FOREST COVER, LAND COVER and MOBILITY*/
 .sub-th-menu,
 .sub-fou-menu,
 .sub-fiv-menu {
@@ -1131,34 +1123,7 @@ nav img {
   padding: 5px;
   margin: 2px 0;
 }
-.kp_measure{
-  width: 95%;
-  margin: 10px auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.kp_group{
-  display: flex;
-  flex-direction: column;
-}
-.kp_unit{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.kp_circle{
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: solid 0.5px rgba(62, 62, 62, 0.5);
-}
-.bar-mesur {
-  width: 280px;
-  margin: 0 auto; /* Bar Measurement Area */
-  height: 5px;
-  border-radius: 5px;
-}
+
 .marker {
   /* legend of layers */
   width: 95%;
@@ -1194,6 +1159,36 @@ nav img {
   display: flex;
   justify-content: space-between;
 }
+/* legend for koppen-geiger*/
+.kp_measure{
+  width: 95%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.kp_group{
+  display: flex;
+  flex-direction: column;
+}
+.kp_unit{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.kp_circle{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: solid 0.5px rgba(62, 62, 62, 0.5);
+}
+.bar-mesur {
+  width: 280px;
+  margin: 0 auto; /* Bar Measurement Area */
+  height: 5px;
+  border-radius: 5px;
+}
+/* Legend for human mobility*/
 .circle-wrapper{
   display: flex;
   flex-direction: row;
@@ -1238,7 +1233,6 @@ nav img {
   position: absolute;
   z-index: 24;
 }
-
 .threex{
   width: 25px;
   height: 25px;
@@ -1284,7 +1278,6 @@ nav img {
   position: absolute;
   z-index: 24;
 }
-
 .threex1{
   width: 25px;
   height: 25px;
@@ -1435,7 +1428,6 @@ nav img {
   color:var(--dark-text);
   margin-left: 1px;
 }
-
 /* Point color features  */
 .af{
   background: #0000ff;
