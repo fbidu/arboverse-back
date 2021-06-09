@@ -399,17 +399,32 @@ nav img {
 }
 .lab-team {
   padding-top: 5vh;
-  width: 50%;
-  margin: 0 auto;
+  width: 85%;
+  margin: 10px auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 .lab {
   padding-top: 1px;
   background-color: hsla(0, 0%, 77%, 0.2);
 }
-
+/* Mobile team */
+@media screen and (max-width: 450px){
+  .team-title h1{
+    width:90%;
+    font-size: 1.3rem;
+  }
+}
+@media screen and (min-width:650px) and (max-width: 750px) and (orientation: landscape){
+  .team-title h1{
+    width:80%;
+    font-size: 1.3rem;
+  }
+  .lab-team{
+    justify-content: center;
+  }
+}
 /* modal Box*/
 .modal {
   visibility: hidden;
