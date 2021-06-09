@@ -324,6 +324,7 @@ nav img {
   display: flex;
   text-align: left;
   align-items: center;
+  flex-direction: row;
   justify-content: space-around;
 }
 .researchdescription img {
@@ -386,8 +387,11 @@ nav img {
   .researchdescription {
     flex-direction: column;
   }
+  .img_wrapper{
+    width: 90%;
+  }
   .researchdescription img {
-    width: 70%;
+    width: 100%;
   }
   .research-content {
     margin-top: 10px;
@@ -422,10 +426,13 @@ nav img {
     padding: 10px;
   }
   .researchdescription {
-    flex-direction: column;
+    flex-direction: row;
+  }
+  .img_wrapper{
+    width: 40%;
   }
   .researchdescription img {
-    width: 40%;
+    width: 90%;
   }
   .research-content {
     margin-top: 10px;
