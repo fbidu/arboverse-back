@@ -314,15 +314,33 @@ nav img {
   flex-wrap: wrap;
 }
 /* Schedule of Grants and Activities*/
+.mural_wrapper{
+  margin: 10px;
+  width: 30%;
+  height:80vh;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+.mural_wrapper h1,
+.calendar_wrapper h1,
+.twitter_wrapper h1{
+  font-family: 'Montserrat', serif;
+  font-weight: 400;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 20px 10px;
+  color: rgb(104, 103, 103);
+}
 .mural{
-  width: 500px;
-  height: 80vh;
+  width: 100%;
+  height: 85%;
   background-color: hsla(0, 0%, 77%,0.2);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   overflow-y:scroll;
   scroll-behavior: smooth;
+  padding: 15px 0;
 }
 #mural::-webkit-scrollbar{
   width: 4px;
@@ -332,20 +350,12 @@ nav img {
   background: #969696;
   border-radius: 10px;
 }
-.mural h1{
-  font-family: 'montserrat', serif;
-  font-weight: 400;
-  text-align: center;
-  font-size: 1.2rem;
-  padding: 20px 10px;
-}
 .mural-unit{
-  width:98%;
+  width: 98%;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
- 
 }
 .vl{
   width: 3px;
@@ -382,6 +392,7 @@ nav img {
   font-weight: 500;
   font-size: 0.9rem;
   color: rgb(104, 103, 103);
+  text-align: left;
 }
 .details-wrapper{
   padding: 5px 0;
@@ -430,6 +441,10 @@ nav img {
   font-family: 'montserrat', serif;
   color:#ff8700;
 }
+
+.activity-name a{
+  text-align: left;
+}
 .read{
   margin: 5px 0px;
   width: 90px;
@@ -445,13 +460,20 @@ nav img {
   background-color: #f89b29;
 }
 /* CALENDAR */
+.calendar_wrapper{
+  margin: 10px;
+  height: 80vh;
+  width:500px;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
 #calendar {
   -webkit-transform: translate3d(0, 0, 0);
   -moz-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   width: 500px;
   margin: 0 auto;
-  height:80vh;
+  height: 70vh;
   overflow: hidden;
   border-radius: 10px;
 }
@@ -491,7 +513,6 @@ nav img {
   border-color: transparent transparent transparent rgba(160, 159, 160, 1);
   right: 20px;
 }
-
 .month {
   /*overflow: hidden;*/
   opacity: 0;
@@ -795,12 +816,215 @@ nav img {
   border-bottom: solid 0.4px rgba(121, 118, 118,0.3);
 }
 /* twitter*/
+.twitter_wrapper{
+  margin: 10px;
+  width: 25%;
+  height: 80vh;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
 .twitterbox {
-  grid-column-start: 6;
-  grid-column-end: 7;
-  width: 22%;
-  height: 85vh;
-  margin-bottom: 10px;
+  width: 100%;
+  height: 70%;
+}
+
+/* Mobile features News*/
+@media screen and (max-width: 450px){
+  .tools-wrapper{
+    margin: 5vh 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px blue;
+  }
+  .mural_wrapper{
+    width: 85%;
+    height: 70vh;
+    margin: 20px;
+  }
+  .mural{
+    width: 100%;
+    height: 80%;
+    margin: 20px auto;
+  }
+  .activity h2{
+    font-size: 0.7rem;
+  }
+  .classification{
+    font-size: 0.7rem;
+  }
+  .activity2{
+    font-size: 0.6rem;
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    height: 70%;
+    padding: 5px;
+  }
+  .calendar_wrapper{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    border-radius: 20px;
+    margin:20px;
+    height: 80vh
+  }
+  #calendar{
+    width: 85vw;
+    height: 85%;
+  }
+  .header{
+    width: 85vw;
+  }
+  .day{
+    width: 14.2%;
+    padding: 3px;
+  }
+  .details{
+    width: 85vw;
+    height: 74px;
+  }
+  .twitter_wrapper{
+    width: 85vw;
+    height: 70vh;
+  }
+  .twitterbox{
+    width: 100%;
+    height: 60%;
+  }
+  .mural_wrapper h1,
+  .calendar_wrapper h1,
+  .twitter_wrapper h1{
+    font-size: 1rem;
+  }
+}
+/* News for Landscape*/
+@media sreen and (min-width: 650px) and (max-width: 750px){
+  .tools-wrapper{
+    margin: 5vh 0;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .mural_wrapper{
+    width: 85vw;
+    height: 70vh;
+    margin: 20px;
+  }
+  .mural{
+    width: 100%;
+    margin: 5px auto;
+    height: 70%;
+  }
+  .activity1 h2{
+    font-size: 0.7rem;
+  }
+  .classification{
+    font-size: 0.7rem;
+  }
+  .activity2{
+    font-size: 0.6rem;
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: 10px;
+    padding: 5px;
+  }
+  .calendar_wrapper{
+    margin: 20px;
+    height: 80vh;
+  }
+  #calenda{
+    width: 85vw;
+    height: 75%;
+    overflow: scroll;
+    scroll-behavior: smooth;
+  }
+  .legend{
+    bottom: -250px;
+    background-color: transparent;
+  }
+  .header{
+    width: 85vw;
+  }
+  .day{
+    width: 14.2%;
+    padding: 3px;
+  }
+  .details{
+    width: 85vw;
+    height: 74px;
+  }
+  .twitter_wrapper{
+    width: 85vw;
+    height: 70vh;
+  }
+  .twitterbox{
+    width: 100%;
+    height: 60%;
+  }
+  .mural_wrapper h1,
+  .calendar_wrapper h1,
+  .twitter_wrapper h1{
+    font-size: 1rem;
+  }
+}
+/* Tablet Size */
+@media screen and (max-width: 900px){
+  .tools-wrapper{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .mural_wrapper{
+    width: 90vw;
+  }
+  .mural{
+    height: 80%;
+  }
+  .calendar_wrapper{
+    width: 90vw;
+    height: 80vh;
+  }
+  #calendar{
+    width: 80vw;
+    height: 80%;
+  }
+  .header{
+    width: 80vw;
+  }
+  .day{
+    width: 14.2%;
+    padding: 3px;
+  }
+  .details{
+    width: 80vw;
+  }
+  .twitter_wrapper{
+    width: 85vw;
+    height: 70vh;
+  }
+}
+/* gap between laptop and tablet*/
+@media screen and (max-width: 1300px){
+  .tools-wrapper{
+    flex-direction: row;
+  }
+  .mural_wrapper{
+    width: 45%;
+  }
+  .twitter_wrapper{
+    width: 40%;
+  }
+}
+@media screen and (max-width: 1000px){
+  .tools-wrapper{
+    flex-direction: row;
+  }
+  .mural_wrapper{
+    width: 80%;
+  }
+  .twitter_wrapper{
+    width: 40%;
+  }
 }
 /*SOCIAL MEDIA*/
 #socialmedia {
