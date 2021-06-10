@@ -835,7 +835,6 @@ nav img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: solid 1px blue;
   }
   .mural_wrapper{
     width: 85%;
@@ -870,6 +869,8 @@ nav img {
   #calendar{
     width: 85vw;
     height: 85%;
+    overflow: scroll;
+    scroll-behavior: smooth;
   }
   .header{
     width: 85vw;
@@ -881,6 +882,12 @@ nav img {
   .details{
     width: 85vw;
     height: 74px;
+  }
+  .legend{
+    bottom: -150px;
+  }
+  .entry{
+    font-size: 10px;
   }
   .twitter_wrapper{
     width: 85vw;
