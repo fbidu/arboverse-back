@@ -1,637 +1,242 @@
 {% extends 'base.html' %}{% load static %}
 {% block resources %}
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/collaborators.css' %}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" type="text/css" href="{% static 'css/collaborators.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 {% endblock %}
 {% block title%} Collaborators Arboverse {% endblock %}
 {% block content %}
 <main>
     <div class="team-title">
-        <h1>Arboverse Plattform Team</h1>
+        <h1>ARBO<span class="orange">VERSE</span> Dashboard Team</h1>
     </div>
-    <div class="card_container">
-        <div class="plattform-team">
-            <!--WILLIAM MARCIEL DE SOUZA-->
-            <div class="card">
-                <div class="card__inner">
-                    <div class="card__face card__face--front">
-                        <div class="single-team">
-                            <img src="{% static 'images/Collaborators/William Merciel de Souza.jpg' %}"
-                                alt="Photograph of William Marciel de Souza">
-                            <div class="team-text">
-                                <h2>William Marciel de Souza, PhD</h2>
-                                <p>Universidade de São Paulo, Brazil</p>
-                                <p>
-                                    <a href="https://orcid.org/0000-0002-0025-8293" target="_blank"><i
-                                            class="ai ai-orcid ai-2x"></i></a>
-                                    <a href="https://www.researchgate.net/profile/William_Souza3" target="_blank"><i
-                                            class="ai ai-researchgate ai-2x"></i></a>
-                                    <a href="https://scholar.google.com.br/citations?user=WGc3XJ8AAAAJ&hl=en"
-                                        target="_blank"><i class="ai ai-google-scholar ai-2x"></i></a>
-                                    <a href="https://twitter.com/wmarciels" target="_blank"><i
-                                            class="fa fa-twitter fa-2x"></i></a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single team close tag-->
-                    </div>
-                    <!--card__face close tag-->
-                    <div class="card__face card__face--back">
-                        <div class="card__header">
-                            <h2>William Marciel de Souza, PhD</h2>
-                            <div class=line></div>
-                        </div>
-                        <!--card__header close tag-->
-                        <div class="card__body">
-                            <p>FAPESP Postdoctoral researcher at the Virology Center Research, University of São Paulo,
-                                Brazil. He is a member of the International Committee of Taxonomy of Viruses
-                                (Peribunyaviridae and Hepeviridae Group). Dr. Souza work focuses on prospective, genomic
-                                and evolutionary studies of arboviruses and emerging zoonotic viruses.</p>
-                        </div>
-                        <!--card__body close tag-->
-                    </div><!-- Card_face --back close tag-->
-                </div><!-- CArd__inner close tag-->
+    <div class="plattform-team" id="plattform-team">
+        <!--WILLIAM MARCIEL DE SOUZA-->
+        <div class="single-team">
+            <img src="{% static 'images/Collaborators/William Merciel de Souza.jpg' %}"
+                alt="Photograph of William Marciel de Souza">
+            <div class="team-text">
+                <h2>William Marciel de Souza, PhD</h2>
+                <p>Universidade de São Paulo, Brazil</p>
+                <p>
+                    <a href="https://orcid.org/0000-0002-0025-8293" target="_blank"><i
+                            class="ai ai-orcid ai-2x"></i></a>
+                    <a href="https://www.researchgate.net/profile/William_Souza3" target="_blank"><i
+                            class="ai ai-researchgate ai-2x"></i></a>
+                    <a href="https://scholar.google.com.br/citations?user=WGc3XJ8AAAAJ&hl=en" target="_blank"><i
+                            class="ai ai-google-scholar ai-2x"></i></a>
+                    <a href="https://twitter.com/wmarciels" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+                    <a href="#william-modal"><i class="fa fa-info-circle fa-2x"></i></a>
+                </p>
             </div>
-            <!--CARD close Tag-->
-            <!--Luciana SOUTO MOFATTO-->
-            <div class="card">
-                <div class="card__inner">
-                    <div class="card__face card__face--front">
-                        <div class="single-team">
-                            <img src="{% static 'images/Collaborators/Luciana SOuto.jpeg' %}"
-                                alt="Photograph of Luciana Souto Mofatto">
-                            <div class="team-text">
-                                <h2>Luciana Souto Mofatto, PhD</h2>
-                                <p>Universidade Estadual de Campinas, Brazil</p>
-                                <p>
-                                    <a href="https://orcid.org/0000-0002-2087-7251" target="_blank"><i
-                                            class="ai ai-orcid ai-2x"></i></a>
-                                    <a href="https://www.researchgate.net/profile/Luciana-Mofatto" target="_blank"><i
-                                            class="ai ai-researchgate ai-2x"></i></a>
-                                    <a href="https://scholar.google.com.br/citations?hl=en&user=x2CgmVAAAAAJ"
-                                        target="_blank"><i class="ai ai-google-scholar ai-2x"></i></a>
-                                </p>
-                            </div>
-                            <!--Team-text close tag-->
-                        </div>
-                        <!--Single team close tag-->
-                    </div>
-                    <!--card__face close tag-->
-                    <div class="card__face card__face--back">
-                        <div class="card__header">
-                            <h2>Luciana Souto Mofatto, PhD</h2>
-                            <div class=line></div>
-                        </div>
-                        <!--card__header close tag-->
-                        <div class="card__body">
-                            <p>I am currently a fellow in Industrial Technological Development (DTI-A / CNPq) of the
-                                Corona-Ômica Network, working in the bioinformatics area with the Emerging Virus Studies
-                                Laboratory (LEVE / UNICAMP)</p>
-                        </div>
-                        <!--card__body close tag-->
-                    </div><!-- Card_face --back close tag-->
-                </div><!-- CArd__inner close tag-->
-            </div>
-            <!--CARD close Tag-->
-            <!--Osvaldo Reis-->
-            <div class="card">
-                <div class="card__inner">
-                    <div class="card__face card__face--front">
-                        <div class="single-team">
-                            <img src="{% static 'images/Collaborators/OSwaldo.jpg' %}"
-                                alt="Photograph of Oswaldo Reis Junior">
-                            <div class="team-text">
-                                <h2>Osvaldo Reis Júnior, MSc</h2>
-                                <p>Universidade Estadual de Campinas, Brazil</p>
-                                <p>
-                                    <a href="#" target="_blank"><i class="ai ai-orcid ai-2x"></i></a>
-                                    <a href="https://www.researchgate.net/profile/Osvaldo-Reis-Junior"
-                                        target="_blank"><i class="ai ai-researchgate ai-2x"></i></a>
-                                    <a href="#" target="_blank"><i class="ai ai-google-scholar ai-2x"></i></a>
-                                    <a href="https://twitter.com/osvaldoreisss" target="_blank"><i
-                                            class="fa fa-twitter fa-2x"></i></a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single team close tag-->
-                    </div>
-                    <!--card__face close tag-->
-                    <div class="card__face card__face--back">
-                        <div class="card__header">
-                            <h2>Oswaldo Reis Junior, Msc</h2>
-                            <div class=line></div>
-                        </div>
-                        <!--card__header close tag-->
-                        <div class="card__body">
-                            <p>I'm a Phd student in Genetics and Molecular Biology (Bioinformatics) at the State
-                                University of Campinas/UNICAMP, which is best graduate school in this area according to
-                                Capes (Coordination for the Improvement of Higher Education Personnel, foundation of
-                                Ministry of Education).</p>
-                        </div>
-                        <!--card__body close tag-->
-                    </div><!-- Card_face --back close tag-->
-                </div><!-- CArd__inner close tag-->
-            </div>
-            <!--CARD close Tag-->
-            <!--Felipe Bidu-->
-            <div class="card">
-                <div class="card__inner">
-                    <div class="card__face card__face--front">
-                        <div class="single-team">
-                            <img src="{% static 'images/Collaborators/Felipe Bidu.jpeg' %}"
-                                alt="Photograph of Felipe Rodrigues Bidu">
-                            <div class="team-text">
-                                <h2>Felipe Rodrigues Bidu</h2>
-                                <p>Software Engineer</p>
-                                <p>
-                                    <a href="https://twitter.com/fevir0" target="_blank"><i
-                                            class="fa fa-twitter fa-2x"></i></a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single team close tag-->
-                    </div>
-                    <!--card__face close tag-->
-                    <div class="card__face card__face--back">
-                        <div class="card__header">
-                            <h2>Felipe Rodrigues Bidu</h2>
-                            <div class=line></div>
-                        </div>
-                        <!--card__header close tag-->
-                        <div class="card__body">
-                            <p>Senior Software Engineer in Doist. Infrastructure Architect. Software Developer</p>
-                        </div>
-                        <!--card__body close tag-->
-                    </div><!-- Card_face --back close tag-->
-                </div><!-- CArd__inner close tag-->
-            </div>
-            <!--CARD close Tag-->
-            <!--Jacqueline Tida-->
-            <div class="card">
-                <div class="card__inner">
-                    <div class="card__face card__face--front">
-                        <div class="single-team">
-                            <img src="{% static 'images/Collaborators/JacquelineTida.jpg' %}"
-                                alt="Photograph of Jacqueline Atsuko Tida">
-                            <div class="team-text">
-                                <h2>Jacqueline Atsuko Tida</h2>
-                                <p>Web Design</p>
-                                <p>
-                                    <a href="mailto:jacquelinetida@gmail.com" target="_blank"><i
-                                            class="fa fa-envelope fa-2x"></i></a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single team close tag-->
-                    </div>
-                    <!--card__face close tag-->
-                    <div class="card__face card__face--back">
-                        <div class="card__header">
-                            <h2>Jacqueline Atsuko Tida</h2>
-                            <div class=line></div>
-                        </div>
-                        <!--card__header close tag-->
-                        <div class="card__body">
-                            <p>Web Design newbie and Frontend Development</p>
-                        </div>
-                        <!--card__body close tag-->
-                    </div><!-- Card_face --back close tag-->
-                </div><!-- CArd__inner close tag-->
-            </div>
-            <!--CARD close Tag-->
         </div>
-        <!--platfform-team-->
-        <div class="lab">
-            <div class="team-title">
-                <h1>Laboratory Team</h1>
+        <!--Luciana SOUTO MOFATTO-->
+        <div class="single-team">
+            <img src="{% static 'images/Collaborators/Luciana SOuto.jpeg' %}" alt="Photograph of Luciana Souto Mofatto">
+            <div class="team-text">
+                <h2>Luciana Souto Mofatto, PhD</h2>
+                <p>Universidade Estadual de Campinas, Brazil</p>
+                <p>
+                    <a href="https://orcid.org/0000-0002-2087-7251" target="_blank"><i
+                            class="ai ai-orcid ai-2x"></i></a>
+                    <a href="https://www.researchgate.net/profile/Luciana-Mofatto" target="_blank"><i
+                            class="ai ai-researchgate ai-2x"></i></a>
+                    <a href="https://scholar.google.com.br/citations?hl=en&user=x2CgmVAAAAAJ" target="_blank"><i
+                            class="ai ai-google-scholar ai-2x"></i></a>
+                    <a href="#luciana-modal"><i class="fa fa-info-circle fa-2x"></i></a>
+                </p>
             </div>
-            <div class="lab-team">
-                <!--Priscila Barbosa-->
-                <div class="card">
-                    <div class="card__inner">
-                        <div class="card__face card__face--front">
-                            <div class="single-team">
-                                <img src="{% static 'images/Collaborators/Priscilla Pascoal Barbosa.jpeg' %}"
-                                    alt="Photograph of Priscilla Pascoal Barbosa">
-                                <div class="team-text">
-                                    <h2>Priscilla Paschoal Barbosa, MSc</h2>
-                                    <p>Universidade Estadual de Campinas, Brazil</p>
-                                    <p>
-                                        <a href="https://orcid.org/0000-0003-4403-4395" target="_blank"><i
-                                                class="ai ai-orcid ai-2x"></i></a>
-                                        <a href="https://www.researchgate.net/profile/Priscilla-Barbosa-3"
-                                            target="_blank"><i class="ai ai-researchgate ai-2x"></i></a>
-                                        <a href="https://scholar.google.com/citations?user=do_MSkUAAAAJ&hl=pt-BR"
-                                            target="_blank"><i class="ai ai-google-scholar ai-2x"></i></a>
-                                    </p>
-                                </div>
-                            </div>
-                            <!--Single team close tag-->
-                        </div>
-                        <!--card__face close tag-->
-                        <div class="card__face card__face--back">
-                            <div class="card__header">
-                                <h2>Priscilla Paschoal Barbosa, MSc</h2>
-                                <div class=line></div>
-                            </div>
-                            <!--card__header close tag-->
-                            <div class="card__body">
-                                <p>PhD student at the University of Campinas (Brazil) in the Department of Genetics,
-                                    Evolution, Microbiology and Immunology. For her dissertation, Priscilla will be
-                                    standardizing a low-cost molecular diagnostic method for neglected arboviruses and
-                                    conducting molecular epidemiology studies on arboviruses in the tri-border area
-                                    (Brazil, Paraguay and Bolivia).</p>
-                            </div>
-                            <!--card__body close tag-->
-                        </div><!-- Card_face --back close tag-->
-                    </div><!-- CArd__inner close tag-->
-                </div>
-                <!--CARD close Tag-->
-                <!--Shirlene Telmos-->
-                <div class="card">
-                    <div class="card__inner">
-                        <div class="card__face card__face--front">
-                            <div class="single-team">
-                                <img src="{% static 'images/Collaborators/shirlene telmos.jpg' %}"
-                                    alt="Photograph of Shirlene Telmos">
-                                <div class="team-text">
-                                    <h2>Shirlene Telmos, PhD</h2>
-                                    <p>Universidade Estadual de Campinas, Brazil</p>
-                                    <p>
-                                        <a href="#" target="_blank"><i class="ai ai-orcid ai-2x"></i></a>
-                                        <a href="#" target="_blank"><i class="ai ai-researchgate ai-2x"></i></a>
-                                        <a href="#" target="_blank"><i class="ai ai-google-scholar ai-2x"></i></a>
-                                    </p>
-                                </div>
-                            </div>
-                            <!--Single team close tag-->
-                        </div>
-                        <!--card__face close tag-->
-                        <div class="card__face card__face--back">
-                            <div class="card__header">
-                                <h2>Shirlene Telmos, PhD</h2>
-                                <div class=line></div>
-                            </div>
-                            <!--card__header close tag-->
-                            <div class="card__body">
-                                <p>Laboratorist at Laboratory of Public Health of the State of Ceará and Visiting
-                                    Researcher at the University of Campinas (Brazil) in the Department of Genetics,
-                                    Evolution, Microbiology and Immunology. She works on arboviruses associated with
-                                    central nervous system infection and in fatal cases in Ceará State, Brazil. </p>
-                            </div>
-                            <!--card__body close tag-->
-                        </div><!-- Card_face --back close tag-->
-                    </div><!-- CArd__inner close tag-->
-                </div>
-                <!--CARD close Tag-->
-            </div>
-            <!--Lab team close tag-->
+            <!--Team-text close tag-->
         </div>
-        <!--Close tag back-lab-->
+        <!--Osvaldo Reis-->
+        <div class="single-team">
+            <img src="{% static 'images/Collaborators/OSwaldo.jpg' %}" alt="Photograph of Oswaldo Reis Junior">
+            <div class="team-text">
+                <h2>Osvaldo Reis Júnior, MSc</h2>
+                <p>Universidade Estadual de Campinas, Brazil</p>
+                <p>
+                    <a href="#" target="_blank"><i class="ai ai-orcid ai-2x"></i></a>
+                    <a href="https://www.researchgate.net/profile/Osvaldo-Reis-Junior" target="_blank"><i
+                            class="ai ai-researchgate ai-2x"></i></a>
+                    <a href="#" target="_blank"><i class="ai ai-google-scholar ai-2x"></i></a>
+                    <a href="https://twitter.com/osvaldoreisss" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+                    <a href="#oswaldo-modal"><i class="fa fa-info-circle fa-2x"></i></a>
+                </p>
+            </div>
+        </div>
+        <!--Felipe Bidu-->
+        <div class="single-team" id="bidu">
+            <img src="{% static 'images/Collaborators/Felipe Bidu.jpeg' %}" alt="Photograph of Felipe Rodrigues Bidu">
+            <div class="team-text">
+                <h2>Felipe Rodrigues Bidu</h2>
+                <p>Software Engineer</p>
+                <p>
+                    <a href="https://twitter.com/fevir0" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+                    <a href="#bidu-modal"><i class="fa fa-info-circle fa-2x"></i></a>
+                </p>
+            </div>
+        </div>
+        <!--Poliana Lemos-->
+        <div class="single-team" id="polianna">
+            <img src="{% static 'images/Collaborators/Poliana-Lemos.jpeg' %}"
+                alt="Photograph of Polianna da Silva Lemos">
+            <div class="team-text">
+                <h2>Polianna da Silva Lemos, PhD</h2>
+                <p>Universidade de São Paulo, Brazil</p>
+                <p>
+                    <a href="https://orcid.org/0000-0003-1271-8549" target="_blank"><i
+                            class="ai ai-orcid ai-2x"></i></a>
+                    <a href="https://www.researchgate.net/profile/Poliana-Lemos" target="_blank"><i
+                            class="ai ai-researchgate ai-2x"></i></a>
+                    <a href="https://scholar.google.com.br/citations?user=-GaJymoAAAAJ&hl=pt-BR" target="_blank"><i
+                            class="ai ai-google-scholar ai-2x"></i></a>
+                    <a href="#polianna-modal"><i class="fa fa-info-circle fa-2x"></i></a>
+                </p>
+            </div>
+        </div>
+        <!--Jacqueline Tida-->
+        <div class="single-team" id="jacqueline">
+            <img src="{% static 'images/Collaborators/JacquelineTida.jpg' %}"
+                alt="Photograph of Jacqueline Atsuko Tida">
+            <div class="team-text">
+                <h2>Jacqueline Atsuko Tida</h2>
+                <p>Web Designer</p>
+                <p>
+                    <a href="mailto:jacquelinetida@gmail.com" target="_blank"><i class="fa fa-envelope fa-2x"></i></a>
+                    <a href="#jacqueline-modal"><i class="fa fa-info-circle fa-2x"></i></a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="william-modal" class="modal">
+        <div class="modal__content">
+            <div class="modal_inner">
+                <h2>William Marciel de Souza, PhD</h2>
+                <p>FAPESP Postdoctoral researcher at the Virology Center Research, University of São Paulo, Brazil.
+                    He is a member of the International Committee of Taxonomy of Viruses (Peribunyaviridae and
+                    Hepeviridae Group). Dr. Souza work focuses on prospective, genomic and evolutionary studies of
+                    arboviruses and emerging zoonotic viruses.</p>
+            </div>
+            <a href="#plattform-team" class="modal__close">&times;</a>
+        </div>
+    </div>
+    <div id="luciana-modal" class="modal">
+        <div class="modal__content">
+            <div class="modal_inner">
+                <h2>Luciana Souto Mofatto, PhD</h2>
+                <p>I am currently a fellow in Industrial Technological Development (DTI-A / CNPq) of the
+                    Corona-Ômica Network, working in the bioinformatics area with the Emerging Virus Studies
+                    Laboratory (LEVE / UNICAMP).</p>
+            </div>
+            <a href="#plattform-team" class="modal__close">&times;</a>
+        </div>
+    </div>
+    <div id="oswaldo-modal" class="modal">
+        <div class="modal__content">
+            <div class="modal_inner">
+                <h2>Osvaldo Reis Júnior, MSc</h2>
+                <p>I'm a Phd student in Genetics and Molecular Biology (Bioinformatics) at the State University of
+                    Campinas/UNICAMP, which is best graduate school in this area according to Capes (Coordination
+                    for the Improvement of Higher Education Personnel, foundation of Ministry of Education).</p>
+            </div>
+            <a href="#plattform-team" class="modal__close">&times;</a>
+        </div>
+    </div>
+    <div id="bidu-modal" class="modal">
+        <div class="modal__content">
+            <div class="modal_inner">
+                <h2>Felipe Rodrigues Bidu</h2>
+                <p>Senior Software Engineer in Doist.<br> Infrastructure Architect.<br> Software Developer.</p>
+            </div>
+            <a href="#bidu" class="modal__close">&times;</a>
+        </div>
+    </div>
+    <div id="polianna-modal" class="modal">
+        <div class="modal__content">
+            <div class="modal_inner">
+                <h2>Polianna da Silva Lemos, PhD</h2>
+                <p>Graduated from the Full Degree Course in Biology (IFPA), with a master's degree in Parasitic
+                    Biology from the Amazon, from the State University of Pará (UEPA) in partnership with Instituto
+                    Evandro Chagas / SVS / MS, and a doctorate from the Postgraduate Program in Biology of
+                    Infectious and Parasitic Agents of the Institute of Biological Sciences (ICB) of the Federal
+                    University of Pará (UFPA). Currently, she is developing a post-doctoral internship at the
+                    Faculty of Public Health of the University of São Paulo (FSP-USP), under the supervision of Dr.
+                    Maria Anice Sallum and is a Technical Consultant in Vector Control of the Pan American Health
+                    Organization (PAHO). They have experience in the field of Medical Entomology, Virology,
+                    Microbiology, Genomics and Transcriptomics.</p>
+            </div>
+            <a href="#polianna" class="modal__close">&times;</a>
+        </div>
+    </div>
+    <div id="jacqueline-modal" class="modal">
+        <div class="modal__content">
+            <div class="modal_inner">
+                <h2>Jacqueline Atsuko Tida</h2>
+                <p>Web desginer.<br>Front-end Engineer in progress.</p>
+            </div>
+            <a href="#jacqueline" class="modal__close">&times;</a>
+        </div>
+    </div>
+    <div class="lab">
         <div class="team-title">
-            <h1>Colaborattors</h1>
+            <h1>Laboratory Team</h1>
         </div>
-        <div class="colaborattors-team">
-            <!--Prof. Tadeu-->
-            <div class="card">
-                <div class="card__inner">
-                    <div class="card__face card__face--front">
-                        <div class="single-team">
-                            <img src="{% static 'images/Collaborators/Luiz Tadeu.jpg' %}"
-                                alt="Photograph of Luiz Tadeu Moraes Figueiredo">
-                            <div class="team-text">
-                                <h2>Prof. Luiz Tadeu Moraes Figueiredo, MD, PhD</h2>
-                                <p>Universidade de São Paulo, Brazil</p>
-                                <p>
-                                    <a href="https://orcid.org/0000-0002-6800-6076" target="_blank"><i
-                                            class="ai ai-orcid ai-2x"></i></a>
-                                    <a href="https://scholar.google.com.br/citations?hl=pt-BR&user=l_gIavMAAAAJ"
-                                        target="_blank"><i class="ai ai-google-scholar ai-2x"></i></a>
-                                    <a href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4787420Z6&tokenCaptchar=03AGdBq25ml-O-flcJhnoD8eMYxzK2EhKdoj4PYiTbzjYnXOKYFMPXaUcvEPe_TKjPasbZMbnV4frUgjp5-FmR9Wr1zZtz_23YcP_7x12yC4wKEtaLuiLiMFVbGXf1GGlk_8dty7D4VFBQK0I3LsuyVWIyobQ1RJDmp2yZXuuw2wdkDER1Rg0TnAQRGTt-ao3E_fgp4MuPdGMN4XItGW5R4NPEYEjpqdJ_OcMQvaK7VxxV1DITkumZIu-LG_mmvxD8qSBn_5y2eerkszwdLVaviVzKuFrtDMsbnE92gJe7BMErTvvA9zxkI4AQESMGZlbZteCsmbqFs_ks4sfgRW-BsoFdvYSi5TuW8SgjprPZCoE8yK7m1tnw6AJ4O9GyqBQZcgcs_3iiOjLbP8YgPlgdqNYCJTzoj0BB7H_muyKa8u3_0VbG2dWTlGhQBQMvdv3PXXG47dd-0vYCRvdC2UNihJ6MnDdDkQXUe9jBZQLHPMCrZLt_CWNNd0rGeHx00ET3XwrkmzHGwtS6d7v4cZAR22J5n8V3Rd2i4g"
-                                        target="_blank"><i class="ai ai-lattes ai-2x"></i></a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single team close tag-->
-                    </div>
-                    <!--card__face close tag-->
-                    <div class="card__face card__face--back">
-                        <div class="card__header">
-                            <h2>Prof. Luiz Tadeu Moraes Figueiredo, MD, PhD</h2>
-                            <div class=line></div>
-                        </div>
-                        <!--card__header close tag-->
-                        <div class="card__body">
-                            <p>Full professor of Ribeirão Preto Medical School and Chair of Virology Center Research at
-                                the University of São Paulo. Dr. Figueiredo is a collaborator with Arboverse with
-                                studies characterization and diagnosis of arboviruses.</p>
-                        </div>
-                        <!--card__body close tag-->
-                    </div><!-- Card_face --back close tag-->
-                </div><!-- CArd__inner close tag-->
+        <div class="lab-team" id="lab-team">
+            <!--Priscila Barbosa-->
+            <div class="single-team">
+                <img src="{% static 'images/Collaborators/Priscilla Pascoal Barbosa.jpeg' %}"
+                    alt="Photograph of Priscilla Pascoal Barbosa">
+                <div class="team-text">
+                    <h2>Priscilla Paschoal Barbosa, MSc</h2>
+                    <p>Universidade Estadual de Campinas, Brazil</p>
+                    <p>
+                        <a href="https://orcid.org/0000-0003-4403-4395" target="_blank"><i
+                                class="ai ai-orcid ai-2x"></i></a>
+                        <a href="https://www.researchgate.net/profile/Priscilla-Barbosa-3" target="_blank"><i
+                                class="ai ai-researchgate ai-2x"></i></a>
+                        <a href="https://scholar.google.com/citations?user=do_MSkUAAAAJ&hl=pt-BR" target="_blank"><i
+                                class="ai ai-google-scholar ai-2x"></i></a>
+                        <a href="#priscilla-modal"><i class="fa fa-info-circle fa-2x"></i></a>
+                    </p>
+                </div>
             </div>
-            <!--CARD close Tag-->
-            <!--Pablo Murcia-->
-            <div class="card">
-                <div class="card__inner">
-                    <div class="card__face card__face--front">
-                        <div class="single-team">
-                            <img src="{% static 'images/Collaborators/pablomurcia.jpg' %}" alt="Photograph of Pablo Murcia">
-                            <div class="team-text">
-                                <h2>Prof. Pablo Murcia, PhD</h2>
-                                <p>University of Glasgow, UK</p>
-                                <p>
-                                    <a href="https://orcid.org/0000-0002-0025-8293" target="_blank"><i
-                                            class="ai ai-orcid ai-2x"></i></a>
-                                    <a href="https://www.researchgate.net/profile/Pablo-Murcia" target="_blank"><i
-                                            class="ai ai-researchgate ai-2x"></i></a>
-                                    <a href="https://scholar.google.com.br/citations?hl=pt-BR&user=fk8_9QsAAAAJ"
-                                        target="_blank"><i class="ai ai-google-scholar ai-2x"></i></a>
-                                    <a href="https://twitter.com/PabloRMurcia" target="_blank"><i
-                                            class="fa fa-twitter fa-2x"></i></a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single team close tag-->
-                    </div>
-                    <!--card__face close tag-->
-                    <div class="card__face card__face--back">
-                        <div class="card__header">
-                            <h2>Prof. Pablo Murcia, PhD</h2>
-                            <div class=line></div>
-                        </div>
-                        <!--card__header close tag-->
-                        <div class="card__body">
-                            <p>Professor of Integrative Virology at Centre for Virus Research, University of Glasgow,
-                                UK. His main research interest is to understand the molecular and evolutionary
-                                mechanisms that underpin viral host switching and viral emergence. Dr. Murcia is a
-                                collaborator of Arboverse in Virus Discovery studies.</p>
-                        </div>
-                        <!--card__body close tag-->
-                    </div><!-- Card_face --back close tag-->
-                </div><!-- CArd__inner close tag-->
+            <!--Shirlene Telmos-->
+            <div class="single-team">
+                <img src="{% static 'images/Collaborators/shirlene_telmos.jpeg' %}" alt="Photograph of Shirlene Telmos">
+                <div class="team-text">
+                    <h2>Shirlene Telmos, PhD</h2>
+                    <p>Universidade Estadual de Campinas, Brazil</p>
+                    <p>
+                        <a href="https://orcid.org/0000-0003-4738-9626" target="_blank"><i class="ai ai-orcid ai-2x"></i></a>
+                        <a href="https://www.researchgate.net/profile/Shirlene-Lima" target="_blank"><i class="ai ai-researchgate ai-2x"></i></a>
+                        <a href="https://scholar.google.com/citations?hl=pt-BR&user=2BjiJtIAAAAJ" target="_blank"><i class="ai ai-google-scholar ai-2x"></i></a>
+                        <a href="#shirlene-modal"><i class="fa fa-info-circle fa-2x"></i></a>
+                    </p>
+                </div>
             </div>
-            <!--CARD close Tag-->
-            <!--Nuno Faria-->
-            <div class="card">
-                <div class="card__inner">
-                    <div class="card__face card__face--front">
-                        <div class="single-team">
-                            <img src="{% static 'images/Collaborators/Nunofaria2.jpg' %}" alt="Photograph of Nuno Faria">
-                            <div class="team-text">
-                                <h2>Prof. Nuno Faria, PhD</h2>
-                                <p>Imperial College London, UK</p>
-                                <p>
-                                    <a href="https://orcid.org/0000-0002-9747-8822" target="_blank"><i
-                                            class="ai ai-orcid ai-2x"></i></a>
-                                    <a href="https://www.researchgate.net/profile/Nuno-Faria-2" target="_blank"><i
-                                            class="ai ai-researchgate ai-2x"></i></a>
-                                    <a href="https://scholar.google.com.br/citations?hl=pt-BR&user=Po90eWwAAAAJ"
-                                        target="_blank"><i class="ai ai-google-scholar ai-2x"></i></a>
-                                    <a href="https://twitter.com/nmrfaria" target="_blank"><i
-                                            class="fa fa-twitter fa-2x"></i></a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single team close tag-->
-                    </div>
-                    <!--card__face close tag-->
-                    <div class="card__face card__face--back">
-                        <div class="card__header">
-                            <h2>Prof. Nuno Faria, PhD</h2>
-                            <div class=line></div>
-                        </div>
-                        <!--card__header close tag-->
-                        <div class="card__body">
-                            <p>Reader in the Department for Infectious Disease Epidemiology at Imperial College London,
-                                UK. He is interested in the epidemiology and evolution of rapidly evolving viruses that
-                                circulate in human, vector and animal populations, particularly arboviruses and
-                                SARS-CoV-2. Dr. Faria is a collaborator in arboviruses epidemiology and SARS-CoV-2
-                                response in Brazil.</p>
-                        </div>
-                        <!--card__body close tag-->
-                    </div><!-- Card_face --back close tag-->
-                </div><!-- CArd__inner close tag-->
-            </div>
-            <!--CARD close Tag-->
-            <!--Prof. José Luiz Proença-Modena, PhD-->
-            <div class="card">
-                <div class="card__inner">
-                    <div class="card__face card__face--front">
-                        <div class="single-team">
-                            <img src="{% static 'images/Collaborators/joseluizmodena.jpg' %}"
-                                alt="Photograph of Jose Luiz Proença-Modena">
-                            <div class="team-text">
-                                <h2>Prof. José Luiz Proença-Modena, PhD</h2>
-                                <p>Universidade Estadual de Campinas, Brazil</p>
-                                <p>
-                                    <a href="https://orcid.org/0000-0002-4996-3153" target="_blank"><i
-                                            class="ai ai-orcid ai-2x"></i></a>
-                                    <a href="https://www.researchgate.net/profile/Jose-Luiz-Modena" target="_blank"><i
-                                            class="ai ai-researchgate ai-2x"></i></a>
-                                    <a href="https://scholar.google.com.br/citations?hl=pt-BR&user=hwbT7c4AAAAJ"
-                                        target="_blank"><i class="ai ai-google-scholar ai-2x"></i></a>
-                                    <a href="https://twitter.com/LeveUnicamp" target="_blank"><i
-                                            class="fa fa-twitter fa-2x"></i></a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single team close tag-->
-                    </div>
-                    <!--card__face close tag-->
-                    <div class="card__face card__face--back">
-                        <div class="card__header">
-                            <h2>Prof. José Luiz Proença-Modena, PhD</h2>
-                            <div class=line></div>
-                        </div>
-                        <!--card__header close tag-->
-                        <div class="card__body">
-                            <p>Assistant Professor at the University of Campinas (Brazil) in the Department of Genetics,
-                                Evolution, Microbiology and Immunology. His research interests revolve pathogenic
-                                mechanisms of arboviruses and emerging respiratory viruses. Dr. Proença-Modena is a
-                                partner with pathogenesis, epidemiology and SARS-CoV-2 studies.</p>
-                        </div>
-                        <!--card__body close tag-->
-                    </div><!-- Card_face --back close tag-->
-                </div><!-- CArd__inner close tag-->
-            </div>
-            <!--CARD close Tag-->
-            <!--Marcílio Jorge Fumagalli, MSc-->
-            <div class="card">
-                <div class="card__inner">
-                    <div class="card__face card__face--front">
-                        <div class="single-team">
-                            <img src="{% static 'images/Collaborators/Marcíliofumagali.jpg' %}"
-                            alt="Photograph of Marcílio Jorge Fumagalli">
-                            <div class="team-text">
-                                <h2>Marcílio Jorge Fumagalli, MSc</h2>
-                                <p>Univesidade de São Paulo, Brazil</p>
-                                <p>
-                                    <a href="https://orcid.org/0000-0002-0207-5423" target="_blank"><i
-                                            class="ai ai-orcid ai-2x"></i></a>
-                                    <a href="https://www.researchgate.net/profile/Marcilio-Fumagalli" target="_blank"><i
-                                            class="ai ai-researchgate ai-2x"></i></a>
-                                    <a href="https://scholar.google.com.br/citations?hl=pt-BR&user=wmVw2YEAAAAJ"
-                                        target="_blank"><i class="ai ai-google-scholar ai-2x"></i></a>
-                                    <a href="https://twitter.com/j_fumagalli" target="_blank"><i
-                                            class="fa fa-twitter fa-2x"></i></a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single team close tag-->
-                    </div>
-                    <!--card__face close tag-->
-                    <div class="card__face card__face--back">
-                        <div class="card__header">
-                            <h2>Marcílio Jorge Fumagalli, MSc</h2>
-                            <div class=line></div>
-                        </div>
-                        <!--card__header close tag-->
-                        <div class="card__body">
-                            <p>PhD student at the University of São Paulo (Brazil) in the Graduate Program in Basic and
-                                Applied Immunology of the Ribeirão Preto Medicinal School. He is work focuses on
-                                development of novel diagnosis assay and pathogenesis of arboviruses.</p>
-                        </div>
-                        <!--card__body close tag-->
-                    </div><!-- Card_face --back close tag-->
-                </div><!-- CArd__inner close tag-->
-            </div>
-            <!--CARD close Tag-->
-            <!--Robert Gifford, PhD-->
-            <div class="card">
-                <div class="card__inner">
-                    <div class="card__face card__face--front">
-                        <div class="single-team">
-                            <img src="{% static 'images/Collaborators/Robertgifford.jpg' %}"
-                                alt="Photograph of Robert Gifford">
-                            <div class="team-text">
-                                <h2>Robert Gifford, PhD</h2>
-                                <p>University of Glasgow, UK</p>
-                                <p>
-                                    <a href="https://orcid.org/0000-0003-4028-9884" target="_blank"><i
-                                            class="ai ai-orcid ai-2x"></i></a>
-                                    <a href="https://www.researchgate.net/profile/Robert-Gifford" target="_blank"><i
-                                            class="ai ai-researchgate ai-2x"></i></a>
-                                    <a href="https://scholar.google.com.br/citations?hl=pt-BR&user=GGAADUkAAAAJ"
-                                        target="_blank"><i class="ai ai-google-scholar ai-2x"></i></a>
-                                    <a href="https://twitter.com/Paleovirologist" target="_blank"><i
-                                            class="fa fa-twitter fa-2x"></i></a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single team close tag-->
-                    </div>
-                    <!--card__face close tag-->
-                    <div class="card__face card__face--back">
-                        <div class="card__header">
-                            <h2>Robert Gifford, PhD</h2>
-                            <div class=line></div>
-                        </div>
-                        <!--card__header close tag-->
-                        <div class="card__body">
-                            <p>Evolutionary Biologist at the MRC-University of Glasgow Centre for Virus Research. He is
-                                research is the development of theories that link our growing understanding of
-                                contemporary viruses with ecological and evolutionary phenomena that took place over
-                                timescales ranging from hundreds to millions of years.</p>
-                        </div>
-                        <!--card__body close tag-->
-                    </div><!-- Card_face --back close tag-->
-                </div><!-- CArd__inner close tag-->
-            </div>
-            <!--CARD close Tag-->
-            <!--Prof. Ester Sabino, MD, PhD-->
-            <div class="card">
-                <div class="card__inner">
-                    <div class="card__face card__face--front">
-                        <div class="single-team">
-                            <img src="{% static 'images/Collaborators/ester sabino.jpg' %}"alt="Photograph of Ester Sabino">
-                            <div class="team-text">
-                                <h2>Prof. Ester Sabino, MD, PhD</h2>
-                                <p>Universidade de São Paulo, Brazil</p>
-                                <p>
-                                    <a href="https://orcid.org/0000-0003-2623-5126" target="_blank"><i
-                                            class="ai ai-orcid ai-2x"></i></a>
-                                    <a href="https://www.researchgate.net/profile/Ester-Sabino" target="_blank"><i
-                                            class="ai ai-researchgate ai-2x"></i></a>
-                                    <a href="https://scholar.google.com.br/citations?hl=pt-BR&user=WXGVCUUAAAAJ"
-                                        target="_blank"><i class="ai ai-google-scholar ai-2x"></i></a>
-                                    <a href="https://twitter.com/estercsabino" target="_blank"><i
-                                            class="fa fa-twitter fa-2x"></i></a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single team close tag-->
-                    </div>
-                    <!--card__face close tag-->
-                    <div class="card__face card__face--back">
-                        <div class="card__header">
-                            <h2>Prof. Ester Sabino, MD, PhD</h2>
-                            <div class=line></div>
-                        </div>
-                        <!--card__header close tag-->
-                        <div class="card__body">
-                            <p>Associate Professor in the Department of Infectious Diseases at the University of São
-                                Paulo. Her research focuses on blood safety, Chagas disease, sickle cell disease, HIV
-                                diversity, arbovirus and SARS-CoV-2. Dr. Sabino is a collaborator in arboviruses
-                                epidemiology and SARS-CoV-2 response in Brazil.</p>
-                        </div>
-                        <!--card__body close tag-->
-                    </div><!-- Card_face --back close tag-->
-                </div><!-- CArd__inner close tag-->
-            </div>
-            <!--CARD close Tag-->
-            <!--Jean Paul Carrera-->
-            <div class="card">
-                <div class="card__inner">
-                    <div class="card__face card__face--front">
-                        <div class="single-team">
-                            <img src="{% static 'images/Collaborators/Jean Paul Gorgas.jpg' %}"
-                                alt="Photograph of Jean Paul Carrera">
-                            <div class="team-text">
-                                <h2>Jean Paul Carrera</h2>
-                                <p>University of Oxford, UK | Instituto Gorgas, Panama</p>
-                                <p>
-                                    <a href="https://orcid.org/0000-0002-1459-2858" target="_blank"><i
-                                            class="ai ai-orcid ai-2x"></i></a>
-                                    <a href="https://www.researchgate.net/profile/Jean-Carrera" target="_blank"><i
-                                            class="ai ai-researchgate ai-2x"></i></a>
-                                    <a href="https://scholar.google.com.br/citations?hl=pt-BR&user=tT3ldt4AAAAJ"
-                                        target="_blank"><i class="ai ai-google-scholar ai-2x"></i></a>
-                                    <a href="https://twitter.com/JeanCarrPaul" target="_blank"><i
-                                            class="fa fa-twitter fa-2x"></i></a>
-                                </p>
-                            </div>
-                        </div>
-                        <!--Single team close tag-->
-                    </div>
-                    <!--card__face close tag-->
-                    <div class="card__face card__face--back">
-                        <div class="card__header">
-                            <h2>Jean Paul Carrera</h2>
-                            <div class=line></div>
-                        </div>
-                        <!--card__header close tag-->
-                        <div class="card__body">
-                            <p>Mr Carrera is a PhD student at the University of Oxford (UK) in the Department of
-                                Zoology. He is research focuses on understanding the transmission dynamics of enzootic
-                                and epidemic arthropod-borne-zoonotic viruses in Latin America, on deciphering the
-                                factors that lead to their emergence and adaptation in new environments. Mr Carrera is a
-                                partner in ecology and epidemiology studies of arboviruses.</p>
-                        </div>
-                        <!--card__body close tag-->
-                    </div><!-- Card_face --back close tag-->
-                </div><!-- CArd__inner close tag-->
-            </div>
-            <!--CARD close Tag-->
         </div>
-        <!--close tag collaborators-team-->
-        <!--flip card script-->
-        <script src="/js/fli.js"></script>
+        <!--Lab team close tag-->
     </div>
-    <!--CARD_COntainer close Tag-->
+    <div id="priscilla-modal" class="modal">
+        <div class="modal__content">
+            <div class="modal_inner">
+                <h2>Priscilla Paschoal Barbosa, MSc</h2>
+                <p>PhD student at the University of Campinas (Brazil) in the Department of Genetics, Evolution, Microbiology and Immunology. For her dissertation, Priscilla will be standardizing a low-cost molecular diagnostic method for neglected arboviruses and conducting molecular epidemiology studies on arboviruses in the tri-border area (Brazil, Paraguay and Bolivia).</p>
+            </div>
+            <a href="#lab-team" class="modal__close">&times;</a>
+        </div>
+    </div>
+    <div id="shirlene-modal" class="modal">
+        <div class="modal__content">
+            <div class="modal_inner">
+                <h2>Shirlene Telmos, PhD</h2>
+                <p>Laboratorist at Laboratory of Public Health of the State of Ceará and Visiting Researcher at the University of Campinas (Brazil) in the Department of Genetics, Evolution, Microbiology and Immunology. She works on arboviruses associated with central nervous system infection and in fatal cases in Ceará State, Brazil.</p>
+            </div>
+            <a href="#lab-team" class="modal__close">&times;</a>
+        </div>
+    </div>
 </main>
 {% endblock %}

@@ -302,6 +302,21 @@ nav img {
     top: 8vh;
   }
 }
+/* General content*/
+.general-content{
+  margin: 20vh 0;
+}
+.general-content p {
+  width: 85%;
+  padding-top: 25px;
+  font-family: "Montserrat", serif;
+  margin: 0 auto;
+  color: #666569;
+  line-height: 2;
+  font-size: 1.2rem;
+  word-spacing: 2px;
+  text-align: justify;
+}
 /*main content*/
 #main-content {
   padding: 90px 24px;
@@ -315,6 +330,7 @@ nav img {
   width: 70%;
   padding: 30px;
 }
+.general-content h2,
 .content h2 {
   font-family: "oswald", sans-serif;
   font-size: 1.8rem;
@@ -327,7 +343,7 @@ nav img {
 }
 .content p {
   padding-top: 25px;
-  font-family: "Quattrocento", Serif;
+  font-family: "Montserrat", Serif;
   width: 90%;
   margin: 0 auto;
   color: #666569;
@@ -336,15 +352,23 @@ nav img {
   word-spacing: 2px;
   text-align: justify;
 }
+.content a{
+  color: #666569;
+}
 
 /*MAIN TABLET SIZE*/
 @media screen and (max-width: 900px) {
+  .general-content{
+    margin: 5vh 0;
+  }
   #main-content {
     padding: 30px 20px;
   }
+  .general-content h2,
   .content h2 {
     font-size: 1.2rem;
   }
+  .general-content p,
   .content p {
     padding-top: 15px;
     line-height: 1.5;
@@ -415,15 +439,18 @@ section {
   line-height: 2;
 }
 .purpose-unit img {
-  width: 90px;
+  height: 90px;
   margin: 0 auto;
   padding: 20px;
 }
 .purpose-unit h4 {
-  font-family: "oswald", sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin-top: 10px;
   font-size: 1.5rem;
   color: #002147;
+}
+.orange{
+  color: #ff8700;
 }
 .purpose-unit h5 {
   font-family: "Montserrat", sans-serif;
@@ -494,23 +521,6 @@ section {
     font-weight: 400;
   }
 }
-/*ASIDE INFORMATION*/
-aside {
-  text-align: center;
-  color: #585656;
-  margin: 80px 0;
-}
-aside p {
-  font-family: "Quattrocento", sans-serif;
-  width: 70%;
-  margin: 0 auto;
-  text-align: justify;
-  line-height: 2;
-  color: #666569;
-  line-height: 2;
-  font-size: 1.1rem;
-  word-spacing: 2px;
-}
 .video {
   text-align: center;
   color: rgb(143, 140, 140);
@@ -519,10 +529,13 @@ aside p {
   justify-content: center;
 }
 .video h2 {
-  font-family: "Oswald", sans-serif;
+  font-family: "oswald", sans-serif;
   font-size: 1.8rem;
   letter-spacing: 1px;
-  font-weight: 500;
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+  color: #002147;
   margin-bottom: 40px;
 }
 .video video {
@@ -642,8 +655,8 @@ aside p {
   padding-top: 60px;
   text-align: center;
 }
-.media h5 {
-  font-family: "Montserrat", sans serif, arial;
+.media h4 {
+  font-family: "Montserrat", serif, arial;
   font-weight: 400;
   font-size: 1rem;
   color: white;
@@ -652,15 +665,30 @@ aside p {
   width: 80%;
   margin: 0 auto;
 }
-.share-icons i {
-  padding: 10px;
+.share-icons {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.icon_unit{
+  display: flex;
+  flex-direction: row;
+}
+.share-icons a{
+  color:white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.share-icons i{
+  margin-right: 5px;
 }
 /*SOCIAL MEDIA TABLET SIZE*/
 @media screen and (max-width: 900px) {
   .media {
-    width: 20%;
+    width: 30%;
   }
-  .media h5 {
+  .media h4 {
     font-size: 0.9rem;
   }
 }
@@ -673,8 +701,14 @@ aside p {
     width: 40%;
     padding-top: 20px;
   }
-  .media h5 {
+  .media h4 {
     font-size: 0.8rem;
+  }
+  .share-icons{
+    flex-direction: column;
+  }
+  .share-icons a{
+    font-size: 0.7rem;
   }
 }
 /*LANDSCAPE SOCIAL MEDIA*/
@@ -688,7 +722,7 @@ aside p {
 /*FOOTER*/
 footer {
   background-color: hsla(0, 0%, 35%, 0.7);
-  font-family: robot, sans-serif, arial;
+  font-family: 'Roboto', sans-serif, arial;
   color: white;
   display: flex;
   justify-content: space-between;

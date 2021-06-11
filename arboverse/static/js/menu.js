@@ -7,98 +7,203 @@ buttons.forEach(button =>{
     });
 });
 
-//Hide and show submenu
-const discoverybtn = document.getElementById('discovery')
-const discoveryDiv = document.getElementById('discovery-menu')
-const distributionbtn = document.getElementById('distribution')
-const distributionDiv = document.getElementById('distribution-menu')
-const vectorbtn = document.getElementById('vector')
-const vectorDiv = document.getElementById('vector-menu')
-const climatebtn = document.getElementById('climate')
-const climateDiv = document.getElementById('climate-menu')
-const forestbtn = document.getElementById('forest')
-const forestDiv = document.getElementById('forestcover-menu')
-const landbtn = document.getElementById('land')
-const landDiv = document.getElementById('land-cover-menu')
+// Open and Close submenu Discovery
+function openNav(){
+    document.getElementById("discovery-menu").style.width = "260px";
+    document.getElementById("discovery-menu").style.opacity = "1";
+    document.getElementById("distribution-menu").style.width = "0";
+    document.getElementById('vector-menu').style.width = "0";
+    document.getElementById('climate-menu').style.width = "0";
+    document.getElementById('forestcover-menu').style.width = "0";
+    document.getElementById('land-cover-menu').style.width = "0";
+    document.getElementById('mobility-menu').style.width = "0";
+    document.getElementById('discovery').classList.add('btn-active')
+    
+}
+function closeNav(){
+    document.getElementById("discovery-menu").style.width = "0";
+    document.getElementById('discovery').classList.remove('btn-active')
+}
 
-discoverybtn.addEventListener('click', () => {
-    if(discoveryDiv.style.display === 'none'){
-        discoveryDiv.style.display = 'block';
-        distributionDiv.style.display = 'none';
-        vectorDiv.style.display = 'none';
-        climateDiv.style.display = 'none';
-        forestDiv.style.display = 'none';
-        landDiv.style.display = 'none';
-    }else {
-        discoveryDiv.style.display = 'none';
+// Open and Close submenu Distribution
+function openNavdist(){
+    document.getElementById("distribution-menu").style.width = "260px";
+    document.getElementById("distribution-menu").style.opacity = "1";
+    document.getElementById("discovery-menu").style.width = "0";
+    document.getElementById('vector-menu').style.width = "0";
+    document.getElementById('climate-menu').style.width = "0";
+    document.getElementById('forestcover-menu').style.width = "0";
+    document.getElementById('land-cover-menu').style.width = "0";
+    document.getElementById('mobility-menu').style.width = "0";
+    document.getElementById('distribution').classList.add('btn-active')
+
+}
+function closeNavdist(){
+    document.getElementById("distribution-menu").style.width = "0";
+    document.getElementById('distribution').classList.remove('btn-active')
+}
+
+// Open and Close submenu Vector
+function openNavVec (){
+    document.getElementById('vector-menu').style.width = "260px";
+    document.getElementById('vector-menu').style.opacity = "1";
+    document.getElementById("discovery-menu").style.width = "0";
+    document.getElementById("distribution-menu").style.width = "0";
+    document.getElementById('climate-menu').style.width = "0";
+    document.getElementById('forestcover-menu').style.width = "0";
+    document.getElementById('land-cover-menu').style.width = "0";
+    document.getElementById('mobility-menu').style.width = "0";
+    document.getElementById('vector').classList.add('btn-active')
+
+}
+function closeNavVec (){
+    document.getElementById('vector-menu').style.width = "0";
+    document.getElementById('vector').classList.remove('btn-active')
+}
+// Open and Close submenu Climate
+function openNavCli (){
+    document.getElementById('climate-menu').style.width = "320px";
+    document.getElementById('climate-menu').style.opacity = "1";
+    document.getElementById("discovery-menu").style.width = "0";
+    document.getElementById("distribution-menu").style.width = "0";
+    document.getElementById('vector-menu').style.width = "0";
+    document.getElementById('forestcover-menu').style.width = "0";
+    document.getElementById('land-cover-menu').style.width = "0";
+    document.getElementById('mobility-menu').style.width = "0";
+    document.getElementById('climate').classList.add('btn-active')
+
+}
+function closeNavCli (){
+    document.getElementById('climate-menu').style.width = "0";
+    document.getElementById('climate').classList.remove('btn-active')
+}
+
+// Open and Close submenu Forest cover
+function openNavFor (){
+    document.getElementById('forestcover-menu').style.width = "320px";
+    document.getElementById('forestcover-menu').style.opacity = "1";
+    document.getElementById("discovery-menu").style.width = "0";
+    document.getElementById("distribution-menu").style.width = "0";
+    document.getElementById('vector-menu').style.width = "0";
+    document.getElementById('climate-menu').style.width = "0";
+    document.getElementById('land-cover-menu').style.width = "0";
+    document.getElementById('mobility-menu').style.width = "0";
+    document.getElementById('forest').classList.add('btn-active')
+
+}
+function closeNavFor (){
+    document.getElementById('forestcover-menu').style.width = "0";
+    document.getElementById('forest').classList.remove('btn-active')
+}
+
+// Open and Close submenu Land cover
+function openNavLan (){
+    document.getElementById('land-cover-menu').style.width = "320px";
+    document.getElementById('land-cover-menu').style.opacity = "1";
+    document.getElementById("discovery-menu").style.width = "0";
+    document.getElementById("distribution-menu").style.width = "0";
+    document.getElementById('vector-menu').style.width = "0";
+    document.getElementById('climate-menu').style.width = "0";
+    document.getElementById('forestcover-menu').style.width = "0";
+    document.getElementById('mobility-menu').style.width = "0";
+    document.getElementById('land').classList.add('btn-active')
+
+}
+function closeNavLan (){
+    document.getElementById('land-cover-menu').style.width = "0";
+    document.getElementById('land').classList.remove('btn-active')
+}
+
+// Open and Close submenu Land cover
+function openNavMob (){
+    document.getElementById('mobility-menu').style.width = "320px";
+    document.getElementById('mobility-menu').style.opacity = "1";
+    document.getElementById("discovery-menu").style.width = "0";
+    document.getElementById("distribution-menu").style.width = "0";
+    document.getElementById('vector-menu').style.width = "0";
+    document.getElementById('climate-menu').style.width = "0";
+    document.getElementById('forestcover-menu').style.width = "0";
+    document.getElementById('land-cover-menu').style.width = "0";
+    document.getElementById('mobility').classList.add('btn-active')
+
+}
+function closeNavMob (){
+    document.getElementById('mobility-menu').style.width = "0";
+    document.getElementById('mobility').classList.remove('btn-active')
+}
+
+showChekedDis();
+var i =0;
+function showChekedDis(){
+    document.getElementById('check1').textContent = document.querySelectorAll("input[name=discovery]:checked").length;
+}
+document.querySelectorAll("input[name=discovery]").forEach(i =>{
+    i.onclick = function(){
+        showChekedDis();
     }
 });
 
-distributionbtn.addEventListener('click', () => {
-    if(distributionDiv.style.display === 'none'){
-        distributionDiv.style.display = 'block';
-        discoveryDiv.style.display = 'none';
-        vectorDiv.style.display = 'none';
-        climateDiv.style.display = 'none';
-        forestDiv.style.display = 'none';
-        landDiv.style.display = 'none';
-    }else {
-        distributionDiv.style.display = 'none';
+showChekedDistri();
+var i =0;
+function showChekedDistri(){
+    document.getElementById('check2').textContent = document.querySelectorAll("input[name=distribution]:checked").length;
+}
+document.querySelectorAll("input[name=distribution]").forEach(i =>{
+    i.onclick = function(){
+        showChekedDistri();
     }
 });
-
-vectorbtn.addEventListener('click', () => {
-    if(vectorDiv.style.display === 'none'){
-        vectorDiv.style.display = 'block';
-        discoveryDiv.style.display = 'none';
-        distributionDiv.style.display = 'none';
-        climateDiv.style.display = 'none';
-        forestDiv.style.display = 'none';
-        landDiv.style.display = 'none';
-    }else {
-        vectorDiv.style.display = 'none';
+showChekedVec();
+var i =0;
+function showChekedVec(){
+    document.getElementById('check3').textContent = document.querySelectorAll("input[name=vector]:checked").length;
+}
+document.querySelectorAll("input[name=vector]").forEach(i =>{
+    i.onclick = function(){
+        showChekedVec();
     }
 });
-
-climatebtn.addEventListener('click', () => {
-    if(climateDiv.style.display === 'none'){
-        climateDiv.style.display = 'block';
-        discoveryDiv.style.display = 'none';
-        distributionDiv.style.display = 'none';
-        vectorDiv.style.display = 'none';
-        forestDiv.style.display = 'none';
-        landDiv.style.display = 'none';
-    }else {
-        climateDiv.style.display = 'none';
+showChekedCli();
+var i =0;
+function showChekedCli(){
+    document.getElementById('check4').textContent = document.querySelectorAll("input[name=climate]:checked").length;
+}
+document.querySelectorAll("input[name=climate]").forEach(i =>{
+    i.onclick = function(){
+        showChekedCli();
     }
 });
-
-forestbtn.addEventListener('click', () => {
-    if(forestDiv.style.display === 'none'){
-        forestDiv.style.display = 'block';
-        discoveryDiv.style.display = 'none';
-        distributionDiv.style.display = 'none';
-        vectorDiv.style.display = 'none';
-        climateDiv.style.display = 'none';
-        landDiv.style.display = 'none';
-    }else {
-        forestDiv.style.display = 'none';
+showChekedFor();
+var i =0;
+function showChekedFor(){
+    document.getElementById('check5').textContent = document.querySelectorAll("input[name=forest]:checked").length;
+}
+document.querySelectorAll("input[name=forest]").forEach(i =>{
+    i.onclick = function(){
+        showChekedFor();
+        update_map(this)
     }
 });
-
-landbtn.addEventListener('click', () => {
-    if(landDiv.style.display === 'none'){
-        landDiv.style.display = 'block';
-        discoveryDiv.style.display = 'none';
-        distributionDiv.style.display = 'none';
-        vectorDiv.style.display = 'none';
-        climateDiv.style.display = 'none'
-        forestDiv.style.display = 'none';
-    }else {
-        landDiv.style.display = 'none';
+showChekedLand();
+var i =0;
+function showChekedLand(){
+    document.getElementById('check6').textContent = document.querySelectorAll("input[name=land]:checked").length;
+}
+document.querySelectorAll("input[name=land]").forEach(i =>{
+    i.onclick = function(){
+        showChekedLand();
     }
 });
-
+showChekedMob();
+var i =0;
+function showChekedMob(){
+    document.getElementById('check7').textContent = document.querySelectorAll("input[name=mobility]:checked").length;
+}
+document.querySelectorAll("input[name=mobility]").forEach(i =>{
+    i.onclick = function(){
+        showChekedMob();
+    }
+});
 //Slider Js
 
 var months = [

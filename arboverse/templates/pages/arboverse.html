@@ -1,933 +1,1858 @@
 {% extends 'base.html' %}{% load static %} {% block meta %}
-<meta
-  name="viewport"
-  content="initial-scale=1,maximum-scale=1,user-scalable=no"
-/>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 {% endblock %}
 {% block resources %}
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="{% static 'css/arboverse.css' %}"
-/>
-<link
-  rel="stylesheet"
-  type="text/css"
-  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css"
-/>
-<link
-  rel="sortcut icon"
-  href="{% static 'images/Arboverse_logo-2.png' %}"
-  type="image/png"
-/>
+<link rel="stylesheet" type="text/css" href="{% static 'css/arboverse.css' %}" />
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
+<link rel="sortcut icon" href="{% static 'images/Arboverse_logo-2.png' %}" type="image/png" />
 
 <!-- Mapbox GL JS includes -->
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
 
-<link
-  href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css"
-  rel="stylesheet"
-/>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
 {% endblock %}
 {% block title %} Arboverse Platform {% endblock %}
 {% block content %}
 <main>
+  <!-- CATALOGUE-->
   <div class="catalogue">
-    <h1>Catalogue here</h1>
+    <div class="row-wrapper">
+      <div class="arbovirus-catalogue">
+        <div class="arbovirus-content">
+          <h2>ARBO<span class="sec-title">CARD</span></h2>
+          <div class="search">
+            <input class="search-virus" type="texts" placeholder="Search..." id="arbovirus-search">
+            <button class="searchbutton" type="submit"><i class="fa fa-search"></i></button>
+          </div>
+          <div class="tabs">
+            <div class="tab">
+              <input type="checkbox" id="chck1">
+              <label class="tab-label" for="chck1"> Taxonomy & Genomics</label>
+              <div class="tab-content">
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                    <span class="tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Virus Name:</h5>
+                  <output id="virus_name">Dengue 1</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                    <span class="tooltext-1">From the ICTV</span>
+                  </div>
+                  <h5>Taxonomy:</h5>
+                  <output id="virus_taxonomy">Dengue1, Flavivirus, Flaviviridae</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name</span>
+                  </div>
+                  <h5>Abbreviation:</h5>
+                  <output id="virus_abbrev">DENV1</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>First Isolate:</h5>
+                  <output id="virus_firstIso">02/20/1944</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Reference Strain:</h5>
+                  <output id="virus_strain">XXXXXXX</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Genome Size:</h5>
+                  <output id="virus_size">10,735 nt</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Genome:</h5>
+                  <output id="virus_genome">ssRNA + </output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Envelope:</h5>
+                  <output id="virus_envelope"> Yes</output>
+                </div>
+              </div>
+            </div>
+            <div class="tab">
+              <input type="checkbox" id="chck2">
+              <label class="tab-label" for="chck2">Transmission</label>
+              <div class="tab-content">
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Vector Type:</h5>
+                  <output id="virus_vector">Aedes aegypti, Aedes albopictus</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Host Amplifier:</h5>
+                  <output id="virus_host">None</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Human Diseases:</h5>
+                  <output id="virus_human_disease">Febril illness</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Fatal Diseases:</h5>
+                  <output id="virus_human_fatal">Yes</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Veterinary Diseases:</h5>
+                  <output id="virus_vet_disease">Febril illness</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Fatal Veterinary Diseases:</h5>
+                  <output id="virus_vet_fatal">None</output>
+                </div>
+              </div>
+            </div>
+            <div class="tab">
+              <input type="checkbox" id="chck3">
+              <label class="tab-label" for="chck3">Diseases</label>
+              <div class="tab-content">
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>N˚ Cases:</h5>
+                  <output id="virus_cases">Millions</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7" ; opacity: 0.7""></i>
+                    <span class="tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Level of Diseases:</h5>
+                  <output id="virus_level">Hiperendemic</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:rgb(173, 158, 158)"></i>
+                    <span class="tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Geographic Distribution:</h5>
+                  <output id="virus_distribution">Globally</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Vaccine:</h5>
+                  <output id="virus_vaccine">None</output>
+                </div>
+              </div>
+            </div>
+            <div class="tab">
+              <input type="checkbox" id="chck4">
+              <label class="tab-label" for="chck4">Laboratory</label>
+              <div class="tab-content">
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Propagation:</h5>
+                  <output id="virus_propagation">Vero cells, C6/36 cells</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Citophatic effects:</h5>
+                  <output id="virus_cytophatic">6 days</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Plaque:</h5>
+                  <output id="virus_plaque">6 days</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Animal Model:</h5>
+                  <output id="virus_animal">None</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7""></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Biological Safety Levels:</h5>
+                  <output id="virus_safety">2</output>
+                </div>
+              </div>
+            </div>
+            <div class="tab">
+              <input type="checkbox" id="chck5">
+              <label class="tab-label" for="chck5">References</label>
+              <div class="tab-content">
+                <p> aqui dados de referencia </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vector-catalogue">
+        <div class="vector-content">
+          <h2>ARBO<span class="sec-title">VECTOR</span></h2>
+          <div class="search">
+            <input class="search-vector" type="texts" placeholder="Search..." id="vector-search">
+            <button class="searchbutton-vector" type="submit"><i class="fa fa-search"></i></button>
+          </div>
+          <div class="tabs">
+            <div class="tab">
+              <input type="checkbox" id="chcka">
+              <label class="tab-label-vec" for="chcka">Taxonomy</label>
+              <div class="tab-content">
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Arthropods Name:</h5>
+                  <output id="vector_name">Mosquito</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Binominal Name:</h5>
+                  <output id="vector_binominal">Aedes aegypti</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Taxonimy:</h5>
+                  <output id="vector_taxonomy">Aedes aegypti, Diptera, Culicidae,
+                    Culicinae</output>
+                </div>
+              </div>
+            </div>
+            <div class="tab">
+              <input type="checkbox" id="chckb">
+              <label class="tab-label-vec" for="chckb">Genomics</label>
+              <div class="tab-content">
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Genome:</h5>
+                  <output id="vector_genome">Complete</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Reference Genome:</h5>
+                  <output id="vector_reference">XXX</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Genome Size:</h5>
+                  <output id="vector_gensize">~1.25Gb</output>
+                </div>
+              </div>
+            </div>
+            <div class="tab">
+              <input type="checkbox" id="chckc">
+              <label class="tab-label-vec" for="chckc">Habitat</label>
+              <div class="tab-content">
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Habitat:</h5>
+                  <output id="vector_habitat">Urban</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Natural Landscape:</h5>
+                  <output id="vector_land">Fresh water</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Survival Temperature Ranges:</h5>
+                  <output id="vector_temp"> 21 - 29 </output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Survival Humidity %:</h5>
+                  <output id="vector_hum"> 70 </output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Geographic-distribution:</h5>
+                  <output id="vector_geo">Globally </output>
+                </div>
+              </div>
+            </div>
+            <div class="tab">
+              <input type="checkbox" id="chckd">
+              <label class="tab-label-vec" for="chckd">Behavior</label>
+              <div class="tab-content">
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Blood Meal:</h5>
+                  <output id="vector_meal">Humans</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Feeding Periods:</h5>
+                  <output id="vector_feed">Daily</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Adult Life:</h5>
+                  <output id="vector_adult">10 days</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Anthropophilic Behavior:</h5>
+                  <output id="vector_anthro">Yes</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Eggs Viability:</h5>
+                  <output id="vector_eggs">360 days</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Lifecycle time:</h5>
+                  <output id="vector_life">6 days</output>
+                </div>
+              </div>
+            </div>
+            <div class="tab">
+              <input type="checkbox" id="chcke">
+              <label class="tab-label-vec" for="chcke">Viruses</label>
+              <div class="tab-content">
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Main Vector:</h5>
+                  <output id="vector_main">Dengue, Zika, Chikungunya, Yellow Fever</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Secondary Vector:</h5>
+                  <output id="vector_second">West Nile</output>
+                </div>
+                <div class="tab-content-unit">
+                  <div class="tooltip">
+                    <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
+                                    <span class=" tooltext-1">Virus Name from the CDC</span>
+                  </div>
+                  <h5>Experimental Infection:</h5>
+                  <output id="vector_exp">Mayaro</output>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="grid">
-    <!-- Main Menu Bar Filter-->
-    <div id="menulateral">
-      <div class="item-button" id="discovery" onclick="openNav()">
-        <div class="button-wrapper">
-          <img src="{% static 'images/aboverse/discovery-01.png' %}" />
-          <span>Discovery</span>
+  <!--MAP Area-->
+  <div class="map-area">
+    <h2>ARBO<span class="sec-title">MAP</span></h2>
+    <div class="grid">
+      <!-- Main Menu Bar Filter-->
+      <div id="menulateral">
+        <div class="item-button" id="discovery" onclick="openNav()">
+          <div class="button-wrapper">
+            <div id="check1" class="check"></div>
+            <img src="{% static 'images/aboverse/discovery-01.png' %}" />
+            <span>Discovery</span>
+          </div>
+        </div>
+        <div class="item-button" id="distribution" onclick="openNavdist()">
+          <div class="button-wrapper">
+            <div id="check2" class="check"></div>
+            <img src="{% static 'images/aboverse/Distribution-01.png' %}" />
+            <span>Distribution</span>
+          </div>
+        </div>
+        <div class="item-button" id="vector" onclick="openNavVec()">
+          <div class="button-wrapper">
+            <div id="check3" class="check"></div>
+            <img src="{% static 'images/aboverse/vector-01.png' %}" />
+            <span>Vector</span>
+          </div>
+        </div>
+        <div class="item-button" id="climate" onclick="openNavCli()">
+          <div class="button-wrapper">
+            <div id="check4" class="check"></div>
+            <img src="{% static 'images/aboverse/Untitled-5-01.png' %}" />
+            <span>Climate</span>
+          </div>
+        </div>
+        <div class="item-button" id="forest" onclick="openNavFor()">
+          <div class="button-wrapper forest">
+            <div id="check5" class="check"></div>
+            <img src="{% static 'images/aboverse/forest cover-01.png' %}" />
+            <span>Forest Cover & Deforestation</span>
+          </div>
+        </div>
+        <div class="item-button" id="land" onclick="openNavLan()">
+          <div class="button-wrapper">
+            <div id="check6" class="check"></div>
+            <img src="{% static 'images/aboverse/land cover-01.png' %}" />
+            <span>Land Use</span>
+          </div>
+        </div>
+        <div class="item-button" id="mobility" onclick="openNavMob()">
+          <div class="button-wrapper">
+            <div id="check7" class="check"></div>
+            <img src="{% static 'images/aboverse/Humanmobility-01.png' %}" />
+            <span>Human Mobility</span>
+          </div>
         </div>
       </div>
-      <div class="item-button" id="distribution" onclick="openNavdist()">
-        <div class="button-wrapper">
-          <img src="{% static 'images/aboverse/Distribution-01.png' %}" />
-          <span>Distribution</span>
+      <!--Discovery Menu-->
+      <div id="discovery-menu" class="sub-menu sub-1">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="title-sub">
+          <div class="togglebtn">
+            <label class="switch">
+              <input type="checkbox" name="discovery" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <h3>Virus Discovery</h3>
+          <div class="wrapper tooltip">
+            <a href="#demo-modalA"><i class="fa fa-info-circle" style="color:gray"></i></a>
+            <span class="tooltext-a">Show where the virus was first discovered</span>
+          </div>
+        </div>
+        <div class="info-input">
+          <input type="text" required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Family</label>
+        </div>
+        <div class="info-input">
+          <input type="text" required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Genus</label>
+        </div>
+        <div class="info-input">
+          <input type="text" required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Species</label>
         </div>
       </div>
-      <div class="item-button" id="vector" onclick="openNavVec()">
-        <div class="button-wrapper">
-          <img src="{% static 'images/aboverse/vector-01.png' %}" />
-          <span>Vector</span>
+      <!--Distribution Menu-->
+      <div id="distribution-menu" class="sub-menu sub-1">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavdist()">&times;</a>
+        <div class="title-sub">
+          <div class="togglebtn">
+            <label class="switch">
+              <input type="checkbox" name="distribution" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <h3>Virus Distribution</h3>
+          <div class="wrapper tooltip">
+            <a href="#demo-modalB"><i class="fa fa-info-circle" style="color:gray"></i></a>
+            <span class="tooltext-a">Global distribution of selected virus</span>
+          </div>
+        </div>
+        <div class="info-input">
+          <input type="text" required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Family</label>
+        </div>
+        <div class="info-input">
+          <input type="text" required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Genus</label>
+        </div>
+        <div class="info-input">
+          <input type="text" required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Species</label>
         </div>
       </div>
-      <div class="item-button" id="climate" onclick="openNavCli()">
-        <div class="button-wrapper">
-          <img src="{% static 'images/aboverse/Untitled-5-01.png' %}" />
-          <span>Climate</span>
+      <!--Vector Menu-->
+      <div id="vector-menu" class="sub-menu sub-2">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavVec()">&times;</a>
+        <div class="title-sub">
+          <div class="togglebtn">
+            <label class="switch">
+              <input type="checkbox" name="vector" />
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <h3>Vector Distribution</h3>
+          <div class="wrapper tooltip">
+            <a href="#demo-modalC"><i class="fa fa-info-circle" style="color:gray"></i></a>
+            <span class="tooltext-a">Global vector distribution</span>
+        </div>
+        </div>
+        <div class="box">
+          <p>Vector Type</p>
+          <select name="vectortype">
+            <option value="mosquitoes">Mosquitoes</option>
+            <option value="ticks">Ticks</option>
+            <option value="sandflies">Sandflies</option>
+            <option value="Midges">Midges</option>
+            <option value="others">Others</option>
+          </select>
+        </div>
+        <div class="info-input">
+          <input type="text" required />
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Species</label>
         </div>
       </div>
-      <div class="item-button" id="forest" onclick="openNavFor()">
-        <div class="button-wrapper forest">
-          <img src="{% static 'images/aboverse/forest cover-01.png' %}" />
-          <span>Forest Cover & Deforestation</span>
+      <!--Climate Menu-->
+      <div id="climate-menu" class="sub-second-menu">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavCli()">&times;</a>
+        <h3>Climate</h3>
+        <div class="menu-btn">
+          <!--Temperature-->
+          <div class="unit-btn">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="climate" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Temperature</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal1.0"><i class="fa fa-info-circle" style="color: gray"></i></a>
+                <span class="tooltext">Temperature average according to selected year and month</span>
+              </div>
+            </div>
+            <div class="measure">
+              <div class="bar-mesur bluetopink"></div>
+              <div class="indice">
+                <label class="celsius">-70˚C </label>
+                <label class="celsius">0˚C </label>
+                <label class="celsius">40˚C </label>
+              </div>
+            </div>
+          </div>
+          <!--Precipitation-->
+          <div class="unit-btn">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="climate" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Precipitation</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal1.1"><i class="fa fa-info-circle" style="color: gray"></i></a>
+                <span class="tooltext">Precipitation month average according to selected year and
+                  month</span>
+              </div>
+            </div>
+            <div class="measure">
+              <div class="bar-mesur lightyellowgreen"></div>
+              <div class="indice">
+                <label class="cubicmm">0mm<sup>3</sup></label>
+                <label class="cubicmm">3000mm<sup>3</sup></label>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="item-button" id="land" onclick="openNavLan()">
-        <div class="button-wrapper">
-          <img src="{% static 'images/aboverse/land cover-01.png' %}" />
-          <span>Land Use</span>
+        <!--Time selector-->
+        <div id="time-month-wrapper">
+          <form action="/p/quote.php" method="get">
+            <h5 id="form-title">Select layer time</h5>
+            <h5 id="form-title">(temperature and precipitation)</h5>
+            <div id="time-amount-slider">
+              <input type="radio" name="time-amount" id="tp-1" value="tp-1" required>
+              <label for="tp-1" data-time-amount="Present (1970-2000)"></label>
+              <input type="radio" name="time-amount" id="tp-2" value="tp-2" required>
+              <label for="tp-2" data-time-amount="Future (2081-2100)"></label>
+            </div>
+            <div id="month-amount-slider">
+              <input type="radio" name="month-amount" id="m-1" value="m-1" required>
+              <label for="m-1" data-time-amount="Jan"></label>
+              <input type="radio" name="month-amount" id="m-2" value="m-2" required>
+              <label for="m-2" data-time-amount="Feb"></label>
+              <input type="radio" name="month-amount" id="m-3" value="m-3" required>
+              <label for="m-3" data-time-amount="Mar"></label>
+              <input type="radio" name="month-amount" id="m-4" value="m-4" required>
+              <label for="m-4" data-time-amount="Apr"></label>
+              <input type="radio" name="month-amount" id="m-5" value="m-5" required>
+              <label for="m-5" data-time-amount="May"></label>
+              <input type="radio" name="month-amount" id="m-6" value="m-6" required>
+              <label for="m-6" data-time-amount="Jun"></label>
+              <input type="radio" name="month-amount" id="m-7" value="m-7" required>
+              <label for="m-7" data-time-amount="Jul"></label>
+              <input type="radio" name="month-amount" id="m-8" value="m-8" required>
+              <label for="m-8" data-time-amount="Aug"></label>
+              <input type="radio" name="month-amount" id="m-9" value="m-9" required>
+              <label for="m-9" data-time-amount="Sep"></label>
+              <input type="radio" name="month-amount" id="m-10" value="m-10" required>
+              <label for="m-10" data-time-amount="Oct"></label>
+              <input type="radio" name="month-amount" id="m-11" value="m-11" required>
+              <label for="m-11" data-time-amount="Nov"></label>
+              <input type="radio" name="month-amount" id="m-12" value="m-12" required>
+              <label for="m-12" data-time-amount="Dec"></label>
+            </div>
+          </form>
         </div>
-      </div>
-      <div class="item-button" id="mobility" onclick="openNavMob()">
-        <div class="button-wrapper">
-          <img src="{% static 'images/aboverse/Humanmobility-01.png' %}" />
-          <span>Human Mobility</span>
-        </div>
-      </div>
-    </div>
-    <!--lateral menu side close-->
-    <!--Discovery Menu-->
-    <div id="discovery-menu" class="sub-menu sub-1">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-        >&times;</a
-      >
-      <div class="title-sub">
-        <h3>Virus Discovery</h3>
-        <i class="fa fa-info-circle" style="color: gray"></i>
-      </div>
-      <div class="info-input">
-        <input type="text" required />
-        <span class="highlight"></span>
-        <span class="bar"></span>
-        <label>Family</label>
-      </div>
-      <div class="info-input">
-        <input type="text" required />
-        <span class="highlight"></span>
-        <span class="bar"></span>
-        <label>Genus</label>
-      </div>
-      <div class="info-input">
-        <input type="text" required />
-        <span class="highlight"></span>
-        <span class="bar"></span>
-        <label>Species</label>
-      </div>
-    </div>
-    <!--Distribution Menu-->
-    <div id="distribution-menu" class="sub-menu sub-1">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNavdist()"
-        >&times;</a
-      >
-      <div class="title-sub">
-        <h3>Virus Distribution</h3>
-        <i class="fa fa-info-circle" style="color: gray"></i>
-      </div>
-      <div class="info-input">
-        <input type="text" required />
-        <span class="highlight"></span>
-        <span class="bar"></span>
-        <label>Family</label>
-      </div>
-      <div class="info-input">
-        <input type="text" required />
-        <span class="highlight"></span>
-        <span class="bar"></span>
-        <label>Genus</label>
-      </div>
-      <div class="info-input">
-        <input type="text" required />
-        <span class="highlight"></span>
-        <span class="bar"></span>
-        <label>Species</label>
-      </div>
-    </div>
-    <!--Vector Menu-->
-    <div id="vector-menu" class="sub-menu sub-2">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNavVec()"
-        >&times;</a
-      >
-      <div class="title-sub">
-        <h3>Vector Distribution</h3>
-        <i class="fa fa-info-circle" style="color: gray"></i>
-      </div>
-      <div class="box">
-        <p>Vector Type</p>
-        <select name="vectortype">
-          <option value="mosquitoes">Mosquitoes</option>
-          <option value="ticks">Ticks</option>
-          <option value="sandflies">Sandflies</option>
-          <option value="Midges">Midges</option>
-          <option value="others">Others</option>
-        </select>
-      </div>
-      <div class="info-input">
-        <input type="text" required />
-        <span class="highlight"></span>
-        <span class="bar"></span>
-        <label>Species</label>
-      </div>
-    </div>
-    <!--Climate Menu-->
-    <div id="climate-menu" class="sub-second-menu">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNavCli()">&times;</a>
-      <h3>Climate</h3>
-      <div class="menu-btn">
-        <!--Temperature-->
+        <!--Koppen Geiger -->
         <div class="unit-btn">
           <div class="unit-toggle">
-            <div class="toggle">
+            <div class="togglebtn">
               <label class="switch">
-                <input type="checkbox" />
+                <input type="checkbox" name="climate" />
                 <span class="slider round"></span>
               </label>
             </div>
-            <!--toggle close tag-->
-            <h6>Temperature</h6>
+            <h6>Köppen-Geiger Classification</h6>
             <div class="wrapper tooltip">
-              <a href="#demo-modal1"
-                ><i class="fa fa-info-circle" style="color: gray"></i
-              ></a>
-              <span class="tooltext"
-                >Temperature average according to selected year and month</span
-              >
+              <a href="#demo-modal1.1"><i class="fa fa-info-circle" style="color: gray"></i></a>
+              <span class="tooltext">Köppen-Geiger climate classification for the present day (1980-2016) and for projected future conditions (2071-2100).</span>
             </div>
           </div>
-          <!--unit-toggle close tag-->
-          <div class="measure">
-            <div class="bar-mesur bluetopink"></div>
-            <div class="indice">
-              <label class="celsius">-50˚C </label>
-              <label class="celsius">0˚C </label>
-              <label class="celsius">-50˚C </label>
-            </div>
-            <!--indice close tag-->
+          <!--Time selector-->
+          <div id="time-wrapper">
+            <form action="/p/quote.php" method="get">
+              <h5 id="form-title">Select layer time</h5>
+              <div id="time-amount-slider">
+                <input type="radio" name="time-amount" id="kp-1" value="kp-1" required>
+                <label for="kp-1" data-time-amount="Present (1980-2016)"></label>
+                <input type="radio" name="time-amount" id="kp-2" value="kp-2" required>
+                <label for="kp-2" data-time-amount="Future (2071-2100)"></label>
+              </div>
+            </form>
           </div>
-          <!--measure-->
+          <div class="kp_measure">
+            <div class="kp_group">
+              <div class="kp_unit">
+                <div class="kp_circle am"></div>
+                <label class="kp">Am</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle aw"></div>
+                <label class="kp">Aw</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle af"></div>
+                <label class="kp">Af</label>
+              </div>
+            </div>
+            <div class="kp_group">
+              <div class="kp_unit">
+                <div class="kp_circle bwh"></div>
+                <label class="kp">BWh</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle bwk"></div>
+                <label class="kp">BWk</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle bsh"></div>
+                <label class="kp">BSh</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle bsk"></div>
+                <label class="kp">BSk</label>
+              </div>
+            </div>
+            <div class="kp_group">
+              <div class="kp_unit">
+                <div class="kp_circle csa"></div>
+                <label class="kp">Csa</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle csb"></div>
+                <label class="kp">Csb</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle csc"></div>
+                <label class="kp">Csc</label>
+              </div>
+            </div>
+            <div class="kp_group">
+              <div class="kp_unit">
+                <div class="kp_circle cwa"></div>
+                <label class="kp">Cwa</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle cwb"></div>
+                <label class="kp">Cwb</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle cwc"></div>
+                <label class="kp">Cwc</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle cfa"></div>
+                <label class="kp">Cfa</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle cfb"></div>
+                <label class="kp">Cfb</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle cfc"></div>
+                <label class="kp">Cfc</label>
+              </div>
+            </div>
+            <div class="kp_group">
+              <div class="kp_unit">
+                <div class="kp_circle dsa"></div>
+                <label class="kp">Dsa</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle dsb"></div>
+                <label class="kp">Dsb</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle dsc"></div>
+                <label class="kp">Dsc</label>
+              </div>
+            </div>
+            <div class="kp_group">
+              <div class="kp_unit">
+                <div class="kp_circle dwa"></div>
+                <label class="kp">Dwa</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle dwb"></div>
+                <label class="kp">Dwb</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle dwc"></div>
+                <label class="kp">Dwc</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle dwd"></div>
+                <label class="kp">Dwd</label>
+              </div>
+            </div>
+            <div class="kp_group">
+              <div class="kp_unit">
+                <div class="kp_circle dfa"></div>
+                <label class="kp">Dfa</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle dfb"></div>
+                <label class="kp">Dfb</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle dfc"></div>
+                <label class="kp">Dfc</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle dfd"></div>
+                <label class="kp">Dfd</label>
+              </div>
+            </div>
+            <div class="grou_kp">
+              <div class="kp_unit">
+                <div class="kp_circle et"></div>
+                <label class="kp">ET</label>
+              </div>
+              <div class="kp_unit">
+                <div class="kp_circle ef"></div>
+                <label class="kp">EF</label>
+              </div>
+            </div>
+          </div>
         </div>
-        <!--unit-btn close-->
-        <!--Precipitation-->
-        <div class="unit-btn">
-          <div class="unit-toggle">
-            <div class="toggle">
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
-              </label>
-            </div>
-            <!--toggle close-->
-            <h6>Precipitation</h6>
-            <div class="wrapper tooltip">
-              <a href="#demo-modal2"
-                ><i class="fa fa-info-circle" style="color: gray"></i
-              ></a>
-              <span class="tooltext"
-                >Precipitation month average according to selected year and
-                month</span
-              >
-            </div>
-          </div>
-          <!-- unit-toggle close-->
-          <div class="measure">
-            <div class="bar-mesur lightyellowgreen"></div>
-            <div class="indice">
-              <label class="cubicmm">0mm<sup>3</sup></label>
-              <label class="cubicmm">250mm<sup>3</sup></label>
-            </div>
-            <!--indice close-->
-          </div>
-          <!--measure close -->
-        </div>
-        <!--unit-btn close-->
-        <!--Humidity-->
-        <div class="unit-btn">
-          <div class="unit-toggle">
-            <div class="toggle">
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
-              </label>
-            </div>
-            <!--toggle close-->
-            <h6>Humidity</h6>
-            <div class="wrapper tooltip">
-              <a href="#demo-modal3"
-                ><i class="fa fa-info-circle" style="color: gray"></i
-              ></a>
-              <span class="tooltext"
-                >Humidity month average according to selected year and
-                month</span
-              >
-            </div>
-          </div>
-          <!-- unit-toggle close-->
-          <div class="measure">
-            <div class="bar-mesur purple"></div>
-            <div class="indice">
-              <label class="percentage">25%</label>
-              <label class="percentage">80%</label>
-            </div>
-            <!--indice close-->
-          </div>
-          <!--measure close -->
-        </div>
-        <!--unit-btn close-->
-        <!--MENU climate TIMELINE-->
-        <div class="menu-timeslider">
-          <h6>Date (Year and Month)</h6>
-          <div class="map-timeline">
-            <!--Slide Range Year-->
-            <div class="range-value slidecontainer" id="rangeV"></div>
-            <input
-              id="range"
-              type="range"
-              min="1970"
-              max="2100"
-              value="1970"
-              step="1"
-              class="slideyear"
-            />
-          </div>
-          <!--map-timeline closer-->
-          <!--Slide Range month my month-->
-          <div class="slidecontainer">
-            <label id="month" class="legend"></label>
-            <input
-              type="range"
-              min="0"
-              max="11"
-              value="0"
-              class="slidemonth"
-              id="myRange"
-            />
-          </div>
-          <!--slidecontainer close-->
-        </div>
-        <!--menu-timeslider closer-->
       </div>
-      <!--menu-btn-->
-    </div>
-    <!--FOREST COVER AND DEFORESTATION MENU-->
-    <div id="forestcover-menu" class="sub-th-menu">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNavFor()"
-        >&times;</a
-      >
-      <h3>Forest Cover & Desforestation</h3>
-      <div class="menu-btn">
-        <!--Desforestation Alerts-->
-        <div class="unit-btn2">
-          <div class="unit-toggle">
-            <div class="toggle">
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
-              </label>
+      <!--FOREST COVER AND DEFORESTATION MENU-->
+      <div id="forestcover-menu" class="sub-th-menu">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavFor()">&times;</a>
+        <h3>Forest Cover & Desforestation</h3>
+        <div class="menu-btn">
+          <!--Desforestation Alerts-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="forest" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Deforestation alerts</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal2.0"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
+                <span class="tooltext">Indentifies areas of likely tree cover loss in near-real
+                  time</span>
+              </div>
             </div>
-            <!--toggle close-->
-            <h6>Deforestation alerts</h6>
-            <div class="wrapper tooltip">
-              <a href="#demo-modal4"
-                ><i
-                  class="fa fa-info-circle"
-                  style="color: gray; opacity: 0.8"
-                ></i
-              ></a>
-              <span class="tooltext"
-                >Indentifies areas of likely tree cover loss in near-real
-                time</span
-              >
+            <div class="marker">
+              <div class="point pink-orange"></div>
+              <labe class="point-mean">GLAD alerts</labe>
             </div>
-          </div>
-          <!--Unit toggle close-->
-          <div class="marker">
-            <div class="point pink-orange"></div>
-            <labe class="point-mean">GLAD alerts</labe>
-          </div>
-          <div class="range-player">
-            <!--Add Buttom play here-->
-            <div class="play-year-range">
-              <button class="player">
-                <i class="fa fa-play-circle" style="color: gray"></i></button
-              ><input
-                type="range"
-                min="2001"
-                max="2021"
-                step="1"
-                value="2001"
-                class="playslider"
-              />
-            </div>
-          </div>
-        </div>
-        <!--unit btn close-->
-        <!--Tree Cover Loss by dominante driver-->
-        <div class="unit-btn2">
-          <div class="unit-toggle">
-            <div class="toggle">
-              <label class="switch">
-                <input
-                  type="checkbox"
-                  checked="false"
-                  onclick="update_map(this, 'Tree-cover-loss-2001-2019')"
-                />
-                <span class="slider round"></span>
-              </label>
-            </div>
-            <!--toggle close-->
-            <h6>Tree Cover Loss by Dominant Driver</h6>
-            <div class="wrapper tooltip">
-              <a href="#demo-modal5"
-                ><i
-                  class="fa fa-info-circle"
-                  style="color: gray; opacity: 0.8"
-                ></i
-              ></a>
-              <span class="tooltext"
-                >Shows the dominant driver of tree cover loss within each 10 km
-                grid cell and the intensity of that loss for the time period
-                2001-2019</span
-              >
+            <!--time selector-->
+            <div id="year-time-wrapper">
+              <form action="/p/quote.php" method="get">
+                <h5 id="form-title">Select layer time</h5>
+                <div id="time-year-slider">
+                  <input type="radio" name="year-amount" id="d-1" value="d-1" required>
+                  <label for="d-1" data-time-amount="2001"></label>
+                  <input type="radio" name="year-amount" id="d-2" value="d-2" required>
+                  <label for="d-2" data-time-amount="2002"></label>
+                  <input type="radio" name="year-amount" id="d-3" value="d-3" required>
+                  <label for="d-3" data-time-amount="2003"></label>
+                  <input type="radio" name="year-amount" id="d-4" value="d-4" required>
+                  <label for="d-4" data-time-amount="2004"></label>
+                  <input type="radio" name="year-amount" id="d-5" value="d-5" required>
+                  <label for="d-5" data-time-amount="2005"></label>
+                  <input type="radio" name="year-amount" id="d-6" value="d-6" required>
+                  <label for="d-6" data-time-amount="2006"></label>
+                  <input type="radio" name="year-amount" id="d-7" value="d-7" required>
+                  <label for="d-7" data-time-amount="2007"></label>
+                  <input type="radio" name="year-amount" id="d-8" value="d-8" required>
+                  <label for="d-8" data-time-amount="2008"></label>
+                  <input type="radio" name="year-amount" id="d-9" value="d-9" required>
+                  <label for="d-9" data-time-amount="2009"></label>
+                  <input type="radio" name="year-amount" id="d-10" value="d-10" required>
+                  <label for="d-10" data-time-amount="2010"></label>
+                </div>
+                <div id="time-year-slider">
+                  <input type="radio" name="year-amount" id="d-11" value="d-11" required>
+                  <label for="d-11" data-time-amount="2011"></label>
+                  <input type="radio" name="year-amount" id="d-12" value="d-12" required>
+                  <label for="d-12" data-time-amount="2012"></label>
+                  <input type="radio" name="year-amount" id="d-13" value="d-13" required>
+                  <label for="d-13" data-time-amount="2013"></label>
+                  <input type="radio" name="year-amount" id="d-14" value="d-14" required>
+                  <label for="d-14" data-time-amount="2004"></label>
+                  <input type="radio" name="year-amount" id="d-15" value="d-15" required>
+                  <label for="d-15" data-time-amount="2015"></label>
+                  <input type="radio" name="year-amount" id="d-16" value="d-16" required>
+                  <label for="d-16" data-time-amount="2016"></label>
+                  <input type="radio" name="year-amount" id="d-17" value="d-17" required>
+                  <label for="d-17" data-time-amount="2017"></label>
+                  <input type="radio" name="year-amount" id="d-18" value="d-18" required>
+                  <label for="d-18" data-time-amount="2018"></label>
+                  <input type="radio" name="year-amount" id="d-19" value="d-19" required>
+                  <label for="d-19" data-time-amount="2019"></label>
+                  <input type="radio" name="year-amount" id="d-20" value="d-20" required>
+                  <label for="d-20" data-time-amount="2020"></label>
+                </div>
+              </form>
             </div>
           </div>
-          <!--Unit toggle close-->
-          <div class="marker">
-            <div class="point neonblue-p"></div>
-            <labe class="point-mean">Commodity driven deforestation</labe>
-          </div>
-          <div class="marker">
-            <div class="point patriarch-p"></div>
-            <labe class="point-mean">Shifting agriculture</labe>
-          </div>
-          <div class="marker">
-            <div class="point montaingreen-p"></div>
-            <labe class="point-mean">Foresty</labe>
-          </div>
-          <div class="marker">
-            <div class="point mango-p"></div>
-            <labe class="point-mean">Wildfire</labe>
-          </div>
-          <div class="marker">
-            <div class="point blush-p"></div>
-            <labe class="point-mean">Urbanization</labe>
-          </div>
-          <div class="canopy">
-            <p>
-              Displaying Tree cover loss by dominant driver with<select
-                class="canopy-percentage"
-              >
-                <option>>10%</option>
-                <option>>15%</option>
-                <option>>20%</option>
-                <option>>25%</option>
-                <option>>30%</option>
-                <option>>50%</option>
-                <option>>75%</option>
-              </select>
-              canopy density
-            </p>
-          </div>
-          <div class="range-player">
-            <!--Add Buttom play here-->
-            <div class="play-year-range">
-              <button class="player">
-                <i class="fa fa-play-circle" style="color: gray"></i></button
-              ><input
-                type="range"
-                min="2001"
-                max="2020"
-                step="1"
-                value="2001"
-                class="playslider"
-              />
+          <!--Tree Cover Loss by dominante driver-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="forest" checked="false"
+                    onclick="update_map(this, 'Tree-cover-loss-2001-2019')" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Tree Cover Loss by Dominant Driver</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal2.1"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
+                <span class="tooltext">Shows the dominant driver of tree cover loss within each 10 km
+                  grid cell and the intensity of that loss for the time period
+                  2001-2019</span>
+              </div>
+            </div>
+            <div class="marker">
+              <div class="point comod"></div>
+              <labe class="point-mean">Commodity driven deforestation</labe>
+            </div>
+            <div class="marker">
+              <div class="point shift"></div>
+              <labe class="point-mean">Shifting agriculture</labe>
+            </div>
+            <div class="marker">
+              <div class="point montaingreen-p"></div>
+              <labe class="point-mean">Foresty</labe>
+            </div>
+            <div class="marker">
+              <div class="point mango-p"></div>
+              <labe class="point-mean">Wildfire</labe>
+            </div>
+            <div class="marker">
+              <div class="point blush-p"></div>
+              <labe class="point-mean">Urbanization</labe>
             </div>
           </div>
-        </div>
-        <!--unit btn close-->
-        <!--Primary Forest cover-->
-        <div class="unit-btn2">
-          <div class="unit-toggle">
-            <div class="toggle">
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
-              </label>
+          <!--Primary Forest cover-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="forest" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Primary Forest</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal2.2"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
+                <span class="tooltext">This data set maps the extent of primary forests in the global
+                  pan-tropical regions in 2001</span>
+              </div>
             </div>
-            <!--toggle close-->
-            <h6>Primary Forest</h6>
-            <div class="wrapper tooltip">
-              <a href="#demo-modal6"
-                ><i
-                  class="fa fa-info-circle"
-                  style="color: gray; opacity: 0.8"
-                ></i
-              ></a>
-              <span class="tooltext"
-                >This data set maps the extent of primary forests in the global
-                pan-tropical regions in 2001</span
-              >
+            <div class="marker">
+              <div class="point musgo-p"></div>
+              <labe class="point-mean">Pan-Tropical (30m)</labe>
             </div>
           </div>
-          <!--Unit toggle close-->
-          <div class="marker">
-            <div class="point musgo-p"></div>
-            <labe class="point-mean">Pan-Tropical (30m)</labe>
-          </div>
-          <!--close marker-->
-        </div>
-        <!--unit close-->
-        <!--Tree cover height-->
-        <div class="unit-btn2">
-          <div class="unit-toggle">
-            <div class="toggle">
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
-              </label>
+          <!--Tree cover height-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="forest" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Tree Cover Height</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal2.3"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
+                <span class="tooltext">Displays the height of global forest canopy in 2019</span>
+              </div>
             </div>
-            <!--toggle close-->
-            <h6>Tree Cover Height</h6>
-            <div class="wrapper tooltip">
-              <a href="#demo-modal7"
-                ><i
-                  class="fa fa-info-circle"
-                  style="color: gray; opacity: 0.8"
-                ></i
-              ></a>
-              <span class="tooltext"
-                >Displays the height of global forest canopy in 2019</span
-              >
+            <div class="measure">
+              <div class="bar-mesur green-s"></div>
+              <div class="indice">
+                <label class="percentage">3m</label>
+                <label class="percentage">&ge; 30m</label>
+              </div>
             </div>
           </div>
-          <!--Unit toggle close-->
-          <div class="measure">
-            <div class="bar-mesur green-s"></div>
-            <div class="indice">
-              <label class="percentage">3m</label>
-              <label class="percentage">30m</label>
+          <!--Intact Forest Landscape-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="forest" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Intact Forest Landscapes</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal2.4"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
+                <span class="tooltext">Identifies the world's last remaining unfragmented forest
+                  landscapes, large enough to retain all native biodiversity and
+                  showing no signs of human alteration as of the year 2013. This
+                  layer also shows the reduction in the extent of Intact Forest
+                  Landscapes from 2000 to 2016</span>
+              </div>
+            </div>
+            <div class="marker">
+              <div class="point green1-p"></div>
+              <labe class="point-mean">Intact forest landscapes</labe>
+            </div>
+            <div class="marker">
+              <div class="point green2-p"></div>
+              <labe class="point-mean">Reduction in extent 2000-2013</labe>
+            </div>
+            <div class="marker">
+              <div class="point green3-p"></div>
+              <labe class="point-mean">Reduction in extent 2013 -2016</labe>
             </div>
           </div>
-        </div>
-        <!--unit close-->
-        <!--Intact Forest Landscape-->
-        <div class="unit-btn2">
-          <div class="unit-toggle">
-            <div class="toggle">
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
-              </label>
+          <!--Forest landscape integrity index-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="forest" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Forest Landscape integrity index</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal2.5"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
+                <span class="tooltext">Displays forest condiction as a continuous index determined by
+                  degree of anthropogenic modification</span>
+              </div>
             </div>
-            <!--toggle close-->
-            <h6>Intact Forest Landscapes</h6>
-            <div class="wrapper tooltip">
-              <a href="#demo-modal8"
-                ><i
-                  class="fa fa-info-circle"
-                  style="color: gray; opacity: 0.8"
-                ></i
-              ></a>
-              <span class="tooltext"
-                >Identifies the world's last remaining unfragmented forest
-                landscapes, large enough to retain all native biodiversity and
-                showing no signs of human alteration as of the year 2013. This
-                layer also shows the reduction in the extent of Intact Forest
-                Landscapes from 2000 to 2016</span
-              >
-            </div>
-          </div>
-          <!--Unit toggle close-->
-          <div class="marker">
-            <div class="point green1-p"></div>
-            <labe class="point-mean">Intact forest landscapes</labe>
-          </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point green2-p"></div>
-            <labe class="point-mean">Reduction in extent 2000-2013</labe>
-          </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point green3-p"></div>
-            <labe class="point-mean">Reduction in extent 2013 -2016</labe>
-          </div>
-          <!--close marker-->
-        </div>
-        <!--Forest landscape integrity index-->
-        <div class="unit-btn2">
-          <div class="unit-toggle">
-            <div class="toggle">
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
-              </label>
-            </div>
-            <!--toggle close-->
-            <h6>Forest Landscape integrity index</h6>
-            <div class="wrapper tooltip">
-              <a href="#demo-modal9"
-                ><i
-                  class="fa fa-info-circle"
-                  style="color: gray; opacity: 0.8"
-                ></i
-              ></a>
-              <span class="tooltext"
-                >Displays forest condiction as a continuous index determined by
-                degree of anthropogenic modification</span
-              >
-            </div>
-          </div>
-          <!--Unit toggle close-->
-          <div class="measure">
-            <div class="bar-mesur browngreen-s"></div>
-            <div class="indice">
-              <label class="index">0</label>
-              <label class="index">1</label>
-              <label class="index">2</label>
-              <label class="index">3</label>
-              <label class="index">4</label>
-              <label class="index">5</label>
-              <label class="index">6</label>
-              <label class="index">7</label>
-              <label class="index">8</label>
-              <label class="index">9</label>
-              <label class="index">10</label>
-            </div>
-            <div class="indice">
-              <label class="index">Low integrity</label>
-              <label class="index">High integrity</label>
+            <div class="measure">
+              <div class="bar-mesur browngreen-s"></div>
+              <div class="indice">
+                <label class="index">0</label>
+                <label class="index">1</label>
+                <label class="index">2</label>
+                <label class="index">3</label>
+                <label class="index">4</label>
+                <label class="index">5</label>
+                <label class="index">6</label>
+                <label class="index">7</label>
+                <label class="index">8</label>
+                <label class="index">9</label>
+                <label class="index">10</label>
+              </div>
+              <div class="indice">
+                <label class="index">Low integrity</label>
+                <label class="index">High integrity</label>
+              </div>
             </div>
           </div>
         </div>
-        <!--unit close-->
       </div>
-    </div>
-    <!--Land COVER MENU-->
-    <div id="land-cover-menu" class="sub-fou-menu">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNavLan()"
-        >&times;</a
-      >
-      <h3>Land Use</h3>
-      <div clas="menu-btn">
-        <h5>Commodities</h5>
-        <!--Land cover-->
-        <div class="unit-btn2">
-          <div class="unit-toggle">
-            <div class="toggle">
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
-              </label>
+      <!--Land COVER MENU-->
+      <div id="land-cover-menu" class="sub-fou-menu">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavLan()">&times;</a>
+        <h3>Land Use</h3>
+        <div clas="menu-btn">
+          <h5>Commodities</h5>
+          <!--Land cover-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="land" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Land Cover</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal3.0"><i class="fa fa-info-circle"
+                  style="color:gray; opacity: 0.8;"></i></a>
+                <span class="tooltext">Shows the global distribution of land cover in 2015</span>
+              </div>
             </div>
-            <!--toggle close-->
-            <h6>Land Cover</h6>
-            <div class="tooltip">
-              <i
-                class="fa fa-info-circle"
-                style="color: gray; opacity: 0.8"
-              ></i>
-              <span class="tooltext"
-                >Shows the global distribution of land cover in 2015</span
-              >
+            <div class="marker">
+              <div class="point agriculture-p"></div>
+              <labe class="point-mean">Agriculture</labe>
+            </div>
+            <div class="marker">
+              <div class="point forest-p"></div>
+              <labe class="point-mean">Forest</labe>
+            </div>
+            <div class="marker">
+              <div class="point grass-p"></div>
+              <labe class="point-mean">Grassland</labe>
+            </div>
+            <div class="marker">
+              <div class="point scrub-p"></div>
+              <labe class="point-mean">Scrubland</labe>
+            </div>
+            <div class="marker">
+              <div class="point svegetation-p"></div>
+              <labe class="point-mean">Sparse vegetation</labe>
+            </div>
+            <div class="marker">
+              <div class="point wetland-p"></div>
+              <labe class="point-mean">Wetlands</labe>
+            </div>
+            <div class="marker">
+              <div class="point settlement-p"></div>
+              <labe class="point-mean">Settlement</labe>
+            </div>
+            <div class="marker">
+              <div class="point vazio-p"></div>
+              <labe class="point-mean">Bare</labe>
+            </div>
+            <div class="marker">
+              <div class="point bluewater-p"></div>
+              <labe class="point-mean">Water</labe>
+            </div>
+            <div class="marker">
+              <div class="point ice-p"></div>
+              <labe class="point-mean">Permanent ice and snow</labe>
             </div>
           </div>
-          <!--Unit toggle close-->
-          <div class="marker">
-            <div class="point agriculture-p"></div>
-            <labe class="point-mean">Agriculture</labe>
+          <!--Mining Concessions-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="land" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Mining Concessions</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal3.1"><i class="fa fa-info-circle"
+                  style="color:gray; opacity: 0.8;"></i></a>
+                <span class="tooltext">Displays boundaries of areas allocated by governments to
+                  companies for extration of minerals</span>
+              </div>
+            </div>
+            <div class="marker">
+              <div class="point mining-p"></div>
+              <labe class="point-mean">Mining concessions</labe>
+            </div>
+            <div class="tooltip2">
+              <p>
+                Layer available only for
+                <span class="underline"> certain countries</span>
+              </p>
+              <span class="tooltext2">Brazil, Cambodia, Cameroon, Canada, Colombia, Democratic Republic
+                of the Congo, Gabon, Mexico, Peru, Republic of the Congo</span>
+            </div>
           </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point forest-p"></div>
-            <labe class="point-mean">Forest</labe>
+          <!--Logging Concessions-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="land" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Logging Concessions</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal3.2"><i class="fa fa-info-circle"
+                  style="color:gray; opacity: 0.8;"></i></a>
+                <span class="tooltext">Provides the boundaries of logging concessions for the
+                  selective loggings of natural forests</span>
+              </div>
+            </div>
+            <div class="marker">
+              <div class="point logging-p"></div>
+              <labe class="point-mean">Logging concessions</labe>
+            </div>
+            <div class="tooltip2">
+              <p>
+                Layer available only for
+                <span class="underline"> certain countries</span>
+              </p>
+              <span class="tooltext2">Cameroon, Canada, Central African Republic, Democratic Republic
+                of the Congo, Equatorial Guinea, Gabon, Indonesia, Liberia,
+                Malaysia, Republic of Congo</span>
+            </div>
           </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point grass-p"></div>
-            <labe class="point-mean">Grassland</labe>
+          <!--RtRS guides for soy expansion -->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="land" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Guides for Responsible Soy Expansion</h6>
+              <div class="tooltip">
+                <a href="#demo-modal3.3"><i class="fa fa-info-circle"
+                  style="color:gray; opacity: 0.8;"></i></a>
+                <span class="tooltext">Guide the expansion of responsible soy production and evaluate
+                  in situ HCVAs according to the RTRS Standards</span>
+              </div>
+            </div>
+            <div class="marker">
+              <div class="point noexpansion-p"></div>
+              <labe class="point-mean">No expansion allowed</labe>
+            </div>
+            <div class="marker">
+              <div class="point potential-p"></div>
+              <labe class="point-mean">Expansion potentially allowed after HCVA assessment</labe>
+            </div>
+            <div class="marker">
+              <div class="point responsible-p"></div>
+              <labe class="point-mean">Responsible expansion as per legislation</labe>
+            </div>
+            <div class="marker">
+              <div class="point land-p"></div>
+              <labe class="point-mean">No land available for expansion</labe>
+            </div>
+            <div class="marker">
+              <div class="point deforested-p"></div>
+              <labe class="point-mean">Areas deforested after 2009</labe>
+            </div>
+            <div class="tooltip2">
+              <p>
+                Layer available only for
+                <span class="underline"> certain countries</span>
+              </p>
+              <span class="tooltext2">Brazil, Paraguay</span>
+            </div>
           </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point scrub-p"></div>
-            <labe class="point-mean">Scrubland</labe>
+          <h5>Infrastructure</h5>
+          <!--Main Dams-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="land" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Major Dams</h6>
+              <div class="tooltip">
+                <a href="#demo-modal3.4"><i class="fa fa-info-circle"
+                  style="color:gray; opacity: 0.8;"></i></a>
+                <span class="tooltext">Identifies dam locations for the world's 50 major river
+                  basins</span>
+              </div>
+            </div>
+            <div class="marker">
+              <div class="point operational-p"></div>
+              <labe class="point-mean">Operational</labe>
+            </div>
+            <div class="marker">
+              <div class="point under-p"></div>
+              <labe class="point-mean">Under construction</labe>
+            </div>
+            <div class="marker">
+              <div class="point planned-p"></div>
+              <labe class="point-mean">Planned</labe>
+            </div>
+            <div class="marker">
+              <div class="point inventoried-p"></div>
+              <labe class="point-mean">Inventoried</labe>
+            </div>
+            <div class="marker">
+              <div class="point suspended-p"></div>
+              <labe class="point-mean">Suspended</labe>
+            </div>
+            <div class="marker">
+              <div class="point unknown-p"></div>
+              <labe class="point-mean">Unknown</labe>
+            </div>
           </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point svegetation-p"></div>
-            <labe class="point-mean">Sparse vegetation</labe>
+          <h5>People</h5>
+          <!--populational density-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="land" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Population Density</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal3.5"><i class="fa fa-info-circle"
+                  style="color:gray; opacity: 0.8;"></i></a>
+                <span class="tooltext">Global estimate of human population density and
+                  distribution</span>
+              </div>
+            </div>
+            <div class="measure">
+              <div class="bar-mesur people-s"></div>
+              <div class="indice">
+                <label class="millions">≤25</label>
+                <label class="millions">≤100</label>
+                <label class="millions">≤1k</label>
+                <label class="millions">≤5k</label>
+                <label class="millions">≤10k</label>
+                <label class="millions">≥10k</label>
+              </div>
+            </div>
           </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point wetland-p"></div>
-            <labe class="point-mean">Wetlands</labe>
-          </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point settlement-p"></div>
-            <labe class="point-mean">Settlement</labe>
-          </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point vazio-p"></div>
-            <labe class="point-mean">Bare</labe>
-          </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point bluewater-p"></div>
-            <labe class="point-mean">Water</labe>
-          </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point ice-p"></div>
-            <labe class="point-mean">Permanent ice and snow</labe>
-          </div>
-          <!--close marker-->
         </div>
-        <!--unit close-->
-        <!--Mining Concessions-->
-        <div class="unit-btn2">
-          <div class="unit-toggle">
-            <div class="toggle">
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
-              </label>
-            </div>
-            <!--toggle close-->
-            <h6>Mining Concessions</h6>
-            <div class="tooltip">
-              <i
-                class="fa fa-info-circle"
-                style="color: gray; opacity: 0.8"
-              ></i>
-              <span class="tooltext"
-                >Displays boundaries of areas allocated by governments to
-                companies for extration of minerals</span
-              >
-            </div>
-          </div>
-          <!--Unit toggle close-->
-          <div class="marker">
-            <div class="point mining-p"></div>
-            <labe class="point-mean">Mining concessions</labe>
-          </div>
-          <!--close marker-->
-          <div class="tooltip2">
-            <p>
-              Layer available only for
-              <span class="underline"> certain countries</span>
-            </p>
-            <span class="tooltext2"
-              >Brazil, Cambodia, Cameroon, Canada, Colombia, Democratic Republic
-              of the Congo, Gabon, Mexico, Peru, Republic of the Congo</span
-            >
-          </div>
-        </div>
-        <!--unit close-->
-        <!--Logging Concessions-->
-        <div class="unit-btn2">
-          <div class="unit-toggle">
-            <div class="toggle">
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
-              </label>
-            </div>
-            <!--toggle close-->
-            <h6>Logging Concessions</h6>
-            <div class="tooltip">
-              <i
-                class="fa fa-info-circle"
-                style="color: gray; opacity: 0.8"
-              ></i>
-              <span class="tooltext"
-                >Provides the boundaries of logging concessions for the
-                selective loggings of natural forests</span
-              >
-            </div>
-          </div>
-          <!--Unit toggle close-->
-          <div class="marker">
-            <div class="point logging-p"></div>
-            <labe class="point-mean">Logging concessions</labe>
-          </div>
-          <!--close marker-->
-          <div class="tooltip2">
-            <p>
-              Layer available only for
-              <span class="underline"> certain countries</span>
-            </p>
-            <span class="tooltext2"
-              >Cameroon, Canada, Central African Republic, Democratic Republic
-              of the Congo, Equatorial Guinea, Gabon, Indonesia, Liberia,
-              Malaysia, Republic of Congo</span
-            >
-          </div>
-        </div>
-        <!--unit close-->
-        <!--RtRS guides for soy expansion -->
-        <div class="unit-btn2">
-          <div class="unit-toggle">
-            <div class="toggle">
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
-              </label>
-            </div>
-            <!--toggle close-->
-            <h6>Guides for Responsible Soy Expansion</h6>
-            <div class="tooltip">
-              <i
-                class="fa fa-info-circle"
-                style="color: gray; opacity: 0.8"
-              ></i>
-              <span class="tooltext"
-                >Guide the expansion of responsible soy production and evaluate
-                in situ HCVAs according to the RTRS Standards</span
-              >
-            </div>
-          </div>
-          <!--Unit toggle close-->
-          <div class="marker">
-            <div class="point noexpansion-p"></div>
-            <labe class="point-mean">No expansion allowed</labe>
-          </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point potential-p"></div>
-            <labe class="point-mean"
-              >Expansion potentially allowed after HCVA assessment</labe
-            >
-          </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point responsible-p"></div>
-            <labe class="point-mean"
-              >Responsible expansion as per legislation</labe
-            >
-          </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point land-p"></div>
-            <labe class="point-mean">No land available for expansion</labe>
-          </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point deforested-p"></div>
-            <labe class="point-mean">Areas deforested after 2009</labe>
-          </div>
-          <!--close marker-->
-          <div class="tooltip2">
-            <p>
-              Layer available only for
-              <span class="underline"> certain countries</span>
-            </p>
-            <span class="tooltext2">Brazil, Paraguay</span>
-          </div>
-        </div>
-        <!--unit close-->
-        <h5>Infrastructure</h5>
-        <!--Main Dams-->
-        <div class="unit-btn2">
-          <div class="unit-toggle">
-            <div class="toggle">
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
-              </label>
-            </div>
-            <!--toggle close-->
-            <h6>Major Dams</h6>
-            <div class="tooltip">
-              <i
-                class="fa fa-info-circle"
-                style="color: gray; opacity: 0.8"
-              ></i>
-              <span class="tooltext"
-                >Identifies dam locations for the world's 50 major river
-                basins</span
-              >
-            </div>
-          </div>
-          <!--Unit toggle close-->
-          <div class="marker">
-            <div class="point operational-p"></div>
-            <labe class="point-mean">Operational</labe>
-          </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point under-p"></div>
-            <labe class="point-mean">Under construction</labe>
-          </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point planned-p"></div>
-            <labe class="point-mean">Planned</labe>
-          </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point inventoried-p"></div>
-            <labe class="point-mean">Inventoried</labe>
-          </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point suspended-p"></div>
-            <labe class="point-mean">Suspended</labe>
-          </div>
-          <!--close marker-->
-          <div class="marker">
-            <div class="point unknown-p"></div>
-            <labe class="point-mean">Unknown</labe>
-          </div>
-          <!--close marker-->
-        </div>
-        <!--unit close-->
-        <h5>People</h5>
-        <!--populational density-->
-        <div class="unit-btn2">
-          <div class="unit-toggle">
-            <div class="toggle">
-              <label class="switch">
-                <input type="checkbox" />
-                <span class="slider round"></span>
-              </label>
-            </div>
-            <!--toggle close-->
-            <h6>Population Density</h6>
-            <div class="tooltip">
-              <i
-                class="fa fa-info-circle"
-                style="color: gray; opacity: 0.8"
-              ></i>
-              <span class="tooltext"
-                >Global estimate of human population density and
-                distribution</span
-              >
-            </div>
-          </div>
-          <!--unit-toggle close-->
-          <div class="measure">
-            <div class="bar-mesur people-s"></div>
-            <div class="indice">
-              <label class="millions">≤25</label>
-              <label class="millions">≤100</label>
-              <label class="millions">≤1k</label>
-              <label class="millions">≤5k</label>
-              <label class="millions">≤10k</label>
-              <label class="millions">≥10k</label>
-            </div>
-            <!--indice close-->
-          </div>
-          <!--measure close-->
-        </div>
-        <!--unit-btn close-->
       </div>
-      <!--menu-btn close-->
-    </div>
+      <!--Human Mobility-->
+      <div id="mobility-menu" class="sub-fiv-menu">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavMob()">&times;</a>
+        <h3>International Tourism</h3>
+        <div class="menu-btn">
+          <!--Departures-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="mobility" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Number of Departures</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal4.0"><i class="fa fa-info-circle" style="color:gray; opacity: 0.8;"></i></a>
+                <span class="tooltext">Number of departures of 264 places in the world </span>
+              </div>
+            </div>
+            <div class="range-player">
+              <!--Add Buttom play here-->
+              <div class="play-year-range">
+                <button class="player"><i class="fa fa-play-circle" style="color: gray"></i></button><input type="range"
+                  min="2001" max="2021" step="1" value="2001" class="playslider">
+              </div>
+            </div>
+            <div class="circle-wrapper">
+              <div class="circles-scale">
+                <div class="fivex"></div>
+                <div class="fourx"></div>
+                <div class="threex"></div>
+                <div class="twox"></div>
+                <div class="onex"></div>
+              </div>
+              <div class="scale-mi">
+                <label>≥ 150 Mi</label>
+                <label>100 Mi</label>
+                <label>50 Mi</label>
+                <label>10 Mi</label>
+                <label>&lt; 1 Mi</label>
+              </div>
+            </div>
+          </div>
+          <!--Arrives-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="mobility" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Number of Arrivals</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal4.1"><i class="fa fa-info-circle" style="color:gray; opacity: 0.8;"></i></a>
+                <span class="tooltext">Number of arrivals of 264 places in the world </span>
+              </div>
+            </div>
+            <div class="range-player">
+              <!--Add Buttom play here-->
+              <div class="play-year-range">
+                <button class="player"><i class="fa fa-play-circle" style="color: gray"></i></button><input type="range"
+                  min="2001" max="2021" step="1" value="2001" class="playslider">
+              </div>
+            </div>
+            <div class="circle-wrapper">
+              <div class="circles-scale">
+                <div class="fivex1"></div>
+                <div class="fourx1"></div>
+                <div class="threex1"></div>
+                <div class="twox1"></div>
+                <div class="onex1"></div>
+              </div>
+              <div class="scale-mi">
+                <label>≥ 150 Mi</label>
+                <label>100 Mi</label>
+                <label>50 Mi</label>
+                <label>10 Mi</label>
+                <label>&lt; 1 Mi</label>
+              </div>
+            </div>
 
-    <script src="{% static 'js/menu.js' %}"></script>
-    <!--Menu js-->
-    <!--MAP-->
-    <div id="map"></div>
+          </div>
+          <!--Passengers-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="mobility" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Number of Passengers</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal4.2"><i class="fa fa-info-circle" style="color:gray; opacity: 0.8;"></i></a>
+                <span class="tooltext">Number of passengers per year in the world </span>
+              </div>
+            </div>
+            <div class="range-player">
+              <div class="play-year-range">
+                <button class="player"><i class="fa fa-play-circle" style="color: gray"></i></button><input type="range"
+                  min="2001" max="2021" step="1" value="2001" class="playslider">
+              </div>
+            </div>
+            <div class="circle-wrapper">
+              <div class="circles-scale">
+                <div class="fivex2"></div>
+                <div class="fourx2"></div>
+                <div class="threex2"></div>
+                <div class="twox2"></div>
+                <div class="onex2"></div>
+              </div>
+              <div class="scale-mi">
+                <label>≥ 150 Mi</label>
+                <label>100 Mi</label>
+                <label>50 Mi</label>
+                <label>10 Mi</label>
+                <label>&lt; 1 Mi</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <script src="{% static 'js/menu.js' %}"></script>
+      <!--Menu js-->
+      <!--MAP-->
+      <div id="map"></div>
+    </div>
   </div>
-  <!--grid close-->
+        <!-- Discovery Modal Box-->
+        <div id="demo-modalA" class="modal">
+          <div class="modal__content">
+              <!--Title-->
+              <div class="modal-title">
+                  <h3>Virus Discovery</h3>
+                  <p>Global virus discovered</p>
+              </div>
+              <!--Layer Information-->
+              <div class="arrow-table">
+                  <h6>Fuction</h6>
+                  <div class="p-wrapper">
+                      <p>Identifies areas of likely tree cover loss in near-real time</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Resolution</h6>
+                  <div class="p-wrapper">
+                      <p>30 x 30 meters</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Geographic Coverage</h6>
+                  <div class="p-wrapper">
+                      <p>30 degrees north to 30 degrees south</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Source</h6>
+                  <div class="p-wrapper">
+                      <p>Hansen, M.C., A. Krylov, A. Tyukavina, P.V. Potapov, S. Turubanova, B. Zutta, S. Ifo, B.
+                          Margono, F. Stolle, and R. Moore. 2016. Humid tropical forest disturbance alerts using
+                          Landsat data. Environmental Research Letters, 11 (3).</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Frequency of updates</h6>
+                  <div class="p-wrapper">
+                      <p>Annually</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Date of content</h6>
+                  <div class="p-wrapper">
+                      <p>January 1, 2018 - present (begins 2015 for select countries in the Amazon and Congo Basins
+                          and insular Southeast Asia)</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Cautions</h6>
+                  <div class="p-wrapper">
+                      <p>While Landsat 7 and 8 satellites together have a revisit period of 8 days, cloud cover can
+                          majorly limit the availability of imagery, particularly in the wet season. Alert dates
+                          represent the instance of detection, though tree cover loss could have taken place earlier,
+                          possibly weeks earlier, due to persistent cloud cover.</p>
+                      <p>In this data set, “tree cover” is defined as all vegetation greater than 5 meters in height
+                          with greater than 60% canopy cover, and may take the form of natural forests or plantations.
+                          “Tree cover loss” indicates the canopy removal of at least half a pixel and can be due to a
+                          variety of factors, including mechanical harvesting, fire, disease, or storm damage. As
+                          such, “loss” does not equate to deforestation.</p>
+                      <p>In Peru, where the alert system was first developed, the authors evaluated the data to have
+                          13.5 percent false positives (loss detected where none occurred), though the majority of
+                          those false positives (9.5 percent) occur on the edges of clearings. On edges, the 30 meter
+                          Landsat pixels show a mix of forest and other land cover, which makes them prone to error in
+                          the system. The rate of false positives drops to 1 percent when only considering high
+                          confidence alerts. The data has 33 percent false negatives (undetected loss where it has
+                          occurred), though most of these occur in secondary forests—likely because the algorithm was
+                          created to capture primary forest loss. The higher rate of false negatives compared to false
+                          positives also indicates that the alerts are a conservative estimate of the tree cover loss
+                          that is actually occurring.</p>
+                      <p>When zoomed out, this data layer displays some degree of inaccuracy because the data points
+                          must be collapsed to be visible on a larger scale. Zoom in for greater detail.</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>License</h6>
+                  <div class="p-wrapper">
+                      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+                  </div>
+              </div>
+              <!--Overview-->
+              <div class="column-table">
+                  <h6>Overview</h6>
+                  <div class="p-wrapper-column">
+                      <p>This data set, created by the GLAD (Global Land Analysis & Discovery) lab at the University
+                          of Maryland and supported by Global Forest Watch, is the first Landsat-based alert system
+                          for tree cover loss. While most existing loss alert products use 250-meter resolution MODIS
+                          imagery, these alerts have a 30-meter resolution and thus can detect loss at a much finer
+                          spatial scale. The alerts are operational for land areas between 30 degrees north and south.
+                      </p>
+                      <p>New Landsat 7 and 8 images are downloaded as they are posted online, assessed for cloud cover
+                          or poor data quality, and compared to the three previous years of Landsat-derived metrics
+                          (including ranks, means, and regressions of red, infrared and shortwave bands, and ranks of
+                          NDVI, NBR, and NDWI). The metrics and the latest Landsat image are run through seven
+                          decision trees to calculate a median probability of forest disturbance. Pixels with
+                          probability >50% are reported as tree cover loss alerts. The entire process is run in Google
+                          Earth Engine to ensure reliable updates and scalability. For more information on
+                          methodology, see the paper in Environmental Research Letters.</p>
+                      <p>Alerts are not classified as high confidence until two or more out of four consecutive
+                          observations are labelled as tree cover loss. Alerts are removed from the dataset after four
+                          consecutive observations or more than 180 days if they are not classified as high
+                          confidence. You can choose to view only high confidence alerts in the menu, though keep in
+                          mind that using only high confidence alerts misses the newest detections of tree cover loss.
+                      </p>
+                  </div>
+              </div>
+              <!--Citation-->
+              <div class="column-table">
+                  <h6>Citation</h6>
+                  <div class="p-wrapper-column">
+                      <p>Use the following credit when these data are cited:</p>
+                      <p>Hansen, M.C., A. Krylov, A. Tyukavina, P.V. Potapov, S. Turubanova, B. Zutta, S. Ifo, B.
+                          Margono, F. Stolle, and R. Moore. 2016. Humid tropical forest disturbance alerts using
+                          Landsat data. Environmental Research Letters, 11 (3). Accessed through Global Forest Watch
+                          on 14/04/2021. www.globalforestwatch.org</p>
+                      <a href="https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008"
+                          target="_blanks">Learn more</a>
+                  </div>
+              </div>
+              <!--Download data button-->
+              <div class="databtn">
+                  <button class="download-data"><a href="http://glad-forest-alert.appspot.com/"
+                          target="_blank">Download Data</a></button>
+              </div>
+
+              <a href="#map" class="modal__close">&times;</a>
+          </div>
+      </div>
+      <!-- Distribution Modal Box-->
+      <div id="demo-modalB" class="modal">
+          <div class="modal__content">
+              <!--Title-->
+              <div class="modal-title">
+                  <h3>Virus Distribution</h3>
+                  <p>Global virus distribution</p>
+              </div>
+              <!--Layer Information-->
+              <div class="arrow-table">
+                  <h6>Fuction</h6>
+                  <div class="p-wrapper">
+                      <p>Identifies areas of likely tree cover loss in near-real time</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Resolution</h6>
+                  <div class="p-wrapper">
+                      <p>30 x 30 meters</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Geographic Coverage</h6>
+                  <div class="p-wrapper">
+                      <p>30 degrees north to 30 degrees south</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Source</h6>
+                  <div class="p-wrapper">
+                      <p>Hansen, M.C., A. Krylov, A. Tyukavina, P.V. Potapov, S. Turubanova, B. Zutta, S. Ifo, B.
+                          Margono, F. Stolle, and R. Moore. 2016. Humid tropical forest disturbance alerts using
+                          Landsat data. Environmental Research Letters, 11 (3).</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Frequency of updates</h6>
+                  <div class="p-wrapper">
+                      <p>Annually</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Date of content</h6>
+                  <div class="p-wrapper">
+                      <p>January 1, 2018 - present (begins 2015 for select countries in the Amazon and Congo Basins
+                          and insular Southeast Asia)</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Cautions</h6>
+                  <div class="p-wrapper">
+                      <p>While Landsat 7 and 8 satellites together have a revisit period of 8 days, cloud cover can
+                          majorly limit the availability of imagery, particularly in the wet season. Alert dates
+                          represent the instance of detection, though tree cover loss could have taken place earlier,
+                          possibly weeks earlier, due to persistent cloud cover.</p>
+                      <p>In this data set, “tree cover” is defined as all vegetation greater than 5 meters in height
+                          with greater than 60% canopy cover, and may take the form of natural forests or plantations.
+                          “Tree cover loss” indicates the canopy removal of at least half a pixel and can be due to a
+                          variety of factors, including mechanical harvesting, fire, disease, or storm damage. As
+                          such, “loss” does not equate to deforestation.</p>
+                      <p>In Peru, where the alert system was first developed, the authors evaluated the data to have
+                          13.5 percent false positives (loss detected where none occurred), though the majority of
+                          those false positives (9.5 percent) occur on the edges of clearings. On edges, the 30 meter
+                          Landsat pixels show a mix of forest and other land cover, which makes them prone to error in
+                          the system. The rate of false positives drops to 1 percent when only considering high
+                          confidence alerts. The data has 33 percent false negatives (undetected loss where it has
+                          occurred), though most of these occur in secondary forests—likely because the algorithm was
+                          created to capture primary forest loss. The higher rate of false negatives compared to false
+                          positives also indicates that the alerts are a conservative estimate of the tree cover loss
+                          that is actually occurring.</p>
+                      <p>When zoomed out, this data layer displays some degree of inaccuracy because the data points
+                          must be collapsed to be visible on a larger scale. Zoom in for greater detail.</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>License</h6>
+                  <div class="p-wrapper">
+                      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+                  </div>
+              </div>
+              <!--Overview-->
+              <div class="column-table">
+                  <h6>Overview</h6>
+                  <div class="p-wrapper-column">
+                      <p>This data set, created by the GLAD (Global Land Analysis & Discovery) lab at the University
+                          of Maryland and supported by Global Forest Watch, is the first Landsat-based alert system
+                          for tree cover loss. While most existing loss alert products use 250-meter resolution MODIS
+                          imagery, these alerts have a 30-meter resolution and thus can detect loss at a much finer
+                          spatial scale. The alerts are operational for land areas between 30 degrees north and south.
+                      </p>
+                      <p>New Landsat 7 and 8 images are downloaded as they are posted online, assessed for cloud cover
+                          or poor data quality, and compared to the three previous years of Landsat-derived metrics
+                          (including ranks, means, and regressions of red, infrared and shortwave bands, and ranks of
+                          NDVI, NBR, and NDWI). The metrics and the latest Landsat image are run through seven
+                          decision trees to calculate a median probability of forest disturbance. Pixels with
+                          probability >50% are reported as tree cover loss alerts. The entire process is run in Google
+                          Earth Engine to ensure reliable updates and scalability. For more information on
+                          methodology, see the paper in Environmental Research Letters.</p>
+                      <p>Alerts are not classified as high confidence until two or more out of four consecutive
+                          observations are labelled as tree cover loss. Alerts are removed from the dataset after four
+                          consecutive observations or more than 180 days if they are not classified as high
+                          confidence. You can choose to view only high confidence alerts in the menu, though keep in
+                          mind that using only high confidence alerts misses the newest detections of tree cover loss.
+                      </p>
+                  </div>
+              </div>
+              <!--Citation-->
+              <div class="column-table">
+                  <h6>Citation</h6>
+                  <div class="p-wrapper-column">
+                      <p>Use the following credit when these data are cited:</p>
+                      <p>Hansen, M.C., A. Krylov, A. Tyukavina, P.V. Potapov, S. Turubanova, B. Zutta, S. Ifo, B.
+                          Margono, F. Stolle, and R. Moore. 2016. Humid tropical forest disturbance alerts using
+                          Landsat data. Environmental Research Letters, 11 (3). Accessed through Global Forest Watch
+                          on 14/04/2021. www.globalforestwatch.org</p>
+                      <a href="https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008"
+                          target="_blanks">Learn more</a>
+                  </div>
+              </div>
+              <!--Download data button-->
+              <div class="databtn">
+                  <button class="download-data"><a href="http://glad-forest-alert.appspot.com/"
+                          target="_blank">Download Data</a></button>
+              </div>
+
+              <a href="#map" class="modal__close">&times;</a>
+          </div>
+      </div>
+      <!-- Vector Modal Box-->
+      <div id="demo-modalC" class="modal">
+          <div class="modal__content">
+              <!--Title-->
+              <div class="modal-title">
+                  <h3>Vector</h3>
+                  <p>Global vector distribution</p>
+              </div>
+              <!--Layer Information-->
+              <div class="arrow-table">
+                  <h6>Fuction</h6>
+                  <div class="p-wrapper">
+                      <p>Identifies areas of likely tree cover loss in near-real time</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Resolution</h6>
+                  <div class="p-wrapper">
+                      <p>30 x 30 meters</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Geographic Coverage</h6>
+                  <div class="p-wrapper">
+                      <p>30 degrees north to 30 degrees south</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Source</h6>
+                  <div class="p-wrapper">
+                      <p>Hansen, M.C., A. Krylov, A. Tyukavina, P.V. Potapov, S. Turubanova, B. Zutta, S. Ifo, B.
+                          Margono, F. Stolle, and R. Moore. 2016. Humid tropical forest disturbance alerts using
+                          Landsat data. Environmental Research Letters, 11 (3).</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Frequency of updates</h6>
+                  <div class="p-wrapper">
+                      <p>Annually</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Date of content</h6>
+                  <div class="p-wrapper">
+                      <p>January 1, 2018 - present (begins 2015 for select countries in the Amazon and Congo Basins
+                          and insular Southeast Asia)</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>Cautions</h6>
+                  <div class="p-wrapper">
+                      <p>While Landsat 7 and 8 satellites together have a revisit period of 8 days, cloud cover can
+                          majorly limit the availability of imagery, particularly in the wet season. Alert dates
+                          represent the instance of detection, though tree cover loss could have taken place earlier,
+                          possibly weeks earlier, due to persistent cloud cover.</p>
+                      <p>In this data set, “tree cover” is defined as all vegetation greater than 5 meters in height
+                          with greater than 60% canopy cover, and may take the form of natural forests or plantations.
+                          “Tree cover loss” indicates the canopy removal of at least half a pixel and can be due to a
+                          variety of factors, including mechanical harvesting, fire, disease, or storm damage. As
+                          such, “loss” does not equate to deforestation.</p>
+                      <p>In Peru, where the alert system was first developed, the authors evaluated the data to have
+                          13.5 percent false positives (loss detected where none occurred), though the majority of
+                          those false positives (9.5 percent) occur on the edges of clearings. On edges, the 30 meter
+                          Landsat pixels show a mix of forest and other land cover, which makes them prone to error in
+                          the system. The rate of false positives drops to 1 percent when only considering high
+                          confidence alerts. The data has 33 percent false negatives (undetected loss where it has
+                          occurred), though most of these occur in secondary forests—likely because the algorithm was
+                          created to capture primary forest loss. The higher rate of false negatives compared to false
+                          positives also indicates that the alerts are a conservative estimate of the tree cover loss
+                          that is actually occurring.</p>
+                      <p>When zoomed out, this data layer displays some degree of inaccuracy because the data points
+                          must be collapsed to be visible on a larger scale. Zoom in for greater detail.</p>
+                  </div>
+              </div>
+              <div class="arrow-table">
+                  <h6>License</h6>
+                  <div class="p-wrapper">
+                      <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+                  </div>
+              </div>
+              <!--Overview-->
+              <div class="column-table">
+                  <h6>Overview</h6>
+                  <div class="p-wrapper-column">
+                      <p>This data set, created by the GLAD (Global Land Analysis & Discovery) lab at the University
+                          of Maryland and supported by Global Forest Watch, is the first Landsat-based alert system
+                          for tree cover loss. While most existing loss alert products use 250-meter resolution MODIS
+                          imagery, these alerts have a 30-meter resolution and thus can detect loss at a much finer
+                          spatial scale. The alerts are operational for land areas between 30 degrees north and south.
+                      </p>
+                      <p>New Landsat 7 and 8 images are downloaded as they are posted online, assessed for cloud cover
+                          or poor data quality, and compared to the three previous years of Landsat-derived metrics
+                          (including ranks, means, and regressions of red, infrared and shortwave bands, and ranks of
+                          NDVI, NBR, and NDWI). The metrics and the latest Landsat image are run through seven
+                          decision trees to calculate a median probability of forest disturbance. Pixels with
+                          probability >50% are reported as tree cover loss alerts. The entire process is run in Google
+                          Earth Engine to ensure reliable updates and scalability. For more information on
+                          methodology, see the paper in Environmental Research Letters.</p>
+                      <p>Alerts are not classified as high confidence until two or more out of four consecutive
+                          observations are labelled as tree cover loss. Alerts are removed from the dataset after four
+                          consecutive observations or more than 180 days if they are not classified as high
+                          confidence. You can choose to view only high confidence alerts in the menu, though keep in
+                          mind that using only high confidence alerts misses the newest detections of tree cover loss.
+                      </p>
+                  </div>
+              </div>
+              <!--Citation-->
+              <div class="column-table">
+                  <h6>Citation</h6>
+                  <div class="p-wrapper-column">
+                      <p>Use the following credit when these data are cited:</p>
+                      <p>Hansen, M.C., A. Krylov, A. Tyukavina, P.V. Potapov, S. Turubanova, B. Zutta, S. Ifo, B.
+                          Margono, F. Stolle, and R. Moore. 2016. Humid tropical forest disturbance alerts using
+                          Landsat data. Environmental Research Letters, 11 (3). Accessed through Global Forest Watch
+                          on 14/04/2021. www.globalforestwatch.org</p>
+                      <a href="https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008"
+                          target="_blanks">Learn more</a>
+                  </div>
+              </div>
+              <!--Download data button-->
+              <div class="databtn">
+                  <button class="download-data"><a href="http://glad-forest-alert.appspot.com/"
+                          target="_blank">Download Data</a></button>
+              </div>
+
+              <a href="#map" class="modal__close">&times;</a>
+          </div>
+      </div>
   <!-- Temperature Modal Box-->
-  <div id="demo-modal1" class="modal">
+  <div id="demo-modal1.0" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -1076,19 +2001,13 @@
             Research Letters, 11 (3). Accessed through Global Forest Watch on
             14/04/2021. www.globalforestwatch.org
           </p>
-          <a
-            href="https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008"
-            target="_blanks"
-            >Learn more</a
-          >
+          <a href="https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008" target="_blanks">Learn more</a>
         </div>
       </div>
       <!--Download data button-->
       <div class="databtn">
         <button class="download-data">
-          <a href="http://glad-forest-alert.appspot.com/" target="_blank"
-            >Download Data</a
-          >
+          <a href="http://glad-forest-alert.appspot.com/" target="_blank">Download Data</a>
         </button>
       </div>
 
@@ -1096,7 +2015,7 @@
     </div>
   </div>
   <!-- Temperature Modal Box-->
-  <div id="demo-modal2" class="modal">
+  <div id="demo-modal1.1" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -1247,19 +2166,13 @@
             Research Letters, 11 (3). Accessed through Global Forest Watch on
             14/04/2021. www.globalforestwatch.org
           </p>
-          <a
-            href="https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008"
-            target="_blanks"
-            >Learn more</a
-          >
+          <a href="https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008" target="_blanks">Learn more</a>
         </div>
       </div>
       <!--Download data button-->
       <div class="databtn">
         <button class="download-data">
-          <a href="http://glad-forest-alert.appspot.com/" target="_blank"
-            >Download Data</a
-          >
+          <a href="http://glad-forest-alert.appspot.com/" target="_blank">Download Data</a>
         </button>
       </div>
 
@@ -1267,7 +2180,7 @@
     </div>
   </div>
   <!-- Humidity Modal Box-->
-  <div id="demo-modal3" class="modal">
+  <div id="demo-modal1.2" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -1418,19 +2331,13 @@
             Research Letters, 11 (3). Accessed through Global Forest Watch on
             14/04/2021. www.globalforestwatch.org
           </p>
-          <a
-            href="https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008"
-            target="_blanks"
-            >Learn more</a
-          >
+          <a href="https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008" target="_blanks">Learn more</a>
         </div>
       </div>
       <!--Download data button-->
       <div class="databtn">
         <button class="download-data">
-          <a href="http://glad-forest-alert.appspot.com/" target="_blank"
-            >Download Data</a
-          >
+          <a href="http://glad-forest-alert.appspot.com/" target="_blank">Download Data</a>
         </button>
       </div>
 
@@ -1438,7 +2345,7 @@
     </div>
   </div>
   <!-- GLAD alerts Modal Box-->
-  <div id="demo-modal4" class="modal">
+  <div id="demo-modal2.0" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -1589,19 +2496,13 @@
             Research Letters, 11 (3). Accessed through Global Forest Watch on
             14/04/2021. www.globalforestwatch.org
           </p>
-          <a
-            href="https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008"
-            target="_blanks"
-            >Learn more</a
-          >
+          <a href="https://iopscience.iop.org/article/10.1088/1748-9326/11/3/034008" target="_blanks">Learn more</a>
         </div>
       </div>
       <!--Download data button-->
       <div class="databtn">
         <button class="download-data">
-          <a href="http://glad-forest-alert.appspot.com/" target="_blank"
-            >Download Data</a
-          >
+          <a href="http://glad-forest-alert.appspot.com/" target="_blank">Download Data</a>
         </button>
       </div>
 
@@ -1609,7 +2510,7 @@
     </div>
   </div>
   <!--Tree cover Loss Modal Box-->
-  <div id="demo-modal5" class="modal">
+  <div id="demo-modal2.1" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -1749,11 +2650,8 @@
       <!--Download data button-->
       <div class="databtn">
         <button class="download-data">
-          <a
-            href="https://data.globalforestwatch.org/datasets/tree-cover-loss-by-dominant-driver"
-            target="_blank"
-            >Download Data</a
-          >
+          <a href="https://data.globalforestwatch.org/datasets/tree-cover-loss-by-dominant-driver"
+            target="_blank">Download Data</a>
         </button>
       </div>
 
@@ -1761,7 +2659,7 @@
     </div>
   </div>
   <!-- Primary Forest Modal Box-->
-  <div id="demo-modal6" class="modal">
+  <div id="demo-modal2.2" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -1834,21 +2732,13 @@
             p.074028. Accessed through Global Forest Watch on 14/04/2021.
             www.globalforestwatch.org.
           </p>
-          <a
-            href="https://iopscience.iop.org/article/10.1088/1748-9326/aacd1c/meta"
-            target="_blanks"
-            >Learn more</a
-          >
+          <a href="https://iopscience.iop.org/article/10.1088/1748-9326/aacd1c/meta" target="_blanks">Learn more</a>
         </div>
       </div>
       <!--Download data button-->
       <div class="databtn">
         <button class="download-data">
-          <a
-            href="https://glad.umd.edu/dataset/primary-forest-humid-tropics"
-            target="_blank"
-            >Download Data</a
-          >
+          <a href="https://glad.umd.edu/dataset/primary-forest-humid-tropics" target="_blank">Download Data</a>
         </button>
       </div>
 
@@ -1856,7 +2746,7 @@
     </div>
   </div>
   <!-- Tree height Modal Box-->
-  <div id="demo-modal7" class="modal">
+  <div id="demo-modal2.3" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -1961,17 +2851,13 @@
             Accessed through Global Forest Watch on 14/04/2021.
             www.globalforestwatch.org.
           </p>
-          <a href="https://glad.umd.edu/dataset/gedi/" target="_blanks"
-            >Learn more</a
-          >
+          <a href="https://glad.umd.edu/dataset/gedi/" target="_blanks">Learn more</a>
         </div>
       </div>
       <!--Download data button-->
       <div class="databtn">
         <button class="download-data">
-          <a href="https://glad.umd.edu/dataset/gedi/" target="_blank"
-            >Download Data</a
-          >
+          <a href="https://glad.umd.edu/dataset/gedi/" target="_blank">Download Data</a>
         </button>
       </div>
 
@@ -1979,7 +2865,7 @@
     </div>
   </div>
   <!-- Intact Forest Landscape Modal Box-->
-  <div id="demo-modal8" class="modal">
+  <div id="demo-modal2.4" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -2096,19 +2982,14 @@
             Accessed through Global Forest Watch on 14/04/2021.
             www.globalforestwatch.orgHa
           </p>
-          <a href="http://www.intactforests.org/" target="_blanks"
-            >Learn more</a
-          >
+          <a href="http://www.intactforests.org/" target="_blanks">Learn more</a>
         </div>
       </div>
       <!--Download data button-->
       <div class="databtn">
         <button class="download-data">
-          <a
-            href="https://data.globalforestwatch.org/search?q=intact%20forest%20landscapes"
-            target="_blank"
-            >Download Data</a
-          >
+          <a href="https://data.globalforestwatch.org/search?q=intact%20forest%20landscapes" target="_blank">Download
+            Data</a>
         </button>
       </div>
 
@@ -2116,7 +2997,7 @@
     </div>
   </div>
   <!-- Forest Landscape index Modal Box-->
-  <div id="demo-modal9" class="modal">
+  <div id="demo-modal2.5" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -2229,25 +3110,834 @@
             Grantham, H. S. et al. (2020). “Forest Landscape Integrity Index”.
             Accessed on 14/04/2021 from Global Forest Watch.
           </p>
-          <a
-            href="https://www.forestintegrity.com/download-data"
-            target="_blanks"
-            >Learn more</a
-          >
+          <a href="https://www.forestintegrity.com/download-data" target="_blanks">Learn more</a>
         </div>
       </div>
       <!--Download data button-->
       <div class="databtn">
         <button class="download-data">
-          <a href="https://www.forestintegrity.com/" target="_blank"
-            >Download Data</a
-          >
+          <a href="https://www.forestintegrity.com/" target="_blank">Download Data</a>
         </button>
       </div>
-
       <a href="#map" class="modal__close">&times;</a>
     </div>
   </div>
+   <!-- Land Cover -->
+   <div id="demo-modal3.0" class="modal">
+    <div class="modal__content">
+        <!--Title-->
+        <div class="modal-title">
+            <h3>Land Cover</h3>
+            <p>(ESA/UCLouvian, 2015)</p>
+        </div>
+        <!--Layer Information-->
+        <div class="arrow-table">
+            <h6>Fuction</h6>
+            <div class="p-wrapper">
+                <p>Shows the global distribution of land cover in 2015</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Resolution</h6>
+            <div class="p-wrapper">
+                <p>300 x 300 meters</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Geographic Coverage</h6>
+            <div class="p-wrapper">
+                <p>Global</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Source</h6>
+            <div class="p-wrapper">
+                <p>© ESA Climate Change Initiative - Land Cover led by UCLouvain (2017)</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Frequency of updates</h6>
+            <div class="p-wrapper">
+                <p>Annually</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Date of content</h6>
+            <div class="p-wrapper">
+                <p>2015</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Cautions</h6>
+            <div class="p-wrapper">
+                <p>A full accuracy assessment is available from the CCI. In general, land cover classes such as
+                    rainfed and irrigated croplands, broadleaved evergreen forest, urban areas, bare areas,
+                    water bodies and permanent snow are found quite accurately mapped. On the other hand,
+                    classes such as lichens and mosses, sparse vegetation and flooded forest with fresh water
+                    can be affected by errors.</p>
+                <p>Data quality varies by region, particularly as related to the coverage of MERIS imagery for
+                    creation of the baseline map. Areas with less coverage include the western part of the
+                    Amazon basin, Chile and the southern part of Argentina, the western part of Congo basin as
+                    well as the gulf of Guinea, the eastern part of Russia, and the eastern coast of China and
+                    Indonesia.</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>License</h6>
+            <div class="p-wrapper">
+                <a href="http://maps.elie.ucl.ac.be/CCI/viewer/download.php">Terms of Use</a>
+            </div>
+        </div>
+        <!--Overview-->
+        <div class="column-table">
+            <h6>Overview</h6>
+            <div class="p-wrapper-column">
+                <p>This data set (version 2.07) was created as part of the Climate Change Initiative (CCI), an
+                    initiative of the European Space Agency to create long-term, consistent, global data for the
+                    purposes of climate modelling. The CCI Land Cover project delivers consistent global land
+                    cover maps at 300 m spatial resolution on an annual basis from 1992 to 2015. The Global
+                    Forest Watch platform only displays the 2015 land cover data.</p>
+                <p>To ensure consistency from year to year, land cover maps for each year are derived from a
+                    single baseline land cover map. The baseline map was created using the full record of MERIS
+                    images from 2003 to 2012, using unsupervised classification as well as a machine learning
+                    algorithm over multiple years of imagery. Changes are then detected between individual years
+                    at 1 km resolution, using AVHRR data from 1992 to 1999, SPOT-VGT data from 1999 to 2013, and
+                    PROVA-V data from 2014 and 2015. Changes must be consistent for two consecutive years in
+                    order to be counted, with the exception of forest changes in 2014 and 2015 which are assumed
+                    to be well detected. The 1 km changes are then combined with the baseline land cover map and
+                    delineated to 300 meters for 2004 onward (when MERIS and PROVA-V data are available).</p>
+                <p>The resulting data have a total of 22 global land cover classes. For the sake of better
+                    visualization, Global Forest Watch shows only a set of simplified classes, based on the IPCC
+                    (agriculture, forest, grassland, wetland, settlement, shrubland, sparse vegetation, bare
+                    area, water, and permanent ice and snow). The full set of classes as well as annual land
+                    cover maps back to 1992 are available on the ESA/CCI viewer.</p>
+            </div>
+        </div>
+        <!--Citation-->
+        <div class="column-table">
+            <h6>Citation</h6>
+            <div class="p-wrapper-column">
+                <p>Use the following credit when these data are cited:</p>
+                <p>ESA Climate Change Initiative, Land Cover - led by UCLouvain. “2015 global land cover.”
+                    Accessed through Global Forest Watch on 26/04/2021. www.globalforestwatch.org.</p>
+                <a href="http://maps.elie.ucl.ac.be/CCI/viewer/download/ESACCI-LC-Ph2-PUGv2_2.0.pdf"
+                    target="_blanks">Learn more</a>
+            </div>
+        </div>
+        <!--Download data button-->
+        <div class="databtn">
+            <button class="download-data"><a href="http://maps.elie.ucl.ac.be/CCI/viewer/download.php"
+                    target="_blank">Download Data</a></button>
+        </div>
+
+        <a href="#map" class="modal__close">&times;</a>
+    </div>
+</div>
+<!--mining concessions-->
+<div id="demo-modal3.1" class="modal">
+    <div class="modal__content">
+        <!--Title-->
+        <div class="modal-title">
+            <h3>Mining Concessions</h3>
+            <p>(Selected countries)</p>
+        </div>
+        <!--Layer Information-->
+        <div class="arrow-table">
+            <h6>Fuction</h6>
+            <div class="p-wrapper">
+                <p>Displays boundaries of areas allocated by governments to companies for extraction of minerals
+                </p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Geographic Coverage</h6>
+            <div class="p-wrapper">
+                <p>Currently available for Cameroon, Cambodia, Canada, Colombia, Republic of the Congo, Gabon,
+                    and Democratic Republic of the Congo (DRC), Peru, Brazil and Mexico</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Source</h6>
+            <div class="p-wrapper">
+                <p>Brazil: National Department of Mineral Protection</p>
+                <p>Cameroon: Ministry of Mines and Technological Development</p>
+                <p>Cambodia: Open Development Cambodia</p>
+                <p>Canada: Global Forest Watch Canada</p>
+                <p>Colombia: Tierra Minada; Agencia Nacional de Minería de Colombia</p>
+                <p>Democratic Republic of the Congo: Ministry of Mines Mining Registry</p>
+                <p>Gabon: Democratic Republic of the Congo Ministry of Mines Mining Registry (CAMI)</p>
+                <p>Mexico: Secretaria de Economia</p>
+                <p>Peru: INGEMMET</p>
+                <p>Republic of the Congo: Republic of the Congo Ministry of Mines and Geology & WRI</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Date of content</h6>
+            <div class="p-wrapper">
+                <p>Varies by country</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Cautions</h6>
+            <div class="p-wrapper">
+                <p>This layer is a compilation of concession data from various countries and sources. The
+                    quality of these data can vary depending on the source. This layer may not include all
+                    existing concessions in a country, and the location of certain concessions can be
+                    inaccurate.</p>
+            </div>
+        </div>
+        <!--Overview-->
+        <div class="column-table">
+            <h6>Overview</h6>
+            <div class="p-wrapper-column">
+                <p>“Mining concession” refers to an area allocated by a government or other body for the
+                    extraction of minerals. The terminology for these areas varies from country to country.
+                    “Concession” is used as a general term for licenses, permits, or other contracts that confer
+                    rights to private companies to manage and extract minerals from public lands; terminology
+                    varies at the national level, however, and includes mineral or mining "permits," "tenures,"
+                    "licenses," and other terms.</p>
+                <p>This data set displays mining concessions as a single layer assembled by aggregating
+                    concession data for multiple countries. The data may come from government agencies, NGOs, or
+                    other organizations and varies by date and data sources. For more information on concession
+                    data for each country please visit the Open Data Portal.</p>
+                <p>If you are aware of concession data for additional countries, please email us here.</p>
+            </div>
+        </div>
+        <!--Citation-->
+        <div class="column-table">
+            <h6>Citation</h6>
+            <div class="p-wrapper-column">
+                <p>Use the following credit when these data are cited:</p>
+                <p>“Mining concessions.” Accessed through Global Forest Watch on 26/04/2021.
+                    www.globalforestwatch.org.</p>
+            </div>
+        </div>
+        <!--Download data button-->
+        <div class="databtn">
+            <button class="download-data"><a
+                    href="https://data.globalforestwatch.org/datasets/2aaf839424e44e96a09eff4dcdbf70cf_0?geometry=90.160%2C-11.038%2C-123.590%2C73.865"
+                    target="_blank">Download Data</a></button>
+        </div>
+        <a href="#map" class="modal__close">&times;</a>
+    </div>
+</div>
+<!--Logging concessions-->
+<div id="demo-modal3.2" class="modal">
+    <div class="modal__content">
+        <!--Title-->
+        <div class="modal-title">
+            <h3>Managed Forest Concessions</h3>
+            <p>(Selected countries)</p>
+        </div>
+        <!--Layer Information-->
+        <div class="arrow-table">
+            <h6>Fuction</h6>
+            <div class="p-wrapper">
+                <p>Displays boundaries of forested areas allocated by governments to companies for harvesting
+                    timber and other wood products.
+                </p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Geographic Coverage</h6>
+            <div class="p-wrapper">
+                <p>Currently available for Cameroon, Cambodia, Canada, Colombia, Republic of the Congo, Gabon,
+                </p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Source</h6>
+            <div class="p-wrapper">
+                <p>Cameroon: Ministry of Forestry and Wildlife & WRI</p>
+                <p>Canada: Global Forest Watch Canada</p>
+                <p>Central African Republic: Ministry of Water and Forests, Hunting, and Fishing & WRI</p>
+                <p>Democratic Republic of the Congo: Ministry of Environment, Nature Conservation, and Tourism &
+                    WRI</p>
+                <p>Equatorial Guinea: Ministry of Agriculture and Forests & WRI</p>
+                <p>Gabon: Ministry of Forest Economy, Water, Fisheries, and Aquaculture & WRI</p>
+                <p>Indonesia: Ministry of Forestry</p>
+                <p>Liberia: Global Witness</p>
+                <p>Sarawak, Malaysia: Earthsight Investigations & Global Witness</p>
+                <p>Republic of the Congo: Ministry of Forest Economy & WRI</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Date of content</h6>
+            <div class="p-wrapper">
+                <p>Varies by country</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Cautions</h6>
+            <div class="p-wrapper">
+                <p>This layer is a compilation of concession data from various countries and sources. The
+                    quality of these data can vary depending on the source. This layer may not be comprehensive
+                    of all existing concessions in a country, and the location of certain concessions can be
+                    inaccurate.</p>
+            </div>
+        </div>
+        <!--Overview-->
+        <div class="column-table">
+            <h6>Overview</h6>
+            <div class="p-wrapper-column">
+                <p>“Managed forests” refers to areas allocated by a government for harvesting timber and other
+                    wood products in a public forest. Managed forests are distinct from wood fiber concessions,
+                    where tree plantations are established for the exclusive production of pulp and paper
+                    products. “Concession” is used as a general term for licenses, permits, or other contracts
+                    that confer rights to private companies to manage and extract timber and other wood products
+                    from public forests; terminology varies at the national level, however, and includes "forest
+                    permits," "tenures," "licenses," and other terms.</p>
+                <p>This data set displays managed forest concessions as a single layer assembled by aggregating
+                    data for multiple countries. The data may come from government agencies, NGOs, or other
+                    organizations and varies by date and data sources. For more information on concession data
+                    for each country please visit the Open Data Portal.</p>
+                <p>If you are aware of concession data for additional countries, please email us here.</p>
+            </div>
+        </div>
+        <!--Citation-->
+        <div class="column-table">
+            <h6>Citation</h6>
+            <div class="p-wrapper-column">
+                <p>Use the following credit when these data are cited:</p>
+                <p>“Managed forest concessions.” Accessed through Global Forest Watch on 26/04/2021.
+                    www.globalforestwatch.org.</p>
+            </div>
+        </div>
+        <!--Download data button-->
+        <div class="databtn">
+            <button class="download-data"><a
+                    href="https://data.globalforestwatch.org/datasets/managed-forest-concessions"
+                    target="_blank">Download Data</a></button>
+        </div>
+        <a href="#map" class="modal__close">&times;</a>
+    </div>
+</div>
+<!-- Soy -->
+<div id="demo-modal3.3" class="modal">
+    <div class="modal__content">
+        <!--Title-->
+        <div class="modal-title">
+            <h3>RTRS Guides for Responsible Soy Expansion</h3>
+        </div>
+        <!--Layer Information-->
+        <div class="arrow-table">
+            <h6>Fuction</h6>
+            <div class="p-wrapper">
+                <p>Guide the expansion of responsible soy production and evaluate in situ HCVAs according to the
+                    RTRS Standard
+                </p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Resolution</h6>
+            <div class="p-wrapper">
+                <p>60 × 60 meters (a course resolution map with 3700 × 3700 meter resolution is also available
+                    in the Open Data Portal)</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Geographic Coverage</h6>
+            <div class="p-wrapper">
+                <p>Brazil and Paraguay</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Source</h6>
+            <div class="p-wrapper">
+                <p>Multi-stakeholder process convened by RTRS</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Date of content</h6>
+            <div class="p-wrapper">
+                <p>May 2015</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Cautions</h6>
+            <div class="p-wrapper">
+                <p>These maps indicate suitability for soy production according to the RTRS standard; other
+                    standards and frameworks may differ in their requirements and landscape interpretation.</p>
+                <p>These macro-scale maps do not exclude on-farm situations where producers are able to
+                    demonstrate fulfillment of RTRS Standards. See RTRS for more info.</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>License</h6>
+            <div class="p-wrapper">
+                <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0
+                    International (CC BY 4.0) license</a>
+            </div>
+        </div>
+        <!--Overview-->
+        <div class="column-table">
+            <h6>Overview</h6>
+            <div class="p-wrapper-column">
+                <p>The Round Table on Responsible Soy (RTRS) is a civil society organization that promotes the
+                    production, processing and marketing of responsible soy globally. It aims to promote
+                    sustainable production to reduce the social and environmental impacts of soybeans. The RTRS
+                    Responsible Soy Production Map is created based on RTRS Standards, and is intended to guide
+                    responsible expansion of soybean production for RTRS certification. The RTRS committed to
+                    create macro-scale maps for Argentina, Brazil, Bolivia, and Paraguay to identify and
+                    preserve critical ecosystems and High Conservation Value Areas (HCVAs), as well as identify
+                    opportunities for responsible expansion of soy with low levels of environmental impact. The
+                    process began in Brazil in 2012, followed by Paraguay in 2013. Additional national level
+                    maps (e.g. Argentina) are in development. </p>
+                <p>These national maps are created by RTRS National Technical Groups in each country, with
+                    experts representing all levels of the supply chain to interpret the global methodology at
+                    the national level. Each group was led by local coordinators and supported by GIS companies
+                    and consultative groups, as well as BACP (IFC), IDH, 3Fi, WWF and The Gordon and Betty Moore
+                    Foundation, the principal funders of this project.</p>
+                <p>The guides were developed according to Annex 4: RTRS approach to responsible conversion, page
+                    20, of the RTRS Production Standard. The macro-scale maps show the four different categories
+                    described in Guide 4 of the Standard, and the High Conservation Value Areas assessment
+                    guides for determination and management of HCVAs. </p>
+                <p>The categories are as follows:</p>
+                <ul>
+                    <li>Areas which are critical for biodiversity (hotspots), where stakeholders agree there
+                        should not be any conversion of native to responsible soy production.</li>
+                    <li>Areas with high importance for biodiversity where expansion of soy is only carried out
+                        after an HCVA assessment which identifies areas for conservation and areas where
+                        expansion can occur.</li>
+                    <li>Areas where existing legislation is adequate to control responsible expansion (usually
+                        areas with importance for agriculture and lower conservation).</li>
+                    <li>Areas which are already used for agriculture and where there is no remaining native
+                        vegetation except legal reserves and so no further expansion is occurring.</li>
+                    <li>Areas deforested after 2009.</li>
+                </ul>
+            </div>
+        </div>
+        <!--Citation-->
+        <div class="column-table">
+            <h6>Citation</h6>
+            <div class="p-wrapper-column">
+                <p>Use the following credit when these data are cited:</p>
+                <p>Round Table on Responsible Soy. “RTRS Guides for Responsible Expansion.” Accessed through
+                    Global Forest Watch Commodities on 27/04/2021. commodities.globalforestwatch.org</p>
+            </div>
+        </div>
+        <!--Download data button-->
+        <div class="databtn">
+            <button class="download-data"><a
+                    href="http://gis-gfw.wri.org/arcgis/rest/services/commodities/MapServer/28"
+                    target="_blank">Open in ARCGIS</a></button>
+        </div>
+
+        <a href="#map" class="modal__close">&times;</a>
+    </div>
+</div>
+<!--Major Dams -->
+<div id="demo-modal3.4" class="modal">
+    <div class="modal__content">
+        <!--Title-->
+        <div class="modal-title">
+            <h3>Major Dams</h3>
+        </div>
+        <!--Layer Information-->
+        <div class="arrow-table">
+            <h6>Fuction</h6>
+            <div class="p-wrapper">
+                <p>Identifies dam locations for the world’s 50 major river basins
+                </p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Geographic Coverage</h6>
+            <div class="p-wrapper">
+                <p>This data set is not global. The data is confined to the world’s 50 major river basins.</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Source</h6>
+            <div class="p-wrapper">
+                <p>Dams data was compiled by International Rivers from various sources, including: the Global
+                    Reservoir and Dam (GRanD) Database, the Consultative Group on International Agricultural
+                    Research (CGIAR) Challenge Program on Water and Food - Mekong (for Mekong basin dams only),
+                    the United States National Inventory of Dams (NID), other government dam inventories, and
+                    original data collection by International Rivers.</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Frequency of Updates</h6>
+            <div class="p-wrapper">
+                <p>As new data becomes available</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Date of content</h6>
+            <div class="p-wrapper">
+                <p>2014</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Cautions</h6>
+            <div class="p-wrapper">
+                <p>Data results are biased towards public available data, so gaps may exist.</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>License</h6>
+            <div class="p-wrapper">
+                <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+            </div>
+        </div>
+        <!--Overview-->
+        <div class="column-table">
+            <h6>Overview</h6>
+            <div class="p-wrapper-column">
+                <p>The State of the World's Rivers is an interactive web database that illustrates data on
+                    ecological health in the world’s 50 major river basins. Indicators of ecosystem health are
+                    grouped into the categories of river fragmentation, biodiversity, and water quality. The
+                    database was created and published by International Rivers in 2014.</p>
+                <p>The Dam Hotspots data contains over 5,000 dam locations determined by latitude and longitude
+                    coordinates. These locations were confined to the world’s 50 major river basins. The data
+                    set comes from multiple sources, and was corrected for location errors by International
+                    Rivers. The “project status”—a moving target—was determined by acquiring official government
+                    data, as well as through primary research from Berkeley and five International Rivers’
+                    regional offices.</p>
+                <ul>
+                    <li>Operational: Already existing dams.</li>
+                    <li>Under construction: Dams which are currently being constructed.</li>
+                    <li>Planned: Dams whose studies or licensing have been completed, but construction has yet
+                        to begin.</li>
+                    <li>Inventoried: Dams whose potential site has been selected, but neither studies nor
+                        licensing have occurred.</li>
+                    <li>Suspended: Dams which have been temporarily or permanently suspended, deactivated,
+                        cancelled, or revoked.</li>
+                    <li>Unknown: No data are currently available.</li>
+                </ul>
+                <a href="http://tryse.net/googleearth/irivers-dev3/" target="_blanks">Learn more</a>
+            </div>
+        </div>
+        <!--Citation-->
+        <div class="column-table">
+            <h6>Citation</h6>
+            <div class="p-wrapper-column">
+                <p>Use the following credit when these data are cited:</p>
+                <p>International Rivers. "Dam hotspots". Available at
+                    http://tryse.net/googleearth/irivers-dev3/. Accessed through Global Forest Watch on
+                    27/04/2021. www.globalforestwatch.org </p>
+            </div>
+        </div>
+        <!--Download data button-->
+        <div class="databtn">
+            <button class="download-data"><a
+                    href="https://data.globalforestwatch.org/datasets/537361e2df59486e898cd4e024af57ea_0"
+                    target="_blank">Download Data</a></button>
+        </div>
+
+        <a href="#map" class="modal__close">&times;</a>
+    </div>
+</div>
+<!--People -->
+<div id="demo-modal3.5" class="modal">
+    <div class="modal__content">
+        <!--Title-->
+        <div class="modal-title">
+            <h3>Populational Density </h3>
+        </div>
+        <!--Layer Information-->
+        <div class="arrow-table">
+            <h6>Fuction</h6>
+            <div class="p-wrapper">
+                <p>Identifies dam locations for the world’s 50 major river basins
+                </p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Geographic Coverage</h6>
+            <div class="p-wrapper">
+                <p>This data set is not global. The data is confined to the world’s 50 major river basins.</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Source</h6>
+            <div class="p-wrapper">
+                <p>Dams data was compiled by International Rivers from various sources, including: the Global
+                    Reservoir and Dam (GRanD) Database, the Consultative Group on International Agricultural
+                    Research (CGIAR) Challenge Program on Water and Food - Mekong (for Mekong basin dams only),
+                    the United States National Inventory of Dams (NID), other government dam inventories, and
+                    original data collection by International Rivers.</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Frequency of Updates</h6>
+            <div class="p-wrapper">
+                <p>As new data becomes available</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Date of content</h6>
+            <div class="p-wrapper">
+                <p>2014</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Cautions</h6>
+            <div class="p-wrapper">
+                <p>Data results are biased towards public available data, so gaps may exist.</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>License</h6>
+            <div class="p-wrapper">
+                <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+            </div>
+        </div>
+        <!--Overview-->
+        <div class="column-table">
+            <h6>Overview</h6>
+            <div class="p-wrapper-column">
+                <p>The State of the World's Rivers is an interactive web database that illustrates data on
+                    ecological health in the world’s 50 major river basins. Indicators of ecosystem health are
+                    grouped into the categories of river fragmentation, biodiversity, and water quality. The
+                    database was created and published by International Rivers in 2014.</p>
+                <p>The Dam Hotspots data contains over 5,000 dam locations determined by latitude and longitude
+                    coordinates. These locations were confined to the world’s 50 major river basins. The data
+                    set comes from multiple sources, and was corrected for location errors by International
+                    Rivers. The “project status”—a moving target—was determined by acquiring official government
+                    data, as well as through primary research from Berkeley and five International Rivers’
+                    regional offices.</p>
+                <ul>
+                    <li>Operational: Already existing dams.</li>
+                    <li>Under construction: Dams which are currently being constructed.</li>
+                    <li>Planned: Dams whose studies or licensing have been completed, but construction has yet
+                        to begin.</li>
+                    <li>Inventoried: Dams whose potential site has been selected, but neither studies nor
+                        licensing have occurred.</li>
+                    <li>Suspended: Dams which have been temporarily or permanently suspended, deactivated,
+                        cancelled, or revoked.</li>
+                    <li>Unknown: No data are currently available.</li>
+                </ul>
+                <a href="http://tryse.net/googleearth/irivers-dev3/" target="_blanks">Learn more</a>
+            </div>
+        </div>
+        <!--Citation-->
+        <div class="column-table">
+            <h6>Citation</h6>
+            <div class="p-wrapper-column">
+                <p>Use the following credit when these data are cited:</p>
+                <p>International Rivers. "Dam hotspots". Available at
+                    http://tryse.net/googleearth/irivers-dev3/. Accessed through Global Forest Watch on
+                    27/04/2021. www.globalforestwatch.org </p>
+            </div>
+        </div>
+        <!--Download data button-->
+        <div class="databtn">
+            <button class="download-data"><a
+                    href="https://data.globalforestwatch.org/datasets/537361e2df59486e898cd4e024af57ea_0"
+                    target="_blank">Download Data</a></button>
+        </div>
+
+        <a href="#map" class="modal__close">&times;</a>
+    </div>
+</div>
+<!--Departures -->
+<div id="demo-modal4.0" class="modal">
+    <div class="modal__content">
+        <!--Title-->
+        <div class="modal-title">
+            <h3>Number of Departures</h3>
+        </div>
+        <!--Layer Information-->
+        <div class="arrow-table">
+            <h6>Fuction</h6>
+            <div class="p-wrapper">
+                <p>Identifies dam locations for the world’s 50 major river basins
+                </p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Geographic Coverage</h6>
+            <div class="p-wrapper">
+                <p>This data set is not global. The data is confined to the world’s 50 major river basins.</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Source</h6>
+            <div class="p-wrapper">
+                <p>Dams data was compiled by International Rivers from various sources, including: the Global
+                    Reservoir and Dam (GRanD) Database, the Consultative Group on International Agricultural
+                    Research (CGIAR) Challenge Program on Water and Food - Mekong (for Mekong basin dams only),
+                    the United States National Inventory of Dams (NID), other government dam inventories, and
+                    original data collection by International Rivers.</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Frequency of Updates</h6>
+            <div class="p-wrapper">
+                <p>As new data becomes available</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Date of content</h6>
+            <div class="p-wrapper">
+                <p>2014</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Cautions</h6>
+            <div class="p-wrapper">
+                <p>Data results are biased towards public available data, so gaps may exist.</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>License</h6>
+            <div class="p-wrapper">
+                <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+            </div>
+        </div>
+        <!--Overview-->
+        <div class="column-table">
+            <h6>Overview</h6>
+            <div class="p-wrapper-column">
+                <p>The State of the World's Rivers is an interactive web database that illustrates data on
+                    ecological health in the world’s 50 major river basins. Indicators of ecosystem health are
+                    grouped into the categories of river fragmentation, biodiversity, and water quality. The
+                    database was created and published by International Rivers in 2014.</p>
+                <p>The Dam Hotspots data contains over 5,000 dam locations determined by latitude and longitude
+                    coordinates. These locations were confined to the world’s 50 major river basins. The data
+                    set comes from multiple sources, and was corrected for location errors by International
+                    Rivers. The “project status”—a moving target—was determined by acquiring official government
+                    data, as well as through primary research from Berkeley and five International Rivers’
+                    regional offices.</p>
+                <ul>
+                    <li>Operational: Already existing dams.</li>
+                    <li>Under construction: Dams which are currently being constructed.</li>
+                    <li>Planned: Dams whose studies or licensing have been completed, but construction has yet
+                        to begin.</li>
+                    <li>Inventoried: Dams whose potential site has been selected, but neither studies nor
+                        licensing have occurred.</li>
+                    <li>Suspended: Dams which have been temporarily or permanently suspended, deactivated,
+                        cancelled, or revoked.</li>
+                    <li>Unknown: No data are currently available.</li>
+                </ul>
+                <a href="http://tryse.net/googleearth/irivers-dev3/" target="_blanks">Learn more</a>
+            </div>
+        </div>
+        <!--Citation-->
+        <div class="column-table">
+            <h6>Citation</h6>
+            <div class="p-wrapper-column">
+                <p>Use the following credit when these data are cited:</p>
+                <p>International Rivers. "Dam hotspots". Available at
+                    http://tryse.net/googleearth/irivers-dev3/. Accessed through Global Forest Watch on
+                    27/04/2021. www.globalforestwatch.org </p>
+            </div>
+        </div>
+        <!--Download data button-->
+        <div class="databtn">
+            <button class="download-data"><a
+                    href="https://data.globalforestwatch.org/datasets/537361e2df59486e898cd4e024af57ea_0"
+                    target="_blank">Download Data</a></button>
+        </div>
+
+        <a href="#map" class="modal__close">&times;</a>
+    </div>
+</div>
+<!--Arrivals -->
+<div id="demo-modal4.1" class="modal">
+    <div class="modal__content">
+        <!--Title-->
+        <div class="modal-title">
+            <h3>Number of Arrivals</h3>
+        </div>
+        <!--Layer Information-->
+        <div class="arrow-table">
+            <h6>Fuction</h6>
+            <div class="p-wrapper">
+                <p>Identifies dam locations for the world’s 50 major river basins
+                </p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Geographic Coverage</h6>
+            <div class="p-wrapper">
+                <p>This data set is not global. The data is confined to the world’s 50 major river basins.</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Source</h6>
+            <div class="p-wrapper">
+                <p>Dams data was compiled by International Rivers from various sources, including: the Global
+                    Reservoir and Dam (GRanD) Database, the Consultative Group on International Agricultural
+                    Research (CGIAR) Challenge Program on Water and Food - Mekong (for Mekong basin dams only),
+                    the United States National Inventory of Dams (NID), other government dam inventories, and
+                    original data collection by International Rivers.</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Frequency of Updates</h6>
+            <div class="p-wrapper">
+                <p>As new data becomes available</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Date of content</h6>
+            <div class="p-wrapper">
+                <p>2014</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>Cautions</h6>
+            <div class="p-wrapper">
+                <p>Data results are biased towards public available data, so gaps may exist.</p>
+            </div>
+        </div>
+        <div class="arrow-table">
+            <h6>License</h6>
+            <div class="p-wrapper">
+                <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+            </div>
+        </div>
+        <!--Overview-->
+        <div class="column-table">
+            <h6>Overview</h6>
+            <div class="p-wrapper-column">
+                <p>The State of the World's Rivers is an interactive web database that illustrates data on
+                    ecological health in the world’s 50 major river basins. Indicators of ecosystem health are
+                    grouped into the categories of river fragmentation, biodiversity, and water quality. The
+                    database was created and published by International Rivers in 2014.</p>
+                <p>The Dam Hotspots data contains over 5,000 dam locations determined by latitude and longitude
+                    coordinates. These locations were confined to the world’s 50 major river basins. The data
+                    set comes from multiple sources, and was corrected for location errors by International
+                    Rivers. The “project status”—a moving target—was determined by acquiring official government
+                    data, as well as through primary research from Berkeley and five International Rivers’
+                    regional offices.</p>
+                <ul>
+                    <li>Operational: Already existing dams.</li>
+                    <li>Under construction: Dams which are currently being constructed.</li>
+                    <li>Planned: Dams whose studies or licensing have been completed, but construction has yet
+                        to begin.</li>
+                    <li>Inventoried: Dams whose potential site has been selected, but neither studies nor
+                        licensing have occurred.</li>
+                    <li>Suspended: Dams which have been temporarily or permanently suspended, deactivated,
+                        cancelled, or revoked.</li>
+                    <li>Unknown: No data are currently available.</li>
+                </ul>
+                <a href="http://tryse.net/googleearth/irivers-dev3/" target="_blanks">Learn more</a>
+            </div>
+        </div>
+        <!--Citation-->
+        <div class="column-table">
+            <h6>Citation</h6>
+            <div class="p-wrapper-column">
+                <p>Use the following credit when these data are cited:</p>
+                <p>International Rivers. "Dam hotspots". Available at
+                    http://tryse.net/googleearth/irivers-dev3/. Accessed through Global Forest Watch on
+                    27/04/2021. www.globalforestwatch.org </p>
+            </div>
+        </div>
+        <!--Download data button-->
+        <div class="databtn">
+            <button class="download-data"><a
+                    href="https://data.globalforestwatch.org/datasets/537361e2df59486e898cd4e024af57ea_0"
+                    target="_blank">Download Data</a></button>
+        </div>
+
+        <a href="#map" class="modal__close">&times;</a>
+    </div>
+</div>
 </main>
 <script src="../static/js/mapboxutil.js"></script>
 <script>

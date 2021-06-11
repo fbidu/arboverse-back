@@ -296,7 +296,7 @@ nav img {
 
 /*PUBLICATION AREA*/
 .main-content {
-  padding-top: 3rem;
+  padding-top: 10vh;
   display: flex;
   justify-content: space-between;
   width: 80%;
@@ -310,16 +310,21 @@ nav img {
 .publications-title {
   margin-top: 2rem;
   height: auto;
-  padding-left: 7rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
-
+section{
+  background: transparent;
+}
 table {
-  font-family: "Montserrat", sans sans-serif;
+  font-family: "Montserrat", serif;
   font-style: normal;
   color: hsl(255, 2%, 30%);
-  padding-left: 20px;
-  padding-right: 30px;
+  padding:0px 30px; 
   width: 90%;
+  margin: 0 auto;
   text-align: left;
 }
 .publications-title th {
@@ -353,7 +358,7 @@ table {
   width: 90%;
   margin: 0 auto;
 }
-#btn1 {
+button {
   cursor: pointer;
   margin-top: 8vh;
   font-family: "monteserrat", sans-serif;
@@ -369,7 +374,7 @@ table {
   transition: ease-out 0.5s;
   outline-offset: none;
 }
-#btn1:hover {
+button:hover {
   box-shadow: inset 200px 0 0 0 #ff8700;
 }
 
@@ -388,6 +393,7 @@ table {
   }
   .publications-title th {
     font-size: 0.8rem;
+    text-align: justify;
   }
   .publications-title a:hover {
     font-size: 0.9rem;
@@ -403,6 +409,9 @@ table {
   }
   .publications-title th {
     font-size: 0.7rem;
+  }
+  .publications-title a{
+    font-weight: bold;
   }
   .publications-title a:hover {
     font-size: 0.8rem;
@@ -499,8 +508,16 @@ table {
   width: 80%;
   margin: 0 auto;
 }
-.share-icons i {
-  padding: 10px;
+.share-icons {
+  margin-top: 10px;
+}
+.share-icons a{
+  color:white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.share-icons i{
+  margin-right: 5px;
 }
 /*SOCIAL MEDIA TABLET SIZE*/
 @media screen and (max-width: 900px) {
@@ -535,7 +552,7 @@ table {
 /*FOOTER*/
 footer {
   background-color: hsla(0, 0%, 35%, 0.7);
-  font-family: robot, sans-serif, arial;
+  font-family: 'roboto', sans-serif, arial;
   color: white;
   display: flex;
   justify-content: space-between;
