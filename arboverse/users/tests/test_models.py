@@ -1,4 +1,5 @@
 from django.test import TestCase
+import pytest
 
 from arboverse.users.models import User, Virus
 
@@ -11,8 +12,6 @@ def test_user_get_absolute_url(user: User):
 class VirusModelTest(TestCase):
 
     def test_saving_and_retrieving_virus(self):
-        virus_ = Virus()
-        virus_.save()
 
         first_virus = Virus()
         first_virus.virus_name = 'Abadina'

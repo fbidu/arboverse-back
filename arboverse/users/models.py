@@ -22,7 +22,7 @@ class Virus(models.Model):
     specie = models.TextField(default='')
     family = models.TextField(default='')
     abbreviation = models.TextField(default='')
-    collection_date = models.DateField()
+    collection_date = models.TextField(default='')
     genome_type = models.TextField(default='')
     enveloped = models.BooleanField()
     reference_strain = models.TextField(default='')
