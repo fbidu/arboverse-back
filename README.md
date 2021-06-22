@@ -51,5 +51,5 @@ Run it with `docker-compose run --rm web python manage.py shell_plus`
 ## Setup pre-commit
 
 0. Install [pre-commit](https://pre-commit.com/)
-1. Run `pre-commit install`
+1. Run `pre-commit install -t pre-commit -t pre-push`
 2. Optional: you may run all hooks with `pre-commit run --all`
