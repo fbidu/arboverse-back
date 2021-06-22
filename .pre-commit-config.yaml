@@ -32,7 +32,7 @@ repos:
 
       - id: system
         name: PyTest
-        entry: pytest
+        entry: docker-compose run --rm web pytest
         language: system
         pass_filenames: false
         stages: [push]
