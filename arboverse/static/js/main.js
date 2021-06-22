@@ -20,6 +20,6 @@ const navLinks = document.querySelectorAll('.nav-links li');
          burger.classList.toggle('toggle');
 
     });
- 
+
 }
 navSlide();

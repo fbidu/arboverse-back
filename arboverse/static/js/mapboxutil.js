@@ -118,7 +118,7 @@ function update_map(cb, layer) {
             'none'
         );
     }
-    
+
     console.log(cb.checked);
 }
 
