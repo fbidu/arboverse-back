@@ -7,37 +7,44 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Virus',
+            name="Virus",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('virus_name', models.TextField(default='')),
-                ('specie', models.TextField(default='')),
-                ('family', models.TextField(default='')),
-                ('abbreviation', models.TextField(default='')),
-                ('collection_date', models.TextField(default='')),
-                ('genome_type', models.TextField(default='')),
-                ('enveloped', models.BooleanField()),
-                ('reference_strain', models.TextField(default='')),
-                ('genome_length_nt', models.IntegerField(default='')),
-                ('borning', models.TextField(default='')),
-                ('host_amplifier', models.TextField(default='')),
-                ('human_fatal_disease', models.BooleanField(default='')),
-                ('veterinary_diseases', models.BooleanField(default='')),
-                ('veterinary_fatal_diseases', models.BooleanField(default='')),
-                ('no_cases', models.TextField(default='')),
-                ('level_of_disease', models.TextField(default='')),
-                ('vaccine', models.TextField(default='')),
-                ('vero_cells', models.BooleanField(default='')),
-                ('C6_36_cells', models.BooleanField(default='')),
-                ('cpe_vero', models.TextField(default='')),
-                ('plaques_vero', models.TextField(default='')),
-                ('animal_model', models.TextField(default='')),
-                ('sals_level', models.TextField(default='')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("virus_name", models.TextField(default="")),
+                ("specie", models.TextField(default="")),
+                ("family", models.TextField(default="")),
+                ("abbreviation", models.TextField(default="")),
+                ("collection_date", models.TextField(default="")),
+                ("genome_type", models.TextField(default="")),
+                ("enveloped", models.BooleanField()),
+                ("reference_strain", models.TextField(default="")),
+                ("genome_length_nt", models.IntegerField(default="")),
+                ("borning", models.TextField(default="")),
+                ("host_amplifier", models.TextField(default="")),
+                ("human_fatal_disease", models.BooleanField(default="")),
+                ("veterinary_diseases", models.BooleanField(default="")),
+                ("veterinary_fatal_diseases", models.BooleanField(default="")),
+                ("no_cases", models.TextField(default="")),
+                ("level_of_disease", models.TextField(default="")),
+                ("vaccine", models.TextField(default="")),
+                ("vero_cells", models.BooleanField(default="")),
+                ("C6_36_cells", models.BooleanField(default="")),
+                ("cpe_vero", models.TextField(default="")),
+                ("plaques_vero", models.TextField(default="")),
+                ("animal_model", models.TextField(default="")),
+                ("sals_level", models.TextField(default="")),
             ],
         ),
     ]
