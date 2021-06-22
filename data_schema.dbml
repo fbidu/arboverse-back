@@ -23,14 +23,14 @@ Table virus as V {
   cpe_vero varchar
   plaques_vero varchar
   animal_model varchar
-  sals_level varchar  
+  sals_level varchar
 }
 
 Table country {
   id int [pk]
   name varchar
  }
- 
+
 Table virus_genus as VG {
    id int
    name varchar
@@ -69,7 +69,7 @@ Table vector_genus {
   name varchar
 }
 
-Table vector_species as VS { 
+Table vector_species as VS {
   id int
   name varchar
   arthropods_type varchar
@@ -197,4 +197,3 @@ Ref: "vector_family"."id" < "vector_sub_family"."family"
 Ref: "vector_order"."id" < "vector_family"."order"
 Ref: "vector_genus"."id" > "vector_sub_family"."genus"
 Ref: "vector_genus"."id" > "vector_family"."genus"
-

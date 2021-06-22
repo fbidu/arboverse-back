@@ -1,4 +1,4 @@
-//Lateral buton active 
+//Lateral buton active
 const buttons = document.querySelectorAll('.item-button')
 buttons.forEach(button =>{
         button.addEventListener('click', function(){
@@ -18,7 +18,7 @@ function openNav(){
     document.getElementById('land-cover-menu').style.width = "0";
     document.getElementById('mobility-menu').style.width = "0";
     document.getElementById('discovery').classList.add('btn-active')
-    
+
 }
 function closeNav(){
     document.getElementById("discovery-menu").style.width = "0";
@@ -223,7 +223,7 @@ var months = [
 
 function filterBy(month) {
     var filters = ['==', 'month', month];
-   
+
 
     // Set the label to the month
     document.getElementById('month').textContent = months[month];
@@ -247,6 +247,6 @@ document
       rangeV.innerHTML = `<span>${range.value}</span>`;
       rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`;
     };
-    
+
   document.addEventListener("DOMContentLoaded", setValue);
   range.addEventListener('input', setValue);

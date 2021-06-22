@@ -403,7 +403,7 @@ nav img {
 }
 .tab{
   width: 100%;
-  overflow: hidden;  
+  overflow: hidden;
 }
 .tab .tab-label{
   display: flex;
@@ -512,7 +512,7 @@ nav img {
     width: 90%;
   }
 
-} 
+}
 
 /* ======= GRID for Map =======*/
 .grid{
@@ -947,7 +947,7 @@ nav img {
   position: absolute;
   z-index: 15;
   top: -5px;
-  left: 110%; 
+  left: 110%;
   opacity: 0;
   transition: opacity 0.3s;
   cursor: pointer;
@@ -1323,7 +1323,7 @@ nav img {
     position: absolute;
     z-index: 24;
   }
-  
+
   .threex2{
     width: 25px;
     height: 25px;
@@ -1850,7 +1850,7 @@ input:focus ~ .bar:after {
 form {
   width: 90%;
   max-width: 500px;
-  
+
 }
 form #form-title {
   font-weight: 400;
@@ -2300,7 +2300,7 @@ form:valid #time-year-slider input:checked + label::before {
 
 /*=====================  Map features ============================*/
 
-/*=====================  Map features ============================*/ 
+/*=====================  Map features ============================*/
 .map-area{
   height: 100%;
   padding: 20px 0;
