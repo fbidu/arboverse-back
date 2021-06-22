@@ -22,9 +22,7 @@ class TestUserUpdateView:
         https://github.com/pytest-dev/pytest-django/pull/258
     """
 
-    def test_get_success_url(
-        self, user: User, request_factory: RequestFactory
-    ):
+    def test_get_success_url(self, user: User, request_factory: RequestFactory):
         view = UserUpdateView()
         request = request_factory.get("/fake-url/")
         request.user = user
@@ -33,9 +31,7 @@ class TestUserUpdateView:
 
         assert view.get_success_url() == f"/users/{user.username}/"
 
-    def test_get_object(
-        self, user: User, request_factory: RequestFactory
-    ):
+    def test_get_object(self, user: User, request_factory: RequestFactory):
         view = UserUpdateView()
         request = request_factory.get("/fake-url/")
         request.user = user
@@ -44,13 +40,9 @@ class TestUserUpdateView:
 
         assert view.get_object() == user
 
-    def test_form_valid(
-        self, user: User, request_factory: RequestFactory
-    ):
+    def test_form_valid(self, user: User, request_factory: RequestFactory):
         form_data = {"name": "John Doe"}
-        request = request_factory.post(
-            reverse("users:update"), form_data
-        )
+        request = request_factory.post(reverse("users:update"), form_data)
         request.user = user
         session_middleware = SessionMiddleware()
         session_middleware.process_request(request)
@@ -65,15 +57,11 @@ class TestUserUpdateView:
 
 
 class TestUserRedirectView:
-    def test_get_redirect_url(
-        self, user: User, request_factory: RequestFactory
-    ):
+    def test_get_redirect_url(self, user: User, request_factory: RequestFactory):
         view = UserRedirectView()
         request = request_factory.get("/fake-url")
         request.user = user
 
         view.request = request
 
-        assert (
-            view.get_redirect_url() == f"/users/{user.username}/"
-        )
+        assert view.get_redirect_url() == f"/users/{user.username}/"

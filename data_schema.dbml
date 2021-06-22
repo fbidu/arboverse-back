@@ -1,0 +1,199 @@
+Table virus as V {
+  id int [pk, increment] // auto-increment
+  virus_name varchar
+  genus id
+  species varchar
+  family varchar
+  abbreviation varchar
+  collection_date varchar
+  genome_type varchar
+  enveloped boolean
+  reference_strain varchar
+  genome_lenght_nt integer
+  borning varchar
+  host_amplifier varchar
+  human_fatal_disease boolean
+  veterinary_diseases boolean
+  veterinary_fatal_diseases boolean
+  no_cases varchar
+  level_of_disease__autocolour varchar
+  vaccine varchar
+  vero_cells boolean
+  C6_36_cells boolean
+  cpe_vero varchar
+  plaques_vero varchar
+  animal_model varchar
+  sals_level varchar
+}
+
+Table country {
+  id int [pk]
+  name varchar
+ }
+
+Table virus_genus as VG {
+   id int
+   name varchar
+ }
+Table virus_family as VF {
+  id int
+  name varchar
+}
+
+Table borning as B {
+  id int
+  borne_type varchar
+}
+
+Table vector_order {
+  id int
+  name varchar
+}
+
+Table vector_family {
+  id int
+  name varchar
+  order int
+  genus int
+}
+
+Table vector_sub_family {
+  id int
+  name varchar
+  family int
+  genus int
+}
+
+Table vector_genus {
+  id int
+  name varchar
+}
+
+Table vector_species as VS {
+  id int
+  name varchar
+  arthropods_type varchar
+  genus int
+  genome boolean
+  reference_genome varchar
+  genome_size int
+  survival_temperature_ranges varchar
+  survival_humidity_percent varchar
+  distribution varchar
+  adult_life_expectancy_days varchar
+  anthropophilic_behaviour boolean
+  eggs_viability_days varchar
+  lifecycle_time_days varchar
+  experimental_infection varchar
+}
+
+Table viruses_vectors as VV {
+  virus_id int
+  genus_id int
+  species_id int
+  main_vector boolean
+}
+
+Table disease as D {
+  id int
+  name varchar
+}
+
+Table viruses_diseases as VD {
+  virus_id int
+  disease_id int
+}
+
+Table viruses_countries as VC {
+  virus_id int
+  country_id int
+}
+
+Table landscape as L {
+  id int
+  name varchar
+}
+
+Table vectors_landscape as VL {
+  vector_id int
+  landscape_id int
+}
+
+Table habitat as H {
+  id int
+  name varchar
+}
+
+Table vectors_habitat as VH {
+  vector_id int
+  habitat_id int
+}
+
+Table location as loc {
+  id int
+  name varchar
+}
+
+Table vectors_locations {
+  vector_id int
+  location_id int
+}
+
+
+Table blood_meal {
+    id int
+    name varchar
+}
+
+Table feeding_period {
+    id int
+    name varchar
+}
+
+Table vectors_blood_meals {
+      vector_id int
+      blood_meal_id int
+}
+
+Table vectors_feeding_periods {
+      vector_id int
+      feeding_period_id int
+}
+
+Ref: V.genus > VG.id
+Ref: V.family > VF.id
+Ref: V.borning > B.id
+
+Ref: VV.virus_id > V.id
+Ref: VV.genus_id > vector_genus.id
+Ref: VV.species_id > vector_species.id
+
+Ref: VD.virus_id > V.id
+Ref: VD.disease_id > D.id
+
+Ref: VC.virus_id > V.id
+Ref: VC.country_id > country.id
+
+Ref: VS.genus > vector_genus.id
+
+Ref: VL.vector_id > VS.id
+Ref: VL.landscape_id > L.id
+
+Ref: VH.vector_id > VS.id
+Ref: VH.habitat_id > H.id
+
+Ref: vectors_locations.vector_id > VS.id
+Ref: vectors_locations.location_id > loc.id
+
+Ref: vectors_blood_meals.vector_id > VS.id
+Ref: vectors_blood_meals.blood_meal_id > blood_meal.id
+
+
+Ref: vectors_feeding_periods.vector_id > VS.id
+Ref: vectors_feeding_periods.feeding_period_id > feeding_period.id
+
+
+Ref: "vector_family"."id" < "vector_sub_family"."family"
+Ref: "vector_order"."id" < "vector_family"."order"
+Ref: "vector_genus"."id" > "vector_sub_family"."genus"
+Ref: "vector_genus"."id" > "vector_family"."genus"

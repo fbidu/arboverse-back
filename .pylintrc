@@ -1,5 +1,6 @@
 [MASTER]
-load-plugins=pylint_django, pylint_celery 
+load-plugins=pylint_django, pylint_celery
+ignore-paths=arboverse/users, config/settings/**
 
 [FORMAT]
 max-line-length=120
