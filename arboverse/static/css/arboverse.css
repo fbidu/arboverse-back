@@ -66,7 +66,7 @@ nav {
   height: 11vh;
   font-family: "Montserrat", sans-serif;
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   top: 0;
   left: 0;
 }
@@ -637,13 +637,6 @@ nav img {
 /*====== Second Side Menu ====== */
 /*Sub menu features*/
 /* discovery, distribution and Vector*/
-.title-sub {
-  padding: 0 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
 .sub-menu {
   text-align: center;
   display: block;
@@ -655,18 +648,6 @@ nav img {
   background-color: var(--light-main);
   transition: all 0.2s ease-in-out;
   opacity: 0;
-}
-.sub-menu h3 {
-  font-family: "montserrat", serif;
-  font-weight: 500;
-  font-size: 0.9rem;
-  padding: 20px 0;
-  margin-bottom: 10px;
-  color: var(--blue);
-  margin-top: 15px;
-  margin-left: 30px;
-  text-align: left;
-  width: 70%;
 }
 .closebtn {
   text-decoration: none;
@@ -687,6 +668,22 @@ nav img {
   margin-left: 50px;
 }
 /* discovery, distribution and vector*/
+.title-sub {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+}
+.title-sub h6{
+  width: 65%;
+  text-align: left;
+  font-weight: 400;
+  font-size: 0.8rem;
+  font-family: "montserrat", serif;
+  color: var(--dark-text);
+}
 .sub-1,
 .sub-2 {
   height: 260px;
@@ -698,7 +695,7 @@ nav img {
   text-align: center;
   overflow-x: hidden;
   display: block;
-  height: 501px;
+  height: 350px;
   grid-area: 1 / 2 / 2 / 3;
   z-index: 11;
   position: relative;
@@ -706,6 +703,7 @@ nav img {
   transition: all 0.2s ease-in-out;
 }
 /* sub-menu head*/
+.sub-menu h3,
 .sub-second-menu h3,
 .sub-th-menu h3,
 .sub-fou-menu h3,
@@ -1070,7 +1068,7 @@ nav img {
 
 /* ======== Sub-menu of CLIMATE FOREST COVER AND LAND* ==========*/
 .menu-btn {
-  padding: 10px 10px;
+  padding: 5px;
 }
 /* ======= Sub-menu container features =======*/
 .unit-btn,
@@ -1080,7 +1078,7 @@ nav img {
 }
 .unit-btn h6,
 .unit-btn2 h6 {
-  width: 65%;
+  width: 55%;
   text-align: left;
   font-weight: 400;
   font-size: 0.8rem;
@@ -1096,7 +1094,7 @@ nav img {
   margin-left: 10px;
 }
 /* main division land cover */
-.sub-fou-menu h5 {
+.sub-fou-menu .area {
   margin-top: 5px;
   color: var(--dark-text);
   text-align: center;
@@ -1112,7 +1110,7 @@ nav img {
   /* Switch   Button  Aligment Area */
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .togglebtn {
@@ -1147,6 +1145,7 @@ nav img {
   margin-bottom: 2px;
   text-align: left;
   color: var(--dark-text);
+  width: 60%;
 }
 .player {
   /* player Button */
@@ -1203,6 +1202,7 @@ nav img {
   align-items: flex-end;
 }
 .scale-mi{
+  margin-top: 15px;
   width: 25%;
   display:flex;
   flex-direction: column;
@@ -1212,7 +1212,7 @@ nav img {
 .scale-mi label{
   color: var(--dark-text);
   text-align: left;
-  font-size: 0.5rem;
+  font-size: 0.6rem;
   font-family: 'montserrat', serif;
 }
 .onex{
@@ -1352,38 +1352,7 @@ nav img {
     z-index: 21;
   }
 /* Bar Mesurement color features GRADIENT */
-.bluetopink {
-  background: linear-gradient(
-    to right,
-    #003566,
-    #094876,
-    #135d88,
-    #1b6d95,
-    #227ca2,
-    #2a8db0,
-    #319bbc,
-    #48cae4,
-    #ffdd00,
-    #ffc300,
-    #ffa200,
-    #ff8800
-  );
-}
-.lightyellowgreen {
-  background: linear-gradient(
-    90deg,
-    #4cc9f0,
-    #4895ef,
-    #4361ee,
-    #3f37c9,
-    #3a0ca3,
-    #480ca8,
-    #560bad,
-    #7209b7,
-    #b5179e,
-    #f72585
-  );
-}
+
 .green-s {
   background: linear-gradient(90deg, #9EF01Aff, #99EA1Aff, #93E51Bff, #8EDF1Bff, #88D91Bff, #83D41Cff, #7DCE1Cff, #78C81Cff, #72C21Cff, #6DBD1Dff, #68B71Dff, #62B11Dff, #5DAC1Eff, #57A61Eff, #52A01Eff, #4C9B1Fff, #47951Fff, #418F1Fff, #3C8A20ff, #368420ff, #317E20ff, #2C7921ff, #267321ff, #216D21ff, #1B6721ff, #166222ff, #105C22ff, #0B5622ff, #055123ff, #004B23ff);
 }
@@ -1520,7 +1489,7 @@ nav img {
   background: rgb(102, 102, 102);
 }
 .pink-orange {
-  background-color: #ff5a5f;
+  background-color: #830a48;
 }
 .comod {
   background: #f94144;
@@ -1632,120 +1601,61 @@ nav img {
 }
 
 /* =======      Search input in Discovery, Distribution and Vector   =========*/
-.info-input {
+.search_sub{
+  width:250px;
   position: relative;
-  margin-bottom: 30px;
-  margin-left: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
 }
-.sub-menu input {
-  font-size: 0.9rem;
-  padding: 10px 1px 1px 5px;
-  display: block;
-  width: 200px;
-  border: none;
-  border-bottom: 1px solid #919191;
-}
-.sub-menu input:focus {
+.search-discovery,
+.search-distribution{
+  width: 90%;
+  margin: 8px 0;
+  border: solid 1px transparent;
+  background-origin: border-box;
+  background-clip: border-box, content-box;
+  box-shadow: 2px 200px 1px #fff inset;
+  background-image: linear-gradient(90deg, hsla(194, 77%, 38%, 1) 0%, hsla(212, 100%, 14%, 1) 100%);
+  padding: 5px;
+  height: 25px;
+  border-radius: 20px;
   outline: none;
+  font-family: 'Montserrat', serif;
+  color:var(--dark-text);
 }
-
-.info-input label {
-  color: #999;
-  font-size: 0.9rem;
-  font-weight: normal;
+.search-discovery:focus,
+.search-distribution:focus{
+  color: var(--blue);
+}
+.search-btn {
+  width: 23px;
+  height: 23px;
+  border: solid 1px var(--blue);
+  background: var(--blue);
+  text-align: center;
+  color: #fff;
+  border-radius:  50%;
+  cursor: pointer;
+  font-size: 15px;
   position: absolute;
-  pointer-events: none;
-  left: 5px;
-  top: 10px;
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transtion: 0.2s ease all;
+  right: 10px;
 }
-.sub-menu input:focus ~ label,
-.submenu input:valid ~ label {
-  top: -20px;
-  font-size: 14px;
-  color: var(--orange);
-}
-.bar {
-  position: relative;
-  display: block;
-  width: 200px;
-}
-.bar:before,
-.bar:after {
-  content: "";
-  height: 1px;
-  width: 0;
-  bottom: 1px;
-  position: absolute;
-  background: var(--orange);
-  transition: 0.2s ease all;
-  -moz-transition: 0.2s ease all;
-  -webkit-transtion: 0.2s ease all;
-}
-.bar:before {
-  left: 50%;
-}
-.bar:after {
-  right: 50%;
-}
-/* active state */
-.sub-menu input:focus ~ .bar:before,
-input:focus ~ .bar:after {
-  width: 50%;
-}
-
-/*=========== HIGHLIGHTER =========== */
-.highlight {
-  position: absolute;
-  height: 60%;
-  width: 100px;
-  top: 25%;
-  left: 0;
-  pointer-events: none;
-  opacity: 0.5;
-}
-/* active state */
-.sub-menu input:focus ~ .highlight {
-  -webkit-animation: inputHighlighter 0.3s ease;
-  -moz-animation: inputHighlighter 0.3s ease;
-  animation: inputHighlighter 0.3s ease;
-}
-/* ANIMATIONS ================ */
-@-webkit-keyframes inputHighlighter {
-  from {
-    background: var(--orange);
-  }
-  to {
-    width: 0;
-    background: transparent;
-  }
-}
-@-moz-keyframes inputHighlighter {
-  from {
-    background: var(--orange);
-  }
-  to {
-    width: 0;
-    background: transparent;
-  }
-}
-@keyframes inputHighlighter {
-  from {
-    background: var(--orange);
-  }
-  to {
-    width: 0;
-    background: transparent;
-  }
+.search-btn:hover,
+.search-btn:active{
+  border: solid 1px var(--orange);
+  background: #e27902;
 }
 
 /* ======================         Selector box in Vectors          ===========*/
 .box {
+  width:250px;
   position: relative;
-  margin-bottom: 40px;
-  margin-left: 15px;
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+  margin: 5px;
 }
 .box p {
   text-align: left;
@@ -1757,16 +1667,20 @@ input:focus ~ .bar:after {
   color: #999;
 }
 .box select {
-  width: 200px;
+  width: 90%;
+  height: 25px;
+  border-radius: 20px;
   color: #999;
-  font-size: 0.9rem;
+  padding: 4px;
+  font-size: 0.8rem;
   font-family: "montserrat", serif;
   font-weight: normal;
-  border: none;
-  padding: 10px 1px 1px 1px;
-  border-bottom: 1px solid #919191;
+  border: solid 1px transparent;
+  background-origin: border-box;
+  background-clip: border-box, content-box;
+  box-shadow: 2px 200px 1px #fff inset;
+  background-image: linear-gradient(90deg, hsla(194, 77%, 38%, 1) 0%, hsla(212, 100%, 14%, 1) 100%);
   position: relative;
-  right: 15px;
   -webkit-appearance: button;
   -moz-appearance: button;
   appearance: button;
@@ -1837,6 +1751,7 @@ input:focus ~ .bar:after {
   border-radius: 50%;
 }
 /* ===== Time Selector Radio ======*/
+/*Koppen geiger selector*/
 #time-wrapper {
   width: 100%;
   height: 100px;
@@ -1953,122 +1868,15 @@ form:valid #time-amount-slider input:checked + label::before {
   transform: translate(-50%, 35px) scale(1.1);
   transition: all 0.15s linear;
 }
-/*------ month----*/
-#time-month-wrapper {
-  width: 100%;
-  height: 160px;
-  padding:10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 10px 0;
-  background: hsla(0, 0%, 86%, 0.3);
-}
-form #month-amount-slider {
-  display: flex;
-  flex-direction: row;
-  align-content: stretch;
-  position: relative;
-  width: 100%;
-  height: 50px;
-  user-select: none;
-}
-form #month-amount-slider::before {
-  content: " ";
-  position: absolute;
-  height: 1px;
-  width: 100%;
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgb(180, 180, 180);
-}
-form #month-amount-slider input, form #month-amount-slider label {
-  box-sizing: border-box;
-  flex: 1;
-  user-select: none;
-  cursor: pointer;
-}
-form #month-amount-slider label {
-  display: inline-block;
-  position: relative;
-  width: 20%;
-  height: 100%;
-  user-select: none;
-}
-form #month-amount-slider label::before { /*time Label*/
-  content: attr(data-time-amount);
-  color:var(--dark-text);
-  position: absolute;
-  left: 50%;
-  padding-top: 10px;
-  transform: translate(-50%, 35px);
-  font-size: 0.6rem;
-  letter-spacing: 0.7px;
-  font-weight: 400;
-  white-space: nowrap;
-  opacity: 0.85;
-  transition: all 0.15s ease-in-out;
-}
-form #month-amount-slider label::after { /*time circles*/
-  content: " ";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 10px;
-  height: 10px;
-  border: 1px solid rgb(180, 180, 180);
-  background: #fff;
-  border-radius: 50%;
-  pointer-events: none;
-  user-select: none;
-  z-index: 1;
-  cursor: pointer;
-  transition: all 0.15s ease-in-out;
-}
-form #month-amount-slider label:hover::after { /* Hover*/
-  transform: translate(-50%, -50%) scale(1.3);
-}
-form #month-amount-slider input {
-  display: none;
-}
-form #month-amount-slider input:checked + label::before {
-  font-weight: 500;
-  opacity: 1;
-}
-form #month-amount-slider input:checked + label::after { /* circle change checked*/
-  border-width: 3px;
-  transform: translate(-50%, -50%) scale(0.75);
-  border-color: var(--orange);
-}
-form #month-amount-slider input:checked ~ #month-amount-pos {
-  opacity: 1;
-}
-form #month-amount-slider input:checked:nth-child(1) ~ #month-amount-pos {
-  left: 10%;
-}
-form #month-amount-slider input:checked:nth-child(3) ~ #month-amount-pos {
-  left: 30%;
-}
-form:valid #month-amount-slider input + label::before {
-  transform: translate(-50%, 30px) scale(0.9);
-  transition: all 0.15s linear;
-}
-form:valid #month-amount-slider input:checked + label::before {
-  transform: translate(-50%, 30px) scale(1.05);
-  transition: all 0.15s linear;
-}
-/*   Years */
+
+/*   Years  Deforestation */
 #year-time-wrapper{
   width: 100%;
-  height: 160px;
-  padding:10px;
+  height: 90px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 10px 0;
   background: hsla(0, 0%, 86%, 0.3);
 }
 form #time-year-slider {
@@ -2085,7 +1893,7 @@ form #time-year-slider::before {
   position: absolute;
   height: 1px;
   width: 100%;
-  width: 100%;
+  width: calc(100% * (1 / 2));
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -2110,8 +1918,8 @@ form #time-year-slider label::before { /*time Label*/
   position: absolute;
   left: 50%;
   padding-top: 10px;
-  transform: translate(-50%, 35px) rotate(-45deg);
-  font-size: 0.6rem;
+  transform: translate(-50%, 35px);
+  font-size: 0.7rem;
   font-weight: 400;
   white-space: nowrap;
   opacity: 0.85;
@@ -2123,8 +1931,8 @@ form #time-year-slider label::after { /*time circles*/
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border: 1px solid rgb(180, 180, 180);
   background: #fff;
   border-radius: 50%;
@@ -2159,145 +1967,285 @@ form #time-year-slider input:checked:nth-child(3) ~ #time-year-pos {
   left: 30%;
 }
 form:valid #time-year-slider input + label::before {
-  transform: translate(-50%, 35px) scale(0.9) rotate(-45deg);
+  transform: translate(-50%, 35px) scale(0.9);
   transition: all 0.15s linear;
 }
 form:valid #time-year-slider input:checked + label::before {
-  transform: translate(-50%, 35px) scale(1.1) rotate(-45deg);
+  transform: translate(-50%, 35px) scale(1.1);
   transition: all 0.15s linear;
 }
-/* ====== RANGE SLIDER BUTTON ========== */
-.slidecontainer {
-  width: 100%; /* Width of the outside container */
-  margin: 4px auto;
-}
-
-.slidemonth,
-.slideyear {
-  /* The slider itself */
-  height: 5px;
-  border-radius: 5px;
-  -webkit-appearance: none; /* Override default CSS styles */
-  appearance: none;
+/* year-pop density*/
+#pop-time-wrapper{
   width: 100%;
-  background: #ccc;
-  outline: none;
-  opacity: 0.8;
-  -webkit-transition: 0.2s;
-  transition: opacity 0.2s;
-  border: 0;
-  padding: 0;
-}
-
-.slidemonth:hover,               /* Mouse-over effects */
-.slideyear:hover {
-  opacity: 1;
-}
-
-/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-/* MONTH SLIDER features*/
-.slidemonth::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 15px; /* Set a specific slider handle width */
-  height: 15px;
-  background: var(--orange);
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.slidemonth::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
-  background: var(--orange);
-  border-radius: 50%;
-  cursor: pointer;
-}
-/* YEAR SLIDER features*/
-.slideyear::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 15px;
-  height: 15px;
-  background: var(--blue);
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.slideyear::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
-  background: var(--blue);
-  border-radius: 50%;
-  cursor: pointer;
-}
-.play-year-range {
-  width: 100%;
-  margin: 5px 5px;
+  height: 90px;
+  padding: 10px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  margin: 10px 0;
+  background: hsla(0, 0%, 86%, 0.3);
 }
-.playslider {
-  height: 5px;
-  border-radius: 5px;
-  -webkit-appearance: none; /* Override default CSS styles */
-  appearance: none;
-  width: 85%;
-  margin-left: 10%;
-  background: #ccc;
-  outline: none;
-  opacity: 0.8;
-  -webkit-transition: 0.2s;
-  transition: opacity 0.2s;
-  border: 0;
-  padding: 0;
+form #populational-time-slider {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  user-select: none;
 }
-.playslider:hover {
-  opacity: 1;
+form #populational-time-slider::before {
+  content: " ";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  width: calc(100% * (1 / 2));
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(180, 180, 180);
 }
-.playslider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 12px; /* Set a specific slider handle width */
-  height: 12px;
-  background: #adb5bd;
-  border-radius: 50%;
+form #populational-time-slider input, form #populational-time-slider label {
+  box-sizing: border-box;
+  flex: 1;
+  user-select: none;
   cursor: pointer;
 }
-
-.playslider::-moz-range-thumb {
+form #populational-time-slider label {
+  display: inline-block;
+  position: relative;
+  width: 20%;
+  height: 100%;
+  user-select: none;
+}
+form #populational-time-slider label::before { /*time Label*/
+  content: attr(data-time-amount);
+  color:var(--dark-text);
+  position: absolute;
+  left: 50%;
+  padding-top: 10px;
+  transform: translate(-50%, 35px);
+  font-size: 0.7rem;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0.85;
+  transition: all 0.15s ease-in-out;
+}
+form #populational-time-slider label::after { /*time circles*/
+  content: " ";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 15px;
   height: 15px;
-  background: #adb5bd;
+  border: 1px solid rgb(180, 180, 180);
+  background: #fff;
   border-radius: 50%;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+form #populational-time-slider label:hover::after { /* Hover*/
+  transform: translate(-50%, -50%) scale(1.3);
+}
+form #populational-time-slider input {
+  display: none;
+}
+form #populational-time-slider input:checked + label::before {
+  font-weight: 500;
+  opacity: 1;
+}
+form #populational-time-slider input:checked + label::after { /* circle change checked*/
+  border-width: 3px;
+  transform: translate(-50%, -50%) scale(0.75);
+  border-color: var(--orange);
+}
+form #tpopulational-time-slider input:checked ~ #time-year-pos {
+  opacity: 1;
+}
+form #populational-time-slider input:checked:nth-child(1) ~ #time-year-pos {
+  left: 10%;
+}
+form #populational-time-slider input:checked:nth-child(3) ~ #time-year-pos {
+  left: 30%;
+}
+form:valid #populational-time-slider input + label::before {
+  transform: translate(-50%, 35px) scale(0.9);
+  transition: all 0.15s linear;
+}
+form:valid #populational-time-slider input:checked + label::before {
+  transform: translate(-50%, 35px) scale(1.1);
+  transition: all 0.15s linear;
+}
+/* year-human-mobility*/
+#mobility-time-wrapper{
+  width: 100%;
+  height: 90px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+  background: hsla(0, 0%, 86%, 0.3);
+}
+#passenger-title{
+  font-family: 'Montserrat', serif;
+  font-weight: 400;
+  text-align: center;
+  color:var(--dark-text);
+}
+.year_value{
+  position: relative;
+  text-align: center;
+  font-size: 0.7rem;
+  margin-top: 20px;
+  width: 90%;
+  height: 50px;
+  line-height: 1.5em;
+  font-family: 'Montserrat', serif;
+  color: var(--dark-text);
+}
+.year_value::before{
+  content: 'Year: ';
+  margin-right: 5px;
+  font-family: 'Montserrat', serif;
+  color: var(--dark-text);
+}
+#mobility-time-wrapper input{
+  margin-top: 20px;
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: rgb(180, 180, 180);
+  border-radius: 5px;
+  width: 90%;
+  height: 1px;
+  outline: 0;
+}
+#mobility-time-wrapper input::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  background-color: #fff;
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: 50%;
+  width:15px;
+  height: 15px;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+}
+#mobility-time-wrapper input::-webkit-slider-thumb:hover{
+  transform: scale(1.5);
+}
+#mobility-time-wrapper input::-webkit-slider-thumb:active{
+  transform: scale(1.1);
+  border:1px solid var(--orange);
+}
+#mob-wrapper{
+  width: 100%;
+  height: 90px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+  background: hsla(0, 0%, 86%, 0.3);
+}
+form #mob-year-select {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  position: relative;
+  width: 100%;
+  height: 50px;
+  user-select: none;
+}
+form #mob-year-select::before {
+  content: " ";
+  position: absolute;
+  height: 1px;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(180, 180, 180);
+}
+form #mob-year-select input, form #mob-year-select label {
+  box-sizing: border-box;
+  flex: 1;
+  user-select: none;
   cursor: pointer;
 }
-/* ================================   Legend Time     ============*/
-.slidecontainer .legend {
-  /* month legend*/
-  color: gray;
-  font-size: 0.7rem;
+form #mob-year-select label {
+  display: inline-block;
   position: relative;
-  top: 3px;
+  width: 20%;
+  height: 100%;
+  user-select: none;
 }
-.range-value {
-  /* year legend*/
-  margin-top: 30px;
-}
-.range-value span {
-  width: 80px;
-  height: 20px;
-  text-align: center;
-  align-items: center;
-  background: transparent;
-  color: gray;
-  font-size: 0.7rem;
-  display: block;
+form #mob-year-select label::before { /*time Label*/
+  content: attr(data-time-amount);
+  color:var(--dark-text);
   position: absolute;
-  transform: translate(140%, -70%);
+  left: 50%;
+  padding-top: 10px;
+  transform: translate(-50%, 35px);
+  font-size: 0.6rem;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0.85;
+  transition: all 0.15s ease-in-out;
 }
-
+form #mob-year-select label::after { /*time circles*/
+  content: " ";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border: 1px solid rgb(180, 180, 180);
+  background: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+form #mob-year-select label:hover::after { /* Hover*/
+  transform: translate(-50%, -50%) scale(1.3);
+}
+form #mob-year-select input {
+  display: none;
+}
+form #mob-year-select input:checked + label::before {
+  font-weight: 500;
+  opacity: 1;
+}
+form #mob-year-select input:checked + label::after { /* circle change checked*/
+  border-width: 3px;
+  transform: translate(-50%, -50%) scale(0.75);
+  border-color: var(--orange);
+}
+form #mob-year-select input:checked ~ #time-year-pos {
+  opacity: 1;
+}
+form #mob-year-select input:checked:nth-child(1) ~ #time-year-pos {
+  left: 10%;
+}
+form #mob-year-select input:checked:nth-child(3) ~ #time-year-pos {
+  left: 30%;
+}
+form:valid #mob-year-select input + label::before {
+  transform: translate(-50%, 35px) scale(0.9);
+  transition: all 0.15s linear;
+}
+form:valid #mob-year-select input:checked + label::before {
+  transform: translate(-50%, 35px) scale(1.1);
+  transition: all 0.15s linear;
+}
 /*=====================  Map features ============================*/
 
 /*=====================  Map features ============================*/
