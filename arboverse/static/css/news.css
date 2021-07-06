@@ -22,8 +22,8 @@ body {
       hsla(212, 100%, 14%, 0.4),
       transparent
     ),
-    url("../images/News/pexels-cliford-mervil-2469122.jpg");
-  background-position: top;
+    url("../images/News/banner_mangueseco.jpg");
+  background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;

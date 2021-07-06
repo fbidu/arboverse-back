@@ -17,8 +17,8 @@ body {
       hsla(212, 100%, 14%, 0.4),
       transparent
     ),
-    url("../images/Publications/bannerpublications.jpg");
-  background-position: bottom;
+    url("../images/Publications/banner_cogumelo.jpg");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
