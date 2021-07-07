@@ -1074,7 +1074,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="land" />
+                  <input type="checkbox" name="land" id="arboverse-soy-300m" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -3820,16 +3820,4 @@
   </div>
 </main>
 <script src="../static/js/mapboxutil.js"></script>
-<script>
-  //Here Map box Token na frente do =
-  mapboxgl.accessToken = "pk.eyJ1IjoiamFjcXVlbGluZXRpZGEiLCJhIjoiY2tteHllYXVxMGQ4cTJycWtsbm1wYnNlZSJ9.WhX4YKrMo49sd5dA_JIMMw";
-  var map = new mapboxgl.Map({
-    container: "map",
-    style: "mapbox://styles/mapbox/light-v10", //type//
-    center: [-110, 37.8],
-    zoom: 1,
-  });
-  // Add zoom and rotation controls to the map.
-  map.addControl(new mapboxgl.NavigationControl());
-</script>
 {% endblock %}
