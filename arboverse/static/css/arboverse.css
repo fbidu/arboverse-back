@@ -27,8 +27,8 @@ body {
       hsla(212, 100%, 14%, 0.4),
       transparent
     ),
-    url("../images/pexels-sam-kolder-2387877.jpg");
-  background-position: bottom;
+    url("../images/aboverse/banner_barco2.jpg");
+  background-position:bottom;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
