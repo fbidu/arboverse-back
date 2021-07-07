@@ -192,6 +192,7 @@ function showChekedLand(){
 document.querySelectorAll("input[name=land]").forEach(i =>{
     i.onclick = function(){
         showChekedLand();
+        update_map(this)
     }
 });
 showChekedMob();
