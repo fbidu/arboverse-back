@@ -24,7 +24,7 @@ var map = new mapboxgl.Map({
 //   (mapVar) the Mapbox map object
 //   (title) a string identifier for the source and layer
 //   (url) the raster tile URL to add to the map
-const addTileLayerToMap = (mapVar, title, url) => {
+const addTileLayerToMap = (mapVar, title, url, type, source_layer) => {
     console.log(mapVar, title, url  )
     // need to first add a source
     mapVar.addSource(title, {
@@ -37,14 +37,15 @@ const addTileLayerToMap = (mapVar, title, url) => {
     // then add the layer, referencing the source
     map.addLayer({
         'id': title,
-        'type': 'vector',
+        'type': type,
         'source': title,
+        "source-layer": source_layer
     });
 
     mapVar.setLayoutProperty(
         title,
         'visibility',
-        'visible'
+        'none'
     );
 }
 
@@ -77,7 +78,7 @@ function update_map(cb) {
 
 
 // run the API call once the map is loaded (API call is asnyc)
-//map.on('load', async () => {
+map.on('load', async () => {
         // add a layer to the map
-//    addTileLayerToMap(map, 'arboverse.bkdd701g', 'mapbox://arboverse.bkdd701g');
-//});
+    addTileLayerToMap(map, 'arboverse.bkdd701g', 'mapbox://arboverse.bkdd701g', 'line', 'Cover_loss_dominant_drivers-bbybfd');
+});
