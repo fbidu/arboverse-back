@@ -72,23 +72,6 @@ function update_map(cb) {
     }
     console.log(cb.checked);
 }
-function update_map2(cb){
-    var clickedLayer2 = cb.id
-    for (var i = 0; i < clickedLayer2.length; i++){
-        if (clickedLayer2[i].checked){
-            map.setLayoutProperty(
-                clickedLayer2,
-                'visbility',
-                'visible'
-            );
-        }else {
-            map.setLayoutProperty(
-                'visibility',
-                'none'
-            )
-        }
-    }
-}
 
 // run the API call once the map is loaded (API call is asnyc)
 map.on('load', async () => {
