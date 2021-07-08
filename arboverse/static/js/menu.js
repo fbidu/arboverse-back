@@ -190,7 +190,8 @@ function showChekedFor(){
 document.querySelectorAll("input[name=forest]").forEach(i =>{
     i.onclick = function(){
         showChekedFor();
-        update_map(this)
+        update_map(this);
+        glue_layers();// tentativa de grudar as layers 
     }
 });
 showChekedLand();

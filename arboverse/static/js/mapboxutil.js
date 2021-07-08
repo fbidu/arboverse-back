@@ -103,6 +103,27 @@ function update_map(cb) {
     }
     console.log(cb.checked);
 }
+//Tentativa de grudar as Layerss
+function glue_layers(){
+    var heightBtn = document.getElementById('tree_height')
+    var toggledLayers = ['arboverse.height_2019_nam_1km', 'arboverse.height_2019_sam_1km', 'arboverse.height_2019_aus_1km', 'arboverse.height_2019_narf_1km', 'arboverse.height_2019_safr_1km']
+        for (var index in toggledLayers){
+            var clickedLayer = toggledLayers[index];
+            if(heightBtn.checked){
+                map.setLayoutProperty(
+                    clickedLayer,
+                    'visibility',
+                    'visible'
+                );
+            }else {
+                map.setLayoutProperty(
+                    clickedLayer,
+                    'visibility',
+                    'none'
+                ); 
+            }
+        }
+}
 //VECTORTiles
 // run the API call once the map is loaded (API call is asnyc)
 map.on('load', async () => {
@@ -115,4 +136,9 @@ map.on('load', async () => {
 //RASTERTiles
 map.on('load', async()=>{
     addRasterTileLayerToMap(map, 'arboverse.land_Cover_1km_nearest', 'mapbox://arboverse.land_Cover_1km_nearest', 'raster', 'mapbox://arboverse.land_Cover_1km_nearest', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.height_2019_nam_1km', 'mapbox://arboverse.height_2019_nam_1km', 'raster', 'mapbox://arboverse.height_2019_nam_1km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.height_2019_sam_1km', 'mapbox://arboverse.height_2019_sam_1km', 'raster', 'mapbox://arboverse.height_2019_sam_1km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.height_2019_aus_1km', 'mapbox://arboverse.height_2019_aus_1km', 'raster', 'mapbox://arboverse.height_2019_aus_1km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.height_2019_narf_1km', 'mapbox://arboverse.height_2019_narf_1km', 'raster', 'mapbox://arboverse.height_2019_narf_1km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.height_2019_safr_1km', 'mapbox://arboverse.height_2019_safr_1km', 'raster', 'mapbox://arboverse.height_2019_safr_1km', 0, 19);
 });
