@@ -173,11 +173,20 @@ document.querySelectorAll("input[name=climate]").forEach(i =>{
         showChekedCli();
     }
 });
+//Timer selected
+timeSelected();
+var i = 0;
+function timeSelected (){
+    document.querySelectorAll("input[name=kp-amount]").forEach(i =>{
+        i.onclick = function(){
+            update_map(this);
+        }    
+    })
+}
 showChekedFor();
 var i =0;
 function showChekedFor(){
-    document.getElementById('check5').textContent = document.querySelectorAll("input[name=forest]:checked").length;
-}
+    document.getElementById('check5').textContent = document.querySelectorAll("input[name=forest]:checked").length; }
 document.querySelectorAll("input[name=forest]").forEach(i =>{
     i.onclick = function(){
         showChekedFor();
