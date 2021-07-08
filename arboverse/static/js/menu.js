@@ -173,15 +173,25 @@ document.querySelectorAll("input[name=climate]").forEach(i =>{
         showChekedCli();
     }
 });
+//Timer selected
+timeSelected();
+var i = 0;
+function timeSelected (){
+    document.querySelectorAll("input[name=kp-amount]").forEach(i =>{
+        i.onclick = function(){
+            update_map(this);
+        }    
+    })
+}
 showChekedFor();
 var i =0;
 function showChekedFor(){
-    document.getElementById('check5').textContent = document.querySelectorAll("input[name=forest]:checked").length;
-}
+    document.getElementById('check5').textContent = document.querySelectorAll("input[name=forest]:checked").length; }
 document.querySelectorAll("input[name=forest]").forEach(i =>{
     i.onclick = function(){
         showChekedFor();
-        update_map(this)
+        update_map(this);
+        glue_layers();// tentativa de grudar as layers 
     }
 });
 showChekedLand();
@@ -205,49 +215,3 @@ document.querySelectorAll("input[name=mobility]").forEach(i =>{
         showChekedMob();
     }
 });
-//Slider Js
-
-var months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-];
-
-function filterBy(month) {
-    var filters = ['==', 'month', month];
-
-
-    // Set the label to the month
-    document.getElementById('month').textContent = months[month];
-}
-filterBy(0);
-
-document
-    .getElementById('myRange')
-    .addEventListener('input', function (e) {
-        var month = parseInt(e.target.value, 10);
-        filterBy(month);
-    });
-
-    const
-    range = document.getElementById('range'),
-    rangeV = document.getElementById('rangeV'),
-    setValue = ()=>{
-      const
-        newValue = Number( (range.value - range.min) * 130 / (range.max - range.min) ),
-        newPosition = 10 - (newValue * 0.13);
-      rangeV.innerHTML = `<span>${range.value}</span>`;
-      rangeV.style.left = `calc(${newValue}% + (${newPosition}px))`;
-    };
-
-  document.addEventListener("DOMContentLoaded", setValue);
-  range.addEventListener('input', setValue);

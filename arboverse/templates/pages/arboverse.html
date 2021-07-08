@@ -614,10 +614,12 @@
             <form action="/p/quote.php" method="get">
               <h5 id="form-title">Select layer time</h5>
               <div id="time-amount-slider">
-                <input type="radio" name="time-amount" id="kp-1" value="kp-1" required>
-                <label for="kp-1" data-time-amount="Present (1980-2016)"></label>
-                <input type="radio" name="time-amount" id="kp-2" value="kp-2" required>
-                <label for="kp-2" data-time-amount="Future (2071-2100)"></label>
+                <form name="kp_amount">
+                  <input type="checkbox" name="kp-amount" id="arboverse.presentfull" value="arboverse.presentfull"  required>
+                  <label for="arboverse.presentfull" data-time-amount="Present (1980-2016)"></label>
+                  <input type="checkbox" name="kp-amount" id="arboverse.koppenfuture" value="arboverse.koppenfuture"  required>
+                  <label for="arboverse.koppenfuture" data-time-amount="Future (2071-2100)"></label>
+                </form>
               </div>
             </form>
           </div>
@@ -858,7 +860,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="forest" />
+                  <input type="checkbox" name="forest" id="tree_height" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -958,7 +960,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="land" />
+                  <input type="checkbox" name="land" id="arboverse.land_Cover_1km_nearest" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1118,7 +1120,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="land" />
+                  <input type="checkbox" name="land" id="arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech"/>
                   <span class="slider round"></span>
                 </label>
               </div>
