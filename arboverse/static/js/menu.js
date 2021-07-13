@@ -1,14 +1,14 @@
 //Lateral buton active
 const buttons = document.querySelectorAll('.item-button')
-buttons.forEach(button =>{
-        button.addEventListener('click', function(){
-            buttons.forEach(btn => btn.classList.remove('btn-active'));
+buttons.forEach(button => {
+    button.addEventListener('click', function () {
+        buttons.forEach(btn => btn.classList.remove('btn-active'));
         this.classList.add('btn-active');
     });
 });
 
 // Open and Close submenu Discovery
-function openNav(){
+function openNav() {
     document.getElementById("discovery-menu").style.width = "260px";
     document.getElementById("discovery-menu").style.opacity = "1";
     document.getElementById("distribution-menu").style.width = "0";
@@ -20,13 +20,13 @@ function openNav(){
     document.getElementById('discovery').classList.add('btn-active')
 
 }
-function closeNav(){
+function closeNav() {
     document.getElementById("discovery-menu").style.width = "0";
     document.getElementById('discovery').classList.remove('btn-active')
 }
 
 // Open and Close submenu Distribution
-function openNavdist(){
+function openNavdist() {
     document.getElementById("distribution-menu").style.width = "260px";
     document.getElementById("distribution-menu").style.opacity = "1";
     document.getElementById("discovery-menu").style.width = "0";
@@ -38,13 +38,13 @@ function openNavdist(){
     document.getElementById('distribution').classList.add('btn-active')
 
 }
-function closeNavdist(){
+function closeNavdist() {
     document.getElementById("distribution-menu").style.width = "0";
     document.getElementById('distribution').classList.remove('btn-active')
 }
 
 // Open and Close submenu Vector
-function openNavVec (){
+function openNavVec() {
     document.getElementById('vector-menu').style.width = "260px";
     document.getElementById('vector-menu').style.opacity = "1";
     document.getElementById("discovery-menu").style.width = "0";
@@ -56,12 +56,12 @@ function openNavVec (){
     document.getElementById('vector').classList.add('btn-active')
 
 }
-function closeNavVec (){
+function closeNavVec() {
     document.getElementById('vector-menu').style.width = "0";
     document.getElementById('vector').classList.remove('btn-active')
 }
 // Open and Close submenu Climate
-function openNavCli (){
+function openNavCli() {
     document.getElementById('climate-menu').style.width = "320px";
     document.getElementById('climate-menu').style.opacity = "1";
     document.getElementById("discovery-menu").style.width = "0";
@@ -73,13 +73,13 @@ function openNavCli (){
     document.getElementById('climate').classList.add('btn-active')
 
 }
-function closeNavCli (){
+function closeNavCli() {
     document.getElementById('climate-menu').style.width = "0";
     document.getElementById('climate').classList.remove('btn-active')
 }
 
 // Open and Close submenu Forest cover
-function openNavFor (){
+function openNavFor() {
     document.getElementById('forestcover-menu').style.width = "320px";
     document.getElementById('forestcover-menu').style.opacity = "1";
     document.getElementById("discovery-menu").style.width = "0";
@@ -91,13 +91,13 @@ function openNavFor (){
     document.getElementById('forest').classList.add('btn-active')
 
 }
-function closeNavFor (){
+function closeNavFor() {
     document.getElementById('forestcover-menu').style.width = "0";
     document.getElementById('forest').classList.remove('btn-active')
 }
 
 // Open and Close submenu Land cover
-function openNavLan (){
+function openNavLan() {
     document.getElementById('land-cover-menu').style.width = "320px";
     document.getElementById('land-cover-menu').style.opacity = "1";
     document.getElementById("discovery-menu").style.width = "0";
@@ -109,13 +109,13 @@ function openNavLan (){
     document.getElementById('land').classList.add('btn-active')
 
 }
-function closeNavLan (){
+function closeNavLan() {
     document.getElementById('land-cover-menu').style.width = "0";
     document.getElementById('land').classList.remove('btn-active')
 }
 
 // Open and Close submenu Land cover
-function openNavMob (){
+function openNavMob() {
     document.getElementById('mobility-menu').style.width = "320px";
     document.getElementById('mobility-menu').style.opacity = "1";
     document.getElementById("discovery-menu").style.width = "0";
@@ -127,90 +127,123 @@ function openNavMob (){
     document.getElementById('mobility').classList.add('btn-active')
 
 }
-function closeNavMob (){
+function closeNavMob() {
     document.getElementById('mobility-menu').style.width = "0";
     document.getElementById('mobility').classList.remove('btn-active')
 }
 
 showChekedDis();
-var i =0;
-function showChekedDis(){
+var i = 0;
+function showChekedDis() {
     document.getElementById('check1').textContent = document.querySelectorAll("input[name=discovery]:checked").length;
 }
-document.querySelectorAll("input[name=discovery]").forEach(i =>{
-    i.onclick = function(){
+document.querySelectorAll("input[name=discovery]").forEach(i => {
+    i.onclick = function () {
         showChekedDis();
     }
 });
 
 showChekedDistri();
-var i =0;
-function showChekedDistri(){
+var i = 0;
+function showChekedDistri() {
     document.getElementById('check2').textContent = document.querySelectorAll("input[name=distribution]:checked").length;
 }
-document.querySelectorAll("input[name=distribution]").forEach(i =>{
-    i.onclick = function(){
+document.querySelectorAll("input[name=distribution]").forEach(i => {
+    i.onclick = function () {
         showChekedDistri();
     }
 });
 showChekedVec();
-var i =0;
-function showChekedVec(){
+var i = 0;
+function showChekedVec() {
     document.getElementById('check3').textContent = document.querySelectorAll("input[name=vector]:checked").length;
 }
-document.querySelectorAll("input[name=vector]").forEach(i =>{
-    i.onclick = function(){
+document.querySelectorAll("input[name=vector]").forEach(i => {
+    i.onclick = function () {
         showChekedVec();
     }
 });
 showChekedCli();
-var i =0;
-function showChekedCli(){
+var i = 0;
+function showChekedCli() {
     document.getElementById('check4').textContent = document.querySelectorAll("input[name=climate]:checked").length;
 }
-document.querySelectorAll("input[name=climate]").forEach(i =>{
-    i.onclick = function(){
+document.querySelectorAll("input[name=climate]").forEach(i => {
+    i.onclick = function () {
         showChekedCli();
     }
 });
-//Timer selected
-timeSelected();
-var i = 0;
-function timeSelected (){
-    document.querySelectorAll("input[name=kp-amount]").forEach(i =>{
-        i.onclick = function(){
-            update_map(this);
-        }    
-    })
-}
+
 showChekedFor();
-var i =0;
-function showChekedFor(){
-    document.getElementById('check5').textContent = document.querySelectorAll("input[name=forest]:checked").length; }
-document.querySelectorAll("input[name=forest]").forEach(i =>{
-    i.onclick = function(){
+var i = 0;
+function showChekedFor() {
+    document.getElementById('check5').textContent = document.querySelectorAll("input[name=forest]:checked").length;
+}
+document.querySelectorAll("input[name=forest]").forEach(i => {
+    i.onclick = function () {
         showChekedFor();
         update_map(this);
     }
 });
 showChekedLand();
-var i =0;
-function showChekedLand(){
+var i = 0;
+function showChekedLand() {
     document.getElementById('check6').textContent = document.querySelectorAll("input[name=land]:checked").length;
 }
-document.querySelectorAll("input[name=land]").forEach(i =>{
-    i.onclick = function(){
+document.querySelectorAll("input[name=land]").forEach(i => {
+    i.onclick = function () {
         showChekedLand();
         update_map(this)
     }
 });
 showChekedMob();
-var i =0;
-function showChekedMob(){
+var i = 0;
+function showChekedMob() {
     document.getElementById('check7').textContent = document.querySelectorAll("input[name=mobility]:checked").length;
 }
-document.querySelectorAll("input[name=mobility]").forEach(i =>{
-    i.onclick = function(){
+document.querySelectorAll("input[name=mobility]").forEach(i => {
+    i.onclick = function () {
         showChekedMob();
     }
 });
+
+var i = 0
+function enableClimateRadio(cb) {
+    if (cb.checked){
+        document.querySelectorAll("input[name=kp-amount]").forEach(i => {
+            
+            i.disabled = false;
+            console.log("check", i.disabled);
+        });
+    } else {
+        document.querySelectorAll("input[name=kp-amount]").forEach(i => {
+            i.checked = false;
+            i.disabled = true;
+            console.log("uncheck", i.disabled);
+        });
+        var j = 0;
+        document.querySelectorAll("input[name=kp-amount]").forEach(j => {
+            j.checked = false;
+            update_map(j)
+        });
+    }
+}
+document.querySelectorAll("input[name=climate]").forEach(i => {
+    i.onclick = function () {
+        enableClimateRadio(this);
+    }
+});
+
+var i = 0;
+document.querySelectorAll("input[name=kp-amount]").forEach(i => {
+    i.onchange = function () {
+        var j = 0;
+        document.querySelectorAll("input[name=kp-amount]").forEach(j => {
+            j.checked = false;
+            update_map(j)
+        });
+        i.checked = true;
+        update_map(this);
+    }
+})
+
