@@ -769,7 +769,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="forest" />
+                  <input type="checkbox" name="forest" id="forest_switch"/>
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -789,10 +789,10 @@
             <form action="/p/quote.php" method="get">
               <h5 id="form-title">Select layer time</h5>
               <div id="time-year-slider">
-                <input type="radio" name="year-amount" id="d-1" value="d-1" required>
-                <label for="d-1" data-time-amount="2001-2010"></label>
-                <input type="radio" name="year-amount" id="d-2" value="d-2" required>
-                <label for="d-2" data-time-amount="2011-2020"></label>
+                <input type="radio" name="year-amount" id="arboverse.tree_cover_loss_1km_2001-2010" value="arboverse.tree_cover_loss_1km_2001-2010" disabled >
+                <label for="arboverse.tree_cover_loss_1km_2001-2010" data-time-amount="2001-2010"></label>
+                <input type="radio" name="year-amount" id="arboverse.tree_cover_loss_1km_2011-2020" value="arboverse.tree_cover_loss_1km_2011-2020" disabled>
+                <label for="arboverse.tree_cover_loss_1km_2011-2020" data-time-amount="2011-2020"></label>
               </div>
             </form>
           </div>
