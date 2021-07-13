@@ -85,45 +85,33 @@ const addRasterTileLayerToMap = (mapVar, title, url, type, source_layer, minzoom
     );
 }
 function update_map(cb) {
-    var clickedLayer = cb.id
-    console.log(cb.id)
-    console.log(map.getStyle().layers)
+    var clickedLayers = cb.id
+    clickedLayersList = clickedLayers.split(',')
+    console.log(clickedLayersList)
+
     if (cb.checked) {
-        map.setLayoutProperty(
-            clickedLayer,
-            'visibility',
-            'visible'
-        );
+        for (let i = 0; i < clickedLayersList.length; i++) {
+            clickedLayer = clickedLayersList[i];
+            map.setLayoutProperty(
+                clickedLayer,
+                'visibility',
+                'visible'
+            );
+          } 
+        
     } else {
-        map.setLayoutProperty(
-            clickedLayer,
-            'visibility',
-            'none'
-        );
-    }
+        for (let i = 0; i < clickedLayersList.length; i++) {
+            clickedLayer = clickedLayersList[i];
+            map.setLayoutProperty(
+                clickedLayer,
+                'visibility',
+                'none'
+            );
+          } 
+    } 
     console.log(cb.checked);
 }
-//Tentativa de grudar as Layerss
-function glue_layers(){
-    var heightBtn = document.getElementById('tree_height')
-    var toggledLayers = ['arboverse.height_2019_nam_1km', 'arboverse.height_2019_sam_1km', 'arboverse.height_2019_aus_1km', 'arboverse.height_2019_narf_1km', 'arboverse.height_2019_safr_1km']
-        for (var index in toggledLayers){
-            var clickedLayer = toggledLayers[index];
-            if(heightBtn.checked){
-                map.setLayoutProperty(
-                    clickedLayer,
-                    'visibility',
-                    'visible'
-                );
-            }else {
-                map.setLayoutProperty(
-                    clickedLayer,
-                    'visibility',
-                    'none'
-                ); 
-            }
-        }
-}
+
 //VECTORTiles
 // run the API call once the map is loaded (API call is asnyc)
 map.on('load', async () => {
