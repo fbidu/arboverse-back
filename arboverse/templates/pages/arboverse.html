@@ -1162,7 +1162,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="land" />
+                  <input type="checkbox" name="land" id="pop_switch" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1189,10 +1189,10 @@
               <form action="/p/quote.php" method="get">
                 <h5 id="form-title">Select layer time</h5>
                 <div id="populational-time-slider">
-                  <input type="radio" name="year-picker" id="pop-1" value="pop-1" required>
-                  <label for="pop-1" data-time-amount="2015"></label>
-                  <input type="radio" name="year-picker" id="pop-2" value="pop-2" required>
-                  <label for="pop-2" data-time-amount="2020"></label>
+                  <input type="radio" name="year-picker" id="arboverse.pop_2015" value="arboverse.pop_2015" disabled>
+                  <label for="arboverse.pop_2015" data-time-amount="2015"></label>
+                  <input type="radio" name="year-picker" id="arboverse.pop_2020" value="arboverse.pop_2020" disabled>
+                  <label for="arboverse.pop_2020" data-time-amount="2020"></label>
                 </div>
               </form>
             </div>

@@ -254,7 +254,6 @@ function enableForestRadio(){
         document.getElementById("arboverse.tree_cover_loss_1km_2011-2020").disabled = true;
         var dev = document.getElementById('forest_switch').checked;
     if (dev  == true){
-        document.getElementById("arboverse.tree_cover_loss_1km_2001-2010").checked = true;
         document.getElementById("arboverse.tree_cover_loss_1km_2001-2010").disabled = false;
         document.getElementById("arboverse.tree_cover_loss_1km_2011-2020").disabled = false;
     } else if(dev != true){
@@ -273,6 +272,39 @@ document.querySelectorAll("input[name=year-amount]").forEach(i => {
     i.onchange = function () {
         var j = 0;
         document.querySelectorAll("input[name=year-amount]").forEach(j => {
+            j.checked = false;
+            update_map(j)
+        });
+        i.checked = true;
+        update_map(this);
+    }
+})
+//Forest Time condition
+var i = 0
+var popSwitchbtn = document.getElementById('pop_switch');
+function enablePopRadio(){
+        document.getElementById("arboverse.pop_2015").disabled = true;
+        document.getElementById("arboverse.pop_2020").disabled = true;
+        var dev = document.getElementById('pop_switch').checked;
+    if (dev  == true){
+        document.getElementById("arboverse.pop_2015").disabled = false;
+        document.getElementById("arboverse.pop_2020").disabled = false;
+    } else if(dev != true){
+        document.getElementById("arboverse.pop_2015").checked = false;
+        document.getElementById("arboverse.pop_2020").checked = false;
+    };
+    var j = 0;
+    document.querySelectorAll("input[name=year-picker]").forEach(j =>{
+        j.checked = false;
+        update_map(j)
+    })
+}
+popSwitchbtn.onchange = enablePopRadio;
+var i = 0;
+document.querySelectorAll("input[name=year-picker]").forEach(i => {
+    i.onchange = function () {
+        var j = 0;
+        document.querySelectorAll("input[name=year-picker]").forEach(j => {
             j.checked = false;
             update_map(j)
         });
