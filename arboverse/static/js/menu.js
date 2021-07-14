@@ -279,7 +279,7 @@ document.querySelectorAll("input[name=year-amount]").forEach(i => {
         update_map(this);
     }
 })
-//Forest Time condition
+//Population Time condition
 var i = 0
 var popSwitchbtn = document.getElementById('pop_switch');
 function enablePopRadio(){
