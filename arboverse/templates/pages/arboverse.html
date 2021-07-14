@@ -769,7 +769,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="forest" />
+                  <input type="checkbox" name="forest" id="forest_switch"/>
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -789,10 +789,10 @@
             <form action="/p/quote.php" method="get">
               <h5 id="form-title">Select layer time</h5>
               <div id="time-year-slider">
-                <input type="radio" name="year-amount" id="d-1" value="d-1" required>
-                <label for="d-1" data-time-amount="2001-2010"></label>
-                <input type="radio" name="year-amount" id="d-2" value="d-2" required>
-                <label for="d-2" data-time-amount="2011-2020"></label>
+                <input type="radio" name="year-amount" id="arboverse.tree_cover_loss_1km_2001-2010" value="arboverse.tree_cover_loss_1km_2001-2010" disabled >
+                <label for="arboverse.tree_cover_loss_1km_2001-2010" data-time-amount="2001-2010"></label>
+                <input type="radio" name="year-amount" id="arboverse.tree_cover_loss_1km_2011-2020" value="arboverse.tree_cover_loss_1km_2011-2020" disabled>
+                <label for="arboverse.tree_cover_loss_1km_2011-2020" data-time-amount="2011-2020"></label>
               </div>
             </form>
           </div>
@@ -839,7 +839,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="forest" />
+                  <input type="checkbox" name="forest" id="arboverse.primary_africa_1km,arboverse.primary_southamerica_1km,arboverse.primary_madagascar_1km,arboverse.primary_asia_1km" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -860,7 +860,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="forest" id="arboverse.height_2019_nam_1km,arboverse.height_2019_sam_1km,arboverse.height_2019_aus_1km,arboverse.height_2019_narf_1km,arboverse.height_2019_safr_1km" />
+                  <input type="checkbox" name="forest" id="arboverse.height_2019_nam_1km,arboverse.height_2019_sam_1km,arboverse.height_2019_aus_1km,arboverse.height_2019_narf_1km,arboverse.height_2019_safr_1km,arboverse.height_2019_sasia_1km,arboverse.height_2019_nasia_1m" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -883,7 +883,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="forest" />
+                  <input type="checkbox" name="forest" id="arboverse.ifl_2000,arboverse.ifl_2000,arboverse.ifl_2016"/>
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -915,7 +915,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="forest" />
+                  <input type="checkbox" name="forest" id="arboverse.flii_oceania_1km,arboverse.flii_africa_1km,arboverse.flii_northamerica_1km,arboverse.flii_southamerica_1km" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1016,7 +1016,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="land" />
+                  <input type="checkbox" name="land" id="arboverse.mining1,arboverse.mining2,arboverse.mining3,arboverse.mining4,arboverse.mining5,arboverse.mining6,arboverse.mining7,arboverse.mining8,arboverse.mining9,arboverse.mining10" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1045,7 +1045,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="land" />
+                  <input type="checkbox" name="land" id="arboverse.logging1,arboverse.logging2,arboverse.logging3,arboverse.logging4,arboverse.logging5,arboverse.logging6,arboverse.logging7,arboverse.logging8" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1075,7 +1075,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="land" id="arboverse-soy-300m" />
+                  <input type="checkbox" name="land" id="arboverse.soy_300m" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1162,7 +1162,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="land" />
+                  <input type="checkbox" name="land" id="pop_switch" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1189,10 +1189,10 @@
               <form action="/p/quote.php" method="get">
                 <h5 id="form-title">Select layer time</h5>
                 <div id="populational-time-slider">
-                  <input type="radio" name="year-picker" id="pop-1" value="pop-1" required>
-                  <label for="pop-1" data-time-amount="2015"></label>
-                  <input type="radio" name="year-picker" id="pop-2" value="pop-2" required>
-                  <label for="pop-2" data-time-amount="2020"></label>
+                  <input type="radio" name="year-picker" id="arboverse.pop_2015" value="arboverse.pop_2015" disabled>
+                  <label for="arboverse.pop_2015" data-time-amount="2015"></label>
+                  <input type="radio" name="year-picker" id="arboverse.pop_2020" value="arboverse.pop_2020" disabled>
+                  <label for="arboverse.pop_2020" data-time-amount="2020"></label>
                 </div>
               </form>
             </div>
