@@ -686,7 +686,7 @@ nav img {
 }
 .sub-1,
 .sub-2 {
-  height: 260px;
+  height: 300px;
 }
 /*Sub menu features*/
 /* Climate*/
@@ -1647,7 +1647,18 @@ nav img {
   border: solid 1px var(--orange);
   background: #e27902;
 }
-
+.listing{
+  display: block;
+  width:85%;
+  margin: auto;
+  height: 90px;
+  border: solid 1px transparent;
+  background-origin: border-box;
+  background-clip: border-box, content-box;
+  box-shadow: 2px 200px 1px #fff inset;
+  background-image: linear-gradient(90deg, hsla(194, 77%, 38%, 1) 0%, hsla(212, 100%, 14%, 1) 100%);
+  border-radius: 5px;
+}
 /* ======================         Selector box in Vectors          ===========*/
 .box {
   width:250px;

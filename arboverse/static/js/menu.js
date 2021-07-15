@@ -161,6 +161,7 @@ function showChekedVec() {
 document.querySelectorAll("input[name=vector]").forEach(i => {
     i.onclick = function () {
         showChekedVec();
+        update_map(this);
     }
 });
 showChekedCli();
@@ -204,6 +205,7 @@ function showChekedMob() {
 document.querySelectorAll("input[name=mobility]").forEach(i => {
     i.onclick = function () {
         showChekedMob();
+        update_map(this)
     }
 });
 //Climate Time condition

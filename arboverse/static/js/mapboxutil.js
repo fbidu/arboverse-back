@@ -170,6 +170,41 @@ map.on('load', async()=>{
     addTileLayerToMap(map, 'arboverse.logging7', 'mapbox://arboverse.logging', 'fill', { 'fill-color': "#0b525b" }, 'camerron_logging');
     addTileLayerToMap(map, 'arboverse.logging8', 'mapbox://arboverse.canada_logging', 'fill', { 'fill-color': "#0b525b" }, 'canada_logging_nova');
     addTileLayerToMap(map, 'arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech', 'mapbox://arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech', 'circle', {'circle-radius': 3, 'circle-color': ["match",["get", "status"],["Operational"],"#f2a65a",["Under Construction"],"#e86c5f",["Planned"],"hsl(69, 60%, 56%)",["Inventoried"],"#3abb9b",["Suspended"],"#dd2c2f",["Unknown"],"#822faf","#fff"]}, 'major_Dams_new');
-
 })
+//Number of passengers
+map.on('load', function(){
+    //Filter by year
+    //initial date
+    var filterYear = ['==', ['number', ['get', 'year']], 1970];
+    map.addSource('arboverse.cts68r85', {
+        type: 'vector',
+        // Use any Mapbox-hosted tileset using its tileset id.
+        // Learn more about where to find a tileset id:
+        // https://docs.mapbox.com/help/glossary/tileset-id/
+        url: 'mapbox://arboverse.cts68r85'
+    });
+    // then add the layer, referencing the source
+    map.addLayer({
+        'id': 'arboverse.cts68r85',
+        'type': 'circle',
+        'source': 'arboverse.cts68r85',
+        'paint': {'circle-radius': [ "step", [ "get", "passengers carried" ], 0, 100, 3, 1000, 6, 10000, 9, 100000, 12, 1000000, 15, 10000000, 18, 100000000, 21, 926737000, 24 ], 'circle-color': [ "step", [ "get", "passengers carried" ], "hsl(61, 0%, 100%)", 100, "#d9ed92", 1000, "#b5e48c", 10000, "#99d98c", 100000, "#76c893", 1000000, "#52b69a", 10000000, "#34a0a4", 100000000, "#168aad", 926737000, "#1a759f" ]},
+        'source-layer': 'air_transport_06_30_21_WDI-7a456y',
+        'filter': ['all', filterYear]
+    });
+    map.setLayoutProperty(
+        'arboverse.cts68r85',
+        'visibility',
+        'none'
+    );
 
+    // update year filter when the slider is dragged
+    document
+            .querySelector("input[name=number_passengers]")
+            .addEventListener('input', function(e){
+                var year = parseInt(e.target.value);
+                //update the map
+                filterYear = ['==', ['number', ['get', 'year']], year];
+                map.setFilter('arboverse.cts68r85', ['all', filterYear])
+            })
+});

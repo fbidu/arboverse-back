@@ -563,7 +563,7 @@
         <div class="title-sub">
           <div class="togglebtn">
             <label class="switch">
-              <input type="checkbox" name="vector" />
+              <input type="checkbox" name="vector" id= "arboverse.gbif_vector_12_06_2021_edited" />
               <span class="slider round"></span>
             </label>
           </div>
@@ -585,9 +585,10 @@
         </div>
         <div class="search_sub">
           <input class="search-distribution" type="text" placeholder="Search by species..."
-            id="species-distribution-search">
+            name="species-distribution-search">
           <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
         </div>
+        <div id="feature-listing" class="listing"></div>
       </div>
       <!--Climate Menu-->
       <div id="climate-menu" class="sub-second-menu">
@@ -1301,7 +1302,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="radio" name="mobility" />
+                  <input type="checkbox" name="mobility" id="arboverse.cts68r85"/>
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1331,7 +1332,7 @@
           <!--Time selector-->
           <div id="mobility-time-wrapper">
             <h5 id="passenger-title">Select layer time</h5>
-            <input type="range" min="1970" max="2019" value="0" step="1" class="val" id="y1" />
+            <input name="number_passengers" type="range" min="1970" max="2019" value="1970" step="1" class="val" id="y1" />
             <div class="year_value">Move the slider</div>
           </div>
           <script>
