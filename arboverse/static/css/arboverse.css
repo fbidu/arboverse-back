@@ -1305,52 +1305,6 @@ nav img {
   position: absolute;
   z-index: 21;
 }
-.onex2{
-    width: 5px;
-    height: 5px;
-    background:#aacc00;
-    border: solid 1px #efefef;
-    border-radius: 50%;
-    position: absolute;
-    z-index: 25;
-  }
-  .twox2{
-    width: 15px;
-    height: 15px;
-    background: #80b918;
-    border: solid 1px #efefef;
-    border-radius: 50%;
-    position: absolute;
-    z-index: 24;
-  }
-
-  .threex2{
-    width: 25px;
-    height: 25px;
-    background: #55a630;
-    border: solid 1px #efefef;
-    border-radius: 50%;
-    position: absolute;
-    z-index: 23;
-  }
-  .fourx2{
-    width: 35px;
-    height: 35px;
-    background:#2b9348;
-    border: solid 1px #efefef;
-    border-radius: 50%;
-    position: absolute;
-    z-index: 22;
-  }
-  .fivex2{
-    width: 45px;
-    height: 45px;
-    background:#007f5f;
-    border: solid 1px #efefef;
-    border-radius: 50%;
-    position: absolute;
-    z-index: 21;
-  }
 /* Bar Mesurement color features GRADIENT */
 
 .green-s {
@@ -1366,6 +1320,19 @@ nav img {
     #cd3f71,
     #f1605d
   );
+}
+.passengers-s{
+  background: linear-gradient(
+    90deg,
+    #d9ed92,
+    #b5e48c,
+    #99d98c,
+    #76c893,
+    #52b69a,
+    #34a0a4,
+    #168aad,
+    #1a759f
+  ) ;
 }
 .browngreen-s {
   background: linear-gradient(
