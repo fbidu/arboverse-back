@@ -161,6 +161,7 @@ function showChekedVec() {
 document.querySelectorAll("input[name=vector]").forEach(i => {
     i.onclick = function () {
         showChekedVec();
+        update_map(this);
     }
 });
 showChekedCli();
@@ -204,6 +205,7 @@ function showChekedMob() {
 document.querySelectorAll("input[name=mobility]").forEach(i => {
     i.onclick = function () {
         showChekedMob();
+        update_map(this)
     }
 });
 //Climate Time condition
@@ -312,3 +314,27 @@ document.querySelectorAll("input[name=year-picker]").forEach(i => {
         update_map(this);
     }
 })
+//Slider response for year filter
+var arr = document.querySelector('input[name=arrivals]');
+var arrValue = function () {
+        var newValue = arr.value;
+        var target = document.querySelector('.arr_value');
+        target.innerHTML = newValue;
+              }
+arr.addEventListener("input", arrValue);
+
+var dep = document.querySelector('input[name="departures"]');
+var rangeValueDepartures = function () {
+    var newValue = dep.value;
+    var target = document.querySelector('.year_departures');
+        target.innerHTML = newValue;
+              }
+dep.addEventListener("input", rangeValueDepartures);
+
+var elem = document.querySelector('input[name="number_passengers"]');
+var rangeValue = function () {
+    var newValue = elem.value;
+    var target = document.querySelector('.year_value');
+    target.innerHTML = newValue;
+              }
+elem.addEventListener("input", rangeValue);
