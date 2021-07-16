@@ -1248,15 +1248,6 @@
               <input name="arrivals" type="range" min="1995" max="2019" value="1995" step="1" class="val" id="a1" />
               <div class="slide_bar arr_value">Move the slider</div>
             </div>
-            <script>
-              var arr = document.querySelector('input[name=arrivals]');
-              var arrValue = function () {
-                var newValue = arr.value;
-                var target = document.querySelector('.arr_value');
-                target.innerHTML = newValue;
-              }
-              arr.addEventListener("input", arrValue);
-            </script>
           </div>
           <!--Departures-->
           <div class="unit-btn2">
@@ -1292,15 +1283,6 @@
               <input name="departures" type="range" min="1995" max="2019" value="1995" step="1" class="val" id="d1" />
               <div class="slide_bar year_departures">Move the slider</div>
             </div>
-            <script>
-              var dep = document.querySelector('input[name="departures"]');
-              var rangeValueDepartures = function () {
-                var newValue = dep.value;
-                var target = document.querySelector('.year_departures');
-                target.innerHTML = newValue;
-              }
-              dep.addEventListener("input", rangeValueDepartures);
-            </script>
           </div>
           <!--Passengers-->
           <div class="unit-btn2">
@@ -1337,15 +1319,6 @@
                 id="y1" />
               <div class="slide_bar year_value">Move the slider</div>
             </div>
-            <script>
-              var elem = document.querySelector('input[name="number_passengers"]');
-              var rangeValue = function () {
-                var newValue = elem.value;
-                var target = document.querySelector('.year_value');
-                target.innerHTML = newValue;
-              }
-              elem.addEventListener("input", rangeValue);
-            </script>
           </div>
         </div>
       </div>
