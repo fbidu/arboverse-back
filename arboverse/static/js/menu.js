@@ -314,6 +314,14 @@ document.querySelectorAll("input[name=year-picker]").forEach(i => {
         update_map(this);
     }
 })
+// Slider responde for opacity
+var cli = document.querySelector('input[name=climate-opacity]');
+var opValue = function(){
+    var newOpValue = cli.value;
+    var target = document.querySelector('.cli_op');
+    target.innerHTML = newOpValue;
+}
+cli.addEventListener('input', opValue)
 //Slider response for year filter
 var arr = document.querySelector('input[name=arrivals]');
 var arrValue = function () {

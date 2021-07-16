@@ -259,3 +259,22 @@ map.on('load', function(){
                 map.setFilter('arboverse.cgwofgmt', ['all', filterArrYear])
             });              
 });
+//Opacity 
+map.on('load', function(){
+    var slider = document.querySelector('input[name=climate-opacity]');
+    slider.addEventListener('input', function(e){
+        // Adjust the layers opacity. layer here is arbitrary - this could
+        // be another layer name found in your style or a custom layer
+        // added on the fly using `addSource`.
+        map.setPaintProperty(
+            'arboverse.presentfull',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.koppenfuture',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    })
+})
