@@ -314,7 +314,9 @@ document.querySelectorAll("input[name=year-picker]").forEach(i => {
         update_map(this);
     }
 })
-// Slider responde for opacity
+
+
+// Slider response for opacity
 var cli = document.querySelector('input[name=climate-opacity]');
 var opValue = function(){
     var newOpValue = cli.value;
@@ -322,6 +324,16 @@ var opValue = function(){
     target.innerHTML = newOpValue;
 }
 cli.addEventListener('input', opValue)
+
+var loss = document.querySelector('input[name=coverloss-opacity]');
+var lossValue = function(){
+    var newOpValue = loss.value;
+    var target = document.querySelector('.loss_op');
+    target.innerHTML = newOpValue;
+}
+loss.addEventListener('input', lossValue)
+
+
 //Slider response for year filter
 var arr = document.querySelector('input[name=arrivals]');
 var arrValue = function () {

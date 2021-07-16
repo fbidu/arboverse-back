@@ -612,7 +612,7 @@
           </div>
           <div class="opacity-wrapper">
             <label>Layer opacity: <span class="opacity_val cli_op">100</span></label>
-            <input name="climate-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            <input id ="opacity_slider" name="climate-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
           </div>
           <!--Time selector-->
           <div id="time-wrapper">
@@ -785,6 +785,10 @@
                 <a href="#demo-modal2.0"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
                 <span class="tooltext">Indentifies areas of likely tree cover loss during the past two decades</span>
               </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="opacity_val loss_op">100</span></label>
+              <input id ="opacity_slider" name="coverloss-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
             </div>
             <div class="marker">
               <div class="point pink-orange"></div>

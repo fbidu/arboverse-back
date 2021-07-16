@@ -259,22 +259,63 @@ map.on('load', function(){
                 map.setFilter('arboverse.cgwofgmt', ['all', filterArrYear])
             });              
 });
+
+
 //Opacity 
-map.on('load', function(){
-    var slider = document.querySelector('input[name=climate-opacity]');
-    slider.addEventListener('input', function(e){
-        // Adjust the layers opacity. layer here is arbitrary - this could
-        // be another layer name found in your style or a custom layer
-        // added on the fly using `addSource`.
+const addOpacityVector = (element, title1) =>{
+    element.addEventListener('input', function(e){
         map.setPaintProperty(
-            'arboverse.presentfull',
-            'fill-opacity',
-            parseInt(e.target.value,10)/100
-        );
-        map.setPaintProperty(
-            'arboverse.koppenfuture',
+            title1,
             'fill-opacity',
             parseInt(e.target.value,10)/100
         );
     })
+};
+const addOpacityTwoVector = (element, title1, title2) =>{
+    element.addEventListener('input', function(e){
+        map.setPaintProperty(
+            title1,
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            title2,
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    })
+};
+const addOpacityRaster = (element, title1) =>{
+    element.addEventListener('input', function(e){
+        map.setPaintProperty(
+            title1,
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    })
+};
+
+const addOpacityTwoRaster = (element, title1, title2) =>{
+    element.addEventListener('input', function(e){
+        map.setPaintProperty(
+            title1,
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            title2,
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    })
+};
+
+map.on('load', function(){
+    var cliSlider = document.querySelector('input[name=climate-opacity]');
+    var lossSlider = document.querySelector('input[name=coverloss-opacity]');
+
+    addOpacityTwoVector(cliSlider, 'arboverse.presentfull', 'arboverse.koppenfuture')
+    addOpacityTwoRaster(lossSlider, 'arboverse.tree_cover_loss_1km_2001-2010', 'arboverse.tree_cover_loss_1km_2011-2020')
+
+    
 })
