@@ -176,6 +176,8 @@ map.on('load', function(){
     //Filter by year
     //initial date
     var filterYear = ['==', ['number', ['get', 'year']], 1970];
+    var filterDepYear = ['==', ['number', ['get', 'year']], 1995];
+    var filterArrYear = ['==', ['number', ['get', 'year']], 1995];
     map.addSource('arboverse.cts68r85', {
         type: 'vector',
         // Use any Mapbox-hosted tileset using its tileset id.
@@ -183,21 +185,54 @@ map.on('load', function(){
         // https://docs.mapbox.com/help/glossary/tileset-id/
         url: 'mapbox://arboverse.cts68r85'
     });
+    map.addSource('arboverse.2mtp8qji',{
+        type: 'vector',
+        url: 'mapbox://arboverse.2mtp8qji'
+    });
+    map.addSource('arboverse.cgwofgmt',{
+        type: 'vector',
+        url: 'mapbox://arboverse.cgwofgmt'
+    })
     // then add the layer, referencing the source
     map.addLayer({
         'id': 'arboverse.cts68r85',
         'type': 'circle',
         'source': 'arboverse.cts68r85',
-        'paint': {'circle-radius': [ "step", [ "get", "passengers carried" ], 0, 100, 3, 1000, 6, 10000, 9, 100000, 12, 1000000, 15, 10000000, 18, 100000000, 21, 926737000, 24 ], 'circle-color': [ "step", [ "get", "passengers carried" ], "hsl(61, 0%, 100%)", 100, "#d9ed92", 1000, "#b5e48c", 10000, "#99d98c", 100000, "#76c893", 1000000, "#52b69a", 10000000, "#34a0a4", 100000000, "#168aad", 926737000, "#1a759f" ]},
+        'paint': {'circle-radius': [ "step", [ "get", "passengers carried" ], 0, 100, 3, 1000, 6, 10000, 9, 100000, 12, 1000000, 15, 10000000, 18, 100000000, 21, 157873000, 24 ], 'circle-color': [ "step", [ "get", "passengers carried" ], "hsl(61, 0%, 100%)", 100, "#d9ed92", 1000, "#b5e48c", 10000, "#99d98c", 100000, "#76c893", 1000000, "#52b69a", 10000000, "#34a0a4", 100000000, "#168aad", 926737000, "#1a759f" ]},
         'source-layer': 'air_transport_06_30_21_WDI-7a456y',
         'filter': ['all', filterYear]
+    });
+    map.addLayer({
+        'id': 'arboverse.2mtp8qji',
+        'type': 'circle',
+        'source': 'arboverse.2mtp8qji',
+        'paint': {'circle-radius': ['step',[ "get", "departures"], 0, 100, 3, 1000, 6, 10000, 9, 100000, 12, 1000000, 15, 10000000, 18, 100000000, 21, 926737000, 24], 'circle-color': ["step", ["get", "departures"], "hsl(61, 0%, 100%)", 100, "#FF99AC", 1000, "#EA88AD", 10000, "#D577AF", 100000, "#C066B0", 1000000, "#AC56B2", 10000000, "#9745B3", 100000000, "#8234B5", 926737000, "#6D23B6"]},
+        'source-layer': 'tourism_departures_06_30_21_W-5zcnfa',
+        'filter': ['all', filterDepYear]
+    });
+    map.addLayer({
+        'id': 'arboverse.cgwofgmt',
+        'type': 'circle',
+        'source': 'arboverse.cgwofgmt',
+        'paint': {'circle-radius': ['step',[ "get", "arrivals"], 0, 100, 3, 1000, 6, 10000, 9, 100000, 12, 1000000, 15, 10000000, 18, 100000000, 21, 211998000, 24], 'circle-color': ["step", ["get", "arrivals"], "hsl(61, 0%, 100%)", 100, "#60EFFF", 1000, "#52DBFF", 10000, "#45C6FF", 100000, "#37B2FF", 1000000, "#299EFF", 10000000, "#1B8AFF", 100000000, "#0E75FF", 926737000, "#0061FF"]},
+        'source-layer': 'tourism_arrivals_06_30_21_WDI-aza97h',
+        'filter': ['all', filterArrYear]
     });
     map.setLayoutProperty(
         'arboverse.cts68r85',
         'visibility',
         'none'
     );
-
+    map.setLayoutProperty(
+        'arboverse.2mtp8qji',
+        'visibility',
+        'none'
+    );
+    map.setLayoutProperty(
+        'arboverse.cgwofgmt',
+        'visibility',
+        'none'
+    );    
     // update year filter when the slider is dragged
     document
             .querySelector("input[name=number_passengers]")
@@ -206,5 +241,21 @@ map.on('load', function(){
                 //update the map
                 filterYear = ['==', ['number', ['get', 'year']], year];
                 map.setFilter('arboverse.cts68r85', ['all', filterYear])
-            })
+            });
+    document
+            .querySelector("input[name=departures]") 
+            .addEventListener('input', function(e){
+                var depYear = parseInt(e.target.value);
+                //update the map
+                filterDepYear = ['==', ['number', ['get', 'year']], depYear];
+                map.setFilter('arboverse.2mtp8qji', ['all', filterDepYear])
+            }); 
+    document
+            .querySelector("input[name=arrivals]")
+            .addEventListener('input', function(e){
+                var arrYear = parseInt(e.target.value);
+                //update the map
+                filterArrYear = ['==', ['number', ['get', 'year']], arrYear];
+                map.setFilter('arboverse.cgwofgmt', ['all', filterArrYear])
+            });              
 });

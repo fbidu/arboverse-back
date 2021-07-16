@@ -1187,124 +1187,7 @@ nav img {
   height: 5px;
   border-radius: 5px;
 }
-/* Legend for human mobility*/
-.circle-wrapper{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-.circles-scale{
-  width: 50%;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-}
-.scale-mi{
-  margin-top: 15px;
-  width: 25%;
-  display:flex;
-  flex-direction: column;
-  height: 50px;
-  justify-content: flex-end;
-}
-.scale-mi label{
-  color: var(--dark-text);
-  text-align: left;
-  font-size: 0.6rem;
-  font-family: 'montserrat', serif;
-}
-.onex{
-  width: 5px;
-  height: 5px;
-  background: #FAE0E4 ;
-  border: solid 1px #efefef;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 25;
-}
-.twox{
-  width: 15px;
-  height: 15px;
-  background:#FBBBCB ;
-  border: solid 1px #efefef;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 24;
-}
-.threex{
-  width: 25px;
-  height: 25px;
-  background: #FC96B2;
-  border: solid 1px #efefef;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 23;
-}
-.fourx{
-  width: 35px;
-  height: 35px;
-  background: #FD618E;
-  border: solid 1px #efefef;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 22;
-}
-.fivex{
-  width: 45px;
-  height: 45px;
-  background: #ff0a54;
-  border: solid 1px #efefef;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 21;
-}
-.onex1{
-  width: 5px;
-  height: 5px;
-  background:#ade8f4;
-  border: solid 1px #efefef;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 25;
-}
-.twox1{
-  width: 15px;
-  height: 15px;
-  background: #48cae4;
-  border: solid 1px #efefef;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 24;
-}
-.threex1{
-  width: 25px;
-  height: 25px;
-  background: #0096c7;
-  border: solid 1px #efefef;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 23;
-}
-.fourx1{
-  width: 35px;
-  height: 35px;
-  background:#0077b6;
-  border: solid 1px #efefef;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 22;
-}
-.fivex1{
-  width: 45px;
-  height: 45px;
-  background:#023e8a;
-  border: solid 1px #efefef;
-  border-radius: 50%;
-  position: absolute;
-  z-index: 21;
-}
+
 /* Bar Mesurement color features GRADIENT */
 
 .green-s {
@@ -1333,6 +1216,32 @@ nav img {
     #168aad,
     #1a759f
   ) ;
+}
+.arrivals-s{
+  background: linear-gradient(
+    90deg,
+    #60EFFF,
+    #52DBFF,
+    #45C6FF,
+    #37B2FF,
+    #299EFF,
+    #1B8AFF,
+    #0E75FF,
+    #0061FF
+  );
+}
+.departures-s{
+  background: linear-gradient(
+    90deg,
+    #FF99AC,
+    #EA88AD,
+    #D577AF,
+    #C066B0,
+    #AC56B2,
+    #9745B3,
+    #8234B5,
+    #6D23B6
+  );
 }
 .browngreen-s {
   background: linear-gradient(
@@ -2075,7 +1984,7 @@ form:valid #populational-time-slider input:checked + label::before {
   text-align: center;
   color:var(--dark-text);
 }
-.year_value{
+.slide_bar{
   position: relative;
   text-align: center;
   font-size: 0.7rem;
