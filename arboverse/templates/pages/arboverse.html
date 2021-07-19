@@ -794,20 +794,20 @@
               <div class="point pink-orange"></div>
               <labe class="point-mean">Tree cover loss per decade</labe>
             </div>
-          </div>
-          <!--time selector-->
-          <div id="year-time-wrapper">
-            <form action="/p/quote.php" method="get">
-              <h5 id="form-title">Select layer time</h5>
-              <div id="time-year-slider">
-                <input type="radio" name="year-amount" id="arboverse.tree_cover_loss_1km_2001-2010"
-                  value="arboverse.tree_cover_loss_1km_2001-2010" disabled>
-                <label for="arboverse.tree_cover_loss_1km_2001-2010" data-time-amount="2001-2010"></label>
-                <input type="radio" name="year-amount" id="arboverse.tree_cover_loss_1km_2011-2020"
-                  value="arboverse.tree_cover_loss_1km_2011-2020" disabled>
-                <label for="arboverse.tree_cover_loss_1km_2011-2020" data-time-amount="2011-2020"></label>
-              </div>
-            </form>
+            <!--time selector-->
+            <div id="year-time-wrapper">
+              <form action="/p/quote.php" method="get">
+                <h5 id="form-title">Select layer time</h5>
+                <div id="time-year-slider">
+                  <input type="radio" name="year-amount" id="arboverse.tree_cover_loss_1km_2001-2010"
+                    value="arboverse.tree_cover_loss_1km_2001-2010" disabled>
+                  <label for="arboverse.tree_cover_loss_1km_2001-2010" data-time-amount="2001-2010"></label>
+                  <input type="radio" name="year-amount" id="arboverse.tree_cover_loss_1km_2011-2020"
+                    value="arboverse.tree_cover_loss_1km_2011-2020" disabled>
+                  <label for="arboverse.tree_cover_loss_1km_2011-2020" data-time-amount="2011-2020"></label>
+                </div>
+              </form>
+            </div>
           </div>
           <!--Tree Cover Loss by dominante driver-->
           <div class="unit-btn2">
@@ -1006,6 +1006,10 @@
                 <span class="tooltext">Shows the global distribution of land cover in 2015</span>
               </div>
             </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op land_op">100</span></label>
+              <input id ="opacity_slider" name="land-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            </div>
             <div class="marker">
               <div class="point agriculture-p"></div>
               <labe class="point-mean">Agriculture</labe>
@@ -1064,6 +1068,10 @@
                   companies for extration of minerals</span>
               </div>
             </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op mini_op">100</span></label>
+              <input id ="opacity_slider" name="mini-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            </div>
             <div class="marker">
               <div class="point mining-p"></div>
               <labe class="point-mean">Mining concessions</labe>
@@ -1094,6 +1102,10 @@
                   selective loggings of natural forests</span>
               </div>
             </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op log_op">100</span></label>
+              <input id ="opacity_slider" name="log-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            </div>
             <div class="marker">
               <div class="point logging-p"></div>
               <labe class="point-mean">Logging concessions</labe>
@@ -1123,6 +1135,10 @@
                 <span class="tooltext">Guide the expansion of responsible soy production and evaluate
                   in situ HCVAs according to the RTRS Standards</span>
               </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op soy_op">100</span></label>
+              <input id ="opacity_slider" name="soy-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
             </div>
             <div class="marker">
               <div class="point noexpansion-p"></div>
@@ -1169,6 +1185,10 @@
                   basins</span>
               </div>
             </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op dams_op">100</span></label>
+              <input id ="opacity_slider" name="dams-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            </div>
             <div class="marker">
               <div class="point operational-p"></div>
               <labe class="point-mean">Operational</labe>
@@ -1211,9 +1231,15 @@
                   distribution</span>
               </div>
             </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op pop_op">100</span></label>
+              <input id ="opacity_slider" name="pop-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            </div>
             <div class="measure">
               <div class="bar-mesur people-s"></div>
               <div class="indice">
+                <label class="millions">0</label>
+                <label class="millions">1</label>
                 <label class="millions">≤25</label>
                 <label class="millions">≤100</label>
                 <label class="millions">≤1k</label>

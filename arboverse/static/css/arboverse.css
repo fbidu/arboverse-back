@@ -1200,6 +1200,8 @@ nav img {
 .people-s {
   background: linear-gradient(
     90deg,
+    hsla(0, 0%, 100%, 0),
+    #f8f9fa,
     #180f3e,
     #440f76,
     #721f81,

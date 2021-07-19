@@ -373,6 +373,54 @@ var indexValue = function(){
 }
 index.addEventListener('input', indexValue)
 
+var land = document.querySelector('input[name=land-opacity]');
+var landValue = function(){
+    var newOpValue = land.value;
+    var target = document.querySelector('.land_op');
+    target.innerHTML = newOpValue;
+}
+land.addEventListener('input', landValue);
+
+var mini = document.querySelector('input[name=mini-opacity]');
+var miniValue = function(){
+    var newOpValue = mini.value;
+    var target = document.querySelector('.mini_op');
+    target.innerHTML = newOpValue;
+}
+mini.addEventListener('input', miniValue);
+
+var log = document.querySelector('input[name=log-opacity]');
+var logValue = function(){
+    var newOpValue = log.value;
+    var target = document.querySelector('.log_op');
+    target.innerHTML = newOpValue;
+}
+log.addEventListener('input', logValue);
+
+var soy = document.querySelector('input[name=soy-opacity]');
+var soyValue = function(){
+    var newOpValue = soy.value;
+    var target = document.querySelector('.soy_op');
+    target.innerHTML = newOpValue;
+}
+soy.addEventListener('input', soyValue);
+
+var dams = document.querySelector('input[name=dams-opacity]');
+var damsValue = function(){
+    var newOpValue = dams.value;
+    var target = document.querySelector('.dams_op');
+    target.innerHTML = newOpValue;
+}
+dams.addEventListener('input', damsValue);
+
+var pop = document.querySelector('input[name=pop-opacity]');
+var popValue = function(){
+    var newOpValue = pop.value;
+    var target = document.querySelector('.pop_op');
+    target.innerHTML = newOpValue;
+}
+pop.addEventListener('input', popValue);
+
 //Slider response for year filter
 var arr = document.querySelector('input[name=arrivals]');
 var arrValue = function () {

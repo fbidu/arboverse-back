@@ -169,7 +169,7 @@ map.on('load', async()=>{
     addTileLayerToMap(map, 'arboverse.logging6', 'mapbox://arboverse.logging', 'fill', { 'fill-color': "#0b525b" }, 'centra_africa_logging');
     addTileLayerToMap(map, 'arboverse.logging7', 'mapbox://arboverse.logging', 'fill', { 'fill-color': "#0b525b" }, 'camerron_logging');
     addTileLayerToMap(map, 'arboverse.logging8', 'mapbox://arboverse.canada_logging', 'fill', { 'fill-color': "#0b525b" }, 'canada_logging_nova');
-    addTileLayerToMap(map, 'arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech', 'mapbox://arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech', 'circle', {'circle-radius': 3, 'circle-color': ["match",["get", "status"],["Operational"],"#f2a65a",["Under Construction"],"#e86c5f",["Planned"],"hsl(69, 60%, 56%)",["Inventoried"],"#3abb9b",["Suspended"],"#dd2c2f",["Unknown"],"#822faf","#fff"]}, 'major_Dams_new');
+    addTileLayerToMap(map, 'arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech', 'mapbox://arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech', 'circle', {'circle-radius': 4, 'circle-color': ["match",["get", "status"],["Operational"],"#f2a65a",["Under Construction"],"#e86c5f",["Planned"],"hsl(69, 60%, 56%)",["Inventoried"],"#3abb9b",["Suspended"],"#dd2c2f",["Unknown"],"#822faf","#fff"]}, 'major_Dams_new');
 })
 //Number of passengers
 map.on('load', function(){
@@ -294,6 +294,15 @@ const addOpacityRaster = (element, title1) =>{
         );
     })
 };
+const addOpacityCircle = (element, title1) =>{
+    element.addEventListener('input', function(e){
+        map.setPaintProperty(
+            title1,
+            'circle-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    })
+};
 
 const addOpacityTwoRaster = (element, title1, title2) =>{
     element.addEventListener('input', function(e){
@@ -318,10 +327,21 @@ map.on('load', function(){
     var heightSlider = document.querySelector('input[name=height-opacity]');
     var intactSlider = document.querySelector('input[name=intact_opacity]');
     var indexSlider = document.querySelector('input[name=index-opacity]');
+    var landSlider = document.querySelector('input[name=land-opacity]');
+    var miniSlider = document.querySelector('input[name=mini-opacity]');
+    var logSlider = document.querySelector('input[name=log-opacity]');
+    var soySlider = document.querySelector('input[name=soy-opacity]');
+    var damsSlider = document.querySelector('input[name=dams-opacity]');
+    var popSlider = document.querySelector('input[name=pop-opacity]');
 
     addOpacityTwoVector(cliSlider, 'arboverse.presentfull', 'arboverse.koppenfuture');
     addOpacityTwoRaster(lossSlider, 'arboverse.tree_cover_loss_1km_2001-2010', 'arboverse.tree_cover_loss_1km_2011-2020');
     addOpacityVector(driveSlider, 'arboverse.bkdd701g');
+    addOpacityRaster(landSlider, 'arboverse.land_Cover_1km_nearest');
+    addOpacityRaster(soySlider, 'arboverse.soy_300m');
+    addOpacityCircle(damsSlider, 'arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech');
+    addOpacityTwoRaster(popSlider, 'arboverse.pop_2015', 'arboverse.pop_2020');
+    
     
 
     primarySlider.addEventListener('input', function(e){
@@ -419,6 +439,100 @@ map.on('load', function(){
         map.setPaintProperty(
             'arboverse.flii_southamerica_1km',
             'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    });
+    miniSlider.addEventListener('input', function(e){
+        map.setPaintProperty(
+            'arboverse.mining1',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.mining2',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.mining3',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.mining4',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.mining5',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.mining6',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.mining7',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.mining8',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.mining9',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.mining10',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    });
+    logSlider.addEventListener('input', function(e){
+        map.setPaintProperty(
+            'arboverse.logging1',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.logging2',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.logging3',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.logging4',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.logging5',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.logging6',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.logging7',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.logging8',
+            'fill-opacity',
             parseInt(e.target.value,10)/100
         );
     });
