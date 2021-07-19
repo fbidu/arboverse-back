@@ -421,6 +421,30 @@ var popValue = function(){
 }
 pop.addEventListener('input', popValue);
 
+var OpArrival = document.querySelector('input[name=opacity-Arr]');
+var OpArrValue = function(){
+    var newOpValue = OpArrival.value;
+    var target = document.querySelector('.opArr');
+    target.innerHTML = newOpValue;
+}
+OpArrival.addEventListener('input', OpArrValue);
+
+var depOp = document.querySelector('input[name=dep-opacity]');
+var depOpValue = function(){
+    var newOpValue = depOp.value;
+    var target = document.querySelector('.dep_op');
+    target.innerHTML = newOpValue;
+}
+depOp.addEventListener('input', depOpValue);
+
+var pass = document.querySelector('input[name=pass-opacity]');
+var passValue = function(){
+    var newOpValue = pass.value;
+    var target = document.querySelector('.pass_op');
+    target.innerHTML = newOpValue;
+}
+pass.addEventListener('input', passValue);
+
 //Slider response for year filter
 var arr = document.querySelector('input[name=arrivals]');
 var arrValue = function () {

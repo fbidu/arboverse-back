@@ -333,6 +333,9 @@ map.on('load', function(){
     var soySlider = document.querySelector('input[name=soy-opacity]');
     var damsSlider = document.querySelector('input[name=dams-opacity]');
     var popSlider = document.querySelector('input[name=pop-opacity]');
+    var arrSlider = document.querySelector('input[name=opacity-Arr]');
+    var depSlider = document.querySelector('input[name=dep-opacity]');
+    var passengersSlider = document.querySelector('input[name=pass-opacity]');
 
     addOpacityTwoVector(cliSlider, 'arboverse.presentfull', 'arboverse.koppenfuture');
     addOpacityTwoRaster(lossSlider, 'arboverse.tree_cover_loss_1km_2001-2010', 'arboverse.tree_cover_loss_1km_2011-2020');
@@ -341,6 +344,9 @@ map.on('load', function(){
     addOpacityRaster(soySlider, 'arboverse.soy_300m');
     addOpacityCircle(damsSlider, 'arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech');
     addOpacityTwoRaster(popSlider, 'arboverse.pop_2015', 'arboverse.pop_2020');
+    addOpacityCircle(arrSlider, 'arboverse.cgwofgmt');
+    addOpacityCircle(depSlider, 'arboverse.2mtp8qji');
+    addOpacityCircle(passengersSlider, 'arboverse.cts68r85');
     
     
 
