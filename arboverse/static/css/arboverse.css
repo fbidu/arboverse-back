@@ -1182,6 +1182,9 @@ nav img {
   border-radius: 50%;
   border: solid 0.5px rgba(62, 62, 62, 0.5);
 }
+.measure{
+  margin-top: 10px;
+}
 .bar-mesur {
   width: 280px;
   margin: 0 auto; /* Bar Measurement Area */
@@ -2015,20 +2018,18 @@ form:valid #populational-time-slider input:checked + label::before {
   justify-content: flex-start;
 }
 .opacity-wrapper label{
-  width: 40%;
+  width: 45%;
   font-family: 'montserrat', serif;
   font-size: 0.7rem;
   color: var(--dark-text);
   font-weight: 400;
 }
-.cli_op,
-.loss_op{
+.val_op{
   font-size: 0.7rem;
   font-family: 'Montserrat', serif;
   color: var(--dark-text);
 }
-.cli_op::after,
-.loss_op::after{
+.val_op::after{
   content: ' %';
   margin-left: 2px;
   font-size: 0.7rem;

@@ -333,6 +333,45 @@ var lossValue = function(){
 }
 loss.addEventListener('input', lossValue)
 
+var drive = document.querySelector('input[name=drive-opacity]');
+var DriveValue = function(){
+    var newOpValue = drive.value;
+    var target = document.querySelector('.drive_op');
+    target.innerHTML = newOpValue;
+}
+drive.addEventListener('input', DriveValue)
+
+var primary = document.querySelector('input[name=primary-opacity]');
+var primaryValue = function(){
+    var newOpValue = primary.value;
+    var target = document.querySelector('.primary_op');
+    target.innerHTML = newOpValue;
+}
+primary.addEventListener('input', primaryValue)
+
+var height = document.querySelector('input[name=height-opacity]');
+var heightValue = function(){
+    var newOpValue = height.value;
+    var target = document.querySelector('.height_op');
+    target.innerHTML = newOpValue;
+}
+height.addEventListener('input', heightValue)
+
+var intact = document.querySelector('input[name=intact_opacity]');
+var intactValue = function(){
+    var newOpValue = intact.value;
+    var target = document.querySelector('.intact_op');
+    target.innerHTML = newOpValue;
+}
+intact.addEventListener('input', intactValue)
+
+var index = document.querySelector('input[name=index-opacity]');
+var indexValue = function(){
+    var newOpValue = index.value;
+    var target = document.querySelector('.index_op');
+    target.innerHTML = newOpValue;
+}
+index.addEventListener('input', indexValue)
 
 //Slider response for year filter
 var arr = document.querySelector('input[name=arrivals]');

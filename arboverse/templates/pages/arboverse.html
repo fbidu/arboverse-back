@@ -611,7 +611,7 @@
             </div>
           </div>
           <div class="opacity-wrapper">
-            <label>Layer opacity: <span class="opacity_val cli_op">100</span></label>
+            <label>Layer opacity: <span class="val_op cli_op">100</span></label>
             <input id ="opacity_slider" name="climate-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
           </div>
           <!--Time selector-->
@@ -787,7 +787,7 @@
               </div>
             </div>
             <div class="opacity-wrapper">
-              <label>Layer opacity: <span class="opacity_val loss_op">100</span></label>
+              <label>Layer opacity: <span class="val_op loss_op">100</span></label>
               <input id ="opacity_slider" name="coverloss-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
             </div>
             <div class="marker">
@@ -825,6 +825,10 @@
                   grid cell and the intensity of that loss for the time period
                   2001-2019</span>
               </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op drive_op">100</span></label>
+              <input id ="opacity_slider" name="drive-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
             </div>
             <div class="marker">
               <div class="point comod"></div>
@@ -864,6 +868,10 @@
                   pan-tropical regions in 2001</span>
               </div>
             </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op primary_op">100</span></label>
+              <input id ="opacity_slider" name="primary-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            </div>
             <div class="marker">
               <div class="point musgo-p"></div>
               <labe class="point-mean">Pan-Tropical (30m)</labe>
@@ -885,6 +893,10 @@
                 <span class="tooltext">Displays the height of global forest canopy in 2019</span>
               </div>
             </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op height_op">100</span></label>
+              <input id ="opacity_slider" name="height-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            </div>
             <div class="measure">
               <div class="bar-mesur green-s"></div>
               <div class="indice">
@@ -898,7 +910,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="forest" id="arboverse.ifl_2000,arboverse.ifl_2000,arboverse.ifl_2016" />
+                  <input type="checkbox" name="forest" id="arboverse.ifl_2000,arboverse.ifl_2013,arboverse.ifl_2016" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -911,6 +923,10 @@
                   layer also shows the reduction in the extent of Intact Forest
                   Landscapes from 2000 to 2016</span>
               </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op intact_op">100</span></label>
+              <input id ="opacity_slider" name="intact_opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
             </div>
             <div class="marker">
               <div class="point green1-p"></div>
@@ -941,6 +957,10 @@
                 <span class="tooltext">Displays forest condiction as a continuous index determined by
                   degree of anthropogenic modification</span>
               </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op index_op">100</span></label>
+              <input id ="opacity_slider" name="index-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
             </div>
             <div class="measure">
               <div class="bar-mesur browngreen-s"></div>
