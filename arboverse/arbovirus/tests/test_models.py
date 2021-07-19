@@ -6,7 +6,7 @@ class VirusModelTest(TestCase):
     def test_saving_and_retrieving_virus(self):
 
         first_virus = Virus()
-        first_virus.virus_name = "Abadina"
+        first_virus.name = "Abadina"
         first_virus.specie = "Palyam virus"
         first_virus.family = "Reoviridae"
         first_virus.abbreviation = "ABAV"
@@ -32,7 +32,7 @@ class VirusModelTest(TestCase):
         first_virus.save()
 
         second_virus = Virus()
-        second_virus.virus_name = "Abbey lake"
+        second_virus.name = "Abbey lake"
         second_virus.specie = "Abbey lake virus"
         second_virus.family = "Peribunyaviridae"
         second_virus.abbreviation = "Ab-BUNV"
@@ -56,6 +56,8 @@ class VirusModelTest(TestCase):
         second_virus.animal_model = "tbc"
         second_virus.sals_level = "unk"
         second_virus.save()
+
+        assert repr(second_virus) == f"<Virus: {second_virus.name} #{second_virus.id}>"
 
         saved_virus = Virus.objects.all()
         self.assertEqual(saved_virus.count(), 2)

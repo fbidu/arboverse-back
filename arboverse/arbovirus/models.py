@@ -3,14 +3,23 @@ from django.db import models
 # Create your models here.
 
 
+class VirusGenus(models.Model):
+    name = models.TextField()
+
+
 class Virus(models.Model):
     """
     Model an arbovirus
     """
 
-    virus_name = models.TextField(default="")
+    name = models.TextField(default="")
+
     specie = models.TextField(default="")
     family = models.TextField(default="")
+    genus = models.ForeignKey(
+        VirusGenus, on_delete=models.RESTRICT, default=None, null=True
+    )
+
     abbreviation = models.TextField(default="")
     collection_date = models.TextField(default="")
     genome_type = models.TextField(default="")
@@ -33,7 +42,7 @@ class Virus(models.Model):
     sals_level = models.TextField(default="")
 
     def __repr__(self):
-        return f"<Virus: {self.virus_name} #{self.id}>"
+        return f"<Virus: {self.name} #{self.id}>"
 
     def __str__(self):
-        return self.virus_name
+        return self.name
