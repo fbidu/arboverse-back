@@ -164,16 +164,7 @@ document.querySelectorAll("input[name=vector]").forEach(i => {
         update_map(this);
     }
 });
-showChekedCli();
-var i = 0;
-function showChekedCli() {
-    document.getElementById('check4').textContent = document.querySelectorAll("input[name=climate]:checked").length;
-}
-document.querySelectorAll("input[name=climate]").forEach(i => {
-    i.onclick = function () {
-        showChekedCli();
-    }
-});
+
 
 showChekedFor();
 var i = 0;
@@ -211,9 +202,9 @@ document.querySelectorAll("input[name=mobility]").forEach(i => {
 //Climate Time condition
 var i = 0
 function enableClimateRadio(cb) {
-    if (cb.checked){
+    if (cb.checked) {
         document.querySelectorAll("input[name=kp-amount]").forEach(i => {
-            
+
             i.disabled = false;
             console.log("check", i.disabled);
         });
@@ -230,9 +221,15 @@ function enableClimateRadio(cb) {
         });
     }
 }
+showChekedCli();
+var i = 0;
+function showChekedCli() {
+    document.getElementById('check4').textContent = document.querySelectorAll("input[name=climate]:checked").length;
+}
 document.querySelectorAll("input[name=climate]").forEach(i => {
     i.onclick = function () {
         enableClimateRadio(this);
+        showChekedCli();
     }
 });
 
@@ -251,19 +248,19 @@ document.querySelectorAll("input[name=kp-amount]").forEach(i => {
 //Forest Time condition
 var i = 0
 var switchbtn = document.getElementById('forest_switch');
-function enableForestRadio(){
-        document.getElementById("arboverse.tree_cover_loss_1km_2001-2010").disabled = true;
-        document.getElementById("arboverse.tree_cover_loss_1km_2011-2020").disabled = true;
-        var dev = document.getElementById('forest_switch').checked;
-    if (dev  == true){
+function enableForestRadio() {
+    document.getElementById("arboverse.tree_cover_loss_1km_2001-2010").disabled = true;
+    document.getElementById("arboverse.tree_cover_loss_1km_2011-2020").disabled = true;
+    var dev = document.getElementById('forest_switch').checked;
+    if (dev == true) {
         document.getElementById("arboverse.tree_cover_loss_1km_2001-2010").disabled = false;
         document.getElementById("arboverse.tree_cover_loss_1km_2011-2020").disabled = false;
-    } else if(dev != true){
+    } else if (dev != true) {
         document.getElementById("arboverse.tree_cover_loss_1km_2001-2010").checked = false;
         document.getElementById("arboverse.tree_cover_loss_1km_2011-2020").checked = false;
     };
     var j = 0;
-    document.querySelectorAll("input[name=year-amount]").forEach(j =>{
+    document.querySelectorAll("input[name=year-amount]").forEach(j => {
         j.checked = false;
         update_map(j)
     })
@@ -284,19 +281,19 @@ document.querySelectorAll("input[name=year-amount]").forEach(i => {
 //Population Time condition
 var i = 0
 var popSwitchbtn = document.getElementById('pop_switch');
-function enablePopRadio(){
-        document.getElementById("arboverse.pop_2015").disabled = true;
-        document.getElementById("arboverse.pop_2020").disabled = true;
-        var dev = document.getElementById('pop_switch').checked;
-    if (dev  == true){
+function enablePopRadio() {
+    document.getElementById("arboverse.pop_2015").disabled = true;
+    document.getElementById("arboverse.pop_2020").disabled = true;
+    var dev = document.getElementById('pop_switch').checked;
+    if (dev == true) {
         document.getElementById("arboverse.pop_2015").disabled = false;
         document.getElementById("arboverse.pop_2020").disabled = false;
-    } else if(dev != true){
+    } else if (dev != true) {
         document.getElementById("arboverse.pop_2015").checked = false;
         document.getElementById("arboverse.pop_2020").checked = false;
     };
     var j = 0;
-    document.querySelectorAll("input[name=year-picker]").forEach(j =>{
+    document.querySelectorAll("input[name=year-picker]").forEach(j => {
         j.checked = false;
         update_map(j)
     })
@@ -314,6 +311,30 @@ document.querySelectorAll("input[name=year-picker]").forEach(i => {
         update_map(this);
     }
 })
+//Slider response for year filter
+var arr = document.querySelector('input[name=arrivals]');
+var arrValue = function () {
+    var newValue = arr.value;
+    var target = document.querySelector('.arr_value');
+    target.innerHTML = newValue;
+}
+arr.addEventListener("input", arrValue);
+
+var dep = document.querySelector('input[name="departures"]');
+var rangeValueDepartures = function () {
+    var newValue = dep.value;
+    var target = document.querySelector('.year_departures');
+    target.innerHTML = newValue;
+}
+dep.addEventListener("input", rangeValueDepartures);
+
+var elem = document.querySelector('input[name="number_passengers"]');
+var rangeValue = function () {
+    var newValue = elem.value;
+    var target = document.querySelector('.year_value');
+    target.innerHTML = newValue;
+}
+elem.addEventListener("input", rangeValue);
 
 
 // Slider response for opacity
@@ -445,27 +466,3 @@ var passValue = function(){
 }
 pass.addEventListener('input', passValue);
 
-//Slider response for year filter
-var arr = document.querySelector('input[name=arrivals]');
-var arrValue = function () {
-        var newValue = arr.value;
-        var target = document.querySelector('.arr_value');
-        target.innerHTML = newValue;
-              }
-arr.addEventListener("input", arrValue);
-
-var dep = document.querySelector('input[name="departures"]');
-var rangeValueDepartures = function () {
-    var newValue = dep.value;
-    var target = document.querySelector('.year_departures');
-        target.innerHTML = newValue;
-              }
-dep.addEventListener("input", rangeValueDepartures);
-
-var elem = document.querySelector('input[name="number_passengers"]');
-var rangeValue = function () {
-    var newValue = elem.value;
-    var target = document.querySelector('.year_value');
-    target.innerHTML = newValue;
-              }
-elem.addEventListener("input", rangeValue);
