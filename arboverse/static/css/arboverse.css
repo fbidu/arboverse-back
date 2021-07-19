@@ -1124,6 +1124,7 @@ nav img {
 
 .marker {
   /* legend of layers */
+  margin-top: 10px;
   width: 95%;
   margin-left: 10px;
   display: flex;
@@ -1181,6 +1182,9 @@ nav img {
   border-radius: 50%;
   border: solid 0.5px rgba(62, 62, 62, 0.5);
 }
+.measure{
+  margin-top: 10px;
+}
 .bar-mesur {
   width: 280px;
   margin: 0 auto; /* Bar Measurement Area */
@@ -1196,6 +1200,8 @@ nav img {
 .people-s {
   background: linear-gradient(
     90deg,
+    hsla(0, 0%, 100%, 0),
+    #f8f9fa,
     #180f3e,
     #440f76,
     #721f81,
@@ -1995,12 +2001,72 @@ form:valid #populational-time-slider input:checked + label::before {
   font-family: 'Montserrat', serif;
   color: var(--dark-text);
 }
-.year_value::before{
+.year_value::before,
+.year_departures::before,
+.arr_value::before{
   content: 'Year: ';
   margin-right: 5px;
   font-family: 'Montserrat', serif;
   color: var(--dark-text);
 }
+/* ==== Slide Inpu for Opacity====*/
+.opacity-wrapper{
+  margin-bottom: 10px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.opacity-wrapper label{
+  width: 45%;
+  font-family: 'montserrat', serif;
+  font-size: 0.7rem;
+  color: var(--dark-text);
+  font-weight: 400;
+}
+.val_op{
+  font-size: 0.7rem;
+  font-family: 'Montserrat', serif;
+  color: var(--dark-text);
+}
+.val_op::after{
+  content: ' %';
+  margin-left: 2px;
+  font-size: 0.7rem;
+  font-family: 'Montserrat', serif;
+  color: var(--dark-text);
+}
+.opacity-wrapper input{
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: rgb(180, 180, 180);
+  border-radius: 5px;
+  width: 30%;
+  margin-left: 10px;
+  height: 2px;
+  outline: 0;
+}
+.opacity-wrapper input::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  background-color: #fff;
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: 50%;
+  width:15px;
+  height: 15px;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+}
+.opacity-wrapper input::-webkit-slider-thumb:hover{
+  transform: scale(1.2);
+}
+.opacity-wrapper input::-webkit-slider-thumb:active{
+  transform: scale(1.1);
+  border:1px solid var(--orange);
+}
+/* ===== Slide Input Mob Human ===*/
 #mobility-time-wrapper input{
   margin-top: 20px;
   display: block;
@@ -2028,110 +2094,6 @@ form:valid #populational-time-slider input:checked + label::before {
 #mobility-time-wrapper input::-webkit-slider-thumb:active{
   transform: scale(1.1);
   border:1px solid var(--orange);
-}
-#mob-wrapper{
-  width: 100%;
-  height: 90px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 10px 0;
-  background: hsla(0, 0%, 86%, 0.3);
-}
-form #mob-year-select {
-  display: flex;
-  flex-direction: row;
-  align-content: stretch;
-  position: relative;
-  width: 100%;
-  height: 50px;
-  user-select: none;
-}
-form #mob-year-select::before {
-  content: " ";
-  position: absolute;
-  height: 1px;
-  width: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgb(180, 180, 180);
-}
-form #mob-year-select input, form #mob-year-select label {
-  box-sizing: border-box;
-  flex: 1;
-  user-select: none;
-  cursor: pointer;
-}
-form #mob-year-select label {
-  display: inline-block;
-  position: relative;
-  width: 20%;
-  height: 100%;
-  user-select: none;
-}
-form #mob-year-select label::before { /*time Label*/
-  content: attr(data-time-amount);
-  color:var(--dark-text);
-  position: absolute;
-  left: 50%;
-  padding-top: 10px;
-  transform: translate(-50%, 35px);
-  font-size: 0.6rem;
-  font-weight: 400;
-  white-space: nowrap;
-  opacity: 0.85;
-  transition: all 0.15s ease-in-out;
-}
-form #mob-year-select label::after { /*time circles*/
-  content: " ";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 10px;
-  height: 10px;
-  border: 1px solid rgb(180, 180, 180);
-  background: #fff;
-  border-radius: 50%;
-  pointer-events: none;
-  user-select: none;
-  z-index: 1;
-  cursor: pointer;
-  transition: all 0.15s ease-in-out;
-}
-form #mob-year-select label:hover::after { /* Hover*/
-  transform: translate(-50%, -50%) scale(1.3);
-}
-form #mob-year-select input {
-  display: none;
-}
-form #mob-year-select input:checked + label::before {
-  font-weight: 500;
-  opacity: 1;
-}
-form #mob-year-select input:checked + label::after { /* circle change checked*/
-  border-width: 3px;
-  transform: translate(-50%, -50%) scale(0.75);
-  border-color: var(--orange);
-}
-form #mob-year-select input:checked ~ #time-year-pos {
-  opacity: 1;
-}
-form #mob-year-select input:checked:nth-child(1) ~ #time-year-pos {
-  left: 10%;
-}
-form #mob-year-select input:checked:nth-child(3) ~ #time-year-pos {
-  left: 30%;
-}
-form:valid #mob-year-select input + label::before {
-  transform: translate(-50%, 35px) scale(0.9);
-  transition: all 0.15s linear;
-}
-form:valid #mob-year-select input:checked + label::before {
-  transform: translate(-50%, 35px) scale(1.1);
-  transition: all 0.15s linear;
 }
 /*=====================  Map features ============================*/
 

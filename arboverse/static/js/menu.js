@@ -335,3 +335,134 @@ var rangeValue = function () {
     target.innerHTML = newValue;
 }
 elem.addEventListener("input", rangeValue);
+
+
+// Slider response for opacity
+var cli = document.querySelector('input[name=climate-opacity]');
+var opValue = function(){
+    var newOpValue = cli.value;
+    var target = document.querySelector('.cli_op');
+    target.innerHTML = newOpValue;
+}
+cli.addEventListener('input', opValue)
+
+var loss = document.querySelector('input[name=coverloss-opacity]');
+var lossValue = function(){
+    var newOpValue = loss.value;
+    var target = document.querySelector('.loss_op');
+    target.innerHTML = newOpValue;
+}
+loss.addEventListener('input', lossValue)
+
+var drive = document.querySelector('input[name=drive-opacity]');
+var DriveValue = function(){
+    var newOpValue = drive.value;
+    var target = document.querySelector('.drive_op');
+    target.innerHTML = newOpValue;
+}
+drive.addEventListener('input', DriveValue)
+
+var primary = document.querySelector('input[name=primary-opacity]');
+var primaryValue = function(){
+    var newOpValue = primary.value;
+    var target = document.querySelector('.primary_op');
+    target.innerHTML = newOpValue;
+}
+primary.addEventListener('input', primaryValue)
+
+var height = document.querySelector('input[name=height-opacity]');
+var heightValue = function(){
+    var newOpValue = height.value;
+    var target = document.querySelector('.height_op');
+    target.innerHTML = newOpValue;
+}
+height.addEventListener('input', heightValue)
+
+var intact = document.querySelector('input[name=intact_opacity]');
+var intactValue = function(){
+    var newOpValue = intact.value;
+    var target = document.querySelector('.intact_op');
+    target.innerHTML = newOpValue;
+}
+intact.addEventListener('input', intactValue)
+
+var index = document.querySelector('input[name=index-opacity]');
+var indexValue = function(){
+    var newOpValue = index.value;
+    var target = document.querySelector('.index_op');
+    target.innerHTML = newOpValue;
+}
+index.addEventListener('input', indexValue)
+
+var land = document.querySelector('input[name=land-opacity]');
+var landValue = function(){
+    var newOpValue = land.value;
+    var target = document.querySelector('.land_op');
+    target.innerHTML = newOpValue;
+}
+land.addEventListener('input', landValue);
+
+var mini = document.querySelector('input[name=mini-opacity]');
+var miniValue = function(){
+    var newOpValue = mini.value;
+    var target = document.querySelector('.mini_op');
+    target.innerHTML = newOpValue;
+}
+mini.addEventListener('input', miniValue);
+
+var log = document.querySelector('input[name=log-opacity]');
+var logValue = function(){
+    var newOpValue = log.value;
+    var target = document.querySelector('.log_op');
+    target.innerHTML = newOpValue;
+}
+log.addEventListener('input', logValue);
+
+var soy = document.querySelector('input[name=soy-opacity]');
+var soyValue = function(){
+    var newOpValue = soy.value;
+    var target = document.querySelector('.soy_op');
+    target.innerHTML = newOpValue;
+}
+soy.addEventListener('input', soyValue);
+
+var dams = document.querySelector('input[name=dams-opacity]');
+var damsValue = function(){
+    var newOpValue = dams.value;
+    var target = document.querySelector('.dams_op');
+    target.innerHTML = newOpValue;
+}
+dams.addEventListener('input', damsValue);
+
+var pop = document.querySelector('input[name=pop-opacity]');
+var popValue = function(){
+    var newOpValue = pop.value;
+    var target = document.querySelector('.pop_op');
+    target.innerHTML = newOpValue;
+}
+pop.addEventListener('input', popValue);
+
+var OpArrival = document.querySelector('input[name=opacity-Arr]');
+var OpArrValue = function(){
+    var newOpValue = OpArrival.value;
+    var target = document.querySelector('.opArr');
+    target.innerHTML = newOpValue;
+}
+OpArrival.addEventListener('input', OpArrValue);
+
+var depOp = document.querySelector('input[name=dep-opacity]');
+var depOpValue = function(){
+    var newOpValue = depOp.value;
+    var target = document.querySelector('.dep_op');
+    target.innerHTML = newOpValue;
+}
+depOp.addEventListener('input', depOpValue);
+
+var pass = document.querySelector('input[name=pass-opacity]');
+var passValue = function(){
+    var newOpValue = pass.value;
+    var target = document.querySelector('.pass_op');
+    target.innerHTML = newOpValue;
+}
+pass.addEventListener('input', passValue);
+

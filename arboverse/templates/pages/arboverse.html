@@ -610,6 +610,10 @@
                 projected future conditions (2071-2100).</span>
             </div>
           </div>
+          <div class="opacity-wrapper">
+            <label>Layer opacity: <span class="val_op cli_op">100</span></label>
+            <input id ="opacity_slider" name="climate-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+          </div>
           <!--Time selector-->
           <div id="time-wrapper">
             <form action="/p/quote.php" method="get">
@@ -782,24 +786,28 @@
                 <span class="tooltext">Indentifies areas of likely tree cover loss during the past two decades</span>
               </div>
             </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op loss_op">100</span></label>
+              <input id ="opacity_slider" name="coverloss-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            </div>
             <div class="marker">
               <div class="point pink-orange"></div>
               <labe class="point-mean">Tree cover loss per decade</labe>
             </div>
-          </div>
-          <!--time selector-->
-          <div id="year-time-wrapper">
-            <form action="/p/quote.php" method="get">
-              <h5 id="form-title">Select layer time</h5>
-              <div id="time-year-slider">
-                <input type="radio" name="year-amount" id="arboverse.tree_cover_loss_1km_2001-2010"
-                  value="arboverse.tree_cover_loss_1km_2001-2010" disabled>
-                <label for="arboverse.tree_cover_loss_1km_2001-2010" data-time-amount="2001-2010"></label>
-                <input type="radio" name="year-amount" id="arboverse.tree_cover_loss_1km_2011-2020"
-                  value="arboverse.tree_cover_loss_1km_2011-2020" disabled>
-                <label for="arboverse.tree_cover_loss_1km_2011-2020" data-time-amount="2011-2020"></label>
-              </div>
-            </form>
+            <!--time selector-->
+            <div id="year-time-wrapper">
+              <form action="/p/quote.php" method="get">
+                <h5 id="form-title">Select layer time</h5>
+                <div id="time-year-slider">
+                  <input type="radio" name="year-amount" id="arboverse.tree_cover_loss_1km_2001-2010"
+                    value="arboverse.tree_cover_loss_1km_2001-2010" disabled>
+                  <label for="arboverse.tree_cover_loss_1km_2001-2010" data-time-amount="2001-2010"></label>
+                  <input type="radio" name="year-amount" id="arboverse.tree_cover_loss_1km_2011-2020"
+                    value="arboverse.tree_cover_loss_1km_2011-2020" disabled>
+                  <label for="arboverse.tree_cover_loss_1km_2011-2020" data-time-amount="2011-2020"></label>
+                </div>
+              </form>
+            </div>
           </div>
           <!--Tree Cover Loss by dominante driver-->
           <div class="unit-btn2">
@@ -817,6 +825,10 @@
                   grid cell and the intensity of that loss for the time period
                   2001-2019</span>
               </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op drive_op">100</span></label>
+              <input id ="opacity_slider" name="drive-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
             </div>
             <div class="marker">
               <div class="point comod"></div>
@@ -856,6 +868,10 @@
                   pan-tropical regions in 2001</span>
               </div>
             </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op primary_op">100</span></label>
+              <input id ="opacity_slider" name="primary-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            </div>
             <div class="marker">
               <div class="point musgo-p"></div>
               <labe class="point-mean">Pan-Tropical (30m)</labe>
@@ -877,6 +893,10 @@
                 <span class="tooltext">Displays the height of global forest canopy in 2019</span>
               </div>
             </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op height_op">100</span></label>
+              <input id ="opacity_slider" name="height-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            </div>
             <div class="measure">
               <div class="bar-mesur green-s"></div>
               <div class="indice">
@@ -890,7 +910,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="forest" id="arboverse.ifl_2000,arboverse.ifl_2000,arboverse.ifl_2016" />
+                  <input type="checkbox" name="forest" id="arboverse.ifl_2000,arboverse.ifl_2013,arboverse.ifl_2016" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -903,6 +923,10 @@
                   layer also shows the reduction in the extent of Intact Forest
                   Landscapes from 2000 to 2016</span>
               </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op intact_op">100</span></label>
+              <input id ="opacity_slider" name="intact_opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
             </div>
             <div class="marker">
               <div class="point green1-p"></div>
@@ -933,6 +957,10 @@
                 <span class="tooltext">Displays forest condiction as a continuous index determined by
                   degree of anthropogenic modification</span>
               </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op index_op">100</span></label>
+              <input id ="opacity_slider" name="index-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
             </div>
             <div class="measure">
               <div class="bar-mesur browngreen-s"></div>
@@ -977,6 +1005,10 @@
                 <a href="#demo-modal3.0"><i class="fa fa-info-circle" style="color:gray; opacity: 0.8;"></i></a>
                 <span class="tooltext">Shows the global distribution of land cover in 2015</span>
               </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op land_op">100</span></label>
+              <input id ="opacity_slider" name="land-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
             </div>
             <div class="marker">
               <div class="point agriculture-p"></div>
@@ -1036,6 +1068,10 @@
                   companies for extration of minerals</span>
               </div>
             </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op mini_op">100</span></label>
+              <input id ="opacity_slider" name="mini-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            </div>
             <div class="marker">
               <div class="point mining-p"></div>
               <labe class="point-mean">Mining concessions</labe>
@@ -1066,6 +1102,10 @@
                   selective loggings of natural forests</span>
               </div>
             </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op log_op">100</span></label>
+              <input id ="opacity_slider" name="log-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            </div>
             <div class="marker">
               <div class="point logging-p"></div>
               <labe class="point-mean">Logging concessions</labe>
@@ -1095,6 +1135,10 @@
                 <span class="tooltext">Guide the expansion of responsible soy production and evaluate
                   in situ HCVAs according to the RTRS Standards</span>
               </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op soy_op">100</span></label>
+              <input id ="opacity_slider" name="soy-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
             </div>
             <div class="marker">
               <div class="point noexpansion-p"></div>
@@ -1141,6 +1185,10 @@
                   basins</span>
               </div>
             </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op dams_op">100</span></label>
+              <input id ="opacity_slider" name="dams-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            </div>
             <div class="marker">
               <div class="point operational-p"></div>
               <labe class="point-mean">Operational</labe>
@@ -1183,9 +1231,15 @@
                   distribution</span>
               </div>
             </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op pop_op">100</span></label>
+              <input id ="opacity_slider" name="pop-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            </div>
             <div class="measure">
               <div class="bar-mesur people-s"></div>
               <div class="indice">
+                <label class="millions">0</label>
+                <label class="millions">1</label>
                 <label class="millions">≤25</label>
                 <label class="millions">≤100</label>
                 <label class="millions">≤1k</label>
@@ -1229,6 +1283,10 @@
                 <span class="tooltext">Number of arrivals of 264 places in the world </span>
               </div>
             </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op opArr">100</span></label>
+              <input id ="opacity_slider" name="opacity-Arr" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            </div>
             <div class="measure">
               <div class="bar-mesur arrivals-s"></div>
               <div class="indice">
@@ -1264,6 +1322,10 @@
                 <span class="tooltext">Number of departures of 264 places in the world </span>
               </div>
             </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op dep_op">100</span></label>
+              <input id ="opacity_slider" name="dep-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            </div>
             <div class="measure">
               <div class="bar-mesur departures-s"></div>
               <div class="indice">
@@ -1298,6 +1360,10 @@
                 <a href="#demo-modal4.2"><i class="fa fa-info-circle" style="color:gray; opacity: 0.8;"></i></a>
                 <span class="tooltext">Number of passengers per year in the world </span>
               </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Layer opacity: <span class="val_op pass_op">100</span></label>
+              <input id ="opacity_slider" name="pass-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
             </div>
             <div class="measure">
               <div class="bar-mesur passengers-s"></div>
