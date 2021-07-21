@@ -35,7 +35,7 @@ body {
   height: 80vh;
 }
 .bannermenu h1 {
-  font-family: "Monteserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 3rem;
   letter-spacing: 4px;
@@ -523,6 +523,44 @@ nav img {
   grid-template-columns: [first] 80px [line2] 320px 1fr 1fr;
   grid-template-rows: 95% 5%;
 }
+/*==== MAP Download area =======*/
+.download_area{
+  height: 30px;
+  width: 160px;
+  grid-area: 1 / 4 / 2 / 5;
+  z-index:10;
+  justify-self: center;
+  margin-top: 15px;
+  background-color: var(--light-main);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+  border: solid 1px hsla(0, 0%, 50%, 0.3)
+}
+.icone_down{
+  color: var(--orange);
+  margin-right: 5px;
+}
+.download_btn{
+  text-decoration: none;
+  font-family: 'montserrat', serif;
+  font-size: 0.9rem;
+  color: var(--dark-text);
+  margin-left: 10px;
+  padding: 6px;
+  word-spacing: 2px;
+}
+.download_area:hover{
+  background-color: var(--orange);
+}
+.download_area:hover .download_btn{
+  color: white;
+  font-weight: 600;
+}
+.download_area:hover .icone_down{
+  color: white;
+}
 /*Main side menu*/
 #menulateral {
   display: flex;
@@ -581,6 +619,12 @@ nav img {
   font-size: 0.6rem;
   color: var(--dark-text);
 }
+@media screen and (max-width: 1200px){
+  .download_area{
+    justify-self: flex-start;
+    transform: translate(-50px, 0px);
+  }
+}
 /* MOBILE main menu map*/
 @media screen and (max-width:600px){
   .grid{
@@ -615,6 +659,12 @@ nav img {
   }
   .check{
     transform: translateX(-15px) translateY(-60%);
+  }
+  .download_area{
+    grid-area: 1 / 1 / 2 / 2;
+    justify-self: flex-start;
+    transform: translate(0px, 0px);
+    margin-left: 15px;
   }
 }
 /* Mobile landscape side menu*/

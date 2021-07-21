@@ -15,8 +15,16 @@ var map = new mapboxgl.Map({
     zoom: 2,
 
     // longitude, latitude of the map center
-    center: [20, 0]
+    center: [20, 0],
+    preserveDrawingBuffer: true
 });
+var exportBtn = document.getElementById('downloadLink');
+exportBtn.addEventListener('click', function(){
+    var imgMap = map.getCanvas().toDataURL('image/png')
+    this.href = imgMap
+})
+// Add zoom and rotation controls to the map.
+map.addControl(new mapboxgl.NavigationControl());
 // To labels appear on top of the layers
 map.on('load', function(){
     var layers = map.getStyle().layers;
