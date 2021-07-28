@@ -2,6 +2,9 @@ from django.db import models
 
 # Create your models here.
 
+class VirusFamily(models.Model):
+    name = models.TextField()
+
 
 class VirusGenus(models.Model):
     name = models.TextField()
@@ -15,7 +18,9 @@ class Virus(models.Model):
     name = models.TextField(default="")
 
     specie = models.TextField(default="")
-    family = models.TextField(default="")
+    family = models.ForeignKey(
+        VirusFamily, on_delete=models.RESTRICT, default=None, null=True
+    )
     genus = models.ForeignKey(
         VirusGenus, on_delete=models.RESTRICT, default=None, null=True
     )

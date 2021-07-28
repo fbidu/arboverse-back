@@ -1,14 +1,18 @@
 from django.test import TestCase
-from arboverse.arbovirus.models import Virus
+from arboverse.arbovirus.models import Virus, VirusFamily, VirusGenus
 
 # Create your tests here.
 class VirusModelTest(TestCase):
     def test_saving_and_retrieving_virus(self):
 
         first_virus = Virus()
+        first_family = VirusFamily()
+        first_family.name = "Reoviridae"
+        first_family.save()
+
         first_virus.name = "Abadina"
         first_virus.specie = "Palyam virus"
-        first_virus.family = "Reoviridae"
+        first_virus.family = first_family
         first_virus.abbreviation = "ABAV"
         first_virus.collection_date = "11/4/1987"
         first_virus.genome_type = "dsRNA"
@@ -32,9 +36,13 @@ class VirusModelTest(TestCase):
         first_virus.save()
 
         second_virus = Virus()
+        second_family = VirusFamily()
+        second_family.name = "Peribunyaviridae"
+        second_family.save()
+
         second_virus.name = "Abbey lake"
         second_virus.specie = "Abbey lake virus"
-        second_virus.family = "Peribunyaviridae"
+        second_virus.family = second_family
         second_virus.abbreviation = "Ab-BUNV"
         second_virus.collection_date = "20/06/2013"
         second_virus.genome_type = "ssRNA(-)"
@@ -61,3 +69,15 @@ class VirusModelTest(TestCase):
 
         saved_virus = Virus.objects.all()
         self.assertEqual(saved_virus.count(), 2)
+    
+    def test_saving_and_retrieving_family(self):
+        first_family = VirusFamily()
+        first_family.name = "Reoviridae"
+        first_family.save()
+
+        second_family = VirusFamily()
+        second_family.name = "Peribunyaviridae"
+        second_family.save()
+
+        saved_families = VirusFamily.objects.all()
+        self.assertEqual(saved_families.count(), 2)
