@@ -45,6 +45,13 @@ class VirusModelTest(TestCase):
         first_virus.sals_level = "unk"
         first_virus.save()
 
+        first_disease = Disease()
+        first_disease.name = "unk"
+        first_disease.save()
+        first_virus.diseases.add(first_disease)
+
+        self.assertEqual(first_disease.virus_set.all().count(), 1)
+
         second_virus = Virus()
 
         second_family = VirusFamily()
@@ -84,6 +91,13 @@ class VirusModelTest(TestCase):
         second_virus.animal_model = "tbc"
         second_virus.sals_level = "unk"
         second_virus.save()
+        
+        second_disease = Disease()
+        second_disease.name = "unk"
+        second_disease.save()
+        second_virus.diseases.add(second_disease)
+
+        self.assertEqual(second_disease.virus_set.all().count(), 1)
 
         assert repr(second_virus) == f"<Virus: {second_virus.name} #{second_virus.id}>"
 
@@ -116,11 +130,11 @@ class VirusModelTest(TestCase):
 
     def test_saving_and_retrieving_borning(self):
         first_borne = Borning()
-        first_borne.name = "Orbivirus"
+        first_borne.name = "midge-borne disease"
         first_borne.save()
 
         second_borne = Borning()
-        second_borne.name = "Orthobunyavirus"
+        second_borne.name = "mosquito-borne-virus"
         second_borne.save()
 
         saved_borne = Borning.objects.all()
@@ -128,11 +142,11 @@ class VirusModelTest(TestCase):
 
     def test_saving_and_retrieving_disease(self):
         first_disease = Disease()
-        first_disease.name = "Orbivirus"
+        first_disease.name = "unk"
         first_disease.save()
 
         second_disease = Disease()
-        second_disease.name = "Orthobunyavirus"
+        second_disease.name = "unk"
         second_disease.save()
 
         saved_disease = Disease.objects.all()

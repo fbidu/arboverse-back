@@ -11,10 +11,8 @@ class Borning(models.Model):
 class VirusFamily(models.Model):
     name = models.TextField()
 
-
 class VirusGenus(models.Model):
     name = models.TextField()
-
 
 class Virus(models.Model):
     """
@@ -33,6 +31,7 @@ class Virus(models.Model):
     borning = models.ForeignKey(
         Borning, on_delete=models.RESTRICT, default=None, null=True
     )
+    diseases = models.ManyToManyField(Disease)
 
     abbreviation = models.TextField(default="")
     collection_date = models.TextField(default="")
