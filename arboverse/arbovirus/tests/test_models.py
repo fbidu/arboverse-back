@@ -6,12 +6,18 @@ class VirusModelTest(TestCase):
     def test_saving_and_retrieving_virus(self):
 
         first_virus = Virus()
+
         first_family = VirusFamily()
         first_family.name = "Reoviridae"
         first_family.save()
 
+        first_genus = VirusGenus()
+        first_genus.name = "Orbivirus"
+        first_genus.save()
+
         first_virus.name = "Abadina"
         first_virus.specie = "Palyam virus"
+        first_virus.genus = first_genus
         first_virus.family = first_family
         first_virus.abbreviation = "ABAV"
         first_virus.collection_date = "11/4/1987"
@@ -36,12 +42,18 @@ class VirusModelTest(TestCase):
         first_virus.save()
 
         second_virus = Virus()
+
         second_family = VirusFamily()
         second_family.name = "Peribunyaviridae"
         second_family.save()
 
+        second_genus = VirusGenus()
+        second_genus.name = "Orthobunyavirus"
+        second_genus.save()
+
         second_virus.name = "Abbey lake"
         second_virus.specie = "Abbey lake virus"
+        second_virus.genus = second_genus
         second_virus.family = second_family
         second_virus.abbreviation = "Ab-BUNV"
         second_virus.collection_date = "20/06/2013"
@@ -81,3 +93,15 @@ class VirusModelTest(TestCase):
 
         saved_families = VirusFamily.objects.all()
         self.assertEqual(saved_families.count(), 2)
+
+    def test_saving_and_retrieving_genus(self):
+        first_genus = VirusGenus()
+        first_genus.name = "Orbivirus"
+        first_genus.save()
+
+        second_genus = VirusGenus()
+        second_genus.name = "Orthobunyavirus"
+        second_genus.save()
+
+        saved_genus = VirusGenus.objects.all()
+        self.assertEqual(saved_genus.count(), 2)
