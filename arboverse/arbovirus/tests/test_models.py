@@ -1,5 +1,5 @@
 from django.test import TestCase
-from arboverse.arbovirus.models import Virus, VirusFamily, VirusGenus, Borning
+from arboverse.arbovirus.models import Virus, VirusFamily, VirusGenus, Borning, Disease
 
 # Create your tests here.
 class VirusModelTest(TestCase):
@@ -125,3 +125,15 @@ class VirusModelTest(TestCase):
 
         saved_borne = Borning.objects.all()
         self.assertEqual(saved_borne.count(), 2)
+
+    def test_saving_and_retrieving_disease(self):
+        first_disease = Disease()
+        first_disease.name = "Orbivirus"
+        first_disease.save()
+
+        second_disease = Disease()
+        second_disease.name = "Orthobunyavirus"
+        second_disease.save()
+
+        saved_disease = Disease.objects.all()
+        self.assertEqual(saved_disease.count(), 2)

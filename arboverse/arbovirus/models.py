@@ -2,6 +2,9 @@ from django.db import models
 
 # Create your models here.
 
+class Disease(models.Model):
+    name = models.TextField()
+
 class Borning(models.Model):
     borne_type = models.TextField()
 
