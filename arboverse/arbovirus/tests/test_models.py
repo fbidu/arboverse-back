@@ -1,5 +1,5 @@
 from django.test import TestCase
-from arboverse.arbovirus.models import Virus, VirusFamily, VirusGenus
+from arboverse.arbovirus.models import Virus, VirusFamily, VirusGenus, Borning
 
 # Create your tests here.
 class VirusModelTest(TestCase):
@@ -15,6 +15,10 @@ class VirusModelTest(TestCase):
         first_genus.name = "Orbivirus"
         first_genus.save()
 
+        first_borne = Borning()
+        first_borne.name = "midge-borne disease"
+        first_borne.save()
+
         first_virus.name = "Abadina"
         first_virus.specie = "Palyam virus"
         first_virus.genus = first_genus
@@ -25,7 +29,7 @@ class VirusModelTest(TestCase):
         first_virus.enveloped = False
         first_virus.reference_strain = "tbc"
         first_virus.genome_length_nt = 18919
-        first_virus.borning = "midge-borne disease"
+        first_virus.borning = first_borne
         first_virus.host_amplifier = "tbc"
         first_virus.human_fatal_disease = False
         first_virus.veterinary_diseases = False
@@ -51,6 +55,10 @@ class VirusModelTest(TestCase):
         second_genus.name = "Orthobunyavirus"
         second_genus.save()
 
+        second_borne = Borning()
+        second_borne.name = "mosquito-borne-virus"
+        second_borne.save()
+
         second_virus.name = "Abbey lake"
         second_virus.specie = "Abbey lake virus"
         second_virus.genus = second_genus
@@ -61,7 +69,7 @@ class VirusModelTest(TestCase):
         second_virus.enveloped = True
         second_virus.reference_strain = "tbc"
         second_virus.genome_length_nt = 12194
-        second_virus.borning = "mosquito-borne-virus"
+        second_virus.borning = second_borne
         second_virus.host_amplifier = "tbc"
         second_virus.human_fatal_disease = False
         second_virus.veterinary_diseases = False
@@ -105,3 +113,15 @@ class VirusModelTest(TestCase):
 
         saved_genus = VirusGenus.objects.all()
         self.assertEqual(saved_genus.count(), 2)
+
+    def test_saving_and_retrieving_borning(self):
+        first_borne = Borning()
+        first_borne.name = "Orbivirus"
+        first_borne.save()
+
+        second_borne = Borning()
+        second_borne.name = "Orthobunyavirus"
+        second_borne.save()
+
+        saved_borne = Borning.objects.all()
+        self.assertEqual(saved_borne.count(), 2)

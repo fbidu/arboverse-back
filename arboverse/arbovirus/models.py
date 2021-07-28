@@ -2,6 +2,9 @@ from django.db import models
 
 # Create your models here.
 
+class Borning(models.Model):
+    borne_type = models.TextField()
+
 class VirusFamily(models.Model):
     name = models.TextField()
 
@@ -24,6 +27,9 @@ class Virus(models.Model):
     genus = models.ForeignKey(
         VirusGenus, on_delete=models.RESTRICT, default=None, null=True
     )
+    borning = models.ForeignKey(
+        Borning, on_delete=models.RESTRICT, default=None, null=True
+    )
 
     abbreviation = models.TextField(default="")
     collection_date = models.TextField(default="")
@@ -31,7 +37,6 @@ class Virus(models.Model):
     enveloped = models.BooleanField(blank=True, null=True)
     reference_strain = models.TextField(default="")
     genome_length_nt = models.IntegerField(blank=True, null=True)
-    borning = models.TextField(default="")
     host_amplifier = models.TextField(default="")
     human_fatal_disease = models.BooleanField(blank=True, null=True)
     veterinary_diseases = models.BooleanField(blank=True, null=True)
