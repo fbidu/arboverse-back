@@ -17,6 +17,11 @@ urlpatterns = [
         name="arboverse",
     ),
     path(
+        "dataset/",
+        TemplateView.as_view(template_name="pages/dataset.html"),
+        name="dataset",
+    ),
+    path(
         "research/",
         TemplateView.as_view(template_name="pages/research.html"),
         name="research",
