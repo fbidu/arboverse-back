@@ -52,6 +52,13 @@ class VirusModelTest(TestCase):
 
         self.assertEqual(first_disease.virus_set.all().count(), 1)
 
+        first_country = Country()
+        first_country.name = "Nigeria"
+        first_country.save()
+        first_virus.country.add(first_country)
+
+        self.assertEqual(first_country.virus_set.all().count(), 1)
+
         second_virus = Virus()
 
         second_family = VirusFamily()
@@ -98,6 +105,13 @@ class VirusModelTest(TestCase):
         second_virus.diseases.add(second_disease)
 
         self.assertEqual(second_disease.virus_set.all().count(), 1)
+
+        second_country = Country()
+        second_country.name = "Brazil"
+        second_country.save()
+        second_virus.country.add(second_country)
+
+        self.assertEqual(second_country.virus_set.all().count(), 1)
 
         assert repr(second_virus) == f"<Virus: {second_virus.name} #{second_virus.id}>"
 

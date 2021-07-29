@@ -34,6 +34,7 @@ class Virus(models.Model):
         Borning, on_delete=models.RESTRICT, default=None, null=True
     )
     diseases = models.ManyToManyField(Disease)
+    country = models.ManyToManyField(Country)
 
     abbreviation = models.TextField(default="")
     collection_date = models.TextField(default="")
