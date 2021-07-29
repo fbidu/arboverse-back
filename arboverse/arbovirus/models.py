@@ -1,11 +1,20 @@
 from django.db import models
 
 # Create your models here.
+class Country(models.Model):
+    name = models.TextField()
 
+class Disease(models.Model):
+    name = models.TextField()
+
+class Borning(models.Model):
+    borne_type = models.TextField()
+
+class VirusFamily(models.Model):
+    name = models.TextField()
 
 class VirusGenus(models.Model):
     name = models.TextField()
-
 
 class Virus(models.Model):
     """
@@ -15,10 +24,17 @@ class Virus(models.Model):
     name = models.TextField(default="")
 
     specie = models.TextField(default="")
-    family = models.TextField(default="")
+    family = models.ForeignKey(
+        VirusFamily, on_delete=models.RESTRICT, default=None, null=True
+    )
     genus = models.ForeignKey(
         VirusGenus, on_delete=models.RESTRICT, default=None, null=True
     )
+    borning = models.ForeignKey(
+        Borning, on_delete=models.RESTRICT, default=None, null=True
+    )
+    diseases = models.ManyToManyField(Disease)
+    country = models.ManyToManyField(Country)
 
     abbreviation = models.TextField(default="")
     collection_date = models.TextField(default="")
@@ -26,7 +42,6 @@ class Virus(models.Model):
     enveloped = models.BooleanField(blank=True, null=True)
     reference_strain = models.TextField(default="")
     genome_length_nt = models.IntegerField(blank=True, null=True)
-    borning = models.TextField(default="")
     host_amplifier = models.TextField(default="")
     human_fatal_disease = models.BooleanField(blank=True, null=True)
     veterinary_diseases = models.BooleanField(blank=True, null=True)

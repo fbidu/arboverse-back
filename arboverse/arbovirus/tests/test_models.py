@@ -1,21 +1,35 @@
 from django.test import TestCase
-from arboverse.arbovirus.models import Virus
+from arboverse.arbovirus.models import Virus, VirusFamily, VirusGenus, Borning, Disease, Country
 
 # Create your tests here.
 class VirusModelTest(TestCase):
     def test_saving_and_retrieving_virus(self):
 
         first_virus = Virus()
+
+        first_family = VirusFamily()
+        first_family.name = "Reoviridae"
+        first_family.save()
+
+        first_genus = VirusGenus()
+        first_genus.name = "Orbivirus"
+        first_genus.save()
+
+        first_borne = Borning()
+        first_borne.name = "midge-borne disease"
+        first_borne.save()
+
         first_virus.name = "Abadina"
         first_virus.specie = "Palyam virus"
-        first_virus.family = "Reoviridae"
+        first_virus.genus = first_genus
+        first_virus.family = first_family
         first_virus.abbreviation = "ABAV"
         first_virus.collection_date = "11/4/1987"
         first_virus.genome_type = "dsRNA"
         first_virus.enveloped = False
         first_virus.reference_strain = "tbc"
         first_virus.genome_length_nt = 18919
-        first_virus.borning = "midge-borne disease"
+        first_virus.borning = first_borne
         first_virus.host_amplifier = "tbc"
         first_virus.human_fatal_disease = False
         first_virus.veterinary_diseases = False
@@ -31,17 +45,45 @@ class VirusModelTest(TestCase):
         first_virus.sals_level = "unk"
         first_virus.save()
 
+        first_disease = Disease()
+        first_disease.name = "unk"
+        first_disease.save()
+        first_virus.diseases.add(first_disease)
+
+        self.assertEqual(first_disease.virus_set.all().count(), 1)
+
+        first_country = Country()
+        first_country.name = "Nigeria"
+        first_country.save()
+        first_virus.country.add(first_country)
+
+        self.assertEqual(first_country.virus_set.all().count(), 1)
+
         second_virus = Virus()
+
+        second_family = VirusFamily()
+        second_family.name = "Peribunyaviridae"
+        second_family.save()
+
+        second_genus = VirusGenus()
+        second_genus.name = "Orthobunyavirus"
+        second_genus.save()
+
+        second_borne = Borning()
+        second_borne.name = "mosquito-borne-virus"
+        second_borne.save()
+
         second_virus.name = "Abbey lake"
         second_virus.specie = "Abbey lake virus"
-        second_virus.family = "Peribunyaviridae"
+        second_virus.genus = second_genus
+        second_virus.family = second_family
         second_virus.abbreviation = "Ab-BUNV"
         second_virus.collection_date = "20/06/2013"
         second_virus.genome_type = "ssRNA(-)"
         second_virus.enveloped = True
         second_virus.reference_strain = "tbc"
         second_virus.genome_length_nt = 12194
-        second_virus.borning = "mosquito-borne-virus"
+        second_virus.borning = second_borne
         second_virus.host_amplifier = "tbc"
         second_virus.human_fatal_disease = False
         second_virus.veterinary_diseases = False
@@ -56,8 +98,82 @@ class VirusModelTest(TestCase):
         second_virus.animal_model = "tbc"
         second_virus.sals_level = "unk"
         second_virus.save()
+        
+        second_disease = Disease()
+        second_disease.name = "unk"
+        second_disease.save()
+        second_virus.diseases.add(second_disease)
+
+        self.assertEqual(second_disease.virus_set.all().count(), 1)
+
+        second_country = Country()
+        second_country.name = "Brazil"
+        second_country.save()
+        second_virus.country.add(second_country)
+
+        self.assertEqual(second_country.virus_set.all().count(), 1)
 
         assert repr(second_virus) == f"<Virus: {second_virus.name} #{second_virus.id}>"
 
         saved_virus = Virus.objects.all()
         self.assertEqual(saved_virus.count(), 2)
+    
+    def test_saving_and_retrieving_family(self):
+        first_family = VirusFamily()
+        first_family.name = "Reoviridae"
+        first_family.save()
+
+        second_family = VirusFamily()
+        second_family.name = "Peribunyaviridae"
+        second_family.save()
+
+        saved_families = VirusFamily.objects.all()
+        self.assertEqual(saved_families.count(), 2)
+
+    def test_saving_and_retrieving_genus(self):
+        first_genus = VirusGenus()
+        first_genus.name = "Orbivirus"
+        first_genus.save()
+
+        second_genus = VirusGenus()
+        second_genus.name = "Orthobunyavirus"
+        second_genus.save()
+
+        saved_genus = VirusGenus.objects.all()
+        self.assertEqual(saved_genus.count(), 2)
+
+    def test_saving_and_retrieving_borning(self):
+        first_borne = Borning()
+        first_borne.name = "midge-borne disease"
+        first_borne.save()
+
+        second_borne = Borning()
+        second_borne.name = "mosquito-borne-virus"
+        second_borne.save()
+
+        saved_borne = Borning.objects.all()
+        self.assertEqual(saved_borne.count(), 2)
+
+    def test_saving_and_retrieving_disease(self):
+        first_disease = Disease()
+        first_disease.name = "unk"
+        first_disease.save()
+
+        second_disease = Disease()
+        second_disease.name = "unk"
+        second_disease.save()
+
+        saved_disease = Disease.objects.all()
+        self.assertEqual(saved_disease.count(), 2)
+
+    def test_saving_and_retrieving_country(self):
+        first_country = Country()
+        first_country.name = "unk"
+        first_country.save()
+
+        second_country = Country()
+        second_country.name = "unk"
+        second_country.save()
+
+        saved_country = Country.objects.all()
+        self.assertEqual(saved_country.count(), 2)
