@@ -1,0 +1,156 @@
+.bannermenu{
+    background-image: url("../images/dataset/barcos_ilhadocardoso.jpg");
+    background-position: right;
+}
+
+.dataset_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 90vw;
+  margin: 10vh auto;
+}
+.panel{
+background-size: auto 100%;
+background-position: center;
+background-repeat: no-repeat;
+height: 85vh;
+border-radius: 25px;
+color: #fff;
+cursor: pointer;
+flex: 0.5;
+margin: 10px;
+position: relative;
+transition: all 800ms ease-in;
+}
+.panel h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 30px;
+  left: 40px;
+  margin: 0;
+  opacity: 0;
+  transition: all 500ms ease-in-out;
+}
+.panel.active {
+  flex-grow: 6;
+}
+.panel.active h3 {
+  opacity: 1;
+}
+.panel.active .tabs{
+    width: 100%;
+    opacity: 1;
+}
+@media screen and (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5) {
+    display: none;
+  }
+}
+.tabs {
+  width:0;
+  margin-top: 10vh;
+  opacity:0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  cursor: default;
+  transition: all 700ms ease-in-out;
+}
+.tab {
+  width: 100%;
+  color: rgb(86, 83, 83);
+  overflow: hidden;
+}
+.tab-label {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8em;
+  background: hsla(0, 0%, 100%,0.6);
+  font-weight: bold;
+  cursor: pointer;
+  /* Icon */
+}
+.tab-label:hover {
+  background:hsla(0, 0%, 100%,0.8);
+}
+.tab-label::after {
+  content: "\276F";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  transition: all 0.35s;
+}
+.tab-content {
+  max-height: 0;
+  padding: 0 1em;
+  color: #002147;
+  background: hsla(0, 0%, 100%,0.9);
+  transition: all 0.35s;
+}
+.tab-content a{
+  color: #ff8700;
+}
+.tab-content a:hover{
+  font-weight: bold;
+}
+.database{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 2px;
+}
+.database a{
+  font-family: 'Montserrat', serif;
+  text-decoration: none;
+  padding: 5px;
+  background-color: white;
+  border-radius: 10px;
+  border: solid 1px #ff8700;
+  color: #ff8700;
+  font-size: 0.8rem;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+.database a:hover{
+  background-color: #ff8700;
+  color: white;
+  font-weight: bold;
+}
+.tab-close {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1em;
+  font-size: 0.9rem;
+  background: hsla(0, 0%, 100%,0.6);
+  cursor: pointer;
+}
+.close{
+    font-size: 20px;
+    margin-left: 10px;
+}
+.tab-close:hover {
+  background: hsla(0, 0%, 100%,0.8);
+}
+input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+input:checked + .tab-label {
+  background: hsla(0, 0%, 100%,0.9);
+}
+input:checked + .tab-label::after {
+  transform: rotate(90deg);
+}
+input:checked ~ .tab-content {
+  max-height: 100vh;
+  padding: 1em;
+}
