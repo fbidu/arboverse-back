@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
 class Country(models.Model):
     name = models.TextField()
 
@@ -66,6 +66,30 @@ class Virus(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class FeedingPeriod(models.Model):
+    name = models.TextField()
+
+
+class BloodMeal(models.Model):
+    name = models.TextField()
+
+
+class Landscape(models.Model):
+    name = models.TextField()
+
+
+class Habitat(models.Model):
+    name = models.TextField()
+
+
+class Location(models.Model):
+    name = models.TextField()
+
+
+class VectorGenus(models.Model):
+    name = models.TextField()
 
 
 class VectorSpecies(models.Model):
