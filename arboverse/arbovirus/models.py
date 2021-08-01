@@ -66,3 +66,20 @@ class Virus(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class VectorSpecies(models.Model):
+    name = models.TextField(blank=True, null=True)
+    arthropod_type = models.TextField(blank=True, null=True)
+    genus = models.IntegerField(blank=True, null=True)
+    genome = models.BooleanField(blank=True, null=True)
+    reference_genome = models.TextField(blank=True, null=True)
+    genome_size = models.IntegerField(blank=True, null=True)
+    survival_temperature_ranges = models.TextField(blank=True, null=True)
+    survival_humidity_percent = models.TextField(blank=True, null=True)
+    distribution = models.TextField(blank=True, null=True)
+    adult_life_expectancy_days = models.TextField(blank=True, null=True)
+    anthropophilic_behaviour = models.BooleanField(blank=True, null=True)
+    eggs_viability_days = models.TextField(blank=True, null=True)
+    lifecycle_time_days = models.TextField(blank=True, null=True)
+    experimental_infection = models.TextField(blank=True, null=True)
