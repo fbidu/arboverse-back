@@ -4,17 +4,22 @@ from django.db import models
 class Country(models.Model):
     name = models.TextField()
 
+
 class Disease(models.Model):
     name = models.TextField()
+
 
 class Borning(models.Model):
     borne_type = models.TextField()
 
+
 class VirusFamily(models.Model):
     name = models.TextField()
 
+
 class VirusGenus(models.Model):
     name = models.TextField()
+
 
 class Virus(models.Model):
     """
