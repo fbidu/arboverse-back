@@ -552,3 +552,144 @@ map.on('load', function(){
     });
 
 })
+// Holds visible vectors features for filtering
+var vectors = [];
+// Create a popup, but don't add it to the map yet.
+var popup = new mapboxgl.Popup({
+    closeButton: false
+    });
+var filterEl = document.getElementById('vector_dist');
+var listingEl = document.getElementById('feature-listing');
+
+//Render List in specific location Ok 
+function renderListings(features){
+    var empty = document.createElement('p');
+    //clear any existing listings
+    listingEl.innerHTML = '';
+    if(features.length) {
+        features.forEach(function(feature) {
+            var item = document.createElement('a');
+            item.textContent = feature.properties.species;
+            item.addEventListener('mouseover', function(){
+                //highlight corresponding feature on the map
+                popup
+                    .setLngLat(feature.geometry.coordinates)
+                    .setText( feature.properties.species)
+                    .addTo(map);
+            });
+            listingEl.appendChild(item);
+        });
+    }else if(features.length === 0 && filterEl.value !== ''){
+        empty.textContent = 'No results found';
+        listingEl.appendChild(empty)
+    } else {
+        empty.textContent = 'Zoom desired area to populate results';
+        listingEl.appendChild(empty);
+        // remove features filter
+        map.setFilter('arboverse.vector_distribution', ['has', 'species']);
+    }
+}
+function normalize(string){
+    return string.trim().toLowerCase();
+}
+function getUniqueFeatures(array, comparatorProperty) {
+    var existingFeatureKeys = {};
+    // Because features come from tiled vector data, feature geometries may be split
+    // or duplicated across tile boundaries and, as a result, features may appear
+    // multiple times in query results.
+    var uniqueFeatures = array.filter(function(el){
+        if (existingFeatureKeys[el.properties[comparatorProperty]]){
+            return false;
+        } else {
+            existingFeatureKeys[el.properties[comparatorProperty]] = true;
+            return true;
+        }
+    });
+    return uniqueFeatures;
+}
+map.on('load', function(){
+    var vectorType = ['==', ['string', ['get', 'type']], "Mosquito"];
+    map.addSource('arboverse.vector_distribution',{
+        'type': 'vector',
+        'url': 'mapbox://arboverse.vector_distribution'
+    });
+    map.addLayer({
+        'id': 'arboverse.vector_distribution',
+        'source': 'arboverse.vector_distribution',
+        'source-layer': 'vector_distribution',
+        'type': 'circle',
+        'paint':  {'circle-radius': [ "interpolate", ["linear"], ["zoom"], 0, 4, 22, 8 ], 'circle-color': [ "match", ["get", "type"], ["mosquito"], "hsl(6, 93%, 69%)", ["sandfly"], "#57a9c0", ["midge"], "hsl(288, 92%, 73%)", ["tick"], "hsl(82, 60%, 46%)", ["other"], "hsl(36, 91%, 51%)", "#000000" ]},
+        'filter': ['all', vectorType]
+    });
+    map.setLayoutProperty(
+        'arboverse.vector_distribution',
+        'visibility',
+        'none'
+    );
+    
+    //Select the vectors which are rendered on the map 
+    map.on('movestart', function(){
+        // reset features filter as the map starts moving
+        map.setFilter('arboverse.vector_distribution', ['has', 'species']);
+    });
+    map.on('moveend', function(){
+        var features = map.queryRenderedFeatures({ layers: ['arboverse.vector_distribution'] });
+        if (features){
+            var uniqueFeatures = getUniqueFeatures(features, 'species');
+            // Populate features for the listing overlay.
+            renderListings(uniqueFeatures);
+            // Clear the input container
+            filterEl.value = '';
+            
+            // Store the current features in sn `airports` variable to
+            // later use for filtering on `keyup`.
+            vectors = uniqueFeatures;
+        }
+    });
+    //Popup 
+    map.on('mousemove', 'arboverse.vector_distribution', function(e){
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Populate the popup and set its coordinates based on the feature.
+        var feature = e.features[0];
+        popup
+        .setLngLat(feature.geometry.coordinates)
+        .setText('Species: ' + feature.properties.species + ' | Order: ' + feature.properties.order + ' | Family: ' + feature.properties.family + ' | Year: ' + feature.properties.year)
+        .addTo(map);
+        var popupElem = popup.getElement();
+        popupElem.style.fontSize = "14px";
+    });
+    map.on('mouseleave', 'arboverse.vector_distribution', function(){
+        map.getCanvas().style.cursor = '';
+        popup.remove();
+    });
+    //Filter by the search box 
+    filterEl.addEventListener('keyup', function (e) {
+        //normalize the letters
+        var value = normalize(e.target.value);
+        
+        // Filter visible features that don't match the input value.
+        var filtered = vectors.filter(function (feature){
+            var species = normalize(feature.properties.species);
+            return species.indexOf(value) > -1 ;
+        });
+        //populate the side bar with filtered results
+        renderListings(filtered);
+
+        //set the filter to populate features into the layer
+        if (filtered.length) {
+            map.setFilter('arboverse.vector_distribution', [
+                'match',
+                ['get', 'species'],
+                filtered.map(function (feature){
+                    return feature.properties.species;
+                }),
+                true,
+                false
+            ]);
+        }
+
+    });
+    renderListings([]);
+})
