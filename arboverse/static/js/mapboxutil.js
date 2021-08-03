@@ -608,7 +608,6 @@ function getUniqueFeatures(array, comparatorProperty) {
     return uniqueFeatures;
 }
 map.on('load', function(){
-    var vectorType = ['==', ['string', ['get', 'type']], "Mosquito"];
     map.addSource('arboverse.vector_distribution',{
         'type': 'vector',
         'url': 'mapbox://arboverse.vector_distribution'
@@ -618,8 +617,7 @@ map.on('load', function(){
         'source': 'arboverse.vector_distribution',
         'source-layer': 'vector_distribution',
         'type': 'circle',
-        'paint':  {'circle-radius': [ "interpolate", ["linear"], ["zoom"], 0, 4, 22, 8 ], 'circle-color': [ "match", ["get", "type"], ["mosquito"], "hsl(6, 93%, 69%)", ["sandfly"], "#57a9c0", ["midge"], "hsl(288, 92%, 73%)", ["tick"], "hsl(82, 60%, 46%)", ["other"], "hsl(36, 91%, 51%)", "#000000" ]},
-        'filter': ['all', vectorType]
+        'paint':  {'circle-radius': [ "interpolate", ["linear"], ["zoom"], 0, 4, 22, 8 ], 'circle-color': [ "match", ["get", "type"], ["mosquito"], "hsl(6, 93%, 69%)", ["sandfly"], "#57a9c0", ["midge"], "hsl(288, 92%, 73%)", ["tick"], "hsl(82, 60%, 46%)", ["other"], "hsl(36, 91%, 51%)", "#000000" ]}
     });
     map.setLayoutProperty(
         'arboverse.vector_distribution',

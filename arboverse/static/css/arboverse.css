@@ -1627,7 +1627,7 @@ nav img {
   display: inline-block;
   font-family: 'Montserrat', serif;
   font-size: 0.9rem;
-  cursor: pointer;
+  cursor: crosshair;
 }
 #feature-listing a:hover{
   background-color: var(--light-hover);
