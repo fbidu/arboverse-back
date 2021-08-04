@@ -608,6 +608,7 @@ function getUniqueFeatures(array, comparatorProperty) {
     return uniqueFeatures;
 }
 map.on('load', function(){
+    var vectorFilter = ["==", ["string", ["get", "type"]], "mosquito"];
     map.addSource('arboverse.vector_distribution',{
         'type': 'vector',
         'url': 'mapbox://arboverse.vector_distribution'
@@ -617,18 +618,27 @@ map.on('load', function(){
         'source': 'arboverse.vector_distribution',
         'source-layer': 'vector_distribution',
         'type': 'circle',
-        'paint':  {'circle-radius': [ "interpolate", ["linear"], ["zoom"], 0, 4, 22, 8 ], 'circle-color': [ "match", ["get", "type"], ["mosquito"], "hsl(6, 93%, 69%)", ["sandfly"], "#57a9c0", ["midge"], "hsl(288, 92%, 73%)", ["tick"], "hsl(82, 60%, 46%)", ["other"], "hsl(36, 91%, 51%)", "#000000" ]}
+        'paint':  {'circle-radius': [ "interpolate", ["linear"], ["zoom"], 0, 4, 22, 8 ], 'circle-color': [ "match", ["get", "type"], ["mosquito"], "hsl(6, 93%, 69%)", ["sandfly"], "#57a9c0", ["midge"], "hsl(288, 92%, 73%)", ["tick"], "hsl(82, 60%, 46%)", ["other"], "hsl(36, 91%, 51%)", "#000000" ]},
+        'filter': ["all", vectorFilter]
     });
     map.setLayoutProperty(
         'arboverse.vector_distribution',
         'visibility',
         'none'
     );
-    
+    //Select option Vector type
+     const vectorType = document.getElementById("vectortype")
+     vectorType.addEventListener('change', function(){
+         console.log(vectorType.value)
+         var vecType = vectorType.value
+         vectorFilter = ["==", ["string", ["get", "type"]], vecType]
+         map.setFilter('arboverse.vector_distribution', ["all", vectorFilter])
+     });
+
     //Select the vectors which are rendered on the map 
     map.on('movestart', function(){
         // reset features filter as the map starts moving
-        map.setFilter('arboverse.vector_distribution', ['has', 'species']);
+        map.setFilter('arboverse.vector_distribution', ['has', 'species', 'type']);// applied to species and type
     });
     map.on('moveend', function(){
         var features = map.queryRenderedFeatures({ layers: ['arboverse.vector_distribution'] });
