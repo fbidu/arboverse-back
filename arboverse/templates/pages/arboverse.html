@@ -544,7 +544,7 @@
         <div class="title-sub">
           <div class="togglebtn">
             <label class="switch">
-              <input type="checkbox" name="distribution" />
+              <input type="checkbox" name="distribution"/>
               <span class="slider round"></span>
             </label>
           </div>
@@ -567,7 +567,7 @@
         <div class="title-sub">
           <div class="togglebtn">
             <label class="switch">
-              <input type="checkbox" name="vector" id="arboverse.gbif_vector_12_06_2021_edited" />
+              <input type="checkbox" name="vector" id="arboverse.vector_distribution" />
               <span class="slider round"></span>
             </label>
           </div>
@@ -577,20 +577,44 @@
             <span class="tooltext-a">Global vector distribution</span>
           </div>
         </div>
+        <div class="vector_measure">
+          <div class="kp_group">
+            <div class="kp_unit">
+              <div class="kp_circle mos"></div>
+              <label class="kp">Mosquito</label>
+            </div>
+            <div class="kp_unit">
+              <div class="kp_circle tic"></div>
+              <label class="kp">Tick</label>
+            </div>
+            <div class="kp_unit">
+              <div class="kp_circle mid"></div>
+              <label class="kp">Midge</label>
+            </div>
+          </div>
+          <div class="kp_group">
+            <div class="kp_unit">
+              <div class="kp_circle san"></div>
+              <label class="kp">Sandfly</label>
+            </div>
+            <div class="kp_unit">
+              <div class="kp_circle oth"></div>
+              <label class="kp">Other</label>
+            </div>
+          </div>
+        </div>
         <div class="box">
           <p>Vector Type</p>
-          <select name="vectortype">
-            <option value="mosquitoes">Mosquitoes</option>
-            <option value="ticks">Ticks</option>
-            <option value="sandflies">Sandflies</option>
-            <option value="Midges">Midges</option>
-            <option value="others">Others</option>
+          <select id="vectortype" name="vectortype">
+            <option value="mosquito">Mosquitoes</option>
+            <option value="tick">Ticks</option>
+            <option value="sandfly">Sandflies</option>
+            <option value="midge">Midges</option>
+            <option value="other">Others</option>
           </select>
         </div>
         <div class="search_sub">
-          <input class="search-distribution" type="text" placeholder="Search by species..."
-            name="species-distribution-search">
-          <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+          <input id="vector_dist" class="search-distribution" type="text" placeholder="Search by species...">
         </div>
         <div id="feature-listing" class="listing"></div>
       </div>

@@ -736,7 +736,7 @@ nav img {
 }
 .sub-1,
 .sub-2 {
-  height: 300px;
+  height: 500px;
 }
 /*Sub menu features*/
 /* Climate*/
@@ -1209,6 +1209,13 @@ nav img {
   display: flex;
   justify-content: space-between;
 }
+.vector_measure{
+  width: 50%;
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 /* legend for koppen-geiger*/
 .kp_measure{
   width: 95%;
@@ -1222,6 +1229,7 @@ nav img {
   flex-direction: column;
 }
 .kp_unit{
+  margin-bottom: 4px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1330,6 +1338,21 @@ nav img {
   margin-left: 1px;
 }
 /* Point color features  */
+.mos{
+  background: #f97566;
+}
+.tic{
+  background: #88bc2f;
+}
+.mid{
+  background: #e07bf9;
+}
+.san{
+  background: #57a9c0;
+}
+.oth{
+  background: #f49910;
+}
 .af{
   background: #0000ff;
 }
@@ -1580,16 +1603,34 @@ nav img {
   background: #e27902;
 }
 .listing{
-  display: block;
-  width:85%;
+  display: flex;
+  flex-direction: column;
+  width: 85%;
   margin: auto;
-  height: 90px;
-  border: solid 1px transparent;
-  background-origin: border-box;
-  background-clip: border-box, content-box;
-  box-shadow: 2px 200px 1px #fff inset;
-  background-image: linear-gradient(90deg, hsla(194, 77%, 38%, 1) 0%, hsla(212, 100%, 14%, 1) 100%);
+  height: 230px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  border: solid 1px hsla(194, 77%, 38%, 1); 
   border-radius: 5px;
+  text-align: left;
+  background-color: white;
+}
+#feature-listing p {
+  font-family: 'Montserrat', serif;
+  color: var(--dark-text);
+  font-size: 0.8rem;
+  text-align: center;
+}
+#feature-listing a{
+  padding: 5px;
+  border-bottom: solid 1px hsla(0, 0%, 50%, 0.3);
+  display: inline-block;
+  font-family: 'Montserrat', serif;
+  font-size: 0.9rem;
+  cursor: crosshair;
+}
+#feature-listing a:hover{
+  background-color: var(--light-hover);
 }
 /* ======================         Selector box in Vectors          ===========*/
 .box {
