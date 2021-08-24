@@ -1,5 +1,22 @@
 from django.test import TestCase
-from arboverse.arbovirus.models import Virus, VirusFamily, VirusGenus, Borning, Disease, Country
+from arboverse.arbovirus.models import (
+    BloodMeal,
+    Borning,
+    Country,
+    Disease,
+    FeedingPeriod,
+    Habitat,
+    Landscape,
+    Location,
+    VectorFamily,
+    VectorGenus,
+    VectorOrder,
+    VectorSpecies,
+    Virus,
+    VirusFamily,
+    VirusGenus,
+    VirusVector,
+)
 
 # Create your tests here.
 class VirusModelTest(TestCase):
@@ -98,7 +115,7 @@ class VirusModelTest(TestCase):
         second_virus.animal_model = "tbc"
         second_virus.sals_level = "unk"
         second_virus.save()
-        
+
         second_disease = Disease()
         second_disease.name = "unk"
         second_disease.save()
@@ -117,7 +134,7 @@ class VirusModelTest(TestCase):
 
         saved_virus = Virus.objects.all()
         self.assertEqual(saved_virus.count(), 2)
-    
+
     def test_saving_and_retrieving_family(self):
         first_family = VirusFamily()
         first_family.name = "Reoviridae"
@@ -177,3 +194,80 @@ class VirusModelTest(TestCase):
 
         saved_country = Country.objects.all()
         self.assertEqual(saved_country.count(), 2)
+
+
+class VectorModelTest(TestCase):
+    def test_saving_and_retrieving_vector(self):
+        first_vector = VectorSpecies()
+
+        first_order = VectorOrder()
+        first_order.name = "Diptera"
+        first_order.save()
+
+        first_family = VectorFamily()
+        first_family.name = "Culicidae"
+        first_family.order = first_order
+        first_family.save()
+
+        first_genus = VectorGenus()
+        first_genus.name = "Aedeomyia"
+        first_genus.family = first_family
+        first_genus.save()
+
+        first_location = Location()
+        first_location.name = "Australasian_Regions"
+        first_location.save()
+
+        first_habitat = Habitat()
+        first_habitat.name = "forest/rural"
+        first_habitat.save()
+
+        first_landscape = Landscape()
+        first_landscape.name = "ground_water_habitats"
+        first_landscape.save()
+
+        first_blood_meal = BloodMeal()
+        first_blood_meal.name = "birds"
+        first_blood_meal.save()
+
+        first_feeding_period = FeedingPeriod()
+        first_feeding_period.name = "night"
+        first_feeding_period.save()
+
+        first_vector.name = "Aedeomyia catasticta"
+        first_vector.arthropod_type = "mosquito"
+        first_vector.genome = False
+        first_vector.reference_genome = "tbc"
+        first_vector.genome_size = 0
+
+        first_vector.survival_temperature_ranges = "26-32.5"
+        first_vector.survival_humidity_percent = ">70"
+
+        first_vector.anthropophilic_behaviour = True
+        first_vector.eggs_viability_days = "unk"
+        first_vector.lifecycle_time_days = "unk"
+        first_vector.experimental_infection = "tbc"
+        first_vector.save()
+
+        first_vector.habitat.add(first_habitat)
+        first_vector.landscape.add(first_landscape)
+        first_vector.location.add(first_location)
+        first_vector.blood_meal.add(first_blood_meal)
+        first_vector.feeding_period.add(first_feeding_period)
+
+        saved_vector = VectorSpecies.objects.all()
+        self.assertEqual(saved_vector.count(), 1)
+
+    def test_saving_and_retrieving_virus_vector(self):
+        first_virus = Virus()
+        first_virus.save()
+        first_vector = VectorSpecies()
+        first_vector.save()
+
+        first_virus_vector = VirusVector()
+        first_virus_vector.virus = first_virus
+        first_virus_vector.vector = first_vector
+        first_virus_vector.main_vector = True
+        first_virus_vector.save()
+
+        self.assertEqual(first_vector.virus.all().count(), 1)

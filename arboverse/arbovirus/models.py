@@ -88,14 +88,37 @@ class Location(models.Model):
     name = models.TextField()
 
 
+class VectorOrder(models.Model):
+    name = models.TextField()
+
+
+class VectorFamily(models.Model):
+    name = models.TextField()
+    order = models.ForeignKey(
+        VectorOrder, on_delete=models.RESTRICT, default=None, null=True
+    )
+
+
+class VectorSubFamily(models.Model):
+    name = models.TextField()
+    family = models.ForeignKey(
+        VectorFamily, on_delete=models.RESTRICT, default=None, null=True
+    )
+
+
 class VectorGenus(models.Model):
     name = models.TextField()
+    family = models.ForeignKey(
+        VectorFamily, on_delete=models.RESTRICT, default=None, null=True
+    )
+    sub_family = models.ForeignKey(
+        VectorSubFamily, on_delete=models.RESTRICT, default=None, null=True
+    )
 
 
 class VectorSpecies(models.Model):
     name = models.TextField(blank=True, null=True)
     arthropod_type = models.TextField(blank=True, null=True)
-    genus = models.IntegerField(blank=True, null=True)
     genome = models.BooleanField(blank=True, null=True)
     reference_genome = models.TextField(blank=True, null=True)
     genome_size = models.IntegerField(blank=True, null=True)
@@ -107,3 +130,22 @@ class VectorSpecies(models.Model):
     eggs_viability_days = models.TextField(blank=True, null=True)
     lifecycle_time_days = models.TextField(blank=True, null=True)
     experimental_infection = models.TextField(blank=True, null=True)
+
+    feeding_period = models.ManyToManyField(FeedingPeriod)
+    blood_meal = models.ManyToManyField(BloodMeal)
+    landscape = models.ManyToManyField(Landscape)
+    habitat = models.ManyToManyField(Habitat)
+    location = models.ManyToManyField(Location)
+
+    genus = models.ForeignKey(
+        VectorGenus, on_delete=models.RESTRICT, default=None, null=True
+    )
+    virus = models.ManyToManyField(Virus, related_name="virus", through="VirusVector")
+
+
+class VirusVector(models.Model):
+    virus = models.ForeignKey(Virus, on_delete=models.RESTRICT, default=None, null=True)
+    vector = models.ForeignKey(
+        VectorSpecies, on_delete=models.RESTRICT, default=None, null=True
+    )
+    main_vector = models.BooleanField(blank=True, null=True)

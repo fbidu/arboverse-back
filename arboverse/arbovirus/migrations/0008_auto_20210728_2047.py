@@ -7,20 +7,33 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('arbovirus', '0007_auto_20210719_2257'),
+        ("arbovirus", "0007_auto_20210719_2257"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='VirusFamily',
+            name="VirusFamily",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.TextField()),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.TextField()),
             ],
         ),
         migrations.AlterField(
-            model_name='virus',
-            name='family',
-            field=models.ForeignKey(default=None, null=True, on_delete=django.db.models.deletion.RESTRICT, to='arbovirus.virusfamily'),
+            model_name="virus",
+            name="family",
+            field=models.ForeignKey(
+                default=None,
+                null=True,
+                on_delete=django.db.models.deletion.RESTRICT,
+                to="arbovirus.virusfamily",
+            ),
         ),
     ]
