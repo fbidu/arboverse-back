@@ -10,7 +10,7 @@ class Disease(models.Model):
 
 
 class Borning(models.Model):
-    borne_type = models.TextField()
+    name = models.TextField()
 
 
 class VirusFamily(models.Model):
