@@ -4,6 +4,7 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
+from arbovirus import views
 
 urlpatterns = [
     path(
@@ -13,7 +14,8 @@ urlpatterns = [
     ),
     path(
         "arboverse/",
-        TemplateView.as_view(template_name="pages/arboverse.html"),
+        #TemplateView.as_view(template_name="pages/arboverse.html"),
+        views.search,
         name="arboverse",
     ),
     path(
