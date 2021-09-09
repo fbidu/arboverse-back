@@ -589,24 +589,28 @@ function renderListings(features){
         map.setFilter('arboverse.vector_distribution', ['has', 'species']);
     }
 }
-function normalize(string){
+function normalize(string) {
     return string.trim().toLowerCase();
-}
-function getUniqueFeatures(array, comparatorProperty) {
-    var existingFeatureKeys = {};
-    // Because features come from tiled vector data, feature geometries may be split
-    // or duplicated across tile boundaries and, as a result, features may appear
+    }
+     
+    // Because features come from tiled vector data,
+    // feature geometries may be split
+    // or duplicated across tile boundaries.
+    // As a result, features may appear
     // multiple times in query results.
-    var uniqueFeatures = array.filter(function(el){
-        if (existingFeatureKeys[el.properties[comparatorProperty]]){
-            return false;
-        } else {
-            existingFeatureKeys[el.properties[comparatorProperty]] = true;
-            return true;
-        }
-    });
+    function getUniqueFeatures(features, comparatorProperty) {
+    const uniqueIds = new Set();
+    const uniqueFeatures = [];
+    for (const feature of features) {
+    const id = feature.properties[comparatorProperty];
+    if (!uniqueIds.has(id)) {
+    uniqueIds.add(id);
+    uniqueFeatures.push(feature);
+    }
+    }
     return uniqueFeatures;
-}
+    }
+//Vector Distribution
 map.on('load', function(){
     var vectorFilter = ["==", ["string", ["get", "type"]], "mosquito"];
     map.addSource('arboverse.vector_distribution',{
@@ -638,7 +642,7 @@ map.on('load', function(){
     //Select the vectors which are rendered on the map 
     map.on('movestart', function(){
         // reset features filter as the map starts moving
-        map.setFilter('arboverse.vector_distribution', ['has', 'species', 'type']);// applied to species and type
+        map.setFilter('arboverse.vector_distribution', ['has', 'species']);// applied to species and type
     });
     map.on('moveend', function(){
         var features = map.queryRenderedFeatures({ layers: ['arboverse.vector_distribution'] });
@@ -701,3 +705,120 @@ map.on('load', function(){
     });
     renderListings([]);
 })
+//Virus Discovery 
+// holds visible families features for filtering
+let virusFamily = [];
+//Create Popup, but do not add any information
+const popupDiscovery = new mapboxgl.Popup({
+    closeButton: false
+});
+
+const filterFamily = document.getElementById('family-discovery-search');
+const listingFamily = document.getElementById('family-listing');
+
+function renderListFamily(features){
+    const empty = document.createElement('p');
+    // clear existing linst 
+   listingFamily.innerHTML = '';
+    if(features.length){
+        for(const feature of features){
+            const itemLink = document.createElement('a');
+            itemLink.textContent = feature.properties.family;
+            itemLink.addEventListener('mouseover', () => {
+                // highlight the corresponding feature on the map
+                popupDiscovery
+                    .setLngLat(feature.geometry.coordinates)
+                    .setText(feature.properties.family)
+                    .addTo(map);
+            });
+            listingFamily.appendChild(itemLink);
+        }
+
+    } else if (features.length === 0 && filterFamily.value !== '') {
+        empty.textContent = 'No results found';
+        listingFamily.appendChild(empty);
+    } else {
+        empty.textContent = 'Drag the map to populate results';
+        listingFamily.appendChild(empty);
+
+        //remove features filter
+        map.setFilter('arboverse.6qvctboh', ['has', 'family'])
+    }
+}
+
+map.on('load', function(){
+    
+    map.addSource('arboverse.6qvctboh', {
+        'type': 'vector',
+        'url': 'mapbox://arboverse.6qvctboh'
+    })
+    map.addLayer({
+        'id': 'arboverse.6qvctboh',
+        'source': 'arboverse.6qvctboh',
+        'source-layer': 'virus_discovery-5quy5w',
+        'type': 'circle',
+        'paint': {'circle-radius': ["interpolate", ["linear"], ["zoom"], 0, 4, 22, 8], 'circle-color': [ "match", ["get", "family"], ["Nodaviridae"], "hsl(350, 48%, 72%)", ["Reoviridae"], "#9c3848", ["Orthomyxoviridae"], "hsl(43, 95%, 77%)", ["Peribunyaviridae"], "#ffba0a", ["Togaviridae"], "#91bbde", ["Phenuiviridae"], "#438bc7", ["Nairoviridae"], "#2f6c9d", ["Nyamiviridae"], "hsl(207, 53%, 33%)", ["Flaviviridae"], "#2edcc4", ["Asfarviridae"], "#1eae9b", ["Rhabdoviridae"], "#0f574e", ["unk"], "#cd2323", "#000000" ]}
+    })
+    map.setLayoutProperty(
+            'arboverse.6qvctboh',
+            'visibility',
+            'none'
+    );
+    map.on('movestart', () => {
+        // reset features filter as the map starts moving
+        map.setFilter('arboverse.6qvctboh', ['has', 'family']);
+    });
+    map.on('moveend', () => {
+        const features = map.queryRenderedFeatures({layers: ['arboverse.6qvctboh']});
+        
+        if(features){
+            const uniqueFeatures = getUniqueFeatures(features, 'family');
+            renderListFamily(uniqueFeatures)
+            //clear the input container
+            filterFamily.value = '';
+
+            families = uniqueFeatures;
+        }
+    });
+    map.on('mousemove', 'arboverse.6qvctboh', (e) => {
+        map.getCanvas().style.cursor = 'pointer';
+
+        const feature = e.features[0];
+        popupDiscovery
+            .setLngLat(feature.geometry.coordinates)
+            .setText(
+                `${fature.properties.virus_name} (${feature.properties.family})`
+            )
+            .addTo(map);
+    });
+    map.on('mouseleave', 'arboverse.6qvctboh', () => {
+        map.getCanvas().style.cursor = '';
+        popupDiscovery.remove();
+    });
+    filterFamily.addEventListener('keyup', (e) => {
+        const value = normalize(e.target.value);
+
+        const filteredFamily = families.filter(function(feature){
+            var family = normalize(feature.properties.family);
+                return family.indexOf(value) > -1 ;
+
+        })
+       
+        //populate the side bar with filtered results
+        renderListFamily(filteredFamily);
+        //set the filter to populate features into the layer
+        if(filteredFamily.length){
+            map.setFilter('arboverse.6qvctboh', [
+                'match',
+                ['get', 'family'],
+                filteredFamily.map((feature) => {
+                    return feature.properties.family;
+                }),
+                true,
+                false
+            ]);
+        }
+    });
+    renderListFamily([]);
+})
+    
