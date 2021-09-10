@@ -1568,9 +1568,16 @@ nav img {
   width:250px;
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 5px;
+}
+.search_sub h6{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--dark-text);
 }
 .search-discovery,
 .search-distribution{
@@ -1614,7 +1621,7 @@ nav img {
   display: flex;
   flex-direction: column;
   width: 85%;
-  margin: auto;
+  margin: 0 auto 20px auto;
   height: 230px;
   overflow-y: scroll;
   scroll-behavior: smooth;
@@ -1623,13 +1630,44 @@ nav img {
   text-align: left;
   background-color: white;
 }
-#feature-listing p {
+.listing_discovery{
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  margin: 0 auto 20px auto;
+  height: 230px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  border: solid 1px white; 
+  border-radius: 5px;
+  text-align: left;
+  background-color: white;
+}
+.vector_listing{
+  height: 230px;
+}
+.family_listing{
+  height: 190px;
+}
+.genus_listing{
+  height: 200px;
+}
+.species_listing{
+  height: 200px;
+}
+#feature-listing p,
+#family-listing p,
+#genus-listing p,
+#species-listing p {
   font-family: 'Montserrat', serif;
   color: var(--dark-text);
   font-size: 0.8rem;
   text-align: center;
 }
-#feature-listing a{
+#feature-listing a,
+#family-listing a,
+#genus-listing a,
+#species-listing a{
   padding: 5px;
   border-bottom: solid 1px hsla(0, 0%, 50%, 0.3);
   display: inline-block;
@@ -1637,7 +1675,10 @@ nav img {
   font-size: 0.9rem;
   cursor: crosshair;
 }
-#feature-listing a:hover{
+#feature-listing a:hover,
+#family-listing a:hover,
+#genus-listing a:hover,
+#species-listing a:hover{
   background-color: var(--light-hover);
 }
 /* ======================         Selector box in Vectors          ===========*/
