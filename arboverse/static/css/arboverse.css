@@ -1217,6 +1217,13 @@ nav img {
   display: flex;
   justify-content: space-between;
 }
+.discovery_measure{
+  width:85%;
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 .vector_measure{
   width: 50%;
   margin: 10px 20px;
@@ -1346,6 +1353,43 @@ nav img {
   margin-left: 1px;
 }
 /* Point color features  */
+.vec1{
+  background: #0f574e;
+}
+.vec2{
+  background: #1eae9c;
+}
+.vec3{
+  background: #2edcc4;
+}
+.vec4{
+  background: #A8F0E7;
+}
+.vec5{
+  background: #132b3f;
+}
+.vec6{
+  background: #285981;
+}
+.vec7{
+  background: #438bc7;
+}
+.vec8{
+  background: #ffba0a;
+}
+.vec9{
+  background: #FFDC85;
+}
+.vec10{
+  background: #9c3848;
+}
+.vec11{
+  background: #da95A1;
+}
+.vec12{
+  background: #cd2323;
+}
+
 .mos{
   background: #f97566;
 }
@@ -1386,70 +1430,70 @@ nav img {
   background: #ffff00;
 }
 .csb{
-  background:rgb(200, 200, 0);
+  background:#c8c800;
 }
 .csc{
-  background:rgb(150, 150, 0);
+  background:#969600;
 }
 .cwa{
-  background: rgb(150, 255, 150);
+  background: #96ff96;
 }
 .cwb{
-  background:rgb(100, 200, 100);
+  background:#64c864;
 }
 .cwc{
-  background:rgb(50, 150, 50);
+  background:#329632;
 }
 .cfa{
-  background: rgb(200, 255, 80);
+  background: #c8ff50;
 }
 .cfb{
-  background:rgb(100, 255, 80);
+  background:#64ff50;
 }
 .cfc{
-  background:rgb(50, 200, 0);
+  background:#32c800;
 }
 .dsa{
-  background: rgb(255, 0, 255);
+  background: #ff00ff;
 }
 .dsb{
-  background: rgb(200, 0, 200);
+  background: #c800c8;
 }
 .dsc{
-  background: rgb(150, 50, 155);
+  background: #96329b;
 }
 .dsd{
-  background: rgb(150, 100, 150);
+  background: #966496;
 }
 .dwa{
-  background: rgb(170, 175, 255);
+  background: #aaafff;
 }
 .dwb{
-  background: rgb(90, 120, 220);
+  background: #5a78dc;
 }
 .dwc{
-  background: rgb(75, 80, 180);
+  background: #4b50b4;
 }
 .dwd{
-  background: rgb(50, 0, 135);
+  background: #320087;
 }
 .dfa{
-  background: rgb(0, 255, 255);
+  background: #00ffff;
 }
 .dfb{
-  background: rgb(55, 200, 255);
+  background: #37c8ff;
 }
 .dfc{
-  background: rgb(0, 125, 125);
+  background: #007d7d;
 }
 .dfd{
-  background: rgb(0, 70, 95);
+  background: #00465f;
 }
 .et{
-  background: rgb(178, 178, 178);
+  background: #b2b2b2;
 }
 .ef{
-  background: rgb(102, 102, 102);
+  background: #666666;
 }
 .pink-orange {
   background-color: #830a48;
@@ -1518,19 +1562,19 @@ nav img {
   background-color: #3a7c89;
 }
 .noexpansion-p {
-  background-color: #a059a0;
+  background-color: #bd5f68;
 }
 .potential-p {
-  background-color: #ce78b3;
+  background-color: #e6ab4c;
 }
 .responsible-p {
-  background-color: #72aaa1;
+  background-color: #7ebc44;
 }
 .land-p {
-  background-color: #96d2a4;
+  background-color: #c0c0c5;
 }
 .deforested-p {
-  background-color: #70284a;
+  background-color: #720026;
 }
 .operational-p {
   background-color: #f2a65a;
@@ -1672,7 +1716,7 @@ nav img {
   border-bottom: solid 1px hsla(0, 0%, 50%, 0.3);
   display: inline-block;
   font-family: 'Montserrat', serif;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   cursor: crosshair;
 }
 #feature-listing a:hover,
@@ -1680,6 +1724,12 @@ nav img {
 #genus-listing a:hover,
 #species-listing a:hover{
   background-color: var(--light-hover);
+}
+.discovery_popup{
+  border-top: 2px solid #9acd32;
+}
+.vector_popup{
+  border-top: 2px solid #ff8600;
 }
 /* ======================         Selector box in Vectors          ===========*/
 .box {

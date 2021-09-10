@@ -556,7 +556,8 @@ map.on('load', function(){
 var vectors = [];
 // Create a popup, but don't add it to the map yet.
 var popup = new mapboxgl.Popup({
-    closeButton: false
+    closeButton: false,
+    className: "vector_popup"
     });
 var filterEl = document.getElementById('vector_dist');
 var listingEl = document.getElementById('feature-listing');
@@ -712,7 +713,8 @@ let virusGenus = [];
 let virusSpecies = [];
 //Create Popup, but do not add any information
 const popupDiscovery = new mapboxgl.Popup({
-    closeButton: false
+    closeButton: false,
+    className: "discovery_popup"
 });
 
 const filterFamily = document.getElementById('family-discovery-search');
@@ -824,7 +826,7 @@ map.on('load', function(){
         'source': 'arboverse.6qvctboh',
         'source-layer': 'virus_discovery-5quy5w',
         'type': 'circle',
-        'paint': {'circle-radius': ["interpolate", ["linear"], ["zoom"], 0, 6, 22, 10], 'circle-color': [ "match", ["get", "family"], ["Nodaviridae"], "hsl(350, 48%, 72%)", ["Reoviridae"], "#9c3848", ["Orthomyxoviridae"], "hsl(43, 95%, 77%)", ["Peribunyaviridae"], "#ffba0a", ["Togaviridae"], "#132B3F", ["Phenuiviridae"], "#438bc7", ["Nairoviridae"], "#2f6c9d", ["Nyamiviridae"], "hsl(207, 53%, 33%)", ["Flaviviridae"], "#2edcc4", ["Asfarviridae"], "#1eae9b", ["Rhabdoviridae"], "#0f574e", ["unk"], "#cd2323", "#000000" ]}
+        'paint': {'circle-radius': ["interpolate", ["linear"], ["zoom"], 0, 6, 22, 10], 'circle-color': [ "match", ["get", "family"], ["Nodaviridae"], "hsl(350, 48%, 72%)", ["Reoviridae"], "#9c3848", ["Orthomyxoviridae"], "#FBCF60", ["Peribunyaviridae"], "#ffba0a", ["Togaviridae"], "#132B3F", ["Phenuiviridae"], "#438bc7", ["Nairoviridae"], "#A8F0E7", ["Nyamiviridae"], "hsl(207, 53%, 33%)", ["Flaviviridae"], "#2edcc4", ["Asfarviridae"], "#1eae9b", ["Rhabdoviridae"], "#0f574e", ["unk"], "#cd2323", "#000000" ]}
     })
     map.setLayoutProperty(
             'arboverse.6qvctboh',
