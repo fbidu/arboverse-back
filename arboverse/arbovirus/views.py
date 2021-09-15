@@ -1,23 +1,29 @@
 # Create your views here.
-from django.shortcuts import render,get_object_or_404
+import json
+from django.http import JsonResponse
+from django.shortcuts import render
 
 from arboverse.arbovirus.models import  Virus
 
-from django.db.models import Q
-
 def search(request):
-
-    results = []
-
+    if 'term' in request.GET:
+        qs = Virus.objects.filter(name__icontains=request.GET.get('term'))
+        viruses = list()
+        for virus in qs:
+            viruses.append(virus.name)
+        return JsonResponse(viruses, safe=False)
+        
+    results = list()
+    query = 'Abadina'
     if request.method == "GET":
+        if 'arbovirus-search' in list(request.GET.keys()):
+            query = request.GET['arbovirus-search']
 
-        query = request.GET.get('search')
+        results = Virus.objects.filter(name__icontains=query.strip())
+        results = results[0] if len(results) > 0 else ''
+        
 
-        if query == '':
+        
 
-            query = 'Abadina'
-        query = 'Abadina'
-        print(query)
-        results = Virus.objects.filter(name__icontains=query)
-
-    return render(request, 'pages/arboverse.html', {'results': results})
+    return render(request, 'pages/arboverse.html', {'query': query, 'result': results})
+    

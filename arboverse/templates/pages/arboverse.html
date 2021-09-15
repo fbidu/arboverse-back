@@ -10,6 +10,7 @@
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
 
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 {% endblock %}
 {% block title %} Arboverse Platform {% endblock %}
 {% block content %}
@@ -25,8 +26,10 @@
         <div class="arbovirus-content">
           <h2>ARBO<span class="sec-title">CARD</span></h2>
           <div class="search">
-            <input class="search-virus" type="texts" placeholder="Search..." id="arbovirus-search">
-            <button class="searchbutton" type="submit"><i class="fa fa-search"></i></button>
+            <form action="{% url 'arboverse' %}" method="get">
+              <input class="search-virus" type="texts" placeholder="Search..." id="arbovirus-search" name="arbovirus-search">
+              <button class="searchbutton" type="submit"><i class="fa fa-search"></i></button>
+            </form>
           </div>
           <div class="tabs">
             <div class="tab">
@@ -39,7 +42,7 @@
                     <span class="tooltext-1">Virus Name from the CDC</span>
                   </div>
                   <h5>Virus Name:</h5>
-                  <output id="virus_name">Dengue 1</output>
+                  <output id="virus_name">{{ result.name }}</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -47,7 +50,7 @@
                     <span class="tooltext-1">From the ICTV</span>
                   </div>
                   <h5>Taxonomy:</h5>
-                  <output id="virus_taxonomy">Dengue1, Flavivirus, Flaviviridae</output>
+                  <output id="virus_taxonomy">{{ result.specie }}, {{ result.genus.name }}, {{ result.family.name }}</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -55,7 +58,7 @@
                                     <span class=" tooltext-1">Virus Name</span>
                   </div>
                   <h5>Abbreviation:</h5>
-                  <output id="virus_abbrev">DENV1</output>
+                  <output id="virus_abbrev">{{ result.abbreviation }}</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -63,7 +66,7 @@
                                     <span class=" tooltext-1">Virus Name from the CDC</span>
                   </div>
                   <h5>First Isolate:</h5>
-                  <output id="virus_firstIso">02/20/1944</output>
+                  <output id="virus_firstIso">{{ result.collection_date }}</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -71,7 +74,7 @@
                                     <span class=" tooltext-1">Virus Name from the CDC</span>
                   </div>
                   <h5>Reference Strain:</h5>
-                  <output id="virus_strain">XXXXXXX</output>
+                  <output id="virus_strain">{{ result.reference_strain }}</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -79,7 +82,7 @@
                                     <span class=" tooltext-1">Virus Name from the CDC</span>
                   </div>
                   <h5>Genome Size:</h5>
-                  <output id="virus_size">10,735 nt</output>
+                  <output id="virus_size">{{ result.genome_length_nt }} nt</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -87,7 +90,7 @@
                                     <span class=" tooltext-1">Virus Name from the CDC</span>
                   </div>
                   <h5>Genome:</h5>
-                  <output id="virus_genome">ssRNA + </output>
+                  <output id="virus_genome">{{ result.genome_type }}</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -95,7 +98,7 @@
                                     <span class=" tooltext-1">Virus Name from the CDC</span>
                   </div>
                   <h5>Envelope:</h5>
-                  <output id="virus_envelope"> Yes</output>
+                  <output id="virus_envelope">{{ result.enveloped }}</output>
                 </div>
               </div>
             </div>
@@ -109,7 +112,7 @@
                                     <span class=" tooltext-1">Virus Name from the CDC</span>
                   </div>
                   <h5>Vector Type:</h5>
-                  <output id="virus_vector">Aedes aegypti, Aedes albopictus</output>
+                  <output id="virus_vector">To do</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -117,7 +120,7 @@
                                     <span class=" tooltext-1">Virus Name from the CDC</span>
                   </div>
                   <h5>Host Amplifier:</h5>
-                  <output id="virus_host">None</output>
+                  <output id="virus_host">{{ result.host_amplifier }}</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -125,7 +128,7 @@
                                     <span class=" tooltext-1">Virus Name from the CDC</span>
                   </div>
                   <h5>Human Diseases:</h5>
-                  <output id="virus_human_disease">Febril illness</output>
+                  <output id="virus_human_disease">{{ result.diseases.name }}</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -133,7 +136,7 @@
                                     <span class=" tooltext-1">Virus Name from the CDC</span>
                   </div>
                   <h5>Fatal Diseases:</h5>
-                  <output id="virus_human_fatal">Yes</output>
+                  <output id="virus_human_fatal">{{ result.human_fatal_disease }}</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -141,7 +144,7 @@
                                     <span class=" tooltext-1">Virus Name from the CDC</span>
                   </div>
                   <h5>Veterinary Diseases:</h5>
-                  <output id="virus_vet_disease">Febril illness</output>
+                  <output id="virus_vet_disease">{{ result.veterinary_diseases }}</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -149,7 +152,7 @@
                                     <span class=" tooltext-1">Virus Name from the CDC</span>
                   </div>
                   <h5>Fatal Veterinary Diseases:</h5>
-                  <output id="virus_vet_fatal">None</output>
+                  <output id="virus_vet_fatal">{{ result.veterinary_fatal_diseases }}</output>
                 </div>
               </div>
             </div>
@@ -163,7 +166,7 @@
                                     <span class=" tooltext-1">Virus Name from the CDC</span>
                   </div>
                   <h5>N˚ Cases:</h5>
-                  <output id="virus_cases">Millions</output>
+                  <output id="virus_cases">{{ result.no_cases }}</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -171,7 +174,7 @@
                     <span class="tooltext-1">Virus Name from the CDC</span>
                   </div>
                   <h5>Level of Diseases:</h5>
-                  <output id="virus_level">Hiperendemic</output>
+                  <output id="virus_level">{{ result.level_of_disease }}</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -179,7 +182,7 @@
                     <span class="tooltext-1">Virus Name from the CDC</span>
                   </div>
                   <h5>Geographic Distribution:</h5>
-                  <output id="virus_distribution">Globally</output>
+                  <output id="virus_distribution">{{ result.country.name }}</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -187,7 +190,7 @@
                                     <span class=" tooltext-1">Virus Name from the CDC</span>
                   </div>
                   <h5>Vaccine:</h5>
-                  <output id="virus_vaccine">None</output>
+                  <output id="virus_vaccine">{{ result.vaccine }}</output>
                 </div>
               </div>
             </div>
@@ -201,7 +204,7 @@
                                     <span class=" tooltext-1">Virus Name from the CDC</span>
                   </div>
                   <h5>Propagation:</h5>
-                  <output id="virus_propagation">Vero cells, C6/36 cells</output>
+                  <output id="virus_propagation">{{ result.vero_cells }}, {{ result.C6_36_cells }}</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -3896,4 +3899,15 @@
   </div>
 </main>
 <script src="../static/js/mapboxutil.js"></script>
+<script src="../static/js/search.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+  $(function () {
+    $("#arbovirus-search").autocomplete({
+        source: '{% url 'arboverse' %}',
+        minLength: 2
+    });
+});
+</script>
 {% endblock %}
