@@ -556,7 +556,8 @@ map.on('load', function(){
 var vectors = [];
 // Create a popup, but don't add it to the map yet.
 var popup = new mapboxgl.Popup({
-    closeButton: false
+    closeButton: false,
+    className: "vector_popup"
     });
 var filterEl = document.getElementById('vector_dist');
 var listingEl = document.getElementById('feature-listing');
@@ -589,24 +590,28 @@ function renderListings(features){
         map.setFilter('arboverse.vector_distribution', ['has', 'species']);
     }
 }
-function normalize(string){
+function normalize(string) {
     return string.trim().toLowerCase();
-}
-function getUniqueFeatures(array, comparatorProperty) {
-    var existingFeatureKeys = {};
-    // Because features come from tiled vector data, feature geometries may be split
-    // or duplicated across tile boundaries and, as a result, features may appear
+    }
+     
+    // Because features come from tiled vector data,
+    // feature geometries may be split
+    // or duplicated across tile boundaries.
+    // As a result, features may appear
     // multiple times in query results.
-    var uniqueFeatures = array.filter(function(el){
-        if (existingFeatureKeys[el.properties[comparatorProperty]]){
-            return false;
-        } else {
-            existingFeatureKeys[el.properties[comparatorProperty]] = true;
-            return true;
-        }
-    });
+    function getUniqueFeatures(features, comparatorProperty) {
+    const uniqueIds = new Set();
+    const uniqueFeatures = [];
+    for (const feature of features) {
+    const id = feature.properties[comparatorProperty];
+    if (!uniqueIds.has(id)) {
+    uniqueIds.add(id);
+    uniqueFeatures.push(feature);
+    }
+    }
     return uniqueFeatures;
-}
+    }
+//VECTOR DISTRIBUTION
 map.on('load', function(){
     var vectorFilter = ["==", ["string", ["get", "type"]], "mosquito"];
     map.addSource('arboverse.vector_distribution',{
@@ -638,7 +643,7 @@ map.on('load', function(){
     //Select the vectors which are rendered on the map 
     map.on('movestart', function(){
         // reset features filter as the map starts moving
-        map.setFilter('arboverse.vector_distribution', ['has', 'species', 'type']);// applied to species and type
+        map.setFilter('arboverse.vector_distribution', ['has', 'species']);// applied to species and type
     });
     map.on('moveend', function(){
         var features = map.queryRenderedFeatures({ layers: ['arboverse.vector_distribution'] });
@@ -701,3 +706,248 @@ map.on('load', function(){
     });
     renderListings([]);
 })
+//VIRUS DISCOVERY 
+// holds visible families features for filtering
+let virusFamily = [];
+let virusGenus = [];
+let virusSpecies = [];
+//Create Popup, but do not add any information
+const popupDiscovery = new mapboxgl.Popup({
+    closeButton: false,
+    className: "discovery_popup"
+});
+
+const filterFamily = document.getElementById('family-discovery-search');
+const listingFamily = document.getElementById('family-listing');
+
+const filterGenus = document.getElementById('genus-discovery-search');
+const listingGenus = document.getElementById('genus-listing');
+
+const filterSpecies = document.getElementById('species-discovery-search');
+const listingSpecies = document.getElementById('species-listing');
+//Render the list of families in the listing box
+function renderListFamily(features){
+    const empty = document.createElement('p');
+    // clear existing linst 
+   listingFamily.innerHTML = '';
+    if(features.length){
+        for(const feature of features){
+            const itemLink = document.createElement('a');
+            itemLink.textContent = feature.properties.family;
+            itemLink.addEventListener('mouseover', () => {
+                // highlight the corresponding feature on the map
+                popupDiscovery
+                    .setLngLat(feature.geometry.coordinates)
+                    .setText(feature.properties.family)
+                    .addTo(map);
+            });
+            listingFamily.appendChild(itemLink);
+        }
+
+    } else if (features.length === 0 && filterFamily.value !== '') {
+        empty.textContent = 'No results found';
+        listingFamily.appendChild(empty);
+    } else {
+        empty.textContent = 'Drag the map to populate results';
+        listingFamily.appendChild(empty);
+
+        //remove features filter
+        map.setFilter('arboverse.6qvctboh', ['has', 'family'])
+    }
+}
+//Render the list of genus in the listing box
+function renderListGenus(features){
+    const empty = document.createElement('p');
+    // clear existing linst 
+   listingGenus.innerHTML = '';
+    if(features.length){
+        for(const feature of features){
+            const itemLink = document.createElement('a');
+            itemLink.textContent = feature.properties.genus;
+            itemLink.addEventListener('mouseover', () => {
+                // highlight the corresponding feature on the map
+                popupDiscovery
+                    .setLngLat(feature.geometry.coordinates)
+                    .setText(feature.properties.genus)
+                    .addTo(map);
+            });
+            listingGenus.appendChild(itemLink);
+        }
+
+    } else if (features.length === 0 && filterGenus.value !== '') {
+        empty.textContent = 'No results found';
+        listingGenus.appendChild(empty);
+    } else {
+        empty.textContent = 'Drag the map to populate results';
+        listingGenus.appendChild(empty);
+
+        //remove features filter
+        map.setFilter('arboverse.6qvctboh', ['has', 'genus'])
+    }
+}
+//Render the list of Species in the listing box
+function renderListSpecies(features){
+    const empty = document.createElement('p');
+    // clear existing linst 
+   listingSpecies.innerHTML = '';
+    if(features.length){
+        for(const feature of features){
+            const itemLink = document.createElement('a');
+            itemLink.textContent = feature.properties.species;
+            itemLink.addEventListener('mouseover', () => {
+                // highlight the corresponding feature on the map
+                popupDiscovery
+                    .setLngLat(feature.geometry.coordinates)
+                    .setText(feature.properties.species)
+                    .addTo(map);
+            });
+            listingSpecies.appendChild(itemLink);
+        }
+
+    } else if (features.length === 0 && filterSpecies.value !== '') {
+        empty.textContent = 'No results found';
+        listingSpecies.appendChild(empty);
+    } else {
+        empty.textContent = 'Drag the map to populate results';
+        listingSpecies.appendChild(empty);
+
+        //remove features filter
+        map.setFilter('arboverse.6qvctboh', ['has', 'species'])
+    }
+}
+map.on('load', function(){
+    
+    map.addSource('arboverse.6qvctboh', {
+        'type': 'vector',
+        'url': 'mapbox://arboverse.6qvctboh'
+    })
+    map.addLayer({
+        'id': 'arboverse.6qvctboh',
+        'source': 'arboverse.6qvctboh',
+        'source-layer': 'virus_discovery-5quy5w',
+        'type': 'circle',
+        'paint': {'circle-radius': ["interpolate", ["linear"], ["zoom"], 0, 6, 22, 10], 'circle-color': [ "match", ["get", "family"], ["Nodaviridae"], "hsl(350, 48%, 72%)", ["Reoviridae"], "#9c3848", ["Orthomyxoviridae"], "#FBCF60", ["Peribunyaviridae"], "#ffba0a", ["Togaviridae"], "#132B3F", ["Phenuiviridae"], "#438bc7", ["Nairoviridae"], "#A8F0E7", ["Nyamiviridae"], "hsl(207, 53%, 33%)", ["Flaviviridae"], "#2edcc4", ["Asfarviridae"], "#1eae9b", ["Rhabdoviridae"], "#0f574e", ["unk"], "#cd2323", "#000000" ]}
+    })
+    map.setLayoutProperty(
+            'arboverse.6qvctboh',
+            'visibility',
+            'none'
+    );
+    map.on('movestart', () => {
+        // reset features filter as the map starts moving
+        map.setFilter('arboverse.6qvctboh', ['has', 'family']);
+    });
+    map.on('moveend', () => {
+        const features = map.queryRenderedFeatures({layers: ['arboverse.6qvctboh']});
+        
+        if(features){
+            const uniqueFeaturesFamily = getUniqueFeatures(features, 'family');
+            renderListFamily(uniqueFeaturesFamily)
+            //clear the input container for family
+            filterFamily.value = '';
+
+            families = uniqueFeaturesFamily;
+
+            const uniqueFeaturesGenus = getUniqueFeatures(features, 'genus');
+            renderListGenus(uniqueFeaturesGenus)
+             //clear the input container for genus
+            filterGenus.value = '';
+
+            genuses = uniqueFeaturesGenus;
+
+            const uniqueFeaturesSpeciesDiscovery = getUniqueFeatures(features, 'species');
+            renderListSpecies(uniqueFeaturesSpeciesDiscovery)
+             //clear the input container for species
+            filterSpecies.value = '';
+
+            speciesDiscovery = uniqueFeaturesSpeciesDiscovery;
+        }
+    });
+    map.on('mousemove', 'arboverse.6qvctboh', (e) => {
+        map.getCanvas().style.cursor = 'pointer';
+
+        const feature = e.features[0];
+        //Popup when hover on virus discovery
+        popupDiscovery
+            .setLngLat(feature.geometry.coordinates)
+            .setText(
+                `${feature.properties.virus_name} was discovered in ${feature.properties.collection_year}  in ${feature.properties.country}. It belogs to ${feature.properties.family} family, ${feature.properties.genus} genus and ${feature.properties.species} species.`
+            )
+            .addTo(map);
+    });
+    map.on('mouseleave', 'arboverse.6qvctboh', () => {
+        map.getCanvas().style.cursor = '';
+        popupDiscovery.remove();
+    });
+    filterFamily.addEventListener('keyup', (e) => {
+        const value = normalize(e.target.value);
+
+        const filteredFamily = families.filter(function(feature){
+            var family = normalize(feature.properties.family);
+                return family.indexOf(value) > -1 ;
+
+        })
+       
+        //populate the side bar with filtered results
+        renderListFamily(filteredFamily);
+        //set the filter to populate features into the layer
+        if(filteredFamily.length){
+            map.setFilter('arboverse.6qvctboh', [
+                'match',
+                ['get', 'family'],
+                filteredFamily.map((feature) => {
+                    return feature.properties.family;
+                }),
+                true,
+                false
+            ]);
+        }
+    });
+    filterGenus.addEventListener('keyup', (e) => {
+        const value = normalize(e.target.value);
+
+        const filteredGenus = genuses.filter(function(feature){
+            var genus = normalize(feature.properties.genus);
+                return  genus.indexOf(value) > -1;
+        })
+
+        renderListGenus(filteredGenus);
+        if(filteredGenus.length){
+            map.setFilter('arboverse.6qvctboh', [
+                'match',
+                ['get', 'genus'],
+                filteredGenus.map((feature) => {
+                    return feature.properties.genus;
+                }),
+                true,
+                false
+            ]);
+        }
+    });
+
+    filterSpecies.addEventListener('keyup', (e) => {
+        const value = normalize(e.target.value);
+
+        const filteredSpeciesDiscovery = speciesDiscovery.filter(function(feature){
+            var specieDiscover = normalize(feature.properties.species);
+                return  specieDiscover.indexOf(value) > -1;
+        })
+
+        renderListSpecies(filteredSpeciesDiscovery);
+        if(filteredSpeciesDiscovery.length){
+            map.setFilter('arboverse.6qvctboh', [
+                'match',
+                ['get', 'species'],
+                filteredSpeciesDiscovery.map((feature) => {
+                    return feature.properties.species;
+                }),
+                true,
+                false
+            ]);
+        }
+    })
+    renderListFamily([]);
+    renderListGenus([]);
+    renderListSpecies([]);
+})
+    

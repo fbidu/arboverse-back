@@ -140,6 +140,7 @@ function showChekedDis() {
 document.querySelectorAll("input[name=discovery]").forEach(i => {
     i.onclick = function () {
         showChekedDis();
+        update_map(this);
     }
 });
 
