@@ -158,7 +158,7 @@ map.on('load', async()=>{
     addRasterTileLayerToMap(map, 'arboverse.primary_asia_1km', 'mapbox://arboverse.primary_asia_1km', 'raster', 'mapbox://arboverse.primary_asia_1km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.tree_cover_loss_1km_2001-2010', 'mapbox://arboverse.tree_cover_loss_1km_2001-2010', 'raster', 'mapbox://arboverse.tree_cover_loss_1km_2001-2010', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.tree_cover_loss_1km_2011-2020', 'mapbox://arboverse.tree_cover_loss_1km_2011-2020', 'raster', 'mapbox://arboverse.tree_cover_loss_1km_2011-2020', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.soy_300m', 'mapbox://arboverse.soy_300m', 'raster', 'mapbox://arboverse.soy_300m', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.soy_expansion_300m_10_set', 'mapbox://arboverse.soy_expansion_300m_10_set', 'raster', 'mapbox://arboverse.soy_expansion_300m_10_set', 0, 19);
     addTileLayerToMap(map, 'arboverse.mining1', 'mapbox://arboverse.mining', 'fill', { 'fill-color': "#e56b6f" }, 'cameroon_mining');
     addTileLayerToMap(map, 'arboverse.mining2', 'mapbox://arboverse.mining', 'fill', { 'fill-color': "#e56b6f" }, 'brazil_mining');
     addTileLayerToMap(map, 'arboverse.mining3', 'mapbox://arboverse.mining', 'fill', { 'fill-color': "#e56b6f" }, 'canada_mining');
@@ -349,7 +349,7 @@ map.on('load', function(){
     addOpacityTwoRaster(lossSlider, 'arboverse.tree_cover_loss_1km_2001-2010', 'arboverse.tree_cover_loss_1km_2011-2020');
     addOpacityVector(driveSlider, 'arboverse.bkdd701g');
     addOpacityRaster(landSlider, 'arboverse.land_Cover_1km_nearest');
-    addOpacityRaster(soySlider, 'arboverse.soy_300m');
+    addOpacityRaster(soySlider, 'arboverse.soy_expansion_300m_10_set');
     addOpacityCircle(damsSlider, 'arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech');
     addOpacityTwoRaster(popSlider, 'arboverse.pop_2015', 'arboverse.pop_2020');
     addOpacityCircle(arrSlider, 'arboverse.cgwofgmt');
