@@ -1,395 +1,537 @@
-* {
+body{
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: hsl(0, 0%, 98%);
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+html{
+  position: fixed;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+*{
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: 0;
 }
-body {
-  font-size: 16px;
-  font-family: "Montserrat", sans-serif, serif;
-  background-color: hsl(0, 0%, 98%);
-  margin: 0 auto;
+:root{
+  --lightBlue: #445ef2;
+  --darkBlue:#3345A6;
+  --orange: #F5861F;
+  --text: #4B4B4B;
+  --darkGrey: #E5E5E5;
+  --lightGrey: #F2F2F2;
+  --blueTransparen: hsla(231, 87%, 61%, 0.15);
+  --orangeTransparent: hsla(29, 91%, 54%, 0.7);
 }
-:root {
-  --light-body: #c4c4c433;
-  --light-main: #efefef;
-  --light-hover: #dee2e7;
-  --light-active: #faa545;
-  --light-text: #ffffff;
-  --light-button: #ecf0f3;
-  --blue: #002147;
-  --orange: #ff8700;
-  --dark-text: #3f3f3f;
+/*----Typography----*/
+h1{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 3rem;
+}
+h2{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+h3{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: var(--darkBlue); 
+}
+h4{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 1.3rem;
+}
+h5{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+h6{
+  font-family: 'Monteserrat', sans-serif;
+  font-size: 1rem;
+  font-weight: 200;
+}
+p{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+a{
+  font-family: 'Montserrat', sans-serif;
+ font-weight: 300;
+ font-size: 1.2rem;
+}
+.blue{
+  color:var(--lightBlue);
+  font-weight: 500;
+}
+.orange{
+  color: var(--orange);
+  font-weight: 500;
+}
+.white{
+  color:white;
+  font-weight: 500;
+}
+/*---font size ipad landscape*/
+@media screen and (min-width:940px) and (max-width: 1200px) and (orientation: landscape) {
+  h1{
+      font-size: 2rem;
+  }
+  h2{
+      font-size: 1.1rem;
+  }
+}
+/*---font size ipad portrait*/
+@media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
+  h1{
+      font-size: 2.5rem;
+  }
+  h2{
+      font-size: 1.2rem;
+  }
+  h3{
+      font-size: 1.4rem;
+  }
+  h4{
+      font-size: 1.1rem;
+  }
+  h5{
+      font-size: 1rem;
+  }
+  h6{
+      font-size: 0.9rem;
+  }
+}
+/*---font size mobile landscape*/
+@media screen and (min-width: 550px) and (max-width: 850px) and (orientation: landscape){
+  h1{
+      font-size: 1.3rem;
+  }
+  h2{
+      font-size: 0.9rem;
+  }
+  h3{
+      font-size: 1.2rem;
+  }
+  h4{
+      font-size: 1rem;
+  }
+  h5{
+      font-size: 1rem;
+  }
+  h6{
+      font-size: 0.9rem;
+  }
+  p{
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+  }
+  a{
+      font-family: 'Montserrat', sans-serif;
+     font-weight: 300;
+     font-size: 1rem;
+  }
+}
+/*---font size mobile portrait*/
+@media screen and (min-width: 300px) and (max-width:450px) and (orientation: portrait){
+  h1{
+      font-size: 1.3rem;
+  }
+  h2{
+      font-size: 1rem;
+  }
+  h3{
+      font-size: 1.1rem;
+  }
+  h4{
+      font-size: 1rem;
+  }
+  h5{
+      font-size: 0.9rem;
+  }
+  h6{
+      font-size: 0.9rem;
+  }
+  p{
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+  }
+  a{
+      font-family: 'Montserrat', sans-serif;
+     font-weight: 300;
+     font-size: 1.2rem;
+  }
 }
 /*NAVIGATOR*/
-.bannermenu {
-  background-image: linear-gradient(
-      to right bottom,
-      hsla(212, 100%, 14%, 0.4),
-      transparent
-    ),
-    url("../images/aboverse/banner_barco2.jpg");
-  background-position:bottom;
+.bannermenu{
+  background-image:url("../images/banners/banner_arboverse-min.png");
+  background-position:  center bottom;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  height: 80vh;
+  background-size:cover;
+  width: 100%;
+  height: 92vh;
 }
-.bannermenu h1 {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-  font-size: 3rem;
-  letter-spacing: 4px;
-  text-align: center;
-  padding-top: 35vh;
-  color: white;
+.bannermenu h1{
+  width: 50%;
+  margin: 0 5%;
+  letter-spacing: 3px;
+  text-align: left;
+  padding-top: 8vh;
+  color:white;
 }
-.bannermenu h3 {
-  font-family: "Montserrat", sans-serif;
-  text-align: center;
-  margin-top: 10px;
-  font-size: 1.5rem;
-  font-weight: 300;
+.bannermenu h2{
+  width: 35%;
+  text-align:left;
+  margin: 4vh 5vw;
+  line-height: 1.5;
   color: rgb(255, 255, 255);
 }
 /* NAV BAR*/
-nav {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-  background: linear-gradient(
-    180deg,
-    hsla(209, 100%, 13%, 0.8),
-    hsla(209, 100%, 13%, 0.5),
-    transparent
-  );
-  height: 11vh;
-  font-family: "Montserrat", sans-serif;
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
+nav{
+display: flex;
+width: 100%;
+justify-content: space-around;
+align-items: center;
+height: 15vh;
+padding-top: 8px;
 }
-.hl {
-  width: 90%;
-  margin: 0 auto;
-  border-bottom: solid 1px hsl(0, 0%, 100%, 1);
-  position: relative;
-  top: 11vh;
+.logo{
+display: flex;
+width: 50%;
+align-items: center;
+padding-left: 5%;
 }
-nav img {
-  width: 10%;
-  height: 10%;
-  margin-right: 10px;
+.logo h4{
+color:rgb(255, 255, 255);
+text-transform: uppercase;
 }
-.logo {
-  display: flex;
-  align-items: center;
-  color: rgb(255, 255, 255);
-  text-transform: uppercase;
-  font-size: 1.3rem;
-  padding-left: 5%;
+.logo img{
+width: 80px;
+height: 80px;
+margin-right: 10px;
 }
-.logo span {
-  color: #ff8700;
+.logo span{
+color:var(--orange);
 }
-.nav-links {
-  display: flex;
-  justify-content: space-around;
-  width: 50%;
+.nav-links{
+display: flex;
+justify-content: space-around;
+width: 50%;
+padding-right: 5%;
 }
-.nav-links li {
-  list-style: none;
-  font-weight: bold;
+.nav-links li{
+list-style: none ;
+font-weight: bold;
 }
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  font-size: 1rem;
-  padding: 5px;
-  margin: 5px;
+.nav-links a{
+color: white;
+text-decoration: none;
+padding: 5px;
+margin: 5px;
 }
-.nav-links a:hover {
-  color: #002147;
-  background-color: hsla(0, 0%, 100%, 0.4);
-  border-radius: 10px;
+.nav-links a:hover{
+  color:var(--orange);
 }
 
 /*Burger features*/
-.burger {
-  display: none;
+.burger{
+display: none;
 }
-.burger div {
-  cursor: pointer;
-  width: 30px;
-  height: 5px;
-  background-color: white;
-  margin: 3px;
-  border-radius: 5px;
-  transition: all 0.3s ease;
+.burger div{
+cursor: pointer;
+width: 30px;
+height: 5px;
+background-color: white;
+margin: 3px;
+border-radius: 5px;
+transition: all 0.3s ease;
 }
-@media screen and (max-width: 1050px) {
-  .nav-links {
-    width: 60%;
+@media screen and (max-width: 1050px){
+.nav-links{
+  width: 60%
+}
+}
+/*----IPAD Size portrait Banner--*/
+@media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
+  .bannermenu{
+      background-image: url("../images/banners/arboverse_banner_mobile_final-min.png");
+      height: 85vh;
+  }
+  .bannermenu h1{
+      width: 80%;
+      margin: 0 auto;
+      padding-top: 2vh;
+      text-align: center;
+      letter-spacing: 2px;
+  }
+  .bannermenu h2{
+      display:  none;
   }
 }
+/*banner Landscape*/
+@media screen and (min-width: 550px) and (max-width: 850px) and (orientation: landscape){
+  .bannermenu h1{
+      letter-spacing: 1px;
+      padding-top: 6vh;
+  }
+  .bannermenu h2{
+      width: 50%;
+      line-height: 1;
+  }
+  .logo img{
+      width: 40px;
+      height: 40px;
+  }
+  }
 /* NAVIGATOR TABLET SIZE*/
-@media screen and (max-width: 900px) {
-  body {
-    overflow-x: hidden;
-  }
-  .nav-links {
-    position: absolute;
-    right: 0;
-    height: 45vh;
-    top: 12vh;
-    background: linear-gradient(
-      to bottom,
-      hsla(212, 69%, 28%, 0.7),
-      hsla(212, 69%, 28%, 0.4)
-    );
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-    transform: translateX(100%);
-    transition: transform 0.5s ease-in;
-  }
-  .nav-links li {
-    opacity: 0;
-  }
-  .burger {
-    display: block;
-    margin-right: 30px;
-  }
-  .nav-active {
-    transform: translateX(0%);
-  }
+
+@media screen and (max-width: 900px){
+body{
+  overflow-x:hidden ;
 }
-/*LINK FADE*/
-@keyframes navLinkFade {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0px);
-  }
+.nav-links{
+  position: absolute;
+  right:0;
+  height:45vh;
+  top: 12vh;
+  background: linear-gradient(-45deg, rgba(68, 94, 242,0.8), rgba(51, 69, 166,0.9));
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 20px;
+  width: 50%;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in;
 }
-/*-----Burger-----*/
-.toggle .line1 {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-.toggle .line2 {
+.nav-links li{
   opacity: 0;
 }
-.toggle .line3 {
-  transform: rotate(45deg) translate(-5px, -6px);
+.burger {
+  display: block;
+  margin-right:30px;
 }
-/* NAVIGATOR MOBILE SIZE*/
-@media screen and (max-width: 450px) {
-  nav {
-    height: 8vh;
+.nav-active{
+  transform: translateX(0%);
+}
+}
+
+/*LINK FADE*/
+
+@keyframes navLinkFade{
+from{
+  opacity: 0;
+  transform: translateX(100px);
+}
+to {
+  opacity: 1;
+  transform: translateX(0px);
+}
+}
+
+.toggle .line1{
+transform: rotate(-45deg) translate(-5px,6px);
+}
+.toggle .line2{
+opacity:0;
+}
+.toggle .line3{
+transform: rotate(45deg) translate(-5px,-6px);
+}
+
+/* NAVIGATOR AND BANNER MOBILE SIZE*/
+@media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait){
+  .bannermenu{
+      background-image:url("../images/banners/arboverse_banner_mobile_final-min.png");
+      height: 70vh;
   }
-  .logo {
-    font-size: 1rem;
-    padding-left: 15px;
+  .bannermenu h1{
+      width:80%;
+      margin: 0 auto;
+      letter-spacing: 1px;
+      text-align: center;
+      padding-top: 8vh;
   }
-  nav img {
-    width: 11%;
-    height: 11%;
+  .bannermenu h2{
+      display:none;
   }
-  .burger {
-    margin-right: 20px;
+  nav{
+      height: 8vh;
   }
-  .burger div {
-    width: 25px;
-    height: 3px;
-    margin-right: 15px;
+  .logo img{
+      width: 50px;
+      height: 50px;
   }
-  .nav-links {
-    top: 9vh;
-    height: 39vh;
+  .burger{
+      margin-right:20px;
   }
-  .toggle .line1 {
-    transform: rotate(-45deg) translate(-5px, 4px);
+  .burger div{
+      width: 25px;
+      height:3px;
+      margin-right: 15px;
   }
-  .toggle .line2 {
-    opacity: 0;
+  .nav-links{
+      top:9vh;
+      height:39vh
   }
-  .toggle .line3 {
-    transform: rotate(45deg) translate(-5px, -4px);
-  }
+  .toggle .line1{
+      transform: rotate(-45deg) translate(-5px,4px);
+    }
+    .toggle .line2{
+      opacity:0;
+    }
+    .toggle .line3{
+      transform: rotate(45deg) translate(-5px,-4px);
+    }
 }
 /*NAVIGATOR FOR LANDSCAPE*/
-@media screen and (min-width: 650px) and (max-width: 750px) and (orientation: landscape) {
-  nav {
-    height: 15vh;
-  }
-  nav img {
-    width: 7%;
-    height: 7%;
-  }
-  .hl {
-    padding-bottom: 10px;
-  }
-  .burger div {
-    width: 25px;
-    height: 3px;
-    margin-right: 15px;
-  }
-  .nav-links {
-    top: 15vh;
-    height: 80vh;
-  }
-  .logo {
-    font-size: 1rem;
-    padding-left: 15px;
-  }
-  .toggle .line1 {
-    transform: rotate(-45deg) translate(-5px, 4px);
-  }
-  .toggle .line2 {
-    opacity: 0;
-  }
-  .toggle .line3 {
-    transform: rotate(45deg) translate(-5px, -4px);
-  }
-}
 
-/* BANNER TABLET SIZE*/
-@media screen and (max-width: 900px) {
-  .bannermenu {
-    height: 25rem;
-    background-position: bottom;
+@media screen and (min-width:550px) and (max-width: 850px) and (orientation:landscape){
+  nav{
+      height: 15vh;
   }
-  .hl {
-    top: 12vh;
+  nav img{
+      width:7%;
+      height: 7%;
   }
-  .bannermenu h1 {
-    font-size: 2.7rem;
-    padding-top: 27vh;
-    letter-spacing: 1px;
+  .hl{
+      padding-bottom: 10px;
   }
-  .bannermenu h3 {
-    font-size: 1.2rem;
+  .burger div{
+      width: 25px;
+      height:3px;
+      margin-right: 15px;
   }
+  .nav-links{
+      top:15vh;
+      height:80vh;
+  }
+  .logo{
+      font-size: 1rem;
+      padding-left: 15px;
+  }
+  .toggle .line1{
+      transform: rotate(-45deg) translate(-5px,4px);
+    }
+    .toggle .line2{
+      opacity:0;
+    }
+    .toggle .line3{
+      transform: rotate(45deg) translate(-5px,-4px);
+    }
 }
-
-/*BANNER MOBILE SIZE*/
-@media screen and (max-width: 450px) {
-  .bannermenu {
-    height: 20rem;
-    background-position: bottom;
-  }
-  .bannermenu h1 {
-    padding-top: 20vh;
-    font-size: 1.8rem;
-  }
-  .bannermenu h3 {
-    font-size: 0.9rem;
-  }
-  .hl {
-    top: 8vh;
-  }
+/*----About Arboverse ---*/
+.arboverse_plattform{
+  width:80%;
+  height: auto;
+  margin: 10vh auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.arboverse_plattform_img{
+  width: 20%;
+  text-align: center;
+}
+.arboverse_plattform_img h4{
+  margin-bottom: 10px;
+}
+.arboverse_plattform_img img{
+  width: 60%;
+}
+.arboverse_plattform p{
+  width:80%;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.5;
+  text-align: justify;
 }
 /* ================ CATALOGUE ==========*/
 .catalogue{
   margin: 5vh 0;
-  height: 100%;
+  height: auto;
   text-align: center;
 }
 .arbovirus-catalogue,
 .vector-catalogue{
-  padding: 30px 10px;
+  padding: 50px 20px;
   text-align: center;
   width:45%;
-  margin: 20px;
+  margin: 20px 0;
   border-radius: 5px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  background-color: var(--lightGrey);
+  box-shadow:  hsla(231, 87%, 61%, 0.3) 0px 1px 2px 0px;
 }
-.arbovirus-content h2,
-.vector-catalogue h2{
-  font-family: 'montserrat', serif;
-  color: var(--blue);
-}
-.sec-title{
-  color:var(--orange);
-}
+
 /*==== Search catalogue area ======*/
 .search{
-  width:100%;
+  width:80%;
   position: relative;
   display: flex;
   justify-content: center;
-  margin: 30px 20px;
+  margin: 30px auto;
 }
-.search-virus{
-  width: 70%;
-  border: solid 1px #FF8700;
+.search-virus,
+.search-vector{
+  width: 100%;
+  border: solid 1px #F5861F;
   border-right: none;
-  padding: 5px;
-  height: 30px;
-  border-radius:  5px 0 0 5px;
+  padding: 10px;
+  height: auto;
+  border-radius:  20px;
   outline: none;
   font-family: 'Montserrat', serif;
-  color:var(--dark-text);
+  color:var(--text);
+  background-color:white;
+  font-size: 1rem;
 }
-.search-virus:focus{
-  color:#FF8700;
+.search-virus:focus,
+.search-vector:focus
+{
+  color:var(--darkBlue);
 }
-.searchbutton{
-  width: 40px;
-  height: 30px;
-  border: solid 1px #FF8700;
-  background: #FF8700;
+.searchbutton,
+.searchbutton-vector{
+  width: 42px;
+  height: 42px;
+  background: var(--lightBlue);
+  border: solid 1px transparent;
   text-align: center;
   color: #fff;
-  border-radius:  0 5px 5px 0;
+  border-radius:50%;
   cursor: pointer;
   font-size: 20px;
+  position: absolute;
+  right: -2px;
+  top:0;
 }
 .searchbutton:hover,
 .searchbutton:active{
-  background: #e27902;
-}
-.search-vector{
-  width: 70%;
-  border: solid 1px #002147;
-  border-right: none;
-  padding: 5px;
-  height: 30px;
-  border-radius:  5px 0 0 5px;
-  outline: none;
-  font-family: 'Montserrat', serif;
-  color:var(--dark-text);
-}
-.search-vector:focus{
-  color:var(--blue);
-}
-.searchbutton-vector{
-  width: 40px;
-  height: 30px;
-  border: solid 1px #002147;
-  background: #210047;
-  text-align: center;
-  color: #fff;
-  border-radius:  0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
+  background: var(--darkBlue);
 }
 .searchbutton-vector:hover,
 .searchbutton-vector:active{
-  background: #003775;
+  background: var(--darkBlue);
 }
 /*====== Accordion Catalogue  Arbovirus / vector========*/
 .row-wrapper{
+  width: 80%;
+  margin: 0 auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 50px 0;
 }
 .tab input{
   position: absolute;
@@ -405,18 +547,21 @@ nav img {
   width: 100%;
   overflow: hidden;
 }
-.tab .tab-label{
+.tab .tab-label,
+.tab .tab-label-vec{
   display: flex;
   justify-content: space-between;
   padding: 25px;
-  border-bottom: solid 1px hsla(32, 100%, 50%,0.2);
-  font-weight: 600;
+  border-bottom: solid 1px hsla(29, 91%, 54%, 0.2);
+  font-weight:400;
   cursor: pointer;
-  font-family: 'montserrat', serif;
-  color:var(--dark-text);
+  font-family: 'Montserrat', sans-serif;
+  color:var(--text);
+  font-size: 1.2rem;
 }
-.tab-label:hover{
-  background: hsla(32, 100%, 50%, 0.2);
+.tab-label:hover,
+.tab-label-vec:hover{
+  background: hsla(29, 91%, 54%,0.3);
 }
 .tab-label::after{
   content: "\276F";
@@ -426,45 +571,30 @@ nav img {
   transition: all 0.3s;
   color:var(--orange);
 }
-.tab .tab-label-vec{
-  display: flex;
-  justify-content: space-between;
-  padding: 25px;
-  border-bottom: solid 1px hsla(212, 100%, 14%,0.2);
-  font-weight: 600;
-  cursor: pointer;
-  font-family: 'montserrat', serif;
-  color:var(--dark-text);
-}
-.tab-label-vec:hover{
-  background: hsla(212, 100%, 14%,0.2);
-}
 .tab-label-vec::after{
   content: "\276F";
   width: 1em;
   height: 1em;
   text-align: center;
   transition: all 0.3s;
-  color: var(--blue);
+  color: var(--orange);
 }
 .tab-content{
   max-height: 0;
   padding: 0 1em;
-  color: #002147;
+  color: var(--darkBlue);
   background: white;
   transition: all 0.3s;
 }
-.tab input:checked + .tab-label{
-  background: hsla(32, 100%, 50%, 0.3);
-}
+.tab input:checked + .tab-label,
 .tab input:checked + .tab-label-vec{
-  background: hsla(212, 100%, 14%,0.3);
+  background: hsla(32, 100%, 50%, 0.3);
 }
 .tab input:checked + .tab-label::after,
 .tab input:checked + .tab-label-vec::after
 {
   transform: rotate(90deg);
-  color: var(--dark-text);
+  color: var(--lightBlue);
 }
 .tab input:checked ~ .tab-content{
   max-height: 100vh;
@@ -482,15 +612,15 @@ nav img {
   width: 35%;
   margin-left: 15px;
   text-align: left;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 400;
 }
 .tab-content-unit output{
   margin-left: 10px;
   width: 55%;
   text-align: left;
-  color:var(--dark-text);
-  font-size: 0.9rem;
+  color:var(--text);
+  font-size: 1rem;
 }
 @media screen and (max-width:900px){
   .row-wrapper{
@@ -513,10 +643,33 @@ nav img {
   }
 
 }
+/*=====================  Map features ============================*/
+.map-area{
+  height: 100%;
+  padding: 20px 0;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow:  hsla(231, 87%, 61%, 0.3) 0px 1px 2px 0px;
+  background-color: var(--lightGrey);
+}
+.map-area h4{
+  margin-bottom: 30px;
+}
+#map{
+    width: 98%;
+    position: relative;
+    left: 0;
+    height: 90vh;
+    grid-area: 1 / 1 / 3 / 5;
+    z-index: 0;
+    border-radius: 0 10px 10px 0;
+}
 
 /* ======= GRID for Map =======*/
 .grid{
-  height: 95vh;
+  height: 90vh;
   width: 100%;
   overflow: hidden;
   display: grid;
@@ -531,7 +684,7 @@ nav img {
   z-index:10;
   justify-self: center;
   margin-top: 15px;
-  background-color: var(--light-main);
+  background-color: var(--lightGrey);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -546,7 +699,7 @@ nav img {
   text-decoration: none;
   font-family: 'montserrat', serif;
   font-size: 0.9rem;
-  color: var(--dark-text);
+  color: var(--text);
   margin-left: 10px;
   padding: 6px;
   word-spacing: 2px;
@@ -576,29 +729,31 @@ nav img {
 .item-button {
   padding: 10px;
   cursor: pointer;
-  background-color: var(--light-main);
+  background-color: var(--lightGrey);
   border-bottom: solid 1px hsla(0, 0%, 50%, 0.3);
 }
 .item-button:hover {
-  background-color: var(--light-hover);
+  background-color: #E0E4FD;
 }
 .btn-active {
-  background-color: #b9c8e3;
+  background-color: #C1C9FB;
 }
 .check{
-  width:16px;
-  height: 16px;
-  background-color: hsla(32, 100%, 50%, 0.7);
-  padding: 1px;
+  width:20px;
+  height: 20px;
+  background-color: hsla(32, 100%, 50%, 0.8);
   border-radius: 50%;
-  text-align: center;
   color:white;
-  font-family: 'montserrat', serif;
+  font-family: 'Montserrat', sans-serif;
   position: absolute;
   z-index: 10;
-  transform: translateX(-20px) translateY(-100%);
+  left:0;
+  top:0;
   font-size: 0.7rem;
-  font-weight: bold;
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .check:hover{
   background-color: hsla(32, 100%, 50%, 1);
@@ -608,6 +763,7 @@ nav img {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
 }
 /*Main button Image side menu*/
 .button-wrapper img {
@@ -617,7 +773,7 @@ nav img {
 .button-wrapper span {
   margin-top: 5px;
   font-size: 0.6rem;
-  color: var(--dark-text);
+  color: var(--text);
 }
 @media screen and (max-width: 1200px){
   .download_area{
@@ -695,13 +851,13 @@ nav img {
   grid-area: 1 / 2 / 2 / 3;
   z-index: 10;
   position: relative;
-  background-color: var(--light-main);
+  background-color: var(--lightGrey);
   transition: all 0.2s ease-in-out;
   opacity: 0;
 }
 .closebtn {
   text-decoration: none;
-  color: var(--blue);
+  color: var(--darkBlue);
 }
 .closebtn:hover {
   color: var(--orange);
@@ -730,9 +886,9 @@ nav img {
   width: 65%;
   text-align: left;
   font-weight: 400;
-  font-size: 0.8rem;
-  font-family: "montserrat", serif;
-  color: var(--dark-text);
+  font-size: 1rem;
+  font-family: 'Montserrat', serif;
+  color:var(--darkBlue);
 }
 .sub-1,
 .sub-2 {
@@ -749,7 +905,7 @@ nav img {
   grid-area: 1 / 2 / 2 / 3;
   z-index: 11;
   position: relative;
-  background-color: var(--light-main);
+  background-color: var(--lightGrey);
   transition: all 0.2s ease-in-out;
 }
 /* sub-menu head*/
@@ -762,9 +918,9 @@ nav img {
   font-family: "montserrat", serif;
   font-weight: 500;
   text-align: center;
-  font-size: 1rem;
+  font-size: 1.2rem;
   padding: 10px 0;
-  color: var(--blue);
+  color: var(--darkBlue);
 }
 
 /* FOREST COVER, LAND COVER and MOBILITY*/
@@ -778,7 +934,7 @@ nav img {
   grid-area: 1 / 2 / 2 / 3;
   z-index: 12;
   position: relative;
-  background-color: var(--light-main);
+  background-color: var(--lightGrey);
   scroll-behavior: smooth;
   overflow-y: scroll;
   transition: all 0.2s ease-in-out;
@@ -978,23 +1134,25 @@ nav img {
   text-align: center;
 }
 /*====== Tooltip of info icon=======*/
+
 .tooltip {
   position: relative;
 }
 /* Tooltip  for Catalogue*/
 .tooltip .tooltext-1 {
-  font-size: 0.75rem;
+  font-size: 1rem;
   line-height: 1.5;
   visibility: hidden;
-  width: 250px;
-  background-color: #bdd9f9;
-  color: var(--dark-text);
+  min-width: 300px;
+  max-width: 400px;
+  background-color: #E0E4FD;
+  color: var(--text);
   text-align: center;
   padding: 8px 3px;
   border-radius: 5px;
   position: absolute;
   z-index: 15;
-  top: -5px;
+  top: -10px;
   left: 110%;
   opacity: 0;
   transition: opacity 0.3s;
@@ -1005,9 +1163,9 @@ nav img {
   position: absolute;
   bottom: 50%;
   right: 100%;
-  margin-top: -5px;
+  margin-top: -10px;
   border-style: solid;
-  border-color:   transparent  #bdd9f9 transparent transparent ;
+  border-color:   transparent  #E0E4FD transparent transparent ;
 }
 .tooltip:hover .tooltext-1 {
   visibility: visible;
@@ -1015,12 +1173,12 @@ nav img {
 }
 /*  Tooltip  for Discovery, distribution and vector*/
 .tooltip .tooltext-a {
-  font-size: 0.75rem;
+  font-size:1rem;
   line-height: 1.5;
   visibility: hidden;
   width: 200px;
-  background-color: #bdd9f9;
-  color: var(--dark-text);
+  background-color: #E0E4FD;
+  color: var(--text);
   text-align: center;
   padding: 8px 3px;
   border-radius: 5px;
@@ -1039,7 +1197,7 @@ nav img {
   bottom: 100%;
   left: 93%;
   border-style: solid;
-  border-color:  transparent transparent #bdd9f9 transparent;
+  border-color:  transparent transparent #E0E4FD transparent;
 }
 .tooltip:hover .tooltext-a {
   visibility: visible;
@@ -1047,30 +1205,31 @@ nav img {
 }
 /*  Tooltip  for Climate, forest and land use*/
 .tooltip .tooltext {
-  font-size: 0.75rem;
+  font-size: 1rem;
   line-height: 1.5;
   visibility: hidden;
-  width: 280px;
-  background-color: #bdd9f9;
-  color: var(--dark-text);
+  width: 270px;
+  background-color: #E0E4FD;
+  color: var(--text);
   text-align: center;
   padding: 8px 3px;
   border-radius: 5px;
   position: absolute;
-  bottom: 110%;
+  bottom: -20%;
   left: 50%;
-  margin-left: -255px;
+  margin-left: -295px;
   opacity: 0;
   transition: opacity 0.3s;
   cursor: pointer;
+  z-index: 40;
 }
 .tooltip .tooltext::after {
   content: "";
   position: absolute;
-  top: 100%;
-  left: 90%;
+  top:70%;
+  left: 100%;
   border-style: solid;
-  border-color: #BDD9F9 transparent transparent transparent;
+  border-color:  transparent transparent transparent #E0E4FD;
 }
 .tooltip:hover .tooltext {
   visibility: visible;
@@ -1082,12 +1241,12 @@ nav img {
   cursor: help;
 }
 .tooltip2 .tooltext2 {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   line-height: 1.5;
   visibility: hidden;
   width: 200px;
-  background-color: #bdd9f9;
-  color: var(--dark-text);
+  background-color: #E0E4FD;
+  color: var(--text);
   text-align: center;
   padding: 8px 3px;
   border-radius: 5px;
@@ -1104,7 +1263,7 @@ nav img {
   top: 100%;
   left: 90%;
   border-style: solid;
-  border-color: #bdd9f9 transparent transparent transparent;
+  border-color: #E0E4FD transparent transparent transparent;
 }
 .tooltip2:hover .tooltext2 {
   visibility: visible;
@@ -1113,7 +1272,7 @@ nav img {
 .underline {
   text-decoration: underline;
   font-size: 0.7rem;
-  color: var(--dark-text);
+  color: var(--text);
 }
 
 /* ======== Sub-menu of CLIMATE FOREST COVER AND LAND* ==========*/
@@ -1125,30 +1284,31 @@ nav img {
 .unit-btn2 {
   display: block;
   padding: 10px 0;
+  margin: 10px auto;
 }
 .unit-btn h6,
 .unit-btn2 h6 {
-  width: 55%;
+  width: 65%;
   text-align: left;
   font-weight: 400;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-family: "montserrat", serif;
-  color: var(--dark-text);
+  color: var(--darkBlue);
 }
 .unit-btn2 p {
   font-size: 0.7rem;
   font-weight: 300;
   font-family: "montserrat", serif;
   padding: 5px;
-  color: var(--dark-text);
+  color: var(--text);
   margin-left: 10px;
 }
 /* main division land cover */
 .sub-fou-menu .area {
   margin-top: 5px;
-  color: var(--dark-text);
+  color: var(--text);
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 400;
   padding-bottom: 2px;
   border-bottom: solid 1px hsla(0, 0%, 50%, 0.5);
@@ -1158,20 +1318,20 @@ nav img {
 
 .unit-toggle {
   /* Switch   Button  Aligment Area */
+  width: 95%;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
-
 .togglebtn {
   display: flex;
   height: 40px;
   align-items: center;
-  width: 20%;
+  width: 15%;
   padding: 5px;
   margin: 2px 0;
 }
-
 .marker {
   /* legend of layers */
   margin-top: 10px;
@@ -1199,12 +1359,12 @@ nav img {
 }
 .point-mean {
   /* point legend*/
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   margin-left: 7px;
   margin-bottom: 2px;
   text-align: left;
-  color: var(--dark-text);
-  width: 60%;
+  color: var(--text);
+  width: 70%;
 }
 .player {
   /* player Button */
@@ -1345,11 +1505,11 @@ nav img {
 .millions,
 .index {
   font-size: 0.7rem;
-  color: var(--dark-text);
+  color: var(--text);
 }
 .kp{
-  font-size:0.6rem;
-  color:var(--dark-text);
+  font-size:0.7rem;
+  color:var(--text);
   margin-left: 1px;
 }
 /* Point color features  */
@@ -1615,13 +1775,13 @@ nav img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 5px;
+  margin: 20px 5px 10px 5px;
 }
 .search_sub h6{
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 400;
-  color: var(--dark-text);
+  color: var(--text);
 }
 .search-discovery,
 .search-distribution{
@@ -1631,23 +1791,23 @@ nav img {
   background-origin: border-box;
   background-clip: border-box, content-box;
   box-shadow: 2px 200px 1px #fff inset;
-  background-image: linear-gradient(90deg, hsla(194, 77%, 38%, 1) 0%, hsla(212, 100%, 14%, 1) 100%);
+  background-image: linear-gradient(90deg, #97A6F8 0%, #5970F3 100%);
   padding: 5px;
-  height: 25px;
+  height: 20px;
   border-radius: 20px;
   outline: none;
   font-family: 'Montserrat', serif;
-  color:var(--dark-text);
+  color:var(--text);
 }
 .search-discovery:focus,
 .search-distribution:focus{
-  color: var(--blue);
+  color:var(--darkBlue);
 }
 .search-btn {
   width: 23px;
   height: 23px;
-  border: solid 1px var(--blue);
-  background: var(--blue);
+  border: solid 1px #3345A6 ;
+  background: var(--lightBlue);
   text-align: center;
   color: #fff;
   border-radius:  50%;
@@ -1658,8 +1818,8 @@ nav img {
 }
 .search-btn:hover,
 .search-btn:active{
-  border: solid 1px var(--orange);
-  background: #e27902;
+  border: solid 1px var(--darkBlue);
+  background: var(--darkBlue);
 }
 .listing{
   display: flex;
@@ -1669,7 +1829,6 @@ nav img {
   height: 230px;
   overflow-y: scroll;
   scroll-behavior: smooth;
-  border: solid 1px hsla(194, 77%, 38%, 1); 
   border-radius: 5px;
   text-align: left;
   background-color: white;
@@ -1704,7 +1863,7 @@ nav img {
 #genus-listing p,
 #species-listing p {
   font-family: 'Montserrat', serif;
-  color: var(--dark-text);
+  color: var(--text);
   font-size: 0.8rem;
   text-align: center;
 }
@@ -1716,14 +1875,14 @@ nav img {
   border-bottom: solid 1px hsla(0, 0%, 50%, 0.3);
   display: inline-block;
   font-family: 'Montserrat', serif;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   cursor: crosshair;
 }
 #feature-listing a:hover,
 #family-listing a:hover,
 #genus-listing a:hover,
 #species-listing a:hover{
-  background-color: var(--light-hover);
+  background-color: #EAEDFE;
 }
 .discovery_popup{
   border-top: 2px solid #9acd32;
@@ -1737,32 +1896,32 @@ nav img {
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
  align-items: center;
-  margin: 5px;
+ margin: 20px 5px 10px 5px;
 }
 .box p {
-  text-align: left;
   position: relative;
   font-family: "montserrat", serif;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   bottom: 5px;
   left: 5px;
-  color: #999;
+  color:var(--text);
 }
 .box select {
   width: 90%;
-  height: 25px;
+  height: 30px;
   border-radius: 20px;
   color: #999;
-  padding: 4px;
-  font-size: 0.8rem;
+  padding: 5px;
+  font-size: 0.9rem;
   font-family: "montserrat", serif;
   font-weight: normal;
   border: solid 1px transparent;
   background-origin: border-box;
   background-clip: border-box, content-box;
   box-shadow: 2px 200px 1px #fff inset;
-  background-image: linear-gradient(90deg, hsla(194, 77%, 38%, 1) 0%, hsla(212, 100%, 14%, 1) 100%);
+  background-image: linear-gradient(90deg, #97A6F8 0%, #5970F3 100%);
   position: relative;
   -webkit-appearance: button;
   -moz-appearance: button;
@@ -1853,7 +2012,8 @@ form {
 form #form-title {
   font-weight: 400;
   text-align: center;
-  color:var(--dark-text);
+  color:var(--text);
+  font-size: 1rem;
 }
 form #time-amount-slider {
   display: flex;
@@ -1890,7 +2050,7 @@ form #time-amount-slider label {
 }
 form #time-amount-slider label::before { /*time Label*/
   content: attr(data-time-amount);
-  color:var(--dark-text);
+  color:var(--text);
   position: absolute;
   left: 50%;
   padding-top: 10px;
@@ -1997,7 +2157,7 @@ form #time-year-slider label {
 }
 form #time-year-slider label::before { /*time Label*/
   content: attr(data-time-amount);
-  color:var(--dark-text);
+  color:var(--text);
   position: absolute;
   left: 50%;
   padding-top: 10px;
@@ -2103,7 +2263,7 @@ form #populational-time-slider label {
 }
 form #populational-time-slider label::before { /*time Label*/
   content: attr(data-time-amount);
-  color:var(--dark-text);
+  color:var(--text);
   position: absolute;
   left: 50%;
   padding-top: 10px;
@@ -2178,7 +2338,8 @@ form:valid #populational-time-slider input:checked + label::before {
   font-family: 'Montserrat', serif;
   font-weight: 400;
   text-align: center;
-  color:var(--dark-text);
+  color:var(--text);
+  font-size: 1rem
 }
 .slide_bar{
   position: relative;
@@ -2189,7 +2350,7 @@ form:valid #populational-time-slider input:checked + label::before {
   height: 50px;
   line-height: 1.5em;
   font-family: 'Montserrat', serif;
-  color: var(--dark-text);
+  color: var(--text);
 }
 .year_value::before,
 .year_departures::before,
@@ -2197,7 +2358,7 @@ form:valid #populational-time-slider input:checked + label::before {
   content: 'Year: ';
   margin-right: 5px;
   font-family: 'Montserrat', serif;
-  color: var(--dark-text);
+  color: var(--text);
 }
 /* ==== Slide Inpu for Opacity====*/
 .opacity-wrapper{
@@ -2213,20 +2374,20 @@ form:valid #populational-time-slider input:checked + label::before {
   width: 45%;
   font-family: 'montserrat', serif;
   font-size: 0.7rem;
-  color: var(--dark-text);
+  color: var(--text);
   font-weight: 400;
 }
 .val_op{
   font-size: 0.7rem;
   font-family: 'Montserrat', serif;
-  color: var(--dark-text);
+  color: var(--text);
 }
 .val_op::after{
   content: ' %';
   margin-left: 2px;
   font-size: 0.7rem;
   font-family: 'Montserrat', serif;
-  color: var(--dark-text);
+  color: var(--text);
 }
 .opacity-wrapper input{
   display: block;
@@ -2286,106 +2447,69 @@ form:valid #populational-time-slider input:checked + label::before {
   border:1px solid var(--orange);
 }
 /*=====================  Map features ============================*/
-
-/*=====================  Map features ============================*/
-.map-area{
-  height: 100%;
-  padding: 20px 0;
-  width: 95%;
-  margin: 0 auto;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-}
-.map-area h2{
-  font-family: 'montserrat', serif;
-  color: var(--blue);
-  margin-bottom: 20px;
-}
-#map{
-    width: 98%;
-    position: relative;
-    left: 0;
-    height: 90vh;
-    grid-area: 1 / 1 / 3 / 5;
-    z-index: 0;
-}
-/*SOCIAL MEDIA*/
-#socialmedia {
-  background-color: hsla(0, 0%, 35%, 0.7);
-  padding: 50px 0;
-}
-.mediacontent {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  justify-content: center;
-}
-.media {
-  width: 15%;
-  display: block;
-  padding-top: 60px;
-  text-align: center;
-}
-.media h4 {
-  font-family: "Montserrat", serif, arial;
-  font-weight: 400;
-  font-size: 1rem;
-  color: white;
-  border-bottom: solid 1px hsla(0, 0%, 100%, 0.7);
-  padding-bottom: 10px;
+/*---- HOW to cite ---*/
+.how_cite{
   width: 80%;
-  margin: 0 auto;
+  height: auto;
+  margin: 15vh auto;
 }
-.share-icons {
-  margin-top: 10px;
+.cite_arbv{
+  width: 100%;
+  padding: 30px 0;
+  text-align: center;
 }
-.share-icons a{
-  color:white;
-  text-decoration: none;
-  margin: 0 10px;
+.cite_arbv p{
+  width: 80%;
+  margin: 20px auto;
+  color: var(--text);
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.5;
 }
-.share-icons i{
-  margin-right: 5px;
+.help_arbv{
+  margin: 5vh 0;
+  width: 100%;
+  text-align: center;
 }
-/*SOCIAL MEDIA TABLET SIZE*/
-@media screen and (max-width: 900px) {
-  .media {
-    width: 20%;
-  }
-  .media h4 {
-    font-size: 0.9rem;
-  }
-}
-/*SOCIAL MEDIA MOBILE SIZE*/
-@media screen and (max-width: 450px) {
-  #socialmedia {
-    padding: 30px 0;
-  }
-  .media {
-    width: 40%;
-    padding-top: 20px;
-  }
-  .media h4 {
-    font-size: 0.8rem;
-  }
-}
-/*LANDSCAPE SOCIAL MEDIA*/
-
-@media screen and (min-width: 650px) and (max-width: 750px) and (orientation: landscape) {
-  .media {
-    width: 50%;
-    padding-top: 20px;
-  }
-}
-/*footer*/
-footer {
-  background-color: hsla(0, 0%, 35%, 0.7);
-  font-family: 'Roboto', sans-serif, arial;
-  color: white;
+.help_wrapper{
   display: flex;
-  justify-content: space-between;
-  align-content: center;
-  font-size: 0.8rem;
-  padding: 5px 30px;
+  flex-direction: row;
+  justify-content:center;
+  align-items: center;
+  margin: 30px 0;
+  position: relative;
+}
+.help_img{
+  width: 20%;
+  z-index: 1;
+  position: absolute;
+  left:0;
+}
+.help_img img{
+  width: 100%;
+}
+.help_info{
+  background-color: var(--lightGrey);
+  width:80%;
+  height: auto;
+  padding: 30px;
+  border-radius: 15px;
+  z-index: 0;
+  text-align: center;
+}
+.help_info p{
+  color: var(--text);
+  font-size: 1.2rem;
+  line-height: 2;
+  font-weight: 300;
+  margin-left: 15%;
+}
+.help_info a{
+  text-decoration: none;
+  color: var(--lightBlue);
+}
+.help_info a:hover{
+  text-decoration: none;
+  color: var(--orange);
+  font-weight: 400;
 }

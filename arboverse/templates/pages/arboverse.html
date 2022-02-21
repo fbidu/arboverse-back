@@ -14,18 +14,28 @@
 {% block title %} Arboverse Platform {% endblock %}
 {% block content %}
   <!--Banner information-->
-  <h1>Arboverse Dashboard</h1>
-  <h3>Arbovirus | Vector | Ecology</h3>
+  <h1>Explore the complexity of arbovirus in a simple way</h1>
+  <h2>ARBOVERSE offers arbovirus information by interactive and friendly tools</h2>
 </div>
 <main>
+  <!--About the plattform-->
+  <section class="arboverse_plattform">
+    <div class="arboverse_plattform_img">
+      <h4><span class="blue">ARBO</span><span class="orange">VERSE</span></h4>
+      <img src="{% static 'images/logos/logo-arboverse.png' %}" />
+    </div>
+    <p>ARBOVERSE is a data-drive platform that integrates information on arboviruses, vectors, and environmental data from multiple sources and allows easy search, correlation analysis, and visualization. The ARBOVERSE was designed to help accelerate the work of researchers, public health workers, and the global community to better prepare for, respond to, and reduce the burden of arboviruses </p>
+  </section>
   <!-- CATALOGUE-->
   <div class="catalogue">
+    <!--catalogue wrapper-->
     <div class="row-wrapper">
+      <!--ARBOVIRUS catalogue-->
       <div class="arbovirus-catalogue">
         <div class="arbovirus-content">
-          <h2>ARBO<span class="sec-title">CARD</span></h2>
+          <h4><span class="blue">ARBO</span><span class="orange">CARD</span></h4>
           <div class="search">
-            <input class="search-virus" type="texts" placeholder="Search..." id="arbovirus-search">
+            <input class="search-virus" type="texts" placeholder="Search arbovirus..." id="arbovirus-search">
             <button class="searchbutton" type="submit"><i class="fa fa-search"></i></button>
           </div>
           <div class="tabs">
@@ -257,11 +267,12 @@
           </div>
         </div>
       </div>
+      <!--VECTOR catalogue-->
       <div class="vector-catalogue">
         <div class="vector-content">
-          <h2>ARBO<span class="sec-title">VECTOR</span></h2>
+          <h4><span class="blue">ARBO</span><span class="orange">VECTOR</span></h4>
           <div class="search">
-            <input class="search-vector" type="texts" placeholder="Search..." id="vector-search">
+            <input class="search-vector" type="texts" placeholder="Search vector..." id="vector-search">
             <button class="searchbutton-vector" type="submit"><i class="fa fa-search"></i></button>
           </div>
           <div class="tabs">
@@ -440,57 +451,64 @@
   </div>
   <!--MAP Area-->
   <div class="map-area">
-    <h2>ARBO<span class="sec-title">MAP</span></h2>
+    <h4><span class="blue">ARBO</span><span class="orange">MAP</span></h4>
     <div class="grid">
       <!-- Main Menu Bar Filter-->
       <div id="menulateral">
         <div class="item-button" id="discovery" onclick="openNav()">
           <div class="button-wrapper">
             <div id="check1" class="check"></div>
-            <img src="{% static 'images/aboverse/discovery-01.png' %}" />
+            <img src="{% static 'images/aboverse/icons/arbovirus-discovery-min.png' %}" />
             <span>Discovery</span>
           </div>
         </div>
         <div class="item-button" id="distribution" onclick="openNavdist()">
           <div class="button-wrapper">
             <div id="check2" class="check"></div>
-            <img src="{% static 'images/aboverse/Distribution-01.png' %}" />
+            <img src="{% static 'images/aboverse/icons/arbovirus-min.png' %}" />
             <span>Distribution</span>
           </div>
         </div>
         <div class="item-button" id="vector" onclick="openNavVec()">
           <div class="button-wrapper">
             <div id="check3" class="check"></div>
-            <img src="{% static 'images/aboverse/vector-01.png' %}" />
+            <img src="{% static 'images/aboverse/icons/vector-min.png' %}" />
             <span>Vector</span>
           </div>
         </div>
         <div class="item-button" id="climate" onclick="openNavCli()">
           <div class="button-wrapper">
             <div id="check4" class="check"></div>
-            <img src="{% static 'images/aboverse/Untitled-5-01.png' %}" />
+            <img src="{% static 'images/aboverse/icons/climate-min.png' %}" />
             <span>Climate</span>
           </div>
         </div>
         <div class="item-button" id="forest" onclick="openNavFor()">
           <div class="button-wrapper forest">
             <div id="check5" class="check"></div>
-            <img src="{% static 'images/aboverse/forest cover-01.png' %}" />
+            <img src="{% static 'images/aboverse/icons/forest-cover-and-deforestation-min.png' %}" />
             <span>Forest cover & Deforestation</span>
           </div>
         </div>
         <div class="item-button" id="land" onclick="openNavLan()">
           <div class="button-wrapper">
             <div id="check6" class="check"></div>
-            <img src="{% static 'images/aboverse/land cover-01.png' %}" />
+            <img src="{% static 'images/aboverse/icons/land-use-min.png' %}" />
             <span>Land use</span>
           </div>
         </div>
         <div class="item-button" id="mobility" onclick="openNavMob()">
           <div class="button-wrapper">
             <div id="check7" class="check"></div>
-            <img src="{% static 'images/aboverse/Humanmobility-01.png' %}" />
+            <img src="{% static 'images/aboverse/icons/human-mobility-min.png' %}" />
             <span>Human mobility</span>
+          </div>
+        </div>
+        <div class="item-button" id="socioeconomic" onclick="openNavMob()">
+          <div class="button-wrapper">
+            <div id="check8" class="check"></div>
+            <img src="{% static 'images/aboverse/icons/socioeconomics-min.png' %}" />
+            <span>Socioeconomics</span>
           </div>
         </div>
       </div>
@@ -864,7 +882,7 @@
             </div>
             <div class="marker">
               <div class="point pink-orange"></div>
-              <labe class="point-mean">Tree cover loss per decade</labe>
+              <label class="point-mean">Tree cover loss per decade</label>
             </div>
             <!--time selector-->
             <div id="year-time-wrapper">
@@ -904,23 +922,23 @@
             </div>
             <div class="marker">
               <div class="point comod"></div>
-              <labe class="point-mean">Commodity driven deforestation</labe>
+              <label class="point-mean">Commodity driven deforestation</label>
             </div>
             <div class="marker">
               <div class="point shift"></div>
-              <labe class="point-mean">Shifting agriculture</labe>
+              <label class="point-mean">Shifting agriculture</label>
             </div>
             <div class="marker">
               <div class="point montaingreen-p"></div>
-              <labe class="point-mean">Foresty</labe>
+              <label class="point-mean">Foresty</label>
             </div>
             <div class="marker">
               <div class="point mango-p"></div>
-              <labe class="point-mean">Wildfire</labe>
+              <label class="point-mean">Wildfire</label>
             </div>
             <div class="marker">
               <div class="point blush-p"></div>
-              <labe class="point-mean">Urbanization</labe>
+              <label class="point-mean">Urbanization</label>
             </div>
           </div>
           <!--Primary Forest cover-->
@@ -946,7 +964,7 @@
             </div>
             <div class="marker">
               <div class="point musgo-p"></div>
-              <labe class="point-mean">Pan-Tropical (30m)</labe>
+              <label class="point-mean">Pan-Tropical (30m)</label>
             </div>
           </div>
           <!--Tree cover height-->
@@ -1002,15 +1020,15 @@
             </div>
             <div class="marker">
               <div class="point green1-p"></div>
-              <labe class="point-mean">Intact forest landscapes</labe>
+              <label class="point-mean">Intact forest landscapes</label>
             </div>
             <div class="marker">
               <div class="point green2-p"></div>
-              <labe class="point-mean">Reduction in extent 2000-2013</labe>
+              <label class="point-mean">Reduction in extent 2000-2013</label>
             </div>
             <div class="marker">
               <div class="point green3-p"></div>
-              <labe class="point-mean">Reduction in extent 2013-2016</labe>
+              <label class="point-mean">Reduction in extent 2013-2016</label>
             </div>
           </div>
           <!--Forest landscape integrity index-->
@@ -1084,43 +1102,43 @@
             </div>
             <div class="marker">
               <div class="point agriculture-p"></div>
-              <labe class="point-mean">Agriculture</labe>
+              <label class="point-mean">Agriculture</label>
             </div>
             <div class="marker">
               <div class="point forest-p"></div>
-              <labe class="point-mean">Forest</labe>
+              <label class="point-mean">Forest</label>
             </div>
             <div class="marker">
               <div class="point grass-p"></div>
-              <labe class="point-mean">Grassland</labe>
+              <label class="point-mean">Grassland</label>
             </div>
             <div class="marker">
               <div class="point scrub-p"></div>
-              <labe class="point-mean">Scrubland</labe>
+              <label class="point-mean">Scrubland</label>
             </div>
             <div class="marker">
               <div class="point svegetation-p"></div>
-              <labe class="point-mean">Sparse vegetation</labe>
+              <label class="point-mean">Sparse vegetation</label>
             </div>
             <div class="marker">
               <div class="point wetland-p"></div>
-              <labe class="point-mean">Wetlands</labe>
+              <label class="point-mean">Wetlands</label>
             </div>
             <div class="marker">
               <div class="point settlement-p"></div>
-              <labe class="point-mean">Settlement</labe>
+              <label class="point-mean">Settlement</label>
             </div>
             <div class="marker">
               <div class="point vazio-p"></div>
-              <labe class="point-mean">Bare</labe>
+              <label class="point-mean">Bare</label>
             </div>
             <div class="marker">
               <div class="point bluewater-p"></div>
-              <labe class="point-mean">Water</labe>
+              <label class="point-mean">Water</label>
             </div>
             <div class="marker">
               <div class="point ice-p"></div>
-              <labe class="point-mean">Permanent ice and snow</labe>
+              <label class="point-mean">Permanent ice and snow</label>
             </div>
           </div>
           <!--Mining Concessions-->
@@ -1146,7 +1164,7 @@
             </div>
             <div class="marker">
               <div class="point mining-p"></div>
-              <labe class="point-mean">Mining concessions</labe>
+              <label class="point-mean">Mining concessions</label>
             </div>
             <div class="tooltip2">
               <p>
@@ -1180,7 +1198,7 @@
             </div>
             <div class="marker">
               <div class="point logging-p"></div>
-              <labe class="point-mean">Logging concessions</labe>
+              <label class="point-mean">Logging concessions</label>
             </div>
             <div class="tooltip2">
               <p>
@@ -1214,23 +1232,23 @@
             </div>
             <div class="marker">
               <div class="point noexpansion-p"></div>
-              <labe class="point-mean">No expansion allowed</labe>
+              <label class="point-mean">No expansion allowed</label>
             </div>
             <div class="marker">
               <div class="point potential-p"></div>
-              <labe class="point-mean">Expansion potentially allowed after HCVA assessment</labe>
+              <label class="point-mean">Expansion potentially allowed after HCVA assessment</label>
             </div>
             <div class="marker">
               <div class="point responsible-p"></div>
-              <labe class="point-mean">Responsible expansion as per legislation</labe>
+              <label class="point-mean">Responsible expansion as per legislation</label>
             </div>
             <div class="marker">
               <div class="point land-p"></div>
-              <labe class="point-mean">No land available for expansion</labe>
+              <label class="point-mean">No land available for expansion</label>
             </div>
             <div class="marker">
               <div class="point deforested-p"></div>
-              <labe class="point-mean">Areas deforested after 2009</labe>
+              <label class="point-mean">Areas deforested after 2009</label>
             </div>
             <div class="tooltip2">
               <p>
@@ -1263,27 +1281,27 @@
             </div>
             <div class="marker">
               <div class="point operational-p"></div>
-              <labe class="point-mean">Operational</labe>
+              <label class="point-mean">Operational</label>
             </div>
             <div class="marker">
               <div class="point under-p"></div>
-              <labe class="point-mean">Under construction</labe>
+              <label class="point-mean">Under construction</label>
             </div>
             <div class="marker">
               <div class="point planned-p"></div>
-              <labe class="point-mean">Planned</labe>
+              <label class="point-mean">Planned</label>
             </div>
             <div class="marker">
               <div class="point inventoried-p"></div>
-              <labe class="point-mean">Inventoried</labe>
+              <label class="point-mean">Inventoried</label>
             </div>
             <div class="marker">
               <div class="point suspended-p"></div>
-              <labe class="point-mean">Suspended</labe>
+              <label class="point-mean">Suspended</label>
             </div>
             <div class="marker">
               <div class="point unknown-p"></div>
-              <labe class="point-mean">Unknown</labe>
+              <label class="point-mean">Unknown</label>
             </div>
           </div>
           <h5 class="area">People</h5>
@@ -3938,6 +3956,69 @@
       <a href="#map" class="modal__close">&times;</a>
     </div>
   </div>
+  <!--How to cite and Help-->
+  <section class="how_cite">
+    <div class="cite_arbv">
+      <h3>How to cite <span class="blue">ARBO</span><span class="orange">VERSE</span> </h3>
+      <p>Surname, AA, Surname, BB, Surname, CC, ARBOVERSE: an open comprehensive database for arthropod-borne virus research. Journal. 2021</p>
+    </div>
+    <div class="help_arbv">
+      <h3>How to help <span class="blue">ARBO</span><span class="orange">VERSE</span> </h3>
+      <div class="help_wrapper">
+        <div class="help_img">
+          <img src="{% static 'images/aboverse/sat-min.png' %}" />
+        </div>
+        <div class="help_info">
+          <p>Did you find a minor error? Have some ideas or suggestions?</p>
+          <p>Help ARBOVERSE to keep our database acurated and updated!</p>
+          <p>Send us your suggestion and consideration to improve our platform.</p>
+          <p>You can contact us by email to <a href="mailto:arboverse@arboverse.com">arboverse@arboverse.com</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Team-->
+<section class="team_section">
+  <h3><span class="blue">ARBO</span><span class="orange">VERSE</span> is built by</h3>
+  <div class="team_wrapper">
+    <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/William-M-De-Souza-min.jpg">
+      </div>
+      <h6>William M. de Souza,</h6>
+    </div>
+    <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/Oswaldo-Reis-min.jpg">
+      </div>
+      <h6>Oswaldo Reis Jr,</h6>
+    </div>
+    <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/Felipe-Rodrigues-min.jpeg">
+      </div>
+      <h6>Felipe Rodrigues,</h6>
+    </div>
+    <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/Luciana-Souto-min.jpeg">
+      </div>
+      <h6>Luciana S. Mofatto,</h6>
+    </div>
+    <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/Jacqueline-Tida-min.jpg">
+      </div>
+      <h6>Jacqueline A. Tida,</h6>
+    </div>
+    <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/Marcílio-Fumagali-min.jpg">
+      </div>
+      <h6>Marcílio Fumagalli.</h6>
+    </div>
+  </div>
+</section>
 </main>
 <script src="../static/js/mapboxutil.js"></script>
 {% endblock %}
