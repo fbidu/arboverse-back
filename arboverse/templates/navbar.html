@@ -2,7 +2,7 @@
 <div class="bannermenu">
   <nav>
     <div class="logo">
-      <img src="{% static 'images/Arboverse_logo-2.png' %}" />
+      <img src="{% static 'images/logos/logo-arboverse.png' %}" />
       <h4>ARBO<span>VERSE</span></h4>
     </div>
     <ul class="nav-links">
@@ -17,27 +17,17 @@
         >
       </li>
       <li>
-        <a href="{% url 'dataset' %}" aria-label="Link for dataset"
+        <a href="{% url 'research' %}" aria-label="Link for arbodash, arboverse dashboard"
+          >ARBODASH</a
+        >
+      </li>
+      <li>
+        <a href="{% url 'dataset' %}" aria-label="Link for arbodata, arboverse dataset"
           >ARBODATA</a
         >
       </li>
       <li>
-        <a href="{% url 'research' %}" aria-label="Link for research"
-          >RESEARCH</a
-        >
-      </li>
-      <li>
-        <a href="{% url 'publications' %}" aria-label="Link for publications"
-          >PUBLICATIONS</a
-        >
-      </li>
-      <li>
-        <a href="{% url 'people' %}" aria-label="Link for collaborators"
-          >PEOPLE</a
-        >
-      </li>
-      <li>
-        <a href="{% url 'news' %}" aria-label="Link for biography">NEWS</a>
+        <a href="{% url 'news' %}" aria-label="Link for contact">CONTACT US</a>
       </li>
     </ul>
     <!--Burger Menu-->
