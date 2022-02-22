@@ -1,31 +1,98 @@
 .bannermenu{
-    background-image: url("../images/dataset/barcos_ilhadocardoso.jpg");
-    background-position: right;
+    background-image: url("../images/banners/banner_arbodata-min.png");
+}
+/*----IPAD Size portrait Banner--*/
+@media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
+  .bannermenu{
+      background-image: url("../images/banners/arbodata-banner-mobile-min.png");
+      height: 85vh;
+  }
+}
+@media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait){
+  .bannermenu{
+      background-image:url("../images/banners/arbodata-banner-mobile-min.png");
+      height: 70vh;
+  }
+}
+/*----About Arboverse ---*/
+.about_arbodata{
+  width:80%;
+  height: auto;
+  margin: 5vh auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.arboverse_plattform_img{
+  width: 20%;
+  text-align: center;
+}
+.arboverse_plattform_img h4{
+  margin-bottom: 10px;
+}
+.arboverse_plattform_img img{
+  width: 60%;
+}
+.arbodata_text {
+  width:80%;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--text);
+  text-align: justify;
+  line-height: 1.5;
+}
+@media screen and (max-width: 1000px) {
+  .about_arbodata{
+    flex-direction: column;
+    justify-content:center;
+  }
+  .arboverse_plattform_img{
+    width: 50%;
+  }
+  .arboverse_plattform_img img{
+    display: none;
+  }
+  .arbodata_text{
+    width: 100%;
+    font-size: 1.2rem;
+  }
+}
+/*---About Mobile--*/
+@media screen and (max-width: 550px) {
+  .about_arbodata{
+    width: 85%;
+  }
+  .arboverse_plattform p{
+    width: 100%;
+    font-size: 1.1rem;
+  }
 }
 
+/*---dataset--*/
 .dataset_container{
   display: flex;
-  justify-content: center;
+  justify-content:space-between;
   align-items: center;
   height: 100vh;
-  width: 90vw;
-  margin: 10vh auto;
+  width: 85vw;
+  margin: 5vh auto;
 }
 .panel{
-background-size: auto 100%;
-background-position: center;
-background-repeat: no-repeat;
-height: 85vh;
-border-radius: 25px;
-color: #fff;
-cursor: pointer;
-flex: 0.5;
-margin: 10px;
-position: relative;
-transition: all 800ms ease-in;
-}
-.panel h3 {
-  font-size: 24px;
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 85vh;
+  color: #fff;
+  cursor: pointer;
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  transition: all 800ms ease-in;
+  border-radius: 30px;
+  }
+.panel h4 {
+  font-size: 1.5rem;
   position: absolute;
   bottom: 30px;
   left: 40px;
@@ -35,49 +102,51 @@ transition: all 800ms ease-in;
 }
 .panel.active {
   flex-grow: 6;
+  border-radius: 2%;
 }
-.panel.active h3 {
+.panel.active h4 {
   opacity: 1;
 }
 .panel.active .tabs{
     width: 100%;
     opacity: 1;
 }
-@media screen and (max-width: 480px) {
-  .container {
-    width: 100vw;
-  }
-  .panel:nth-of-type(4),
-  .panel:nth-of-type(5) {
-    display: none;
-  }
-}
+
 .tabs {
   width:0;
-  margin-top: 10vh;
+  margin-top: 5vh;
   opacity:0;
-  border-radius: 8px;
   overflow: hidden;
-  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   cursor: default;
   transition: all 700ms ease-in-out;
 }
 .tab {
   width: 100%;
-  color: rgb(86, 83, 83);
   overflow: hidden;
+  border: none;
 }
 .tab-label {
   display: flex;
   justify-content: space-between;
   padding: 0.8em;
-  background: hsla(0, 0%, 100%,0.6);
-  font-weight: bold;
+  background: rgba(68, 94, 242, 0.11);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  font-weight: 400;
   cursor: pointer;
+  color:var(--orange);
+  font-size: 1.2rem;
   /* Icon */
 }
 .tab-label:hover {
-  background:hsla(0, 0%, 100%,0.8);
+  background: rgba(255, 188, 126, 0.25);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.6px);
+  -webkit-backdrop-filter: blur(9.6px);
+}
+.tab-label:hover .tab-label::after{
+  color: var(--darkBlue);
 }
 .tab-label::after {
   content: "\276F";
@@ -85,16 +154,19 @@ transition: all 800ms ease-in;
   height: 1em;
   text-align: center;
   transition: all 0.35s;
+  color: var(--orange)
 }
 .tab-content {
   max-height: 0;
   padding: 0 1em;
-  color: #002147;
+  color: var(--text);
   background: hsla(0, 0%, 100%,0.9);
   transition: all 0.35s;
+  font-size: 1rem;
 }
 .tab-content a{
-  color: #ff8700;
+  color: var(--orange);
+  font-size: 1rem;
 }
 .tab-content a:hover{
   font-weight: bold;
@@ -109,35 +181,47 @@ transition: all 800ms ease-in;
 .database a{
   font-family: 'Montserrat', serif;
   text-decoration: none;
-  padding: 5px;
-  background-color: white;
-  border-radius: 10px;
-  border: solid 1px #ff8700;
-  color: #ff8700;
-  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: solid 1px var(--lightBlue);
+  color: var(--lightBlue);
+  font-size: 0.9rem;
   margin-left: 10px;
   margin-right: 20px;
+  font-weight: 400;
 }
 .database a:hover{
-  background-color: #ff8700;
+  background-color: var(--lightBlue);
   color: white;
   font-weight: bold;
+}
+.fa-database,
+.fa-info-circle{
+  color: var(--darkBlue);
+  transform: scale(1.1);
 }
 .tab-close {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 1em;
+  padding: 0.8em;
   font-size: 0.9rem;
-  background: hsla(0, 0%, 100%,0.6);
+  background: rgba(68, 94, 242, 0.11);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5.4px);
   cursor: pointer;
+  color: var(--orange);
 }
 .close{
     font-size: 20px;
     margin-left: 10px;
 }
 .tab-close:hover {
-  background: hsla(0, 0%, 100%,0.8);
+  background: rgba(252, 252, 252, 0.23);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.6px);
+  -webkit-backdrop-filter: blur(9.6px);
 }
 input {
   position: absolute;
@@ -145,7 +229,10 @@ input {
   z-index: -1;
 }
 input:checked + .tab-label {
-  background: hsla(0, 0%, 100%,0.9);
+  background: rgba(255, 188, 126, 0.25);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.6px);
+  -webkit-backdrop-filter: blur(9.6px);
 }
 input:checked + .tab-label::after {
   transform: rotate(90deg);
@@ -153,4 +240,31 @@ input:checked + .tab-label::after {
 input:checked ~ .tab-content {
   max-height: 100vh;
   padding: 1em;
+}
+@media screen and (max-width: 550px) {
+  .dataset_container{
+    flex-direction: column;
+    height: 200vh;
+  }
+  .panel{
+    flex: 1;
+    margin: 2px;
+    height: 2.5vh;
+    width: 100%;
+    border-radius: 16px;
+  }
+  .panel h4{
+    font-size: 1.2rem;
+  }
+  .tab-label,
+  .tab-close {
+    font-size: 1rem;
+    background: rgba(68, 94, 242, 0.31);
+  }
+  .tab-content{
+    font-size: 0.9rem;
+  }
+  .database a{
+    font-size: 0.8rem;
+  }
 }
