@@ -17,14 +17,14 @@ urlpatterns = [
         name="arboverse",
     ),
     path(
-        "dataset/",
-        TemplateView.as_view(template_name="pages/dataset.html"),
-        name="dataset",
+        "arbodata/",
+        TemplateView.as_view(template_name="pages/arbodata.html"),
+        name="arbodata",
     ),
     path(
-        "research/",
-        TemplateView.as_view(template_name="pages/research.html"),
-        name="research",
+        "arbodash/",
+        TemplateView.as_view(template_name="pages/arbodash.html"),
+        name="arbodash",
     ),
     path(
         "publications/",
@@ -37,9 +37,9 @@ urlpatterns = [
         name="people",
     ),
     path(
-        "news/",
-        TemplateView.as_view(template_name="pages/news.html"),
-        name="news",
+        "contact/",
+        TemplateView.as_view(template_name="pages/contact.html"),
+        name="contact",
     ),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),

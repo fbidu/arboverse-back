@@ -10,24 +10,17 @@
         <a href="{% url 'home' %}" aria-label="Link for home">HOME</a>
       </li>
       <li>
-        <a
-          href="{% url 'arboverse' %}"
-          aria-label="Link for arboverse plattform"
-          >ARBOVERSE</a
-        >
+        <a href="{% url 'arboverse' %}" aria-label="Link for arboverse plattform">ARBOVERSE</a>
       </li>
       <li>
-        <a href="{% url 'research' %}" aria-label="Link for arbodash, arboverse dashboard"
-          >ARBODASH</a
-        >
+        <a href="{% url 'arbodash' %}"
+          aria-label="Link for arbodash, arboverse dashboard">ARBODASH</a>
       </li>
       <li>
-        <a href="{% url 'dataset' %}" aria-label="Link for arbodata, arboverse dataset"
-          >ARBODATA</a
-        >
+        <a href="{% url 'arbodata' %}" aria-label="Link for arbodata, arboverse dataset">ARBODATA</a>
       </li>
       <li>
-        <a href="{% url 'news' %}" aria-label="Link for contact">CONTACT US</a>
+        <a href="{% url 'contact' %}" aria-label="Link for contact">CONTACT</a>
       </li>
     </ul>
     <!--Burger Menu-->
@@ -37,19 +30,13 @@
       <div class="line3"></div>
     </div>
   </nav>
-  <!--Script scrool navbar-->
+  <!--Script highlight current page-->
   <script>
-    let navbar = document.querySelector("nav");
-    let scrollPrevisous = window.pageYOffset;
-    window.onscroll = function () {
-      let scrollCurent = window.pageYOffset;
-      if (scrollPrevisous > scrollCurent || scrollPrevisous < 0) {
-        navbar.style.top = "0px";
-      } else {
-        navbar.style.top = "-90px";
-      }
-      scrollPrevisous = scrollCurent;
-    };
+   for (var i = 0; i < document.links.length; i++) {
+    if (document.links[i].href == document.URL) {
+        document.links[i].className = 'current';
+    }
+}
   </script>
   <!--Script burgerbar toggler-->
   <script src="{% static 'js/main.js' %}"></script>
