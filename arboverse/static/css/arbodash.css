@@ -1,0 +1,22 @@
+.bannermenu{
+  background-image: url("../images/banners/arbodash-banner-min.png");
+}
+/*----IPAD Size portrait Banner--*/
+@media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
+  .bannermenu{
+      background-image: url("../images/banners/arbodash-banner-mobile-min.png");
+      height: 85vh;
+  }
+}
+@media screen and (max-width:600px) and (orientation: portrait){
+  .bannermenu{
+      background-image:url("../images/banners/arbodash-banner-min.png");
+      height: 70vh;
+  }
+}
+.arbodash_section{
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  margin: 5vh; 
+}

@@ -2,7 +2,7 @@
 <div class="bannermenu">
   <nav>
     <div class="logo">
-      <img src="{% static 'images/Arboverse_logo-2.png' %}" />
+      <img src="{% static 'images/logos/logo-arboverse.png' %}" />
       <h4>ARBO<span>VERSE</span></h4>
     </div>
     <ul class="nav-links">
@@ -10,34 +10,17 @@
         <a href="{% url 'home' %}" aria-label="Link for home">HOME</a>
       </li>
       <li>
-        <a
-          href="{% url 'arboverse' %}"
-          aria-label="Link for arboverse plattform"
-          >ARBOVERSE</a
-        >
+        <a href="{% url 'arboverse' %}" aria-label="Link for arboverse plattform">ARBOVERSE</a>
       </li>
       <li>
-        <a href="{% url 'dataset' %}" aria-label="Link for dataset"
-          >ARBODATA</a
-        >
+        <a href="{% url 'arbodash' %}"
+          aria-label="Link for arbodash, arboverse dashboard">ARBODASH</a>
       </li>
       <li>
-        <a href="{% url 'research' %}" aria-label="Link for research"
-          >RESEARCH</a
-        >
+        <a href="{% url 'arbodata' %}" aria-label="Link for arbodata, arboverse dataset">ARBODATA</a>
       </li>
       <li>
-        <a href="{% url 'publications' %}" aria-label="Link for publications"
-          >PUBLICATIONS</a
-        >
-      </li>
-      <li>
-        <a href="{% url 'people' %}" aria-label="Link for collaborators"
-          >PEOPLE</a
-        >
-      </li>
-      <li>
-        <a href="{% url 'news' %}" aria-label="Link for biography">NEWS</a>
+        <a href="{% url 'contact' %}" aria-label="Link for contact">CONTACT</a>
       </li>
     </ul>
     <!--Burger Menu-->
@@ -47,19 +30,13 @@
       <div class="line3"></div>
     </div>
   </nav>
-  <!--Script scrool navbar-->
+  <!--Script highlight current page-->
   <script>
-    let navbar = document.querySelector("nav");
-    let scrollPrevisous = window.pageYOffset;
-    window.onscroll = function () {
-      let scrollCurent = window.pageYOffset;
-      if (scrollPrevisous > scrollCurent || scrollPrevisous < 0) {
-        navbar.style.top = "0px";
-      } else {
-        navbar.style.top = "-90px";
-      }
-      scrollPrevisous = scrollCurent;
-    };
+   for (var i = 0; i < document.links.length; i++) {
+    if (document.links[i].href == document.URL) {
+        document.links[i].className = 'current';
+    }
+}
   </script>
   <!--Script burgerbar toggler-->
   <script src="{% static 'js/main.js' %}"></script>

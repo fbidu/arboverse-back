@@ -200,14 +200,14 @@ a{
 nav{
 display: flex;
 width: 100%;
-justify-content: space-around;
+justify-content: space-between;
 align-items: center;
 height: 15vh;
 padding-top: 8px;
 }
 .logo{
 display: flex;
-width: 50%;
+width: 20%;
 align-items: center;
 padding-left: 5%;
 }
@@ -226,7 +226,7 @@ color:var(--orange);
 .nav-links{
 display: flex;
 justify-content: space-around;
-width: 50%;
+width: auto;
 padding-right: 5%;
 }
 .nav-links li{
@@ -241,6 +241,9 @@ margin: 5px;
 }
 .nav-links a:hover{
   color:var(--orange);
+}
+.nav-links .current{
+  color: var(--orange);
 }
 
 /*Burger features*/
@@ -279,7 +282,7 @@ transition: all 0.3s ease;
   }
 }
 /*banner Landscape*/
-@media screen and (min-width: 550px) and (max-width: 850px) and (orientation: landscape){
+@media screen and (min-width: 550px) and (max-width: 940px) and (orientation: landscape){
   .bannermenu h1{
       letter-spacing: 1px;
       padding-top: 6vh;
@@ -295,34 +298,37 @@ transition: all 0.3s ease;
   }
 /* NAVIGATOR TABLET SIZE*/
 
-@media screen and (max-width: 900px){
-body{
-  overflow-x:hidden ;
-}
-.nav-links{
-  position: absolute;
-  right:0;
-  height:45vh;
-  top: 12vh;
-  background: linear-gradient(-45deg, rgba(68, 94, 242,0.8), rgba(51, 69, 166,0.9));
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-left: 20px;
-  width: 50%;
-  transform: translateX(100%);
-  transition: transform 0.5s ease-in;
-}
-.nav-links li{
-  opacity: 0;
-}
-.burger {
-  display: block;
-  margin-right:30px;
-}
-.nav-active{
-  transform: translateX(0%);
-}
+@media screen and (max-width: 1010px){
+  body{
+    overflow-x:hidden ;
+  }
+  .logo{
+    width: 50%;
+  }
+  .nav-links{
+    position: absolute;
+    right:0;
+    height:45vh;
+    top: 12vh;
+    background: linear-gradient(-45deg, rgba(68, 94, 242,0.8), rgba(51, 69, 166,0.9));
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 20px;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+  }
+  .nav-links li{
+    opacity: 0;
+  }
+  .burger {
+    display: block;
+    margin-right:30px;
+  }
+  .nav-active{
+    transform: translateX(0%);
+  }
 }
 
 /*LINK FADE*/
@@ -1353,8 +1359,8 @@ input[type=radio]{
 /*--Funding Mobile --*/
 @media screen and (min-width: 200px) and (max-width: 600px) and (orientation: portrait) {
   .funding_section{
-      margin-top: 5vh;;
-      width: 100%;
+      margin: 5vh auto;
+      width: 90%;
   }
   .fund-wrapper{
       flex-direction: column;
@@ -1465,7 +1471,7 @@ aside p{
   font-size: 0.8rem;
 }
 /*---- footer IPAD Size portrait --*/
-@media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
+@media screen and (max-width: 1010px)  {
   .footer-wrapper{
       width: 80%;
   }
