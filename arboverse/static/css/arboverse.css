@@ -564,7 +564,7 @@
   color: rgb(116, 115, 115);
 }
 /*MOBILE SUB_MENU*/
-@media screen and (max-width:600px){
+@media screen and (max-width:850px){
   .sub-menu,
   .sub-second-menu{
     grid-area: 2 / 1 /3 /2;

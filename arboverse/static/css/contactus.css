@@ -4,13 +4,13 @@
 /*----IPAD Size portrait Banner--*/
 @media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
   .bannermenu{
-      background-image: url("../images/banners/contact-banner-arboverse-min.png");
+      background-image: url("../images/banners/contact-banner-mobile-min.png");
       height: 85vh;
   }
 }
 @media screen and (max-width:600px) and (orientation: portrait){
   .bannermenu{
-      background-image:url("../images/banners/contact-banner-arboverse-min.png");
+      background-image:url("../images/banners/contact-banner-mobile-min.png");
       height: 70vh;
   }
 }
