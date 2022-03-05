@@ -131,7 +131,7 @@ function closeNavMob() {
     document.getElementById('mobility-menu').style.width = "0";
     document.getElementById('mobility').classList.remove('btn-active')
 }
-
+//Checked Discovery
 showChekedDis();
 var i = 0;
 function showChekedDis() {
@@ -143,7 +143,7 @@ document.querySelectorAll("input[name=discovery]").forEach(i => {
         update_map(this);
     }
 });
-
+//Checked Distribution
 showChekedDistri();
 var i = 0;
 function showChekedDistri() {
@@ -154,6 +154,7 @@ document.querySelectorAll("input[name=distribution]").forEach(i => {
         showChekedDistri();
     }
 });
+//Checked Vector
 showChekedVec();
 var i = 0;
 function showChekedVec() {
@@ -165,8 +166,19 @@ document.querySelectorAll("input[name=vector]").forEach(i => {
         update_map(this);
     }
 });
-
-
+//checked Climate
+showChekedCli();
+var i = 0;
+function showChekedCli() {
+    document.getElementById('check4').textContent = document.querySelectorAll("input[name=climate]:checked").length;
+}
+document.querySelectorAll("input[name=climate]").forEach(i => {
+    i.onclick = function () {
+        showChekedCli();
+        update_map(this);
+    }
+});
+//Checked Forest
 showChekedFor();
 var i = 0;
 function showChekedFor() {
@@ -178,6 +190,7 @@ document.querySelectorAll("input[name=forest]").forEach(i => {
         update_map(this);
     }
 });
+//Checked Land use
 showChekedLand();
 var i = 0;
 function showChekedLand() {
@@ -186,9 +199,10 @@ function showChekedLand() {
 document.querySelectorAll("input[name=land]").forEach(i => {
     i.onclick = function () {
         showChekedLand();
-        update_map(this)
+        update_map(this);
     }
 });
+//Checked human mobility
 showChekedMob();
 var i = 0;
 function showChekedMob() {
@@ -200,40 +214,84 @@ document.querySelectorAll("input[name=mobility]").forEach(i => {
         update_map(this)
     }
 });
-//Climate Time condition
-var i = 0
-function enableClimateRadio(cb) {
-    if (cb.checked) {
-        document.querySelectorAll("input[name=kp-amount]").forEach(i => {
-
-            i.disabled = false;
-            console.log("check", i.disabled);
-        });
-    } else {
-        document.querySelectorAll("input[name=kp-amount]").forEach(i => {
-            i.checked = false;
-            i.disabled = true;
-            console.log("uncheck", i.disabled);
-        });
+//Forecast mosquito climate Condition 
+var i=0;
+var forecastSwitchbtn = document.getElementById('forecast_switch')
+function enableForecastRadio() {
+    document.getElementById("arboverse.c89hazcs").disabled = true;
+    document.getElementById("arboverse.cugep9k4").disabled = true;
+    document.getElementById("arboverse.9uh1mltv").disabled = true;
+    document.getElementById("arboverse.7va6tx65").disabled = true;
+    document.getElementById("arboverse.bud0k3bq").disabled = true;
+    document.getElementById("arboverse.cot4nhox").disabled = true;
+    document.getElementById("arboverse.59jzfz3w").disabled = true;
+    document.getElementById("arboverse.2wsi2z3v").disabled = true;
+    document.getElementById("arboverse.a51uv49z").disabled = true;
+    document.getElementById("arboverse.92xut72i").disabled = true;
+    var dev = document.getElementById('forecast_switch').checked;
+    if (dev === true) {
+        document.getElementById("arboverse.c89hazcs").disabled = false;
+        document.getElementById("arboverse.cugep9k4").disabled = false;
+        document.getElementById("arboverse.9uh1mltv").disabled = false;
+        document.getElementById("arboverse.7va6tx65").disabled = false;
+        document.getElementById("arboverse.bud0k3bq").disabled = false;
+        document.getElementById("arboverse.cot4nhox").disabled = false;
+        document.getElementById("arboverse.59jzfz3w").disabled = false;
+        document.getElementById("arboverse.2wsi2z3v").disabled = false;
+        document.getElementById("arboverse.a51uv49z").disabled = false;
+        document.getElementById("arboverse.92xut72i").disabled = false;
+    } else if (dev != true) {
+        document.getElementById("arboverse.c89hazcs").checked = false;
+        document.getElementById("arboverse.cugep9k4").checked = false;
+        document.getElementById("arboverse.9uh1mltv").checked = false;
+        document.getElementById("arboverse.7va6tx65").disabled = false;
+        document.getElementById("arboverse.bud0k3bq").disabled = false;
+        document.getElementById("arboverse.cot4nhox").disabled = false;
+        document.getElementById("arboverse.59jzfz3w").disabled = false;
+        document.getElementById("arboverse.2wsi2z3v").disabled = false;
+        document.getElementById("arboverse.a51uv49z").disabled = false;
+        document.getElementById("arboverse.92xut72i").disabled = false;
+    };
+    var j = 0;
+    document.querySelectorAll("input[name=model_climate]").forEach(j => {
+        j.checked = false;
+        update_map(j)
+    })
+}
+forecastSwitchbtn.onchange = enableForecastRadio;
+var i = 0;
+document.querySelectorAll("input[name=model_climate]").forEach(i => {
+    i.onchange = function () {
         var j = 0;
-        document.querySelectorAll("input[name=kp-amount]").forEach(j => {
+        document.querySelectorAll("input[name=model_climate]").forEach(j => {
             j.checked = false;
             update_map(j)
         });
+        i.checked = true;
+        update_map(this);
     }
+})
+//Koppen geiger climate Condition 
+var i=0;
+var climateSwitchbtn = document.getElementById('kp_switch')
+function enableClimateRadio() {
+    document.getElementById("arboverse.presentfull").disabled = true;
+    document.getElementById("arboverse.koppenfuture").disabled = true;
+    var dev = document.getElementById('kp_switch').checked;
+    if (dev == true) {
+        document.getElementById("arboverse.presentfull").disabled = false;
+        document.getElementById("arboverse.koppenfuture").disabled = false;
+    } else if (dev != true) {
+        document.getElementById("arboverse.presentfull").checked = false;
+        document.getElementById("arboverse.koppenfuture").checked = false;
+    };
+    var j = 0;
+    document.querySelectorAll("input[name=kp-amount]").forEach(j => {
+        j.checked = false;
+        update_map(j)
+    })
 }
-showChekedCli();
-var i = 0;
-function showChekedCli() {
-    document.getElementById('check4').textContent = document.querySelectorAll("input[name=climate]:checked").length;
-}
-document.querySelectorAll("input[name=climate]").forEach(i => {
-    i.onclick = function () {
-        enableClimateRadio(this);
-        showChekedCli();
-    }
-});
-
+climateSwitchbtn.onchange = enableClimateRadio;
 var i = 0;
 document.querySelectorAll("input[name=kp-amount]").forEach(i => {
     i.onchange = function () {
@@ -346,6 +404,14 @@ var opValue = function(){
     target.innerHTML = newOpValue;
 }
 cli.addEventListener('input', opValue)
+
+var fore = document.querySelector('input[name=forecast-opacity]');
+var foreValue = function(){
+    var newForeValue = fore.value;
+    var target = document.querySelector('.fore_op');
+    target.innerHTML = newForeValue;
+}
+fore.addEventListener('input', foreValue)
 
 var loss = document.querySelector('input[name=coverloss-opacity]');
 var lossValue = function(){

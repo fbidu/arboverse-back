@@ -1020,6 +1020,19 @@
   flex-direction: row;
   justify-content: space-between;
 }
+.major_class{
+  width: auto;
+  height: auto;
+}
+.major_class h5{
+  font-size: 0.6rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.kp_group_wrapper{
+  display: flex;
+  flex-direction: row;
+}
 .kp_group{
   display: flex;
   flex-direction: column;
@@ -1045,7 +1058,38 @@
   height: 5px;
   border-radius: 5px;
 }
-
+.forecast_label{
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin: 0 auto;
+}
+.forecast_group{
+  width: 50%;
+}
+.forecast_measure{
+  width: 70%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.forecast_unit{
+  margin-bottom: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.forecast_month{
+  width: 50px;
+  height: 10px;
+  border: solid 0.5px rgba(62, 62, 62, 0.5);
+}
+.forecast-month {
+  margin-left: 5px;
+  font-size: 0.8rem;
+  color: var(--text);
+}
 /* Bar Mesurement color features GRADIENT */
 
 .green-s {
@@ -1067,40 +1111,40 @@
 .passengers-s{
   background: linear-gradient(
     90deg,
-    #d9ed92,
-    #b5e48c,
-    #99d98c,
-    #76c893,
-    #52b69a,
-    #34a0a4,
-    #168aad,
-    #1a759f
+    #e6e6f0,
+    #d9c1d7,
+    #d39fbf,
+    #d37fa8,
+    #ae6795,
+    #835f8b,
+    #54426e,
+    #2e214d
   ) ;
 }
 .arrivals-s{
   background: linear-gradient(
     90deg,
-    #60EFFF,
-    #52DBFF,
-    #45C6FF,
-    #37B2FF,
-    #299EFF,
-    #1B8AFF,
-    #0E75FF,
-    #0061FF
+    #fefed8,
+    #c6eab2,
+    #9bbb95,
+    #92988a,
+    #8c7681,
+    #7e5172,
+    #522754,
+    #1a0e34
   );
 }
 .departures-s{
   background: linear-gradient(
     90deg,
-    #FF99AC,
-    #EA88AD,
-    #D577AF,
-    #C066B0,
-    #AC56B2,
-    #9745B3,
-    #8234B5,
-    #6D23B6
+    #fef2f3,
+    #e4c8b1,
+    #a5a795,
+    #7398a0,
+    #487da3,
+    #305c98,
+    #253681,
+    #1a0c64
   );
 }
 .browngreen-s {
@@ -1134,213 +1178,247 @@
   margin-left: 1px;
 }
 /* Point color features  */
+.jan{
+  background: #033198;
+}
+.feb{
+  background: #1d5bab;
+}
+.mar{
+  background: #2a81bb;
+}
+.apr{
+  background: #40a7cb;
+}
+.may{
+  background: #70ced6;
+}
+.jun{
+  background: #abe7d1;
+}
+.jul{
+  background: #cee5ab;
+}
+.aug{
+  background:#cec469;
+}
+.set{
+  background: #bb9638;
+}
+.out{
+  background: #a96f22;
+}
+.nov{
+  background: #954912;
+}
+.dec{
+  background: #7e1700;
+}
 .vec1{
-  background: #0f574e;
+  background: #6D763B;
 }
 .vec2{
-  background: #1eae9c;
+  background: #E39754;
 }
 .vec3{
-  background: #2edcc4;
+  background: #C8913B;
 }
 .vec4{
-  background: #A8F0E7;
+  background: #FCC5E5;
 }
 .vec5{
-  background: #132b3f;
+  background: #FCBDCF;
 }
 .vec6{
-  background: #285981;
+  background: #FDB2AD;
 }
 .vec7{
   background: #438bc7;
 }
 .vec8{
-  background: #ffba0a;
+  background: #26635F;
 }
 .vec9{
-  background: #FFDC85;
+  background: #8A842F;
 }
 .vec10{
-  background: #9c3848;
+  background: #0E365E;
 }
 .vec11{
-  background: #da95A1;
-}
-.vec12{
-  background: #cd2323;
+  background: #FCA993;
 }
 
 .mos{
-  background: #f97566;
+  background: #FDADA0;
 }
 .tic{
-  background: #88bc2f;
+  background: #031C5A;
 }
 .mid{
-  background: #e07bf9;
+  background: #2D675D;
 }
 .san{
-  background: #57a9c0;
+  background: #CB923E;
 }
 .oth{
-  background: #f49910;
+  background: #868330;
 }
 .af{
-  background: #0000ff;
+  background: #8c0273;
 }
 .am{
-  background:#0077ff;
+  background:#8f1966;
 }
 .aw{
-  background:#47aafa;
+  background:#91285a;
 }
+
 .bwh{
-  background:#ff0000;
+  background:#922e54;
 }
 .bwk{
-  background:#ff9494;
+  background:#943c4a;
 }
 .bsh{
-  background:#f5a300;
+  background:#964941;
 }
 .bsk{
-  background:#ffdb66;
+  background:#974f3c;
 }
 .csa{
-  background: #ffff00;
+  background: #996330;
 }
 .csb{
-  background:#c8c800;
+  background:#9a692b;
 }
 .csc{
-  background:#969600;
+  background:#9b7127;
 }
 .cwa{
-  background: #96ff96;
+  background: #9c7923;
 }
 .cwb{
-  background:#64c864;
+  background:#9c801f;
 }
 .cwc{
-  background:#329632;
+  background:#9d891c;
 }
 .cfa{
-  background: #c8ff50;
+  background: #9c911c;
 }
 .cfb{
-  background:#64ff50;
+  background:#9b9a1d;
 }
 .cfc{
-  background:#32c800;
+  background:#99a323;
 }
 .dsa{
-  background: #ff00ff;
+  background: #91b437;
 }
 .dsb{
-  background: #c800c8;
+  background: #8cba44;
 }
 .dsc{
-  background: #96329b;
+  background: #86c051;
 }
 .dsd{
-  background: #966496;
+  background: #80c55f;
 }
 .dwa{
-  background: #aaafff;
+  background: #79ca6d;
 }
 .dwb{
-  background: #5a78dc;
+  background: #73ce7b;
 }
 .dwc{
-  background: #4b50b4;
+  background: #6dd389;
 }
 .dwd{
-  background: #320087;
+  background: #68d797;
 }
 .dfa{
-  background: #00ffff;
+  background: #62dca7;
 }
 .dfb{
-  background: #37c8ff;
+  background: #60e0b5;
 }
 .dfc{
-  background: #007d7d;
+  background: #60e4c4;
 }
 .dfd{
-  background: #00465f;
+  background: #65e8d2;
 }
 .et{
-  background: #b2b2b2;
+  background: #8ff0f1;
 }
 .ef{
-  background: #666666;
+  background: #b3f2fd;
 }
 .pink-orange {
   background-color: #830a48;
 }
 .comod {
-  background: #f94144;
+  background: #FDAFA5;
 }
 .shift {
-  background-color: #f9844a;
+  background-color: #50744B;
 }
 .montaingreen-p {
-  background-color: #43aa8b;
+  background-color: #1A5762;
 }
 .mango-p {
-  background-color: #f9c74f;
+  background-color: #A58B2C;
 }
 .blush-p {
-  background-color: #6930c3;
+  background-color: #0F3B5F;
 }
 .musgo-p {
   background-color: #208b3a;
 }
 .green1-p {
-  background: #90a955;
+  background: #356A59;
 }
 .green2-p {
-  background: #4f762d;
+  background: #677B3E;
 }
 .green3-p {
-  background: #31572c;
+  background:  #175262;
 }
 .vazio-p {
-  background-color: #eddcd2;
+  background-color: #e9995c;
 }
 .bluewater-p {
   background-color: #00b4d8;
 }
 .ice-p {
-  background-color: #fff1e6;
+  background-color: #fdb2ad;
 }
 .forest-p {
-  background-color: #007f5f;
+  background-color: #226061;
 }
 .agriculture-p {
-  background-color: #80b918;
+  background-color: #828231;
 }
 .grass-p {
-  background-color: #d4d700;
+  background-color: #4d734d;
 }
 .scrub-p {
-  background-color: #054a29;
+  background-color: #114360;
 }
 .svegetation-p {
-  background-color: #ecba82;
+  background-color: #c09036;
 }
 .wetland-p {
-  background-color: #1f6996;
+  background-color: #011959;
 }
 .settlement-p {
-  background-color: #f0746e;
+  background-color: #faccfa;
 }
 .mining-p {
-  background-color: #eb7f86;
+  background-color: #EB9A60;
 }
 .logging-p {
-  background-color: #3a7c89;
+  background-color: #08255B;
 }
 .noexpansion-p {
   background-color: #bd5f68;
@@ -1613,6 +1691,123 @@
   /*  button slider format*/
   border-radius: 50%;
 }
+/* ===== mosquito and model Selector Radio ======*/
+#mosquito_type_wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+  padding: 20px 10px;
+}
+form #mosquito-type-selector {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  width: 100%;
+  height: 290px;
+  user-select: none;
+  margin: 10px auto;
+}
+.ae_mosquito,
+.al_mosquito{
+  margin-top: 10px;
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+#mosquito-type-selector .mosquito_type_name{
+  font-size: 0.8rem;
+  text-align: left;
+  color: var(--text);
+}
+form .ae_mosquito::before,
+form .al_mosquito::before {
+  content: " ";
+  position: absolute;
+  height: 80%;
+  width: 1px;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -55%);
+  background: rgb(180, 180, 180);
+}
+form #mosquito-type-selector input, form #mosquito-type-selector label {
+  box-sizing: border-box;
+  flex: 1;
+  user-select: none;
+  cursor: pointer;
+}
+form #mosquito-type-selector label {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 15%;
+  user-select: none;
+}
+form #mosquito-type-selector label::before { /*time Label*/
+  content: attr(model);
+  color:var(--text);
+  position: absolute;
+  left: 30%;
+  padding-top: 3px;
+  transform: translate(-50%, 35px);
+  font-size: 0.8rem;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0.85;
+  transition: all 0.15s ease-in-out;
+}
+form #mosquito-type-selector label::after { /*time circles*/
+  content: " ";
+  position: absolute;
+  left:70%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgb(180, 180, 180);
+  background: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+form #mosquito-type-selector label:hover::after { /* Hover*/
+  transform: translate(-50%, -50%) scale(1.3);
+}
+form #mosquito-type-selector input {
+  display: none;
+}
+form #mosquito-type-selector input:checked + label::before {
+  font-weight: 500;
+  opacity: 1;
+}
+form #mosquito-type-selector input:checked + label::after { /* circle change checked*/
+  border-width: 3px;
+  transform: translate(-50%, -50%) scale(0.75);
+  border-color: var(--orange);
+}
+form #mosquito-type-selector input:checked ~ #model-pos {
+  opacity: 1;
+}
+form #mosquito-type-selector input:checked:nth-child(1) ~ #model-pos {
+  left: 10%;
+}
+form #mosquito-type-selector input:checked:nth-child(3) ~ #model-pos {
+  left: 30%;
+}
+form:valid #mosquito-type-selector input + label::before {
+  transform: translate(-50%, 35px) scale(0.9);
+  transition: all 0.15s linear;
+}
+form:valid #mosquito-type-selector input:checked + label::before {
+  transform: translate(-50%, 35px) scale(1.1);
+  transition: all 0.15s linear;
+}
 /* ===== Time Selector Radio ======*/
 /*Koppen geiger selector*/
 #time-wrapper {
@@ -1626,7 +1821,7 @@
   padding: 10px;
 }
 form {
-  width: 90%;
+  width: 85%;
   max-width: 500px;
 
 }
@@ -1634,7 +1829,7 @@ form #form-title {
   font-weight: 400;
   text-align: center;
   color:var(--text);
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 form #time-amount-slider {
   display: flex;
@@ -1676,8 +1871,7 @@ form #time-amount-slider label::before { /*time Label*/
   left: 50%;
   padding-top: 10px;
   transform: translate(-50%, 35px);
-  font-size: 0.6rem;
-  letter-spacing: 0.7px;
+  font-size: 0.8rem;
   font-weight: 400;
   white-space: nowrap;
   opacity: 0.85;
@@ -1783,7 +1977,7 @@ form #time-year-slider label::before { /*time Label*/
   left: 50%;
   padding-top: 10px;
   transform: translate(-50%, 35px);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 400;
   white-space: nowrap;
   opacity: 0.85;
@@ -1889,7 +2083,7 @@ form #populational-time-slider label::before { /*time Label*/
   left: 50%;
   padding-top: 10px;
   transform: translate(-50%, 35px);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   font-weight: 400;
   white-space: nowrap;
   opacity: 0.85;
@@ -1985,11 +2179,11 @@ form:valid #populational-time-slider input:checked + label::before {
 .opacity-wrapper{
   margin-bottom: 10px;
   width: 90%;
-  margin: 0 auto;
+  margin:10px auto;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 .opacity-wrapper label{
   width: 45%;

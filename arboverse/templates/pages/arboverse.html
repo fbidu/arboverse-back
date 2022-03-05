@@ -13,9 +13,9 @@
 {% endblock %}
 {% block title %} ARBOVERSE {% endblock %}
 {% block content %}
-  <!--Banner information-->
-  <h1>Explore the complexity of arbovirus in a simple way</h1>
-  <h2>ARBOVERSE offers arbovirus information by interactive and friendly tools</h2>
+<!--Banner information-->
+<h1>Explore the complexity of arbovirus in a simple way</h1>
+<h2>ARBOVERSE offers arbovirus information by interactive and friendly tools</h2>
 </div>
 <main>
   <!--About the plattform-->
@@ -24,7 +24,10 @@
       <h4><span class="blue">ARBO</span><span class="orange">VERSE</span></h4>
       <img src="{% static 'images/logos/logo-arboverse.png' %}" />
     </div>
-    <p>ARBOVERSE is a data-drive platform that integrates information on arboviruses, vectors, and environmental data from multiple sources and allows easy search, correlation analysis, and visualization. The ARBOVERSE was designed to help accelerate the work of researchers, public health workers, and the global community to better prepare for, respond to, and reduce the burden of arboviruses </p>
+    <p>ARBOVERSE is a data-drive platform that integrates information on arboviruses, vectors, and environmental data
+      from multiple sources and allows easy search, correlation analysis, and visualization. The ARBOVERSE was designed
+      to help accelerate the work of researchers, public health workers, and the global community to better prepare for,
+      respond to, and reduce the burden of arboviruses </p>
   </section>
   <!-- CATALOGUE-->
   <div class="catalogue">
@@ -54,7 +57,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">Virus name abbreviation searched</span>
+                    <span class=" tooltext-1">Virus name abbreviation searched</span>
                   </div>
                   <h5>Abbreviation:</h5>
                   <output id="virus_abbrev">DENV1</output>
@@ -62,7 +65,8 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class="tooltext-1">Species, genus, and family name recognized by International Committe on Taxonomy of Viruses</span>
+                    <span class="tooltext-1">Species, genus, and family name recognized by International Committe on
+                      Taxonomy of Viruses</span>
                   </div>
                   <h5>Taxonomy:</h5>
                   <output id="virus_taxonomy">Dengue 1 | Flavivirus | Flaviviridae</output>
@@ -70,7 +74,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">Date of collection of first viral isolate (prototype/reference)</span>
+                    <span class=" tooltext-1">Date of collection of first viral isolate (prototype/reference)</span>
                   </div>
                   <h5>First Isolate:</h5>
                   <output id="virus_firstIso">20-Feb-44</output>
@@ -78,7 +82,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">Name of the strain of the prototype/reference</span>
+                    <span class=" tooltext-1">Name of the strain of the prototype/reference</span>
                   </div>
                   <h5>Reference Strain:</h5>
                   <output id="virus_strain">Hawaii</output>
@@ -86,7 +90,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">GenBank number of prototype/reference strain</span>
+                    <span class=" tooltext-1">GenBank number of prototype/reference strain</span>
                   </div>
                   <h5>Reference Genome:</h5>
                   <output id="virus_reference">NC_001477</output>
@@ -94,7 +98,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">Total sequence length of complete genome in nucleotides</span>
+                    <span class=" tooltext-1">Total sequence length of complete genome in nucleotides</span>
                   </div>
                   <h5>Genome Size:</h5>
                   <output id="virus_size">10,735 nt</output>
@@ -102,7 +106,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">Type of the viral genome</span>
+                    <span class=" tooltext-1">Type of the viral genome</span>
                   </div>
                   <h5>Genome Type:</h5>
                   <output id="virus_genome">ssRNA + </output>
@@ -110,7 +114,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">Presence or absence of envelope in the virus searched</span>
+                    <span class=" tooltext-1">Presence or absence of envelope in the virus searched</span>
                   </div>
                   <h5>Envelope:</h5>
                   <output id="virus_envelope">Presence</output>
@@ -124,7 +128,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">Type of vectors of the virus searched</span>
+                    <span class=" tooltext-1">Type of vectors of the virus searched</span>
                   </div>
                   <h5>Vector-borne:</h5>
                   <output id="virus_vector">Mosquitoes</output>
@@ -132,7 +136,8 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">The binominal species name of the primary vectors for the virus searched</span>
+                    <span class=" tooltext-1">The binominal species name of the primary vectors for the virus
+                      searched</span>
                   </div>
                   <h5>Vector Species:</h5>
                   <output id="virus_vector">Aedes aegypti | Aedes albopictus</output>
@@ -140,12 +145,12 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">The species name of amplifying host (if available)</span>
+                    <span class=" tooltext-1">The species name of amplifying host (if available)</span>
                   </div>
                   <h5>Amplifying Host:</h5>
                   <output id="virus_host">None</output>
                 </div>
-                
+
               </div>
             </div>
             <div class="tab">
@@ -155,7 +160,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">The number of cases described or estimated</span>
+                    <span class=" tooltext-1">The number of cases described or estimated</span>
                   </div>
                   <h5>Number of Cases:</h5>
                   <output id="virus_cases">Millions</output>
@@ -171,7 +176,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">Does the virus associated with human disease?</span>
+                    <span class=" tooltext-1">Does the virus associated with human disease?</span>
                   </div>
                   <h5>Human Disease:</h5>
                   <output id="virus_human_disease">Febril illness</output>
@@ -179,7 +184,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">Can human disease be fatal?</span>
+                    <span class=" tooltext-1">Can human disease be fatal?</span>
                   </div>
                   <h5>Fatal Disease:</h5>
                   <output id="virus_human_fatal">Yes</output>
@@ -187,7 +192,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">Does the virus associate with veterinary disease?</span>
+                    <span class=" tooltext-1">Does the virus associate with veterinary disease?</span>
                   </div>
                   <h5>Veterinary Disease:</h5>
                   <output id="virus_vet_disease">Not applicable</output>
@@ -195,7 +200,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">Can veterinary disease be fatal ?</span>
+                    <span class=" tooltext-1">Can veterinary disease be fatal ?</span>
                   </div>
                   <h5>Fatal Veterinary Disease:</h5>
                   <output id="virus_vet_fatal">Not applicable</output>
@@ -203,7 +208,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">Are there vaccines available for this virus ?</span>
+                    <span class=" tooltext-1">Are there vaccines available for this virus ?</span>
                   </div>
                   <h5>Vaccine:</h5>
                   <output id="virus_vaccine">None</output>
@@ -217,7 +222,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">Is the diagnosis available for the virus searched?</span>
+                    <span class=" tooltext-1">Is the diagnosis available for the virus searched?</span>
                   </div>
                   <h5>Specific Diagnostic:</h5>
                   <output id="virus_diagnostic">RT-PCR | ELISA | Rapid test</output>
@@ -225,7 +230,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">Can the virus be propagated with culture cells?</span>
+                    <span class=" tooltext-1">Can the virus be propagated with culture cells?</span>
                   </div>
                   <h5>Tissue Culture Propagation:</h5>
                   <output id="virus_propagation">Vero cells | C6/36 cells</output>
@@ -233,7 +238,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">Can the virus cause a cytopathogenic effect in Vero cells?</span>
+                    <span class=" tooltext-1">Can the virus cause a cytopathogenic effect in Vero cells?</span>
                   </div>
                   <h5>Citophatic effects:</h5>
                   <output id="virus_cytophatic">~3 days</output>
@@ -241,7 +246,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">Can the virus cause plaque in Vero cells?</span>
+                    <span class=" tooltext-1">Can the virus cause plaque in Vero cells?</span>
                   </div>
                   <h5>Plaque (days):</h5>
                   <output id="virus_plaque">~6 days</output>
@@ -249,7 +254,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">Is there an animal model for this virus?</span>
+                    <span class=" tooltext-1">Is there an animal model for this virus?</span>
                   </div>
                   <h5>Animal Model:</h5>
                   <output id="virus_animal">Non-human primates | Immunodeficient mouse</output>
@@ -257,7 +262,8 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                                    <span class=" tooltext-1">What is the biological safety level required to work with this virus?</span>
+                    <span class=" tooltext-1">What is the biological safety level required to work with this
+                      virus?</span>
                   </div>
                   <h5>Biological Safety Levels:</h5>
                   <output id="virus_safety">2</output>
@@ -541,33 +547,33 @@
             </div>
             <div class="kp_unit">
               <div class="kp_circle vec3"></div>
-              <label class="kp">Nairoviridae</label>
+              <label class="kp">Togaviridae</label>
             </div>
             <div class="kp_unit">
               <div class="kp_circle vec4"></div>
-              <label class="kp">Nodaviridae</label>
+              <label class="kp">Nairoviridae</label>
             </div>
             <div class="kp_unit">
               <div class="kp_circle vec5"></div>
-              <label class="kp">Nyamiviridae</label>
+              <label class="kp">Peribunyaviridae</label>
             </div>
             <div class="kp_unit">
               <div class="kp_circle vec6"></div>
-              <label class="kp">Orthomyxoviridae</label>
+              <label class="kp">Phenuiviridae</label>
             </div>
           </div>
           <div class="kp_group">
             <div class="kp_unit">
               <div class="kp_circle vec7"></div>
-              <label class="kp">Peribunyaviridae</label>
+              <label class="kp">Nodaviridae</label>
             </div>
             <div class="kp_unit">
               <div class="kp_circle vec8"></div>
-              <label class="kp">Phenuiviridae</label>
+              <label class="kp">Nyamiviridae</label>
             </div>
             <div class="kp_unit">
               <div class="kp_circle vec9"></div>
-              <label class="kp">Phenuiviridae</label>
+              <label class="kp">Orthomyxoviridae</label>
             </div>
             <div class="kp_unit">
               <div class="kp_circle vec10"></div>
@@ -575,10 +581,6 @@
             </div>
             <div class="kp_unit">
               <div class="kp_circle vec11"></div>
-              <label class="kp">Togaviridae</label>
-            </div>
-            <div class="kp_unit">
-              <div class="kp_circle vec12"></div>
               <label class="kp">Unknown</label>
             </div>
           </div>
@@ -606,7 +608,7 @@
         <div class="title-sub">
           <div class="togglebtn">
             <label class="switch">
-              <input type="checkbox" name="distribution"/>
+              <input type="checkbox" name="distribution" />
               <span class="slider round"></span>
             </label>
           </div>
@@ -646,18 +648,18 @@
               <label class="kp">Mosquito</label>
             </div>
             <div class="kp_unit">
-              <div class="kp_circle tic"></div>
-              <label class="kp">Tick</label>
-            </div>
-            <div class="kp_unit">
               <div class="kp_circle mid"></div>
               <label class="kp">Midge</label>
+            </div>
+            <div class="kp_unit">
+              <div class="kp_circle san"></div>
+              <label class="kp">Sandfly</label>
             </div>
           </div>
           <div class="kp_group">
             <div class="kp_unit">
-              <div class="kp_circle san"></div>
-              <label class="kp">Sandfly</label>
+              <div class="kp_circle tic"></div>
+              <label class="kp">Tick</label>
             </div>
             <div class="kp_unit">
               <div class="kp_circle oth"></div>
@@ -669,9 +671,9 @@
           <p>Vector type</p>
           <select id="vectortype" name="vectortype">
             <option value="mosquito">Mosquitoes</option>
-            <option value="tick">Ticks</option>
             <option value="sandfly">Sandflies</option>
             <option value="midge">Midges</option>
+            <option value="tick">Ticks</option>
             <option value="other">Others</option>
           </select>
         </div>
@@ -689,7 +691,7 @@
           <div class="unit-toggle">
             <div class="togglebtn">
               <label class="switch">
-                <input type="checkbox" name="climate" />
+                <input type="checkbox" name="climate" id="kp_switch" />
                 <span class="slider round"></span>
               </label>
             </div>
@@ -702,7 +704,8 @@
           </div>
           <div class="opacity-wrapper">
             <label>Opacity: <span class="val_op cli_op">100</span></label>
-            <input id ="opacity_slider" name="climate-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+            <input id="opacity_slider" name="climate-opacity" type="range" min="0" max="100" value="100" step="1"
+              class="opacity">
           </div>
           <!--Time selector-->
           <div id="time-wrapper">
@@ -721,128 +724,150 @@
             </form>
           </div>
           <div class="kp_measure">
-            <div class="kp_group">
-              <div class="kp_unit">
-                <div class="kp_circle am"></div>
-                <label class="kp">Am</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle aw"></div>
-                <label class="kp">Aw</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle af"></div>
-                <label class="kp">Af</label>
-              </div>
-            </div>
-            <div class="kp_group">
-              <div class="kp_unit">
-                <div class="kp_circle bwh"></div>
-                <label class="kp">BWh</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle bwk"></div>
-                <label class="kp">BWk</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle bsh"></div>
-                <label class="kp">BSh</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle bsk"></div>
-                <label class="kp">BSk</label>
+            
+            <div class="major_class">
+              <h5>Tropical</h5>
+              <div class="kp_group">
+                <div class="kp_unit">
+                  <div class="kp_circle af"></div>
+                  <label class="kp">Af</label>
+                </div>
+                <div class="kp_unit">
+                  <div class="kp_circle am"></div>
+                  <label class="kp">Am</label>
+                </div>
+                <div class="kp_unit">
+                  <div class="kp_circle aw"></div>
+                  <label class="kp">Aw</label>
+                </div>
+
               </div>
             </div>
-            <div class="kp_group">
-              <div class="kp_unit">
-                <div class="kp_circle csa"></div>
-                <label class="kp">Csa</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle csb"></div>
-                <label class="kp">Csb</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle csc"></div>
-                <label class="kp">Csc</label>
-              </div>
-            </div>
-            <div class="kp_group">
-              <div class="kp_unit">
-                <div class="kp_circle cwa"></div>
-                <label class="kp">Cwa</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle cwb"></div>
-                <label class="kp">Cwb</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle cwc"></div>
-                <label class="kp">Cwc</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle cfa"></div>
-                <label class="kp">Cfa</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle cfb"></div>
-                <label class="kp">Cfb</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle cfc"></div>
-                <label class="kp">Cfc</label>
+            <div class="major_class">
+              <h5>Arid</h5>
+              <div class="kp_group">
+                <div class="kp_unit">
+                  <div class="kp_circle bwh"></div>
+                  <label class="kp">BWh</label>
+                </div>
+                <div class="kp_unit">
+                  <div class="kp_circle bwk"></div>
+                  <label class="kp">BWk</label>
+                </div>
+                <div class="kp_unit">
+                  <div class="kp_circle bsh"></div>
+                  <label class="kp">BSh</label>
+                </div>
+                <div class="kp_unit">
+                  <div class="kp_circle bsk"></div>
+                  <label class="kp">BSk</label>
+                </div>
               </div>
             </div>
-            <div class="kp_group">
-              <div class="kp_unit">
-                <div class="kp_circle dsa"></div>
-                <label class="kp">Dsa</label>
+            <div class="major_class">
+              <h5>Temperate</h5>
+              <div class="kp_group_wrapper">
+                <div class="kp_group">
+                  <div class="kp_unit">
+                    <div class="kp_circle csa"></div>
+                    <label class="kp">Csa</label>
+                  </div>
+                  <div class="kp_unit">
+                    <div class="kp_circle csb"></div>
+                    <label class="kp">Csb</label>
+                  </div>
+                  <div class="kp_unit">
+                    <div class="kp_circle csc"></div>
+                    <label class="kp">Csc</label>
+                  </div>
+                </div>
+                <div class="kp_group">
+                  <div class="kp_unit">
+                    <div class="kp_circle cwa"></div>
+                    <label class="kp">Cwa</label>
+                  </div>
+                  <div class="kp_unit">
+                    <div class="kp_circle cwb"></div>
+                    <label class="kp">Cwb</label>
+                  </div>
+                  <div class="kp_unit">
+                    <div class="kp_circle cwc"></div>
+                    <label class="kp">Cwc</label>
+                  </div>
+                  <div class="kp_unit">
+                    <div class="kp_circle cfa"></div>
+                    <label class="kp">Cfa</label>
+                  </div>
+                  <div class="kp_unit">
+                    <div class="kp_circle cfb"></div>
+                    <label class="kp">Cfb</label>
+                  </div>
+                  <div class="kp_unit">
+                    <div class="kp_circle cfc"></div>
+                    <label class="kp">Cfc</label>
+                  </div>
+                </div>
               </div>
-              <div class="kp_unit">
-                <div class="kp_circle dsb"></div>
-                <label class="kp">Dsb</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle dsc"></div>
-                <label class="kp">Dsc</label>
-              </div>
+              
             </div>
-            <div class="kp_group">
-              <div class="kp_unit">
-                <div class="kp_circle dwa"></div>
-                <label class="kp">Dwa</label>
+            <div class="major_class">
+              <h5>Cold</h5>
+              <div class="kp_group_wrapper">
+                <div class="kp_group">
+                  <div class="kp_unit">
+                    <div class="kp_circle dsa"></div>
+                    <label class="kp">Dsa</label>
+                  </div>
+                  <div class="kp_unit">
+                    <div class="kp_circle dsb"></div>
+                    <label class="kp">Dsb</label>
+                  </div>
+                  <div class="kp_unit">
+                    <div class="kp_circle dsc"></div>
+                    <label class="kp">Dsc</label>
+                  </div>
+                </div>
+                <div class="kp_group">
+                  <div class="kp_unit">
+                    <div class="kp_circle dwa"></div>
+                    <label class="kp">Dwa</label>
+                  </div>
+                  <div class="kp_unit">
+                    <div class="kp_circle dwb"></div>
+                    <label class="kp">Dwb</label>
+                  </div>
+                  <div class="kp_unit">
+                    <div class="kp_circle dwc"></div>
+                    <label class="kp">Dwc</label>
+                  </div>
+                  <div class="kp_unit">
+                    <div class="kp_circle dwd"></div>
+                    <label class="kp">Dwd</label>
+                  </div>
+                </div>
+                <div class="kp_group">
+                  <div class="kp_unit">
+                    <div class="kp_circle dfa"></div>
+                    <label class="kp">Dfa</label>
+                  </div>
+                  <div class="kp_unit">
+                    <div class="kp_circle dfb"></div>
+                    <label class="kp">Dfb</label>
+                  </div>
+                  <div class="kp_unit">
+                    <div class="kp_circle dfc"></div>
+                    <label class="kp">Dfc</label>
+                  </div>
+                  <div class="kp_unit">
+                    <div class="kp_circle dfd"></div>
+                    <label class="kp">Dfd</label>
+                  </div>
+                </div>
               </div>
-              <div class="kp_unit">
-                <div class="kp_circle dwb"></div>
-                <label class="kp">Dwb</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle dwc"></div>
-                <label class="kp">Dwc</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle dwd"></div>
-                <label class="kp">Dwd</label>
-              </div>
+             
             </div>
-            <div class="kp_group">
-              <div class="kp_unit">
-                <div class="kp_circle dfa"></div>
-                <label class="kp">Dfa</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle dfb"></div>
-                <label class="kp">Dfb</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle dfc"></div>
-                <label class="kp">Dfc</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle dfd"></div>
-                <label class="kp">Dfd</label>
-              </div>
-            </div>
+            <div class="major_class">
+              <h5>Polar</h5>
             <div class="grou_kp">
               <div class="kp_unit">
                 <div class="kp_circle et"></div>
@@ -853,6 +878,129 @@
                 <label class="kp">EF</label>
               </div>
             </div>
+          </div>
+          </div>
+        </div>
+        <!--Mosquito Forecast -->
+        <div class="unit-btn">
+          <div class="unit-toggle">
+            <div class="togglebtn">
+              <label class="switch">
+                <input type="checkbox" name="climate" id="forecast_switch" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <h6>Expansion of Aedes-borne virus transmission risk with climate change</h6>
+            <div class="wrapper tooltip">
+              <a href="#demo-modal1.1"><i class="fa fa-info-circle" style="color: gray; opacity: 0.7;"></i></a>
+              <span class="tooltext">Global expansion and distribution of Aedes-borne virus transmission risk with
+                climate change: Current | 2050 | 2080.</span>
+            </div>
+          </div>
+          <div class="opacity-wrapper">
+            <label>Opacity: <span class="val_op fore_op">100</span></label>
+            <input id="opacity_slider" name="forecast-opacity" type="range" min="0" max="100" value="100" step="1"
+              class="opacity">
+          </div>
+          <label class="forecast_label">Months</label>
+          <div class="forecast_measure">
+            <div class="forecast_group">
+              <div class="forecast_unit">
+                <div class="forecast_month jan"></div>
+                <label class="forecast-month">1</label>
+              </div>
+              <div class="forecast_unit">
+                <div class="forecast_month feb"></div>
+                <label class="forecast-month">2</label>
+              </div>
+              <div class="forecast_unit">
+                <div class="forecast_month mar"></div>
+                <label class="forecast-month">3</label>
+              </div>
+              <div class="forecast_unit">
+                <div class="forecast_month apr"></div>
+                <label class="forecast-month">4</label>
+              </div>
+              <div class="forecast_unit">
+                <div class="forecast_month may"></div>
+                <label class="forecast-month">5</label>
+              </div>
+              <div class="forecast_unit">
+                <div class="forecast_month jun"></div>
+                <label class="forecast-month">6</label>
+              </div>
+            </div>
+            <div class="forecast_group">
+              <div class="forecast_unit">
+                <div class="forecast_month jul"></div>
+                <label class="forecast-month">7</label>
+              </div>
+              <div class="forecast_unit">
+                <div class="forecast_month aug"></div>
+                <label class="forecast-month">8</label>
+              </div>
+              <div class="forecast_unit">
+                <div class="forecast_month set"></div>
+                <label class="forecast-month">9</label>
+              </div>
+              <div class="forecast_unit">
+                <div class="forecast_month out"></div>
+                <label class="forecast-month">10</label>
+              </div>
+              <div class="forecast_unit">
+                <div class="forecast_month nov"></div>
+                <label class="forecast-month">11</label>
+              </div>
+              <div class="forecast_unit">
+                <div class="forecast_month dec"></div>
+                <label class="forecast-month">12</label>
+              </div>
+            </div>
+          </div>
+          <!--Mosquito selector and time and model-->
+          <div id="mosquito_type_wrapper">
+            <form action="/p/quote.php" method="get">
+              <h5 id="form-title"> Select mosquito type, climate year and prediction model</h5>
+              <div id="mosquito-type-selector">
+                <!--aegpty-->
+                <div class="ae_mosquito">
+                  <h5 class="mosquito_type_name">Aedes aegypti</h5>
+                  <input type="radio" name="model_climate" id="arboverse.c89hazcs" value="arboverse.c89hazcs" disabled>
+                  <label for="arboverse.c89hazcs" model="Current"></label>
+
+                  <input type="radio" name="model_climate" id="arboverse.9uh1mltv" value="arboverse.9uh1mltv" disabled>
+                  <label for="arboverse.9uh1mltv" model="2050 | RCP 26"></label>
+
+                  <input type="radio" name="model_climate" id="arboverse.59jzfz3w" value="arboverse.59jzfz3w" disabled>
+                  <label for="arboverse.59jzfz3w" model="2050 | RCP 85"></label>
+
+                  <input type="radio" name="model_climate" id="arboverse.bud0k3bq" value="arboverse.bud0k3bq" disabled>
+                  <label for="arboverse.bud0k3bq" model="2080 | RCP 26"></label>
+
+                  <input type="radio" name="model_climate" id="arboverse.a51uv49z" value="arboverse.a51uv49z" disabled>
+                  <label for="arboverse.a51uv49z" model="2080 | RCP85"></label>
+                </div>
+                <!--albopictus-->
+                <div class="al_mosquito">
+                  <h5 class="mosquito_type_name">Aedes albopictus</h5>
+                  <input type="radio" name="model_climate" id="arboverse.cugep9k4" value="arboverse.cugep9k4" disabled>
+                  <label for="arboverse.cugep9k4" model="Current"></label>
+
+                  <input type="radio" name="model_climate" id="arboverse.7va6tx65" value="arboverse.7va6tx65" disabled>
+                  <label for="arboverse.7va6tx65" model="2050 | RCP 26"></label>
+
+                  <input type="radio" name="model_climate" id="arboverse.2wsi2z3v" value="arboverse.2wsi2z3v" disabled>
+                  <label for="arboverse.2wsi2z3v" model="2050 | RCP 85"></label>
+
+                  <input type="radio" name="model_climate" id="arboverse.cot4nhox" value="arboverse.cot4nhox" disabled>
+                  <label for="arboverse.cot4nhox" model="2080 | RCP 26"></label>
+
+                  <input type="radio" name="model_climate" id="arboverse.92xut72i" value="arboverse.92xut72i" disabled>
+                  <label for="arboverse.92xut72i" model="2080 | RCP 85"></label>
+                </div>
+              </div>
+
+            </form>
           </div>
         </div>
       </div>
@@ -878,7 +1026,8 @@
             </div>
             <div class="opacity-wrapper">
               <label>Opacity: <span class="val_op loss_op">100</span></label>
-              <input id ="opacity_slider" name="coverloss-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+              <input id="opacity_slider" name="coverloss-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
             </div>
             <div class="marker">
               <div class="point pink-orange"></div>
@@ -918,7 +1067,8 @@
             </div>
             <div class="opacity-wrapper">
               <label>Opacity: <span class="val_op drive_op">100</span></label>
-              <input id ="opacity_slider" name="drive-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+              <input id="opacity_slider" name="drive-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
             </div>
             <div class="marker">
               <div class="point comod"></div>
@@ -960,7 +1110,8 @@
             </div>
             <div class="opacity-wrapper">
               <label>Opacity: <span class="val_op primary_op">100</span></label>
-              <input id ="opacity_slider" name="primary-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+              <input id="opacity_slider" name="primary-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
             </div>
             <div class="marker">
               <div class="point musgo-p"></div>
@@ -985,7 +1136,8 @@
             </div>
             <div class="opacity-wrapper">
               <label>Opacity: <span class="val_op height_op">100</span></label>
-              <input id ="opacity_slider" name="height-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+              <input id="opacity_slider" name="height-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
             </div>
             <div class="measure">
               <div class="bar-mesur green-s"></div>
@@ -1016,7 +1168,8 @@
             </div>
             <div class="opacity-wrapper">
               <label>Opacity: <span class="val_op intact_op">100</span></label>
-              <input id ="opacity_slider" name="intact_opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+              <input id="opacity_slider" name="intact_opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
             </div>
             <div class="marker">
               <div class="point green1-p"></div>
@@ -1050,7 +1203,8 @@
             </div>
             <div class="opacity-wrapper">
               <label>Opacity: <span class="val_op index_op">100</span></label>
-              <input id ="opacity_slider" name="index-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+              <input id="opacity_slider" name="index-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
             </div>
             <div class="measure">
               <div class="bar-mesur browngreen-s"></div>
@@ -1086,7 +1240,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="land" id="arboverse.land_Cover_1km_nearest" />
+                  <input type="checkbox" name="land" id="arboverse.8xtrhkxq" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1098,7 +1252,8 @@
             </div>
             <div class="opacity-wrapper">
               <label>Opacity: <span class="val_op land_op">100</span></label>
-              <input id ="opacity_slider" name="land-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+              <input id="opacity_slider" name="land-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
             </div>
             <div class="marker">
               <div class="point agriculture-p"></div>
@@ -1160,7 +1315,8 @@
             </div>
             <div class="opacity-wrapper">
               <label>Opacity: <span class="val_op mini_op">100</span></label>
-              <input id ="opacity_slider" name="mini-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+              <input id="opacity_slider" name="mini-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
             </div>
             <div class="marker">
               <div class="point mining-p"></div>
@@ -1194,7 +1350,8 @@
             </div>
             <div class="opacity-wrapper">
               <label>Opacity: <span class="val_op log_op">100</span></label>
-              <input id ="opacity_slider" name="log-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+              <input id="opacity_slider" name="log-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
             </div>
             <div class="marker">
               <div class="point logging-p"></div>
@@ -1228,7 +1385,8 @@
             </div>
             <div class="opacity-wrapper">
               <label>Opacity: <span class="val_op soy_op">100</span></label>
-              <input id ="opacity_slider" name="soy-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+              <input id="opacity_slider" name="soy-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
             </div>
             <div class="marker">
               <div class="point noexpansion-p"></div>
@@ -1277,7 +1435,8 @@
             </div>
             <div class="opacity-wrapper">
               <label>Opacity: <span class="val_op dams_op">100</span></label>
-              <input id ="opacity_slider" name="dams-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+              <input id="opacity_slider" name="dams-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
             </div>
             <div class="marker">
               <div class="point operational-p"></div>
@@ -1323,7 +1482,8 @@
             </div>
             <div class="opacity-wrapper">
               <label>Opacity: <span class="val_op pop_op">100</span></label>
-              <input id ="opacity_slider" name="pop-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+              <input id="opacity_slider" name="pop-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
             </div>
             <div class="measure">
               <div class="bar-mesur people-s"></div>
@@ -1375,7 +1535,8 @@
             </div>
             <div class="opacity-wrapper">
               <label>Opacity: <span class="val_op opArr">100</span></label>
-              <input id ="opacity_slider" name="opacity-Arr" type="range" min="0" max="100" value="100" step="1" class="opacity">
+              <input id="opacity_slider" name="opacity-Arr" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
             </div>
             <div class="measure">
               <div class="bar-mesur arrivals-s"></div>
@@ -1414,7 +1575,8 @@
             </div>
             <div class="opacity-wrapper">
               <label>Opacity: <span class="val_op dep_op">100</span></label>
-              <input id ="opacity_slider" name="dep-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+              <input id="opacity_slider" name="dep-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
             </div>
             <div class="measure">
               <div class="bar-mesur departures-s"></div>
@@ -1453,7 +1615,8 @@
             </div>
             <div class="opacity-wrapper">
               <label>Opacity: <span class="val_op pass_op">100</span></label>
-              <input id ="opacity_slider" name="pass-opacity" type="range" min="0" max="100" value="100" step="1" class="opacity">
+              <input id="opacity_slider" name="pass-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
             </div>
             <div class="measure">
               <div class="bar-mesur passengers-s"></div>
@@ -1479,7 +1642,8 @@
         </div>
       </div>
       <div class="download_area">
-        <a  class="download_btn" id="downloadLink" href="" download="map.png"><i class="icone_down fa fa-arrow-circle-down"></i>Download Map</a>
+        <a class="download_btn" id="downloadLink" href="" download="map.png"><i
+            class="icone_down fa fa-arrow-circle-down"></i>Download Map</a>
       </div>
 
 
@@ -3960,7 +4124,8 @@
   <section class="how_cite">
     <div class="cite_arbv">
       <h3>How to cite <span class="blue">ARBO</span><span class="orange">VERSE</span> </h3>
-      <p>Surname, AA, Surname, BB, Surname, CC, ARBOVERSE: an open comprehensive database for arthropod-borne virus research. Journal. 2021</p>
+      <p>Surname, AA, Surname, BB, Surname, CC, ARBOVERSE: an open comprehensive database for arthropod-borne virus
+        research. Journal. 2021</p>
     </div>
     <div class="help_arbv">
       <h3>How to help <span class="blue">ARBO</span><span class="orange">VERSE</span> </h3>
@@ -3978,41 +4143,41 @@
     </div>
   </section>
   <!--Team-->
-<section class="team_section">
-  <h3><span class="blue">ARBO</span><span class="orange">VERSE</span> is built by</h3>
-  <div class="team_wrapper">
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/William-M-De-Souza-min.jpg">
+  <section class="team_section">
+    <h3><span class="blue">ARBO</span><span class="orange">VERSE</span> is built by</h3>
+    <div class="team_wrapper">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/William-M-De-Souza-min.jpg">
+        </div>
+        <h6>William M. de Souza,</h6>
       </div>
-      <h6>William M. de Souza,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Oswaldo-Reis-min.jpg">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Oswaldo-Reis-min.jpg">
+        </div>
+        <h6>Oswaldo Reis Jr,</h6>
       </div>
-      <h6>Oswaldo Reis Jr,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Felipe-Rodrigues-min.jpeg">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Felipe-Rodrigues-min.jpeg">
+        </div>
+        <h6>Felipe Rodrigues,</h6>
       </div>
-      <h6>Felipe Rodrigues,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Jacqueline-Tida-min.jpg">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Jacqueline-Tida-min.jpg">
+        </div>
+        <h6>Jacqueline A. Tida,</h6>
       </div>
-      <h6>Jacqueline A. Tida,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Marcílio-Fumagali-min.jpg">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Marcílio-Fumagali-min.jpg">
+        </div>
+        <h6>Marcílio Fumagalli.</h6>
       </div>
-      <h6>Marcílio Fumagalli.</h6>
     </div>
-  </div>
-</section>
+  </section>
 </main>
 <script src="../static/js/mapboxutil.js"></script>
 {% endblock %}
