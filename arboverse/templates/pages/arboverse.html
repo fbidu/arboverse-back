@@ -724,7 +724,7 @@
             </form>
           </div>
           <div class="kp_measure">
-            
+
             <div class="major_class">
               <h5>Tropical</h5>
               <div class="kp_group">
@@ -808,7 +808,7 @@
                   </div>
                 </div>
               </div>
-              
+
             </div>
             <div class="major_class">
               <h5>Cold</h5>
@@ -864,21 +864,21 @@
                   </div>
                 </div>
               </div>
-             
+
             </div>
             <div class="major_class">
               <h5>Polar</h5>
-            <div class="grou_kp">
-              <div class="kp_unit">
-                <div class="kp_circle et"></div>
-                <label class="kp">ET</label>
-              </div>
-              <div class="kp_unit">
-                <div class="kp_circle ef"></div>
-                <label class="kp">EF</label>
+              <div class="grou_kp">
+                <div class="kp_unit">
+                  <div class="kp_circle et"></div>
+                  <label class="kp">ET</label>
+                </div>
+                <div class="kp_unit">
+                  <div class="kp_circle ef"></div>
+                  <label class="kp">EF</label>
+                </div>
               </div>
             </div>
-          </div>
           </div>
         </div>
         <!--Mosquito Forecast -->
@@ -1598,13 +1598,12 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNavSocio()">&times;</a>
         <h3>Socioeconomics</h3>
         <div class="menu-btn">
-          <!--pop-density-->
-           <!--populational density-->
-           <div class="unit-btn2">
+          <!--populational density-->
+          <div class="unit-btn2">
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="land" id="pop_switch" />
+                  <input type="checkbox" name="socioeconomics" id="pop_switch" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1624,13 +1623,118 @@
               <div class="bar-mesur people-s"></div>
               <div class="indice">
                 <label class="millions">0</label>
-                <label class="millions">1</label>
-                <label class="millions">≤25</label>
-                <label class="millions">≤100</label>
-                <label class="millions">≤1k</label>
-                <label class="millions">≤5k</label>
-                <label class="millions">≤10k</label>
-                <label class="millions">≥10k</label>
+                <label class="millions">25</label>
+                <label class="millions">50</label>
+                <label class="millions">100</label>
+                <label class="millions">1k</label>
+                <label class="millions">5k</label>
+                <label class="millions">10k</label>
+                <label class="millions">>10k</label>
+              </div>
+            </div>
+            <!--Time selector-->
+            <div id="socio-time-wrapper">
+              <h5 id="socio-title">Select layer time</h5>
+              <input name="gdp" type="range" min="2000" max="2020" value="2000" step="5" class="val" id="a1" />
+              <div class="slide_bar gdp_value">Move the slider</div>
+            </div>
+          </div>
+          <!--GDP-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <!--add GDP id slide-->
+                  <input type="checkbox" name="socioeconomics" id="" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Global GDP per capita</h6>
+              <div class="wrapper tooltip">
+                <a href="#"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
+                <span class="tooltext">Displays the global GDP between 1990 and 2015</span>
+              </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Opacity: <span class="val_op gdp_op">100</span></label>
+              <input id="opacity_slider" name="gdp-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
+            </div>
+            <div class="measure">
+              <div class="bar-mesur gdp_label"></div>
+              <div class="indice">
+                <label class="percentage">&lt; 2.5k</label>
+                <label class="percentage">&ge; 50K</label>
+              </div>
+            </div>
+            <!--Time selector-->
+            <div id="socio-time-wrapper">
+              <h5 id="socio-title">Select layer time</h5>
+              <input name="gdp" type="range" min="1990" max="2015" value="1990" step="1" class="val" id="a1" />
+              <div class="slide_bar gdp_value">Move the slider</div>
+            </div>
+          </div>
+          <!--HDI-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <!--add HDI id slide-->
+                  <input type="checkbox" name="socioeconomics" id="" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Global HDI</h6>
+              <div class="wrapper tooltip">
+                <a href="#"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
+                <span class="tooltext">Displays the global HDI between 1990 and 2015</span>
+              </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Opacity: <span class="val_op gdp_op">100</span></label>
+              <input id="opacity_slider" name="hdi-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
+            </div>
+            <div class="measure">
+              <div class="bar-mesur hdi_label"></div>
+              <div class="indice">
+                <label class="percentage">&lt; 0.3</label>
+                <label class="percentage">1</label>
+              </div>
+            </div>
+            <!--Time selector-->
+            <div id="socio-time-wrapper">
+              <h5 id="socio-title">Select layer time</h5>
+              <input name="hdi" type="range" min="1990" max="2015" value="1990" step="1" class="val" id="a1" />
+              <div class="slide_bar hdi_value">Move the slider</div>
+            </div>
+          </div>
+          <!--Access to health care-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="socioeconomics" id="health_switch" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Accessibility to health care</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal3.5"><i class="fa fa-info-circle" style="color:gray; opacity: 0.8;"></i></a>
+                <span class="tooltext">Displays the time to access health care</span>
+              </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Opacity: <span class="val_op pop_op">100</span></label>
+              <input id="opacity_slider" name="pop-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
+            </div>
+            <div class="measure">
+              <div class="bar-mesur access_health_label"></div>
+              <div class="indice">
+                <label class="millions">1hour</label>
+                <label class="millions">5 hours</label>
+                <label class="millions">&ge;1 day</label>
               </div>
             </div>
             <!--Time selector-->
@@ -1639,9 +1743,9 @@
                 <h5 id="form-title">Select layer time</h5>
                 <div id="populational-time-slider">
                   <input type="radio" name="year-picker" id="arboverse.pop_2015" value="arboverse.pop_2015" disabled>
-                  <label for="arboverse.pop_2015" data-time-amount="2015"></label>
+                  <label for="arboverse.pop_2015" data-time-amount="On foot"></label>
                   <input type="radio" name="year-picker" id="arboverse.pop_2020" value="arboverse.pop_2020" disabled>
-                  <label for="arboverse.pop_2020" data-time-amount="2020"></label>
+                  <label for="arboverse.pop_2020" data-time-amount="Motorized"></label>
                 </div>
               </form>
             </div>

@@ -1058,7 +1058,7 @@
 .bar-mesur {
   width: 280px;
   margin: 0 auto; /* Bar Measurement Area */
-  height: 5px;
+  height:8px;
   border-radius: 5px;
 }
 .forecast_label{
@@ -1098,17 +1098,123 @@
 .green-s {
   background: linear-gradient(90deg, #9EF01Aff, #99EA1Aff, #93E51Bff, #8EDF1Bff, #88D91Bff, #83D41Cff, #7DCE1Cff, #78C81Cff, #72C21Cff, #6DBD1Dff, #68B71Dff, #62B11Dff, #5DAC1Eff, #57A61Eff, #52A01Eff, #4C9B1Fff, #47951Fff, #418F1Fff, #3C8A20ff, #368420ff, #317E20ff, #2C7921ff, #267321ff, #216D21ff, #1B6721ff, #166222ff, #105C22ff, #0B5622ff, #055123ff, #004B23ff);
 }
+.gdp_label{
+  background: linear-gradient(
+    90deg,
+    #1A33B3 5%,
+    #1F3CAE 5%,
+    #1F3CAE 10%,
+    #2344AA 10%,
+    #2344AA 15%,
+    #274dA6 15%,
+    #274dA6 20%,
+    #2C55A1 20%,
+    #2C55A1 25%,
+    #305E9D 25%,
+    #305E9D 30%,
+    #356598 30%,
+    #356598 35%,
+    #3B6D92 35%,
+    #3B6D92 40%,
+    #42748B 40%,
+    #42748B 45%,
+    #4A7D84 45%,
+    #4A7D84 50%,
+    #53867F 50%,
+    #53867F 55%,
+    #5E917B 55%,
+    #5E917B 60%,
+    #6A9D78 60%,
+    #6A9D78 65%,
+    #84B772 65%,
+    #84B772 70%,
+    #91c46F 70%,
+    #91c46F 75%,
+    #9FD26B 75%,
+    #9FD26B 80%,
+    #B2E068 80%,
+    #B2E068 85%,
+    #C9EC67 85%,
+    #C9EC67 90%,
+    #E5F666 90%,
+    #E5F666 95%,
+    #ffff66 95%, 
+    #ffff66 100%
+
+  ) ;
+}
+.hdi_label{
+  background: linear-gradient(
+    90deg,
+    #05598c 5%,
+    #185d88 5%,
+    #185d88 10%,
+    #266184 10%,
+    #266184 15%,
+    #346782 15%,
+    #346782 20%,
+    #436e82 20%,
+    #436e82 25%,
+    #537785 25%,
+    #537785 30%,
+    #63818a 30%,
+    #63818a 35%,
+    #748a8f 35%,
+    #748a8f 40%,
+    #859493 40%,
+    #859493 45%,
+    #949d97 45%,
+    #949d97 50%,
+    #a1a698 50%,
+    #a1a698 55%,
+    #aaac96 55%,
+    #aaac96 60%,
+    #b2b293 60%,
+    #b2b293 65%,
+    #b8b88e 65%,
+    #b8b88e 70%,
+    #bdbd8a 70%,
+    #bdbd8a 75%,
+    #c3c385 75%,
+    #c3c385 80%,
+    #caca83 80%,
+    #caca83 85%,
+    #d5d586 85%,
+    #d5d586 90%,
+    #e4e391 90%,
+    #e4e391 95%,
+    #f2f2a0 95%, 
+    #f2f2a0 100%
+
+  );
+}
+.access_health_label{
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #bab3f1,
+    #3669ad,
+    #2c1aac
+  );
+}
 .people-s {
   background: linear-gradient(
     90deg,
-    hsla(0, 0%, 100%, 0),
-    #f8f9fa,
-    #180f3e,
-    #440f76,
-    #721f81,
-    #9e2f7f,
-    #cd3f71,
-    #f1605d
+    #e4db69 12.5%,
+    #dcbd70 12.5%,
+    #dcbd70 25%,
+    #d4a177 25%,
+    #d4a177 37.5%,
+    #cd857e 37.5%,
+    #cd857e 50%,
+    #c56a87 50%,
+    #c56a87 62.5%,
+    #bc4e90 62.5%,
+    #bc4e90 75%,
+    #b32f9c 75%,
+    #b32f9c 87.5%,
+    #b301b3 87.5%,
+    #b301b3 100%
   );
 }
 .passengers-s{
@@ -2142,7 +2248,8 @@ form:valid #populational-time-slider input:checked + label::before {
   transition: all 0.15s linear;
 }
 /* year-human-mobility*/
-#mobility-time-wrapper{
+#mobility-time-wrapper,
+#socio-time-wrapper{
   width: 100%;
   height: 90px;
   padding: 10px;
@@ -2152,7 +2259,8 @@ form:valid #populational-time-slider input:checked + label::before {
   margin: 10px 0;
   background: hsla(0, 0%, 86%, 0.3);
 }
-#passenger-title{
+#passenger-title,
+#socio-title{
   font-family: 'Montserrat', serif;
   font-weight: 400;
   text-align: center;
@@ -2172,7 +2280,8 @@ form:valid #populational-time-slider input:checked + label::before {
 }
 .year_value::before,
 .year_departures::before,
-.arr_value::before{
+.arr_value::before,
+.socio_value::before{
   content: 'Year: ';
   margin-right: 5px;
   font-family: 'Montserrat', serif;
@@ -2264,7 +2373,35 @@ form:valid #populational-time-slider input:checked + label::before {
   transform: scale(1.1);
   border:1px solid var(--orange);
 }
-
+/* ===== Slide Input Socioeconomics ===*/
+#socio-time-wrapper input{
+  margin-top: 20px;
+  display: block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: rgb(180, 180, 180);
+  border-radius: 5px;
+  width: 90%;
+  height: 1px;
+  outline: 0;
+}
+#socio-time-wrapper input::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  background-color: #fff;
+  border: 1px solid rgb(180, 180, 180);
+  border-radius: 50%;
+  width:15px;
+  height: 15px;
+  cursor: pointer;
+  transition: .3s ease-in-out;
+}
+#socio-time-wrapper input::-webkit-slider-thumb:hover{
+  transform: scale(1.5);
+}
+#socio-time-wrapper input::-webkit-slider-thumb:active{
+  transform: scale(1.1);
+  border:1px solid var(--orange);
+}
 /*---- HOW to cite ---*/
 .how_cite{
   width: 80%;
