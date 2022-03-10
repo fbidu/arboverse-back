@@ -510,7 +510,7 @@
             <span>Human mobility</span>
           </div>
         </div>
-        <div class="item-button" id="socioeconomic" onclick="openNavMob()">
+        <div class="item-button" id="socioeconomic" onclick="openNavSocio()">
           <div class="button-wrapper">
             <div id="check8" class="check"></div>
             <img src="{% static 'images/aboverse/icons/socioeconomics-min.png' %}" />
@@ -1463,54 +1463,6 @@
               <label class="point-mean">Unknown</label>
             </div>
           </div>
-          <h5 class="area">People</h5>
-          <!--populational density-->
-          <div class="unit-btn2">
-            <div class="unit-toggle">
-              <div class="togglebtn">
-                <label class="switch">
-                  <input type="checkbox" name="land" id="pop_switch" />
-                  <span class="slider round"></span>
-                </label>
-              </div>
-              <h6>Population density</h6>
-              <div class="wrapper tooltip">
-                <a href="#demo-modal3.5"><i class="fa fa-info-circle" style="color:gray; opacity: 0.8;"></i></a>
-                <span class="tooltext">Global estimate of human population density and
-                  distribution</span>
-              </div>
-            </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op pop_op">100</span></label>
-              <input id="opacity_slider" name="pop-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
-            <div class="measure">
-              <div class="bar-mesur people-s"></div>
-              <div class="indice">
-                <label class="millions">0</label>
-                <label class="millions">1</label>
-                <label class="millions">≤25</label>
-                <label class="millions">≤100</label>
-                <label class="millions">≤1k</label>
-                <label class="millions">≤5k</label>
-                <label class="millions">≤10k</label>
-                <label class="millions">≥10k</label>
-              </div>
-            </div>
-            <!--Time selector-->
-            <div id="pop-time-wrapper">
-              <form action="/p/quote.php" method="get">
-                <h5 id="form-title">Select layer time</h5>
-                <div id="populational-time-slider">
-                  <input type="radio" name="year-picker" id="arboverse.pop_2015" value="arboverse.pop_2015" disabled>
-                  <label for="arboverse.pop_2015" data-time-amount="2015"></label>
-                  <input type="radio" name="year-picker" id="arboverse.pop_2020" value="arboverse.pop_2020" disabled>
-                  <label for="arboverse.pop_2020" data-time-amount="2020"></label>
-                </div>
-              </form>
-            </div>
-          </div>
         </div>
       </div>
       <!--Human Mobility-->
@@ -1640,6 +1592,62 @@
             </div>
           </div>
         </div>
+      </div>
+      <!--Socioeconomics-->
+      <div id="socio-menu" class="sub-six-menu">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavSocio()">&times;</a>
+        <h3>Socioeconomics</h3>
+        <div class="menu-btn">
+          <!--pop-density-->
+           <!--populational density-->
+           <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="land" id="pop_switch" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Population density</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal3.5"><i class="fa fa-info-circle" style="color:gray; opacity: 0.8;"></i></a>
+                <span class="tooltext">Global estimate of human population density and
+                  distribution</span>
+              </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Opacity: <span class="val_op pop_op">100</span></label>
+              <input id="opacity_slider" name="pop-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
+            </div>
+            <div class="measure">
+              <div class="bar-mesur people-s"></div>
+              <div class="indice">
+                <label class="millions">0</label>
+                <label class="millions">1</label>
+                <label class="millions">≤25</label>
+                <label class="millions">≤100</label>
+                <label class="millions">≤1k</label>
+                <label class="millions">≤5k</label>
+                <label class="millions">≤10k</label>
+                <label class="millions">≥10k</label>
+              </div>
+            </div>
+            <!--Time selector-->
+            <div id="pop-time-wrapper">
+              <form action="/p/quote.php" method="get">
+                <h5 id="form-title">Select layer time</h5>
+                <div id="populational-time-slider">
+                  <input type="radio" name="year-picker" id="arboverse.pop_2015" value="arboverse.pop_2015" disabled>
+                  <label for="arboverse.pop_2015" data-time-amount="2015"></label>
+                  <input type="radio" name="year-picker" id="arboverse.pop_2020" value="arboverse.pop_2020" disabled>
+                  <label for="arboverse.pop_2020" data-time-amount="2020"></label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
       </div>
       <div class="download_area">
         <a class="download_btn" id="downloadLink" href="" download="map.png"><i

@@ -487,7 +487,8 @@
 .sub-second-menu .closebtn,
 .sub-th-menu .closebtn,
 .sub-fou-menu .closebtn,
-.sub-fiv-menu .closebtn {
+.sub-fiv-menu .closebtn,
+.sub-six-menu .closebtn {
   position: absolute;
   top: 0;
   right: 10px;
@@ -534,7 +535,8 @@
 .sub-second-menu h3,
 .sub-th-menu h3,
 .sub-fou-menu h3,
-.sub-fiv-menu h3 {
+.sub-fiv-menu h3,
+.sub-six-menu h3 {
   margin-top: 15px;
   font-family: "montserrat", serif;
   font-weight: 500;
@@ -547,7 +549,8 @@
 /* FOREST COVER, LAND COVER and MOBILITY*/
 .sub-th-menu,
 .sub-fou-menu,
-.sub-fiv-menu {
+.sub-fiv-menu,
+.sub-six-menu {
   width: 0;
   display: block;
   overflow-x: hidden;

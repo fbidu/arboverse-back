@@ -17,6 +17,7 @@ function openNav() {
     document.getElementById('forestcover-menu').style.width = "0";
     document.getElementById('land-cover-menu').style.width = "0";
     document.getElementById('mobility-menu').style.width = "0";
+    document.getElementById('socio-menu').style.width = "0";
     document.getElementById('discovery').classList.add('btn-active')
 
 }
@@ -35,6 +36,7 @@ function openNavdist() {
     document.getElementById('forestcover-menu').style.width = "0";
     document.getElementById('land-cover-menu').style.width = "0";
     document.getElementById('mobility-menu').style.width = "0";
+    document.getElementById('socio-menu').style.width = "0";
     document.getElementById('distribution').classList.add('btn-active')
 
 }
@@ -53,6 +55,7 @@ function openNavVec() {
     document.getElementById('forestcover-menu').style.width = "0";
     document.getElementById('land-cover-menu').style.width = "0";
     document.getElementById('mobility-menu').style.width = "0";
+    document.getElementById('socio-menu').style.width = "0";
     document.getElementById('vector').classList.add('btn-active')
 
 }
@@ -70,6 +73,7 @@ function openNavCli() {
     document.getElementById('forestcover-menu').style.width = "0";
     document.getElementById('land-cover-menu').style.width = "0";
     document.getElementById('mobility-menu').style.width = "0";
+    document.getElementById('socio-menu').style.width = "0";
     document.getElementById('climate').classList.add('btn-active')
 
 }
@@ -88,6 +92,7 @@ function openNavFor() {
     document.getElementById('climate-menu').style.width = "0";
     document.getElementById('land-cover-menu').style.width = "0";
     document.getElementById('mobility-menu').style.width = "0";
+    document.getElementById('socio-menu').style.width = "0";
     document.getElementById('forest').classList.add('btn-active')
 
 }
@@ -106,6 +111,7 @@ function openNavLan() {
     document.getElementById('climate-menu').style.width = "0";
     document.getElementById('forestcover-menu').style.width = "0";
     document.getElementById('mobility-menu').style.width = "0";
+    document.getElementById('socio-menu').style.width = "0";
     document.getElementById('land').classList.add('btn-active')
 
 }
@@ -114,7 +120,7 @@ function closeNavLan() {
     document.getElementById('land').classList.remove('btn-active')
 }
 
-// Open and Close submenu Land cover
+// Open and Close submenu Mobility
 function openNavMob() {
     document.getElementById('mobility-menu').style.width = "320px";
     document.getElementById('mobility-menu').style.opacity = "1";
@@ -124,12 +130,31 @@ function openNavMob() {
     document.getElementById('climate-menu').style.width = "0";
     document.getElementById('forestcover-menu').style.width = "0";
     document.getElementById('land-cover-menu').style.width = "0";
+    document.getElementById('socio-menu').style.width = "0";
     document.getElementById('mobility').classList.add('btn-active')
 
 }
 function closeNavMob() {
     document.getElementById('mobility-menu').style.width = "0";
     document.getElementById('mobility').classList.remove('btn-active')
+}
+// Open and Close submenu Mobility
+function openNavSocio() {
+    document.getElementById('socio-menu').style.width = "320px";
+    document.getElementById('socio-menu').style.opacity = "1";
+    document.getElementById("discovery-menu").style.width = "0";
+    document.getElementById("distribution-menu").style.width = "0";
+    document.getElementById('vector-menu').style.width = "0";
+    document.getElementById('climate-menu').style.width = "0";
+    document.getElementById('forestcover-menu').style.width = "0";
+    document.getElementById('land-cover-menu').style.width = "0";
+    document.getElementById('mobility-menu').style.width = "0";
+    document.getElementById('socioeconomic').classList.add('btn-active')
+
+}
+function closeNavSocio() {
+    document.getElementById('socio-menu').style.width = "0";
+    document.getElementById('socioeconomic').classList.remove('btn-active')
 }
 //Checked Discovery
 showChekedDis();
