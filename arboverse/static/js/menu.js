@@ -239,6 +239,18 @@ document.querySelectorAll("input[name=mobility]").forEach(i => {
         update_map(this)
     }
 });
+//Checked human mobility
+showChekedSoc();
+var i = 0;
+function showChekedSoc() {
+    document.getElementById('check8').textContent = document.querySelectorAll("input[name=socioeconomics]:checked").length;
+}
+document.querySelectorAll("input[name=socioeconomics]").forEach(i => {
+    i.onclick = function () {
+        showChekedSoc();
+        update_map(this)
+    }
+});
 //Forecast mosquito climate Condition 
 var i=0;
 var forecastSwitchbtn = document.getElementById('forecast_switch')
