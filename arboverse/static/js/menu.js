@@ -18,6 +18,7 @@ function openNav() {
     document.getElementById('land-cover-menu').style.width = "0";
     document.getElementById('mobility-menu').style.width = "0";
     document.getElementById('socio-menu').style.width = "0";
+    document.getElementById('biodiversity-menu').style.width = "0";
     document.getElementById('discovery').classList.add('btn-active')
 
 }
@@ -37,6 +38,7 @@ function openNavdist() {
     document.getElementById('land-cover-menu').style.width = "0";
     document.getElementById('mobility-menu').style.width = "0";
     document.getElementById('socio-menu').style.width = "0";
+    document.getElementById('biodiversity-menu').style.width = "0";
     document.getElementById('distribution').classList.add('btn-active')
 
 }
@@ -56,6 +58,7 @@ function openNavVec() {
     document.getElementById('land-cover-menu').style.width = "0";
     document.getElementById('mobility-menu').style.width = "0";
     document.getElementById('socio-menu').style.width = "0";
+    document.getElementById('biodiversity-menu').style.width = "0";
     document.getElementById('vector').classList.add('btn-active')
 
 }
@@ -74,6 +77,7 @@ function openNavCli() {
     document.getElementById('land-cover-menu').style.width = "0";
     document.getElementById('mobility-menu').style.width = "0";
     document.getElementById('socio-menu').style.width = "0";
+    document.getElementById('biodiversity-menu').style.width = "0";
     document.getElementById('climate').classList.add('btn-active')
 
 }
@@ -93,6 +97,7 @@ function openNavFor() {
     document.getElementById('land-cover-menu').style.width = "0";
     document.getElementById('mobility-menu').style.width = "0";
     document.getElementById('socio-menu').style.width = "0";
+    document.getElementById('biodiversity-menu').style.width = "0";
     document.getElementById('forest').classList.add('btn-active')
 
 }
@@ -112,6 +117,7 @@ function openNavLan() {
     document.getElementById('forestcover-menu').style.width = "0";
     document.getElementById('mobility-menu').style.width = "0";
     document.getElementById('socio-menu').style.width = "0";
+    document.getElementById('biodiversity-menu').style.width = "0";
     document.getElementById('land').classList.add('btn-active')
 
 }
@@ -131,6 +137,7 @@ function openNavMob() {
     document.getElementById('forestcover-menu').style.width = "0";
     document.getElementById('land-cover-menu').style.width = "0";
     document.getElementById('socio-menu').style.width = "0";
+    document.getElementById('biodiversity-menu').style.width = "0";
     document.getElementById('mobility').classList.add('btn-active')
 
 }
@@ -138,7 +145,7 @@ function closeNavMob() {
     document.getElementById('mobility-menu').style.width = "0";
     document.getElementById('mobility').classList.remove('btn-active')
 }
-// Open and Close submenu Mobility
+// Open and Close submenu socio
 function openNavSocio() {
     document.getElementById('socio-menu').style.width = "320px";
     document.getElementById('socio-menu').style.opacity = "1";
@@ -149,12 +156,32 @@ function openNavSocio() {
     document.getElementById('forestcover-menu').style.width = "0";
     document.getElementById('land-cover-menu').style.width = "0";
     document.getElementById('mobility-menu').style.width = "0";
+    document.getElementById('biodiversity-menu').style.width = "0";
     document.getElementById('socioeconomic').classList.add('btn-active')
 
 }
 function closeNavSocio() {
     document.getElementById('socio-menu').style.width = "0";
     document.getElementById('socioeconomic').classList.remove('btn-active')
+}
+// Open and Close submenu biodiversity
+function openNavBio() {
+    document.getElementById('biodiversity-menu').style.width = "320px";
+    document.getElementById('biodiversity-menu').style.opacity = "1";
+    document.getElementById("discovery-menu").style.width = "0";
+    document.getElementById("distribution-menu").style.width = "0";
+    document.getElementById('vector-menu').style.width = "0";
+    document.getElementById('climate-menu').style.width = "0";
+    document.getElementById('forestcover-menu').style.width = "0";
+    document.getElementById('land-cover-menu').style.width = "0";
+    document.getElementById('mobility-menu').style.width = "0";
+    document.getElementById('socio-menu').style.width = "0";
+    document.getElementById('biodiversity').classList.add('btn-active')
+
+}
+function closeNavBio() {
+    document.getElementById('biodiversity-menu').style.width = "0";
+    document.getElementById('biodiversity').classList.remove('btn-active')
 }
 //Checked Discovery
 showChekedDis();
@@ -239,7 +266,7 @@ document.querySelectorAll("input[name=mobility]").forEach(i => {
         update_map(this)
     }
 });
-//Checked human mobility
+//Checked socioeconomics
 showChekedSoc();
 var i = 0;
 function showChekedSoc() {
@@ -248,6 +275,18 @@ function showChekedSoc() {
 document.querySelectorAll("input[name=socioeconomics]").forEach(i => {
     i.onclick = function () {
         showChekedSoc();
+        update_map(this)
+    }
+});
+//Checked socioeconomics
+showChekedBio();
+var i = 0;
+function showChekedBio() {
+    document.getElementById('check9').textContent = document.querySelectorAll("input[name=biodiversity]:checked").length;
+}
+document.querySelectorAll("input[name=biodiversity]").forEach(i => {
+    i.onclick = function () {
+        showChekedBio();
         update_map(this)
     }
 });

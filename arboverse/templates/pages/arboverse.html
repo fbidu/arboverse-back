@@ -496,6 +496,13 @@
             <span>Forest cover & Deforestation</span>
           </div>
         </div>
+        <div class="item-button" id="biodiversity" onclick="openNavBio()">
+          <div class="button-wrapper">
+            <div id="check9" class="check"></div>
+            <img src="{% static 'images/aboverse/icons/biodiversity-min.png' %}" />
+            <span>Biodiversity</span>
+          </div>
+        </div>
         <div class="item-button" id="land" onclick="openNavLan()">
           <div class="button-wrapper">
             <div id="check6" class="check"></div>
@@ -1225,6 +1232,182 @@
                 <label class="index">Low integrity</label>
                 <label class="index">High integrity</label>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Biodiversity-->
+      <div id="biodiversity-menu" class="sub-sev-menu">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNavBio()">&times;</a>
+        <h3>Biodiversity</h3>
+        <div class="menu-btn">
+          <!--biodiversity Intactness-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="biodiversity"
+                    id="" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Biodiversity intactness index</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal2.3"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
+                <span class="tooltext">Displays the height of global forest canopy in 2019</span>
+              </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Opacity: <span class="val_op biodiversity_op">100</span></label>
+              <input id="opacity_slider" name="biodiversity-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
+            </div>
+            <div class="measure">
+              <div class="bar-mesur biodiversity_label"></div>
+              <div class="indice">
+                <label class="percentage">20%</label>
+                <label class="percentage">40%</label>
+                <label class="percentage">60%</label>
+                <label class="percentage">80%</label>
+                <label class="percentage">100%</label>
+              </div>
+            </div>
+          </div>
+          <!--Mammals-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="biodiversity"
+                    id="" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Mammals biodiversity</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal2.3"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
+                <span class="tooltext">Displays the height of global forest canopy in 2019</span>
+              </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Opacity: <span class="val_op mammals_op">100</span></label>
+              <input id="opacity_slider" name="mammals-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
+            </div>
+            <div class="measure">
+              <div class="bar-mesur mammals_label"></div>
+              <div class="indice">
+                <label class="percentage">1</label>
+                <!--Create JS to change the label limit according to layer data-->
+                <label class="percentage">210</label>
+              </div>
+            </div>
+            <div class="box">
+              <p>Mammal order</p>
+              <select id="mammalType" name="mammalsType">
+                <option value="" disabled selected hidden>Select mammal order</option>
+                <option value="carnivora">Carnivora</option>
+                <option value="cetartiodactyla">Cetartiodactyla</option>
+                <option value="chiroptera">Chiroptera (bats)</option>
+                <option value="eulipotyphla">Eulipotyphla</option>
+                <option value="primates">Primates</option>
+                <option value="rodentia">Rodentia</option>
+                <option value="marsupials">Marsupials</option>
+                <option value="mmammal_richness">Mammals Richness</option>
+                <option value="small_ranged_mammals">Small-ranged Mammals</option>
+                <option value="threatened_mammals">Threatened Mammals</option>
+                <option value="data_deficient_mammals">Data Deficient Mammals</option>
+              </select>
+            </div>
+          </div>
+           <!--birds-->
+           <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="biodiversity"
+                    id="" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Birds biodiversity</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal2.3"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
+                <span class="tooltext">Displays the height of global forest canopy in 2019</span>
+              </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Opacity: <span class="val_op birds_op">100</span></label>
+              <input id="opacity_slider" name="birds-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
+            </div>
+            <div class="measure">
+              <div class="bar-mesur birds_label"></div>
+              <div class="indice">
+                <label class="percentage">1</label>
+                <!--Create JS to change the label limit according to layer data-->
+                <label class="percentage">210</label>
+              </div>
+            </div>
+            <div class="box">
+              <p>Bird order</p>
+              <select id="birdType" name="birdsType">
+                <option value="" disabled selected hidden>Select bird order</option>
+                <option value="passeriformes">Passeriformes</option>
+                <option value="psitaciformes">Psitaciformes (parrots)</option>
+                <option value="non_passeriformes">Non passeriformes</option>
+                <option value="trochilidae">Trochilidade (Hummingbirds)</option>
+                <option value="bird_richness">Bird Richness</option>
+                <option value="small_ranged_birds">Small-ranged Birds</option>
+                <option value="threatened_birds">Threatened Birds</option>
+                <option value="breeding_ranges_birds">Birds - breeding ranges</option>
+                <option value="nonbreeding_ranges_birds">Birds - nonbreeding ranges</option>
+                <option value="threatened_small_ranged_birds">Threatened Small-ranged Birds</option>
+                <option value="data_deficient_birds">Data Deficient Birds</option>
+              </select>
+            </div>
+          </div>
+           <!--anphibians-->
+           <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="biodiversity"
+                    id="" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Anphibians biodiversity</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal2.3"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
+                <span class="tooltext">Displays the height of global forest canopy in 2019</span>
+              </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Opacity: <span class="val_op amphibians_op">100</span></label>
+              <input id="opacity_slider" name="amphibians-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
+            </div>
+            <div class="measure">
+              <div class="bar-mesur amphibians_label"></div>
+              <div class="indice">
+                <label class="percentage">1</label>
+                <!--Create JS to change the label limit according to layer data-->
+                <label class="percentage">136</label>
+              </div>
+            </div>
+            <div class="box">
+              <p>Amphibians order</p>
+              <select id="birdType" name="birdsType">
+                <option value="" disabled selected hidden>Select amphibian order</option>
+                <option value="caudata">Caudata (salamanders)</option>
+                <option value="anura">Anura (frogs)</option>
+                <option value="Gymnophiona">Gymnophiona (Caecilians)</option>
+                <option value="amphibian_richness">Amphibian Richness</option>
+                <option value="small_ranged_amphibians">Small-ranged Amphibians</option>
+                <option value="threatened_amphibians">Threatened Amphibians</option>
+                <option value="data_deficient_amphibians">Data Deficient Amphibians</option>
+              </select>
             </div>
           </div>
         </div>
