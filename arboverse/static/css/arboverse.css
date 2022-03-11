@@ -299,7 +299,7 @@
 
 /* ======= GRID for Map =======*/
 .grid{
-  height: 90vh;
+  height: 95vh;
   width: 100%;
   overflow: hidden;
   display: grid;
@@ -357,7 +357,7 @@
 }
 /*Main button side menu*/
 .item-button {
-  padding: 10px;
+  padding: 5px;
   cursor: pointer;
   background-color: var(--lightGrey);
   border-bottom: solid 1px hsla(0, 0%, 50%, 0.3);
@@ -488,7 +488,8 @@
 .sub-th-menu .closebtn,
 .sub-fou-menu .closebtn,
 .sub-fiv-menu .closebtn,
-.sub-six-menu .closebtn {
+.sub-six-menu .closebtn,
+.sub-sev-menu .closebtn{
   position: absolute;
   top: 0;
   right: 10px;
@@ -536,7 +537,8 @@
 .sub-th-menu h3,
 .sub-fou-menu h3,
 .sub-fiv-menu h3,
-.sub-six-menu h3 {
+.sub-six-menu h3,
+.sub-sev-menu h3 {
   margin-top: 15px;
   font-family: "montserrat", serif;
   font-weight: 500;
@@ -550,7 +552,8 @@
 .sub-th-menu,
 .sub-fou-menu,
 .sub-fiv-menu,
-.sub-six-menu {
+.sub-six-menu,
+.sub-sev-menu {
   width: 0;
   display: block;
   overflow-x: hidden;
@@ -1197,6 +1200,63 @@
     #2c1aac
   );
 }
+.biodiversity_label{
+  background: linear-gradient(
+    90deg,
+    #7e1700,
+    #c8b455,
+    #5dc1d3,
+    #033198
+  );
+}
+.mammals_label{
+  background: linear-gradient(
+    90deg,
+    #8c0273,
+    #922a59,
+    #964642,
+    #996330,
+    #9d831e,
+    #97a929,
+    #80c55f,
+    #66d99d,
+    #6bebdb,
+    #b3f2fd
+
+  );
+}
+.birds_label{
+  background: linear-gradient(
+    90deg,
+    #fef2f3,
+    #efd3c0,
+    #c0b299,
+    #94a298,
+    #6d95a1,
+    #4c80a3,
+    #36679d,
+    #2a4b8f,
+    #232d7b,
+    #1a0c64
+
+  );
+}
+.amphibians_label{
+  background: linear-gradient(
+    90deg,
+    #faccfa,
+    #fdb7bc,
+    #f8a17c,
+    #d29343,
+    #9c892b,
+    #697b3d,
+    #3c6d56,
+    #1b5a62,
+    #103f60,
+    #011959
+
+  );
+}
 .people-s {
   background: linear-gradient(
     90deg,
@@ -1706,7 +1766,7 @@
   flex-direction: column;
   justify-content: center;
  align-items: center;
- margin: 20px 5px 10px 5px;
+ margin: 20px auto 10px auto;
 }
 .box p {
   position: relative;
@@ -1718,6 +1778,7 @@
 }
 .box select {
   width: 90%;
+  margin: 0 auto;
   height: 30px;
   border-radius: 20px;
   color: #999;
