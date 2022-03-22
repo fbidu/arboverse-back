@@ -489,6 +489,14 @@ var foreValue = function(){
 }
 fore.addEventListener('input', foreValue)
 
+var arid = document.querySelector('input[name=aridity-opacity]');
+var ariValue = function(){
+    var newAriValue = ari.value;
+    var target = document.querySelector('.ari_op');
+    target.innerHTML = newAriValue;
+}
+ari.addEventListener('input', ariValue)
+
 var loss = document.querySelector('input[name=coverloss-opacity]');
 var lossValue = function(){
     var newOpValue = loss.value;
