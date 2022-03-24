@@ -1735,23 +1735,8 @@
 .deforested-p {
   background-color: #720026;
 }
-.operational-p {
-  background-color: #f2a65a;
-}
-.under-p {
-  background-color: #e86c5f;
-}
-.planned-p {
-  background-color: #bed24b;
-}
-.inventoried-p {
-  background-color: #3abb9b;
-}
-.suspended-p {
-  background-color: #dd2c2f;
-}
-.unknown-p {
-  background-color: #822faf;
+.dams_38 {
+  background-color: #c2608a;
 }
 
 /* ======= Sub-menu container Timeline Features  =======*/

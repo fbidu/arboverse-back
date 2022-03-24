@@ -472,7 +472,7 @@ var ariValue = function(){
     var target = document.querySelector('.ari_op');
     target.innerHTML = newAriValue;
 }
-ari.addEventListener('input', ariValue)
+arid.addEventListener('input', ariValue)
 
 var biome = document.querySelector('input[name=biome-opacity]');
 var biomeValue = function(){

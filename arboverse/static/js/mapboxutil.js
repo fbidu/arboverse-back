@@ -201,7 +201,8 @@ map.on('load', async()=>{
     addTileLayerToMap(map, 'arboverse.logging6', 'mapbox://arboverse.logging', 'fill', { 'fill-color': "#08255B" }, 'centra_africa_logging');
     addTileLayerToMap(map, 'arboverse.logging7', 'mapbox://arboverse.logging', 'fill', { 'fill-color': "#08255B" }, 'camerron_logging');
     addTileLayerToMap(map, 'arboverse.logging8', 'mapbox://arboverse.canada_logging', 'fill', { 'fill-color': "#08255B" }, 'canada_logging_nova');
-    addTileLayerToMap(map, 'arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech', 'mapbox://arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech', 'circle', {'circle-radius': 4, 'circle-color': ["match",["get", "status"],["Operational"],"#f2a65a",["Under Construction"],"#e86c5f",["Planned"],"hsl(69, 60%, 56%)",["Inventoried"],"#3abb9b",["Suspended"],"#dd2c2f",["Unknown"],"#822faf","#fff"]}, 'major_Dams_new');
+    //Over 38k dams
+    addTileLayerToMap(map, 'arboverse.dams', 'mapbox://arboverse.dams', 'circle', {'circle-radius': [ "interpolate", ["linear"], ["zoom"], 0, 2, 22, 9 ], 'circle-color': "#c2608a", 'circle-stroke-color': "#bd548e", 'circle-stroke-width': 0.5 }, 'dams');
 })
 //Number of passengers
 map.on('load', function(){
@@ -364,7 +365,7 @@ map.on('load', function(){
     var landSlider = document.querySelector('input[name=land-opacity]');
     var miniSlider = document.querySelector('input[name=mini-opacity]');
     var logSlider = document.querySelector('input[name=log-opacity]');
-    var damsSlider = document.querySelector('input[name=dams-opacity]');
+    var damsSlider = document.querySelector('input[name=dams-opacity]')
     var popSlider = document.querySelector('input[name=pop-opacity]');
     var arrSlider = document.querySelector('input[name=opacity-Arr]');
     var depSlider = document.querySelector('input[name=dep-opacity]');
@@ -377,7 +378,6 @@ map.on('load', function(){
     addOpacityRaster(biodiversitySlider, 'arboverse.bii');
     addOpacityRaster(landSlider, 'arboverse.8xtrhkxq');
     addOpacityRaster(ariditySlider, 'arboverse.aridity_5km_1970_2000');
-    addOpacityCircle(damsSlider, 'arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech');
     addOpacityTwoRaster(popSlider, 'arboverse.pop_2015', 'arboverse.pop_2020');
     addOpacityCircle(arrSlider, 'arboverse.cgwofgmt');
     addOpacityCircle(depSlider, 'arboverse.2mtp8qji');
@@ -492,6 +492,19 @@ map.on('load', function(){
         map.setPaintProperty(
             'arboverse.height_2019_nasia_1m',
             'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    })
+
+    damsSlider.addEventListener('input', function(e) {
+        map.setPaintProperty(
+            'arboverse.dams',
+            'circle-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.dams',
+            'circle-stroke-opacity',
             parseInt(e.target.value,10)/100
         );
     })
