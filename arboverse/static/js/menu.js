@@ -381,39 +381,7 @@ document.querySelectorAll("input[name=kp-amount]").forEach(i => {
         update_map(this);
     }
 })
-//Forest Time condition
-var i = 0
-var switchbtn = document.getElementById('forest_switch');
-function enableForestRadio() {
-    document.getElementById("arboverse.tree_cover_loss_1km_2001-2010").disabled = true;
-    document.getElementById("arboverse.tree_cover_loss_1km_2011-2020").disabled = true;
-    var dev = document.getElementById('forest_switch').checked;
-    if (dev == true) {
-        document.getElementById("arboverse.tree_cover_loss_1km_2001-2010").disabled = false;
-        document.getElementById("arboverse.tree_cover_loss_1km_2011-2020").disabled = false;
-    } else if (dev != true) {
-        document.getElementById("arboverse.tree_cover_loss_1km_2001-2010").checked = false;
-        document.getElementById("arboverse.tree_cover_loss_1km_2011-2020").checked = false;
-    };
-    var j = 0;
-    document.querySelectorAll("input[name=year-amount]").forEach(j => {
-        j.checked = false;
-        update_map(j)
-    })
-}
-switchbtn.onchange = enableForestRadio;
-var i = 0;
-document.querySelectorAll("input[name=year-amount]").forEach(i => {
-    i.onchange = function () {
-        var j = 0;
-        document.querySelectorAll("input[name=year-amount]").forEach(j => {
-            j.checked = false;
-            update_map(j)
-        });
-        i.checked = true;
-        update_map(this);
-    }
-})
+
 //Population Time condition
 var i = 0
 var popSwitchbtn = document.getElementById('pop_switch');
@@ -506,13 +474,13 @@ var ariValue = function(){
 }
 ari.addEventListener('input', ariValue)
 
-var loss = document.querySelector('input[name=coverloss-opacity]');
-var lossValue = function(){
-    var newOpValue = loss.value;
-    var target = document.querySelector('.loss_op');
+var biome = document.querySelector('input[name=biome-opacity]');
+var biomeValue = function(){
+    var newOpValue = biome.value;
+    var target = document.querySelector('.biome_op');
     target.innerHTML = newOpValue;
 }
-loss.addEventListener('input', lossValue)
+biome.addEventListener('input', biomeValue)
 
 var drive = document.querySelector('input[name=drive-opacity]');
 var DriveValue = function(){

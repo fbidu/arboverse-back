@@ -137,6 +137,8 @@ function update_map(cb) {
 map.on('load', async()=>{
     addTileLayerToMap(map, 'arboverse.presentfull', 'mapbox://arboverse.presentfull', 'fill', { 'fill-color': [ "case", [ "==", ["get", "classes"], 0 ], "hsla(0, 0%, 0%, 0)", [ "match", ["get", "classes"], [1], true, false ], "#8c0273", [ "match", ["get", "classes"], [2], true, false ], "#8f1966", [ "match", ["get", "classes"], [3], true, false ], "#91285a", [ "match", ["get", "classes"], [4], true, false ], "#922e54", [ "match", ["get", "classes"], [5], true, false ], "#943c4a", [ "match", ["get", "classes"], [6], true, false ], "#964941", [ "match", ["get", "classes"], [7], true, false ], "#974f3c", [ "match", ["get", "classes"], [8], true, false ], "#996330", [ "match", ["get", "classes"], [9], true, false ], "#9a692b", [ "match", ["get", "classes"], [10], true, false ], "#9b7127", [ "match", ["get", "classes"], [11], true, false ], "#9c7923", [ "match", ["get", "classes"], [12], true, false ], "#9c801f", [ "match", ["get", "classes"], [13], true, false ], "#9d891c", [ "match", ["get", "classes"], [14], true, false ], "#9c911c", [ "match", ["get", "classes"], [15], true, false ], "#9b9a1d", [ "match", ["get", "classes"], [16], true, false ], "#99a323", [ "match", ["get", "classes"], [17], true, false ], "#91b437", [ "match", ["get", "classes"], [18], true, false ], "#8cba44", [ "match", ["get", "classes"], [19], true, false ], "#86c051", [ "match", ["get", "classes"], [20], true, false ], "#80c55f", [ "match", ["get", "classes"], [21], true, false ], "#79ca6d", [ "match", ["get", "classes"], [22], true, false ], "#73ce7b", [ "match", ["get", "classes"], [23], true, false ], "#6dd389", [ "match", ["get", "classes"], [24], true, false ], "#68d797", [ "match", ["get", "classes"], [26], true, false ], "#60e0b5", [ "match", ["get", "classes"], [27], true, false ], "#60e4c4", [ "match", ["get", "classes"], [28], true, false ], "#65e8d2", [ "match", ["get", "classes"], [29], true, false ], "#8ff0f1", [ "match", ["get", "classes"], [30], true, false ], "#b3f2fd", [ "match", ["get", "classes"], [25], true, false ], "#62dca7", "#000000" ]}, 'kopeen_fullpresent');
     addTileLayerToMap(map, 'arboverse.koppenfuture', 'mapbox://arboverse.koppenfuture', 'fill', { 'fill-color': [ "case", [ "==", ["get", "classes"], 0 ], "hsla(0, 0%, 0%, 0)", [ "match", ["get", "classes"], [1], true, false ], "#8c0273", [ "match", ["get", "classes"], [2], true, false ], "#8f1966", [ "match", ["get", "classes"], [3], true, false ], "#91285a", [ "match", ["get", "classes"], [4], true, false ], "#922e54", [ "match", ["get", "classes"], [5], true, false ], "#943c4a", [ "match", ["get", "classes"], [6], true, false ], "#964941", [ "match", ["get", "classes"], [7], true, false ], "#974f3c", [ "match", ["get", "classes"], [8], true, false ], "#996330", [ "match", ["get", "classes"], [9], true, false ], "#9a692b", [ "match", ["get", "classes"], [10], true, false ], "#9b7127", [ "match", ["get", "classes"], [11], true, false ], "#9c7923", [ "match", ["get", "classes"], [12], true, false ], "#9c801f", [ "match", ["get", "classes"], [13], true, false ], "#9d891c", [ "match", ["get", "classes"], [14], true, false ], "#9c911c", [ "match", ["get", "classes"], [15], true, false ], "#9b9a1d", [ "match", ["get", "classes"], [16], true, false ], "#99a323", [ "match", ["get", "classes"], [17], true, false ], "#91b437", [ "match", ["get", "classes"], [18], true, false ], "#8cba44", [ "match", ["get", "classes"], [19], true, false ], "#86c051", [ "match", ["get", "classes"], [20], true, false ], "#80c55f", [ "match", ["get", "classes"], [21], true, false ], "#79ca6d", [ "match", ["get", "classes"], [22], true, false ], "#73ce7b", [ "match", ["get", "classes"], [23], true, false ], "#6dd389", [ "match", ["get", "classes"], [24], true, false ], "#68d797", [ "match", ["get", "classes"], [26], true, false ], "#60e0b5", [ "match", ["get", "classes"], [27], true, false ], "#60e4c4", [ "match", ["get", "classes"], [28], true, false ], "#65e8d2", [ "match", ["get", "classes"], [29], true, false ], "#8ff0f1", [ "match", ["get", "classes"], [30], true, false ], "#b3f2fd", [ "match", ["get", "classes"], [25], true, false ], "#62dca7", "#000000" ]}, 'kopeen_future');
+    // biomes
+    addTileLayerToMap(map, 'arboverse.biomes', 'mapbox://arboverse.biomes', 'fill', { 'fill-color': [ "match", ["get", "BIOME_NUM"], [1], "#2b655e", [2], "#6a7b3d", [3], "#7b8034", [4], "#a18a2b", [5], "#103f60", [6], "#fdbac7", [7], "#195662", [8], "#cf9340", [9], "#0b2b5c", [10], "#f09c69", [11], "#95872c", [12], "#fbc6ea", [13], "#f9a380", [14], "#416f53", "#000000" ] }, 'biomes');
     //aridity
     addRasterTileLayerToMap(map, 'arboverse.aridity_5km_1970_2000', 'mapbox://arboverse.aridity_5km_1970_2000', 'raster', 'mapbox://arboverse.aridity_5km_1970_2000', 0, 19);  
     //forecast mosquito 
@@ -151,13 +153,14 @@ map.on('load', async()=>{
     addRasterTileLayerToMap(map, 'arboverse.a51uv49z', 'mapbox://arboverse.a51uv49z', 'raster', 'mapbox://arboverse.a51uv49z', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.92xut72i', 'mapbox://arboverse.92xut72i', 'raster', 'mapbox://arboverse.92xut72i', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.8xtrhkxq', 'mapbox://arboverse.8xtrhkxq', 'raster', 'mapbox://arboverse.arboverse.8xtrhkxq', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.pop_2015', 'mapbox://arboverse.pop_2015', 'raster', 'mapbox://arboverse.pop_2015', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.pop_2020', 'mapbox://arboverse.pop_2020', 'raster', 'mapbox://arboverse.pop_2020', 0, 19);
+    // Tree cover loss by dominat drivers
     addTileLayerToMap(map, 'arboverse.drivers', 'mapbox://arboverse.drivers', 'fill', { 'fill-color': ['match', ['get', 'classes'], [1], "#FDAFA5", [2], "#50744B", [3], "#1A5762", [4], "#A58B2C", [5], "#0F3B5F", "#000000"] }, 'drivers');
+    //forest landscape integrity index
     addRasterTileLayerToMap(map, 'arboverse.flii_oceania_5km', 'mapbox://arboverse.flii_oceania_5km', 'raster', 'mapbox://arboverse.flii_oceania_5km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.flii_africa_5km', 'mapbox://arboverse.flii_africa_5km', 'raster', 'mapbox://arboverse.flii_africa_5km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.flii_southamerica_5km', 'mapbox://arboverse.flii_southamerica_5km', 'raster', 'mapbox://arboverse.flii_southamerica_5km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.flii_northamerica_5km', 'mapbox://arboverse.flii_northamerica_5km', 'raster', 'mapbox://arboverse.flii_northamerica_5km', 0, 19);
+    //Tree cover height
     addRasterTileLayerToMap(map, 'arboverse.height_2019_nam_1km', 'mapbox://arboverse.height_2019_nam_1km', 'raster', 'mapbox://arboverse.height_2019_nam_1km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.height_2019_sam_1km', 'mapbox://arboverse.height_2019_sam_1km', 'raster', 'mapbox://arboverse.height_2019_sam_1km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.height_2019_aus_1km', 'mapbox://arboverse.height_2019_aus_1km', 'raster', 'mapbox://arboverse.height_2019_aus_1km', 0, 19);
@@ -165,16 +168,17 @@ map.on('load', async()=>{
     addRasterTileLayerToMap(map, 'arboverse.height_2019_safr_1km', 'mapbox://arboverse.height_2019_safr_1km', 'raster', 'mapbox://arboverse.height_2019_safr_1km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.height_2019_nasia_1m', 'mapbox://arboverse.height_2019_nasia_1m', 'raster', 'mapbox://arboverse.height_2019_nasia_1m', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.height_2019_sasia_1km', 'mapbox://arboverse.height_2019_sasia_1km', 'raster', 'mapbox://arboverse.height_2019_sasia_1km', 0, 19);
+    //intact forest landscape 2000 2013 2016
     addTileLayerToMap(map, 'arboverse.ifl_2000', 'mapbox://arboverse.ifl_2000', 'fill', { 'fill-color': "#356A59" }, 'ifl_2000');
     addTileLayerToMap(map, 'arboverse.ifl_2013', 'mapbox://arboverse.ifl_2013', 'fill', { 'fill-color': "#677B3E " }, 'ifl_2013');
     addTileLayerToMap(map, 'arboverse.ifl_2016', 'mapbox://arboverse.ifl_2016', 'fill', { 'fill-color': "#175262" }, 'ifl_2016');
+    //primary forest
     addRasterTileLayerToMap(map, 'arboverse.primary_africa_1km_2010', 'mapbox://arboverse.primary_africa_1km_2010', 'raster', 'mapbox://arboverse.primary_africa_1km_2010', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.primary_south_america_1km_2010', 'mapbox://arboverse.primary_south_america_1km_2010', 'raster', 'mapbox://arboverse.primary_south_america_1km_2010', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.primary_madagascar_1km_2010', 'mapbox://arboverse.primary_madagascar_1km_2010', 'raster', 'mapbox://arboverse.primary_madagascar_1km_2010', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.primary_asia_1km_2010', 'mapbox://arboverse.primary_asia_1km_2010', 'raster', 'mapbox://arboverse.primary_asia_1km_2010', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.tree_cover_loss_1km_2001-2010', 'mapbox://arboverse.tree_cover_loss_1km_2001-2010', 'raster', 'mapbox://arboverse.tree_cover_loss_1km_2001-2010', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.tree_cover_loss_1km_2011-2020', 'mapbox://arboverse.tree_cover_loss_1km_2011-2020', 'raster', 'mapbox://arboverse.tree_cover_loss_1km_2011-2020', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.soy_expansion_300m_10_set', 'mapbox://arboverse.soy_expansion_300m_10_set', 'raster', 'mapbox://arboverse.soy_expansion_300m_10_set', 0, 19);
+    //minig
     addTileLayerToMap(map, 'arboverse.mining1', 'mapbox://arboverse.mining', 'fill', { 'fill-color': "#EB9A60" }, 'cameroon_mining');
     addTileLayerToMap(map, 'arboverse.mining2', 'mapbox://arboverse.mining', 'fill', { 'fill-color': "#EB9A60" }, 'brazil_mining');
     addTileLayerToMap(map, 'arboverse.mining3', 'mapbox://arboverse.mining', 'fill', { 'fill-color': "#EB9A60" }, 'canada_mining');
@@ -185,6 +189,7 @@ map.on('load', async()=>{
     addTileLayerToMap(map, 'arboverse.mining8', 'mapbox://arboverse.mining', 'fill', { 'fill-color': "#EB9A60" }, 'mexico_mining');
     addTileLayerToMap(map, 'arboverse.mining9', 'mapbox://arboverse.mining', 'fill', { 'fill-color': "#EB9A60" }, 'preu_mining');
     addTileLayerToMap(map, 'arboverse.mining10', 'mapbox://arboverse.mining', 'fill', { 'fill-color': "#EB9A60" }, 'republic_congo_mining');
+    //logging
     addTileLayerToMap(map, 'arboverse.logging1', 'mapbox://arboverse.logging', 'fill', { 'fill-color': "#08255B" }, 'sarawak_logging');
     addTileLayerToMap(map, 'arboverse.logging2', 'mapbox://arboverse.logging', 'fill', { 'fill-color': "#08255B" }, 'liberia_logging');
     addTileLayerToMap(map, 'arboverse.logging3', 'mapbox://arboverse.logging', 'fill', { 'fill-color': "#08255B" }, 'gabon_logging');
@@ -344,9 +349,9 @@ const addOpacityTwoRaster = (element, title1, title2) =>{
 };
 
 map.on('load', function(){
+    var biomeSlider = document.querySelector('input[name=biome-opacity]')
     var cliSlider = document.querySelector('input[name=climate-opacity]');
     var forecastSlider= document.querySelector('input[name=forecast-opacity]');
-    var lossSlider = document.querySelector('input[name=coverloss-opacity]');
     var driveSlider = document.querySelector('input[name=drive-opacity]');
     var primarySlider = document.querySelector('input[name=primary-opacity]');
     var heightSlider = document.querySelector('input[name=height-opacity]');
@@ -364,8 +369,8 @@ map.on('load', function(){
     var ariditySlider = document.querySelector('input[name=aridity-opacity]');
 
     addOpacityTwoVector(cliSlider, 'arboverse.presentfull', 'arboverse.koppenfuture');
-    addOpacityTwoRaster(lossSlider, 'arboverse.tree_cover_loss_1km_2001-2010', 'arboverse.tree_cover_loss_1km_2011-2020');
     addOpacityVector(driveSlider, 'arboverse.drivers');
+    addOpacityVector(biomeSlider, 'arboverse.biomes');
     addOpacityRaster(landSlider, 'arboverse.8xtrhkxq');
     addOpacityRaster(ariditySlider, 'arboverse.aridity_5km_1970_2000');
     addOpacityRaster(soySlider, 'arboverse.soy_expansion_300m_10_set');

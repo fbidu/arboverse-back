@@ -991,7 +991,7 @@
   margin-bottom: 2px;
   text-align: left;
   color: var(--text);
-  width: 70%;
+  width: 90%;
 }
 .player {
   /* player Button */
@@ -1615,8 +1615,47 @@
 .ef{
   background: #b3f2fd;
 }
-.pink-orange {
-  background-color: #830a48;
+.biome_1 {
+  background-color: #2b655e;
+}
+.biome_2{
+  background-color: #6a7b3d;
+}
+.biome_3{
+  background-color: #7b8034;
+}
+.biome_4 {
+  background-color: #a18a2b;
+}
+.biome_5{
+  background-color: #103f60;
+}
+.biome_6{
+  background-color: #fdbac7;
+}
+.biome_7{
+  background-color: #195662;
+}
+.biome_8{
+  background-color: #cf9340;
+}
+.biome_9 {
+  background-color: #0b2b5c;
+}
+.biome_10{
+  background-color: #f09c69;
+}
+.biome_11{
+  background-color: #95872c;
+}
+.biome_12{
+  background-color: #fbc6ea;
+}
+.biome_13 {
+  background-color: #f9a380;
+}
+.biome_14{
+  background-color: #416f53;
 }
 .comod {
   background: #FDAFA5;
