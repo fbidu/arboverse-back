@@ -514,6 +514,14 @@ var intactValue = function(){
 }
 intact.addEventListener('input', intactValue)
 
+var biodiversity = document.querySelector('input[name=biodiversity-opacity]');
+var biodiversityValue = function(){
+    var newOpValue = biodiversity.value;
+    var target = document.querySelector('.biodiversity_op');
+    target.innerHTML = newOpValue;
+}
+biodiversity.addEventListener('input', biodiversityValue)
+
 var index = document.querySelector('input[name=index-opacity]');
 var indexValue = function(){
     var newOpValue = index.value;
