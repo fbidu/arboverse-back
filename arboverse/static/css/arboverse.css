@@ -1843,7 +1843,8 @@
   border-top: 2px solid #ff8600;
 }
 /*==== Model prediction rcp 45 and 95 ===*/
-input[name=model_selector]{
+input[name=model_selector],
+input[name=hotdays_model]{
   position: absolute;
   visibility: hidden;
   display: none;
@@ -1856,10 +1857,12 @@ input[name=model_selector]{
   padding: 3px 20px;
   font-size: 0.8rem;
 }
-input[name=model_selector]:checked + label {
+input[name=model_selector]:checked + label,
+input[name=hotdays_model]:checked + label {
   color: var(--orange);
 }
-.model_group label +input[name=model_selector] + label{
+.model_group label +input[name=model_selector] + label,
+.model_group label +input[name=hotdays_model] + label{
   border-left: solid 1px #c0c0c5;
 }
 .model_group{

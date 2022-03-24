@@ -9,7 +9,7 @@ var map = new mapboxgl.Map({
     container: 'map',
 
     // one of the existing mapbox map styles
-    style: 'mapbox://styles/arboverse/ckomxnbu91h8o17o0uvo36cky',
+    style: 'mapbox://styles/arboverse/ckoept4vi2anl18msq2tl9svx',
 
     // zoom in (greater = smaller area displayed)
     zoom: 2,
@@ -103,6 +103,7 @@ const addRasterTileLayerToMap = (mapVar, title, url, type, source_layer, minzoom
         'none'
     );
 }
+//map visibility checked
 function update_map(cb) {
     var clickedLayers = cb.id
     clickedLayersList = clickedLayers.split(',')
@@ -130,6 +131,8 @@ function update_map(cb) {
     } 
     console.log(cb.checked);
 }
+
+
 
 map.on('load', async()=>{
     addTileLayerToMap(map, 'arboverse.presentfull', 'mapbox://arboverse.presentfull', 'fill', { 'fill-color': [ "case", [ "==", ["get", "classes"], 0 ], "hsla(0, 0%, 0%, 0)", [ "match", ["get", "classes"], [1], true, false ], "#8c0273", [ "match", ["get", "classes"], [2], true, false ], "#8f1966", [ "match", ["get", "classes"], [3], true, false ], "#91285a", [ "match", ["get", "classes"], [4], true, false ], "#922e54", [ "match", ["get", "classes"], [5], true, false ], "#943c4a", [ "match", ["get", "classes"], [6], true, false ], "#964941", [ "match", ["get", "classes"], [7], true, false ], "#974f3c", [ "match", ["get", "classes"], [8], true, false ], "#996330", [ "match", ["get", "classes"], [9], true, false ], "#9a692b", [ "match", ["get", "classes"], [10], true, false ], "#9b7127", [ "match", ["get", "classes"], [11], true, false ], "#9c7923", [ "match", ["get", "classes"], [12], true, false ], "#9c801f", [ "match", ["get", "classes"], [13], true, false ], "#9d891c", [ "match", ["get", "classes"], [14], true, false ], "#9c911c", [ "match", ["get", "classes"], [15], true, false ], "#9b9a1d", [ "match", ["get", "classes"], [16], true, false ], "#99a323", [ "match", ["get", "classes"], [17], true, false ], "#91b437", [ "match", ["get", "classes"], [18], true, false ], "#8cba44", [ "match", ["get", "classes"], [19], true, false ], "#86c051", [ "match", ["get", "classes"], [20], true, false ], "#80c55f", [ "match", ["get", "classes"], [21], true, false ], "#79ca6d", [ "match", ["get", "classes"], [22], true, false ], "#73ce7b", [ "match", ["get", "classes"], [23], true, false ], "#6dd389", [ "match", ["get", "classes"], [24], true, false ], "#68d797", [ "match", ["get", "classes"], [26], true, false ], "#60e0b5", [ "match", ["get", "classes"], [27], true, false ], "#60e4c4", [ "match", ["get", "classes"], [28], true, false ], "#65e8d2", [ "match", ["get", "classes"], [29], true, false ], "#8ff0f1", [ "match", ["get", "classes"], [30], true, false ], "#b3f2fd", [ "match", ["get", "classes"], [25], true, false ], "#62dca7", "#000000" ]}, 'kopeen_fullpresent');

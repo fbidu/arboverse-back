@@ -228,6 +228,7 @@ document.querySelectorAll("input[name=climate]").forEach(i => {
     i.onclick = function () {
         showChekedCli();
         update_map(this);
+        update_map_time(this);
     }
 });
 //Checked Forest
@@ -446,7 +447,16 @@ document.querySelectorAll("input[name=year-picker]").forEach(i => {
         update_map(this);
     }
 })
-//Slider response for year filter
+//Slider time response for arrivals, departures and passengers 
+var hot = document.querySelector('input[name=hotdays_year]');
+var hotValue = function () {
+    var newValue = hot.value;
+    var endValue = Number(newValue) + 30;
+    var target = document.querySelector('.hotdays_value');
+    target.innerHTML = `${newValue} - ${endValue}`
+}
+hot.addEventListener("input", hotValue);
+//Slider time response for arrivals, departures and passengers 
 var arr = document.querySelector('input[name=arrivals]');
 var arrValue = function () {
     var newValue = arr.value;
@@ -470,7 +480,6 @@ var rangeValue = function () {
     target.innerHTML = newValue;
 }
 elem.addEventListener("input", rangeValue);
-
 
 // Slider response for opacity
 var cli = document.querySelector('input[name=climate-opacity]');
