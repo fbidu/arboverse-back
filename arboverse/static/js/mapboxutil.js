@@ -153,11 +153,11 @@ map.on('load', async()=>{
     addRasterTileLayerToMap(map, 'arboverse.8xtrhkxq', 'mapbox://arboverse.8xtrhkxq', 'raster', 'mapbox://arboverse.arboverse.8xtrhkxq', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.pop_2015', 'mapbox://arboverse.pop_2015', 'raster', 'mapbox://arboverse.pop_2015', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.pop_2020', 'mapbox://arboverse.pop_2020', 'raster', 'mapbox://arboverse.pop_2020', 0, 19);
-    addTileLayerToMap(map, 'arboverse.bkdd701g', 'mapbox://arboverse.bkdd701g', 'fill', { 'fill-color': ['match', ['get', 'classes'], [1], "#FDAFA5", [2], "#50744B", [3], "#1A5762", [4], "#A58B2C", [5], "#0F3B5F", "#000000"] }, 'Cover_loss_dominant_drivers-bbybfd');
-    addRasterTileLayerToMap(map, 'arboverse.flii_oceania_1km', 'mapbox://arboverse.flii_oceania_1km', 'raster', 'mapbox://arboverse.flii_oceania_1km', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.flii_africa_1km', 'mapbox://arboverse.flii_africa_1km', 'raster', 'mapbox://arboverse.flii_africa_1km', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.flii_northamerica_1km', 'mapbox://arboverse.flii_northamerica_1km', 'raster', 'mapbox://arboverse.flii_northamerica_1km', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.flii_southamerica_1km', 'mapbox://arboverse.flii_southamerica_1km', 'raster', 'mapbox://arboverse.flii_southamerica_1km', 0, 19);
+    addTileLayerToMap(map, 'arboverse.drivers', 'mapbox://arboverse.drivers', 'fill', { 'fill-color': ['match', ['get', 'classes'], [1], "#FDAFA5", [2], "#50744B", [3], "#1A5762", [4], "#A58B2C", [5], "#0F3B5F", "#000000"] }, 'drivers');
+    addRasterTileLayerToMap(map, 'arboverse.flii_oceania_5km', 'mapbox://arboverse.flii_oceania_5km', 'raster', 'mapbox://arboverse.flii_oceania_5km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.flii_africa_5km', 'mapbox://arboverse.flii_africa_5km', 'raster', 'mapbox://arboverse.flii_africa_5km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.flii_southamerica_5km', 'mapbox://arboverse.flii_southamerica_5km', 'raster', 'mapbox://arboverse.flii_southamerica_5km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.flii_northamerica_5km', 'mapbox://arboverse.flii_northamerica_5km', 'raster', 'mapbox://arboverse.flii_northamerica_5km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.height_2019_nam_1km', 'mapbox://arboverse.height_2019_nam_1km', 'raster', 'mapbox://arboverse.height_2019_nam_1km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.height_2019_sam_1km', 'mapbox://arboverse.height_2019_sam_1km', 'raster', 'mapbox://arboverse.height_2019_sam_1km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.height_2019_aus_1km', 'mapbox://arboverse.height_2019_aus_1km', 'raster', 'mapbox://arboverse.height_2019_aus_1km', 0, 19);
@@ -365,7 +365,7 @@ map.on('load', function(){
 
     addOpacityTwoVector(cliSlider, 'arboverse.presentfull', 'arboverse.koppenfuture');
     addOpacityTwoRaster(lossSlider, 'arboverse.tree_cover_loss_1km_2001-2010', 'arboverse.tree_cover_loss_1km_2011-2020');
-    addOpacityVector(driveSlider, 'arboverse.bkdd701g');
+    addOpacityVector(driveSlider, 'arboverse.drivers');
     addOpacityRaster(landSlider, 'arboverse.8xtrhkxq');
     addOpacityRaster(ariditySlider, 'arboverse.aridity_5km_1970_2000');
     addOpacityRaster(soySlider, 'arboverse.soy_expansion_300m_10_set');
@@ -506,22 +506,22 @@ map.on('load', function(){
     });
     indexSlider.addEventListener('input', function(e){
         map.setPaintProperty(
-            'arboverse.flii_oceania_1km',
+            'arboverse.flii_oceania_5km',
             'raster-opacity',
             parseInt(e.target.value,10)/100
         );
         map.setPaintProperty(
-            'arboverse.flii_africa_1km',
+            'arboverse.flii_africa_5km',
             'raster-opacity',
             parseInt(e.target.value,10)/100
         );
         map.setPaintProperty(
-            'arboverse.flii_northamerica_1km',
+            'arboverse.flii_southamerica_5km',
             'raster-opacity',
             parseInt(e.target.value,10)/100
         );
         map.setPaintProperty(
-            'arboverse.flii_southamerica_1km',
+            'arboverse.flii_northamerica_5km',
             'raster-opacity',
             parseInt(e.target.value,10)/100
         );
