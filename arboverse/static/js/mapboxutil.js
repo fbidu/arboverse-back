@@ -9,7 +9,7 @@ var map = new mapboxgl.Map({
     container: 'map',
 
     // one of the existing mapbox map styles
-    style: 'mapbox://styles/arboverse/ckomxnbu91h8o17o0uvo36cky',
+    style: 'mapbox://styles/arboverse/ckoept4vi2anl18msq2tl9svx',
 
     // zoom in (greater = smaller area displayed)
     zoom: 2,
@@ -103,6 +103,7 @@ const addRasterTileLayerToMap = (mapVar, title, url, type, source_layer, minzoom
         'none'
     );
 }
+//map visibility checked
 function update_map(cb) {
     var clickedLayers = cb.id
     clickedLayersList = clickedLayers.split(',')
@@ -131,10 +132,14 @@ function update_map(cb) {
     console.log(cb.checked);
 }
 
+
+
 map.on('load', async()=>{
     addTileLayerToMap(map, 'arboverse.presentfull', 'mapbox://arboverse.presentfull', 'fill', { 'fill-color': [ "case", [ "==", ["get", "classes"], 0 ], "hsla(0, 0%, 0%, 0)", [ "match", ["get", "classes"], [1], true, false ], "#8c0273", [ "match", ["get", "classes"], [2], true, false ], "#8f1966", [ "match", ["get", "classes"], [3], true, false ], "#91285a", [ "match", ["get", "classes"], [4], true, false ], "#922e54", [ "match", ["get", "classes"], [5], true, false ], "#943c4a", [ "match", ["get", "classes"], [6], true, false ], "#964941", [ "match", ["get", "classes"], [7], true, false ], "#974f3c", [ "match", ["get", "classes"], [8], true, false ], "#996330", [ "match", ["get", "classes"], [9], true, false ], "#9a692b", [ "match", ["get", "classes"], [10], true, false ], "#9b7127", [ "match", ["get", "classes"], [11], true, false ], "#9c7923", [ "match", ["get", "classes"], [12], true, false ], "#9c801f", [ "match", ["get", "classes"], [13], true, false ], "#9d891c", [ "match", ["get", "classes"], [14], true, false ], "#9c911c", [ "match", ["get", "classes"], [15], true, false ], "#9b9a1d", [ "match", ["get", "classes"], [16], true, false ], "#99a323", [ "match", ["get", "classes"], [17], true, false ], "#91b437", [ "match", ["get", "classes"], [18], true, false ], "#8cba44", [ "match", ["get", "classes"], [19], true, false ], "#86c051", [ "match", ["get", "classes"], [20], true, false ], "#80c55f", [ "match", ["get", "classes"], [21], true, false ], "#79ca6d", [ "match", ["get", "classes"], [22], true, false ], "#73ce7b", [ "match", ["get", "classes"], [23], true, false ], "#6dd389", [ "match", ["get", "classes"], [24], true, false ], "#68d797", [ "match", ["get", "classes"], [26], true, false ], "#60e0b5", [ "match", ["get", "classes"], [27], true, false ], "#60e4c4", [ "match", ["get", "classes"], [28], true, false ], "#65e8d2", [ "match", ["get", "classes"], [29], true, false ], "#8ff0f1", [ "match", ["get", "classes"], [30], true, false ], "#b3f2fd", [ "match", ["get", "classes"], [25], true, false ], "#62dca7", "#000000" ]}, 'kopeen_fullpresent');
     addTileLayerToMap(map, 'arboverse.koppenfuture', 'mapbox://arboverse.koppenfuture', 'fill', { 'fill-color': [ "case", [ "==", ["get", "classes"], 0 ], "hsla(0, 0%, 0%, 0)", [ "match", ["get", "classes"], [1], true, false ], "#8c0273", [ "match", ["get", "classes"], [2], true, false ], "#8f1966", [ "match", ["get", "classes"], [3], true, false ], "#91285a", [ "match", ["get", "classes"], [4], true, false ], "#922e54", [ "match", ["get", "classes"], [5], true, false ], "#943c4a", [ "match", ["get", "classes"], [6], true, false ], "#964941", [ "match", ["get", "classes"], [7], true, false ], "#974f3c", [ "match", ["get", "classes"], [8], true, false ], "#996330", [ "match", ["get", "classes"], [9], true, false ], "#9a692b", [ "match", ["get", "classes"], [10], true, false ], "#9b7127", [ "match", ["get", "classes"], [11], true, false ], "#9c7923", [ "match", ["get", "classes"], [12], true, false ], "#9c801f", [ "match", ["get", "classes"], [13], true, false ], "#9d891c", [ "match", ["get", "classes"], [14], true, false ], "#9c911c", [ "match", ["get", "classes"], [15], true, false ], "#9b9a1d", [ "match", ["get", "classes"], [16], true, false ], "#99a323", [ "match", ["get", "classes"], [17], true, false ], "#91b437", [ "match", ["get", "classes"], [18], true, false ], "#8cba44", [ "match", ["get", "classes"], [19], true, false ], "#86c051", [ "match", ["get", "classes"], [20], true, false ], "#80c55f", [ "match", ["get", "classes"], [21], true, false ], "#79ca6d", [ "match", ["get", "classes"], [22], true, false ], "#73ce7b", [ "match", ["get", "classes"], [23], true, false ], "#6dd389", [ "match", ["get", "classes"], [24], true, false ], "#68d797", [ "match", ["get", "classes"], [26], true, false ], "#60e0b5", [ "match", ["get", "classes"], [27], true, false ], "#60e4c4", [ "match", ["get", "classes"], [28], true, false ], "#65e8d2", [ "match", ["get", "classes"], [29], true, false ], "#8ff0f1", [ "match", ["get", "classes"], [30], true, false ], "#b3f2fd", [ "match", ["get", "classes"], [25], true, false ], "#62dca7", "#000000" ]}, 'kopeen_future');
-      //forecast mosquito 
+    //aridity
+    addRasterTileLayerToMap(map, 'arboverse.aridity_5km_1970_2000', 'mapbox://arboverse.aridity_5km_1970_2000', 'raster', 'mapbox://arboverse.aridity_5km_1970_2000', 0, 19);  
+    //forecast mosquito 
     addRasterTileLayerToMap(map, 'arboverse.c89hazcs', 'mapbox://arboverse.c89hazcs', 'raster', 'mapbox://arboverse.c89hazcs', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.cugep9k4', 'mapbox://arboverse.cugep9k4', 'raster', 'mapbox://arboverse.cugep9k4', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.9uh1mltv', 'mapbox://arboverse.9uh1mltv', 'raster', 'mapbox://arboverse.9uh1mltv', 0, 19);
@@ -356,11 +361,13 @@ map.on('load', function(){
     var arrSlider = document.querySelector('input[name=opacity-Arr]');
     var depSlider = document.querySelector('input[name=dep-opacity]');
     var passengersSlider = document.querySelector('input[name=pass-opacity]');
+    var ariditySlider = document.querySelector('input[name=aridity-opacity]');
 
     addOpacityTwoVector(cliSlider, 'arboverse.presentfull', 'arboverse.koppenfuture');
     addOpacityTwoRaster(lossSlider, 'arboverse.tree_cover_loss_1km_2001-2010', 'arboverse.tree_cover_loss_1km_2011-2020');
     addOpacityVector(driveSlider, 'arboverse.bkdd701g');
     addOpacityRaster(landSlider, 'arboverse.8xtrhkxq');
+    addOpacityRaster(ariditySlider, 'arboverse.aridity_5km_1970_2000');
     addOpacityRaster(soySlider, 'arboverse.soy_expansion_300m_10_set');
     addOpacityCircle(damsSlider, 'arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech');
     addOpacityTwoRaster(popSlider, 'arboverse.pop_2015', 'arboverse.pop_2020');

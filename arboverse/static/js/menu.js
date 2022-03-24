@@ -228,6 +228,7 @@ document.querySelectorAll("input[name=climate]").forEach(i => {
     i.onclick = function () {
         showChekedCli();
         update_map(this);
+        update_map_time(this);
     }
 });
 //Checked Forest
@@ -446,7 +447,16 @@ document.querySelectorAll("input[name=year-picker]").forEach(i => {
         update_map(this);
     }
 })
-//Slider response for year filter
+//Slider time response for arrivals, departures and passengers 
+var hot = document.querySelector('input[name=hotdays_year]');
+var hotValue = function () {
+    var newValue = hot.value;
+    var endValue = Number(newValue) + 30;
+    var target = document.querySelector('.hotdays_value');
+    target.innerHTML = `${newValue} - ${endValue}`
+}
+hot.addEventListener("input", hotValue);
+//Slider time response for arrivals, departures and passengers 
 var arr = document.querySelector('input[name=arrivals]');
 var arrValue = function () {
     var newValue = arr.value;
@@ -471,7 +481,6 @@ var rangeValue = function () {
 }
 elem.addEventListener("input", rangeValue);
 
-
 // Slider response for opacity
 var cli = document.querySelector('input[name=climate-opacity]');
 var opValue = function(){
@@ -488,6 +497,14 @@ var foreValue = function(){
     target.innerHTML = newForeValue;
 }
 fore.addEventListener('input', foreValue)
+
+var arid = document.querySelector('input[name=aridity-opacity]');
+var ariValue = function(){
+    var newAriValue = ari.value;
+    var target = document.querySelector('.ari_op');
+    target.innerHTML = newAriValue;
+}
+ari.addEventListener('input', ariValue)
 
 var loss = document.querySelector('input[name=coverloss-opacity]');
 var lossValue = function(){
