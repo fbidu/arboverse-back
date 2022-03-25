@@ -433,6 +433,40 @@ document.querySelectorAll("input[name=kp-amount]").forEach(i => {
     }
 })
 
+//healthcare access Condition 
+var i=0;
+var healthSwitchbtn = document.getElementById('health_switch')
+function enableHealthRadio() {
+    document.getElementById("arboverse.healthcare_time_walking_5km_2020").disabled = true;
+    document.getElementById("arboverse.healthcare_time_motorized").disabled = true;
+    var dev = document.getElementById('health_switch').checked;
+    if (dev == true) {
+        document.getElementById("arboverse.healthcare_time_walking_5km_2020").disabled = false;
+        document.getElementById("arboverse.healthcare_time_motorized").disabled = false;
+    } else if (dev != true) {
+        document.getElementById("arboverse.healthcare_time_walking_5km_2020").checked = false;
+        document.getElementById("arboverse.healthcare_time_motorized").checked = false;
+    };
+    var j = 0;
+    document.querySelectorAll("input[name=type-locomotion]").forEach(j => {
+        j.checked = false;
+        update_map(j)
+    })
+}
+healthSwitchbtn.onchange = enableHealthRadio;
+var i = 0;
+document.querySelectorAll("input[name=type-locomotion]").forEach(i => {
+    i.onchange = function () {
+        var j = 0;
+        document.querySelectorAll("input[name=type-locomotion]").forEach(j => {
+            j.checked = false;
+            update_map(j)
+        });
+        i.checked = true;
+        update_map(this);
+    }
+})
+
 //Population Time condition
 var i = 0
 var popSwitchbtn = document.getElementById('pop_switch');
@@ -516,6 +550,14 @@ var citiesValue = function(){
     target.innerHTML = newOpValue;
 }
 cities.addEventListener('input', citiesValue)
+
+var health = document.querySelector('input[name=health-opacity]');
+var healthValue = function(){
+    var newOpValue = health.value;
+    var target = document.querySelector('.health_op');
+    target.innerHTML = newOpValue;
+}
+health.addEventListener('input', healthValue)
 
 var fore = document.querySelector('input[name=forecast-opacity]');
 var foreValue = function(){

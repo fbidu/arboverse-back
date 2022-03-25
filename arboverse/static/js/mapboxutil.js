@@ -155,6 +155,9 @@ map.on('load', async()=>{
     addRasterTileLayerToMap(map, 'arboverse.livestock_duck_2010_da_10km', 'mapbox://arboverse.livestock_duck_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_duck_2010_da_10km', 0, 19);   
     //cities accessibility
     addRasterTileLayerToMap(map, 'arboverse.cities_accessibility_5km_2015', 'mapbox://arboverse.cities_accessibility_5km_2015', 'raster', 'mapbox://arboverse.cities_accessibility_5km_2015', 0, 19); 
+    //cities accessibility
+    addRasterTileLayerToMap(map, 'arboverse.healthcare_time_walking_5km_2020', 'mapbox://arboverse.healthcare_time_walking_5km_2020', 'raster', 'mapbox://arboverse.healthcare_time_walking_5km_2020', 0, 19); 
+    addRasterTileLayerToMap(map, 'arboverse.healthcare_time_motorized', 'mapbox://arboverse.healthcare_time_motorized', 'raster', 'mapbox://arboverse.healthcare_time_motorized', 0, 19); 
     //Biodiversity intactness index
     addRasterTileLayerToMap(map, 'arboverse.bii', 'mapbox://arboverse.bii', 'raster', 'mapbox://arboverse.bii', 0, 19);  
     //forecast mosquito 
@@ -364,6 +367,7 @@ const addOpacityTwoRaster = (element, title1, title2) =>{
 };
 //Opacity response
 map.on('load', function(){
+    var healthSlider = document.querySelector('input[name=health-opacity]')
     var citiesSlider = document.querySelector('input[name=cities-opacity]')
     var biodiversitySlider = document.querySelector('input[name=biodiversity-opacity]')
     var biomeSlider = document.querySelector('input[name=biome-opacity]')
@@ -396,6 +400,7 @@ map.on('load', function(){
     addOpacityCircle(depSlider, 'arboverse.departures');
     addOpacityCircle(passengersSlider, 'arboverse.transportation');
     addOpacityRaster(citiesSlider, 'arboverse.cities_accessibility_5km_2015')
+    addOpacityTwoRaster(healthSlider, 'arboverse.healthcare_time_motorized', 'arboverse.healthcare_time_walking_5km_2020')
     
     //Forecast MOsquito opacity control
     forecastSlider.addEventListener('input', function(e) {
