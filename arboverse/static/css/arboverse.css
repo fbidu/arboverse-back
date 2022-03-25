@@ -1344,6 +1344,15 @@
     #1a1a01 100%
   );
 }
+.cities_label{
+  background: linear-gradient(
+    90deg,
+    #e6e6f0,
+    #d495b8,
+    #926390,
+    #2e214d
+  );
+}
 .aridity_label{
   background: linear-gradient(
     90deg,

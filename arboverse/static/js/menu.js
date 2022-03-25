@@ -509,6 +509,14 @@ var opValue = function(){
 }
 cli.addEventListener('input', opValue)
 
+var cities = document.querySelector('input[name=cities-opacity]');
+var citiesValue = function(){
+    var newOpValue = cities.value;
+    var target = document.querySelector('.cities_op');
+    target.innerHTML = newOpValue;
+}
+cities.addEventListener('input', citiesValue)
+
 var fore = document.querySelector('input[name=forecast-opacity]');
 var foreValue = function(){
     var newForeValue = fore.value;

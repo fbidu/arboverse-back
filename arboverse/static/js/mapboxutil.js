@@ -149,11 +149,12 @@ map.on('load', async()=>{
     addRasterTileLayerToMap(map, 'arboverse.livestock_bufalo_2010_da_10km', 'mapbox://arboverse.livestock_bufalo_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_bufalo_2010_da_10km', 0, 19); 
     addRasterTileLayerToMap(map, 'arboverse.livestock_sheep_2010_da_10km', 'mapbox://arboverse.livestock_sheep_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_sheep_2010_da_10km', 0, 19);   
     addRasterTileLayerToMap(map, 'arboverse.livestock_goat_2010_da_10km', 'mapbox://arboverse.livestock_goat_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_goat_2010_da_10km', 0, 19);
-
     addRasterTileLayerToMap(map, 'arboverse.livestock_horse_2010_da_10km', 'mapbox://arboverse.livestock_horse_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_horse_2010_da_10km', 0, 19);  
     addRasterTileLayerToMap(map, 'arboverse.livestock_pig_2010_da_10km', 'mapbox://arboverse.livestock_pig_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_pig_2010_da_10km', 0, 19); 
     addRasterTileLayerToMap(map, 'arboverse.livestock_chicken_2010_da_10km', 'mapbox://arboverse.livestock_chicken_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_chicken_2010_da_10km', 0, 19);   
     addRasterTileLayerToMap(map, 'arboverse.livestock_duck_2010_da_10km', 'mapbox://arboverse.livestock_duck_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_duck_2010_da_10km', 0, 19);   
+    //cities accessibility
+    addRasterTileLayerToMap(map, 'arboverse.cities_accessibility_5km_2015', 'mapbox://arboverse.cities_accessibility_5km_2015', 'raster', 'mapbox://arboverse.cities_accessibility_5km_2015', 0, 19); 
     //Biodiversity intactness index
     addRasterTileLayerToMap(map, 'arboverse.bii', 'mapbox://arboverse.bii', 'raster', 'mapbox://arboverse.bii', 0, 19);  
     //forecast mosquito 
@@ -221,58 +222,58 @@ map.on('load', function(){
     var filterYear = ['==', ['number', ['get', 'year']], 1970];
     var filterDepYear = ['==', ['number', ['get', 'year']], 1995];
     var filterArrYear = ['==', ['number', ['get', 'year']], 1995];
-    map.addSource('arboverse.cts68r85', {
+    map.addSource('arboverse.transportation', {
         type: 'vector',
         // Use any Mapbox-hosted tileset using its tileset id.
         // Learn more about where to find a tileset id:
         // https://docs.mapbox.com/help/glossary/tileset-id/
-        url: 'mapbox://arboverse.cts68r85'
+        url: 'mapbox://arboverse.transportation'
     });
-    map.addSource('arboverse.2mtp8qji',{
+    map.addSource('arboverse.departures',{
         type: 'vector',
-        url: 'mapbox://arboverse.2mtp8qji'
+        url: 'mapbox://arboverse.departures'
     });
-    map.addSource('arboverse.cgwofgmt',{
+    map.addSource('arboverse.arrivals',{
         type: 'vector',
-        url: 'mapbox://arboverse.cgwofgmt'
+        url: 'mapbox://arboverse.arrivals'
     })
     // then add the layer, referencing the source
     map.addLayer({
-        'id': 'arboverse.cts68r85',
+        'id': 'arboverse.transportation',
         'type': 'circle',
-        'source': 'arboverse.cts68r85',
+        'source': 'arboverse.transportation',
         'paint': {'circle-radius': [ "step", [ "get", "passengers carried" ], 0, 100, 3, 1000, 6, 10000, 9, 100000, 12, 1000000, 15, 10000000, 18, 100000000, 21, 157873000, 24 ], 'circle-color': [ "step", [ "get", "passengers carried" ], "hsl(61, 0%, 100%)", 100, "#e6e6f0", 1000, "#d9c1d7", 10000, "#d39fbf", 100000, "#d37fa8", 1000000, "#ae6795", 10000000, "#835f8b", 100000000, "#54426e", 926737000, "#2e214d" ]},
-        'source-layer': 'air_transport_06_30_21_WDI-7a456y',
+        'source-layer': 'transportation',
         'filter': ['all', filterYear]
     });
     map.addLayer({
-        'id': 'arboverse.2mtp8qji',
+        'id': 'arboverse.departures',
         'type': 'circle',
-        'source': 'arboverse.2mtp8qji',
+        'source': 'arboverse.departures',
         'paint': {'circle-radius': ['step',[ "get", "departures"], 0, 100, 3, 1000, 6, 10000, 9, 100000, 12, 1000000, 15, 10000000, 18, 100000000, 21, 926737000, 24], 'circle-color': ["step", ["get", "departures"], "hsl(61, 0%, 100%)", 100, "#fef2f3", 1000, "#e4c8b1", 10000, "#a5a795", 100000, "#7398a0", 1000000, "#487da3", 10000000, "#305c98", 100000000, "#253681", 926737000, "#1a0c64"]},
-        'source-layer': 'tourism_departures_06_30_21_W-5zcnfa',
+        'source-layer': 'departures',
         'filter': ['all', filterDepYear]
     });
     map.addLayer({
-        'id': 'arboverse.cgwofgmt',
+        'id': 'arboverse.arrivals',
         'type': 'circle',
-        'source': 'arboverse.cgwofgmt',
+        'source': 'arboverse.arrivals',
         'paint': {'circle-radius': ['step',[ "get", "arrivals"], 0, 100, 3, 1000, 6, 10000, 9, 100000, 12, 1000000, 15, 10000000, 18, 100000000, 21, 211998000, 24], 'circle-color': ["step", ["get", "arrivals"], "hsl(61, 0%, 100%)", 100, "#fefed8", 1000, "#c6eab2", 10000, "#9bbb95", 100000, "#92988a", 1000000, "#8c7681", 10000000, "#7e5172", 100000000, "#522754", 926737000, "#1a0e34"]},
-        'source-layer': 'tourism_arrivals_06_30_21_WDI-aza97h',
+        'source-layer': 'arrivals',
         'filter': ['all', filterArrYear]
     });
     map.setLayoutProperty(
-        'arboverse.cts68r85',
+        'arboverse.transportation',
         'visibility',
         'none'
     );
     map.setLayoutProperty(
-        'arboverse.2mtp8qji',
+        'arboverse.departures',
         'visibility',
         'none'
     );
     map.setLayoutProperty(
-        'arboverse.cgwofgmt',
+        'arboverse.arrivals',
         'visibility',
         'none'
     );    
@@ -283,7 +284,7 @@ map.on('load', function(){
                 var year = parseInt(e.target.value);
                 //update the map
                 filterYear = ['==', ['number', ['get', 'year']], year];
-                map.setFilter('arboverse.cts68r85', ['all', filterYear])
+                map.setFilter('arboverse.transportation', ['all', filterYear])
             });
     document
             .querySelector("input[name=departures]") 
@@ -291,7 +292,7 @@ map.on('load', function(){
                 var depYear = parseInt(e.target.value);
                 //update the map
                 filterDepYear = ['==', ['number', ['get', 'year']], depYear];
-                map.setFilter('arboverse.2mtp8qji', ['all', filterDepYear])
+                map.setFilter('arboverse.departures', ['all', filterDepYear])
             }); 
     document
             .querySelector("input[name=arrivals]")
@@ -299,7 +300,7 @@ map.on('load', function(){
                 var arrYear = parseInt(e.target.value);
                 //update the map
                 filterArrYear = ['==', ['number', ['get', 'year']], arrYear];
-                map.setFilter('arboverse.cgwofgmt', ['all', filterArrYear])
+                map.setFilter('arboverse.arrivals', ['all', filterArrYear])
             });              
 });
 
@@ -363,6 +364,7 @@ const addOpacityTwoRaster = (element, title1, title2) =>{
 };
 //Opacity response
 map.on('load', function(){
+    var citiesSlider = document.querySelector('input[name=cities-opacity]')
     var biodiversitySlider = document.querySelector('input[name=biodiversity-opacity]')
     var biomeSlider = document.querySelector('input[name=biome-opacity]')
     var cliSlider = document.querySelector('input[name=climate-opacity]');
@@ -390,9 +392,10 @@ map.on('load', function(){
     addOpacityRaster(landSlider, 'arboverse.8xtrhkxq');
     addOpacityRaster(ariditySlider, 'arboverse.aridity_5km_1970_2000');
     addOpacityTwoRaster(popSlider, 'arboverse.pop_2015', 'arboverse.pop_2020');
-    addOpacityCircle(arrSlider, 'arboverse.cgwofgmt');
-    addOpacityCircle(depSlider, 'arboverse.2mtp8qji');
-    addOpacityCircle(passengersSlider, 'arboverse.cts68r85');
+    addOpacityCircle(arrSlider, 'arboverse.arrivals');
+    addOpacityCircle(depSlider, 'arboverse.departures');
+    addOpacityCircle(passengersSlider, 'arboverse.transportation');
+    addOpacityRaster(citiesSlider, 'arboverse.cities_accessibility_5km_2015')
     
     //Forecast MOsquito opacity control
     forecastSlider.addEventListener('input', function(e) {
