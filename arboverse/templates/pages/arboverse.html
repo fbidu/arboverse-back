@@ -1310,50 +1310,152 @@
             </div>
           </div>
         </div>
-
+        <!--drought and flood-->
+        <div class="unit-btn2">
+          <div class="unit-toggle">
+            <div class="togglebtn">
+              <label class="switch">
+                <input type="checkbox" name="climate" id="arboverse.vulnerability,arboverse.rivers,arboverse.icesheets,arboverse.waterbodies" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <h6>Vulnerability to drought and floods</h6>
+            <div class="wrapper tooltip">
+              <a href="#demo-modal2.0"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
+              <span class="tooltext">Indentifies vulnerability to drought, flood and regions with saline ground and water bodies</span>
+            </div>
+          </div>
+          <div class="opacity-wrapper">
+            <label>Opacity: <span class="val_op drought_op">100</span></label>
+            <input id="opacity_slider" name="drought-opacity" type="range" min="0" max="100" value="100" step="1"
+              class="opacity">
+          </div>
+          <div class="marker">
+            <div class="point vuln_1"></div>
+            <label class="point-mean">Low vulnerability to floods and droughts</label>
+          </div>
+          <div class="marker">
+            <div class="point vuln_2"></div>
+            <label class="point-mean">Moderate vulnerability to floods and low vulnerability droughts </label>
+          </div>
+          <div class="marker">
+            <div class="point vuln_3"></div>
+            <label class="point-mean">Low vulnerability to floods and moderate vulnerability droughts </label>
+          </div>
+          <div class="marker">
+            <div class="point vuln_4"></div>
+            <label class="point-mean">Moderate vulnerability to floods and droughts </label>
+          </div>
+          <div class="marker">
+            <div class="point vuln_5"></div>
+            <label class="point-mean">High vulnerability to floods and moderate vulnerability droughts</label>
+          </div>
+          <div class="marker">
+            <div class="point vuln_6"></div>
+            <label class="point-mean">Moderate vulnerability to floods and high vulnerability droughts</label>
+          </div>
+          <div class="marker">
+            <div class="point biome_7"></div>
+            <label class="point-mean">High vulnerability to floods and droughts</label>
+          </div>
+          <div class="marker">
+            <div class="point rivers"></div>
+            <label class="point-mean">Rivers</label>
+          </div>
+          <div class="marker">
+            <div class="point waterbodies"></div>
+            <label class="point-mean">Waterbodies</label>
+          </div>
+          <div class="marker">
+            <div class="point icesheets"></div>
+            <label class="point-mean">Icesheets</label>
+          </div>
+          <div class="marker">
+            <div class="point saline"></div>
+            <label class="point-mean">Saline ground</label>
+          </div>
+        </div>
       </div>
       <!--FOREST COVER AND DEFORESTATION MENU-->
       <div id="forestcover-menu" class="sub-th-menu">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNavFor()">&times;</a>
         <h3>Forest cover & Desforestation</h3>
         <div class="menu-btn">
-          <!--Desforestation Alerts-->
+          <!--Biomes-->
           <div class="unit-btn2">
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="forest" id="forest_switch" />
+                  <input type="checkbox" name="forest" id="arboverse.biomes" />
                   <span class="slider round"></span>
                 </label>
               </div>
-              <h6>Tree cover loss</h6>
+              <h6>Biomes</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal2.0"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
-                <span class="tooltext">Indentifies areas of likely tree cover loss during the past two decades</span>
+                <span class="tooltext">Indentifies 14 terrestrial biomes</span>
               </div>
             </div>
             <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op loss_op">100</span></label>
-              <input id="opacity_slider" name="coverloss-opacity" type="range" min="0" max="100" value="100" step="1"
+              <label>Opacity: <span class="val_op biome_op">100</span></label>
+              <input id="opacity_slider" name="biome-opacity" type="range" min="0" max="100" value="100" step="1"
                 class="opacity">
             </div>
             <div class="marker">
-              <div class="point pink-orange"></div>
-              <label class="point-mean">Tree cover loss per decade</label>
+              <div class="point biome_1"></div>
+              <label class="point-mean">Tropical and subtropical moist broadleaf forests</label>
             </div>
-            <!--time selector-->
-            <div id="year-time-wrapper">
-              <form action="/p/quote.php" method="get">
-                <h5 id="form-title">Select layer time</h5>
-                <div id="time-year-slider">
-                  <input type="radio" name="year-amount" id="arboverse.tree_cover_loss_1km_2001-2010"
-                    value="arboverse.tree_cover_loss_1km_2001-2010" disabled>
-                  <label for="arboverse.tree_cover_loss_1km_2001-2010" data-time-amount="2001-2010"></label>
-                  <input type="radio" name="year-amount" id="arboverse.tree_cover_loss_1km_2011-2020"
-                    value="arboverse.tree_cover_loss_1km_2011-2020" disabled>
-                  <label for="arboverse.tree_cover_loss_1km_2011-2020" data-time-amount="2011-2020"></label>
-                </div>
-              </form>
+            <div class="marker">
+              <div class="point biome_2"></div>
+              <label class="point-mean">Tropical and subtropical dry broadleaf forests </label>
+            </div>
+            <div class="marker">
+              <div class="point biome_3"></div>
+              <label class="point-mean">Tropical and subtropical coniferous forests  </label>
+            </div>
+            <div class="marker">
+              <div class="point biome_4"></div>
+              <label class="point-mean">Temperate broadleaf and mixed forests</label>
+            </div>
+            <div class="marker">
+              <div class="point biome_5"></div>
+              <label class="point-mean">Temperate conifer forests</label>
+            </div>
+            <div class="marker">
+              <div class="point biome_6"></div>
+              <label class="point-mean">Boreal forests or taiga</label>
+            </div>
+            <div class="marker">
+              <div class="point biome_7"></div>
+              <label class="point-mean">Tropical and subtropical grasslands, savannas, and shrublands</label>
+            </div>
+            <div class="marker">
+              <div class="point biome_8"></div>
+              <label class="point-mean">Temperate grasslands, savannas, and shrublands </label>
+            </div>
+            <div class="marker">
+              <div class="point biome_9"></div>
+              <label class="point-mean">Flooded Grasslands and savannas </label>
+            </div>
+            <div class="marker">
+              <div class="point biome_10"></div>
+              <label class="point-mean">Montane grasslands and shrublands</label>
+            </div>
+            <div class="marker">
+              <div class="point biome_11"></div>
+              <label class="point-mean">Tundra</label>
+            </div>
+            <div class="marker">
+              <div class="point biome_12"></div>
+              <label class="point-mean">Mediterranean forests, woodlands, and scrub</label>
+            </div>
+            <div class="marker">
+              <div class="point biome_13"></div>
+              <label class="point-mean">Deserts and xeric shrublands</label>
+            </div>
+            <div class="marker">
+              <div class="point biome_14"></div>
+              <label class="point-mean">Mangroves</label>
             </div>
           </div>
           <!--Tree Cover Loss by dominante driver-->
@@ -1361,7 +1463,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="forest" id="arboverse.bkdd701g" />
+                  <input type="checkbox" name="forest" id="arboverse.drivers" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1405,7 +1507,7 @@
               <div class="togglebtn">
                 <label class="switch">
                   <input type="checkbox" name="forest"
-                    id="arboverse.primary_africa_1km,arboverse.primary_southamerica_1km,arboverse.primary_madagascar_1km,arboverse.primary_asia_1km" />
+                    id="arboverse.primary_asia_1km_2010,arboverse.primary_madagascar_1km_2010,arboverse.primary_africa_1km_2010,arboverse.primary_south_america_1km_2010" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1498,7 +1600,7 @@
               <div class="togglebtn">
                 <label class="switch">
                   <input type="checkbox" name="forest"
-                    id="arboverse.flii_oceania_1km,arboverse.flii_africa_1km,arboverse.flii_northamerica_1km,arboverse.flii_southamerica_1km" />
+                    id="arboverse.flii_northamerica_5km,arboverse.flii_southamerica_5km,arboverse.flii_africa_5km,arboverse.flii_oceania_5km" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1547,7 +1649,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="biodiversity" id="" />
+                  <input type="checkbox" name="biodiversity" id="arboverse.bii" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1776,6 +1878,75 @@
               <label class="point-mean">Permanent ice and snow</label>
             </div>
           </div>
+           <!--Livestock-->
+           <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="land" id="livestock_switch" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Livestock</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal3.0"><i class="fa fa-info-circle" style="color:gray; opacity: 0.8;"></i></a>
+                <span class="tooltext">Shows the global livestock distribution of main livestock in 2010</span>
+              </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Opacity: <span class="val_op stock_op">100</span></label>
+              <input id="opacity_slider" name="stock-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
+            </div>
+            <div class="measure">
+              <div class="bar-mesur livestock"></div>
+              <div class="indice">
+                <label class="millions">0</label>
+                <label class="millions">1</label>
+                <label class="millions">5</label>
+                <label class="millions">10</label>
+                <label class="millions">20</label>
+                <label class="millions">50</label>
+                <label class="millions">100</label>
+                <label class="millions">250</label>
+                <label class="millions">&#62;250</label>
+              </div>
+            </div>
+            <div id="livestock_type_wrapper">
+              <form action="/p/quote.php" method="get">
+                <h5 id="form-title"> Select livestock type</h5>
+                <div id="livestock-type-selector">
+                  <div class="livestock_group">
+                    <input type="radio" name="model_livestock" id="arboverse.livestock_catle_2010_da_10km" value="arboverse.livestock_catle_2010_da_10km" disabled>
+                    <label for="arboverse.livestock_catle_2010_da_10km" model="Cattle"></label>
+  
+                    <input type="radio" name="model_livestock" id="arboverse.livestock_bufalo_2010_da_10km" value="arboverse.livestock_bufalo_2010_da_10km" disabled>
+                    <label for="arboverse.livestock_bufalo_2010_da_10km" model="Buffaloes"></label>
+  
+                    <input type="radio" name="model_livestock" id="arboverse.livestock_sheep_2010_da_10km" value="arboverse.livestock_sheep_2010_da_10km" disabled>
+                    <label for="arboverse.livestock_sheep_2010_da_10km" model="Sheep"></label>
+  
+                    <input type="radio" name="model_livestock" id="arboverse.livestock_goat_2010_da_10km" value="arboverse.livestock_goat_2010_da_10km" disabled>
+                    <label for="arboverse.livestock_goat_2010_da_10km" model="Goats"></label>
+                  </div>
+                  <div class="livestock_group">
+                    <input type="radio" name="model_livestock" id="arboverse.livestock_horse_2010_da_10km" value="arboverse.livestock_horse_2010_da_10km" disabled>
+                    <label for="arboverse.livestock_horse_2010_da_10km" model="Horses"></label>
+  
+                    <input type="radio" name="model_livestock" id="arboverse.livestock_pig_2010_da_10km" value="arboverse.livestock_pig_2010_da_10km" disabled>
+                    <label for="arboverse.livestock_pig_2010_da_10km" model="Pigs"></label>
+  
+                    <input type="radio" name="model_livestock" id="arboverse.livestock_chicken_2010_da_10km" value="arboverse.livestock_chicken_2010_da_10km" disabled>
+                    <label for="arboverse.livestock_chicken_2010_da_10km" model="Chickens"></label>
+  
+                    <input type="radio" name="model_livestock" id="arboverse.livestock_duck_2010_da_10km" value="arboverse.livestock_duck_2010_da_10km" disabled>
+                    <label for="arboverse.livestock_duck_2010_da_10km" model="Ducks"></label>
+                  </div>
+                </div>
+  
+              </form>
+            </div>
+          </div>
           <!--Mining Concessions-->
           <div class="unit-btn2">
             <div class="unit-toggle">
@@ -1897,20 +2068,19 @@
             </div>
           </div>
           <h5 class="area">Infrastructure</h5>
-          <!--Main Dams-->
+          <!--Dams-->
           <div class="unit-btn2">
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="land" id="arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech" />
+                  <input type="checkbox" name="land" id="arboverse.dams" />
                   <span class="slider round"></span>
                 </label>
               </div>
-              <h6>Major dams</h6>
+              <h6>Global dams</h6>
               <div class="tooltip">
                 <a href="#demo-modal3.4"><i class="fa fa-info-circle" style="color:gray; opacity: 0.8;"></i></a>
-                <span class="tooltext">Identifies dam locations for the world's 50 major river
-                  basins</span>
+                <span class="tooltext">Identifies dam locations </span>
               </div>
             </div>
             <div class="opacity-wrapper">
@@ -1919,28 +2089,8 @@
                 class="opacity">
             </div>
             <div class="marker">
-              <div class="point operational-p"></div>
-              <label class="point-mean">Operational</label>
-            </div>
-            <div class="marker">
-              <div class="point under-p"></div>
-              <label class="point-mean">Under construction</label>
-            </div>
-            <div class="marker">
-              <div class="point planned-p"></div>
-              <label class="point-mean">Planned</label>
-            </div>
-            <div class="marker">
-              <div class="point inventoried-p"></div>
-              <label class="point-mean">Inventoried</label>
-            </div>
-            <div class="marker">
-              <div class="point suspended-p"></div>
-              <label class="point-mean">Suspended</label>
-            </div>
-            <div class="marker">
-              <div class="point unknown-p"></div>
-              <label class="point-mean">Unknown</label>
+              <div class="point dams_38"></div>
+              <label class="point-mean">Dams</label>
             </div>
           </div>
         </div>
@@ -1948,14 +2098,44 @@
       <!--Human Mobility-->
       <div id="mobility-menu" class="sub-fiv-menu">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNavMob()">&times;</a>
-        <h3>International tourism</h3>
+        <h3>Human mobility</h3>
         <div class="menu-btn">
+            <!--cities accessibility-->
+            <div class="unit-btn2">
+              <div class="unit-toggle">
+                <div class="togglebtn">
+                  <label class="switch">
+                    <input type="checkbox" name="mobility" id="arboverse.cities_accessibility_5km_2015" />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+                <h6>Cities acessibility</h6>
+                <div class="wrapper tooltip">
+                  <a href="#demo-modal2.3"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
+                  <span class="tooltext">Displays the amount of time to access the city</span>
+                </div>
+              </div>
+              <div class="opacity-wrapper">
+                <label>Opacity: <span class="val_op cities_op">100</span></label>
+                <input id="opacity_slider" name="cities-opacity" type="range" min="0" max="100" value="100" step="1"
+                  class="opacity">
+              </div>
+              <div class="measure">
+                <div class="bar-mesur cities_label"></div>
+                <div class="indice">
+                  <label class="percentage">0 hour</label>
+                  <label class="percentage">1 hour</label>
+                  <label class="percentage">1 day</label>
+                  <label class="percentage">10 days</label>
+                </div>
+              </div>
+            </div>
           <!--Arrives-->
           <div class="unit-btn2">
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="mobility" id="arboverse.cgwofgmt" />
+                  <input type="checkbox" name="mobility" id="arboverse.arrivals" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1995,7 +2175,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="mobility" id="arboverse.2mtp8qji" />
+                  <input type="checkbox" name="mobility" id="arboverse.departures" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -2035,11 +2215,11 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="mobility" id="arboverse.cts68r85" />
+                  <input type="checkbox" name="mobility" id="arboverse.transportation" />
                   <span class="slider round"></span>
                 </label>
               </div>
-              <h6>Number ofpassengers</h6>
+              <h6>Number of passengers</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal4.2"><i class="fa fa-info-circle" style="color:gray; opacity: 0.8;"></i></a>
                 <span class="tooltext">Number of passengers per year in the world </span>
@@ -2205,8 +2385,8 @@
               </div>
             </div>
             <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op pop_op">100</span></label>
-              <input id="opacity_slider" name="pop-opacity" type="range" min="0" max="100" value="100" step="1"
+              <label>Opacity: <span class="val_op health_op">100</span></label>
+              <input id="opacity_slider" name="health-opacity" type="range" min="0" max="100" value="100" step="1"
                 class="opacity">
             </div>
             <div class="measure">
@@ -2222,10 +2402,10 @@
               <form action="/p/quote.php" method="get">
                 <h5 id="form-title">Select layer time</h5>
                 <div id="populational-time-slider">
-                  <input type="radio" name="year-picker" id="arboverse.pop_2015" value="arboverse.pop_2015" disabled>
-                  <label for="arboverse.pop_2015" data-time-amount="On foot"></label>
-                  <input type="radio" name="year-picker" id="arboverse.pop_2020" value="arboverse.pop_2020" disabled>
-                  <label for="arboverse.pop_2020" data-time-amount="Motorized"></label>
+                  <input type="radio" name="type-locomotion" id="arboverse.healthcare_time_walking_5km_2020" value="arboverse.healthcare_time_walking_5km_2020" disabled>
+                  <label for="arboverse.healthcare_time_walking_5km_2020" data-time-amount="On foot"></label>
+                  <input type="radio" name="type-locomotion" id="arboverse.healthcare_time_motorized" value="arboverse.healthcare_time_motorized" disabled>
+                  <label for="arboverse.healthcare_time_motorized" data-time-amount="Motorized"></label>
                 </div>
               </form>
             </div>

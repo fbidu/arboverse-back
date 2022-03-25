@@ -318,16 +318,16 @@ function enableForecastRadio() {
         document.getElementById("arboverse.a51uv49z").disabled = false;
         document.getElementById("arboverse.92xut72i").disabled = false;
     } else if (dev != true) {
-        document.getElementById("arboverse.c89hazcs").checked = false;
-        document.getElementById("arboverse.cugep9k4").checked = false;
-        document.getElementById("arboverse.9uh1mltv").checked = false;
-        document.getElementById("arboverse.7va6tx65").disabled = false;
-        document.getElementById("arboverse.bud0k3bq").disabled = false;
-        document.getElementById("arboverse.cot4nhox").disabled = false;
-        document.getElementById("arboverse.59jzfz3w").disabled = false;
-        document.getElementById("arboverse.2wsi2z3v").disabled = false;
-        document.getElementById("arboverse.a51uv49z").disabled = false;
-        document.getElementById("arboverse.92xut72i").disabled = false;
+        document.getElementById("arboverse.c89hazcs").disabled = true;
+        document.getElementById("arboverse.cugep9k4").disabled = true;
+        document.getElementById("arboverse.9uh1mltv").disabled = true;
+        document.getElementById("arboverse.7va6tx65").disabled = true;
+        document.getElementById("arboverse.bud0k3bq").disabled = true;
+        document.getElementById("arboverse.cot4nhox").disabled = true;
+        document.getElementById("arboverse.59jzfz3w").disabled = true;
+        document.getElementById("arboverse.2wsi2z3v").disabled = true;
+        document.getElementById("arboverse.a51uv49z").disabled = true;
+        document.getElementById("arboverse.92xut72i").disabled = true;
     };
     var j = 0;
     document.querySelectorAll("input[name=model_climate]").forEach(j => {
@@ -341,6 +341,57 @@ document.querySelectorAll("input[name=model_climate]").forEach(i => {
     i.onchange = function () {
         var j = 0;
         document.querySelectorAll("input[name=model_climate]").forEach(j => {
+            j.checked = false;
+            update_map(j)
+        });
+        i.checked = true;
+        update_map(this);
+    }
+})
+//Forecast mosquito climate Condition 
+var i=0;
+var livestockSwitchbtn = document.getElementById('livestock_switch')
+function enablelivestockRadio() {
+    document.getElementById("arboverse.livestock_goat_2010_da_10km").disabled = true;
+    document.getElementById("arboverse.livestock_catle_2010_da_10km").disabled = true;
+    document.getElementById("arboverse.livestock_sheep_2010_da_10km").disabled = true;
+    document.getElementById("arboverse.livestock_bufalo_2010_da_10km").disabled = true;
+    document.getElementById("arboverse.livestock_chicken_2010_da_10km").disabled = true;
+    document.getElementById("arboverse.livestock_horse_2010_da_10km").disabled = true;
+    document.getElementById("arboverse.livestock_pig_2010_da_10km").disabled = true;
+    document.getElementById("arboverse.livestock_duck_2010_da_10km").disabled = true;
+    var dev = document.getElementById('livestock_switch').checked;
+    if (dev === true) {
+        document.getElementById("arboverse.livestock_goat_2010_da_10km").disabled = false;
+        document.getElementById("arboverse.livestock_catle_2010_da_10km").disabled = false;
+        document.getElementById("arboverse.livestock_sheep_2010_da_10km").disabled = false;
+        document.getElementById("arboverse.livestock_bufalo_2010_da_10km").disabled = false;
+        document.getElementById("arboverse.livestock_chicken_2010_da_10km").disabled = false;
+        document.getElementById("arboverse.livestock_horse_2010_da_10km").disabled = false;
+        document.getElementById("arboverse.livestock_pig_2010_da_10km").disabled = false;
+        document.getElementById("arboverse.livestock_duck_2010_da_10km").disabled = false;
+    } else if (dev !== true) {
+        document.getElementById("arboverse.livestock_goat_2010_da_10km").disabled = true;
+        document.getElementById("arboverse.livestock_catle_2010_da_10km").disabled = true;
+        document.getElementById("arboverse.livestock_sheep_2010_da_10km").disabled = true;
+        document.getElementById("arboverse.livestock_bufalo_2010_da_10km").disabled = true;
+        document.getElementById("arboverse.livestock_chicken_2010_da_10km").disabled = true;
+        document.getElementById("arboverse.livestock_horse_2010_da_10km").disabled = true;
+        document.getElementById("arboverse.livestock_pig_2010_da_10km").disabled = true;
+        document.getElementById("arboverse.livestock_duck_2010_da_10km").disabled = true;
+    };
+    var j = 0;
+    document.querySelectorAll("input[name=model_livestock]").forEach(j => {
+        j.checked = false;
+        update_map(j)
+    })
+}
+livestockSwitchbtn.onchange = enablelivestockRadio;
+var i = 0;
+document.querySelectorAll("input[name=model_livestock]").forEach(i => {
+    i.onchange = function () {
+        var j = 0;
+        document.querySelectorAll("input[name=model_luvestock]").forEach(j => {
             j.checked = false;
             update_map(j)
         });
@@ -381,32 +432,33 @@ document.querySelectorAll("input[name=kp-amount]").forEach(i => {
         update_map(this);
     }
 })
-//Forest Time condition
-var i = 0
-var switchbtn = document.getElementById('forest_switch');
-function enableForestRadio() {
-    document.getElementById("arboverse.tree_cover_loss_1km_2001-2010").disabled = true;
-    document.getElementById("arboverse.tree_cover_loss_1km_2011-2020").disabled = true;
-    var dev = document.getElementById('forest_switch').checked;
+
+//healthcare access Condition 
+var i=0;
+var healthSwitchbtn = document.getElementById('health_switch')
+function enableHealthRadio() {
+    document.getElementById("arboverse.healthcare_time_walking_5km_2020").disabled = true;
+    document.getElementById("arboverse.healthcare_time_motorized").disabled = true;
+    var dev = document.getElementById('health_switch').checked;
     if (dev == true) {
-        document.getElementById("arboverse.tree_cover_loss_1km_2001-2010").disabled = false;
-        document.getElementById("arboverse.tree_cover_loss_1km_2011-2020").disabled = false;
+        document.getElementById("arboverse.healthcare_time_walking_5km_2020").disabled = false;
+        document.getElementById("arboverse.healthcare_time_motorized").disabled = false;
     } else if (dev != true) {
-        document.getElementById("arboverse.tree_cover_loss_1km_2001-2010").checked = false;
-        document.getElementById("arboverse.tree_cover_loss_1km_2011-2020").checked = false;
+        document.getElementById("arboverse.healthcare_time_walking_5km_2020").checked = false;
+        document.getElementById("arboverse.healthcare_time_motorized").checked = false;
     };
     var j = 0;
-    document.querySelectorAll("input[name=year-amount]").forEach(j => {
+    document.querySelectorAll("input[name=type-locomotion]").forEach(j => {
         j.checked = false;
         update_map(j)
     })
 }
-switchbtn.onchange = enableForestRadio;
+healthSwitchbtn.onchange = enableHealthRadio;
 var i = 0;
-document.querySelectorAll("input[name=year-amount]").forEach(i => {
+document.querySelectorAll("input[name=type-locomotion]").forEach(i => {
     i.onchange = function () {
         var j = 0;
-        document.querySelectorAll("input[name=year-amount]").forEach(j => {
+        document.querySelectorAll("input[name=type-locomotion]").forEach(j => {
             j.checked = false;
             update_map(j)
         });
@@ -414,6 +466,7 @@ document.querySelectorAll("input[name=year-amount]").forEach(i => {
         update_map(this);
     }
 })
+
 //Population Time condition
 var i = 0
 var popSwitchbtn = document.getElementById('pop_switch');
@@ -490,6 +543,30 @@ var opValue = function(){
 }
 cli.addEventListener('input', opValue)
 
+var cities = document.querySelector('input[name=cities-opacity]');
+var citiesValue = function(){
+    var newOpValue = cities.value;
+    var target = document.querySelector('.cities_op');
+    target.innerHTML = newOpValue;
+}
+cities.addEventListener('input', citiesValue)
+
+var health = document.querySelector('input[name=health-opacity]');
+var healthValue = function(){
+    var newOpValue = health.value;
+    var target = document.querySelector('.health_op');
+    target.innerHTML = newOpValue;
+}
+health.addEventListener('input', healthValue)
+
+var drought = document.querySelector('input[name=drought-opacity]');
+var droughtValue = function(){
+    var newOpValue = drought.value;
+    var target = document.querySelector('.drought_op');
+    target.innerHTML = newOpValue;
+}
+drought.addEventListener('input', droughtValue)
+
 var fore = document.querySelector('input[name=forecast-opacity]');
 var foreValue = function(){
     var newForeValue = fore.value;
@@ -500,19 +577,19 @@ fore.addEventListener('input', foreValue)
 
 var arid = document.querySelector('input[name=aridity-opacity]');
 var ariValue = function(){
-    var newAriValue = ari.value;
+    var newAriValue = arid.value;
     var target = document.querySelector('.ari_op');
     target.innerHTML = newAriValue;
 }
-ari.addEventListener('input', ariValue)
+arid.addEventListener('input', ariValue)
 
-var loss = document.querySelector('input[name=coverloss-opacity]');
-var lossValue = function(){
-    var newOpValue = loss.value;
-    var target = document.querySelector('.loss_op');
+var biome = document.querySelector('input[name=biome-opacity]');
+var biomeValue = function(){
+    var newOpValue = biome.value;
+    var target = document.querySelector('.biome_op');
     target.innerHTML = newOpValue;
 }
-loss.addEventListener('input', lossValue)
+biome.addEventListener('input', biomeValue)
 
 var drive = document.querySelector('input[name=drive-opacity]');
 var DriveValue = function(){
@@ -546,6 +623,14 @@ var intactValue = function(){
 }
 intact.addEventListener('input', intactValue)
 
+var biodiversity = document.querySelector('input[name=biodiversity-opacity]');
+var biodiversityValue = function(){
+    var newOpValue = biodiversity.value;
+    var target = document.querySelector('.biodiversity_op');
+    target.innerHTML = newOpValue;
+}
+biodiversity.addEventListener('input', biodiversityValue)
+
 var index = document.querySelector('input[name=index-opacity]');
 var indexValue = function(){
     var newOpValue = index.value;
@@ -561,6 +646,14 @@ var landValue = function(){
     target.innerHTML = newOpValue;
 }
 land.addEventListener('input', landValue);
+
+var stock = document.querySelector('input[name=stock-opacity]');
+var stockValue = function(){
+    var newOpValue = stock.value;
+    var target = document.querySelector('.stock_op');
+    target.innerHTML = newOpValue;
+}
+stock.addEventListener('input', stockValue);
 
 var mini = document.querySelector('input[name=mini-opacity]');
 var miniValue = function(){

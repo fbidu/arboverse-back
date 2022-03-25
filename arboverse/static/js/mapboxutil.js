@@ -135,10 +135,36 @@ function update_map(cb) {
 
 
 map.on('load', async()=>{
+    //Koppengeiger 
     addTileLayerToMap(map, 'arboverse.presentfull', 'mapbox://arboverse.presentfull', 'fill', { 'fill-color': [ "case", [ "==", ["get", "classes"], 0 ], "hsla(0, 0%, 0%, 0)", [ "match", ["get", "classes"], [1], true, false ], "#8c0273", [ "match", ["get", "classes"], [2], true, false ], "#8f1966", [ "match", ["get", "classes"], [3], true, false ], "#91285a", [ "match", ["get", "classes"], [4], true, false ], "#922e54", [ "match", ["get", "classes"], [5], true, false ], "#943c4a", [ "match", ["get", "classes"], [6], true, false ], "#964941", [ "match", ["get", "classes"], [7], true, false ], "#974f3c", [ "match", ["get", "classes"], [8], true, false ], "#996330", [ "match", ["get", "classes"], [9], true, false ], "#9a692b", [ "match", ["get", "classes"], [10], true, false ], "#9b7127", [ "match", ["get", "classes"], [11], true, false ], "#9c7923", [ "match", ["get", "classes"], [12], true, false ], "#9c801f", [ "match", ["get", "classes"], [13], true, false ], "#9d891c", [ "match", ["get", "classes"], [14], true, false ], "#9c911c", [ "match", ["get", "classes"], [15], true, false ], "#9b9a1d", [ "match", ["get", "classes"], [16], true, false ], "#99a323", [ "match", ["get", "classes"], [17], true, false ], "#91b437", [ "match", ["get", "classes"], [18], true, false ], "#8cba44", [ "match", ["get", "classes"], [19], true, false ], "#86c051", [ "match", ["get", "classes"], [20], true, false ], "#80c55f", [ "match", ["get", "classes"], [21], true, false ], "#79ca6d", [ "match", ["get", "classes"], [22], true, false ], "#73ce7b", [ "match", ["get", "classes"], [23], true, false ], "#6dd389", [ "match", ["get", "classes"], [24], true, false ], "#68d797", [ "match", ["get", "classes"], [26], true, false ], "#60e0b5", [ "match", ["get", "classes"], [27], true, false ], "#60e4c4", [ "match", ["get", "classes"], [28], true, false ], "#65e8d2", [ "match", ["get", "classes"], [29], true, false ], "#8ff0f1", [ "match", ["get", "classes"], [30], true, false ], "#b3f2fd", [ "match", ["get", "classes"], [25], true, false ], "#62dca7", "#000000" ]}, 'kopeen_fullpresent');
     addTileLayerToMap(map, 'arboverse.koppenfuture', 'mapbox://arboverse.koppenfuture', 'fill', { 'fill-color': [ "case", [ "==", ["get", "classes"], 0 ], "hsla(0, 0%, 0%, 0)", [ "match", ["get", "classes"], [1], true, false ], "#8c0273", [ "match", ["get", "classes"], [2], true, false ], "#8f1966", [ "match", ["get", "classes"], [3], true, false ], "#91285a", [ "match", ["get", "classes"], [4], true, false ], "#922e54", [ "match", ["get", "classes"], [5], true, false ], "#943c4a", [ "match", ["get", "classes"], [6], true, false ], "#964941", [ "match", ["get", "classes"], [7], true, false ], "#974f3c", [ "match", ["get", "classes"], [8], true, false ], "#996330", [ "match", ["get", "classes"], [9], true, false ], "#9a692b", [ "match", ["get", "classes"], [10], true, false ], "#9b7127", [ "match", ["get", "classes"], [11], true, false ], "#9c7923", [ "match", ["get", "classes"], [12], true, false ], "#9c801f", [ "match", ["get", "classes"], [13], true, false ], "#9d891c", [ "match", ["get", "classes"], [14], true, false ], "#9c911c", [ "match", ["get", "classes"], [15], true, false ], "#9b9a1d", [ "match", ["get", "classes"], [16], true, false ], "#99a323", [ "match", ["get", "classes"], [17], true, false ], "#91b437", [ "match", ["get", "classes"], [18], true, false ], "#8cba44", [ "match", ["get", "classes"], [19], true, false ], "#86c051", [ "match", ["get", "classes"], [20], true, false ], "#80c55f", [ "match", ["get", "classes"], [21], true, false ], "#79ca6d", [ "match", ["get", "classes"], [22], true, false ], "#73ce7b", [ "match", ["get", "classes"], [23], true, false ], "#6dd389", [ "match", ["get", "classes"], [24], true, false ], "#68d797", [ "match", ["get", "classes"], [26], true, false ], "#60e0b5", [ "match", ["get", "classes"], [27], true, false ], "#60e4c4", [ "match", ["get", "classes"], [28], true, false ], "#65e8d2", [ "match", ["get", "classes"], [29], true, false ], "#8ff0f1", [ "match", ["get", "classes"], [30], true, false ], "#b3f2fd", [ "match", ["get", "classes"], [25], true, false ], "#62dca7", "#000000" ]}, 'kopeen_future');
+    //land cover
+    addRasterTileLayerToMap(map, 'arboverse.8xtrhkxq', 'mapbox://arboverse.8xtrhkxq', 'raster', 'mapbox://arboverse.arboverse.8xtrhkxq', 0, 19);
+    // biomes
+    addTileLayerToMap(map, 'arboverse.biomes', 'mapbox://arboverse.biomes', 'fill', { 'fill-color': [ "match", ["get", "BIOME_NUM"], [1], "#2b655e", [2], "#6a7b3d", [3], "#7b8034", [4], "#a18a2b", [5], "#103f60", [6], "#fdbac7", [7], "#195662", [8], "#cf9340", [9], "#0b2b5c", [10], "#f09c69", [11], "#95872c", [12], "#fbc6ea", [13], "#f9a380", [14], "#416f53", "#000000" ] }, 'biomes');
+    // drought vulnerabity
+    addTileLayerToMap(map, 'arboverse.vulnerability', 'mapbox://arboverse.vulnerability', 'fill', { 'fill-color': [ "match", ["get", "GW_vulnera"], [ "low vulnerability to floods and droughts" ], "#66e9d4", [ "moderate vulnerability to floods and low vulnerability to droughts" ], "#6cd48d", [ "low vulnerability to floods and moderate vulnerability to droughts" ], "#8abd49", [ "moderate vulnerability to floods and droughts" ], "#9c961c", [ "high vulnerability to floods and moderate vulnerability to droughts" ], "#9b6e28", [ "moderate vulnerability to floods and high vulnerability to droughts" ], "#974e3e", [ "high vulnerability to floods and droughts" ], "#922e55", "#000000" ] }, 'vulnerability');
+    addTileLayerToMap(map, 'arboverse.rivers', 'mapbox://arboverse.rivers', 'line', { 'line-color': "#b3f2fd", 'line-width': [ "interpolate", ["linear"], ["zoom"], 0, 1, 22, 2 ] }, 'rivers');
+    addTileLayerToMap(map, 'arboverse.icesheets', 'mapbox://arboverse.icesheets', 'fill', { 'fill-color': "#c8d0e5" }, 'icesheets');
+    addTileLayerToMap(map, 'arboverse.waterbodies', 'mapbox://arboverse.waterbodies', 'fill', { 'fill-color': "#2f87da" }, 'waterbodies');
     //aridity
     addRasterTileLayerToMap(map, 'arboverse.aridity_5km_1970_2000', 'mapbox://arboverse.aridity_5km_1970_2000', 'raster', 'mapbox://arboverse.aridity_5km_1970_2000', 0, 19);  
+    //livestock
+    addRasterTileLayerToMap(map, 'arboverse.livestock_catle_2010_da_10km', 'mapbox://arboverse.livestock_catle_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_catle_2010_da_10km', 0, 19);  
+    addRasterTileLayerToMap(map, 'arboverse.livestock_bufalo_2010_da_10km', 'mapbox://arboverse.livestock_bufalo_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_bufalo_2010_da_10km', 0, 19); 
+    addRasterTileLayerToMap(map, 'arboverse.livestock_sheep_2010_da_10km', 'mapbox://arboverse.livestock_sheep_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_sheep_2010_da_10km', 0, 19);   
+    addRasterTileLayerToMap(map, 'arboverse.livestock_goat_2010_da_10km', 'mapbox://arboverse.livestock_goat_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_goat_2010_da_10km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.livestock_horse_2010_da_10km', 'mapbox://arboverse.livestock_horse_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_horse_2010_da_10km', 0, 19);  
+    addRasterTileLayerToMap(map, 'arboverse.livestock_pig_2010_da_10km', 'mapbox://arboverse.livestock_pig_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_pig_2010_da_10km', 0, 19); 
+    addRasterTileLayerToMap(map, 'arboverse.livestock_chicken_2010_da_10km', 'mapbox://arboverse.livestock_chicken_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_chicken_2010_da_10km', 0, 19);   
+    addRasterTileLayerToMap(map, 'arboverse.livestock_duck_2010_da_10km', 'mapbox://arboverse.livestock_duck_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_duck_2010_da_10km', 0, 19);   
+    //cities accessibility
+    addRasterTileLayerToMap(map, 'arboverse.cities_accessibility_5km_2015', 'mapbox://arboverse.cities_accessibility_5km_2015', 'raster', 'mapbox://arboverse.cities_accessibility_5km_2015', 0, 19); 
+    //cities accessibility
+    addRasterTileLayerToMap(map, 'arboverse.healthcare_time_walking_5km_2020', 'mapbox://arboverse.healthcare_time_walking_5km_2020', 'raster', 'mapbox://arboverse.healthcare_time_walking_5km_2020', 0, 19); 
+    addRasterTileLayerToMap(map, 'arboverse.healthcare_time_motorized', 'mapbox://arboverse.healthcare_time_motorized', 'raster', 'mapbox://arboverse.healthcare_time_motorized', 0, 19); 
+    //Biodiversity intactness index
+    addRasterTileLayerToMap(map, 'arboverse.bii', 'mapbox://arboverse.bii', 'raster', 'mapbox://arboverse.bii', 0, 19);  
     //forecast mosquito 
     addRasterTileLayerToMap(map, 'arboverse.c89hazcs', 'mapbox://arboverse.c89hazcs', 'raster', 'mapbox://arboverse.c89hazcs', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.cugep9k4', 'mapbox://arboverse.cugep9k4', 'raster', 'mapbox://arboverse.cugep9k4', 0, 19);
@@ -150,14 +176,14 @@ map.on('load', async()=>{
     addRasterTileLayerToMap(map, 'arboverse.2wsi2z3v', 'mapbox://arboverse.2wsi2z3v', 'raster', 'mapbox://arboverse.2wsi2z3v', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.a51uv49z', 'mapbox://arboverse.a51uv49z', 'raster', 'mapbox://arboverse.a51uv49z', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.92xut72i', 'mapbox://arboverse.92xut72i', 'raster', 'mapbox://arboverse.92xut72i', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.8xtrhkxq', 'mapbox://arboverse.8xtrhkxq', 'raster', 'mapbox://arboverse.arboverse.8xtrhkxq', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.pop_2015', 'mapbox://arboverse.pop_2015', 'raster', 'mapbox://arboverse.pop_2015', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.pop_2020', 'mapbox://arboverse.pop_2020', 'raster', 'mapbox://arboverse.pop_2020', 0, 19);
-    addTileLayerToMap(map, 'arboverse.bkdd701g', 'mapbox://arboverse.bkdd701g', 'fill', { 'fill-color': ['match', ['get', 'classes'], [1], "#FDAFA5", [2], "#50744B", [3], "#1A5762", [4], "#A58B2C", [5], "#0F3B5F", "#000000"] }, 'Cover_loss_dominant_drivers-bbybfd');
-    addRasterTileLayerToMap(map, 'arboverse.flii_oceania_1km', 'mapbox://arboverse.flii_oceania_1km', 'raster', 'mapbox://arboverse.flii_oceania_1km', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.flii_africa_1km', 'mapbox://arboverse.flii_africa_1km', 'raster', 'mapbox://arboverse.flii_africa_1km', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.flii_northamerica_1km', 'mapbox://arboverse.flii_northamerica_1km', 'raster', 'mapbox://arboverse.flii_northamerica_1km', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.flii_southamerica_1km', 'mapbox://arboverse.flii_southamerica_1km', 'raster', 'mapbox://arboverse.flii_southamerica_1km', 0, 19);
+    // Tree cover loss by dominat drivers
+    addTileLayerToMap(map, 'arboverse.drivers', 'mapbox://arboverse.drivers', 'fill', { 'fill-color': ['match', ['get', 'classes'], [1], "#FDAFA5", [2], "#50744B", [3], "#1A5762", [4], "#A58B2C", [5], "#0F3B5F", "#000000"] }, 'drivers');
+    //forest landscape integrity index
+    addRasterTileLayerToMap(map, 'arboverse.flii_oceania_5km', 'mapbox://arboverse.flii_oceania_5km', 'raster', 'mapbox://arboverse.flii_oceania_5km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.flii_africa_5km', 'mapbox://arboverse.flii_africa_5km', 'raster', 'mapbox://arboverse.flii_africa_5km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.flii_southamerica_5km', 'mapbox://arboverse.flii_southamerica_5km', 'raster', 'mapbox://arboverse.flii_southamerica_5km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.flii_northamerica_5km', 'mapbox://arboverse.flii_northamerica_5km', 'raster', 'mapbox://arboverse.flii_northamerica_5km', 0, 19);
+    //Tree cover height
     addRasterTileLayerToMap(map, 'arboverse.height_2019_nam_1km', 'mapbox://arboverse.height_2019_nam_1km', 'raster', 'mapbox://arboverse.height_2019_nam_1km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.height_2019_sam_1km', 'mapbox://arboverse.height_2019_sam_1km', 'raster', 'mapbox://arboverse.height_2019_sam_1km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.height_2019_aus_1km', 'mapbox://arboverse.height_2019_aus_1km', 'raster', 'mapbox://arboverse.height_2019_aus_1km', 0, 19);
@@ -165,16 +191,16 @@ map.on('load', async()=>{
     addRasterTileLayerToMap(map, 'arboverse.height_2019_safr_1km', 'mapbox://arboverse.height_2019_safr_1km', 'raster', 'mapbox://arboverse.height_2019_safr_1km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.height_2019_nasia_1m', 'mapbox://arboverse.height_2019_nasia_1m', 'raster', 'mapbox://arboverse.height_2019_nasia_1m', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.height_2019_sasia_1km', 'mapbox://arboverse.height_2019_sasia_1km', 'raster', 'mapbox://arboverse.height_2019_sasia_1km', 0, 19);
+    //intact forest landscape 2000 2013 2016
     addTileLayerToMap(map, 'arboverse.ifl_2000', 'mapbox://arboverse.ifl_2000', 'fill', { 'fill-color': "#356A59" }, 'ifl_2000');
     addTileLayerToMap(map, 'arboverse.ifl_2013', 'mapbox://arboverse.ifl_2013', 'fill', { 'fill-color': "#677B3E " }, 'ifl_2013');
     addTileLayerToMap(map, 'arboverse.ifl_2016', 'mapbox://arboverse.ifl_2016', 'fill', { 'fill-color': "#175262" }, 'ifl_2016');
-    addRasterTileLayerToMap(map, 'arboverse.primary_africa_1km', 'mapbox://arboverse.primary_africa_1km', 'raster', 'mapbox://arboverse.primary_africa_1km', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.primary_southamerica_1km', 'mapbox://arboverse.primary_southamerica_1km', 'raster', 'mapbox://arboverse.primary_southamerica_1km', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.primary_madagascar_1km', 'mapbox://arboverse.primary_madagascar_1km', 'raster', 'mapbox://arboverse.primary_madagascar_1km', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.primary_asia_1km', 'mapbox://arboverse.primary_asia_1km', 'raster', 'mapbox://arboverse.primary_asia_1km', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.tree_cover_loss_1km_2001-2010', 'mapbox://arboverse.tree_cover_loss_1km_2001-2010', 'raster', 'mapbox://arboverse.tree_cover_loss_1km_2001-2010', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.tree_cover_loss_1km_2011-2020', 'mapbox://arboverse.tree_cover_loss_1km_2011-2020', 'raster', 'mapbox://arboverse.tree_cover_loss_1km_2011-2020', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.soy_expansion_300m_10_set', 'mapbox://arboverse.soy_expansion_300m_10_set', 'raster', 'mapbox://arboverse.soy_expansion_300m_10_set', 0, 19);
+    //primary forest
+    addRasterTileLayerToMap(map, 'arboverse.primary_africa_1km_2010', 'mapbox://arboverse.primary_africa_1km_2010', 'raster', 'mapbox://arboverse.primary_africa_1km_2010', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.primary_south_america_1km_2010', 'mapbox://arboverse.primary_south_america_1km_2010', 'raster', 'mapbox://arboverse.primary_south_america_1km_2010', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.primary_madagascar_1km_2010', 'mapbox://arboverse.primary_madagascar_1km_2010', 'raster', 'mapbox://arboverse.primary_madagascar_1km_2010', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.primary_asia_1km_2010', 'mapbox://arboverse.primary_asia_1km_2010', 'raster', 'mapbox://arboverse.primary_asia_1km_2010', 0, 19);
+    //minig
     addTileLayerToMap(map, 'arboverse.mining1', 'mapbox://arboverse.mining', 'fill', { 'fill-color': "#EB9A60" }, 'cameroon_mining');
     addTileLayerToMap(map, 'arboverse.mining2', 'mapbox://arboverse.mining', 'fill', { 'fill-color': "#EB9A60" }, 'brazil_mining');
     addTileLayerToMap(map, 'arboverse.mining3', 'mapbox://arboverse.mining', 'fill', { 'fill-color': "#EB9A60" }, 'canada_mining');
@@ -185,6 +211,7 @@ map.on('load', async()=>{
     addTileLayerToMap(map, 'arboverse.mining8', 'mapbox://arboverse.mining', 'fill', { 'fill-color': "#EB9A60" }, 'mexico_mining');
     addTileLayerToMap(map, 'arboverse.mining9', 'mapbox://arboverse.mining', 'fill', { 'fill-color': "#EB9A60" }, 'preu_mining');
     addTileLayerToMap(map, 'arboverse.mining10', 'mapbox://arboverse.mining', 'fill', { 'fill-color': "#EB9A60" }, 'republic_congo_mining');
+    //logging
     addTileLayerToMap(map, 'arboverse.logging1', 'mapbox://arboverse.logging', 'fill', { 'fill-color': "#08255B" }, 'sarawak_logging');
     addTileLayerToMap(map, 'arboverse.logging2', 'mapbox://arboverse.logging', 'fill', { 'fill-color': "#08255B" }, 'liberia_logging');
     addTileLayerToMap(map, 'arboverse.logging3', 'mapbox://arboverse.logging', 'fill', { 'fill-color': "#08255B" }, 'gabon_logging');
@@ -193,7 +220,8 @@ map.on('load', async()=>{
     addTileLayerToMap(map, 'arboverse.logging6', 'mapbox://arboverse.logging', 'fill', { 'fill-color': "#08255B" }, 'centra_africa_logging');
     addTileLayerToMap(map, 'arboverse.logging7', 'mapbox://arboverse.logging', 'fill', { 'fill-color': "#08255B" }, 'camerron_logging');
     addTileLayerToMap(map, 'arboverse.logging8', 'mapbox://arboverse.canada_logging', 'fill', { 'fill-color': "#08255B" }, 'canada_logging_nova');
-    addTileLayerToMap(map, 'arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech', 'mapbox://arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech', 'circle', {'circle-radius': 4, 'circle-color': ["match",["get", "status"],["Operational"],"#f2a65a",["Under Construction"],"#e86c5f",["Planned"],"hsl(69, 60%, 56%)",["Inventoried"],"#3abb9b",["Suspended"],"#dd2c2f",["Unknown"],"#822faf","#fff"]}, 'major_Dams_new');
+    //Over 38k dams
+    addTileLayerToMap(map, 'arboverse.dams', 'mapbox://arboverse.dams', 'circle', {'circle-radius': [ "interpolate", ["linear"], ["zoom"], 0, 2, 22, 9 ], 'circle-color': "#c2608a", 'circle-stroke-color': "#bd548e", 'circle-stroke-width': 0.5 }, 'dams');
 })
 //Number of passengers
 map.on('load', function(){
@@ -202,58 +230,58 @@ map.on('load', function(){
     var filterYear = ['==', ['number', ['get', 'year']], 1970];
     var filterDepYear = ['==', ['number', ['get', 'year']], 1995];
     var filterArrYear = ['==', ['number', ['get', 'year']], 1995];
-    map.addSource('arboverse.cts68r85', {
+    map.addSource('arboverse.transportation', {
         type: 'vector',
         // Use any Mapbox-hosted tileset using its tileset id.
         // Learn more about where to find a tileset id:
         // https://docs.mapbox.com/help/glossary/tileset-id/
-        url: 'mapbox://arboverse.cts68r85'
+        url: 'mapbox://arboverse.transportation'
     });
-    map.addSource('arboverse.2mtp8qji',{
+    map.addSource('arboverse.departures',{
         type: 'vector',
-        url: 'mapbox://arboverse.2mtp8qji'
+        url: 'mapbox://arboverse.departures'
     });
-    map.addSource('arboverse.cgwofgmt',{
+    map.addSource('arboverse.arrivals',{
         type: 'vector',
-        url: 'mapbox://arboverse.cgwofgmt'
+        url: 'mapbox://arboverse.arrivals'
     })
     // then add the layer, referencing the source
     map.addLayer({
-        'id': 'arboverse.cts68r85',
+        'id': 'arboverse.transportation',
         'type': 'circle',
-        'source': 'arboverse.cts68r85',
+        'source': 'arboverse.transportation',
         'paint': {'circle-radius': [ "step", [ "get", "passengers carried" ], 0, 100, 3, 1000, 6, 10000, 9, 100000, 12, 1000000, 15, 10000000, 18, 100000000, 21, 157873000, 24 ], 'circle-color': [ "step", [ "get", "passengers carried" ], "hsl(61, 0%, 100%)", 100, "#e6e6f0", 1000, "#d9c1d7", 10000, "#d39fbf", 100000, "#d37fa8", 1000000, "#ae6795", 10000000, "#835f8b", 100000000, "#54426e", 926737000, "#2e214d" ]},
-        'source-layer': 'air_transport_06_30_21_WDI-7a456y',
+        'source-layer': 'transportation',
         'filter': ['all', filterYear]
     });
     map.addLayer({
-        'id': 'arboverse.2mtp8qji',
+        'id': 'arboverse.departures',
         'type': 'circle',
-        'source': 'arboverse.2mtp8qji',
+        'source': 'arboverse.departures',
         'paint': {'circle-radius': ['step',[ "get", "departures"], 0, 100, 3, 1000, 6, 10000, 9, 100000, 12, 1000000, 15, 10000000, 18, 100000000, 21, 926737000, 24], 'circle-color': ["step", ["get", "departures"], "hsl(61, 0%, 100%)", 100, "#fef2f3", 1000, "#e4c8b1", 10000, "#a5a795", 100000, "#7398a0", 1000000, "#487da3", 10000000, "#305c98", 100000000, "#253681", 926737000, "#1a0c64"]},
-        'source-layer': 'tourism_departures_06_30_21_W-5zcnfa',
+        'source-layer': 'departures',
         'filter': ['all', filterDepYear]
     });
     map.addLayer({
-        'id': 'arboverse.cgwofgmt',
+        'id': 'arboverse.arrivals',
         'type': 'circle',
-        'source': 'arboverse.cgwofgmt',
+        'source': 'arboverse.arrivals',
         'paint': {'circle-radius': ['step',[ "get", "arrivals"], 0, 100, 3, 1000, 6, 10000, 9, 100000, 12, 1000000, 15, 10000000, 18, 100000000, 21, 211998000, 24], 'circle-color': ["step", ["get", "arrivals"], "hsl(61, 0%, 100%)", 100, "#fefed8", 1000, "#c6eab2", 10000, "#9bbb95", 100000, "#92988a", 1000000, "#8c7681", 10000000, "#7e5172", 100000000, "#522754", 926737000, "#1a0e34"]},
-        'source-layer': 'tourism_arrivals_06_30_21_WDI-aza97h',
+        'source-layer': 'arrivals',
         'filter': ['all', filterArrYear]
     });
     map.setLayoutProperty(
-        'arboverse.cts68r85',
+        'arboverse.transportation',
         'visibility',
         'none'
     );
     map.setLayoutProperty(
-        'arboverse.2mtp8qji',
+        'arboverse.departures',
         'visibility',
         'none'
     );
     map.setLayoutProperty(
-        'arboverse.cgwofgmt',
+        'arboverse.arrivals',
         'visibility',
         'none'
     );    
@@ -264,7 +292,7 @@ map.on('load', function(){
                 var year = parseInt(e.target.value);
                 //update the map
                 filterYear = ['==', ['number', ['get', 'year']], year];
-                map.setFilter('arboverse.cts68r85', ['all', filterYear])
+                map.setFilter('arboverse.transportation', ['all', filterYear])
             });
     document
             .querySelector("input[name=departures]") 
@@ -272,7 +300,7 @@ map.on('load', function(){
                 var depYear = parseInt(e.target.value);
                 //update the map
                 filterDepYear = ['==', ['number', ['get', 'year']], depYear];
-                map.setFilter('arboverse.2mtp8qji', ['all', filterDepYear])
+                map.setFilter('arboverse.departures', ['all', filterDepYear])
             }); 
     document
             .querySelector("input[name=arrivals]")
@@ -280,7 +308,7 @@ map.on('load', function(){
                 var arrYear = parseInt(e.target.value);
                 //update the map
                 filterArrYear = ['==', ['number', ['get', 'year']], arrYear];
-                map.setFilter('arboverse.cgwofgmt', ['all', filterArrYear])
+                map.setFilter('arboverse.arrivals', ['all', filterArrYear])
             });              
 });
 
@@ -342,11 +370,15 @@ const addOpacityTwoRaster = (element, title1, title2) =>{
         );
     })
 };
-
+//Opacity response
 map.on('load', function(){
+    var droughtSlider = document.querySelector('input[name=drought-opacity]')
+    var healthSlider = document.querySelector('input[name=health-opacity]')
+    var citiesSlider = document.querySelector('input[name=cities-opacity]')
+    var biodiversitySlider = document.querySelector('input[name=biodiversity-opacity]')
+    var biomeSlider = document.querySelector('input[name=biome-opacity]')
     var cliSlider = document.querySelector('input[name=climate-opacity]');
     var forecastSlider= document.querySelector('input[name=forecast-opacity]');
-    var lossSlider = document.querySelector('input[name=coverloss-opacity]');
     var driveSlider = document.querySelector('input[name=drive-opacity]');
     var primarySlider = document.querySelector('input[name=primary-opacity]');
     var heightSlider = document.querySelector('input[name=height-opacity]');
@@ -355,25 +387,26 @@ map.on('load', function(){
     var landSlider = document.querySelector('input[name=land-opacity]');
     var miniSlider = document.querySelector('input[name=mini-opacity]');
     var logSlider = document.querySelector('input[name=log-opacity]');
-    var soySlider = document.querySelector('input[name=soy-opacity]');
-    var damsSlider = document.querySelector('input[name=dams-opacity]');
+    var damsSlider = document.querySelector('input[name=dams-opacity]')
     var popSlider = document.querySelector('input[name=pop-opacity]');
     var arrSlider = document.querySelector('input[name=opacity-Arr]');
     var depSlider = document.querySelector('input[name=dep-opacity]');
     var passengersSlider = document.querySelector('input[name=pass-opacity]');
     var ariditySlider = document.querySelector('input[name=aridity-opacity]');
+    var livestockSlider = document.querySelector('input[name=stock-opacity]');
 
     addOpacityTwoVector(cliSlider, 'arboverse.presentfull', 'arboverse.koppenfuture');
-    addOpacityTwoRaster(lossSlider, 'arboverse.tree_cover_loss_1km_2001-2010', 'arboverse.tree_cover_loss_1km_2011-2020');
-    addOpacityVector(driveSlider, 'arboverse.bkdd701g');
+    addOpacityVector(driveSlider, 'arboverse.drivers');
+    addOpacityVector(biomeSlider, 'arboverse.biomes');
+    addOpacityRaster(biodiversitySlider, 'arboverse.bii');
     addOpacityRaster(landSlider, 'arboverse.8xtrhkxq');
     addOpacityRaster(ariditySlider, 'arboverse.aridity_5km_1970_2000');
-    addOpacityRaster(soySlider, 'arboverse.soy_expansion_300m_10_set');
-    addOpacityCircle(damsSlider, 'arboverse.ckokkepkj1n2o21qr5mvoxy6y-8mech');
     addOpacityTwoRaster(popSlider, 'arboverse.pop_2015', 'arboverse.pop_2020');
-    addOpacityCircle(arrSlider, 'arboverse.cgwofgmt');
-    addOpacityCircle(depSlider, 'arboverse.2mtp8qji');
-    addOpacityCircle(passengersSlider, 'arboverse.cts68r85');
+    addOpacityCircle(arrSlider, 'arboverse.arrivals');
+    addOpacityCircle(depSlider, 'arboverse.departures');
+    addOpacityCircle(passengersSlider, 'arboverse.transportation');
+    addOpacityRaster(citiesSlider, 'arboverse.cities_accessibility_5km_2015')
+    addOpacityTwoRaster(healthSlider, 'arboverse.healthcare_time_motorized', 'arboverse.healthcare_time_walking_5km_2020')
     
     //Forecast MOsquito opacity control
     forecastSlider.addEventListener('input', function(e) {
@@ -430,22 +463,22 @@ map.on('load', function(){
     })
     primarySlider.addEventListener('input', function(e){
         map.setPaintProperty(
-            'arboverse.primary_africa_1km',
+            'arboverse.primary_africa_1km_2010',
             'raster-opacity',
             parseInt(e.target.value,10)/100
         );
         map.setPaintProperty(
-            'arboverse.primary_southamerica_1km',
+            'arboverse.primary_south_america_1km_2010',
             'raster-opacity',
             parseInt(e.target.value,10)/100
         );
         map.setPaintProperty(
-            'arboverse.primary_madagascar_1km',
+            'arboverse.primary_madagascar_1km_2010',
             'raster-opacity',
             parseInt(e.target.value,10)/100
         );
         map.setPaintProperty(
-            'arboverse.primary_asia_1km',
+            'arboverse.primary_asia_1km_2010',
             'raster-opacity',
             parseInt(e.target.value,10)/100
         );
@@ -487,6 +520,19 @@ map.on('load', function(){
             parseInt(e.target.value,10)/100
         );
     })
+
+    damsSlider.addEventListener('input', function(e) {
+        map.setPaintProperty(
+            'arboverse.dams',
+            'circle-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.dams',
+            'circle-stroke-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    })
     intactSlider.addEventListener('input', function(e){
         map.setPaintProperty(
             'arboverse.ifl_2000',
@@ -504,24 +550,46 @@ map.on('load', function(){
             parseInt(e.target.value,10)/100
         );
     });
+    droughtSlider.addEventListener('input', function(e){
+        map.setPaintProperty(
+            'arboverse.vulnerability',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.icesheets',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.waterbodies',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.rivers',
+            'line-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    });
     indexSlider.addEventListener('input', function(e){
         map.setPaintProperty(
-            'arboverse.flii_oceania_1km',
+            'arboverse.flii_oceania_5km',
             'raster-opacity',
             parseInt(e.target.value,10)/100
         );
         map.setPaintProperty(
-            'arboverse.flii_africa_1km',
+            'arboverse.flii_africa_5km',
             'raster-opacity',
             parseInt(e.target.value,10)/100
         );
         map.setPaintProperty(
-            'arboverse.flii_northamerica_1km',
+            'arboverse.flii_southamerica_5km',
             'raster-opacity',
             parseInt(e.target.value,10)/100
         );
         map.setPaintProperty(
-            'arboverse.flii_southamerica_1km',
+            'arboverse.flii_northamerica_5km',
             'raster-opacity',
             parseInt(e.target.value,10)/100
         );
@@ -617,6 +685,49 @@ map.on('load', function(){
         map.setPaintProperty(
             'arboverse.logging8',
             'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    });
+    livestockSlider.addEventListener('input', function(e){
+        map.setPaintProperty(
+            'arboverse.livestock_goat_2010_da_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.livestock_bufalo_2010_da_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.livestock_sheep_2010_da_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.livestock_duck_2010_da_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+
+        map.setPaintProperty(
+            'arboverse.livestock_catle_2010_da_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.livestock_chicken_2010_da_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.livestock_pig_2010_da_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.livestock_horse_2010_da_10km',
+            'raster-opacity',
             parseInt(e.target.value,10)/100
         );
     });
