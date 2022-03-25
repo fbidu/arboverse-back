@@ -142,6 +142,11 @@ map.on('load', async()=>{
     addRasterTileLayerToMap(map, 'arboverse.8xtrhkxq', 'mapbox://arboverse.8xtrhkxq', 'raster', 'mapbox://arboverse.arboverse.8xtrhkxq', 0, 19);
     // biomes
     addTileLayerToMap(map, 'arboverse.biomes', 'mapbox://arboverse.biomes', 'fill', { 'fill-color': [ "match", ["get", "BIOME_NUM"], [1], "#2b655e", [2], "#6a7b3d", [3], "#7b8034", [4], "#a18a2b", [5], "#103f60", [6], "#fdbac7", [7], "#195662", [8], "#cf9340", [9], "#0b2b5c", [10], "#f09c69", [11], "#95872c", [12], "#fbc6ea", [13], "#f9a380", [14], "#416f53", "#000000" ] }, 'biomes');
+    // drought vulnerabity
+    addTileLayerToMap(map, 'arboverse.vulnerability', 'mapbox://arboverse.vulnerability', 'fill', { 'fill-color': [ "match", ["get", "GW_vulnera"], [ "low vulnerability to floods and droughts" ], "#66e9d4", [ "moderate vulnerability to floods and low vulnerability to droughts" ], "#6cd48d", [ "low vulnerability to floods and moderate vulnerability to droughts" ], "#8abd49", [ "moderate vulnerability to floods and droughts" ], "#9c961c", [ "high vulnerability to floods and moderate vulnerability to droughts" ], "#9b6e28", [ "moderate vulnerability to floods and high vulnerability to droughts" ], "#974e3e", [ "high vulnerability to floods and droughts" ], "#922e55", "#000000" ] }, 'vulnerability');
+    addTileLayerToMap(map, 'arboverse.rivers', 'mapbox://arboverse.rivers', 'line', { 'line-color': "#b3f2fd", 'line-width': [ "interpolate", ["linear"], ["zoom"], 0, 1, 22, 2 ] }, 'rivers');
+    addTileLayerToMap(map, 'arboverse.icesheets', 'mapbox://arboverse.icesheets', 'fill', { 'fill-color': "#c8d0e5" }, 'icesheets');
+    addTileLayerToMap(map, 'arboverse.waterbodies', 'mapbox://arboverse.waterbodies', 'fill', { 'fill-color': "#2f87da" }, 'waterbodies');
     //aridity
     addRasterTileLayerToMap(map, 'arboverse.aridity_5km_1970_2000', 'mapbox://arboverse.aridity_5km_1970_2000', 'raster', 'mapbox://arboverse.aridity_5km_1970_2000', 0, 19);  
     //livestock
@@ -367,6 +372,7 @@ const addOpacityTwoRaster = (element, title1, title2) =>{
 };
 //Opacity response
 map.on('load', function(){
+    var droughtSlider = document.querySelector('input[name=drought-opacity]')
     var healthSlider = document.querySelector('input[name=health-opacity]')
     var citiesSlider = document.querySelector('input[name=cities-opacity]')
     var biodiversitySlider = document.querySelector('input[name=biodiversity-opacity]')
@@ -541,6 +547,28 @@ map.on('load', function(){
         map.setPaintProperty(
             'arboverse.ifl_2016',
             'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    });
+    droughtSlider.addEventListener('input', function(e){
+        map.setPaintProperty(
+            'arboverse.vulnerability',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.icesheets',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.waterbodies',
+            'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.rivers',
+            'line-opacity',
             parseInt(e.target.value,10)/100
         );
     });

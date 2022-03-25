@@ -559,6 +559,14 @@ var healthValue = function(){
 }
 health.addEventListener('input', healthValue)
 
+var drought = document.querySelector('input[name=drought-opacity]');
+var droughtValue = function(){
+    var newOpValue = drought.value;
+    var target = document.querySelector('.drought_op');
+    target.innerHTML = newOpValue;
+}
+drought.addEventListener('input', droughtValue)
+
 var fore = document.querySelector('input[name=forecast-opacity]');
 var foreValue = function(){
     var newForeValue = fore.value;

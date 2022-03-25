@@ -1476,6 +1476,36 @@
   margin-left: 1px;
 }
 /* Point color features  */
+.vuln_1{
+  background: #66e9d4;
+}
+.vuln_2{
+  background: #6cd48d;
+}
+.vuln_3{
+  background: #8abd49;
+}
+.vuln_4{
+  background: #9c961c;
+}
+.vuln_5{
+  background: #9b6e28;
+}
+.vuln_6{
+  background: #974e3e;
+}
+.vuln_7{
+  background: #922e55;
+}
+.rivers{
+  background: #b3f2fd;
+}
+.waterbodies{
+  background: #2f87da;
+}
+.icesheets{
+  background: #c8d0e5;
+}
 .jan{
   background: #033198;
 }
