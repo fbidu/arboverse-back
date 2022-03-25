@@ -1316,6 +1316,34 @@
     #0f2903
   );
 }
+.livestock{
+  background: linear-gradient(
+    90deg,
+    #fcf0a3 8.3%,
+    #f7da78 8.3%,
+    #f7da78 16.6%,
+    #f0bc5b 16.6%,
+    #f0bc5b 24.96%,
+    #ea9e53 24.96%,
+    #ea9e53 33.26%,
+    #e38351 33.26%,
+    #e38351 41.56%,
+    #d5664d 41.56%,
+    #d5664d 49.86%,
+    #b34d46 49.86%,
+    #b34d46 58.16%,
+    #893e38 58.16%,
+    #893e38 66.46%,
+    #893e38 66.46%,
+    #893e38 74.76%,
+    #603226 74.76%,
+    #603226 83.06%,
+    #3a2615 83.06%,
+    #3a2615 91.36%,
+    #1a1a01 91.36%,
+    #1a1a01 100%
+  );
+}
 .aridity_label{
   background: linear-gradient(
     90deg,
@@ -2010,7 +2038,8 @@ input[name=hotdays_model]:checked + label {
   border-radius: 50%;
 }
 /* ===== mosquito and model Selector Radio ======*/
-#mosquito_type_wrapper {
+#mosquito_type_wrapper,
+#livestock_type_wrapper {
   width: 100%;
   height: auto;
   display: flex;
@@ -2019,7 +2048,7 @@ input[name=hotdays_model]:checked + label {
   margin: 10px 0;
   padding: 20px 10px;
 }
-form #mosquito-type-selector {
+form #mosquito-type-selector{
   display: flex;
   flex-direction: row;
   align-content: stretch;
@@ -2028,8 +2057,18 @@ form #mosquito-type-selector {
   user-select: none;
   margin: 10px auto;
 }
+form #livestock-type-selector {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  width: 100%;
+  height:180px;
+  user-select: none;
+  margin: 10px auto;
+}
 .ae_mosquito,
-.al_mosquito{
+.al_mosquito,
+.livestock_group{
   margin-top: 10px;
   width: 50%;
   height: 100%;
@@ -2041,7 +2080,8 @@ form #mosquito-type-selector {
   color: var(--text);
 }
 form .ae_mosquito::before,
-form .al_mosquito::before {
+form .al_mosquito::before,
+form .livestock_group::before{
   content: " ";
   position: absolute;
   height: 80%;
@@ -2051,7 +2091,8 @@ form .al_mosquito::before {
   transform: translate(-50%, -55%);
   background: rgb(180, 180, 180);
 }
-form #mosquito-type-selector input, form #mosquito-type-selector label {
+form #mosquito-type-selector input, form #mosquito-type-selector label,
+form #livestock-type-selector input, form #livestock-type-selector label {
   box-sizing: border-box;
   flex: 1;
   user-select: none;
@@ -2062,6 +2103,13 @@ form #mosquito-type-selector label {
   position: relative;
   width: 100%;
   height: 15%;
+  user-select: none;
+}
+form #livestock-type-selector label {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  height: 25%;
   user-select: none;
 }
 form #mosquito-type-selector label::before { /*time Label*/
@@ -2077,7 +2125,19 @@ form #mosquito-type-selector label::before { /*time Label*/
   opacity: 0.85;
   transition: all 0.15s ease-in-out;
 }
-form #mosquito-type-selector label::after { /*time circles*/
+form #livestock-type-selector label::before { /*animals Label*/
+  content: attr(model);
+  color:var(--text);
+  position: absolute;
+  left: 30%;
+  top:-80%;
+  font-size: 0.8rem;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0.85;
+  transition: all 0.15s ease-in-out;
+}
+form #mosquito-type-selector label::after{ /*time circles*/
   content: " ";
   position: absolute;
   left:70%;
@@ -2094,35 +2154,61 @@ form #mosquito-type-selector label::after { /*time circles*/
   cursor: pointer;
   transition: all 0.15s ease-in-out;
 }
-form #mosquito-type-selector label:hover::after { /* Hover*/
+form #livestock-type-selector label::after{ /*animal circles*/
+  content: " ";
+  position: absolute;
+  left:70%;
+  top: 10%;
+  transform: translate(-50%, -50%);
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgb(180, 180, 180);
+  background: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+form #mosquito-type-selector label:hover::after,
+form #livestock-type-selector label:hover::after { /* Hover*/
   transform: translate(-50%, -50%) scale(1.3);
 }
-form #mosquito-type-selector input {
+form #mosquito-type-selector input,
+form #livestock-type-selector input {
   display: none;
 }
-form #mosquito-type-selector input:checked + label::before {
+form #mosquito-type-selector input:checked + label::before,
+form #livestock-type-selector input:checked + label::before {
   font-weight: 500;
   opacity: 1;
 }
-form #mosquito-type-selector input:checked + label::after { /* circle change checked*/
+form #mosquito-type-selector input:checked + label::after,
+form #livestock-type-selector input:checked + label::after { /* circle change checked*/
   border-width: 3px;
   transform: translate(-50%, -50%) scale(0.75);
   border-color: var(--orange);
 }
-form #mosquito-type-selector input:checked ~ #model-pos {
+form #mosquito-type-selector input:checked ~ #model-pos,
+form #livestock-type-selector input:checked ~ #model-pos {
   opacity: 1;
 }
-form #mosquito-type-selector input:checked:nth-child(1) ~ #model-pos {
+form #mosquito-type-selector input:checked:nth-child(1) ~ #model-pos,
+form #livestock-type-selector input:checked:nth-child(1) ~ #model-pos {
   left: 10%;
 }
-form #mosquito-type-selector input:checked:nth-child(3) ~ #model-pos {
+form #mosquito-type-selector input:checked:nth-child(3) ~ #model-pos,
+form #livestock-type-selector input:checked:nth-child(3) ~ #model-pos {
   left: 30%;
 }
-form:valid #mosquito-type-selector input + label::before {
+form:valid #mosquito-type-selector input + label::before,
+form:valid #livestock-type-selector input + label::before {
   transform: translate(-50%, 35px) scale(0.9);
   transition: all 0.15s linear;
 }
-form:valid #mosquito-type-selector input:checked + label::before {
+form:valid #mosquito-type-selector input:checked + label::before,
+form:valid #livestock-type-selector input:checked + label::before {
   transform: translate(-50%, 35px) scale(1.1);
   transition: all 0.15s linear;
 }

@@ -144,6 +144,16 @@ map.on('load', async()=>{
     addTileLayerToMap(map, 'arboverse.biomes', 'mapbox://arboverse.biomes', 'fill', { 'fill-color': [ "match", ["get", "BIOME_NUM"], [1], "#2b655e", [2], "#6a7b3d", [3], "#7b8034", [4], "#a18a2b", [5], "#103f60", [6], "#fdbac7", [7], "#195662", [8], "#cf9340", [9], "#0b2b5c", [10], "#f09c69", [11], "#95872c", [12], "#fbc6ea", [13], "#f9a380", [14], "#416f53", "#000000" ] }, 'biomes');
     //aridity
     addRasterTileLayerToMap(map, 'arboverse.aridity_5km_1970_2000', 'mapbox://arboverse.aridity_5km_1970_2000', 'raster', 'mapbox://arboverse.aridity_5km_1970_2000', 0, 19);  
+    //livestock
+    addRasterTileLayerToMap(map, 'arboverse.livestock_catle_2010_da_10km', 'mapbox://arboverse.livestock_catle_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_catle_2010_da_10km', 0, 19);  
+    addRasterTileLayerToMap(map, 'arboverse.livestock_bufalo_2010_da_10km', 'mapbox://arboverse.livestock_bufalo_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_bufalo_2010_da_10km', 0, 19); 
+    addRasterTileLayerToMap(map, 'arboverse.livestock_sheep_2010_da_10km', 'mapbox://arboverse.livestock_sheep_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_sheep_2010_da_10km', 0, 19);   
+    addRasterTileLayerToMap(map, 'arboverse.livestock_goat_2010_da_10km', 'mapbox://arboverse.livestock_goat_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_goat_2010_da_10km', 0, 19);
+
+    addRasterTileLayerToMap(map, 'arboverse.livestock_horse_2010_da_10km', 'mapbox://arboverse.livestock_horse_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_horse_2010_da_10km', 0, 19);  
+    addRasterTileLayerToMap(map, 'arboverse.livestock_pig_2010_da_10km', 'mapbox://arboverse.livestock_pig_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_pig_2010_da_10km', 0, 19); 
+    addRasterTileLayerToMap(map, 'arboverse.livestock_chicken_2010_da_10km', 'mapbox://arboverse.livestock_chicken_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_chicken_2010_da_10km', 0, 19);   
+    addRasterTileLayerToMap(map, 'arboverse.livestock_duck_2010_da_10km', 'mapbox://arboverse.livestock_duck_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_duck_2010_da_10km', 0, 19);   
     //Biodiversity intactness index
     addRasterTileLayerToMap(map, 'arboverse.bii', 'mapbox://arboverse.bii', 'raster', 'mapbox://arboverse.bii', 0, 19);  
     //forecast mosquito 
@@ -371,6 +381,7 @@ map.on('load', function(){
     var depSlider = document.querySelector('input[name=dep-opacity]');
     var passengersSlider = document.querySelector('input[name=pass-opacity]');
     var ariditySlider = document.querySelector('input[name=aridity-opacity]');
+    var livestockSlider = document.querySelector('input[name=stock-opacity]');
 
     addOpacityTwoVector(cliSlider, 'arboverse.presentfull', 'arboverse.koppenfuture');
     addOpacityVector(driveSlider, 'arboverse.drivers');
@@ -638,6 +649,49 @@ map.on('load', function(){
         map.setPaintProperty(
             'arboverse.logging8',
             'fill-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    });
+    livestockSlider.addEventListener('input', function(e){
+        map.setPaintProperty(
+            'arboverse.livestock_goat_2010_da_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.livestock_bufalo_2010_da_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.livestock_sheep_2010_da_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.livestock_duck_2010_da_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+
+        map.setPaintProperty(
+            'arboverse.livestock_catle_2010_da_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.livestock_chicken_2010_da_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.livestock_pig_2010_da_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.livestock_horse_2010_da_10km',
+            'raster-opacity',
             parseInt(e.target.value,10)/100
         );
     });

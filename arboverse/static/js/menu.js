@@ -318,16 +318,16 @@ function enableForecastRadio() {
         document.getElementById("arboverse.a51uv49z").disabled = false;
         document.getElementById("arboverse.92xut72i").disabled = false;
     } else if (dev != true) {
-        document.getElementById("arboverse.c89hazcs").checked = false;
-        document.getElementById("arboverse.cugep9k4").checked = false;
-        document.getElementById("arboverse.9uh1mltv").checked = false;
-        document.getElementById("arboverse.7va6tx65").disabled = false;
-        document.getElementById("arboverse.bud0k3bq").disabled = false;
-        document.getElementById("arboverse.cot4nhox").disabled = false;
-        document.getElementById("arboverse.59jzfz3w").disabled = false;
-        document.getElementById("arboverse.2wsi2z3v").disabled = false;
-        document.getElementById("arboverse.a51uv49z").disabled = false;
-        document.getElementById("arboverse.92xut72i").disabled = false;
+        document.getElementById("arboverse.c89hazcs").disabled = true;
+        document.getElementById("arboverse.cugep9k4").disabled = true;
+        document.getElementById("arboverse.9uh1mltv").disabled = true;
+        document.getElementById("arboverse.7va6tx65").disabled = true;
+        document.getElementById("arboverse.bud0k3bq").disabled = true;
+        document.getElementById("arboverse.cot4nhox").disabled = true;
+        document.getElementById("arboverse.59jzfz3w").disabled = true;
+        document.getElementById("arboverse.2wsi2z3v").disabled = true;
+        document.getElementById("arboverse.a51uv49z").disabled = true;
+        document.getElementById("arboverse.92xut72i").disabled = true;
     };
     var j = 0;
     document.querySelectorAll("input[name=model_climate]").forEach(j => {
@@ -341,6 +341,57 @@ document.querySelectorAll("input[name=model_climate]").forEach(i => {
     i.onchange = function () {
         var j = 0;
         document.querySelectorAll("input[name=model_climate]").forEach(j => {
+            j.checked = false;
+            update_map(j)
+        });
+        i.checked = true;
+        update_map(this);
+    }
+})
+//Forecast mosquito climate Condition 
+var i=0;
+var livestockSwitchbtn = document.getElementById('livestock_switch')
+function enablelivestockRadio() {
+    document.getElementById("arboverse.livestock_goat_2010_da_10km").disabled = true;
+    document.getElementById("arboverse.livestock_catle_2010_da_10km").disabled = true;
+    document.getElementById("arboverse.livestock_sheep_2010_da_10km").disabled = true;
+    document.getElementById("arboverse.livestock_bufalo_2010_da_10km").disabled = true;
+    document.getElementById("arboverse.livestock_chicken_2010_da_10km").disabled = true;
+    document.getElementById("arboverse.livestock_horse_2010_da_10km").disabled = true;
+    document.getElementById("arboverse.livestock_pig_2010_da_10km").disabled = true;
+    document.getElementById("arboverse.livestock_duck_2010_da_10km").disabled = true;
+    var dev = document.getElementById('livestock_switch').checked;
+    if (dev === true) {
+        document.getElementById("arboverse.livestock_goat_2010_da_10km").disabled = false;
+        document.getElementById("arboverse.livestock_catle_2010_da_10km").disabled = false;
+        document.getElementById("arboverse.livestock_sheep_2010_da_10km").disabled = false;
+        document.getElementById("arboverse.livestock_bufalo_2010_da_10km").disabled = false;
+        document.getElementById("arboverse.livestock_chicken_2010_da_10km").disabled = false;
+        document.getElementById("arboverse.livestock_horse_2010_da_10km").disabled = false;
+        document.getElementById("arboverse.livestock_pig_2010_da_10km").disabled = false;
+        document.getElementById("arboverse.livestock_duck_2010_da_10km").disabled = false;
+    } else if (dev !== true) {
+        document.getElementById("arboverse.livestock_goat_2010_da_10km").disabled = true;
+        document.getElementById("arboverse.livestock_catle_2010_da_10km").disabled = true;
+        document.getElementById("arboverse.livestock_sheep_2010_da_10km").disabled = true;
+        document.getElementById("arboverse.livestock_bufalo_2010_da_10km").disabled = true;
+        document.getElementById("arboverse.livestock_chicken_2010_da_10km").disabled = true;
+        document.getElementById("arboverse.livestock_horse_2010_da_10km").disabled = true;
+        document.getElementById("arboverse.livestock_pig_2010_da_10km").disabled = true;
+        document.getElementById("arboverse.livestock_duck_2010_da_10km").disabled = true;
+    };
+    var j = 0;
+    document.querySelectorAll("input[name=model_livestock]").forEach(j => {
+        j.checked = false;
+        update_map(j)
+    })
+}
+livestockSwitchbtn.onchange = enablelivestockRadio;
+var i = 0;
+document.querySelectorAll("input[name=model_livestock]").forEach(i => {
+    i.onchange = function () {
+        var j = 0;
+        document.querySelectorAll("input[name=model_luvestock]").forEach(j => {
             j.checked = false;
             update_map(j)
         });
@@ -468,7 +519,7 @@ fore.addEventListener('input', foreValue)
 
 var arid = document.querySelector('input[name=aridity-opacity]');
 var ariValue = function(){
-    var newAriValue = ari.value;
+    var newAriValue = arid.value;
     var target = document.querySelector('.ari_op');
     target.innerHTML = newAriValue;
 }
@@ -537,6 +588,14 @@ var landValue = function(){
     target.innerHTML = newOpValue;
 }
 land.addEventListener('input', landValue);
+
+var stock = document.querySelector('input[name=stock-opacity]');
+var stockValue = function(){
+    var newOpValue = stock.value;
+    var target = document.querySelector('.stock_op');
+    target.innerHTML = newOpValue;
+}
+stock.addEventListener('input', stockValue);
 
 var mini = document.querySelector('input[name=mini-opacity]');
 var miniValue = function(){

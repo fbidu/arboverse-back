@@ -1310,7 +1310,6 @@
             </div>
           </div>
         </div>
-
       </div>
       <!--FOREST COVER AND DEFORESTATION MENU-->
       <div id="forestcover-menu" class="sub-th-menu">
@@ -1814,6 +1813,75 @@
               <label class="point-mean">Permanent ice and snow</label>
             </div>
           </div>
+           <!--Livestock-->
+           <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="land" id="livestock_switch" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Livestock</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal3.0"><i class="fa fa-info-circle" style="color:gray; opacity: 0.8;"></i></a>
+                <span class="tooltext">Shows the global livestock distribution of main livestock in 2010</span>
+              </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Opacity: <span class="val_op stock_op">100</span></label>
+              <input id="opacity_slider" name="stock-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
+            </div>
+            <div class="measure">
+              <div class="bar-mesur livestock"></div>
+              <div class="indice">
+                <label class="millions">0</label>
+                <label class="millions">1</label>
+                <label class="millions">5</label>
+                <label class="millions">10</label>
+                <label class="millions">20</label>
+                <label class="millions">50</label>
+                <label class="millions">100</label>
+                <label class="millions">250</label>
+                <label class="millions">&#62;250</label>
+              </div>
+            </div>
+            <div id="livestock_type_wrapper">
+              <form action="/p/quote.php" method="get">
+                <h5 id="form-title"> Select livestock type</h5>
+                <div id="livestock-type-selector">
+                  <div class="livestock_group">
+                    <input type="radio" name="model_livestock" id="arboverse.livestock_catle_2010_da_10km" value="arboverse.livestock_catle_2010_da_10km" disabled>
+                    <label for="arboverse.livestock_catle_2010_da_10km" model="Cattle"></label>
+  
+                    <input type="radio" name="model_livestock" id="arboverse.livestock_bufalo_2010_da_10km" value="arboverse.livestock_bufalo_2010_da_10km" disabled>
+                    <label for="arboverse.livestock_bufalo_2010_da_10km" model="Buffaloes"></label>
+  
+                    <input type="radio" name="model_livestock" id="arboverse.livestock_sheep_2010_da_10km" value="arboverse.livestock_sheep_2010_da_10km" disabled>
+                    <label for="arboverse.livestock_sheep_2010_da_10km" model="Sheep"></label>
+  
+                    <input type="radio" name="model_livestock" id="arboverse.livestock_goat_2010_da_10km" value="arboverse.livestock_goat_2010_da_10km" disabled>
+                    <label for="arboverse.livestock_goat_2010_da_10km" model="Goats"></label>
+                  </div>
+                  <div class="livestock_group">
+                    <input type="radio" name="model_livestock" id="arboverse.livestock_horse_2010_da_10km" value="arboverse.livestock_horse_2010_da_10km" disabled>
+                    <label for="arboverse.livestock_horse_2010_da_10km" model="Horses"></label>
+  
+                    <input type="radio" name="model_livestock" id="arboverse.livestock_pig_2010_da_10km" value="arboverse.livestock_pig_2010_da_10km" disabled>
+                    <label for="arboverse.livestock_pig_2010_da_10km" model="Pigs"></label>
+  
+                    <input type="radio" name="model_livestock" id="arboverse.livestock_chicken_2010_da_10km" value="arboverse.livestock_chicken_2010_da_10km" disabled>
+                    <label for="arboverse.livestock_chicken_2010_da_10km" model="Chickens"></label>
+  
+                    <input type="radio" name="model_livestock" id="arboverse.livestock_duck_2010_da_10km" value="arboverse.livestock_duck_2010_da_10km" disabled>
+                    <label for="arboverse.livestock_duck_2010_da_10km" model="Ducks"></label>
+                  </div>
+                </div>
+  
+              </form>
+            </div>
+          </div>
           <!--Mining Concessions-->
           <div class="unit-btn2">
             <div class="unit-toggle">
@@ -1935,7 +2003,7 @@
             </div>
           </div>
           <h5 class="area">Infrastructure</h5>
-          <!--Main Dams-->
+          <!--Dams-->
           <div class="unit-btn2">
             <div class="unit-toggle">
               <div class="togglebtn">
