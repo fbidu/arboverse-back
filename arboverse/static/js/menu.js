@@ -279,7 +279,7 @@ document.querySelectorAll("input[name=socioeconomics]").forEach(i => {
         update_map(this)
     }
 });
-//Checked socioeconomics
+//Checked biodiversity
 showChekedBio();
 var i = 0;
 function showChekedBio() {
@@ -466,40 +466,6 @@ document.querySelectorAll("input[name=type-locomotion]").forEach(i => {
         update_map(this);
     }
 })
-
-//Population Time condition
-var i = 0
-var popSwitchbtn = document.getElementById('pop_switch');
-function enablePopRadio() {
-    document.getElementById("arboverse.pop_2015").disabled = true;
-    document.getElementById("arboverse.pop_2020").disabled = true;
-    var dev = document.getElementById('pop_switch').checked;
-    if (dev == true) {
-        document.getElementById("arboverse.pop_2015").disabled = false;
-        document.getElementById("arboverse.pop_2020").disabled = false;
-    } else if (dev != true) {
-        document.getElementById("arboverse.pop_2015").checked = false;
-        document.getElementById("arboverse.pop_2020").checked = false;
-    };
-    var j = 0;
-    document.querySelectorAll("input[name=year-picker]").forEach(j => {
-        j.checked = false;
-        update_map(j)
-    })
-}
-popSwitchbtn.onchange = enablePopRadio;
-var i = 0;
-document.querySelectorAll("input[name=year-picker]").forEach(i => {
-    i.onchange = function () {
-        var j = 0;
-        document.querySelectorAll("input[name=year-picker]").forEach(j => {
-            j.checked = false;
-            update_map(j)
-        });
-        i.checked = true;
-        update_map(this);
-    }
-})
 //Slider time response for arrivals, departures and passengers 
 var hot = document.querySelector('input[name=hotdays_year]');
 var hotValue = function () {
@@ -535,6 +501,15 @@ var rangeValue = function () {
 elem.addEventListener("input", rangeValue);
 
 // Slider response for opacity
+var resist = document.querySelector('input[name=resistance-opacity]');
+var resistValue = function(){
+    var newOpValue = resist.value;
+    var target = document.querySelector('.resistance_op');
+    target.innerHTML = newOpValue;
+}
+resist.addEventListener('input', resistValue)
+
+
 var cli = document.querySelector('input[name=climate-opacity]');
 var opValue = function(){
     var newOpValue = cli.value;

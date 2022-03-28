@@ -9,7 +9,7 @@ var map = new mapboxgl.Map({
     container: 'map',
 
     // one of the existing mapbox map styles
-    style: 'mapbox://styles/arboverse/ckoept4vi2anl18msq2tl9svx',
+    style: 'mapbox://styles/arboverse/ckq2l5cb12g8118qvn9bce5oj',
 
     // zoom in (greater = smaller area displayed)
     zoom: 2,
@@ -108,7 +108,6 @@ function update_map(cb) {
     var clickedLayers = cb.id
     clickedLayersList = clickedLayers.split(',')
     console.log(clickedLayersList)
-
     if (cb.checked) {
         for (let i = 0; i < clickedLayersList.length; i++) {
             clickedLayer = clickedLayersList[i];
@@ -129,6 +128,7 @@ function update_map(cb) {
             );
           } 
     } 
+    
     console.log(cb.checked);
 }
 
@@ -149,6 +149,12 @@ map.on('load', async()=>{
     addTileLayerToMap(map, 'arboverse.waterbodies', 'mapbox://arboverse.waterbodies', 'fill', { 'fill-color': "#2f87da" }, 'waterbodies');
     //aridity
     addRasterTileLayerToMap(map, 'arboverse.aridity_5km_1970_2000', 'mapbox://arboverse.aridity_5km_1970_2000', 'raster', 'mapbox://arboverse.aridity_5km_1970_2000', 0, 19);  
+    //population density 
+    addRasterTileLayerToMap(map, 'arboverse.pop_2000', 'mapbox://arboverse.pop_2000', 'raster', 'mapbox://arboverse.pop_2000', 0, 19);  
+    addRasterTileLayerToMap(map, 'arboverse.pop_2005', 'mapbox://arboverse.pop_2005', 'raster', 'mapbox://arboverse.pop_2005', 0, 19);  
+    addRasterTileLayerToMap(map, 'arboverse.pop_2010', 'mapbox://arboverse.pop_2010', 'raster', 'mapbox://arboverse.pop_2010', 0, 19);  
+    addRasterTileLayerToMap(map, 'arboverse.pop_2015', 'mapbox://arboverse.pop_2015', 'raster', 'mapbox://arboverse.pop_2015', 0, 19);  
+    addRasterTileLayerToMap(map, 'arboverse.pop_2020', 'mapbox://arboverse.pop_2020', 'raster', 'mapbox://arboverse.pop_2020', 0, 19);  
     //livestock
     addRasterTileLayerToMap(map, 'arboverse.livestock_catle_2010_da_10km', 'mapbox://arboverse.livestock_catle_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_catle_2010_da_10km', 0, 19);  
     addRasterTileLayerToMap(map, 'arboverse.livestock_bufalo_2010_da_10km', 'mapbox://arboverse.livestock_bufalo_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_bufalo_2010_da_10km', 0, 19); 
@@ -222,7 +228,8 @@ map.on('load', async()=>{
     addTileLayerToMap(map, 'arboverse.logging8', 'mapbox://arboverse.canada_logging', 'fill', { 'fill-color': "#08255B" }, 'canada_logging_nova');
     //Over 38k dams
     addTileLayerToMap(map, 'arboverse.dams', 'mapbox://arboverse.dams', 'circle', {'circle-radius': [ "interpolate", ["linear"], ["zoom"], 0, 2, 22, 9 ], 'circle-color': "#c2608a", 'circle-stroke-color': "#bd548e", 'circle-stroke-width': 0.5 }, 'dams');
-})
+    //vector resistance inseticide
+    addTileLayerToMap(map, 'arboverse.resistance', 'mapbox://arboverse.resistance', 'circle', {'circle-radius': [ "interpolate", ["linear"], ["zoom"], 0, 3, 22, 15 ], 'circle-color':[ "match", [ "get", "Insecticide class" ], ["Carbamates"], "#829d8a", ["Pyrethroids"], "#234a8c", ["Organochlorines"], "#5f8598", ["Organophosphates"], "#f2f2d0", "#000000" ] }, 'resistance'); })
 //Number of passengers
 map.on('load', function(){
     //Filter by year
@@ -372,6 +379,7 @@ const addOpacityTwoRaster = (element, title1, title2) =>{
 };
 //Opacity response
 map.on('load', function(){
+    var resistanceSlider = document.querySelector('input[name=resistance-opacity]')
     var droughtSlider = document.querySelector('input[name=drought-opacity]')
     var healthSlider = document.querySelector('input[name=health-opacity]')
     var citiesSlider = document.querySelector('input[name=cities-opacity]')
@@ -397,6 +405,7 @@ map.on('load', function(){
 
     addOpacityTwoVector(cliSlider, 'arboverse.presentfull', 'arboverse.koppenfuture');
     addOpacityVector(driveSlider, 'arboverse.drivers');
+    addOpacityCircle(resistanceSlider, 'arboverse.resistance');
     addOpacityVector(biomeSlider, 'arboverse.biomes');
     addOpacityRaster(biodiversitySlider, 'arboverse.bii');
     addOpacityRaster(landSlider, 'arboverse.8xtrhkxq');
@@ -1133,4 +1142,31 @@ map.on('load', function(){
     renderListGenus([]);
     renderListSpecies([]);
 })
+
+//VECTOR Resistance POPUp
+map.on('load', function() {
+    var resistancePopup = new mapboxgl.Popup({
+        closeButton: false,
+        closeOnClick: false,
+        className: "resistance_popup"
+    })
+    map.on('mouseenter', 'arboverse.resistance', function(e){
+        // Change the cursor style as a UI indicator.
+        map.getCanvas().style.cursor = 'pointer';
+
+        // Populate the popup and set its coordinates based on the feature.
+        var feature = e.features[0];
+        resistancePopup 
+        .setLngLat(feature.geometry.coordinates)
+        .setMaxWidth("300px")
+        .setText('Resistance Status: ' + feature.properties.RESISTANCE_STATUS +' | Country: ' + feature.properties.COUNTRY_NAME + ' | Location: ' + feature.properties.SITE_NAME + ' | Vector Species: ' + feature.properties.SPECIES + ' | Vector Development Stage: ' + feature.properties.STAGE_ORIGIN + ' | Collection Period: ' + feature.properties.YEAR_START + ' | Inseticide Type: ' + feature.properties.INSECTICIDE_TYPE + ' | Inseticide Dosage: ' + feature.properties.INSECTICIDE_CONC + ' | IR Test Method: ' + feature.properties.TEST_TYPE + ' | Number Exposed: ' + feature.properties.MOSQUITO_NUMBER + ' | Mortality (%): ' + feature.properties.MORTALITY_ADJUSTED + ' | Data Curator: ' + feature.properties.DATA_CURATOR)
+        .addTo(map);
+        var popupElem = popup.getElement();
+        popupElem.style.fontSize = "16px";
+    });
+    map.on('mouseleave', 'arboverse.resistance', function(){
+        map.getCanvas().style.cursor = '';
+        resistancePopup.remove();
+    });
     
+})

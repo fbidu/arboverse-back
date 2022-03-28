@@ -1476,6 +1476,18 @@
   margin-left: 1px;
 }
 /* Point color features  */
+.resist_1{
+  background: #829d8a;
+}
+.resist_2{
+  background: #234a8c;
+}
+.resist_3{
+  background: #5f8598;
+}
+.resist_4{
+  background: #f2f2d0;
+}
 .vuln_1{
   background: #66e9d4;
 }
@@ -1940,6 +1952,9 @@
 }
 .vector_popup{
   border-top: 2px solid #ff8600;
+}
+.resistance_popup{
+  border-top: solid 2px #234a8c;
 }
 /*==== Model prediction rcp 45 and 95 ===*/
 input[name=model_selector],
