@@ -279,7 +279,7 @@ document.querySelectorAll("input[name=socioeconomics]").forEach(i => {
         update_map(this)
     }
 });
-//Checked socioeconomics
+//Checked biodiversity
 showChekedBio();
 var i = 0;
 function showChekedBio() {
@@ -433,6 +433,134 @@ document.querySelectorAll("input[name=kp-amount]").forEach(i => {
     }
 })
 
+//Amphibians
+var i=0;
+var amphibiansSwitchbtn = document.getElementById('amphibians_switch')
+function enableAmphibiansRadio() {
+    document.getElementById("amphibians_placeholder").disabled = true;
+    document.getElementById("arboverse.bio_amp_caudata_10km").disabled = true;
+    document.getElementById("arboverse.bio_amp_anura_10km").disabled = true;
+    document.getElementById("arboverse.bio_amp_gymnophiona_10km").disabled = true;
+    document.getElementById("arboverse.bio_amp_richness_10km").disabled = true;
+    document.getElementById("arboverse.bio_amp_smal_range_10km").disabled = true;
+    document.getElementById("arboverse.bio_amp_threatened_10km").disabled = true;
+    document.getElementById("arboverse.bio_amp_data_def_10km").disabled = true;
+    var dev = document.getElementById('amphibians_switch').checked;
+    if (dev == true) {
+    document.getElementById("amphibians_placeholder").disabled = false;
+    document.getElementById("arboverse.bio_amp_caudata_10km").disabled = false;
+    document.getElementById("arboverse.bio_amp_anura_10km").disabled = false;
+    document.getElementById("arboverse.bio_amp_gymnophiona_10km").disabled = false;
+    document.getElementById("arboverse.bio_amp_richness_10km").disabled = false;
+    document.getElementById("arboverse.bio_amp_smal_range_10km").disabled = false;
+    document.getElementById("arboverse.bio_amp_threatened_10km").disabled = false;
+    document.getElementById("arboverse.bio_amp_data_def_10km").disabled = false;
+    } else if (dev != true) {
+    document.getElementById("amphibians_placeholder").checked = false;
+    document.getElementById("arboverse.bio_amp_caudata_10km").checked = false;
+    document.getElementById("arboverse.bio_amp_anura_10km").checked = false;
+    document.getElementById("arboverse.bio_amp_gymnophiona_10km").checked = false;
+    document.getElementById("arboverse.bio_amp_richness_10km").checked = false;
+    document.getElementById("arboverse.bio_amp_smal_range_10km").checked = false;
+    document.getElementById("arboverse.bio_amp_threatened_10km").checked = false;
+    document.getElementById("arboverse.bio_amp_data_def_10km").checked = false;
+    };
+    var j = 0;
+    document.querySelectorAll("input[name=option_amphibians]").forEach(j => {
+        j.checked = false;
+        update_map(j)
+    });
+}
+var i = 0;
+amphibiansSwitchbtn.onchange = enableAmphibiansRadio;
+document.querySelectorAll("input[name=option_amphibians]").forEach(i =>{
+    i.onchange = function () {
+        var target = document.querySelector(".other_value");
+        var newValue = i.value;
+        if(newValue < 35){
+            target.innerHTML =`≥${newValue}`
+        } else if (newValue > 100){
+            target.innerHTML = `${newValue}`;
+        } else {
+            target.innerHTML = `select data`
+        }
+        var j = 0;
+        document.querySelectorAll("input[name=option_amphibians]").forEach(j => {
+            j.checked = false;
+            update_map(j);
+        });
+        i.checked = true;
+        update_map(this)
+    }
+})
+
+//BIRDS
+var i=0;
+var birdsSwitchbtn = document.getElementById('birds_switch')
+function enableBirdsRadio() {
+    document.getElementById("birds_placeholder").disabled = true;
+    document.getElementById("arboverse.biodiversity_birds_richness_10km").disabled = true;
+    document.getElementById("arboverse.bio_birds_trochilidae_10km").disabled = true;
+    document.getElementById("arboverse.bio_birds_small_ranged_10km").disabled = true;
+    document.getElementById("arboverse.bio_birds_non_passeriformes").disabled = true;
+    document.getElementById("arboverse.bio_birds_passeriformes_10km").disabled = true;
+    document.getElementById("arboverse.bio_birds_nonbreeding_10km").disabled = true;
+    document.getElementById("arboverse.bio_birds_threatened_bird").disabled = true;
+    document.getElementById("arboverse.bio_birds_psittaciformes_10km").disabled = true;
+    document.getElementById("arboverse.bio_birds_breeding_range_10km").disabled = true;
+    document.getElementById("arboverse.bio_birds_threatened_small").disabled = true;
+    document.getElementById("arboverse.bio_birds_data_deficient_10kmd").disabled = true;
+    var dev = document.getElementById('birds_switch').checked;
+    if (dev == true) {
+        console.log("oi")
+        document.getElementById("birds_placeholder").disabled = false;
+        document.getElementById("arboverse.biodiversity_birds_richness_10km").disabled = false;
+        document.getElementById("arboverse.bio_birds_trochilidae_10km").disabled = false;
+        document.getElementById("arboverse.bio_birds_small_ranged_10km").disabled = false;
+        document.getElementById("arboverse.bio_birds_non_passeriformes").disabled = false;
+        document.getElementById("arboverse.bio_birds_passeriformes_10km").disabled = false;
+        document.getElementById("arboverse.bio_birds_nonbreeding_10km").disabled = false;
+        document.getElementById("arboverse.bio_birds_threatened_bird").disabled = false;
+        document.getElementById("arboverse.bio_birds_psittaciformes_10km").disabled = false;
+        document.getElementById("arboverse.bio_birds_breeding_range_10km").disabled = false;
+        document.getElementById("arboverse.bio_birds_threatened_small").disabled = false;
+        document.getElementById("arboverse.bio_birds_data_deficient_10kmd").disabled = false;
+    } else if (dev != true) {
+        document.getElementById("birds_placeholder").checked = false;
+        document.getElementById("arboverse.biodiversity_birds_richness_10km").checked = false;
+        document.getElementById("arboverse.bio_birds_trochilidae_10km").checked = false;
+        document.getElementById("arboverse.bio_birds_small_ranged_10km").checked = false;
+        document.getElementById("arboverse.bio_birds_non_passeriformes").checked = false;
+        document.getElementById("arboverse.bio_birds_passeriformes_10km").checked = false;
+        document.getElementById("arboverse.bio_birds_nonbreeding_10km").checked = false;
+        document.getElementById("arboverse.bio_birds_threatened_bird").checked = false;
+        document.getElementById("arboverse.bio_birds_psittaciformes_10km").checked = false;
+        document.getElementById("arboverse.bio_birds_breeding_range_10km").checked = false;
+        document.getElementById("arboverse.bio_birds_threatened_small").checked = false;
+        document.getElementById("arboverse.bio_birds_data_deficient_10kmd").checked = false;
+    };
+    var j = 0;
+    document.querySelectorAll("input[name=option_birds]").forEach(j => {
+        j.checked = false;
+        update_map(j)
+    });
+}
+var i = 0;
+birdsSwitchbtn.onchange = enableBirdsRadio;
+document.querySelectorAll("input[name=option_birds]").forEach(i =>{
+    i.onchange = function () {
+        var target = document.querySelector(".other_value_birds");
+        var newValue = i.value;
+       target.innerHTML = newValue
+        var j = 0;
+        document.querySelectorAll("input[name=option_birds]").forEach(j => {
+            j.checked = false;
+            update_map(j);
+        });
+        i.checked = true;
+        update_map(this)
+    }
+})
 //healthcare access Condition 
 var i=0;
 var healthSwitchbtn = document.getElementById('health_switch')
@@ -459,40 +587,6 @@ document.querySelectorAll("input[name=type-locomotion]").forEach(i => {
     i.onchange = function () {
         var j = 0;
         document.querySelectorAll("input[name=type-locomotion]").forEach(j => {
-            j.checked = false;
-            update_map(j)
-        });
-        i.checked = true;
-        update_map(this);
-    }
-})
-
-//Population Time condition
-var i = 0
-var popSwitchbtn = document.getElementById('pop_switch');
-function enablePopRadio() {
-    document.getElementById("arboverse.pop_2015").disabled = true;
-    document.getElementById("arboverse.pop_2020").disabled = true;
-    var dev = document.getElementById('pop_switch').checked;
-    if (dev == true) {
-        document.getElementById("arboverse.pop_2015").disabled = false;
-        document.getElementById("arboverse.pop_2020").disabled = false;
-    } else if (dev != true) {
-        document.getElementById("arboverse.pop_2015").checked = false;
-        document.getElementById("arboverse.pop_2020").checked = false;
-    };
-    var j = 0;
-    document.querySelectorAll("input[name=year-picker]").forEach(j => {
-        j.checked = false;
-        update_map(j)
-    })
-}
-popSwitchbtn.onchange = enablePopRadio;
-var i = 0;
-document.querySelectorAll("input[name=year-picker]").forEach(i => {
-    i.onchange = function () {
-        var j = 0;
-        document.querySelectorAll("input[name=year-picker]").forEach(j => {
             j.checked = false;
             update_map(j)
         });
@@ -535,6 +629,24 @@ var rangeValue = function () {
 elem.addEventListener("input", rangeValue);
 
 // Slider response for opacity
+var amphibian = document.querySelector('input[name=amphibians-opacity]');
+var amphibianValue = function(){
+    var newOpValue = amphibian.value;
+    var target = document.querySelector('.amphibians_op');
+    target.innerHTML = newOpValue;
+}
+amphibian.addEventListener('input', amphibianValue)
+
+
+var resist = document.querySelector('input[name=resistance-opacity]');
+var resistValue = function(){
+    var newOpValue = resist.value;
+    var target = document.querySelector('.resistance_op');
+    target.innerHTML = newOpValue;
+}
+resist.addEventListener('input', resistValue)
+
+
 var cli = document.querySelector('input[name=climate-opacity]');
 var opValue = function(){
     var newOpValue = cli.value;
