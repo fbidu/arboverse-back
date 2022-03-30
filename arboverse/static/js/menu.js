@@ -485,7 +485,6 @@ document.querySelectorAll("input[name=option_amphibians]").forEach(i =>{
             target.innerHTML = `select data`
         }
         var j = 0;
-        var text = document.querySelector(".other_value")
         document.querySelectorAll("input[name=option_amphibians]").forEach(j => {
             j.checked = false;
             update_map(j);
@@ -495,6 +494,73 @@ document.querySelectorAll("input[name=option_amphibians]").forEach(i =>{
     }
 })
 
+//BIRDS
+var i=0;
+var birdsSwitchbtn = document.getElementById('birds_switch')
+function enableBirdsRadio() {
+    document.getElementById("birds_placeholder").disabled = true;
+    document.getElementById("arboverse.biodiversity_birds_richness_10km").disabled = true;
+    document.getElementById("arboverse.bio_birds_trochilidae_10km").disabled = true;
+    document.getElementById("arboverse.bio_birds_small_ranged_10km").disabled = true;
+    document.getElementById("arboverse.bio_birds_non_passeriformes").disabled = true;
+    document.getElementById("arboverse.bio_birds_passeriformes_10km").disabled = true;
+    document.getElementById("arboverse.bio_birds_nonbreeding_10km").disabled = true;
+    document.getElementById("arboverse.bio_birds_threatened_bird").disabled = true;
+    document.getElementById("arboverse.bio_birds_psittaciformes_10km").disabled = true;
+    document.getElementById("arboverse.bio_birds_breeding_range_10km").disabled = true;
+    document.getElementById("arboverse.bio_birds_threatened_small").disabled = true;
+    document.getElementById("arboverse.bio_birds_data_deficient_10kmd").disabled = true;
+    var dev = document.getElementById('birds_switch').checked;
+    if (dev == true) {
+        console.log("oi")
+        document.getElementById("birds_placeholder").disabled = false;
+        document.getElementById("arboverse.biodiversity_birds_richness_10km").disabled = false;
+        document.getElementById("arboverse.bio_birds_trochilidae_10km").disabled = false;
+        document.getElementById("arboverse.bio_birds_small_ranged_10km").disabled = false;
+        document.getElementById("arboverse.bio_birds_non_passeriformes").disabled = false;
+        document.getElementById("arboverse.bio_birds_passeriformes_10km").disabled = false;
+        document.getElementById("arboverse.bio_birds_nonbreeding_10km").disabled = false;
+        document.getElementById("arboverse.bio_birds_threatened_bird").disabled = false;
+        document.getElementById("arboverse.bio_birds_psittaciformes_10km").disabled = false;
+        document.getElementById("arboverse.bio_birds_breeding_range_10km").disabled = false;
+        document.getElementById("arboverse.bio_birds_threatened_small").disabled = false;
+        document.getElementById("arboverse.bio_birds_data_deficient_10kmd").disabled = false;
+    } else if (dev != true) {
+        document.getElementById("birds_placeholder").checked = false;
+        document.getElementById("arboverse.biodiversity_birds_richness_10km").checked = false;
+        document.getElementById("arboverse.bio_birds_trochilidae_10km").checked = false;
+        document.getElementById("arboverse.bio_birds_small_ranged_10km").checked = false;
+        document.getElementById("arboverse.bio_birds_non_passeriformes").checked = false;
+        document.getElementById("arboverse.bio_birds_passeriformes_10km").checked = false;
+        document.getElementById("arboverse.bio_birds_nonbreeding_10km").checked = false;
+        document.getElementById("arboverse.bio_birds_threatened_bird").checked = false;
+        document.getElementById("arboverse.bio_birds_psittaciformes_10km").checked = false;
+        document.getElementById("arboverse.bio_birds_breeding_range_10km").checked = false;
+        document.getElementById("arboverse.bio_birds_threatened_small").checked = false;
+        document.getElementById("arboverse.bio_birds_data_deficient_10kmd").checked = false;
+    };
+    var j = 0;
+    document.querySelectorAll("input[name=option_birds]").forEach(j => {
+        j.checked = false;
+        update_map(j)
+    });
+}
+var i = 0;
+birdsSwitchbtn.onchange = enableBirdsRadio;
+document.querySelectorAll("input[name=option_birds]").forEach(i =>{
+    i.onchange = function () {
+        var target = document.querySelector(".other_value_birds");
+        var newValue = i.value;
+       target.innerHTML = newValue
+        var j = 0;
+        document.querySelectorAll("input[name=option_birds]").forEach(j => {
+            j.checked = false;
+            update_map(j);
+        });
+        i.checked = true;
+        update_map(this)
+    }
+})
 //healthcare access Condition 
 var i=0;
 var healthSwitchbtn = document.getElementById('health_switch')

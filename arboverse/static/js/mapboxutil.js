@@ -190,6 +190,18 @@ map.on('load', async()=>{
     addRasterTileLayerToMap(map, 'arboverse.bio_amp_anura_10km', 'mapbox://arboverse.bio_amp_anura_10km', 'raster', 'mapbox://arboverse.bio_amp_anura_10km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.bio_amp_data_def_10km', 'mapbox://arboverse.bio_amp_data_def_10km', 'raster', 'mapbox://arboverse.bio_amp_data_def_10km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.bio_amp_smal_range_10km', 'mapbox://arboverse.bio_amp_smal_range_10km', 'raster', 'mapbox://arboverse.bio_amp_smal_range_10km', 0, 19);
+    //Birds biodiversity 
+    addRasterTileLayerToMap(map, 'arboverse.biodiversity_birds_richness_10km', 'mapbox://arboverse.biodiversity_birds_richness_10km', 'raster', 'mapbox://arboverse.biodiversity_birds_richness_10km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_birds_trochilidae_10km', 'mapbox://arboverse.bio_birds_trochilidae_10km', 'raster', 'mapbox://arboverse.bio_birds_trochilidae_10km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_birds_small_ranged_10km', 'mapbox://arboverse.bio_birds_small_ranged_10km', 'raster', 'mapbox://arboverse.bio_birds_small_ranged_10km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_birds_non_passeriformes', 'mapbox://arboverse.bio_birds_non_passeriformes', 'raster', 'mapbox://arboverse.bio_birds_non_passeriformes', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_birds_passeriformes_10km', 'mapbox://arboverse.bio_birds_passeriformes_10km', 'raster', 'mapbox://arboverse.bio_birds_passeriformes_10km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_birds_nonbreeding_10km', 'mapbox://arboverse.bio_birds_nonbreeding_10km', 'raster', 'mapbox://arboverse.bio_birds_nonbreeding_10km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_birds_threatened_bird', 'mapbox://arboverse.bio_birds_threatened_bird', 'raster', 'mapbox://arboverse.bio_birds_threatened_bird', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_birds_psittaciformes_10km', 'mapbox://arboverse.bio_birds_psittaciformes_10km', 'raster', 'mapbox://arboverse.bio_birds_psittaciformes_10km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_birds_breeding_range_10km', 'mapbox://arboverse.bio_birds_breeding_range_10km', 'raster', 'mapbox://arboverse.bio_birds_breeding_range_10km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_birds_threatened_small', 'mapbox://arboverse.bio_birds_threatened_small', 'raster', 'mapbox://arboverse.bio_birds_threatened_small', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_birds_data_deficient_10km', 'arboverse.bio_birds_data_deficient_10km', 'raster', 'mapbox://arboverse.bio_birds_data_deficient_10km', 0, 19);
     // Tree cover loss by dominat drivers
     addTileLayerToMap(map, 'arboverse.drivers', 'mapbox://arboverse.drivers', 'fill', { 'fill-color': ['match', ['get', 'classes'], [1], "#FDAFA5", [2], "#50744B", [3], "#1A5762", [4], "#A58B2C", [5], "#0F3B5F", "#000000"] }, 'drivers');
     //forest landscape integrity index

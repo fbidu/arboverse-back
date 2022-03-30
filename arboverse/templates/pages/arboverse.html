@@ -1090,11 +1090,11 @@
               <h5 id="form-title">Select layer type and model</h5>
               <div id="time-annual-slider">
                 <form name="annual_time">
-                  <input type="radio" name="annual_time" value="temp_min" disabled>
-                  <label for="temp_min" data-time-amount="Minimal"></label>
-                  <input type="radio" name="annual_time" value="temp_average" disabled>
+                  <input type="radio" name="annual_time" value="temp_min">
+                  <label for="temp_min" data-time-amount="Minimal" ></label>
+                  <input type="radio" name="annual_time" value="temp_average">
                   <label for="temp_average" data-time-amount="Average"></label>
-                  <input type="radio" name="temp_time" value="temp_max" disabled>
+                  <input type="radio" name="annual_time" value="temp_max">
                   <label for="temp_max" data-time-amount="Maximal"></label>
                 </form>
               </div>
@@ -1768,7 +1768,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="biodiversity" id="" />
+                  <input type="checkbox" name="biodiversity" id="birds_switch" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1788,28 +1788,65 @@
               <div class="indice">
                 <label class="percentage">1</label>
                 <!--Create JS to change the label limit according to layer data-->
-                <label class="percentage">210</label>
+                <label class="percentage other_value_birds">select data</label>
               </div>
             </div>
             <div class="box">
               <p>Bird order</p>
-              <select id="birdType" name="birdsType" disabled>
-                <option value="" disabled selected hidden>Select bird order</option>
-                <option value="passeriformes">Passeriformes</option>
-                <option value="psitaciformes">Psitaciformes (parrots)</option>
-                <option value="non_passeriformes">Non passeriformes</option>
-                <option value="trochilidae">Trochilidade (Hummingbirds)</option>
-                <option value="bird_richness">Bird Richness</option>
-                <option value="small_ranged_birds">Small-ranged Birds</option>
-                <option value="threatened_birds">Threatened Birds</option>
-                <option value="breeding_ranges_birds">Birds - breeding ranges</option>
-                <option value="nonbreeding_ranges_birds">Birds - nonbreeding ranges</option>
-                <option value="threatened_small_ranged_birds">Threatened Small-ranged Birds</option>
-                <option value="data_deficient_birds">Data Deficient Birds</option>
-              </select>
+              <div class="select">
+                <!-- You can toggle_icon select (disabled) -->
+                <input type="radio" name="option_birds" id="birds_placeholder" value="select data" disabled >
+                <i class="toggle_icon icon fa fa-thin fa-chevron-down"></i>
+                <i class="toggle_icon icon fa fa-thin fa-chevron-up"></i>
+                <span class="placeholder">Choose...</span>
+                <label class="option_birds">
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_passeriformes_10km" value="395" disabled>
+                  <span class="title_options animated">Passeriformes</span>
+                </label>
+                <label class="option_birds">
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_non_passeriformes" value="341" disabled>
+                  <span class="title_options animated">Non passeriformes</span>
+                </label>
+                <label class="option_birds">
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_psittaciformes_10km" value="29" disabled>
+                  <span class="title_options animated">Psittaciformes (parrots)</span>
+                </label>
+                <label class="option_birds">
+                  <input type="radio" name="option_birds" id="arboverse.bio_amp_richness_10km" value="56" disabled>
+                  <span class="title_options animated">Trochilidae (hummingbirds)</span>
+                </label>
+                <label class="option_birds">
+                  <input type="radio" name="option_birds" id="arboverse.biodiversity_birds_richness_10km" value="678" disabled>
+                  <span class="title_options animated">Birds richness</span>
+                </label>
+                <label class="option_birds">
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_small_ranged_10km" value="264" disabled>
+                  <span class="title_options animated">Small ranged</span>
+                </label>
+                <label class="option_birds">
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_threatened_bird" value="31" disabled>
+                  <span class="title_options animated">Threatened </span>
+                </label>
+                <label class="option_birds">
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_breeding_range_10km" value="625" disabled>
+                  <span class="title_options animated">Breeding ranges</span>
+                </label>
+                <label class="option_birds">
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_nonbreeding_10km" value="677" disabled>
+                  <span class="title_options animated">Nonbreeding ranges</span>
+                </label>
+                <label class="option_birds">
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_threatened_small" value="24" disabled>
+                  <span class="title_options animated">Threatened small ranged</span>
+                </label>
+                <label class="option_birds">
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_data_deficient_10km" value="4" disabled>
+                  <span class="title_options animated">Data deficient</span>
+                </label>
+              </div>
             </div>
           </div>
-          <!--anphibians-->
+          <!--amphibians-->
           <div class="unit-btn2">
             <div class="unit-toggle">
               <div class="togglebtn">
