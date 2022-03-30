@@ -433,6 +433,68 @@ document.querySelectorAll("input[name=kp-amount]").forEach(i => {
     }
 })
 
+//Amphibians
+var i=0;
+var amphibiansSwitchbtn = document.getElementById('amphibians_switch')
+function enableAmphibiansRadio() {
+    document.getElementById("amphibians_placeholder").disabled = true;
+    document.getElementById("arboverse.bio_amp_caudata_10km").disabled = true;
+    document.getElementById("arboverse.bio_amp_anura_10km").disabled = true;
+    document.getElementById("arboverse.bio_amp_gymnophiona_10km").disabled = true;
+    document.getElementById("arboverse.bio_amp_richness_10km").disabled = true;
+    document.getElementById("arboverse.bio_amp_smal_range_10km").disabled = true;
+    document.getElementById("arboverse.bio_amp_threatened_10km").disabled = true;
+    document.getElementById("arboverse.bio_amp_data_def_10km").disabled = true;
+    var dev = document.getElementById('amphibians_switch').checked;
+    if (dev == true) {
+    document.getElementById("amphibians_placeholder").disabled = false;
+    document.getElementById("arboverse.bio_amp_caudata_10km").disabled = false;
+    document.getElementById("arboverse.bio_amp_anura_10km").disabled = false;
+    document.getElementById("arboverse.bio_amp_gymnophiona_10km").disabled = false;
+    document.getElementById("arboverse.bio_amp_richness_10km").disabled = false;
+    document.getElementById("arboverse.bio_amp_smal_range_10km").disabled = false;
+    document.getElementById("arboverse.bio_amp_threatened_10km").disabled = false;
+    document.getElementById("arboverse.bio_amp_data_def_10km").disabled = false;
+    } else if (dev != true) {
+    document.getElementById("amphibians_placeholder").checked = false;
+    document.getElementById("arboverse.bio_amp_caudata_10km").checked = false;
+    document.getElementById("arboverse.bio_amp_anura_10km").checked = false;
+    document.getElementById("arboverse.bio_amp_gymnophiona_10km").checked = false;
+    document.getElementById("arboverse.bio_amp_richness_10km").checked = false;
+    document.getElementById("arboverse.bio_amp_smal_range_10km").checked = false;
+    document.getElementById("arboverse.bio_amp_threatened_10km").checked = false;
+    document.getElementById("arboverse.bio_amp_data_def_10km").checked = false;
+    };
+    var j = 0;
+    document.querySelectorAll("input[name=option_amphibians]").forEach(j => {
+        j.checked = false;
+        update_map(j)
+    });
+}
+var i = 0;
+amphibiansSwitchbtn.onchange = enableAmphibiansRadio;
+document.querySelectorAll("input[name=option_amphibians]").forEach(i =>{
+    i.onchange = function () {
+        var target = document.querySelector(".other_value");
+        var newValue = i.value;
+        if(newValue < 35){
+            target.innerHTML =`≥${newValue}`
+        } else if (newValue > 100){
+            target.innerHTML = `${newValue}`;
+        } else {
+            target.innerHTML = `select data`
+        }
+        var j = 0;
+        var text = document.querySelector(".other_value")
+        document.querySelectorAll("input[name=option_amphibians]").forEach(j => {
+            j.checked = false;
+            update_map(j);
+        });
+        i.checked = true;
+        update_map(this)
+    }
+})
+
 //healthcare access Condition 
 var i=0;
 var healthSwitchbtn = document.getElementById('health_switch')
@@ -501,6 +563,15 @@ var rangeValue = function () {
 elem.addEventListener("input", rangeValue);
 
 // Slider response for opacity
+var amphibian = document.querySelector('input[name=amphibians-opacity]');
+var amphibianValue = function(){
+    var newOpValue = amphibian.value;
+    var target = document.querySelector('.amphibians_op');
+    target.innerHTML = newOpValue;
+}
+amphibian.addEventListener('input', amphibianValue)
+
+
 var resist = document.querySelector('input[name=resistance-opacity]');
 var resistValue = function(){
     var newOpValue = resist.value;

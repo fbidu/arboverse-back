@@ -182,6 +182,14 @@ map.on('load', async()=>{
     addRasterTileLayerToMap(map, 'arboverse.2wsi2z3v', 'mapbox://arboverse.2wsi2z3v', 'raster', 'mapbox://arboverse.2wsi2z3v', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.a51uv49z', 'mapbox://arboverse.a51uv49z', 'raster', 'mapbox://arboverse.a51uv49z', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.92xut72i', 'mapbox://arboverse.92xut72i', 'raster', 'mapbox://arboverse.92xut72i', 0, 19);
+    //Amphibians biodiversity 
+    addRasterTileLayerToMap(map, 'arboverse.bio_amp_richness_10km', 'mapbox://arboverse.bio_amp_richness_10km', 'raster', 'mapbox://arboverse.bio_amp_richness_10km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_amp_gymnophiona_10km', 'mapbox://arboverse.bio_amp_gymnophiona_10km', 'raster', 'mapbox://arboverse.bio_amp_gymnophiona_10km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_amp_threatened_10km', 'mapbox://arboverse.bio_amp_threatened_10km', 'raster', 'mapbox://arboverse.bio_amp_threatened_10km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_amp_caudata_10km', 'mapbox://arboverse.bio_amp_caudata_10km', 'raster', 'mapbox://arboverse.bio_amp_caudata_10km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_amp_anura_10km', 'mapbox://arboverse.bio_amp_anura_10km', 'raster', 'mapbox://arboverse.bio_amp_anura_10km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_amp_data_def_10km', 'mapbox://arboverse.bio_amp_data_def_10km', 'raster', 'mapbox://arboverse.bio_amp_data_def_10km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_amp_smal_range_10km', 'mapbox://arboverse.bio_amp_smal_range_10km', 'raster', 'mapbox://arboverse.bio_amp_smal_range_10km', 0, 19);
     // Tree cover loss by dominat drivers
     addTileLayerToMap(map, 'arboverse.drivers', 'mapbox://arboverse.drivers', 'fill', { 'fill-color': ['match', ['get', 'classes'], [1], "#FDAFA5", [2], "#50744B", [3], "#1A5762", [4], "#A58B2C", [5], "#0F3B5F", "#000000"] }, 'drivers');
     //forest landscape integrity index
@@ -379,6 +387,7 @@ const addOpacityTwoRaster = (element, title1, title2) =>{
 };
 //Opacity response
 map.on('load', function(){
+    var amphibiansSlider = document.querySelector('input[name=amphibians-opacity]')
     var resistanceSlider = document.querySelector('input[name=resistance-opacity]')
     var droughtSlider = document.querySelector('input[name=drought-opacity]')
     var healthSlider = document.querySelector('input[name=health-opacity]')
@@ -417,6 +426,43 @@ map.on('load', function(){
     addOpacityRaster(citiesSlider, 'arboverse.cities_accessibility_5km_2015')
     addOpacityTwoRaster(healthSlider, 'arboverse.healthcare_time_motorized', 'arboverse.healthcare_time_walking_5km_2020')
     
+    amphibiansSlider.addEventListener('input', function(e) {
+        map.setPaintProperty(
+            'arboverse.bio_amp_richness_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_amp_gymnophiona_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_amp_threatened_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_amp_caudata_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_amp_anura_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_amp_data_def_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_amp_smal_range_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    })
     //Forecast MOsquito opacity control
     forecastSlider.addEventListener('input', function(e) {
         map.setPaintProperty(

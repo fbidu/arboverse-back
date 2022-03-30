@@ -2026,8 +2026,125 @@ input[name=hotdays_model]:checked + label {
   -moz-appearance: button;
   appearance: button;
   outline: none;
+}/*========== selector box biodiversity =====*/
+.select {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  margin: auto;
+  width:100%;
+  height: 100%;
+  border-bottom: 0px;
+  border-radius: 3px;
+  font-size: 12px;
 }
+.select > i.toggle_icon {
+  position: absolute;
+  z-index: 4;
+  right: 0.5em;
+  top: 1em;
+  color: #F5861F;
+}
+.select .title_options, .select .placeholder {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 1.0em 1em;
+  background: rgba(255, 255, 255, 1);
+  border-top: 1px solid rgba(0, 0, 0, .05);
+  cursor: pointer;
 
+}
+.select > input {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0;
+  cursor: pointer;
+}
+.select > input:checked ~ i.toggle_icon.fa-chevron-down {
+  display: none;
+}
+.select > input:checked ~ i.toggle_icon.fa-chevron-up {
+  display: block;
+}
+.select > input:checked div.option_amphibianss label.option_amphibians .title_options {
+  display: none !important;
+}
+.select > input:not(:checked) {
+  z-index: 4;
+}
+.select > input:not(:checked) ~ label.option_amphibians > span.title_options {
+  display: none;
+}
+.select > input:not(:checked) ~ i.toggle_icon.fa-chevron-up {
+  display: none;
+}
+.select > input:not(:checked) ~ i.toggle_icon.fa-chevron-down {
+  display: block;
+}
+.select > input:disabled {
+  cursor: no-drop;
+}
+.select > span.placeholder {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  width: 100%;
+  color: var(--text);
+  border-top: 0px;
+}
+.select label.option_amphibians {
+  display: block;
+  overflow: hidden;
+  z-index: 1;
+  width: 100%;
+  transition: all 1s ease-out;
+}
+.select label.option_amphibians span.title_options {
+  position: relative;
+  color: var(--text);
+  z-index: 2;
+  transition: background 0.3s ease-out;
+}
+.select label.option_amphibians span.title_options i.icon {
+  padding-right: 8px;
+  color: var(--lightBlue);
+}
+.select label.option_amphibians span.title_options:hover {
+  color: var(--lightBlue);
+  background: rgba(255, 255, 255, .2);
+  box-shadow: inset 0px 1px 0px rgba(69, 69, 69, 0.1);
+}
+.select label.option_amphibians input {
+  display: none;
+}
+.select label.option_amphibians input:checked ~ span.title_options {
+  position: absolute;
+  display: block;
+  z-index: 3;
+  top: 0px;
+  font-size: 12px;
+  background: #fff;
+  border-top: 0px;
+  box-shadow: none;
+  color: inherit;
+  width: 100%;
+}
+.select label.option_amphibians input:disabled ~ span.title_options {
+  background: #f9f9f9 !important;
+  color: #aaa;
+}
+.select label.option_amphibians input:disabled ~ span.title_options:hover {
+  color: #aaa;
+  background: none;
+  cursor: no-drop;
+}
 /* ================&&&&&&&   BUTTONS Described Here &&&&&&&&========*/
 /* ====== Button Switch Button ========== */
 .switch {
@@ -2277,7 +2394,7 @@ form:valid #livestock-type-selector input:checked + label::before {
   margin:5px auto;
   padding: 10px;
 }
-.select-title{
+.biodiversity_box-title{
   font-weight: 400;
   text-align: center;
   color:var(--text);
