@@ -1090,20 +1090,20 @@
               <h5 id="form-title">Select layer type and model</h5>
               <div id="time-annual-slider">
                 <form name="annual_time">
-                  <input type="radio" name="annual_time" value="temp_min">
+                  <input type="radio" name="annual_time" id="temp_min" value="temp_min">
                   <label for="temp_min" data-time-amount="Minimal" ></label>
-                  <input type="radio" name="annual_time" value="temp_average">
+                  <input type="radio" name="annual_time" id="temp_average" value="temp_average">
                   <label for="temp_average" data-time-amount="Average"></label>
-                  <input type="radio" name="annual_time" value="temp_max">
+                  <input type="radio" name="annual_time" id="temp_max" value="temp_max">
                   <label for="temp_max" data-time-amount="Maximal"></label>
                 </form>
               </div>
             </form>
             <form>
               <div class="model_group">
-                <input type="radio" id="model_1" name="model_selector">
+                <input type="radio" id="model_1" name="model_selector" value="rcp45">
                 <label for="model_1">RCP 45</label>
-                <input type="radio" id="model_2" name="model_selector">
+                <input type="radio" id="model_2" name="model_selector" value="rcp85">
                 <label for="model_2">RCP 85</label>
               </div>
             </form>
@@ -1120,7 +1120,7 @@
           <div class="unit-toggle">
             <div class="togglebtn">
               <label class="switch">
-                <input type="checkbox" name="climate" id=" " />
+                <input type="checkbox" name="climate" id="hotdays_switch" />
                 <span class="slider round"></span>
               </label>
             </div>
@@ -1152,9 +1152,9 @@
             <h5 class="select-title">Select layer model</h5>
             <form>
               <div class="model_group">
-                <input type="radio" value="rcp45" name="hotdays_model">
+                <input type="radio" id="model_1" name="hotdays_model" value="rcp45">
                 <label for="rcp45">RCP 45</label>
-                <input type="radio" value="rcp85" name="hotdays_model">
+                <input type="radio" id="model_2" name="hotdays_model" value="rcp85">
                 <label for="rcp85">RCP 85</label>
               </div>
             </form>
