@@ -462,7 +462,7 @@ var i = 0;
 document.querySelectorAll("input[name=model_livestock]").forEach(i => {
     i.onchange = function () {
         var j = 0;
-        document.querySelectorAll("input[name=model_luvestock]").forEach(j => {
+        document.querySelectorAll("input[name=model_livestock]").forEach(j => {
             j.checked = false;
             update_map(j)
         });
@@ -567,7 +567,7 @@ document.querySelectorAll("input[name=option_amphibians]").forEach(i =>{
 
 //BIRDS
 var i=0;
-var birdsSwitchbtn = document.getElementById('birds_switch')
+var birdsSwitchbtn = document.getElementById('birds_switch_diversity')
 function enableBirdsRadio() {
     document.getElementById("birds_placeholder").disabled = true;
     document.getElementById("arboverse.biodiversity_birds_richness_10km").disabled = true;
@@ -581,9 +581,8 @@ function enableBirdsRadio() {
     document.getElementById("arboverse.bio_birds_breeding_range_10km").disabled = true;
     document.getElementById("arboverse.bio_birds_threatened_small").disabled = true;
     document.getElementById("arboverse.bio_birds_data_deficient_10kmd").disabled = true;
-    var dev = document.getElementById('birds_switch').checked;
+    var dev = document.getElementById('birds_switch_diversity').checked;
     if (dev == true) {
-        console.log("oi")
         document.getElementById("birds_placeholder").disabled = false;
         document.getElementById("arboverse.biodiversity_birds_richness_10km").disabled = false;
         document.getElementById("arboverse.bio_birds_trochilidae_10km").disabled = false;
@@ -618,6 +617,7 @@ function enableBirdsRadio() {
 }
 var i = 0;
 birdsSwitchbtn.onchange = enableBirdsRadio;
+
 document.querySelectorAll("input[name=option_birds]").forEach(i =>{
     i.onchange = function () {
         var target = document.querySelector(".other_value_birds");
@@ -665,7 +665,16 @@ document.querySelectorAll("input[name=type-locomotion]").forEach(i => {
         update_map(this);
     }
 })
-//Slider time response for arrivals, departures and passengers 
+//slider 
+//Slider time response for Hot days in the year
+var annual = document.querySelector('input[name=annual]');
+var annualValue = function() {
+    var newValue = annual.value;
+    var endValue = Number(newValue) + 30;
+    var target = document.querySelector('.annual_value');
+    target.innerHTML = `${newValue} - ${endValue}`
+}
+annual.addEventListener("input", annualValue);
 var hot = document.querySelector('input[name=hotdays_year]');
 var hotValue = function () {
     var newValue = hot.value;
