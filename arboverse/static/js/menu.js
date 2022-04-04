@@ -224,13 +224,84 @@ var i = 0;
 function showChekedCli() {
     document.getElementById('check4').textContent = document.querySelectorAll("input[name=climate]:checked").length;
 }
+function annual_switch() {
+    if(!document.querySelector("input[name=model_selector][id=model_1]").checked && !document.querySelector("input[name=model_selector][id=model_2]").checked){
+        document.querySelector("input[name=model_selector][id=model_1]").checked = true;
+    }
+    if(!document.querySelector("input[name=annual_time][id=temp_min]").checked && !document.querySelector("input[name=annual_time][id=temp_average]").checked && !document.querySelector("input[name=annual_time][id=temp_max]").checked){
+        document.querySelector("input[name=annual_time][id=temp_average]").checked = true;
+    }
+
+    temp = document.querySelector('input[name=annual_time]:checked').value;
+    model = document.querySelector('input[name=model_selector]:checked').value;
+    year = document.querySelector('input[name=annual]').value;
+    
+    return [model, year, temp];
+}
+
+document.querySelectorAll("input[name=annual_time]").forEach(i => {
+    i.onchange = function(){
+        cb = document.querySelector("input[name=climate][id=annual_switch]")
+        if(cb.checked){
+            var [model, year, temp] = annual_switch();
+            update_map_time(cb, model, year, temp);
+        }
+    } 
+});
+
+document.querySelectorAll("input[name=model_selector]").forEach(i => {
+    i.onchange = function(){
+        cb = document.querySelector("input[name=climate][id=annual_switch]")
+        if(cb.checked){
+            var [model, year, temp] = annual_switch();
+            update_map_time(cb, model, year, temp);
+        }
+    } 
+});
+
+document.querySelectorAll("input[name=annual]").forEach(i => {
+    i.onchange = function(){
+        cb = document.querySelector("input[name=climate][id=annual_switch]")
+        if(cb.checked){
+            var [model, year, temp] = annual_switch();
+            update_map_time(cb, model, year, temp);
+        }
+    } 
+});
+
 document.querySelectorAll("input[name=climate]").forEach(i => {
-    i.onclick = function () {
-        showChekedCli();
-        update_map(this);
-        update_map_time(this);
+    console.log(i.id)
+    if(i.id == "annual_switch"){
+        i.onclick = function () {
+            showChekedCli();
+            var [model, year, temp] = annual_switch();
+            update_map_time(this, model, year, temp);
+        }
+    }else if(i.id == "hotdays_switch"){
+        i.onclick = function () {
+            if(!document.querySelector("input[name=hotdays_model][id=model_1]").checked && !document.querySelector("input[name=hotdays_model][id=model_2]").checked){
+                document.querySelector("input[name=hotdays_model][id=model_1]").checked = true;
+            }
+            showChekedCli();
+            prefix = "hot_days_yr";
+            model = document.querySelector('input[name=hotdays_model]:checked').value;
+            year = document.querySelector('input[name=hotdays_year]').value;
+            update_map_time(this, model, year, prefix);
+        }
+    }else{
+        i.onclick = function () {
+            showChekedCli();
+            update_map(this);
+        }
     }
 });
+
+document.querySelectorAll("input[name=annual]").forEach(i => {
+    i.onclick = function () {
+        console.log(this.value)
+    }
+});
+
 //Checked Forest
 showChekedFor();
 var i = 0;
