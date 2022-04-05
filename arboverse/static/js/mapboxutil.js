@@ -527,6 +527,7 @@ const addOpacityTwoRaster = (element, title1, title2) =>{
 };
 //Opacity response
 map.on('load', function(){
+    var birdsSlider = document.querySelector('input[name=birds-opacity]')
     var amphibiansSlider = document.querySelector('input[name=amphibians-opacity]')
     var resistanceSlider = document.querySelector('input[name=resistance-opacity]')
     var droughtSlider = document.querySelector('input[name=drought-opacity]')
@@ -566,6 +567,64 @@ map.on('load', function(){
     addOpacityRaster(citiesSlider, 'arboverse.cities_accessibility_5km_2015')
     addOpacityTwoRaster(healthSlider, 'arboverse.healthcare_time_motorized', 'arboverse.healthcare_time_walking_5km_2020')
     
+    birdsSlider.addEventListener('input', function(e) {
+        map.setPaintProperty(
+            'arboverse.biodiversity_birds_richness_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_trochilidae_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_small_ranged_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_non_passeriformes',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_passeriformes_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_nonbreeding_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_threatened_bird',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+
+        map.setPaintProperty(
+            'arboverse.bio_birds_psittaciformes_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_breeding_range_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_threatened_small',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_data_deficient_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    })
     amphibiansSlider.addEventListener('input', function(e) {
         map.setPaintProperty(
             'arboverse.bio_amp_richness_10km',

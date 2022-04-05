@@ -724,6 +724,14 @@ var rangeValue = function () {
 elem.addEventListener("input", rangeValue);
 
 // Slider response for opacity
+var birds = document.querySelector('input[name=birds-opacity]');
+var birdsValue = function(){
+    var newOpValue = birds.value;
+    var target = document.querySelector('.birds_op');
+    target.innerHTML = newOpValue;
+}
+birds.addEventListener('input', birdsValue)
+
 var amphibian = document.querySelector('input[name=amphibians-opacity]');
 var amphibianValue = function(){
     var newOpValue = amphibian.value;
