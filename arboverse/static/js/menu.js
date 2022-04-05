@@ -504,28 +504,65 @@ document.querySelectorAll("input[name=kp-amount]").forEach(i => {
     }
 })
 
+//Mammals
+var i=0;
+var mammalsSwitchbtn = document.getElementById('mammals_switch')
+function enableMammalsRadio() {
+    document.getElementById("mammals_placeholder").disabled = true;
+    var dev = document.getElementById('mammals_switch').checked;
+    if (dev == true) {
+    document.getElementById("mammals_placeholder").disabled = false;
+    } else if (dev != true) {
+    document.getElementById("mammals_placeholder").checked = false;
+    document.getElementById("arboverse.bio_mammals_primates_10km").checked = false;
+    document.getElementById("arboverse.bio_mammals_threatened_10km").checked = false;
+    document.getElementById("arboverse.bio_mammals_marsupialia_10km").checked = false;
+    document.getElementById("arboverse.bio_mammals_data_deficient_10km").checked = false;
+    document.getElementById("arboverse.bio_mammals_richness_10km").checked = false;
+    document.getElementById("arboverse.bio_mammals_eulipotyphla_10km").checked = false;
+    document.getElementById("arboverse.bio_mammals_rodentia_10km").checked = false;
+    document.getElementById("arboverse.bio_mammals_carnivora_10km").checked = false;
+    document.getElementById("arboverse.bio_mammals_small_ranged_10km").checked = false;
+    document.getElementById("arboverse.bio_mammals_cetartiodactyla").checked = false;
+    document.getElementById("arboverse.bio_mammals_chiroptera_10km").checked = false;
+    };
+    var j = 0;
+    document.querySelectorAll("input[name=option_mammals]").forEach(j => {
+        j.checked = false;
+        update_map(j)
+    });
+}
+var i = 0;
+mammalsSwitchbtn.onchange = enableMammalsRadio;
+document.querySelectorAll("input[name=option_mammals]").forEach(i =>{
+    i.onchange = function () {
+        var target = document.querySelector(".other_value");
+        var newValue = i.value;
+        if(newValue < 35){
+            target.innerHTML =`≥${newValue}`
+        } else if (newValue > 100){
+            target.innerHTML = `${newValue}`;
+        } else {
+            target.innerHTML = `select data`
+        }
+        var j = 0;
+        document.querySelectorAll("input[name=option_mammals]").forEach(j => {
+            j.checked = false;
+            update_map(j);
+        });
+        i.checked = true;
+        update_map(this)
+    }
+})
+
 //Amphibians
 var i=0;
 var amphibiansSwitchbtn = document.getElementById('amphibians_switch')
 function enableAmphibiansRadio() {
     document.getElementById("amphibians_placeholder").disabled = true;
-    document.getElementById("arboverse.bio_amp_caudata_10km").disabled = true;
-    document.getElementById("arboverse.bio_amp_anura_10km").disabled = true;
-    document.getElementById("arboverse.bio_amp_gymnophiona_10km").disabled = true;
-    document.getElementById("arboverse.bio_amp_richness_10km").disabled = true;
-    document.getElementById("arboverse.bio_amp_smal_range_10km").disabled = true;
-    document.getElementById("arboverse.bio_amp_threatened_10km").disabled = true;
-    document.getElementById("arboverse.bio_amp_data_def_10km").disabled = true;
     var dev = document.getElementById('amphibians_switch').checked;
     if (dev == true) {
     document.getElementById("amphibians_placeholder").disabled = false;
-    document.getElementById("arboverse.bio_amp_caudata_10km").disabled = false;
-    document.getElementById("arboverse.bio_amp_anura_10km").disabled = false;
-    document.getElementById("arboverse.bio_amp_gymnophiona_10km").disabled = false;
-    document.getElementById("arboverse.bio_amp_richness_10km").disabled = false;
-    document.getElementById("arboverse.bio_amp_smal_range_10km").disabled = false;
-    document.getElementById("arboverse.bio_amp_threatened_10km").disabled = false;
-    document.getElementById("arboverse.bio_amp_data_def_10km").disabled = false;
     } else if (dev != true) {
     document.getElementById("amphibians_placeholder").checked = false;
     document.getElementById("arboverse.bio_amp_caudata_10km").checked = false;
@@ -570,31 +607,9 @@ var i=0;
 var birdsSwitchbtn = document.getElementById('birds_switch_diversity')
 function enableBirdsRadio() {
     document.getElementById("birds_placeholder").disabled = true;
-    document.getElementById("arboverse.biodiversity_birds_richness_10km").disabled = true;
-    document.getElementById("arboverse.bio_birds_trochilidae_10km").disabled = true;
-    document.getElementById("arboverse.bio_birds_small_ranged_10km").disabled = true;
-    document.getElementById("arboverse.bio_birds_non_passeriformes").disabled = true;
-    document.getElementById("arboverse.bio_birds_passeriformes_10km").disabled = true;
-    document.getElementById("arboverse.bio_birds_nonbreeding_10km").disabled = true;
-    document.getElementById("arboverse.bio_birds_threatened_bird").disabled = true;
-    document.getElementById("arboverse.bio_birds_psittaciformes_10km").disabled = true;
-    document.getElementById("arboverse.bio_birds_breeding_range_10km").disabled = true;
-    document.getElementById("arboverse.bio_birds_threatened_small").disabled = true;
-    document.getElementById("arboverse.bio_birds_data_deficient_10kmd").disabled = true;
     var dev = document.getElementById('birds_switch_diversity').checked;
     if (dev == true) {
         document.getElementById("birds_placeholder").disabled = false;
-        document.getElementById("arboverse.biodiversity_birds_richness_10km").disabled = false;
-        document.getElementById("arboverse.bio_birds_trochilidae_10km").disabled = false;
-        document.getElementById("arboverse.bio_birds_small_ranged_10km").disabled = false;
-        document.getElementById("arboverse.bio_birds_non_passeriformes").disabled = false;
-        document.getElementById("arboverse.bio_birds_passeriformes_10km").disabled = false;
-        document.getElementById("arboverse.bio_birds_nonbreeding_10km").disabled = false;
-        document.getElementById("arboverse.bio_birds_threatened_bird").disabled = false;
-        document.getElementById("arboverse.bio_birds_psittaciformes_10km").disabled = false;
-        document.getElementById("arboverse.bio_birds_breeding_range_10km").disabled = false;
-        document.getElementById("arboverse.bio_birds_threatened_small").disabled = false;
-        document.getElementById("arboverse.bio_birds_data_deficient_10kmd").disabled = false;
     } else if (dev != true) {
         document.getElementById("birds_placeholder").checked = false;
         document.getElementById("arboverse.biodiversity_birds_richness_10km").checked = false;

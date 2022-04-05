@@ -317,7 +317,19 @@ map.on('load', async()=>{
     addRasterTileLayerToMap(map, 'arboverse.bio_birds_psittaciformes_10km', 'mapbox://arboverse.bio_birds_psittaciformes_10km', 'raster', 'mapbox://arboverse.bio_birds_psittaciformes_10km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.bio_birds_breeding_range_10km', 'mapbox://arboverse.bio_birds_breeding_range_10km', 'raster', 'mapbox://arboverse.bio_birds_breeding_range_10km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.bio_birds_threatened_small', 'mapbox://arboverse.bio_birds_threatened_small', 'raster', 'mapbox://arboverse.bio_birds_threatened_small', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.bio_birds_data_deficient_10km', 'arboverse.bio_birds_data_deficient_10km', 'raster', 'mapbox://arboverse.bio_birds_data_deficient_10km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_birds_data_deficient_10km', 'mapbox://arboverse.bio_birds_data_deficient_10km', 'raster', 'mapbox://arboverse.bio_birds_data_deficient_10km', 0, 19);
+     //Mammals biodiversity 
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_primates_10km', 'mapbox://arboverse.bio_mammals_primates_10km', 'raster', 'mapbox://arboverse.bio_mammals_primates_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_threatened_10km', 'mapbox://arboverse.bio_mammals_threatened_10km', 'raster', 'mapbox://arboverse.bio_mammals_threatened_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_marsupialia_10km', 'mapbox://arboverse.bio_mammals_marsupialia_10km', 'raster', 'mapbox://arboverse.bio_mammals_marsupialia_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_data_deficient_10km', 'mapbox://arboverse.bio_mammals_data_deficient_10km', 'raster', 'mapbox://arboverse.bio_mammals_data_deficient_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_richness_10km', 'mapbox://arboverse.bio_mammals_richness_10km', 'raster', 'mapbox://arboverse.bio_mammals_richness_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_eulipotyphla_10km', 'mapbox://arboverse.bio_mammals_eulipotyphla_10km', 'raster', 'mapbox://arboverse.bio_mammals_eulipotyphla_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_rodentia_10km', 'mapbox://arboverse.bio_mammals_rodentia_10km', 'raster', 'mapbox://arboverse.bio_mammals_rodentia_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_carnivora_10km', 'mapbox://arboverse.bio_mammals_carnivora_10km', 'raster', 'mapbox://arboverse.bio_mammals_carnivora_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_small_ranged_10km', 'mapbox://arboverse.bio_mammals_small_ranged_10km', 'raster', 'arboverse.bio_mammals_small_ranged_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_cetartiodactyla', 'mapbox://arboverse.bio_mammals_cetartiodactyla', 'raster', 'mapbox://arboverse.bio_mammals_cetartiodactyla', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_chiroptera_10km', 'mapbox://arboverse.bio_mammals_chiroptera_10km', 'raster', 'mapbox://arboverse.bio_mammals_chiroptera_10km', 0, 19);
     // Tree cover loss by dominat drivers
     addTileLayerToMap(map, 'arboverse.drivers', 'mapbox://arboverse.drivers', 'fill', { 'fill-color': ['match', ['get', 'classes'], [1], "#FDAFA5", [2], "#50744B", [3], "#1A5762", [4], "#A58B2C", [5], "#0F3B5F", "#000000"] }, 'drivers');
     //forest landscape integrity index

@@ -2074,14 +2074,16 @@ input[name=hotdays_model]:checked + label {
   display: block;
 }
 .select > input:checked div.option_amphibianss label.option_amphibians .title_options,
-.select > input:checked div.option_birds label.option_birds .title_options{
+.select > input:checked div.option_birds label.option_birds .title_options,
+.select > input:checked div.option_mammals label.option_mammals .title_options{
   display: none !important;
 }
 .select > input:not(:checked) {
   z-index: 4;
 }
 .select > input:not(:checked) ~ label.option_amphibians > span.title_options,
-.select > input:not(:checked) ~ label.option_birds > span.title_options{
+.select > input:not(:checked) ~ label.option_birds > span.title_options,
+.select > input:not(:checked) ~ label.option_mammals > span.title_options{
   display: none;
 }
 .select > input:not(:checked) ~ i.toggle_icon.fa-chevron-up {
@@ -2102,7 +2104,8 @@ input[name=hotdays_model]:checked + label {
   border-top: 0px;
 }
 .select label.option_amphibians,
-.select label.option_birds {
+.select label.option_birds,
+.select label.option_mammals {
   display: block;
   overflow: hidden;
   z-index: 1;
@@ -2110,29 +2113,35 @@ input[name=hotdays_model]:checked + label {
   transition: all 1s ease-out;
 }
 .select label.option_amphibians span.title_options,
-.select label.option_birds span.title_options {
+.select label.option_birds span.title_options,
+.select label.option_mammals span.title_options
+ {
   position: relative;
   color: var(--text);
   z-index: 2;
   transition: background 0.3s ease-out;
 }
 .select label.option_amphibians span.title_options i.icon,
-.select label.option_birds span.title_options i.icon {
+.select label.option_birds span.title_options i.icon,
+.select label.option_mammals span.title_options i.icon {
   padding-right: 8px;
   color: var(--lightBlue);
 }
 .select label.option_amphibians span.title_options:hover,
-.select label.option_birds span.title_options:hover {
+.select label.option_birds span.title_options:hover,
+.select label.option_mammals span.title_options:hover {
   color: var(--lightBlue);
   background: rgba(255, 255, 255, .2);
   box-shadow: inset 0px 1px 0px rgba(69, 69, 69, 0.1);
 }
 .select label.option_amphibians input,
-.select label.option_birds input {
+.select label.option_birds input,
+.select label.option_mammal input {
   display: none;
 }
 .select label.option_amphibians input:checked ~ span.title_options,
-.select label.option_birds input:checked ~ span.title_options {
+.select label.option_birds input:checked ~ span.title_options,
+.select label.option_mammals input:checked ~ span.title_options {
   position: absolute;
   display: block;
   z-index: 3;
@@ -2145,12 +2154,14 @@ input[name=hotdays_model]:checked + label {
   width: 100%;
 }
 .select label.option_amphibians input:disabled ~ span.title_options,
-.select label.option_birds input:disabled ~ span.title_options {
+.select label.option_birds input:disabled ~ span.title_options,
+.select label.option_mammals input:disabled ~ span.title_options {
   background: #f9f9f9 !important;
   color: #aaa;
 }
 .select label.option_amphibians input:disabled ~ span.title_options:hover,
-.select label.option_birds input:disabled ~ span.title_options:hover {
+.select label.option_birds input:disabled ~ span.title_options:hover,
+.select label.option_mammals input:disabled ~ span.title_options:hover {
   color: #aaa;
   background: none;
   cursor: no-drop;
