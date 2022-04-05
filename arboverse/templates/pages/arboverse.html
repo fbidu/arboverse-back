@@ -1110,7 +1110,7 @@
             <!--Time selector-->
             <div class="time_box">
               <h5 id="socio-title">Select layer time</h5>
-              <input name="annual" type="range" min="1985" max="2095" value="1985" step="10" class="val" id="a1" />
+              <input name="annual" type="range" min="1985" max="2065" value="1985" step="10" class="val" id="a1" />
               <div class="slide_bar annual_value">Move the slider</div>
             </div>
           </div>
@@ -1213,7 +1213,7 @@
             <!--Time selector-->
             <div class="time_box">
               <h5 id="socio-title">Select layer time</h5>
-              <input name="annual" type="range" min="1985" max="2095" value="1985" step="10" class="val" id="a1" />
+              <input name="precipitation_annual" type="range" min="1985" max="2095" value="1985" step="10" class="val" id="a1" />
               <div class="slide_bar annual_value">Move the slider</div>
             </div>
           </div>
@@ -1263,7 +1263,7 @@
             <!--Time selector-->
             <div class="time_box">
               <h5 id="socio-title">Select layer time</h5>
-              <input name="annual" type="range" min="1985" max="2095" value="1985" step="10" class="val" id="a1" />
+              <input name="extreme_precipitation_annual" type="range" min="1985" max="2095" value="1985" step="10" class="val" id="a1" />
               <div class="slide_bar annua;_value">Move the slider</div>
             </div>
           </div>
@@ -1313,7 +1313,7 @@
             <!--Time selector-->
             <div class="time_box">
               <h5 id="socio-title">Select layer time</h5>
-              <input name="annual" type="range" min="1985" max="2095" value="1985" step="10" class="val" id="a1" />
+              <input name="dry_spells_annual" type="range" min="1985" max="2095" value="1985" step="10" class="val" id="a1" />
               <div class="slide_bar annua;_value">Move the slider</div>
             </div>
           </div>
@@ -1722,7 +1722,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="biodiversity" id="" />
+                  <input type="checkbox" name="biodiversity" id="mammals_switch" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1742,25 +1742,62 @@
               <div class="indice">
                 <label class="percentage">1</label>
                 <!--Create JS to change the label limit according to layer data-->
-                <label class="percentage">210</label>
+                <label class="percentage mammals_new_value">select data</label>
               </div>
             </div>
             <div class="box">
               <p>Mammal order</p>
-              <select id="mammalType" name="mammalsType">
-                <option value="" disabled selected hidden>Select mammal order</option>
-                <option value="carnivora">Carnivora</option>
-                <option value="cetartiodactyla">Cetartiodactyla</option>
-                <option value="chiroptera">Chiroptera (bats)</option>
-                <option value="eulipotyphla">Eulipotyphla</option>
-                <option value="primates">Primates</option>
-                <option value="rodentia">Rodentia</option>
-                <option value="marsupials">Marsupials</option>
-                <option value="mmammal_richness">Mammals Richness</option>
-                <option value="small_ranged_mammals">Small-ranged Mammals</option>
-                <option value="threatened_mammals">Threatened Mammals</option>
-                <option value="data_deficient_mammals">Data Deficient Mammals</option>
-              </select>
+              <div class="select">
+                <!-- You can toggle_icon select (disabled) -->
+                <input type="radio" name="option_mammals" id="mammals_placeholder" value="select data"  disabled>
+                <i class="toggle_icon icon fa fa-thin fa-chevron-down"></i>
+                <i class="toggle_icon icon fa fa-thin fa-chevron-up"></i>
+                <span class="placeholder">Choose...</span>
+                <label class="option_mammals">
+                  <input type="radio" name="option_mammals" id="arboverse.bio_mammals_carnivora_10km" value="31" >
+                  <span class="title_options animated">Carnivora</span>
+                </label>
+                <label class="option_mammals">
+                  <input type="radio" name="option_mammals"  id="arboverse.bio_mammals_cetartiodactyla" value="26" >
+                  <span class="title_options animated">Cetartiodactyla</span>
+                </label>
+                <label class="option_mammals">
+                  <input type="radio" name="option_mammals" id="arboverse.bio_mammals_chiroptera_10km" value="120" >
+                  <span class="title_options animated">Chiroptera (bats)</span>
+                </label>
+                <label class="option_mammals">
+                  <input type="radio" name="option_mammals" id="arboverse.bio_mammals_eulipotyphla_10km" value="25">
+                  <span class="title_options animated">Eulipotyphla</span>
+                </label>
+                <label class="option_mammals">
+                  <input type="radio" name="option_mammals" id="arboverse.bio_mammals_primates_10km" value="20">
+                  <span class="title_options animated">Primates</span>
+                </label>
+                <label class="option_mammals">
+                  <input type="radio" name="option_mammals" id="arboverse.bio_mammals_rodentia_10km" value="62" >
+                  <span class="title_options animated">Rodentia</span>
+                </label>
+                <label class="option_mammals">
+                  <input type="radio" name="option_mammals" id="arboverse.bio_mammals_marsupialia_10km" value="35" >
+                  <span class="title_options animated">Marsupials </span>
+                </label>
+                <label class="option_mammals">
+                  <input type="radio" name="option_mammals" id="arboverse.bio_mammals_richness_10km" value="212" >
+                  <span class="title_options animated">Mammals richness</span>
+                </label>
+                <label class="option_mammals">
+                  <input type="radio" name="option_mammals" id="arboverse.bio_mammals_small_ranged_10km" value="40" >
+                  <span class="title_options animated">Small ranged mammals</span>
+                </label>
+                <label class="option_mammals">
+                  <input type="radio" name="option_mammals" id="arboverse.bio_mammals_threatened_10km" value="30" >
+                  <span class="title_options animated">Threatened mammals</span>
+                </label>
+                <label class="option_mammals">
+                  <input type="radio" name="option_mammals" id="arboverse.bio_mammals_data_deficient_10km" value="4" >
+                  <span class="title_options animated">Data deficient</span>
+                </label>
+              </div>
             </div>
           </div>
           <!--birds-->
@@ -1768,7 +1805,7 @@
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="biodiversity" id="birds_switch" />
+                  <input type="checkbox" name="biodiversity" id="birds_switch_diversity" />
                   <span class="slider round"></span>
                 </label>
               </div>
@@ -1800,47 +1837,47 @@
                 <i class="toggle_icon icon fa fa-thin fa-chevron-up"></i>
                 <span class="placeholder">Choose...</span>
                 <label class="option_birds">
-                  <input type="radio" name="option_birds" id="arboverse.bio_birds_passeriformes_10km" value="395" disabled>
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_passeriformes_10km" value="395" >
                   <span class="title_options animated">Passeriformes</span>
                 </label>
                 <label class="option_birds">
-                  <input type="radio" name="option_birds" id="arboverse.bio_birds_non_passeriformes" value="341" disabled>
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_non_passeriformes" value="341" >
                   <span class="title_options animated">Non passeriformes</span>
                 </label>
                 <label class="option_birds">
-                  <input type="radio" name="option_birds" id="arboverse.bio_birds_psittaciformes_10km" value="29" disabled>
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_psittaciformes_10km" value="29" >
                   <span class="title_options animated">Psittaciformes (parrots)</span>
                 </label>
                 <label class="option_birds">
-                  <input type="radio" name="option_birds" id="arboverse.bio_amp_richness_10km" value="56" disabled>
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_trochilidae_10km" value="56">
                   <span class="title_options animated">Trochilidae (hummingbirds)</span>
                 </label>
                 <label class="option_birds">
-                  <input type="radio" name="option_birds" id="arboverse.biodiversity_birds_richness_10km" value="678" disabled>
+                  <input type="radio" name="option_birds" id="arboverse.biodiversity_birds_richness_10km" value="678">
                   <span class="title_options animated">Birds richness</span>
                 </label>
                 <label class="option_birds">
-                  <input type="radio" name="option_birds" id="arboverse.bio_birds_small_ranged_10km" value="264" disabled>
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_small_ranged_10km" value="264" >
                   <span class="title_options animated">Small ranged</span>
                 </label>
                 <label class="option_birds">
-                  <input type="radio" name="option_birds" id="arboverse.bio_birds_threatened_bird" value="31" disabled>
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_threatened_bird" value="31" >
                   <span class="title_options animated">Threatened </span>
                 </label>
                 <label class="option_birds">
-                  <input type="radio" name="option_birds" id="arboverse.bio_birds_breeding_range_10km" value="625" disabled>
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_breeding_range_10km" value="625" >
                   <span class="title_options animated">Breeding ranges</span>
                 </label>
                 <label class="option_birds">
-                  <input type="radio" name="option_birds" id="arboverse.bio_birds_nonbreeding_10km" value="677" disabled>
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_nonbreeding_10km" value="677" >
                   <span class="title_options animated">Nonbreeding ranges</span>
                 </label>
                 <label class="option_birds">
-                  <input type="radio" name="option_birds" id="arboverse.bio_birds_threatened_small" value="24" disabled>
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_threatened_small" value="24" >
                   <span class="title_options animated">Threatened small ranged</span>
                 </label>
                 <label class="option_birds">
-                  <input type="radio" name="option_birds" id="arboverse.bio_birds_data_deficient_10km" value="4" disabled>
+                  <input type="radio" name="option_birds" id="arboverse.bio_birds_data_deficient_10km" value="4" >
                   <span class="title_options animated">Data deficient</span>
                 </label>
               </div>
@@ -1883,31 +1920,31 @@
                 <i class="toggle_icon icon fa fa-thin fa-chevron-up"></i>
                 <span class="placeholder">Choose...</span>
                 <label class="option_amphibians">
-                  <input type="radio" name="option_amphibians" id="arboverse.bio_amp_caudata_10km" value="30" disabled>
+                  <input type="radio" name="option_amphibians" id="arboverse.bio_amp_caudata_10km" value="30" >
                   <span class="title_options animated">Caudata (salamanders)</span>
                 </label>
                 <label class="option_amphibians">
-                  <input type="radio" name="option_amphibians" id="arboverse.bio_amp_anura_10km" value="133" disabled>
+                  <input type="radio" name="option_amphibians" id="arboverse.bio_amp_anura_10km" value="133" >
                   <span class="title_options animated">Anura (frogs)</span>
                 </label>
                 <label class="option_amphibians">
-                  <input type="radio" name="option_amphibians" id="arboverse.bio_amp_gymnophiona_10km" value="7" disabled>
+                  <input type="radio" name="option_amphibians" id="arboverse.bio_amp_gymnophiona_10km" value="7" >
                   <span class="title_options animated">Gymnophiona (caecilians)</span>
                 </label>
                 <label class="option_amphibians">
-                  <input type="radio" name="option_amphibians" id="arboverse.bio_amp_richness_10km" value="136" disabled>
-                  <span class="title_options animated">Amphibian richness</span>
-                </label>
-                <label class="option_amphibians">
-                  <input type="radio" name="option_amphibians" id="arboverse.bio_amp_smal_range_10km" value="20" disabled>
+                  <input type="radio" name="option_amphibians" id="arboverse.bio_amp_smal_range_10km" value="20" >
                   <span class="title_options animated">Small-ranged</span>
                 </label>
                 <label class="option_amphibians">
-                  <input type="radio" name="option_amphibians" id="arboverse.bio_amp_threatened_10km" value="20" disabled>
+                  <input type="radio" name="option_amphibians" id="arboverse.bio_amp_richness_10km" value="136" >
+                  <span class="title_options animated">Amphibian richness</span>
+                </label>
+                <label class="option_amphibians">
+                  <input type="radio" name="option_amphibians" id="arboverse.bio_amp_threatened_10km" value="20" >
                   <span class="title_options animated">Threatened</span>
                 </label>
                 <label class="option_amphibians">
-                  <input type="radio" name="option_amphibians" id="arboverse.bio_amp_data_def_10km" value="10" disabled>
+                  <input type="radio" name="option_amphibians" id="arboverse.bio_amp_data_def_10km" value="10">
                   <span class="title_options animated">Data deficient </span>
                 </label>
               </div>

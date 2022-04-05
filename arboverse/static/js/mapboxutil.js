@@ -317,7 +317,19 @@ map.on('load', async()=>{
     addRasterTileLayerToMap(map, 'arboverse.bio_birds_psittaciformes_10km', 'mapbox://arboverse.bio_birds_psittaciformes_10km', 'raster', 'mapbox://arboverse.bio_birds_psittaciformes_10km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.bio_birds_breeding_range_10km', 'mapbox://arboverse.bio_birds_breeding_range_10km', 'raster', 'mapbox://arboverse.bio_birds_breeding_range_10km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.bio_birds_threatened_small', 'mapbox://arboverse.bio_birds_threatened_small', 'raster', 'mapbox://arboverse.bio_birds_threatened_small', 0, 19);
-    addRasterTileLayerToMap(map, 'arboverse.bio_birds_data_deficient_10km', 'arboverse.bio_birds_data_deficient_10km', 'raster', 'mapbox://arboverse.bio_birds_data_deficient_10km', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.bio_birds_data_deficient_10km', 'mapbox://arboverse.bio_birds_data_deficient_10km', 'raster', 'mapbox://arboverse.bio_birds_data_deficient_10km', 0, 19);
+     //Mammals biodiversity 
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_primates_10km', 'mapbox://arboverse.bio_mammals_primates_10km', 'raster', 'mapbox://arboverse.bio_mammals_primates_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_threatened_10km', 'mapbox://arboverse.bio_mammals_threatened_10km', 'raster', 'mapbox://arboverse.bio_mammals_threatened_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_marsupialia_10km', 'mapbox://arboverse.bio_mammals_marsupialia_10km', 'raster', 'mapbox://arboverse.bio_mammals_marsupialia_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_data_deficient_10km', 'mapbox://arboverse.bio_mammals_data_deficient_10km', 'raster', 'mapbox://arboverse.bio_mammals_data_deficient_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_richness_10km', 'mapbox://arboverse.bio_mammals_richness_10km', 'raster', 'mapbox://arboverse.bio_mammals_richness_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_eulipotyphla_10km', 'mapbox://arboverse.bio_mammals_eulipotyphla_10km', 'raster', 'mapbox://arboverse.bio_mammals_eulipotyphla_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_rodentia_10km', 'mapbox://arboverse.bio_mammals_rodentia_10km', 'raster', 'mapbox://arboverse.bio_mammals_rodentia_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_carnivora_10km', 'mapbox://arboverse.bio_mammals_carnivora_10km', 'raster', 'mapbox://arboverse.bio_mammals_carnivora_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_small_ranged_10km', 'mapbox://arboverse.bio_mammals_small_ranged_10km', 'raster', 'arboverse.bio_mammals_small_ranged_10km', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_cetartiodactyla', 'mapbox://arboverse.bio_mammals_cetartiodactyla', 'raster', 'mapbox://arboverse.bio_mammals_cetartiodactyla', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_chiroptera_10km', 'mapbox://arboverse.bio_mammals_chiroptera_10km', 'raster', 'mapbox://arboverse.bio_mammals_chiroptera_10km', 0, 19);
     // Tree cover loss by dominat drivers
     addTileLayerToMap(map, 'arboverse.drivers', 'mapbox://arboverse.drivers', 'fill', { 'fill-color': ['match', ['get', 'classes'], [1], "#FDAFA5", [2], "#50744B", [3], "#1A5762", [4], "#A58B2C", [5], "#0F3B5F", "#000000"] }, 'drivers');
     //forest landscape integrity index
@@ -515,6 +527,8 @@ const addOpacityTwoRaster = (element, title1, title2) =>{
 };
 //Opacity response
 map.on('load', function(){
+    var mammalsSlider = document.querySelector('input[name=mammals-opacity]')
+    var birdsSlider = document.querySelector('input[name=birds-opacity]')
     var amphibiansSlider = document.querySelector('input[name=amphibians-opacity]')
     var resistanceSlider = document.querySelector('input[name=resistance-opacity]')
     var droughtSlider = document.querySelector('input[name=drought-opacity]')
@@ -554,6 +568,122 @@ map.on('load', function(){
     addOpacityRaster(citiesSlider, 'arboverse.cities_accessibility_5km_2015')
     addOpacityTwoRaster(healthSlider, 'arboverse.healthcare_time_motorized', 'arboverse.healthcare_time_walking_5km_2020')
     
+    mammalsSlider.addEventListener('input', function(e) {
+        map.setPaintProperty(
+            'arboverse.bio_mammals_primates_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_mammals_threatened_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_mammals_marsupialia_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_mammals_data_deficient_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_mammals_richness_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_mammals_eulipotyphla_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_mammals_rodentia_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+
+        map.setPaintProperty(
+            'arboverse.bio_mammals_carnivora_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_mammals_small_ranged_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_mammals_cetartiodactyla',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_mammals_chiroptera_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    })
+    birdsSlider.addEventListener('input', function(e) {
+        map.setPaintProperty(
+            'arboverse.biodiversity_birds_richness_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_trochilidae_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_small_ranged_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_non_passeriformes',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_passeriformes_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_nonbreeding_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_threatened_bird',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+
+        map.setPaintProperty(
+            'arboverse.bio_birds_psittaciformes_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_breeding_range_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_threatened_small',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.bio_birds_data_deficient_10km',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    })
     amphibiansSlider.addEventListener('input', function(e) {
         map.setPaintProperty(
             'arboverse.bio_amp_richness_10km',
