@@ -732,6 +732,14 @@ var birdsValue = function(){
 }
 birds.addEventListener('input', birdsValue)
 
+var mammals = document.querySelector('input[name=mammals-opacity]');
+var mammalsValue = function(){
+    var newOpValue = mammals.value;
+    var target = document.querySelector('.mammals_op');
+    target.innerHTML = newOpValue;
+}
+mammals.addEventListener('input', mammalsValue)
+
 var amphibian = document.querySelector('input[name=amphibians-opacity]');
 var amphibianValue = function(){
     var newOpValue = amphibian.value;
