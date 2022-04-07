@@ -1152,9 +1152,9 @@
             <h5 class="select-title">Select layer model</h5>
             <form>
               <div class="model_group">
-                <input type="radio" id="model_1" name="hotdays_model" value="rcp45">
+                <input type="radio" id="model_3" name="hotdays_model" value="rcp45">
                 <label for="rcp45">RCP 45</label>
-                <input type="radio" id="model_2" name="hotdays_model" value="rcp85">
+                <input type="radio" id="model_4" name="hotdays_model" value="rcp85">
                 <label for="rcp85">RCP 85</label>
               </div>
             </form>
@@ -1172,7 +1172,7 @@
           <div class="unit-toggle">
             <div class="togglebtn">
               <label class="switch">
-                <input type="checkbox" name="climate" id="hotdays_switch" />
+                <input type="checkbox" name="climate" id="precipitation_switch" />
                 <span class="slider round"></span>
               </label>
             </div>
@@ -1204,17 +1204,17 @@
             <h5 class="select-title">Select layer model</h5>
             <form>
               <div class="model_group">
-                <input type="radio" id="model_1" name="model_precipitation">
+                <input type="radio" id="model_1" name="model_precipitation" value="rcp45">
                 <label for="model_1">RCP 45</label>
-                <input type="radio" id="model_2" name="model_precipitation">
+                <input type="radio" id="model_2" name="model_precipitation" value="rcp85">
                 <label for="model_2">RCP 85</label>
               </div>
             </form>
             <!--Time selector-->
             <div class="time_box">
               <h5 id="socio-title">Select layer time</h5>
-              <input name="precipitation_annual" type="range" min="1985" max="2095" value="1985" step="10" class="val" id="a1" />
-              <div class="slide_bar annual_value">Move the slider</div>
+              <input name="precipitation_year" type="range" min="1985" max="2065" value="1985" step="10" class="val" id="a1" />
+              <div class="slide_bar precipitation_value">Move the slider</div>
             </div>
           </div>
         </div>
