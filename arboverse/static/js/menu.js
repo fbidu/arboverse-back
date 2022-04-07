@@ -301,7 +301,36 @@ document.querySelectorAll("input[name=annual]").forEach(i => {
         console.log(this.value)
     }
 });
+//Extreme hot days
+function hotDays_switch() {
+    if(!document.querySelector("input[name=hotdays_model][id=model_1]").checked && !document.querySelector("input[name=hotdays_model][id=model_2]").checked){
+        document.querySelector("input[name=hotdays_model][id=model_1]").checked = true;
+    }
 
+    temp = "hot_days_yr"
+    model = document.querySelector('input[name=hotdays_model]:checked').value;
+    year = document.querySelector('input[name=hotdays_year]').value;
+    
+    return [model, year, temp];
+}
+document.querySelectorAll("input[name=hotdays_model]").forEach(i => {
+    i.onchange = function(){
+        cb = document.querySelector("input[name=climate][id=hotdays_switch]")
+        if(cb.checked){
+            var [model, year, temp] = hotDays_switch();
+            update_map_time(cb, model, year, temp);
+        }
+    } 
+});
+document.querySelectorAll("input[name=hotdays_year]").forEach(i => {
+    i.onchange = function(){
+        cb = document.querySelector("input[name=climate][id=hotdays_switch]")
+        if(cb.checked){
+            var [model, year, temp] = hotDays_switch();
+            update_map_time(cb, model, year, temp);
+        }
+    } 
+});
 //Checked Forest
 showChekedFor();
 var i = 0;

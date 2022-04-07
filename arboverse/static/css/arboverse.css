@@ -1958,7 +1958,10 @@
 }
 /*==== Model prediction rcp 45 and 95 ===*/
 input[name=model_selector],
-input[name=hotdays_model]{
+input[name=hotdays_model],
+input[name=model_precipitation],
+input[name=model_dry],
+input[name=model_extreme]{
   position: absolute;
   visibility: hidden;
   display: none;
@@ -1972,11 +1975,17 @@ input[name=hotdays_model]{
   font-size: 0.8rem;
 }
 input[name=model_selector]:checked + label,
-input[name=hotdays_model]:checked + label {
+input[name=hotdays_model]:checked + label,
+input[name=model_precipitation]:checked + label,
+input[name=model_dry]:checked + label,
+input[name=model_extreme]:checked + label {
   color: var(--orange);
 }
 .model_group label +input[name=model_selector] + label,
-.model_group label +input[name=hotdays_model] + label{
+.model_group label +input[name=hotdays_model] + label,
+.model_group label +input[name=model_precipitation] + label,
+.model_group label +input[name=model_dry] + label,
+.model_group label +input[name=model_extreme] + label{
   border-left: solid 1px #c0c0c5;
 }
 .model_group{
