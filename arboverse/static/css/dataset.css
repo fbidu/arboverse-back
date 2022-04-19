@@ -68,60 +68,60 @@
     font-size: 1.1rem;
   }
 }
-
-/*---dataset--*/
-.dataset_container{
+/*ARBODATA------*/
+.arbodata_container{
   display: flex;
-  justify-content:space-between;
-  align-items: center;
-  height: 100vh;
-  width: 85vw;
-  margin: 5vh auto;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 80%;
+  height: auto;
+  margin: 10vh auto;
 }
-.panel{
-  background-size: auto 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 85vh;
-  color: #fff;
-  cursor: pointer;
-  flex: 0.5;
-  margin: 10px;
+.arbodata_unit{
+  width: 49%;
+  height: 90vh;
+  border-radius: 15px;
+  background: #1D2751;
+  transition: ease-in-out 1.3s;
   position: relative;
-  transition: all 800ms ease-in;
-  border-radius: 30px;
-  }
-.panel h4 {
+  margin: 30px 0;
+}
+.arbodata_unit img{
+  width:100%;
+  height: auto;
+  opacity: 1;
+  transition: ease-in-out 1s;
+  position: relative;
+  display: block;
+  margin-top: 5vh;;
+}
+.arbodata_unit:hover img{
+  opacity: 0.4;
+}
+.arbodata_unit:hover .tabs{
+  opacity:1;
+}
+.arbodata_title {
   font-size: 1.5rem;
   position: absolute;
   bottom: 30px;
   left: 40px;
   margin: 0;
-  opacity: 0;
-  transition: all 500ms ease-in-out;
-}
-.panel.active {
-  flex-grow: 6;
-  border-radius: 2%;
-}
-.panel.active h4 {
   opacity: 1;
 }
-.panel.active .tabs{
-    width: 100%;
-    opacity: 1;
-}
-
 .tabs {
-  width:0;
-  margin-top: 5vh;
+  width:100%;
+  margin-top: 1.5vh;
   opacity:0;
   overflow: hidden;
   cursor: default;
-  transition: all 700ms ease-in-out;
+  transition: all 1s ease-in-out;
+  position: absolute;
+  top: 5vh;
 }
 .tab {
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
   overflow: hidden;
   border: none;
 }
@@ -129,21 +129,19 @@
   display: flex;
   justify-content: space-between;
   padding: 0.8em;
+  background: transparent;
+  font-weight: 400;
+  cursor: pointer;
+  color:white;
+  font-size: 1rem;
+  /* Icon */
+}
+.tab-label:hover {
   background: rgba(68, 94, 242, 0.11);
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  font-weight: 400;
-  cursor: pointer;
-  color:var(--orange);
-  font-size: 1.2rem;
-  /* Icon */
-}
-.tab-label:hover {
-  background: rgba(255, 188, 126, 0.25);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(9.6px);
-  -webkit-backdrop-filter: blur(9.6px);
+  border-bottom: solid 1px var(--lightBlue);
 }
 .tab-label:hover .tab-label::after{
   color: var(--darkBlue);
@@ -158,15 +156,15 @@
 }
 .tab-content {
   max-height: 0;
-  padding: 0 1em;
+  padding: 0 10px;
   color: var(--text);
   background: hsla(0, 0%, 100%,0.9);
   transition: all 0.35s;
-  font-size: 1rem;
+  font-size:0.9rem;
 }
 .tab-content a{
   color: var(--orange);
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 .tab-content a:hover{
   font-weight: bold;
@@ -185,7 +183,7 @@
   border-radius: 20px;
   border: solid 1px var(--lightBlue);
   color: var(--lightBlue);
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   margin-left: 10px;
   margin-right: 20px;
   font-weight: 400;
@@ -206,10 +204,7 @@
   align-items: center;
   padding: 0.8em;
   font-size: 0.9rem;
-  background: rgba(68, 94, 242, 0.11);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5.4px);
+  background: transparent;
   cursor: pointer;
   color: var(--orange);
 }
@@ -218,10 +213,11 @@
     margin-left: 10px;
 }
 .tab-close:hover {
-  background: rgba(252, 252, 252, 0.23);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(9.6px);
-  -webkit-backdrop-filter: blur(9.6px);
+  background: rgba(68, 94, 242, 0.11);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-bottom: 1px solid var(--lightBlue);
 }
 input {
   position: absolute;
@@ -229,10 +225,11 @@ input {
   z-index: -1;
 }
 input:checked + .tab-label {
-  background: rgba(255, 188, 126, 0.25);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(9.6px);
-  -webkit-backdrop-filter: blur(9.6px);
+  background: rgba(68, 94, 242, 0.11);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-bottom: 1px solid var(--lightBlue);
 }
 input:checked + .tab-label::after {
   transform: rotate(90deg);
@@ -242,24 +239,55 @@ input:checked ~ .tab-content {
   padding: 1em;
 }
 @media screen and (max-width: 550px) {
-  .dataset_container{
+  .arbodata_container{
+    display: flex;
     flex-direction: column;
-    height: 200vh;
+    flex-wrap: wrap;
+    width: 90%;
+    height: auto;
+    margin: 10vh auto;
   }
-  .panel{
-    flex: 1;
-    margin: 2px;
-    height: 2.5vh;
+  .arbodata_unit{
     width: 100%;
-    border-radius: 16px;
+    height:auto;
+    border-radius:10px;
+    background: #1D2751;
+    position: relative;
+    margin: 30px 0;
+    padding-bottom: 40px;
   }
-  .panel h4{
-    font-size: 1.2rem;
+  .arbodata_unit img{
+    width:40%;
+    height: auto;
+    opacity: 1;
+    position:static;
+    margin-top: 2vh;
+    margin-left: 5px;
+  }
+  .arbodata_unit:hover img{
+    opacity: 1;
+  }
+  .arbodata_title {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 80px;
+    left: 45%;
+    margin: 0;
+    opacity: 1;
+  }
+  .tabs {
+    width:100%;
+    margin-top: 0vh;
+    overflow: hidden;
+    cursor: default;
+    transition: all 1s ease-in-out;
+    position: relative;
+    opacity:1;
+    top: 5vh;
   }
   .tab-label,
   .tab-close {
     font-size: 1rem;
-    background: rgba(68, 94, 242, 0.31);
   }
   .tab-content{
     font-size: 0.9rem;

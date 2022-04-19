@@ -16,10 +16,9 @@
           </div>
           <p class="arbodata_text">ARBOVERSE is a data-drive platform that integrates information on arboviruses, vectors, and environmental data from multiple sources and allows easy search, correlation analysis, and visualization. The ARBOVERSE was designed to help accelerate the work of researchers, public health workers, and the global community to better prepare for, respond to, and reduce the burden of arboviruses </p>
     </section>
-    <div class="dataset_container">
-        <!--arbovirus-->
-        <div class="panel active"
-            style="background: url(../../static/images/dataset/arbodata-arbovirus-dataset-min.png) center center/cover no-repeat;">
+    <div class="arbodata_container">
+        <div class="arbodata_unit">
+            <img src="../static/images/dataset/arbodata-arbovirus-dataset-min.png"/>
             <div class="tabs">
                 <div class="tab">
                     <input type="radio" id="checka" name="rd">
@@ -67,11 +66,10 @@
                     <label for="rd3" class="tab-close">Close Tabs</label>
                 </div>
             </div>
-            <h4><span class="white">Arbo</span><span class="orange">virus</span> </h4>
+            <h4 class="arbodata_title"><span class="white">Arbo</span><span class="orange">virus</span></h4>
         </div>
-        <!--Vector-->
-        <div class="panel"
-            style="background: url(../../static/images/dataset/arbovector-vector-arbodata-min.png) center center/cover no-repeat;">
+        <div class="arbodata_unit">
+            <img src="../static/images/dataset/arbovector-vector-arbodata-min.png"/>
             <div class="tabs">
                 <div class="tab">
                     <input type="radio" id="checkd" name="rd1">
@@ -102,20 +100,34 @@
                         </div>
                     </div>
                 </div>
+                <!--Mosquito forecating-->
+                <div class="tab">
+                    <input type="radio" id="climate_1" name="rd1">
+                    <label class="tab-label" for="climate_1">Global expansion and redistribution of Aedes-borne virus transmission risk with climate change</label>
+                    <div class="tab-content">
+                        <p>This data set presents expansion of Aedes-borne virus transmission risk with climate change, applied to rcp 45 and 85 for aedes aegypti and aedes albopictus.</p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://dataverse.harvard.edu/dataverse/Aedesmaps" target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0007213" target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="tab">
                     <input type="radio" id="rdA" name="rd1">
                     <label for="rdA" class="tab-close">Close Tabs</label>
                 </div>
             </div>
-            <h4><span class="white">Arbovirus</span><span class="orange">Vectors</span> </h4>
+            <h4 class="arbodata_title"><span class="white">Arbovirus</span><span class="orange"> vectors</span></h4>
         </div>
-        <!--Climate-->
-        <div class="panel"
-            style="background: url(../../static/images/dataset/climate-dataset-arbodata-min.png) center center/cover no-repeat;">
+        <div class="arbodata_unit">
+            <img src="../static/images/dataset/climate-dataset-arbodata-min.png"/>
             <div class="tabs">
+                <!--KpG-->
                 <div class="tab">
-                    <input type="radio" id="check1.3" name="rd2">
-                    <label class="tab-label" for="check1.3">Köppen and Geiger</label>
+                    <input type="radio" id="climate_2" name="rd2">
+                    <label class="tab-label" for="climate_2">Köppen and Geiger</label>
                     <div class="tab-content">
                         <p>This data set presents Köppen Geiger climate classification and their difference between the
                             present (1980-2016) and projected future (2071-2100). Global maps at 1-km resolution.</p>
@@ -127,16 +139,173 @@
                         </div>
                     </div>
                 </div>
+                <!--Annual temperature-->
+                <div class="tab">
+                    <input type="radio" id="climate_3" name="rd2">
+                    <label class="tab-label" for="climate_3">Minimal, average and maximal annual temperature</label>
+                    <div class="tab-content">
+                        <p>This data set presents the projected change in annual temperature between baseline time period (1960-1990) and 2065-2095. The predicted changes is estimated under a high (rcp 8.5) and medium (rcp 4.5) emission scenario.</p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://prepdata.org" target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://www.wri.org/research/making-climate-data-accessible" target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
+                <!--extreme heat days-->
+                <div class="tab">
+                    <input type="radio" id="climate_4" name="rd2">
+                    <label class="tab-label" for="climate_4">Extreme Heat Days</label>
+                    <div class="tab-content">
+                        <p>This data set presents change in the average number of days of extreme heat at ten year intervals between 2000 and 2080, compared to a baseline time period of 1960-1990.</p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://prepdata.org" target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://www.wri.org/research/making-climate-data-accessible" target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
+                <!--precipitation-->
+                <div class="tab">
+                    <input type="radio" id="climate_6" name="rd2">
+                    <label class="tab-label" for="climate_6">Cumulative Precipitation</label>
+                    <div class="tab-content">
+                        <p>This data set presents the change in annual average total precipitation at ten year intervals between 2000 and 2080, compared to a baseline time period of 1960-1990.</p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://prepdata.org" target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://www.wri.org/research/making-climate-data-accessible" target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
+                <!--extreme precipitation-->
+                <div class="tab">
+                    <input type="radio" id="climate_7" name="rd2">
+                    <label class="tab-label" for="climate_7">Extreme Precipitation</label>
+                    <div class="tab-content">
+                        <p>This data set presents the change in annual average days of extreme precipitation at ten year intervals between 2000 and 2080, compared to a baseline time period of 1960-1990. </p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://prepdata.org" target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://www.wri.org/research/making-climate-data-accessible" target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Dry spells-->
+                <div class="tab">
+                    <input type="radio" id="climate_8" name="rd2">
+                    <label class="tab-label" for="climate_8">Dry Spells</label>
+                    <div class="tab-content">
+                        <p>This data set presents the change in average annual dry spells at ten year intervals between 2000 and 2080, compared to a baseline time period of 1960-1990.</p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://prepdata.org" target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://www.wri.org/research/making-climate-data-accessible" target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Aridity-->
+                <div class="tab">
+                    <input type="radio" id="climate_9" name="rd2">
+                    <label class="tab-label" for="climate_9">Global Aridity Index Climate Database</label>
+                    <div class="tab-content">
+                        <p>The Global Aridity Index (Global-Aridity_ET0) and Global Reference Evapotranspiration (Global-ET0) Version 2 dataset provides high-resolution (30 arc-seconds) global raster climate data for the 1970-2000 period.</p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://figshare.com/articles/dataset/Global_Aridity_Index_and_Potential_Evapotranspiration_ET0_Climate_Database_v2/7504448/3" target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://figshare.com/articles/dataset/Global_Aridity_Index_and_Potential_Evapotranspiration_ET0_Climate_Database_v2/7504448/3" target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
+                <!--drought-->
+                <div class="tab">
+                    <input type="radio" id="climate_10" name="rd2">
+                    <label class="tab-label" for="climate_10">Groundwater vulnerability to floods and droughts</label>
+                    <div class="tab-content">
+                        <p>This map indicates the level of vulnerability of groundwater resources of the earth. It presents the intrinsic vulnerability of groundwater systems and the sensitivity or resistance of those systems to natural disasters.</p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://wri-public-data.s3.amazonaws.com/resourcewatch/wat_022_global_groundwater_vulnerability_floods_droughts.zip" target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://link.springer.com/article/10.1007/s12665-016-5632-3" target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="tab">
                     <input type="radio" id="rdB" name="rd2">
                     <label for="rdB" class="tab-close">Close Tab</label>
                 </div>
             </div>
-            <h4><span class="white">Clima</span><span class="orange">te</span> </h4>
+            <h4 class="arbodata_title"><span class="white">Clima</span><span class="orange">te</span></h4>
         </div>
-        <!--socioeconomics-->
-        <div class="panel"
-            style="background: url(../../static/images/dataset/arbodata-socioeconomics-min.png) center center/cover no-repeat;">
+        <div class="arbodata_unit">
+            <img src="../static/images/dataset/arbodata-socioeconomics-min.png"/>
+            <div class="tabs">
+                <!--Gdp and HDI-->
+                <div class="tab">
+                    <input type="radio" id="socio_1" name="rd6">
+                    <label class="tab-label" for="socio_1">Gridded global datasets for Gross Domestic Product and Human Development Index over 1990–2015</label>
+                    <div class="tab-content">
+                        <p>This data set  annual gridded datasets for GDP per capita (PPP), total GDP (PPP), and HDI, for the whole world at 5 arc-min resolution for the 25-year period of 1990–2015. Additionally, total GDP (PPP) is provided with 30 arc-sec resolution for three time steps (1990, 2000, 2015).
+                        </p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.dk1j0" target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://www.nature.com/articles/sdata20184#Sec9" target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pop density-->
+                <div class="tab">
+                    <input type="radio" id="socio_2" name="rd6">
+                    <label class="tab-label" for="socio_2">Population density</label>
+                    <div class="tab-content">
+                        <p>This data set from Socioeconomics Data and Applications Center <a
+                            href="https://sedac.ciesin.columbia.edu/">(NASA-SEDAC)</a> estimates population density
+                        and distribution in 2015 and 2020, based on counts cosistent with national censuses and
+                        population registers.</p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://sedac.ciesin.columbia.edu/data/sets/browse"
+                                target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://sedac.ciesin.columbia.edu/data/collection/gpw-v4"
+                                target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
+                <!--access health care-->
+                <div class="tab">
+                    <input type="radio" id="socio_3" name="rd6">
+                    <label class="tab-label" for="socio_3">Global maps of travel time to healthcare facilities</label>
+                    <div class="tab-content">
+                        <p>This data set displays the global map of optimal travel time to a hospital or clinic illustrates the spatial heterogeneity of geographically constrained healthcare access experienced by individuals with access to motorized transportation.</p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://malariaatlas.org/research-project/accessibility-to-healthcare/"
+                                target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://www.nature.com/articles/s41591-020-1059-1"
+                                target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" id="rdF" name="rd6">
+                    <label for="rdF" class="tab-close">Close Tabs</label>
+                </div>
+            </div>
+            <h4 class="arbodata_title"><span class="white">Socio</span><span class="orange">economics</span></h4>
+        </div>
+        <div class="arbodata_unit">
+            <img src="../static/images/dataset/arbodata-land-use-min.png"/>
             <div class="tabs">
                 <div class="tab">
                     <input type="radio" id="check3.0" name="rd4">
@@ -151,6 +320,20 @@
                             <a href="http://maps.elie.ucl.ac.be/CCI/viewer/download.php" target="_blank">Dataset</a>
                             <i class="fa fa-info-circle"></i>
                             <a href="http://www.esa-landcover-cci.org/" target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab">
+                    <input type="radio" id="land_1" name="rd4">
+                    <label class="tab-label" for="land_1">Global distribution data for cattle, buffaloes, horses, sheep, goats, pigs, chickens and ducks in 2010</label>
+                    <div class="tab-content">
+                        <p>This data set  provides global population densities of cattle, buffaloes, horses, sheep, goats, pigs, chickens and ducks in each land pixel at a spatial resolution of 0.083333 decimal degrees (approximately 10 km at the equator).
+                        </p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://www.fao.org/livestock-systems/global-distributions/en/" target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://www.nature.com/articles/sdata2018227" target="_blank">Reference</a>
                         </div>
                     </div>
                 </div>
@@ -231,18 +414,15 @@
                 </div>
                 <div class="tab">
                     <input type="radio" id="check3.5" name="rd4">
-                    <label class="tab-label" for="check3.5">Population Density</label>
+                    <label class="tab-label" for="check3.5">GOODD, a global dataset of more than 38,000 georeferenced dams</label>
                     <div class="tab-content">
-                        <p>This data set from Socioeconomics Data and Applications Center <a
-                                href="https://sedac.ciesin.columbia.edu/">(NASA-SEDAC)</a> estimates population density
-                            and distribution in 2015 and 2020, based on counts cosistent with national censuses and
-                            population registers.</p>
+                        <p>presents the development of the global database through systematic digitisation of satellite imagery globally by a small team and highlights the various approaches to bias estimation and to validation of the data. The following datasets are provided (a) raw digitised coordinates for the location of dam walls (that may be useful for example in machine learning approaches to dam identification from imagery), (b) a global vector file of the watershed for each dam.</p>
                         <div class="database">
                             <i class="fa fa-database"></i>
-                            <a href="https://sedac.ciesin.columbia.edu/data/set/gpw-v4-population-density-rev11"
+                            <a href="http://globaldamwatch.org/data/#core_global"
                                 target="_blank">Dataset</a>
                             <i class="fa fa-info-circle"></i>
-                            <a href="https://doi.org/10.7927/H49C6VHW" target="_blank">Reference</a>
+                            <a href="https://www.nature.com/articles/s41597-020-0362-5" target="_blank">Reference</a>
                         </div>
                     </div>
 
@@ -252,133 +432,50 @@
                     <label for="rdD" class="tab-close">Close Tabs</label>
                 </div>
             </div>
-            <h4><span class="white">Socio</span><span class="orange">economics</span> </h4>
+            <h4 class="arbodata_title"><span class="white">Land </span><span class="orange">Use</span></h4>
         </div>
-        <!--Land Use-->
-        <div class="panel"
-            style="background: url(../../static/images/dataset/arbodata-land-use-min.png) center center/cover no-repeat;">
+        <div class="arbodata_unit">
+            <img src="../static/images/dataset/arbodata_biodiversity-min.png"/>
             <div class="tabs">
                 <div class="tab">
-                    <input type="radio" id="check3.0" name="rd4">
-                    <label class="tab-label" for="check3.0">Land Cover</label>
+                    <input type="radio" id="bio_1" name="rd7">
+                    <label class="tab-label" for="bio_1">The Biodiversity Intactness Index - country, region and global-level summaries for the year 1970 to 2050 under various scenarios</label>
                     <div class="tab-content">
-                        <p>This data set (version 2.7) created by <a href="http://www.esa.int/" target="_blank">European
-                                Space Angency</a> provides consistent global land cover maps at 300m spatial resolution
-                            on an annual basis from 1992 and 2015. The data used in this plattform was from 2015 year.
+                        <p>This data set combined models with spatio-temporal projections of explanatory variables (at 0.25 degrees spatial resolution) from the year 1970 to 2050 under five Shared Socioeconomic Pathways (SSPs) to project the Biodiversity Intactness Index (BII). Mean BII (weighted by cell area) was calculated at the country, subregion, interregion and global level. The study used cross-validation (leaving one biome out in turn) to produce decadal upper and lower uncertainty margins for 1970-2050. 
                         </p>
                         <div class="database">
                             <i class="fa fa-database"></i>
-                            <a href="http://maps.elie.ucl.ac.be/CCI/viewer/download.php" target="_blank">Dataset</a>
+                            <a href="https://data.nhm.ac.uk/dataset/bii-bte" target="_blank">Dataset</a>
                             <i class="fa fa-info-circle"></i>
-                            <a href="http://www.esa-landcover-cci.org/" target="_blank">Reference</a>
+                            <a href="https://data.nhm.ac.uk/dataset/bii-bte" target="_blank">Reference</a>
                         </div>
                     </div>
                 </div>
                 <div class="tab">
-                    <input type="radio" id="check3.1" name="rd4">
-                    <label class="tab-label" for="check3.1">Mining Concessions</label>
+                    <input type="radio" id="bio_2" name="rd7">
+                    <label class="tab-label" for="bio_2">Mammals, amphibians and birds mapping diversity</label>
                     <div class="tab-content">
-                        <p>This data set displays boundaries of areas allocated by governments to companies for
-                            extration of minerals. This data may come from government agencies, NGOS, or other
-                            organizations and varies by date and data sources. For more information on concessions data
-                            for each country, visit the <a
-                                href="https://data.globalforestwatch.org/search?collection=Dataset&q=mining">Open data
-                                portal</a> of GWF.</p>
+                        <p>This data set provides global biodiversity mapping from <a
+                            href="https://biodiversitymapping.org/index.php/about/" target="_blank">biodiversitymapping.org</a> developed by Clinton Jenkins.
+                        </p>
                         <div class="database">
                             <i class="fa fa-database"></i>
-                            <a href="https://data.globalforestwatch.org/datasets/26a457ee3b584824bb930f2ec791b60d_0/explore?location=64.911174%2C-89.940525%2C12.38"
-                                target="_blank">Dataset</a>
+                            <a href="https://biodiversitymapping.org/index.php/download/" target="_blank">Dataset</a>
                             <i class="fa fa-info-circle"></i>
-                            <a href="https://data.globalforestwatch.org/search?collection=Dataset&q=mining"
-                                target="_blank">Reference</a>
+                            <a href="https://biodiversitymapping.org/index.php/permissions/" target="_blank">Reference</a>
                         </div>
                     </div>
                 </div>
                 <div class="tab">
-                    <input type="radio" id="check3.2" name="rd4">
-                    <label class="tab-label" for="check3.2">Logging Concessions</label>
-                    <div class="tab-content">
-                        <p>This data set displays boundaries of forest areas allocated by governments to companies for
-                            harvesting timber and others wood products. This data may come from government agencies,
-                            NGOS, or other organizations and varies by date and data sources. For more information on
-                            concessions data for each country, visit the <a
-                                href="https://data.globalforestwatch.org/datasets?q=logging&sort_by=relevance">Open data
-                                portal</a> of GWF.</p>
-                        <div class="database">
-                            <i class="fa fa-database"></i>
-                            <a href="https://data.globalforestwatch.org/datasets/managed-forest-concessions"
-                                target="_blank">Dataset</a>
-                            <i class="fa fa-info-circle"></i>
-                            <a href="https://data.globalforestwatch.org/datasets?q=logging&sort_by=relevance"
-                                target="_blank">Reference</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab">
-                    <input type="radio" id="check3.3" name="rd4">
-                    <label class="tab-label" for="check3.3">Guides for Responsible Soy Expansion</label>
-                    <div class="tab-content">
-                        <p>This data set guides the expansion of responsible soy production and evaluate in situ HCVAS
-                            according to the <a
-                                href="https://responsiblesoy.org/documentos/estandar-rtrs-para-la-produccion-de-soja-responsable-v31"
-                                target="_blank">RTRS standards</a>.</p>
-                        <div class="database">
-                            <i class="fa fa-database"></i>
-                            <a href="https://data.globalforestwatch.org/datasets/9db9a0e6a1154db182f79a5760963459_0/explore"
-                                target="_blank">Dataset</a>
-                            <i class="fa fa-info-circle"></i>
-                            <a href="https://data.globalforestwatch.org/datasets/gfw::rtrs-guides-for-responsible-soy-expansion/about"
-                                target="_blank">Reference</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab">
-                    <input type="radio" id="check3.4" name="rd4">
-                    <label class="tab-label" for="check3.4">Major Dams</label>
-                    <div class="tab-content">
-                        <p>This data set identifies dam locations for the world's 50 major river basins. Source from <a
-                                href="http://tryse.net/googleearth/irivers-dev3/" target="_blank">Internationl
-                                Rivers</a> "Dams Hotspots".</p>
-                        <div class="database">
-                            <i class="fa fa-database"></i>
-                            <a href="https://data.globalforestwatch.org/datasets/major-dams/explore?location=12.232100%2C7.526900%2C2.75"
-                                target="_blank">Dataset</a>
-                            <i class="fa fa-info-circle"></i>
-                            <a href="http://tryse.net/googleearth/irivers-dev3/" target="_blank">Reference</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="tab">
-                    <input type="radio" id="check3.5" name="rd4">
-                    <label class="tab-label" for="check3.5">Population Density</label>
-                    <div class="tab-content">
-                        <p>This data set from Socioeconomics Data and Applications Center <a
-                                href="https://sedac.ciesin.columbia.edu/">(NASA-SEDAC)</a> estimates population density
-                            and distribution in 2015 and 2020, based on counts cosistent with national censuses and
-                            population registers.</p>
-                        <div class="database">
-                            <i class="fa fa-database"></i>
-                            <a href="https://sedac.ciesin.columbia.edu/data/set/gpw-v4-population-density-rev11"
-                                target="_blank">Dataset</a>
-                            <i class="fa fa-info-circle"></i>
-                            <a href="https://doi.org/10.7927/H49C6VHW" target="_blank">Reference</a>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="tab">
-                    <input type="radio" id="rdD" name="rd4">
-                    <label for="rdD" class="tab-close">Close Tabs</label>
+                    <input type="radio" id="rdG" name="rd7">
+                    <label for="rdG" class="tab-close">Close Tabs</label>
                 </div>
             </div>
-            <h4><span class="white">Land </span><span class="orange">Use</span> </h4>
+            <h4 class="arbodata_title"><span class="white">Bio</span><span class="orange">diversity</span></h4>
         </div>
-        <!--Forest-->
-        <div class="panel"
-            style="background: url(../../static/images/dataset/arbodata-forest-coverand-deforestation-min.png) center center/cover no-repeat;">
+        <div class="arbodata_unit">
+            <img src="../static/images/dataset/arbodata-forest-coverand-deforestation-min.png"/>
             <div class="tabs">
-                
                 <div class="tab">
                     <input type="radio" id="check2.1" name="rd3">
                     <label class="tab-label" for="check2.1">Tree Cover Loss by Dominant Drivers</label>
@@ -480,11 +577,10 @@
                     <label for="rdC" class="tab-close">Close Tabs</label>
                 </div>
             </div>
-            <h4><span class="white">Forest Cover </span><span class="orange">& Deforestation</span> </h4>
+            <h4 class="arbodata_title"><span class="white">Forest Cover </span><span class="orange">& Deforestation</span></h4>
         </div>
-        <!--Human Mobility-->
-        <div class="panel"
-            style="background: url(../../static/images/dataset/arbodata-human-mobility-min.png) center center/cover no-repeat;">
+        <div class="arbodata_unit">
+            <img src="../static/images/dataset/arbodata-human-mobility-min.png"/>
             <div class="tabs">
                 <div class="tab">
                     <input type="radio" id="check4.0" name="rd5">
@@ -529,29 +625,26 @@
                     </div>
                 </div>
                 <div class="tab">
+                    <input type="radio" id="check4.3" name="rd5">
+                    <label class="tab-label" for="check4.3">A global map of travel time to cities to assess inequalities in accessibility in 2015</label>
+                    <div class="tab-content">
+                        <p>Accessibility to cities quantifies the time it takes to travel to the nearest urban center via surface transport as of 2015. The dataset uses data on roads, railways, rivers, water bodies, and foot travel on different land cover types. It also includes information on topographical conditions (slope angle and elevation) and additional time for crossing national borders. The dataset was sourced from a variety of resources that each specialize in a specific mode of land transportation.</p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://www.google.com/url?q=https://wri-public-data.s3.amazonaws.com/resourcewatch/raster/cit_017_accessibility_to_cities.zip&sa=D&source=editors&ust=1649786380880431&usg=AOvVaw1YXAhC0B-_oOzcIxdiDrBL" target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://www.nature.com/articles/nature25181" target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab">
                     <input type="radio" id="rdF" name="rd5">
                     <label for="rdF" class="tab-close">Close Tabs</label>
                 </div>
             </div>
-            <h4><span class="white">Human </span><span class="orange">Mobility</span> </h4>
+            <h4 class="arbodata_title"><span class="white">Human </span><span class="orange">Mobility</span></h4>
         </div>
     </div>
-    <script>
-        const panels = document.querySelectorAll(".panel");
-        panels.forEach((panel) => {
-            panel.addEventListener("click", () => {
-                removeActiveClasses();
-                panel.classList.add("active");
-            });
-        });
-
-        function removeActiveClasses() {
-            panels.forEach((panel) => {
-                panel.classList.remove("active");
-            });
-        }
-
-    </script>
       <!--Team-->
 <section class="team_section">
     <h3><span class="blue">ARBO</span><span class="orange">VERSE</span> is built by</h3>
