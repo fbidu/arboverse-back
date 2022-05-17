@@ -253,6 +253,7 @@ document.querySelectorAll("input[name=model_selector]").forEach(i => {
     i.onchange = function(){
         cb = document.querySelector("input[name=climate][id=annual_switch]")
         if(cb.checked){
+            console.log(this.value);
             var [model, year, temp] = annual_switch();
             update_map_time(cb, model, year, temp);
         }
@@ -279,8 +280,8 @@ document.querySelectorAll("input[name=climate]").forEach(i => {
         }
     }else if(i.id == "hotdays_switch"){
         i.onclick = function () {
-            if(!document.querySelector("input[name=hotdays_model][id=model_1]").checked && !document.querySelector("input[name=hotdays_model][id=model_2]").checked){
-                document.querySelector("input[name=hotdays_model][id=model_1]").checked = true;
+            if(!document.querySelector("input[name=hotdays_model][id=model_3]").checked && !document.querySelector("input[name=hotdays_model][id=model_4]").checked){
+                document.querySelector("input[name=hotdays_model][id=model_4]").checked = true;
             }
             showChekedCli();
             prefix = "hot_days_yr";
@@ -288,7 +289,19 @@ document.querySelectorAll("input[name=climate]").forEach(i => {
             year = document.querySelector('input[name=hotdays_year]').value;
             update_map_time(this, model, year, prefix);
         }
-    }else{
+    }else if(i.id == "precipitation_switch"){
+        i.onclick = function () {
+            if(!document.querySelector("input[name=model_precipitation][id=model_1]").checked && !document.querySelector("input[name=model_precipitation][id=model_2]").checked){
+                document.querySelector("input[name=model_precipitation][id=model_1]").checked = true;
+            }
+            showChekedCli();
+            prefix = "prec";
+            model = document.querySelector('input[name=model_precipitation]:checked').value;
+            year = document.querySelector('input[name=precipitation_year]').value;
+            update_map_time(this, model, year, prefix);
+        }
+    }else
+    {
         i.onclick = function () {
             showChekedCli();
             update_map(this);
@@ -301,7 +314,66 @@ document.querySelectorAll("input[name=annual]").forEach(i => {
         console.log(this.value)
     }
 });
+//Extreme hot days
+function hotDays_switch() {
+    if(!document.querySelector("input[name=hotdays_model][id=model_3]").checked && !document.querySelector("input[name=hotdays_model][id=model_4]").checked){
+        document.querySelector("input[name=hotdays_model][id=model_3]").checked = true;
+    }
 
+    temp = "hot_days_yr"
+    model = document.querySelector('input[name=hotdays_model]:checked').value;
+    year = document.querySelector('input[name=hotdays_year]').value;
+    
+    return [model, year, temp];
+}
+document.querySelectorAll("input[name=hotdays_model]").forEach(i => {
+    i.onchange = function(){
+        cb = document.querySelector("input[name=climate][id=hotdays_switch]")
+        if(cb.checked){
+            var [model, year, temp] = hotDays_switch();
+            update_map_time(cb, model, year, temp);
+        }
+    } 
+});
+document.querySelectorAll("input[name=hotdays_year]").forEach(i => {
+    i.onchange = function(){
+        cb = document.querySelector("input[name=climate][id=hotdays_switch]")
+        if(cb.checked){
+            var [model, year, temp] = hotDays_switch();
+            update_map_time(cb, model, year, temp);
+        }
+    } 
+});
+//Precipitation
+function precipitation_switch() {
+    if(!document.querySelector("input[name=model_precipitation][id=model_1]").checked && !document.querySelector("input[name=model_precipitation][id=model_2]").checked){
+        document.querySelector("input[name=model_precipitation][id=model_1]").checked = true;
+    }
+
+    temp = "prec"
+    model = document.querySelector('input[name=model_precipitation]:checked').value;
+    year = document.querySelector('input[name=precipitation_year]').value;
+    
+    return [model, year, temp];
+}
+document.querySelectorAll("input[name=model_precipitation]").forEach(i => {
+    i.onchange = function(){
+        cb = document.querySelector("input[name=climate][id=precipitation_switch]")
+        if(cb.checked){
+            var [model, year, temp] = precipitation_switch();
+            update_map_time(cb, model, year, temp);
+        }
+    } 
+});
+document.querySelectorAll("input[name=precipitation_year]").forEach(i => {
+    i.onchange = function(){
+        cb = document.querySelector("input[name=climate][id=precipitation_switch]")
+        if(cb.checked){
+            var [model, year, temp] = precipitation_switch();
+            update_map_time(cb, model, year, temp);
+        }
+    } 
+});
 //Checked Forest
 showChekedFor();
 var i = 0;
@@ -682,6 +754,15 @@ document.querySelectorAll("input[name=type-locomotion]").forEach(i => {
 })
 //slider 
 //Slider time response for Hot days in the year
+var precipitation = document.querySelector('input[name=precipitation_year]');
+var precipitationValue = function() {
+    var newValue = precipitation.value;
+    var endValue = Number(newValue) + 30;
+    var target = document.querySelector('.precipitation_value');
+    target.innerHTML = `${newValue} - ${endValue}`
+}
+precipitation.addEventListener("input", precipitationValue);
+
 var annual = document.querySelector('input[name=annual]');
 var annualValue = function() {
     var newValue = annual.value;
