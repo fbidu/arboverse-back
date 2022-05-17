@@ -344,11 +344,83 @@ var i = 0;
 function showChekedSoc() {
     document.getElementById('check8').textContent = document.querySelectorAll("input[name=socioeconomics]:checked").length;
 }
-document.querySelectorAll("input[name=socioeconomics]").forEach(i => {
-    i.onclick = function () {
-        showChekedSoc();
-        update_map(this)
+//Population density 
+function population_switch() {
+    prefix = "pop"
+    year = document.querySelector('input[name=pop_year]').value;
+    
+    return[year, prefix]
+}
+document.querySelectorAll("input[name=pop_year]").forEach (i => {
+    i.onchange = function() {
+        cb = document.querySelector("input[name=socioeconomics][id=population_switch]")
+        if(cb.checked){
+            console.log(this.value);
+            var[year, prefix] = population_switch();
+            update_map_only_time(cb, year, prefix)
+        }
     }
+});
+//GDP
+function gdp_switch() {
+    prefix = "gdp"
+    year = document.querySelector('input[name=gdp_year]').value;
+    
+    return[year, prefix]
+}
+document.querySelectorAll("input[name=gdp_year]").forEach (i => {
+    i.onchange = function() {
+        cb = document.querySelector("input[name=socioeconomics][id=gdp_switch]")
+        if(cb.checked){
+            console.log(this.value);
+            var[year, prefix] = gdp_switch();
+            update_map_only_time(cb, year, prefix)
+        }
+    }
+});
+//HDI
+function hdi_switch() {
+    prefix = "hdi"
+    year = document.querySelector('input[name=hdi_year]').value;
+    
+    return[year, prefix]
+}
+document.querySelectorAll("input[name=hdi_year]").forEach (i => {
+    i.onchange = function() {
+        cb = document.querySelector("input[name=socioeconomics][id=hdi_switch]")
+        if(cb.checked){
+            console.log(this.value);
+            var[year, prefix] = hdi_switch();
+            update_map_only_time(cb, year, prefix)
+        }
+    }
+});
+document.querySelectorAll("input[name=socioeconomics]").forEach(i => {
+    console.log(i.id);
+   if(i.id == "population_switch") {
+       i.onclick = function() {
+           showChekedSoc();
+           var[year, prefix] = population_switch();
+           update_map_only_time(this,year,prefix);
+       }
+   }else if (i.id == 'gdp_switch'){
+    i.onclick = function() {
+        showChekedSoc();
+        var[year, prefix] = gdp_switch();
+        update_map_only_time(this,year,prefix);
+    }
+   }else if (i.id == 'hdi_switch'){
+    i.onclick = function() {
+        showChekedSoc();
+        var[year, prefix] = hdi_switch();
+        update_map_only_time(this,year,prefix);
+    }
+   }else {
+       i.onclick = function() {
+           showChekedSoc();
+           update_map(this);
+       }
+   }
 });
 //Checked biodiversity
 showChekedBio();
@@ -723,7 +795,47 @@ var rangeValue = function () {
 }
 elem.addEventListener("input", rangeValue);
 
+var pop_year = document.querySelector('input[name=pop_year]');
+var popValuesYear = function() {
+    var newValue = pop_year.value;
+    var target = document.querySelector('.pop_value');
+    target.innerHTML = newValue;
+}
+pop_year.addEventListener("input", popValuesYear);
+
+var gdp_year = document.querySelector('input[name=gdp_year]');
+var gdpValuesYear = function() {
+    var newValue = gdp_year.value;
+    var target = document.querySelector('.gdp_value');
+    target.innerHTML = newValue;
+}
+gdp_year.addEventListener("input", gdpValuesYear);
+
+var hdi_year = document.querySelector('input[name=hdi_year]');
+var hdiValuesYear = function() {
+    var newValue = hdi_year.value;
+    var target = document.querySelector('.hdi_value');
+    target.innerHTML = newValue;
+}
+hdi_year.addEventListener("input", hdiValuesYear);
+
 // Slider response for opacity
+var gdp = document.querySelector('input[name=gdp-opacity]');
+var gdpValue = function(){
+    var newOpValue = gdp.value;
+    var target = document.querySelector('.gdp_op');
+    target.innerHTML = newOpValue;
+}
+gdp.addEventListener('input', gdpValue)
+
+var hdi = document.querySelector('input[name=hdi-opacity]');
+var hdiValue = function(){
+    var newOpValue = hdi.value;
+    var target = document.querySelector('.hdi_op');
+    target.innerHTML = newOpValue;
+}
+hdi.addEventListener('input', hdiValue)
+
 var birds = document.querySelector('input[name=birds-opacity]');
 var birdsValue = function(){
     var newOpValue = birds.value;

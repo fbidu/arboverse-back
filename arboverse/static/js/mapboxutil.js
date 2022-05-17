@@ -162,6 +162,33 @@ function update_map_time(cb, model, year, prefix) {
     console.log(cb.checked);
 }
 
+clickedLayer_old = ""
+function update_map_only_time(cb, year, prefix) {
+    var clickedLayer = "arboverse."+prefix+"_"+year
+    console.log(clickedLayer);
+    if (cb.checked) {
+        if(clickedLayer_old != ""){
+            map.setLayoutProperty(
+                clickedLayer_old,
+                'visibility',
+                'none'
+            ); 
+        }
+        clickedLayer_old = clickedLayer
+        map.setLayoutProperty(
+            clickedLayer,
+            'visibility',
+            'visible'
+        );
+    } else {
+        map.setLayoutProperty(
+            clickedLayer_old,
+            'visibility',
+            'none'
+        ); 
+    }
+    console.log(cb.checked);
+}
 map.on('load', async()=>{
     //Annual temperature
     addRasterTileLayerToMap(map, 'arboverse.temp_min_rcp45_1985_2015', 'mapbox://arboverse.temp_min_rcp45_1985_2015', 'raster', 'mapbox://arboverse.arboverse.temp_min_rcp45_1985_2015', 0, 19);
@@ -271,6 +298,60 @@ map.on('load', async()=>{
     addRasterTileLayerToMap(map, 'arboverse.pop_2010', 'mapbox://arboverse.pop_2010', 'raster', 'mapbox://arboverse.pop_2010', 0, 19);  
     addRasterTileLayerToMap(map, 'arboverse.pop_2015', 'mapbox://arboverse.pop_2015', 'raster', 'mapbox://arboverse.pop_2015', 0, 19);  
     addRasterTileLayerToMap(map, 'arboverse.pop_2020', 'mapbox://arboverse.pop_2020', 'raster', 'mapbox://arboverse.pop_2020', 0, 19);  
+    //GDP
+    addRasterTileLayerToMap(map, 'arboverse.gdp_1990', 'mapbox://arboverse.gdp_1990', 'raster', 'mapbox://arboverse.gdp_1990', 0, 19);  
+    addRasterTileLayerToMap(map, 'arboverse.gdp_1991', 'mapbox://arboverse.gdp_1991', 'raster', 'mapbox://arboverse.gdp_1991', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_1992', 'mapbox://arboverse.gdp_1992', 'raster', 'mapbox://arboverse.gdp_1992', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_1993', 'mapbox://arboverse.gdp_1993', 'raster', 'mapbox://arboverse.gdp_1993', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_1994', 'mapbox://arboverse.gdp_1994', 'raster', 'mapbox://arboverse.gdp_1994', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_1995', 'mapbox://arboverse.gdp_1995', 'raster', 'mapbox://arboverse.gdp_1995', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_1996', 'mapbox://arboverse.gdp_1996', 'raster', 'mapbox://arboverse.gdp_1996', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_1997', 'mapbox://arboverse.gdp_1997', 'raster', 'mapbox://arboverse.gdp_1997', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_1998', 'mapbox://arboverse.gdp_1998', 'raster', 'mapbox://arboverse.gdp_1998', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_1999', 'mapbox://arboverse.gdp_1999', 'raster', 'mapbox://arboverse.gdp_1999', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_2000', 'mapbox://arboverse.gdp_2000', 'raster', 'mapbox://arboverse.gdp_2000', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_2001', 'mapbox://arboverse.gdp_2001', 'raster', 'mapbox://arboverse.gdp_2001', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_2002', 'mapbox://arboverse.gdp_2002', 'raster', 'mapbox://arboverse.gdp_2002', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_2003', 'mapbox://arboverse.gdp_2003', 'raster', 'mapbox://arboverse.gdp_2003', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_2004', 'mapbox://arboverse.gdp_2004', 'raster', 'mapbox://arboverse.gdp_2004', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_2005', 'mapbox://arboverse.gdp_2005', 'raster', 'mapbox://arboverse.gdp_2005', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_2006', 'mapbox://arboverse.gdp_2006', 'raster', 'mapbox://arboverse.gdp_2006', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_2007', 'mapbox://arboverse.gdp_2007', 'raster', 'mapbox://arboverse.gdp_2007', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_2008', 'mapbox://arboverse.gdp_2008', 'raster', 'mapbox://arboverse.gdp_2008', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_2009', 'mapbox://arboverse.gdp_2009', 'raster', 'mapbox://arboverse.gdp_2009', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_2010', 'mapbox://arboverse.gdp_2010', 'raster', 'mapbox://arboverse.gdp_2010', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_2011', 'mapbox://arboverse.gdp_2011', 'raster', 'mapbox://arboverse.gdp_2011', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_2012', 'mapbox://arboverse.gdp_2012', 'raster', 'mapbox://arboverse.gdp_2012', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_2013', 'mapbox://arboverse.gdp_2013', 'raster', 'mapbox://arboverse.gdp_2013', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_2014', 'mapbox://arboverse.gdp_2014', 'raster', 'mapbox://arboverse.gdp_2014', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.gdp_2015', 'mapbox://arboverse.gdp_2015', 'raster', 'mapbox://arboverse.gdp_2015', 0, 19);
+     //HDI
+     addRasterTileLayerToMap(map, 'arboverse.hdi_1990', 'mapbox://arboverse.hdi_1990', 'raster', 'mapbox://arboverse.hdi_1990', 0, 19);  
+     addRasterTileLayerToMap(map, 'arboverse.hdi_1991', 'mapbox://arboverse.hdi_1991', 'raster', 'mapbox://arboverse.hdi_1991', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_1992', 'mapbox://arboverse.hdi_1992', 'raster', 'mapbox://arboverse.hdi_1992', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_1993', 'mapbox://arboverse.hdi_1993', 'raster', 'mapbox://arboverse.hdi_1993', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_1994', 'mapbox://arboverse.hdi_1994', 'raster', 'mapbox://arboverse.hdi_1994', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_1995', 'mapbox://arboverse.hdi_1995', 'raster', 'mapbox://arboverse.hdi_1995', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_1996', 'mapbox://arboverse.hdi_1996', 'raster', 'mapbox://arboverse.hdi_1996', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_1997', 'mapbox://arboverse.hdi_1997', 'raster', 'mapbox://arboverse.hdi_1997', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_1998', 'mapbox://arboverse.hdi_1998', 'raster', 'mapbox://arboverse.hdi_1998', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_1999', 'mapbox://arboverse.hdi_1999', 'raster', 'mapbox://arboverse.hdi_1999', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_2000', 'mapbox://arboverse.hdi_2000', 'raster', 'mapbox://arboverse.hdi_2000', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_2001', 'mapbox://arboverse.hdi_2001', 'raster', 'mapbox://arboverse.hdi_2001', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_2002', 'mapbox://arboverse.hdi_2002', 'raster', 'mapbox://arboverse.hdi_2002', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_2003', 'mapbox://arboverse.hdi_2003', 'raster', 'mapbox://arboverse.hdi_2003', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_2004', 'mapbox://arboverse.hdi_2004', 'raster', 'mapbox://arboverse.hdi_2004', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_2005', 'mapbox://arboverse.hdi_2005', 'raster', 'mapbox://arboverse.hdi_2005', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_2006', 'mapbox://arboverse.hdi_2006', 'raster', 'mapbox://arboverse.hdi_2006', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_2007', 'mapbox://arboverse.hdi_2007', 'raster', 'mapbox://arboverse.hdi_2007', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_2008', 'mapbox://arboverse.hdi_2008', 'raster', 'mapbox://arboverse.hdi_2008', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_2009', 'mapbox://arboverse.hdi_2009', 'raster', 'mapbox://arboverse.hdi_2009', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_2010', 'mapbox://arboverse.hdi_2010', 'raster', 'mapbox://arboverse.hdi_2010', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_2011', 'mapbox://arboverse.hdi_2011', 'raster', 'mapbox://arboverse.hdi_2011', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_2012', 'mapbox://arboverse.hdi_2012', 'raster', 'mapbox://arboverse.hdi_2012', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_2013', 'mapbox://arboverse.hdi_2013', 'raster', 'mapbox://arboverse.hdi_2013', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_2014', 'mapbox://arboverse.hdi_2014', 'raster', 'mapbox://arboverse.hdi_2014', 0, 19);
+     addRasterTileLayerToMap(map, 'arboverse.hdi_2015', 'mapbox://arboverse.hdi_2015', 'raster', 'mapbox://arboverse.hdi_2015', 0, 19);
     //livestock
     addRasterTileLayerToMap(map, 'arboverse.livestock_catle_2010_da_10km', 'mapbox://arboverse.livestock_catle_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_catle_2010_da_10km', 0, 19);  
     addRasterTileLayerToMap(map, 'arboverse.livestock_bufalo_2010_da_10km', 'mapbox://arboverse.livestock_bufalo_2010_da_10km', 'raster', 'mapbox://arboverse.livestock_bufalo_2010_da_10km', 0, 19); 
@@ -527,6 +608,8 @@ const addOpacityTwoRaster = (element, title1, title2) =>{
 };
 //Opacity response
 map.on('load', function(){
+    var hdiSlider = document.querySelector('input[name=hdi-opacity]')
+    var gdpSlider = document.querySelector('input[name=gdp-opacity]')
     var mammalsSlider = document.querySelector('input[name=mammals-opacity]')
     var birdsSlider = document.querySelector('input[name=birds-opacity]')
     var amphibiansSlider = document.querySelector('input[name=amphibians-opacity]')
@@ -561,13 +644,308 @@ map.on('load', function(){
     addOpacityRaster(biodiversitySlider, 'arboverse.bii');
     addOpacityRaster(landSlider, 'arboverse.8xtrhkxq');
     addOpacityRaster(ariditySlider, 'arboverse.aridity_5km_1970_2000');
-    addOpacityTwoRaster(popSlider, 'arboverse.pop_2015', 'arboverse.pop_2020');
     addOpacityCircle(arrSlider, 'arboverse.arrivals');
     addOpacityCircle(depSlider, 'arboverse.departures');
     addOpacityCircle(passengersSlider, 'arboverse.transportation');
     addOpacityRaster(citiesSlider, 'arboverse.cities_accessibility_5km_2015')
     addOpacityTwoRaster(healthSlider, 'arboverse.healthcare_time_motorized', 'arboverse.healthcare_time_walking_5km_2020')
     
+    popSlider.addEventListener('input', function(e) {
+        map.setPaintProperty(
+            'arboverse.pop_2000',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.pop_2005',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.pop_2010',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.pop_2015',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.pop_2020',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    })
+
+    gdpSlider.addEventListener('input', function(e) {
+        map.setPaintProperty(
+            'arboverse.gdp_1990',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_1991',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_1992',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_1993',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_1994',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_1995',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_1996',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+
+        map.setPaintProperty(
+            'arboverse.gdp_1997',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_1998',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_1999',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_2000',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_2001',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_2002',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_2003',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_2004',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_2005',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_2006',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_2007',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_2008',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_2009',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_2010',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_2011',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_2012',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_2013',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_2014',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.gdp_2015',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    })
+
+    hdiSlider.addEventListener('input', function(e) {
+        map.setPaintProperty(
+            'arboverse.hdi_1990',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_1991',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_1992',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_1993',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_1994',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_1995',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_1996',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+
+        map.setPaintProperty(
+            'arboverse.hdi_1997',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_1998',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_1999',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_2000',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_2001',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_2002',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_2003',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_2004',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_2005',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_2006',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_2007',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_2008',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_2009',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_2010',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_2011',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_2012',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_2013',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_2014',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+        map.setPaintProperty(
+            'arboverse.hdi_2015',
+            'raster-opacity',
+            parseInt(e.target.value,10)/100
+        );
+    })
+
     mammalsSlider.addEventListener('input', function(e) {
         map.setPaintProperty(
             'arboverse.bio_mammals_primates_10km',
