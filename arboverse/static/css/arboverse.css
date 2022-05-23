@@ -1049,7 +1049,7 @@
   flex-direction: row;
   align-items: center;
 }
-.kp_circle{
+.label_circle{
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -1063,38 +1063,6 @@
   margin: 0 auto; /* Bar Measurement Area */
   height:8px;
   border-radius: 5px;
-}
-.forecast_label{
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--text);
-  margin: 0 auto;
-}
-.forecast_group{
-  width: 50%;
-}
-.forecast_measure{
-  width: 70%;
-  margin: 10px auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.forecast_unit{
-  margin-bottom: 4px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.forecast_month{
-  width: 50px;
-  height: 10px;
-  border: solid 0.5px rgba(62, 62, 62, 0.5);
-}
-.forecast-month {
-  margin-left: 5px;
-  font-size: 0.8rem;
-  color: var(--text);
 }
 /* Bar Mesurement color features GRADIENT */
 
@@ -1260,6 +1228,35 @@
     #011959
 
   );
+}
+.mosquito_forecast_label {
+background: linear-gradient(
+  90deg,
+  #033198 8.33%,
+  #1d5bab 8.33%,
+  #1d5bab 16.66%,
+  #2a81bb 16.66%,
+  #2a81bb 25%,
+  #40a7cb 25%,
+  #40a7cb 33.33%,
+  #70ced6 33.33%,
+  #70ced6 41.66%,
+  #abe7d1 41.66%,
+  #abe7d1 50%,
+  #cee5ab 50%,
+  #cee5ab 58.33%,
+  #cec469 58.33%,
+  #cec469 66.66%,
+  #bb9638 66.66%,
+  #bb9638 75%,
+  #a96f22 75%,
+  #a96f22 83.33%,
+  #954912 83.33%,
+  #954912 91.66%,
+  #7e1700 91.66%,
+  #7e1700 100%
+);
+
 }
 .annual_temp_label{
   background: linear-gradient(
@@ -1475,7 +1472,7 @@
   color: var(--text);
 }
 .kp{
-  font-size:0.7rem;
+  font-size:0.8rem;
   color:var(--text);
   margin-left: 1px;
 }
