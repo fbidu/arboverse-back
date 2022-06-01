@@ -2491,7 +2491,7 @@ form #time-annual-slider label::before { /*time Label*/
   left: 50%;
   padding-top: 10px;
   transform: translate(-50%, 35px);
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 400;
   white-space: nowrap;
   opacity: 0.85;
