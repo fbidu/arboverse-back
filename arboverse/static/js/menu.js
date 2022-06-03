@@ -291,8 +291,8 @@ document.querySelectorAll("input[name=climate]").forEach(i => {
         }
     }else if(i.id == "precipitation_switch"){
         i.onclick = function () {
-            if(!document.querySelector("input[name=model_precipitation][id=model_1]").checked && !document.querySelector("input[name=model_precipitation][id=model_2]").checked){
-                document.querySelector("input[name=model_precipitation][id=model_1]").checked = true;
+            if(!document.querySelector("input[name=model_precipitation][id=model_5]").checked && !document.querySelector("input[name=model_precipitation][id=model_6]").checked){
+                document.querySelector("input[name=model_precipitation][id=model_5]").checked = true;
             }
             showChekedCli();
             prefix = "prec";
@@ -346,8 +346,8 @@ document.querySelectorAll("input[name=hotdays_year]").forEach(i => {
 });
 //Precipitation
 function precipitation_switch() {
-    if(!document.querySelector("input[name=model_precipitation][id=model_1]").checked && !document.querySelector("input[name=model_precipitation][id=model_2]").checked){
-        document.querySelector("input[name=model_precipitation][id=model_1]").checked = true;
+    if(!document.querySelector("input[name=model_precipitation][id=model_5]").checked && !document.querySelector("input[name=model_precipitation][id=model_6]").checked){
+        document.querySelector("input[name=model_precipitation][id=model_5]").checked = true;
     }
 
     temp = "prec"
