@@ -300,7 +300,29 @@ document.querySelectorAll("input[name=climate]").forEach(i => {
             year = document.querySelector('input[name=precipitation_year]').value;
             update_map_time(this, model, year, prefix);
         }
-    }else
+    } else if(i.id == "extreme_switch"){
+        i.onclick = function () {
+            if(!document.querySelector("input[name=model_extreme][id=model_7]").checked && !document.querySelector("input[name=model_extreme][id=model_8]").checked){
+                document.querySelector("input[name=model_extreme][id=model_7]").checked = true;
+            }
+            showChekedCli();
+            prefix = "extreme";
+            model = document.querySelector('input[name=model_extreme]:checked').value;
+            year = document.querySelector('input[name=extreme_precipitation_annual]').value;
+            update_map_time(this, model, year, prefix);
+        }
+    }else if(i.id == "dryspells_switch"){
+        i.onclick = function () {
+            if(!document.querySelector("input[name=model_dry][id=model_9]").checked && !document.querySelector("input[name=model_dry][id=model_10]").checked){
+                document.querySelector("input[name=model_dry][id=model_9]").checked = true;
+            }
+            showChekedCli();
+            prefix = "dryspells_ch";
+            model = document.querySelector('input[name=model_dry]:checked').value;
+            year = document.querySelector('input[name=dry_spells_annual]').value;
+            update_map_time(this, model, year, prefix);
+        }
+    } else
     {
         i.onclick = function () {
             showChekedCli();
@@ -370,6 +392,67 @@ document.querySelectorAll("input[name=precipitation_year]").forEach(i => {
         cb = document.querySelector("input[name=climate][id=precipitation_switch]")
         if(cb.checked){
             var [model, year, temp] = precipitation_switch();
+            update_map_time(cb, model, year, temp);
+        }
+    } 
+});
+//Extreme Precipitation
+function extreme_switch() {
+    if(!document.querySelector("input[name=model_extreme][id=model_7]").checked && !document.querySelector("input[name=model_extreme][id=model_8]").checked){
+        document.querySelector("input[name=model_extreme][id=model_7]").checked = true;
+    }
+
+    temp = "extreme"
+    model = document.querySelector('input[name=model_extreme]:checked').value;
+    year = document.querySelector('input[name=extreme_precipitation_annual]').value;
+    
+    return [model, year, temp];
+}
+document.querySelectorAll("input[name=model_extreme]").forEach(i => {
+    i.onchange = function(){
+        cb = document.querySelector("input[name=climate][id=extreme_switch]")
+        if(cb.checked){
+            var [model, year, temp] = extreme_switch();
+            update_map_time(cb, model, year, temp);
+        }
+    } 
+});
+document.querySelectorAll("input[name=extreme_precipitation_annual]").forEach(i => {
+    i.onchange = function(){
+        cb = document.querySelector("input[name=climate][id=extreme_switch]")
+        if(cb.checked){
+            var [model, year, temp] = extreme_switch();
+            update_map_time(cb, model, year, temp);
+        }
+    } 
+});
+
+//dryspells
+function dryspells_switch() {
+    if(!document.querySelector("input[name=model_dry][id=model_9]").checked && !document.querySelector("input[name=model_dry][id=model_10]").checked){
+        document.querySelector("input[name=model_dry][id=model_9]").checked = true;
+    }
+
+    temp = "dryspells_ch"
+    model = document.querySelector('input[name=model_dry]:checked').value;
+    year = document.querySelector('input[name=dry_spells_annual]').value;
+    
+    return [model, year, temp];
+}
+document.querySelectorAll("input[name=model_dry]").forEach(i => {
+    i.onchange = function(){
+        cb = document.querySelector("input[name=climate][id=dryspells_switch]")
+        if(cb.checked){
+            var [model, year, temp] = dryspells_switch();
+            update_map_time(cb, model, year, temp);
+        }
+    } 
+});
+document.querySelectorAll("input[name=dry_spells_annual]").forEach(i => {
+    i.onchange = function(){
+        cb = document.querySelector("input[name=climate][id=dryspells_switch]")
+        if(cb.checked){
+            var [model, year, temp] = dryspells_switch();
             update_map_time(cb, model, year, temp);
         }
     } 

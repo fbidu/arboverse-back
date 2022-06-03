@@ -1185,7 +1185,7 @@
           <div class="unit-toggle">
             <div class="togglebtn">
               <label class="switch">
-                <input type="checkbox" name="climate" id="hotdays_switch" />
+                <input type="checkbox" name="climate" id="extreme_switch" />
                 <span class="slider round"></span>
               </label>
             </div>
@@ -1216,16 +1216,16 @@
             <h5 class="select-title">Select layer model</h5>
             <form>
               <div class="model_group">
-                <input type="radio" id="model_1" name="model_extreme">
-                <label for="model_1">RCP 45</label>
-                <input type="radio" id="model_2" name="model_extreme">
-                <label for="model_2">RCP 85</label>
+                <input type="radio" id="model_7" name="model_extreme" value="rcp45">
+                <label for="model_7">RCP 45</label>
+                <input type="radio" id="model_8" name="model_extreme" value="rcp85">
+                <label for="model_8">RCP 85</label>
               </div>
             </form>
             <!--Time selector-->
             <div class="time_box">
               <h5 id="socio-title">Select layer time</h5>
-              <input name="extreme_precipitation_annual" type="range" min="1985" max="2095" value="1985" step="10" class="val" id="a1" />
+              <input name="extreme_precipitation_annual" type="range" min="1985" max="2065" value="1985" step="10" class="val" id="a1" />
               <div class="slide_bar annua;_value">Move the slider</div>
             </div>
           </div>
@@ -1235,7 +1235,7 @@
           <div class="unit-toggle">
             <div class="togglebtn">
               <label class="switch">
-                <input type="checkbox" name="climate" id="hotdays_switch" />
+                <input type="checkbox" name="climate" id="dryspells_switch" />
                 <span class="slider round"></span>
               </label>
             </div>
@@ -1266,17 +1266,17 @@
             <h5 class="select-title">Select layer model</h5>
             <form>
               <div class="model_group">
-                <input type="radio" id="model_1" name="model_dry">
-                <label for="model_1">RCP 45</label>
-                <input type="radio" id="model_2" name="model_dry">
-                <label for="model_2">RCP 85</label>
+                <input type="radio" id="model_9" name="model_dry" value="rcp45">
+                <label for="model_9">RCP 45</label>
+                <input type="radio" id="model_10" name="model_dry" value="rcp85">
+                <label for="model_10">RCP 85</label>
               </div>
             </form>
             <!--Time selector-->
             <div class="time_box">
               <h5 id="socio-title">Select layer time</h5>
-              <input name="dry_spells_annual" type="range" min="1985" max="2095" value="1985" step="10" class="val" id="a1" />
-              <div class="slide_bar annua;_value">Move the slider</div>
+              <input name="dry_spells_annual" type="range" min="1985" max="2065" value="1985" step="10" class="val" id="a1" />
+              <div class="slide_bar annual_value">Move the slider</div>
             </div>
           </div>
         </div>
