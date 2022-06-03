@@ -1982,6 +1982,14 @@ input[name=model_dry]:checked + label,
 input[name=model_extreme]:checked + label {
   color: var(--orange);
 }
+input[name=model_selector]:hover + label,
+input[name=hotdays_model]:hover + label,
+input[name=model_precipitation]:hover + label,
+input[name=model_dry]:hover + label,
+input[name=model_extreme]:hover + label {
+  color:white;
+  background: var(--orange);
+}
 .model_group label +input[name=model_selector] + label,
 .model_group label +input[name=hotdays_model] + label,
 .model_group label +input[name=model_precipitation] + label,
@@ -2787,8 +2795,9 @@ form:valid #populational-time-slider input:checked + label::before {
   flex-direction: column;
   align-items: center;
 }
-#passenger-title,
-#socio-title{
+.passenger-title,
+.time-title,
+.select-title{
   font-family: 'Montserrat', serif;
   font-weight: 400;
   text-align: center;

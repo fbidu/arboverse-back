@@ -667,6 +667,11 @@ const addOpacityTwoRaster = (element, title1, title2) => {
 };
 //Opacity response
 map.on('load', function () {
+    var dryspellsSlider = document.querySelector('input[name=dryspells-opacity]')
+    var extremeSlider = document.querySelector('input[name=extreme-opacity]')
+    var hotdaysSlider = document.querySelector('input[name=hotdays-opacity]')
+    var precSlider = document.querySelector('input[name=precipitation-opacity]')
+    var tempSlider = document.querySelector('input[name=temp-opacity]')
     var hdiSlider = document.querySelector('input[name=hdi-opacity]')
     var gdpSlider = document.querySelector('input[name=gdp-opacity]')
     var mammalsSlider = document.querySelector('input[name=mammals-opacity]')
@@ -1481,8 +1486,661 @@ map.on('load', function () {
             parseInt(e.target.value, 10) / 100
         );
     });
+    tempSlider.addEventListener('input', function (e) {
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp45_1985_2015',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp45_1985_2015',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp45_1985_2015',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp85_1985_2015',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp85_1985_2015',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp85_1985_2015',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp45_1995_2025',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
 
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp45_1995_2025',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp45_1995_2025',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp85_1995_2025',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp85_1995_2025',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp85_1995_2025',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp45_2005_2035',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp45_2005_2035',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp45_2005_2035',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp85_2005_2035',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp85_2005_2035',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp85_2005_2035',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp45_2015_2045',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp45_2015_2045',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp45_2015_2045',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp85_2015_2045',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp85_2015_2045',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp85_2015_2045',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp45_2025_2055',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp45_2025_2055',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp45_2025_2055',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp85_2025_2055',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp85_2025_2055',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp85_2025_2055',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp45_2035_2065',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp45_2035_2065',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp45_2035_2065',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp85_2035_2065',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp85_2035_2065',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp85_2035_2065',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp45_2045_2075',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp45_2045_2075',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp45_2045_2075',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp85_2045_2075',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp85_2045_2075',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp85_2045_2075',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp45_2055_2085',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp45_2055_2085',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp45_2055_2085',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp85_2055_2085',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp85_2055_2085',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp85_2055_2085',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp45_2065_2095',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp45_2065_2095',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp45_2065_2095',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_min_rcp85_2065_2095',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_average_rcp85_2065_2095',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.temp_max_rcp85_2065_2095',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+    })
+    //hotdays
+    hotdaysSlider.addEventListener('input', function (e) {
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp45_1985_2015',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp45_1995_2025',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp45_2005_2035',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp45_2015_2045',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp45_2025_2055',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp45_2035_2065',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp45_2045_2075',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp45_2055_2085',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp45_2065_2095',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp85_1985_2015',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp85_1995_2025',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp85_2005_2035',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp85_2015_2045',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp85_2025_2055',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp85_2035_2065',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp85_2045_2075',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp85_2055_2085',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.hot_days_yr_rcp85_2065_2095',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+    })
+    //precipitation
+    precSlider.addEventListener('input', function (e) {
+        map.setPaintProperty(
+            'arboverse.prec_rcp45_1985_2015',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.prec_rcp45_1995_2025',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.prec_rcp45_2005_2035',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.prec_rcp45_2015_2045',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.prec_rcp45_2025_2055',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.prec_rcp45_2035_2065',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.prec_rcp45_2045_2075',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+
+        map.setPaintProperty(
+            'arboverse.prec_rcp45_2055_2085',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.prec_rcp45_2065_2095',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.prec_rcp85_1985_2015',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.prec_rcp85_1995_2025',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.prec_rcp85_2005_2035',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.prec_rcp85_2015_2045',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.prec_rcp85_2025_2055',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.prec_rcp85_2035_2065',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.prec_rcp85_2045_2075',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+
+        map.setPaintProperty(
+            'arboverse.prec_rcp85_2055_2085',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.prec_rcp85_2065_2095',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+    })
+    //extreme
+    extremeSlider.addEventListener('input', function (e) {
+        map.setPaintProperty(
+            'arboverse.extreme_rcp45_1985_2015',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.extreme_rcp45_1995_2025',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.extreme_rcp45_2005_2035',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.extreme_rcp45_2015_2045',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.extreme_rcp45_2025_2055',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.extreme_rcp45_2035_2065',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.extreme_rcp45_2045_2075',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+
+        map.setPaintProperty(
+            'arboverse.extreme_rcp45_2055_2085',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.extreme_rcp45_2065_2095',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.extreme_rcp85_1985_2015',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.extreme_rcp85_1995_2025',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.extreme_rcp85_2005_2035',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.extreme_rcp85_2015_2045',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.extreme_rcp85_2025_2055',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.extreme_rcp85_2035_2065',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.extreme_rcp85_2045_2075',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+
+        map.setPaintProperty(
+            'arboverse.extreme_rcp85_2055_2085',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.extreme_rcp85_2065_2095',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+    })
+     //dryspells
+     dryspellsSlider.addEventListener('input', function (e) {
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp45_1985_2015',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp45_1995_2025',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp45_2005_2035',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp45_2015_2045',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp45_2025_2055',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp45_2035_2065',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp45_2045_2075',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp45_2055_2085',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp45_2065_2095',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp85_1985_2015',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp85_1995_2025',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp85_2005_2035',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp85_2015_2045',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp85_2025_2055',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp85_2035_2065',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp85_2045_2075',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp85_2055_2085',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+        map.setPaintProperty(
+            'arboverse.dryspells_ch_rcp85_2065_2095',
+            'raster-opacity',
+            parseInt(e.target.value, 10) / 100
+        );
+    })
 })
+
 // Holds visible vectors features for filtering
 var vectors = [];
 // Create a popup, but don't add it to the map yet.

@@ -908,7 +908,25 @@ document.querySelectorAll("input[name=type-locomotion]").forEach(i => {
     }
 })
 //slider 
-//Slider time response for Hot days in the year
+//Slider time response for climate
+var dryspellsYear = document.querySelector('input[name=dry_spells_annual]');
+var dryspellsValue = function(){
+    var newValue = dryspellsYear.value;
+    var endValue = Number(newValue) + 30;
+    var target = document.querySelector('.dryspells_value');
+    target.innerHTML = `${newValue} - ${endValue}`
+}
+dryspellsYear.addEventListener("input", dryspellsValue);
+
+var extremeYear = document.querySelector('input[name=extreme_precipitation_annual]');
+var extremeValue = function(){
+    var newValue = extremeYear.value;
+    var endValue = Number(newValue) + 30;
+    var target = document.querySelector('.extreme_value');
+    target.innerHTML = `${newValue} - ${endValue}`
+}
+extremeYear.addEventListener("input", extremeValue);
+
 var precipitation = document.querySelector('input[name=precipitation_year]');
 var precipitationValue = function() {
     var newValue = precipitation.value;
@@ -983,7 +1001,7 @@ var hdiValuesYear = function() {
 }
 hdi_year.addEventListener("input", hdiValuesYear);
 
-// Slider response for opacity
+// OPACITY SLIDE RESPONSE NUMBER %
 var gdp = document.querySelector('input[name=gdp-opacity]');
 var gdpValue = function(){
     var newOpValue = gdp.value;
@@ -1077,10 +1095,11 @@ fore.addEventListener('input', foreValue)
 var arid = document.querySelector('input[name=aridity-opacity]');
 var ariValue = function(){
     var newAriValue = arid.value;
-    var target = document.querySelector('.ari_op');
+    var target = document.querySelector('.aridity_op');
     target.innerHTML = newAriValue;
 }
 arid.addEventListener('input', ariValue)
+
 
 var biome = document.querySelector('input[name=biome-opacity]');
 var biomeValue = function(){
@@ -1218,3 +1237,42 @@ var passValue = function(){
 }
 pass.addEventListener('input', passValue);
 
+var tempOp = document.querySelector('input[name=temp-opacity]');
+var tempOpValue = function(){
+    var newOpValue = tempOp.value;
+    var target = document.querySelector('.temp_op');
+    target.innerHTML = newOpValue;
+}
+tempOp.addEventListener('input', tempOpValue);
+
+var hotdaysOp = document.querySelector('input[name=hotdays-opacity]');
+var hotdaysOpValue = function(){
+    var newOpValue = hotdaysOp.value;
+    var target = document.querySelector('.hotdays_op');
+    target.innerHTML = newOpValue;
+}
+hotdaysOp.addEventListener('input', hotdaysOpValue);
+
+var precipitationOp = document.querySelector('input[name=precipitation-opacity]');
+var precipitationOpValue = function(){
+    var newOpValue = precipitationOp.value;
+    var target = document.querySelector('.precipitation_op');
+    target.innerHTML = newOpValue;
+}
+precipitationOp.addEventListener('input', precipitationOpValue);
+
+var extremeOp = document.querySelector('input[name=extreme-opacity]');
+var extremeOpValue = function(){
+    var newOpValue = extremeOp.value;
+    var target = document.querySelector('.extreme_op');
+    target.innerHTML = newOpValue;
+}
+extremeOp.addEventListener('input', extremeOpValue);
+
+var dryspellsOp = document.querySelector('input[name=dryspells-opacity]');
+var dryspellsOpValue = function(){
+    var newOpValue = dryspellsOp.value;
+    var target = document.querySelector('.dryspells_op');
+    target.innerHTML = newOpValue;
+}
+dryspellsOp.addEventListener('input', dryspellsOpValue);

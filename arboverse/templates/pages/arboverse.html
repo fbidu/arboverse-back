@@ -1028,8 +1028,8 @@
             </div>
           </div>
           <div class="opacity-wrapper">
-            <label>Opacity: <span class="val_op annual_op">100</span></label>
-            <input id="opacity_slider" name="annual-opacity" type="range" min="0" max="100" value="100" step="1"
+            <label>Opacity: <span class="val_op temp_op">100</span></label>
+            <input id="opacity_slider" name="temp-opacity" type="range" min="0" max="100" value="100" step="1" 
               class="opacity">
           </div>
           <div class="measure">
@@ -1071,7 +1071,7 @@
             </form>
             <!--Time selector-->
             <div class="time_box">
-              <h5 id="socio-title">Select layer time</h5>
+              <h5 class="time-title">Select layer time</h5>
               <input name="annual" type="range" min="1985" max="2065" value="1985" step="10" class="val" id="a1" />
               <div class="slide_bar annual_value">Move the slider</div>
             </div>
@@ -1094,8 +1094,8 @@
             </div>
           </div>
           <div class="opacity-wrapper">
-            <label>Opacity: <span class="val_op annual_op">100</span></label>
-            <input id="opacity_slider" name="annual-opacity" type="range" min="0" max="100" value="100" step="1"
+            <label>Opacity: <span class="val_op hotdays_op">100</span></label>
+            <input id="opacity_slider" name="hotdays-opacity" type="range" min="0" max="100" value="100" step="1"
               class="opacity">
           </div>
           <div class="measure">
@@ -1122,7 +1122,7 @@
             </form>
             <!--Time selector-->
             <div class="time_box">
-              <h5 id="socio-title">Select layer time</h5>
+              <h5 class="time-title">Select layer time</h5>
               <input name="hotdays_year" type="range" min="1985" max="2065" value="1985" step="10" class="val"
                 id="a1" />
               <div class="slide_bar hotdays_value">Move the slider</div>
@@ -1146,8 +1146,8 @@
             </div>
           </div>
           <div class="opacity-wrapper">
-            <label>Opacity: <span class="val_op annual_op">100</span></label>
-            <input id="opacity_slider" name="annual-opacity" type="range" min="0" max="100" value="100" step="1"
+            <label>Opacity: <span class="val_op precipitation_op">100</span></label>
+            <input id="opacity_slider" name="precipitation-opacity" type="range" min="0" max="100" value="100" step="1"
               class="opacity">
           </div>
           <div class="measure">
@@ -1174,7 +1174,7 @@
             </form>
             <!--Time selector-->
             <div class="time_box">
-              <h5 id="socio-title">Select layer time</h5>
+              <h5 class="time-title">Select layer time</h5>
               <input name="precipitation_year" type="range" min="1985" max="2065" value="1985" step="10" class="val" id="a1" />
               <div class="slide_bar precipitation_value">Move the slider</div>
             </div>
@@ -1197,8 +1197,8 @@
             </div>
           </div>
           <div class="opacity-wrapper">
-            <label>Opacity: <span class="val_op annual_op">100</span></label>
-            <input id="opacity_slider" name="annual-opacity" type="range" min="0" max="100" value="100" step="1"
+            <label>Opacity: <span class="val_op extreme_op">100</span></label>
+            <input id="opacity_slider" name="extreme-opacity" type="range" min="0" max="100" value="100" step="1"
               class="opacity">
           </div>
           <div class="measure">
@@ -1224,9 +1224,9 @@
             </form>
             <!--Time selector-->
             <div class="time_box">
-              <h5 id="socio-title">Select layer time</h5>
+              <h5 class="time-title">Select layer time</h5>
               <input name="extreme_precipitation_annual" type="range" min="1985" max="2065" value="1985" step="10" class="val" id="a1" />
-              <div class="slide_bar annua;_value">Move the slider</div>
+              <div class="slide_bar extreme_value">Move the slider</div>
             </div>
           </div>
         </div>
@@ -1247,8 +1247,8 @@
             </div>
           </div>
           <div class="opacity-wrapper">
-            <label>Opacity: <span class="val_op annual_op">100</span></label>
-            <input id="opacity_slider" name="annual-opacity" type="range" min="0" max="100" value="100" step="1"
+            <label>Opacity: <span class="val_op dryspells_op">100</span></label>
+            <input id="opacity_slider" name="dryspells-opacity" type="range" min="0" max="100" value="100" step="1"
               class="opacity">
           </div>
           <div class="measure">
@@ -1274,9 +1274,9 @@
             </form>
             <!--Time selector-->
             <div class="time_box">
-              <h5 id="socio-title">Select layer time</h5>
+              <h5 class="time-title">Select layer time</h5>
               <input name="dry_spells_annual" type="range" min="1985" max="2065" value="1985" step="10" class="val" id="a1" />
-              <div class="slide_bar annual_value">Move the slider</div>
+              <div class="slide_bar dryspells_value">Move the slider</div>
             </div>
           </div>
         </div>
@@ -2276,7 +2276,7 @@
             </div>
             <!--Time selector-->
             <div id="mobility-time-wrapper">
-              <h5 id="passenger-title">Select layer time</h5>
+              <h5 class="passenger-title">Select layer time</h5>
               <input name="arrivals" type="range" min="1995" max="2019" value="1995" step="1" class="val" id="a1" />
               <div class="slide_bar arr_value">Move the slider</div>
             </div>
@@ -2316,7 +2316,7 @@
             </div>
             <!--Time selector-->
             <div id="mobility-time-wrapper">
-              <h5 id="passenger-title">Select layer time</h5>
+              <h5 class="passenger-title">Select layer time</h5>
               <input name="departures" type="range" min="1995" max="2019" value="1995" step="1" class="val" id="d1" />
               <div class="slide_bar year_departures">Move the slider</div>
             </div>
@@ -2356,7 +2356,7 @@
             </div>
             <!--Time selector-->
             <div id="mobility-time-wrapper">
-              <h5 id="passenger-title">Select layer time</h5>
+              <h5 class="passenger-title">Select layer time</h5>
               <input name="number_passengers" type="range" min="1970" max="2019" value="1970" step="1" class="val"
                 id="y1" />
               <div class="slide_bar year_value">Move the slider</div>
@@ -2406,7 +2406,7 @@
             </div>
             <!--Time selector-->
             <div id="socio-time-wrapper">
-              <h5 id="socio-title">Select layer time</h5>
+              <h5 class="time-title">Select layer time</h5>
               <input name="pop_year" type="range" min="2000" max="2020" value="2000" step="5" class="val" id="a2" />
               <div class="slide_bar pop_value">Move the slider</div>
             </div>
@@ -2442,7 +2442,7 @@
             </div>
             <!--Time selector-->
             <div id="socio-time-wrapper">
-              <h5 id="socio-title">Select layer time</h5>
+              <h5 class="time-title">Select layer time</h5>
               <input name="gdp_year" type="range" min="1990" max="2015" value="1990" step="1" class="val" id="a3" />
               <div class="slide_bar gdp_value">Move the slider</div>
             </div>
@@ -2477,7 +2477,7 @@
             </div>
             <!--Time selector-->
             <div id="socio-time-wrapper">
-              <h5 id="socio-title">Select layer time</h5>
+              <h5 class="time-title">Select layer time</h5>
               <input name="hdi_year" type="range" min="1990" max="2015" value="1990" step="1" class="val" id="a1" />
               <div class="slide_bar hdi_value">Move the slider</div>
             </div>
