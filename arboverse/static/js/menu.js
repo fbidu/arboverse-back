@@ -291,8 +291,8 @@ document.querySelectorAll("input[name=climate]").forEach(i => {
         }
     }else if(i.id == "precipitation_switch"){
         i.onclick = function () {
-            if(!document.querySelector("input[name=model_precipitation][id=model_1]").checked && !document.querySelector("input[name=model_precipitation][id=model_2]").checked){
-                document.querySelector("input[name=model_precipitation][id=model_1]").checked = true;
+            if(!document.querySelector("input[name=model_precipitation][id=model_5]").checked && !document.querySelector("input[name=model_precipitation][id=model_6]").checked){
+                document.querySelector("input[name=model_precipitation][id=model_5]").checked = true;
             }
             showChekedCli();
             prefix = "prec";
@@ -300,7 +300,29 @@ document.querySelectorAll("input[name=climate]").forEach(i => {
             year = document.querySelector('input[name=precipitation_year]').value;
             update_map_time(this, model, year, prefix);
         }
-    }else
+    } else if(i.id == "extreme_switch"){
+        i.onclick = function () {
+            if(!document.querySelector("input[name=model_extreme][id=model_7]").checked && !document.querySelector("input[name=model_extreme][id=model_8]").checked){
+                document.querySelector("input[name=model_extreme][id=model_7]").checked = true;
+            }
+            showChekedCli();
+            prefix = "extreme";
+            model = document.querySelector('input[name=model_extreme]:checked').value;
+            year = document.querySelector('input[name=extreme_precipitation_annual]').value;
+            update_map_time(this, model, year, prefix);
+        }
+    }else if(i.id == "dryspells_switch"){
+        i.onclick = function () {
+            if(!document.querySelector("input[name=model_dry][id=model_9]").checked && !document.querySelector("input[name=model_dry][id=model_10]").checked){
+                document.querySelector("input[name=model_dry][id=model_9]").checked = true;
+            }
+            showChekedCli();
+            prefix = "dryspells_ch";
+            model = document.querySelector('input[name=model_dry]:checked').value;
+            year = document.querySelector('input[name=dry_spells_annual]').value;
+            update_map_time(this, model, year, prefix);
+        }
+    } else
     {
         i.onclick = function () {
             showChekedCli();
@@ -346,8 +368,8 @@ document.querySelectorAll("input[name=hotdays_year]").forEach(i => {
 });
 //Precipitation
 function precipitation_switch() {
-    if(!document.querySelector("input[name=model_precipitation][id=model_1]").checked && !document.querySelector("input[name=model_precipitation][id=model_2]").checked){
-        document.querySelector("input[name=model_precipitation][id=model_1]").checked = true;
+    if(!document.querySelector("input[name=model_precipitation][id=model_5]").checked && !document.querySelector("input[name=model_precipitation][id=model_6]").checked){
+        document.querySelector("input[name=model_precipitation][id=model_5]").checked = true;
     }
 
     temp = "prec"
@@ -370,6 +392,67 @@ document.querySelectorAll("input[name=precipitation_year]").forEach(i => {
         cb = document.querySelector("input[name=climate][id=precipitation_switch]")
         if(cb.checked){
             var [model, year, temp] = precipitation_switch();
+            update_map_time(cb, model, year, temp);
+        }
+    } 
+});
+//Extreme Precipitation
+function extreme_switch() {
+    if(!document.querySelector("input[name=model_extreme][id=model_7]").checked && !document.querySelector("input[name=model_extreme][id=model_8]").checked){
+        document.querySelector("input[name=model_extreme][id=model_7]").checked = true;
+    }
+
+    temp = "extreme"
+    model = document.querySelector('input[name=model_extreme]:checked').value;
+    year = document.querySelector('input[name=extreme_precipitation_annual]').value;
+    
+    return [model, year, temp];
+}
+document.querySelectorAll("input[name=model_extreme]").forEach(i => {
+    i.onchange = function(){
+        cb = document.querySelector("input[name=climate][id=extreme_switch]")
+        if(cb.checked){
+            var [model, year, temp] = extreme_switch();
+            update_map_time(cb, model, year, temp);
+        }
+    } 
+});
+document.querySelectorAll("input[name=extreme_precipitation_annual]").forEach(i => {
+    i.onchange = function(){
+        cb = document.querySelector("input[name=climate][id=extreme_switch]")
+        if(cb.checked){
+            var [model, year, temp] = extreme_switch();
+            update_map_time(cb, model, year, temp);
+        }
+    } 
+});
+
+//dryspells
+function dryspells_switch() {
+    if(!document.querySelector("input[name=model_dry][id=model_9]").checked && !document.querySelector("input[name=model_dry][id=model_10]").checked){
+        document.querySelector("input[name=model_dry][id=model_9]").checked = true;
+    }
+
+    temp = "dryspells_ch"
+    model = document.querySelector('input[name=model_dry]:checked').value;
+    year = document.querySelector('input[name=dry_spells_annual]').value;
+    
+    return [model, year, temp];
+}
+document.querySelectorAll("input[name=model_dry]").forEach(i => {
+    i.onchange = function(){
+        cb = document.querySelector("input[name=climate][id=dryspells_switch]")
+        if(cb.checked){
+            var [model, year, temp] = dryspells_switch();
+            update_map_time(cb, model, year, temp);
+        }
+    } 
+});
+document.querySelectorAll("input[name=dry_spells_annual]").forEach(i => {
+    i.onchange = function(){
+        cb = document.querySelector("input[name=climate][id=dryspells_switch]")
+        if(cb.checked){
+            var [model, year, temp] = dryspells_switch();
             update_map_time(cb, model, year, temp);
         }
     } 
@@ -825,7 +908,25 @@ document.querySelectorAll("input[name=type-locomotion]").forEach(i => {
     }
 })
 //slider 
-//Slider time response for Hot days in the year
+//Slider time response for climate
+var dryspellsYear = document.querySelector('input[name=dry_spells_annual]');
+var dryspellsValue = function(){
+    var newValue = dryspellsYear.value;
+    var endValue = Number(newValue) + 30;
+    var target = document.querySelector('.dryspells_value');
+    target.innerHTML = `${newValue} - ${endValue}`
+}
+dryspellsYear.addEventListener("input", dryspellsValue);
+
+var extremeYear = document.querySelector('input[name=extreme_precipitation_annual]');
+var extremeValue = function(){
+    var newValue = extremeYear.value;
+    var endValue = Number(newValue) + 30;
+    var target = document.querySelector('.extreme_value');
+    target.innerHTML = `${newValue} - ${endValue}`
+}
+extremeYear.addEventListener("input", extremeValue);
+
 var precipitation = document.querySelector('input[name=precipitation_year]');
 var precipitationValue = function() {
     var newValue = precipitation.value;
@@ -900,7 +1001,7 @@ var hdiValuesYear = function() {
 }
 hdi_year.addEventListener("input", hdiValuesYear);
 
-// Slider response for opacity
+// OPACITY SLIDE RESPONSE NUMBER %
 var gdp = document.querySelector('input[name=gdp-opacity]');
 var gdpValue = function(){
     var newOpValue = gdp.value;
@@ -994,10 +1095,11 @@ fore.addEventListener('input', foreValue)
 var arid = document.querySelector('input[name=aridity-opacity]');
 var ariValue = function(){
     var newAriValue = arid.value;
-    var target = document.querySelector('.ari_op');
+    var target = document.querySelector('.aridity_op');
     target.innerHTML = newAriValue;
 }
 arid.addEventListener('input', ariValue)
+
 
 var biome = document.querySelector('input[name=biome-opacity]');
 var biomeValue = function(){
@@ -1135,3 +1237,42 @@ var passValue = function(){
 }
 pass.addEventListener('input', passValue);
 
+var tempOp = document.querySelector('input[name=temp-opacity]');
+var tempOpValue = function(){
+    var newOpValue = tempOp.value;
+    var target = document.querySelector('.temp_op');
+    target.innerHTML = newOpValue;
+}
+tempOp.addEventListener('input', tempOpValue);
+
+var hotdaysOp = document.querySelector('input[name=hotdays-opacity]');
+var hotdaysOpValue = function(){
+    var newOpValue = hotdaysOp.value;
+    var target = document.querySelector('.hotdays_op');
+    target.innerHTML = newOpValue;
+}
+hotdaysOp.addEventListener('input', hotdaysOpValue);
+
+var precipitationOp = document.querySelector('input[name=precipitation-opacity]');
+var precipitationOpValue = function(){
+    var newOpValue = precipitationOp.value;
+    var target = document.querySelector('.precipitation_op');
+    target.innerHTML = newOpValue;
+}
+precipitationOp.addEventListener('input', precipitationOpValue);
+
+var extremeOp = document.querySelector('input[name=extreme-opacity]');
+var extremeOpValue = function(){
+    var newOpValue = extremeOp.value;
+    var target = document.querySelector('.extreme_op');
+    target.innerHTML = newOpValue;
+}
+extremeOp.addEventListener('input', extremeOpValue);
+
+var dryspellsOp = document.querySelector('input[name=dryspells-opacity]');
+var dryspellsOpValue = function(){
+    var newOpValue = dryspellsOp.value;
+    var target = document.querySelector('.dryspells_op');
+    target.innerHTML = newOpValue;
+}
+dryspellsOp.addEventListener('input', dryspellsOpValue);

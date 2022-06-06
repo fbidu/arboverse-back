@@ -434,6 +434,7 @@
     flex-wrap: nowrap;
     position: relative;
     margin-left: 1px;
+    align-self: end;
   }
   .item-button{
     margin: 2px;
@@ -460,7 +461,18 @@
     margin-left: 15px;
   }
 }
-
+@media screen and (max-width:550px){
+  .item-button{
+    margin: 0px;
+    padding: 3px;
+    border-radius: 3px;
+    border-left: var(--text);
+  }
+  .button-wrapper img{
+    width: 28px;
+    height: 28px;
+  }
+}
 /*====== Second Side Menu ====== */
 /*Sub menu features*/
 /* discovery, distribution and Vector*/
@@ -579,7 +591,9 @@
   }
   .sub-th-menu,
   .sub-fou-menu,
-  .sub-fiv-menu{
+  .sub-fiv-menu,
+  .sub-six-menu,
+  .sub-sev-menu{
     grid-area: 2 / 1 /3 /2;
     align-self: end;
     height: 280px;
@@ -1049,7 +1063,7 @@
   flex-direction: row;
   align-items: center;
 }
-.kp_circle{
+.label_circle{
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -1063,38 +1077,6 @@
   margin: 0 auto; /* Bar Measurement Area */
   height:8px;
   border-radius: 5px;
-}
-.forecast_label{
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--text);
-  margin: 0 auto;
-}
-.forecast_group{
-  width: 50%;
-}
-.forecast_measure{
-  width: 70%;
-  margin: 10px auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.forecast_unit{
-  margin-bottom: 4px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-.forecast_month{
-  width: 50px;
-  height: 10px;
-  border: solid 0.5px rgba(62, 62, 62, 0.5);
-}
-.forecast-month {
-  margin-left: 5px;
-  font-size: 0.8rem;
-  color: var(--text);
 }
 /* Bar Mesurement color features GRADIENT */
 
@@ -1260,6 +1242,35 @@
     #011959
 
   );
+}
+.mosquito_forecast_label {
+background: linear-gradient(
+  90deg,
+  #033198 8.33%,
+  #1d5bab 8.33%,
+  #1d5bab 16.66%,
+  #2a81bb 16.66%,
+  #2a81bb 25%,
+  #40a7cb 25%,
+  #40a7cb 33.33%,
+  #70ced6 33.33%,
+  #70ced6 41.66%,
+  #abe7d1 41.66%,
+  #abe7d1 50%,
+  #cee5ab 50%,
+  #cee5ab 58.33%,
+  #cec469 58.33%,
+  #cec469 66.66%,
+  #bb9638 66.66%,
+  #bb9638 75%,
+  #a96f22 75%,
+  #a96f22 83.33%,
+  #954912 83.33%,
+  #954912 91.66%,
+  #7e1700 91.66%,
+  #7e1700 100%
+);
+
 }
 .annual_temp_label{
   background: linear-gradient(
@@ -1475,7 +1486,7 @@
   color: var(--text);
 }
 .kp{
-  font-size:0.7rem;
+  font-size:0.8rem;
   color:var(--text);
   margin-left: 1px;
 }
@@ -1984,6 +1995,14 @@ input[name=model_precipitation]:checked + label,
 input[name=model_dry]:checked + label,
 input[name=model_extreme]:checked + label {
   color: var(--orange);
+}
+input[name=model_selector]:hover + label,
+input[name=hotdays_model]:hover + label,
+input[name=model_precipitation]:hover + label,
+input[name=model_dry]:hover + label,
+input[name=model_extreme]:hover + label {
+  color:white;
+  background: var(--orange);
 }
 .model_group label +input[name=model_selector] + label,
 .model_group label +input[name=hotdays_model] + label,
@@ -2494,7 +2513,7 @@ form #time-annual-slider label::before { /*time Label*/
   left: 50%;
   padding-top: 10px;
   transform: translate(-50%, 35px);
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 400;
   white-space: nowrap;
   opacity: 0.85;
@@ -2790,8 +2809,9 @@ form:valid #populational-time-slider input:checked + label::before {
   flex-direction: column;
   align-items: center;
 }
-#passenger-title,
-#socio-title{
+.passenger-title,
+.time-title,
+.select-title{
   font-family: 'Montserrat', serif;
   font-weight: 400;
   text-align: center;
