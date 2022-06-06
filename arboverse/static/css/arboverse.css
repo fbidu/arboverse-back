@@ -434,6 +434,7 @@
     flex-wrap: nowrap;
     position: relative;
     margin-left: 1px;
+    align-self: end;
   }
   .item-button{
     margin: 2px;
@@ -460,7 +461,18 @@
     margin-left: 15px;
   }
 }
-
+@media screen and (max-width:550px){
+  .item-button{
+    margin: 0px;
+    padding: 3px;
+    border-radius: 3px;
+    border-left: var(--text);
+  }
+  .button-wrapper img{
+    width: 28px;
+    height: 28px;
+  }
+}
 /*====== Second Side Menu ====== */
 /*Sub menu features*/
 /* discovery, distribution and Vector*/
@@ -579,7 +591,9 @@
   }
   .sub-th-menu,
   .sub-fou-menu,
-  .sub-fiv-menu{
+  .sub-fiv-menu,
+  .sub-six-menu,
+  .sub-sev-menu{
     grid-area: 2 / 1 /3 /2;
     align-self: end;
     height: 280px;
