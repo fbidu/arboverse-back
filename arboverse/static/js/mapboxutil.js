@@ -132,21 +132,23 @@ function update_map(cb) {
     console.log(cb.checked);
 }
 
-clickedLayer_old = ""
-
+var activeLayer = {}
 function update_map_time(cb, model, year, prefix) {
     var yearFinal = parseInt(year) + 30
     var clickedLayer = "arboverse." + prefix + "_" + model + "_" + year + "_" + yearFinal
+    if (prefix.startsWith('temp_')) {
+        prefix = "temp_"
+    }
     console.log(clickedLayer);
     if (cb.checked) {
-        if (clickedLayer_old != "") {
+        if (prefix in activeLayer) {
             map.setLayoutProperty(
-                clickedLayer_old,
+                activeLayer[prefix],
                 'visibility',
                 'none'
             );
         }
-        clickedLayer_old = clickedLayer
+        activeLayer[prefix] = clickedLayer
         map.setLayoutProperty(
             clickedLayer,
             'visibility',
@@ -154,11 +156,13 @@ function update_map_time(cb, model, year, prefix) {
         );
     } else {
         map.setLayoutProperty(
-            clickedLayer_old,
+            activeLayer[prefix],
             'visibility',
             'none'
         );
+        delete activeLayer[prefix];
     }
+    console.log(activeLayer);
     console.log(cb.checked);
 }
 
