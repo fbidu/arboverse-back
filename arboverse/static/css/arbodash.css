@@ -16,7 +16,123 @@
 }
 .arbodash_section{
   width: 100%;
-  height: 100vh;
+  height: auto;
   text-align: center;
   margin: 5vh; 
+}
+/* TABS settings */
+.tab{
+  width: 100%;
+  height: 7vh;
+  background:hsla(231, 87%, 61%, 0.05);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items:center;
+}
+.arbodash_tablinks{
+  background-color: transparent;
+  width:17%;
+  float: right;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 15px 10px;
+  transition: 0.3s;
+  font-family: 'Montserrat', serif;
+  font-size: 1.1rem;
+  color: #4c4c4c;
+  transition:  0.2s ease-in-out;
+}
+.arbodash_tablinks:hover{
+  color: white;
+  background: hsla(231, 87%, 61%, 0.5);
+}
+.arbodash_tablinks.active{
+  color: white;
+  font-weight: 500;
+  background: hsla(231, 87%, 61%, 0.8)
+}
+.general_info{
+  width: 80%;
+  margin: 5vh auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.info_box{
+  width:25%;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+.info_box img{
+  width: 20%;
+}
+.info_text{
+  width: 75%;
+}
+.info_text h5{
+  margin: 5px 0;
+  font-weight: 400;
+  color: #3345A6;
+  font-size: 1.1rem;
+}
+.info_text h6{
+  margin: 0;
+  font-size: 2.1rem;
+  color:#b7b7b7;
+}
+
+.chart_wrapper{
+  width: 100%;
+  height: auto;
+}
+.chart_pre{ 
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  height: auto;
+}
+.pre_info{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.pre_info h3{
+  color:#3345A6;
+  font-size: 1.3rem;
+}
+.circle_compose{
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: hsla(0, 0%, 50%, 0.3);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.circle_compose i {
+  color:#3c53d4;
+  transform: scale(1.5);
+}
+.circle_compose:hover{
+  background:hsla(29, 91%, 54%, 0.8) ;
+}
+.chart_gather{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.chart_one_cover{
+  position: relative;
+  width:100%;
+  height: 80vh;
+}
+.chart_two_cover{
+  position: relative;
+  width: 50%;
+  height: 80vh;
 }

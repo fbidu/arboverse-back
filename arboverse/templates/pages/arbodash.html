@@ -5,6 +5,8 @@
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap"
     rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{% static 'css/arbodash.css' %}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-stacked100@1.0.0"></script>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
 <link rel="sortcut icon" href="{% static 'images/Arboverse_logo-2.png' %}" type="image/png" />
 
@@ -19,8 +21,67 @@
 </div>
 <main>
     <section class="arbodash_section">
-        <h3>Arbodash graphics</h3>
+        <h3><span class="orange">ARBO</span><span class="blue">DASH</span></h3>
+        <section class="arbodash_pannel">
+            <div class="tab">
+                <button class="arbodash_tablinks" onclick="openTab(event, 'firstChart')" id="defaultOpen">Discovery</button>
+                <button class="arbodash_tablinks" onclick="openTab(event, 'secondChart')">Taxonomy</button>
+                <button class="arbodash_tablinks" onclick="openTab(event, 'thirdChart')">Distribution</button>
+                <button class="arbodash_tablinks" onclick="openTab(event, 'fourthChart')">Transmission</button>
+                <button class="arbodash_tablinks" onclick="openTab(event, 'fifthChart')">Disease</button>
+            </div>
+            <div id="firstChart" class="tabcontent">
+                <div class="general_info">
+                    <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/arbovirus-min.png' %}" alt="Arbovirus icon"> 
+                        <div class="info_text">
+                            <h5>Arbovirus discovered</h5>
+                            <h6 name="count" id="n_arbovirus">900</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/arbovirus-discovery-min.png' %}" alt="Arbovirus discovery icon"> 
+                        <div class="info_text">
+                            <h5>Countries</h5>
+                            <h6 name="count" id="n_countries">124</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/forest-cover-and-deforestation-min.png' %}" alt="Forest icon"> 
+                        <div class="info_text">
+                            <h5>Biomes</h5>
+                            <h6 name="count" id="n_biomes">6</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/climate-min.png' %}" alt="Climate icon"> 
+                        <div class="info_text">
+                            <h5>Climate</h5>
+                            <h6 name="count" id="n_climate">15</h6>
+                        </div> 
+                      </div>
+                </div>
+                <div class="chart_wrapper discovery_chart">
+                    <div class="chart_pre">
+                        <div class="pre_info">
+                            <h3>Number of arbovirus discovered over time</h3>
+                            <div class="btn_compose">
+                                <button class="circle_compose" id="save_one"><i
+                                    class="fa fa-solid fa-download"></i></button>
+                            <button class="circle_compose" id="blind_one"><i class="fa fa-solid fa-eye"></i></button>
+                                <button class="circle_compose"><i class="fa fa-solid fa-info"></i></button>
+                            </div>
+                        </div>
+                        <div class="chart_one_cover">
+                            <canvas id="myChart1" width="500" height="400"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
+    <script src="{% static 'js/tab_control.js' %}"></script>
+    <script src="{% static 'js/charts.js' %}"></script>
 </main>
 
 {% endblock %}
