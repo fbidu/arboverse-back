@@ -1,5 +1,6 @@
 //call for the charts
 drawBarChartOne();
+drawBarChartTwo();
 
 //Drawing Bar Chart Arbovirus Time
 async function drawBarChartOne() {
@@ -94,4 +95,75 @@ async function getData() {
     //console.log(timeDataTwo)
     return {labels, timeDataOne, timeDataTwo, timeDataOneName, timeDataTwoName }
 
+}
+
+//Drawing Bar chart arbovirus dicovery and continent
+async function drawBarChartTwo() {
+    const datapoints = await getDataContinets();
+    const labels = datapoints.labels;
+    const data = {
+        labels : labels,
+        datasets: [{
+            label: 'Arbovirus discovered',
+            type: 'bar', 
+            data: datapoints.continentData,
+            backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(255, 159, 64, 0.2)',
+            'rgba(255, 205, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(54, 162, 235, 0.2)'],
+            borderWidth: 1,
+            borderColor: [
+            'rgb(255, 99, 132)',
+            'rgb(255, 159, 64)',
+            'rgb(255, 205, 86)',
+            'rgb(75, 192, 192)',
+            'rgb(54, 162, 235)'
+            ]
+        }]
+    };
+
+    //Bar Chart config
+    const config = {
+        type: 'bar', 
+        data: data,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Arbovirus discovered by continent',
+                    position: 'top',
+                    align: 'center'
+                }
+            }
+        },
+    }
+
+    //render Bar Chart Two 
+    const myChartTwo = new Chart(
+        document.getElementById('myChart2'),
+        config
+    );
+}
+//fetching Data by continent 
+async function getDataContinets() {
+    const labels = [];
+    const continentData = [];
+
+    const url = 'https://gist.githubusercontent.com/JacquelineTida/485e7a798565599f636eb3a3e7e75507/raw/efe6309fd0df002d877a84f7f7b67ddefd036fdc/discovery_by_continent.csv';
+    const response = await fetch(url);
+    const tableData = await response.text();
+
+    const table = tableData.split('\n');
+    table.forEach(row => {
+        const column = row.split(',');
+        const continet = column[0];
+        const amount = column[1];
+        labels.push(continet);
+        continentData.push(amount);
+    });
+    labels.shift();
+    continentData.shift();
+    return { labels, continentData}
 }
