@@ -1,6 +1,7 @@
 //call for the charts
 drawBarChartOne();
 drawBarChartTwo();
+drawBarChartThree();
 
 //Drawing Bar Chart Arbovirus Time
 async function drawBarChartOne() {
@@ -13,8 +14,8 @@ async function drawBarChartOne() {
             type: 'bar',
             data: datapoints.timeDataOne,
             yAxisID: 'y',
-            backgroundColor: ['rgba(68, 94, 242, 0.9)'],
-            borderColor: ['rgb(68, 94, 242)'],
+            backgroundColor: ['rgba(1, 25, 89, 0.7)'],
+            borderColor: ['rgb(1, 25, 89)'],
             borderWidth: 1
         },{
             label: 'Accumulated Arbovirus discover',
@@ -22,9 +23,9 @@ async function drawBarChartOne() {
             data: datapoints.timeDataTwo,
             yAxisID: 'accumulated',
             fill: true,
-            backgroundColor: ['rgba(245, 134, 31, 0.2)'],
+            backgroundColor: ['rgba(242, 157, 107, 0.2)'],
             borderColor: [
-                'rgb(245, 134, 31)'
+                '#f29d6b'
             ],
             tension: 1
         }
@@ -108,19 +109,11 @@ async function drawBarChartTwo() {
             type: 'bar', 
             data: datapoints.continentData,
             backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(255, 159, 64, 0.2)',
-            'rgba(255, 205, 86, 0.2)',
-            'rgba(75, 192, 192, 0.2)',
-            'rgba(54, 162, 235, 0.2)'],
-            borderWidth: 1,
-            borderColor: [
-            'rgb(255, 99, 132)',
-            'rgb(255, 159, 64)',
-            'rgb(255, 205, 86)',
-            'rgb(75, 192, 192)',
-            'rgb(54, 162, 235)'
-            ]
+            '#011959',
+            '#216061',
+            '#828231',
+            '#f29d6b',
+            '#faccfa']
         }]
     };
 
@@ -592,7 +585,7 @@ const atlasUrl = 'https://unpkg.com/world-atlas@2.0.2/countries-50m.json';
             showOutline: true,
             scales: {
                 xy: {
-                    projection: 'equalEarth'
+                    projection: 'naturalEarth1'
                 },
                 color: {
                     interpolate: 'interpolateOrRd', 
@@ -618,3 +611,270 @@ const atlasUrl = 'https://unpkg.com/world-atlas@2.0.2/countries-50m.json';
       );
 
 })
+
+//Drawing Bar Chart arbovirus by koppen Geiger classification
+async function drawBarChartThree() {
+
+    const datapoint = await getDataBiomes();
+    const labels = datapoint.labels;
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Af | Rainforest',
+            data: datapoint.af,
+            backgroundColor: ['#011959']
+        },
+        {
+            label: 'Am | Monsson ',
+            data: datapoint.am,
+            backgroundColor: ['#0b2d5d']
+        },
+        {
+            label: 'As | Dry savanna',
+            data: datapoint.as,
+            backgroundColor: ['#103e5f']
+        },
+        {
+            label: 'Aw | Wet savanna',
+            data: datapoint.aw,
+            backgroundColor: ['#134b61']
+        },{
+            label: 'BSh | Hot Steppe',
+            data: datapoint.bsh,
+            backgroundColor: ['#195762']
+        },
+        {
+            label: 'BSk | Cold Steppe ',
+            data: datapoint.bsk,
+            backgroundColor: ['#256260']
+        },
+        {
+            label: 'BWh | Hot desert',
+            data: datapoint.bwh,
+            backgroundColor: ['#366a58']
+        },{
+            label: 'BWk | Cold desert',
+            data: datapoint.bwk,
+            backgroundColor: ['#4a724e']
+        },{
+            label: 'Cfa | Humid subtropical',
+            data: datapoint.cfa,
+            backgroundColor: ['#5b7745']
+        },
+        {
+            label: 'Cfb | Temperate oceanic',
+            data: datapoint.cfb,
+            backgroundColor: ['#667a3f']
+        },
+        {
+            label: 'Cfc | Subpolar oceanic',
+            data: datapoint.cfc,
+            backgroundColor: ['#707d3a']
+        },{
+            label: 'Csa | Hot-summer mediterranean',
+            data: datapoint.csa,
+            backgroundColor: ['#7c8035']
+        },
+        {
+            label: 'Csb | Warm-summer mediterranean',
+            data: datapoint.csb,
+            backgroundColor: ['#888430']
+        },
+        {
+            label: 'Cwa | Monsoon-influenced humid subtropical',
+            data: datapoint.cwa,
+            backgroundColor: ['#94872d']
+        },{
+            label: 'Cwb | Subtropical highlands or temperate oceanic with dry winters ',
+            data: datapoint.cwb,
+            backgroundColor: ['#a18a2c']
+        },{
+            label: 'Dfa | Hot-summer humid',
+            data: datapoint.dfa,
+            backgroundColor: ['#dd964e']
+        },
+        {
+            label: 'Dfb | Warm-summer humid',
+            data: datapoint.dfb,
+            backgroundColor: ['#e7995b']
+        },
+        {
+            label: 'Dfc | Subartic ',
+            data: datapoint.dfc,
+            backgroundColor: ['#f09c68']
+        },{
+            label: 'Dsa | Hot, dry-summer',
+            data: datapoint.dsa,
+            backgroundColor: ['#f5a077']
+        },
+        {
+            label: 'Dsb | Warm, dry-summer',
+            data: datapoint.dsb,
+            backgroundColor: ['#faa586']
+        },
+        {
+            label: 'Dsc | Dry-summer subartic',
+            data: datapoint.dsc,
+            backgroundColor: ['#fcaa95']
+        },{
+            label: 'Dwb | Monsson-influenced warm-summer humid',
+            data: datapoint.dwb,
+            backgroundColor: ['#fdafa4']
+        },
+        {
+            label: 'Dwc | Monsoon-influenced subartic',
+            data: datapoint.dwc,
+            backgroundColor: ['#fdb3b2']
+        }, {
+            label: 'Et | Tundra',
+            data: datapoint.et,
+            backgroundColor: ['#faccfa']
+        }]
+    };
+    // stacked Bar config
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Arbovirus discovery by Koppen Geiger classification'
+                }
+            },
+            resposive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    stacked: true
+                },
+                y: {
+                    stacked: true,
+            }
+            }
+        }
+    }
+     //render Bar chart One 
+     const myChart = new Chart(
+        document.getElementById('myChart4'),
+        config
+    );
+}
+
+//Fetching data Biomes Kp 
+async function getDataBiomes() {
+    
+    const labels = [];
+    const af = [];
+    const am = [];
+    const as = [];
+    const aw = [];
+    const bsh = [];
+    const bsk = [];
+    const bwh = [];
+    const bwk = [];
+    const cfa = [];
+    const cfb = [];
+    const cfc = [];
+    const csa = [];
+    const csb = [];
+    const cwa = [];
+    const cwb = [];
+    const dfa = [];
+    const dfb = [];
+    const dfc = [];
+    const dsa = [];
+    const dsb = [];
+    const dsc = [];
+    const dwb = [];
+    const dwc = [];
+    const et = [];
+    const url = 'https://gist.githubusercontent.com/JacquelineTida/4ccc00795e1a0b1b38f6ce8ffa7f02a6/raw/1aaeaf96161bc8fb6f71d613cbe093e16c0fd40a/discovery_by_kp.csv';
+    const response = await fetch(url);
+    const tableData = await response.text();
+    //console.log(tableData);
+
+    const table = tableData.split('\n');
+    //console.log(table);
+    table.forEach(row => {
+        const column = row.split(',');
+
+        const biome = column[0];
+        const af_num = column[1];
+        const am_num  = column[2]
+        const as_num  = column[3]
+        const aw_num  = column[4]
+        const bsh_num  = column[5]
+        const bsk_num  = column[6]
+        const bwh_num  = column[7]
+        const bwk_num  = column[8]
+        const cfa_num  = column[9]
+        const cfb_num  = column[10]
+        const cfc_num  = column[11]
+        const csa_num  = column[12]
+        const csb_num  = column[13]
+        const cwa_num  = column[14]
+        const cwb_num  = column[15]
+        const dfa_num  = column[16]
+        const dfb_num  = column[17]
+        const dfc_num  = column[18]
+        const dsa_num  = column[19]
+        const dsb_num  = column[20]
+        const dsc_num = column[21]
+        const dwb_num  = column[22]
+        const dwc_num  = column[23]
+        const et_num = column[24]
+
+        labels.push(biome);
+        af.push(af_num);
+        am.push(am_num)
+        aw.push(aw_num);
+        as.push(as_num);
+        bsh.push(bsh_num);
+        bsk.push(bsk_num);
+        bwh.push(bwh_num);
+        bwk.push(bwk_num);
+        cfa.push(cfa_num);
+        cfb.push(cfb_num);
+        cfc.push(cfc_num);
+        csa.push(csa_num);
+        csb.push(csb_num);
+        cwa.push(cwa_num);
+        cwb.push(cwb_num);
+        dfa.push(dfa_num);
+        dfb.push(dfb_num);
+        dfc.push(dfc_num);
+        dsa.push(dsa_num);
+        dsb.push(dsb_num);
+        dsc.push(dsc_num);
+        dwb.push(dwb_num);
+        dwc.push(dwc_num);
+        et.push(et_num)
+    });
+        labels.shift();
+        af.shift();
+        am.shift();
+        aw.shift();
+        as.shift();
+        bsh.shift();
+        bsk.shift();
+        bwh.shift();
+        bwk.shift();
+        cfa.shift();
+        cfb.shift();
+        cfc.shift();
+        csa.shift();
+        csb.shift();
+        cwa.shift();
+        cwb.shift();
+        dfa.shift();
+        dfb.shift();
+        dfc.shift();
+        dsa.shift();
+        dsb.shift();
+        dsc.shift();
+        dwb.shift();
+        dwc.shift();
+        et.shift();
+    return { labels, af, am, as, aw, bsk, bsh, bwh, bwk, cfa, cfb, cfc, csa, csb, cwa, cwb, dfa, dfb, dfc, dsa, dsb, dsc, dwb, dwc, et}
+}
