@@ -2,6 +2,7 @@
 drawBarChartOne();
 drawBarChartTwo();
 drawBarChartThree();
+drawDoughnutOne();
 
 //Drawing Bar Chart Arbovirus Time
 async function drawBarChartOne() {
@@ -105,7 +106,7 @@ async function drawBarChartTwo() {
     const data = {
         labels : labels,
         datasets: [{
-            label: 'Arbovirus discovered',
+            label: 'Arbovirus discovery by continents',
             type: 'bar', 
             data: datapoints.continentData,
             backgroundColor: [
@@ -877,4 +878,164 @@ async function getDataBiomes() {
         dwc.shift();
         et.shift();
     return { labels, af, am, as, aw, bsk, bsh, bwh, bwk, cfa, cfb, cfc, csa, csb, cwa, cwb, dfa, dfb, dfc, dsa, dsb, dsc, dwb, dwc, et}
+}
+
+//
+async function drawDoughnutOne() {
+    const datapoints = await getDataHost();
+    const data = {
+        labels: ['Diptera', 'Human', "Primate", 'Perissodactyla', 'Ixodida', 'Artiodactyla', 'Rodentia', 'Chiroptera', 'Aves', 'Didelphimorphia', 'Lagomorpha', 'Unknown', 'Squamata', 'Pilosa', 'Siphonaptera', 'Anura', 'Eulipotyphla', 'Hemiptera', 'Carnivora', 'Pholidota', 'Cingulata'],
+        datasets : [
+            {
+                label: 'datase1',
+                data: [datapoints.diptera, datapoints.human, datapoints.primate, datapoints.perissodactyla, datapoints.ixodida, datapoints.artiodactyla, datapoints.rodentia, datapoints.chiroptera, datapoints.aves, datapoints.didelphimorphia, datapoints.lagomorpha, datapoints.unknown, datapoints.squamata, datapoints.pilosa, datapoints.siphonaptera, datapoints.anura, datapoints.eulipotyphla, datapoints.hemiptera, datapoints.carnivora, datapoints.pholidota, datapoints.cingulata],
+                backgroundColor: ['#011959',
+                                    '#0b2c5d',
+                                    '#0f3c5f',
+                                    '#134961',
+                                    '#185562',
+                                    '#216061',
+                                    '#30685b',
+                                    '#426f52',
+                                    '#577647',
+                                    '#6b7c3c',
+                                    '#828231',
+                                    '#9a882b',
+                                    '#b38e2f',
+                                    '#cb923d',
+                                    '#e19751',
+                                    '#f29d6b',
+                                    '#fba689',
+                                    '#fdafa7',
+                                    '#fdb9c1',
+                                    '#fcc3dd',
+                                    '#faccfa']
+            }
+        ]
+    };
+    const config = {
+        type: 'doughnut',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Arbovirus discovery by host'
+            }
+            }
+        },
+    }
+    const myChart = new Chart(
+        document.getElementById('myChart5'),
+        config
+    );
+};
+
+async function getDataHost() {
+    const labels = [];
+    const diptera = [];
+    const human = [];
+    const primate = [];
+    const perissodactyla = [];
+    const ixodida = [];
+    const artiodactyla = [];
+    const rodentia = [];
+    const chiroptera = [];
+    const aves = [];
+    const didelphimorphia = [];
+    const lagomorpha = [];
+    const unknown = [];
+    const squamata = [];
+    const pilosa = [];
+    const siphonaptera = [];
+    const anura = [];
+    const eulipotyphla = [];
+    const hemiptera = [];
+    const carnivora = [];
+    const pholidota = [];
+    const cingulata = [];
+    const url = 'https://gist.githubusercontent.com/JacquelineTida/3610199a6c8e36a4d247fdb107629c50/raw/7514a15c52858d0d7bf78c3a3424973812222763/discovery_host.csv';
+    const response = await fetch(url);
+    const tableData = await response.text();
+    //console.log(tableData)
+
+    const table = tableData.split('\n');
+    //console.log(table)
+    table.forEach( row => {
+        const column = row.split(',')
+
+        const host = column[0];
+        const diptera_num = column[1];
+        const human_num = column[2];
+        const primate_num = column[3];
+        const perissodactyla_num = column[4];
+        const ixodida_num = column[5];
+        const artiodactyla_num = column[6];
+        const rodentia_num = column[7];
+        const chiroptera_num = column[8];
+        const aves_num = column[9];
+        const didelphimorphia_num = column[10];
+        const lagomorpha_num = column[11];
+        const unknown_num = column[12];
+        const squamata_num = column[13];
+        const pilosa_num = column[14];
+        const siphonaptera_num = column[15];
+        const anura_num = column[16];
+        const eulipotyphla_num = column[17];
+        const hemiptera_num = column[18];
+        const carnivora_num = column[19];
+        const pholidota_num = column[20];
+        const cingulata_num = column[21];
+
+        labels.push(host);
+        diptera.push(diptera_num);
+        human.push(human_num);
+        primate.push(primate_num);
+        perissodactyla.push(perissodactyla_num);
+        ixodida.push(ixodida_num)
+        artiodactyla.push(artiodactyla_num)
+        rodentia.push(rodentia_num)
+        chiroptera.push(chiroptera_num)
+        aves.push(aves_num) 
+        didelphimorphia.push(didelphimorphia_num)
+        lagomorpha.push(lagomorpha_num)
+        unknown.push(unknown_num)
+        squamata.push(squamata_num)
+        pilosa.push(pilosa_num)
+        siphonaptera.push(siphonaptera_num)
+        anura.push(anura_num)
+        eulipotyphla.push(eulipotyphla_num)
+        hemiptera.push(hemiptera_num) 
+        carnivora.push(carnivora_num)
+        pholidota.push(pholidota_num)
+        cingulata.push(cingulata_num)
+    });
+    labels.shift()
+    diptera.shift()
+    human.shift()
+    primate.shift();
+    perissodactyla .shift();
+    ixodida .shift();
+    artiodactyla.shift();
+    rodentia.shift();
+    chiroptera .shift();
+    aves.shift();
+    didelphimorphia.shift();
+    lagomorpha.shift();
+    unknown.shift();
+    squamata.shift();
+    pilosa.shift();
+    siphonaptera.shift();
+    anura.shift();
+    eulipotyphla.shift();
+    hemiptera.shift();
+    carnivora.shift();
+    pholidota.shift();
+    cingulata.shift();
+    console.log(diptera)
+    return{labels, diptera, human, primate, perissodactyla, ixodida, artiodactyla, rodentia, chiroptera, aves, didelphimorphia, lagomorpha, unknown, squamata, pilosa, siphonaptera, anura, eulipotyphla, hemiptera, carnivora, pholidota, cingulata}
 }
