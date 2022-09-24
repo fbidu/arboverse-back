@@ -8,6 +8,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-stacked100@1.0.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-geo@3.9.0/build/index.umd.min.js"></script>
+<script src="//unpkg.com/circlepack-chart"></script>
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
 <link rel="sortcut icon" href="{% static 'images/Arboverse_logo-2.png' %}" type="image/png" />
 
@@ -25,8 +26,8 @@
         <h3><span class="orange">ARBO</span><span class="blue">DASH</span></h3>
         <section class="arbodash_pannel">
             <div class="tab">
-                <button class="arbodash_tablinks" onclick="openTab(event, 'firstChart')" id="defaultOpen">Discovery</button>
-                <button class="arbodash_tablinks" onclick="openTab(event, 'secondChart')">Taxonomy</button>
+                <button class="arbodash_tablinks" onclick="openTab(event, 'firstChart')" >Discovery</button>
+                <button class="arbodash_tablinks" onclick="openTab(event, 'secondChart')" id="defaultOpen">Taxonomy</button>
                 <button class="arbodash_tablinks" onclick="openTab(event, 'thirdChart')">Distribution</button>
                 <button class="arbodash_tablinks" onclick="openTab(event, 'fourthChart')">Transmission</button>
                 <button class="arbodash_tablinks" onclick="openTab(event, 'fifthChart')">Disease</button>
@@ -83,6 +84,58 @@
                         <div class="chart_three_cover">
                             <canvas id="myChart4" width="500" height="400"></canvas>
                             <canvas id="myChart5"  class="chart5" width="500" height="400"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="secondChart" class="tabcontent">
+                <div class="general_info">
+                    <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/arbovirus-min.png' %}" alt="Arbovirus icon"> 
+                        <div class="info_text">
+                            <h5>Number of families</h5>
+                            <h6 name="count" id="n_arbovirus">11</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/arbovirus-discovery-min.png' %}" alt="Arbovirus discovery icon"> 
+                        <div class="info_text">
+                            <h5>Number of genus</h5>
+                            <h6 name="count" id="n_countries">37</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/forest-cover-and-deforestation-min.png' %}" alt="Forest icon"> 
+                        <div class="info_text">
+                            <h5>Number od Species</h5>
+                            <h6 name="count" id="n_biomes">467</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/climate-min.png' %}" alt="Climate icon"> 
+                        <div class="info_text">
+                            <h5>Number of arbovirus</h5>
+                            <h6 name="count" id="n_climate">922</h6>
+                        </div> 
+                      </div>
+                </div>
+                <div class="chart_wrapper discovery_chart">
+                    <div class="chart_pre">
+                        <div class="pre_info">
+                            <h3>Arbovirus taxonomy</h3>
+                            <div class="btn_compose">
+                                <button class="circle_compose" id="save_one"><i
+                                    class="fa fa-solid fa-download"></i></button>
+                            <button class="circle_compose" id="blind_one"><i class="fa fa-solid fa-eye"></i></button>
+                                <button class="circle_compose"><i class="fa fa-solid fa-info"></i></button>
+                            </div>
+                        </div>
+                        <div class="chart_one_taxonomy">
+                            <div id="myChart1_taxonomy" class="taxonomy_circle" ></div>
+                        </div>
+                        <div class="chart_two_taxonomy">
+                            <canvas id="doughnut_taxonomy"  width="500" height="400"></canvas>
+                            <canvas id="bar_taxonomy"  width="500" height="400"></canvas>
                         </div>
                     </div>
                 </div>

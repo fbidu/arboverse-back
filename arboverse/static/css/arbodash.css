@@ -145,3 +145,23 @@
   display: flex;
   margin: 3vh 0;
 }
+.chart_one_taxonomy{
+  width: 100%;
+  height:auto;
+  margin: 5vh 0;
+}
+.taxonomy_circle{
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chart_two_taxonomy{
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  margin: 5vh 0;
+}

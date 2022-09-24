@@ -762,7 +762,7 @@ async function drawBarChartThree() {
     );
 }
 
-//Fetching data Biomes Kp 
+//Fetching data  Kp 
 async function getDataBiomes() {
     
     const labels = [];
@@ -880,7 +880,7 @@ async function getDataBiomes() {
     return { labels, af, am, as, aw, bsk, bsh, bwh, bwk, cfa, cfb, cfc, csa, csb, cwa, cwb, dfa, dfb, dfc, dsa, dsb, dsc, dwb, dwc, et}
 }
 
-//
+//DOughnut chart Discovery_host
 async function drawDoughnutOne() {
     const datapoints = await getDataHost();
     const data = {
@@ -934,7 +934,7 @@ async function drawDoughnutOne() {
         config
     );
 };
-
+//fetching host
 async function getDataHost() {
     const labels = [];
     const diptera = [];
@@ -1039,3 +1039,217 @@ async function getDataHost() {
     console.log(diptera)
     return{labels, diptera, human, primate, perissodactyla, ixodida, artiodactyla, rodentia, chiroptera, aves, didelphimorphia, lagomorpha, unknown, squamata, pilosa, siphonaptera, anura, eulipotyphla, hemiptera, carnivora, pholidota, cingulata}
 }
+//Circle packing Family and Genus
+const data_tax = {
+    name: 'Arbovirus',
+    color: '#011959',
+    children: [{
+      name: 'Asfaviridae',
+      color: '#04225b',
+      children:[{
+          name: 'Asfivirus',
+          color: '#04225b',
+          size:1
+      }]
+    },{
+      name: 'Flaviviridae',
+      color: '#082c5c',
+      children: [{
+        name: 'Flavivirus',
+        color: '#082c5c',
+        size: 96
+      }]
+    }, {
+        name: 'Nairoviridae', 
+        color: '#0c355e',
+        children:[{
+            name: 'Orthonairovirus',
+            color: '#0c355e',
+            size: 67
+        }]
+    }, {
+        name: 'Nyamiviridae',
+        color: '#0f3d5f',
+        children:[{
+            name: 'Nyavirus', 
+            color: '#0f3d5f',
+            size:4
+        }, {
+            name: 'Unclassified', 
+            color: '#124460',
+            size: 2
+        }]
+    }, {
+        name: 'Orthomyxoviridae',
+        color: '#144b61', 
+        children: [{
+            name:'Thogotovirus', 
+            color: '#175261',
+            size: 11
+        }, {
+            name: 'Quaranjavirus', 
+            color: '#1c5860', 
+            size: 4
+        },{
+            name: 'Unclassified',
+            color: '#124460',
+            size: 3
+        }]
+    }, {
+        name: 'Peribunyaviridae', 
+        color: '#27635e', 
+        children: [
+            {
+                name: 'Orthobunyavirus', 
+                color: '#27635e', 
+                size: 219
+            }, {
+                name: 'Pacuvirus',
+                color: '#30675a',
+                size: 4 
+            }, {
+                name: 'unclassified',
+                color:  '#124460',
+                size: 6
+            }
+        ]
+    }, {
+        name: 'Phenuiviridae', 
+        color: '#3a6b55',
+        children: [{
+            name: 'Bandavirus', 
+            color: '#3a6b55',
+            size:9
+        }, {
+            name: 'Banyangvirus', 
+            color: '#436f51',
+            size:1
+        }, {
+            name: 'Mobuvirus',
+            color: '#4e734c',
+            size: 1
+        }, {
+            name: 'Pacuvirus', 
+            color: '#597646',
+            size: 1
+        }, {
+            name: 'Phlebovirus', 
+            color: '#647a40',
+            size: 124
+        }, {
+            name: 'Tanzavirus', 
+            color: '#6f7d3a',
+            size: 1
+        }, {
+            name: 'Unclassified', 
+            color: '#124460',
+            size: 1
+        }, {
+            name: 'Uukuvirus', 
+            color: '#7c8035',
+            size: 16
+        }]
+    }, {
+        name: 'Reoviridae', 
+        color: '#898431', 
+        children: [{
+            name: 'coltivirus',
+            color:'#898431',
+            size: 6
+        }, {
+            name: 'Orbivirus',
+            color: '#96872c',
+            size: 196
+        }, {
+            name: 'Seadornavirus',
+            color: '#a38a2f',
+            size: 4
+        }, {
+            name: 'Unclassified',
+            color: '#124460',
+            size: 2
+        }]
+    }, {
+        name: 'Rhabdoviridae',
+        color: '#b08d33',
+        children: [{
+            name: 'Arurhavirus',
+            color: '#b08d33', 
+            size:3
+        },{
+            name: 'Curiovirus',
+            color: '#bd8f37', 
+            size:4
+        }, {
+            name: 'Dimarhabdovirus',
+            color: '#ca923e', 
+            size:1
+        }, {
+            name: 'Ephemerovirus',
+            color: '#d59549', 
+            size:13
+        }, {
+            name: 'Hapavirus',
+            color: '#e09855', 
+            size:16
+        }, {
+            name: 'Ledantevirus',
+            color: '#eb9b60', 
+            size:15
+        }, {
+            name: 'Ohlsrhavirus ',
+            color: '#f09f70', 
+            size:1
+        }, {
+            name: 'Sawgrhavirus',
+            color: '#f6a480', 
+            size:2
+        },{
+            name: 'Sripuvirus',
+            color: '#fba890',
+            size: 9
+        },{
+            name: 'Sunrhavirus',
+            color: '#fcad9f',
+            size: 1
+        }, {
+            name: 'Tibrovirus',
+            color: '#fdb2ae',
+            size: 8
+        },{
+            name: 'Tupavirus',
+            color: '#fdb8bd',
+            size: 2
+        },{
+            name: 'Unclassified',
+            color: '#124460',
+            size: 5
+        }, {
+            name: 'Vesiculovirus',
+            color: '#fdbdcc',
+            size: 16
+        }]
+    },{
+        name: 'Togaviridae',
+        color: '#fcc2db',
+        children: [{
+            name:'Alphavirus',
+            color: '#fbc7eb',
+            size: 25
+        }]
+    }, {
+        name:'Unclassified',
+        color: '#faccfa',
+        size: 14
+    }]
+  };
+
+  CirclePack()
+    .data(data_tax)
+    .size('size')
+    .color('color')
+    .tooltipContent((d, node) => `Size: <i>${node.value}</i>`)
+    .zoomBy(4)
+    .width(900)
+    .height(600)
+    (document.getElementById('myChart1_taxonomy'));
