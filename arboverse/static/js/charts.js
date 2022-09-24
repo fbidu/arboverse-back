@@ -4,6 +4,9 @@ drawBarChartTwo();
 drawBarChartThree();
 drawDoughnutOne();
 
+//Taxonomy calls
+drawDoughnutSequence();
+
 //Drawing Bar Chart Arbovirus Time
 async function drawBarChartOne() {
     const datapoints = await getData();
@@ -1253,3 +1256,62 @@ const data_tax = {
     .width(900)
     .height(600)
     (document.getElementById('myChart1_taxonomy'));
+
+//Dughnut chart sequence taxonomy
+async function drawDoughnutSequence() {
+    const datapoints = await getDataSequence()
+    const labels = datapoints.labels;
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'dataset_sequence',
+            data: datapoints.amount,
+            backgroundColor: [
+                '#011959',
+                '#3d6c54',
+                '#d29445'
+            ]
+        }]
+    };
+    const config ={
+        type: 'doughnut',
+        data: data,
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top'
+                },
+                title: {
+                    display: true,
+                    text: 'Status of arbovirus sequence'
+                }
+            }
+        }
+    }
+    const myChart = new Chart(
+        document.getElementById('doughnut_taxonomy'),
+        config
+    )
+}
+//fetch sequence
+async function getDataSequence() {
+    const labels = [];
+    const amount = [];
+    const url = 'https://gist.githubusercontent.com/JacquelineTida/17b4a2f2a03b95cee22fc8adaee73976/raw/aafe8ac6571d5298c6a1afcb9bc472ad054e4f81/sequence_taxonomy.csv';
+    const response = await fetch(url);
+    const tableData = await response.text();
+    const table = tableData.split('\n');
+    table.forEach(row => {
+        const column = row.split(',');
+        const status = column[0];
+        const number = column[1];
+
+        labels.push(status);
+        amount.push(number);
+
+    });
+    labels.shift();
+    amount.shift();
+    return{labels, amount}
+}
