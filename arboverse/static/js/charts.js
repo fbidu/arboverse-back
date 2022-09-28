@@ -6,6 +6,8 @@ drawDoughnutOne();
 
 //Taxonomy calls
 drawDoughnutSequence();
+drawStackedBarChartSequence();
+drawBoxPlotGenome();
 
 //Drawing Bar Chart Arbovirus Time
 async function drawBarChartOne() {
@@ -171,7 +173,7 @@ const atlasUrl = 'https://unpkg.com/world-atlas@2.0.2/countries-50m.json';
  const world = fetch(atlasUrl).then((result) => result.json()).then((datapoint) => {
     const countries = ChartGeo.topojson.feature(datapoint, datapoint.objects.countries).features;
     //console.log(countries[45].properties.name);
-    console.log(countries.map(country => country.properties.name));
+    //console.log(countries.map(country => country.properties.name));
     //America
     const UnitedStates = countries.find(country => country.properties.name === 'United States of America')
     const Brazil = countries.find(country => country.properties.name === 'Brazil')
@@ -621,6 +623,7 @@ async function drawBarChartThree() {
 
     const datapoint = await getDataBiomes();
     const labels = datapoint.labels;
+    //console.log(datapoint.af)
     const data = {
         labels: labels,
         datasets: [{
@@ -1039,8 +1042,88 @@ async function getDataHost() {
     carnivora.shift();
     pholidota.shift();
     cingulata.shift();
-    console.log(diptera)
+    //console.log(diptera)
     return{labels, diptera, human, primate, perissodactyla, ixodida, artiodactyla, rodentia, chiroptera, aves, didelphimorphia, lagomorpha, unknown, squamata, pilosa, siphonaptera, anura, eulipotyphla, hemiptera, carnivora, pholidota, cingulata}
+}
+async function drawStackedBarChartSequence() {
+    const datapoints = await getDataPlattform();
+    const labels = datapoints.labels;
+    const data = {
+        labels : labels,
+        datasets: [{
+            label: 'Complete',
+            data: datapoints.complete,
+            backgroundColor: 
+                '#216061'
+        },
+        {
+            label: 'Partial',
+            data: datapoints.partial,
+            backgroundColor: 
+                '#828231'
+        }
+        ]
+    };
+    
+// stacked Bar config
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Main bioregions were arbovirus where discovered'
+                }
+            },
+            resposive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    stacked: true
+                },
+                y: {
+                    stacked: true,
+            }
+            }
+        }
+    }
+    
+    //render Bar chart One 
+    const myChartaxonomy = new Chart(
+        document.getElementById('bar_taxonomy'),
+        config
+    );
+}
+//fetching plattform
+async function getDataPlattform() {
+    const labels = [];
+    const complete = [];
+    const partial = [];
+
+    const url = 'https://gist.githubusercontent.com/JacquelineTida/db414818b85717dbbbcf546487a93aa8/raw/14b2e8d58eec0b8fd66629f71422f9593b3a639b/plattform_sequence_complete_partial.csv';
+    const response = await fetch(url);
+    const tableData = await response.text();
+    //console.log(tableData)
+    const table = tableData.split('\n');
+    //console.log(table)
+    table.forEach(row => {
+        const column = row.split(',');
+        const l_num = column[0];
+        const c_num = column[1];
+        const p_num = column[2];
+        
+
+        labels.push(l_num);
+        complete.push(c_num);
+        partial.push(p_num);
+        
+    });
+    labels.shift();
+    complete.shift();
+    partial.shift();
+    
+    return{labels, complete, partial}
 }
 //Circle packing Family and Genus
 const data_tax = {
@@ -1267,9 +1350,9 @@ async function drawDoughnutSequence() {
             label: 'dataset_sequence',
             data: datapoints.amount,
             backgroundColor: [
-                '#011959',
-                '#3d6c54',
-                '#d29445'
+                '#216061',
+                '#828231',
+                '#f29d6b'
             ]
         }]
     };
@@ -1315,3 +1398,112 @@ async function getDataSequence() {
     amount.shift();
     return{labels, amount}
 }
+
+//BoxPlot genome length by family
+async function drawBoxPlotGenome() {
+    const datapoints = await getDataGenomelength();
+    const labels = datapoints.new_labels;
+    console.log(labels)
+    const data = {
+        labels: labels,
+        datasets: [{
+          label: 'Genome length',
+          backgroundColor: '#f29d6b',
+          borderColor: '#f2806b',
+          borderWidth: 1,
+          outlierColor: '#828231',
+          padding: 10,
+          itemRadius: 3,
+          data: [
+              datapoints.new_fla,
+              datapoints.new_nai,
+              datapoints.new_nya,
+              datapoints.new_ortho,
+              datapoints.new_peri,
+              datapoints.new_phenu,
+              datapoints.new_reo,
+              datapoints.new_rhabdo,
+              datapoints.new_toga
+          ]
+        }]
+    };
+    const config = {
+        type: 'boxplot',
+          data: data,
+          options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top'
+                },
+                title: {
+                    display: true,
+                    text: 'Genome length by arbovirus length'
+                }
+            }
+          }
+    };
+    const myBoxPlot = new Chart(
+        document.getElementById('boxplot_taxonomy'),
+        config
+    );
+}
+ async function getDataGenomelength() {
+     const labels = [];
+     const asfa = [];
+     const fla = [];
+     const nai = [];
+     const nya = [];
+     const ortho = [];
+     const peri = [];
+     const phenu = [];
+     const reo = [];
+     const rhabdo = [];
+     const toga = [];
+
+     const url = 'https://gist.githubusercontent.com/JacquelineTida/96f06d932775af67037ba768ee191e66/raw/8013f98d3fc0edb3d02ab66184e3994f962152a2/genome_length.csv';
+     const response = await fetch(url);
+     const tableData = await response.text();
+
+     const table = tableData.split('\n');
+     table.forEach(row => {
+         const column = row.split(',');
+         const label = column [0];
+         const a_num = column[1];
+         const fla_num = column[2]
+         const nai_num = column[3];
+         const nya_num = column[4];
+         const ortho_num = column[5];
+         const peri_num = column[6];
+         const phenu_num = column[7];
+         const reo_num = column[8];
+         const rab_num = column[9];
+         const tog_num = column[10];
+
+         labels.push(label);
+         fla.push(fla_num)
+         asfa.push(a_num);
+         nai.push(nai_num);
+         nya.push(nya_num);
+         ortho.push(ortho_num);
+         peri.push(peri_num);
+         phenu.push(phenu_num);
+         reo.push(reo_num);
+         rhabdo.push(rab_num);
+         toga.push(tog_num);
+     });
+    const  new_labels = labels.filter(entry =>{return entry != null && entry != '';})
+    const  new_asfa = asfa.filter(entry =>{return entry != null && entry != '';})
+    const  new_fla = fla.filter(entry =>{return entry != null && entry != '';})
+    const  new_nai = nai.filter(entry =>{return entry != null && entry != '';})
+    const  new_nya = nya.filter(entry =>{return entry != null && entry != '';})
+    const  new_ortho = ortho.filter(entry =>{return entry != null && entry != '';})
+    const  new_peri = peri.filter(entry =>{return entry != null && entry != '';})
+    const  new_phenu = phenu.filter(entry =>{return entry != null && entry != '';})
+    const  new_reo = reo.filter(entry =>{return entry != null && entry != '';})
+    const  new_rhabdo = rhabdo.filter(entry =>{return entry != null && entry != '';})
+    const  new_toga = toga.filter(entry =>{return entry != null && entry != '';})
+
+     return{new_labels, new_asfa, new_fla, new_nai, new_nya, new_ortho, new_peri, new_phenu, new_reo, new_rhabdo, new_toga}
+
+     }

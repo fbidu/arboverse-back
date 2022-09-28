@@ -8,7 +8,8 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-stacked100@1.0.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-geo@3.9.0/build/index.umd.min.js"></script>
-<script src="//unpkg.com/circlepack-chart"></script>
+<script src="https://unpkg.com/@sgratzl/chartjs-chart-boxplot@3.6.0/build/index.umd.min.js"></script>
+<script src="//unpkg.com/circlepack-chart"></script> 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
 <link rel="sortcut icon" href="{% static 'images/Arboverse_logo-2.png' %}" type="image/png" />
 
@@ -136,6 +137,9 @@
                         <div class="chart_two_taxonomy">
                             <canvas id="doughnut_taxonomy"  width="500" height="400"></canvas>
                             <canvas id="bar_taxonomy"  width="500" height="400"></canvas>
+                        </div>
+                        <div class="chart_three_taxonomy">
+                            <canvas id="boxplot_taxonomy"  width="700" height="400"></canvas>
                         </div>
                     </div>
                 </div>

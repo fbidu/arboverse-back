@@ -165,3 +165,12 @@
   display: flex;
   margin: 5vh 0;
 }
+.chart_three_taxonomy{
+  position: relative;
+  width: 90%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5vh 0;
+}
