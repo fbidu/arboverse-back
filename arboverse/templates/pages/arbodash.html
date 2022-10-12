@@ -28,8 +28,8 @@
         <section class="arbodash_pannel">
             <div class="tab">
                 <button class="arbodash_tablinks" onclick="openTab(event, 'firstChart')" >Discovery</button>
-                <button class="arbodash_tablinks" onclick="openTab(event, 'secondChart')" id="defaultOpen">Taxonomy</button>
-                <button class="arbodash_tablinks" onclick="openTab(event, 'thirdChart')">Distribution</button>
+                <button class="arbodash_tablinks" onclick="openTab(event, 'secondChart')">Taxonomy</button>
+                <button class="arbodash_tablinks" onclick="openTab(event, 'thirdChart')" id="defaultOpen">Distribution</button>
                 <button class="arbodash_tablinks" onclick="openTab(event, 'fourthChart')">Transmission</button>
                 <button class="arbodash_tablinks" onclick="openTab(event, 'fifthChart')">Disease</button>
             </div>
@@ -144,10 +144,63 @@
                     </div>
                 </div>
             </div>
+            <div id="thirdChart" class="tabcontent">
+                <div class="general_info">
+                    <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/arbovirus-min.png' %}" alt="Arbovirus icon"> 
+                        <div class="info_text">
+                            <h5>Arbovirus discovered</h5>
+                            <h6 name="count" id="n_arbovirus">900</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/arbovirus-discovery-min.png' %}" alt="Arbovirus discovery icon"> 
+                        <div class="info_text">
+                            <h5>Countries</h5>
+                            <h6 name="count" id="n_countries">231</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/forest-cover-and-deforestation-min.png' %}" alt="Forest icon"> 
+                        <div class="info_text">
+                            <h5>Biomes</h5>
+                            <h6 name="count" id="n_biomes">6</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/climate-min.png' %}" alt="Climate icon"> 
+                        <div class="info_text">
+                            <h5>Climate</h5>
+                            <h6 name="count" id="n_climate">15</h6>
+                        </div> 
+                      </div>
+                </div>
+                <div class="chart_wrapper discovery_chart">
+                    <div class="chart_pre">
+                        <div class="pre_info">
+                            <h3>Arbovirus Distribution</h3>
+                            <div class="btn_compose">
+                                <button class="circle_compose" id="save_one"><i
+                                    class="fa fa-solid fa-download"></i></button>
+                            <button class="circle_compose" id="blind_one"><i class="fa fa-solid fa-eye"></i></button>
+                                <button class="circle_compose"><i class="fa fa-solid fa-info"></i></button>
+                            </div>
+                        </div>
+                        <div class="chart_one_distribution">
+                            <canvas id="myChart_distribution"  class="chart_map" width="500" height="400"></canvas>
+                        </div>
+                        <div class="chart_two_distribution">
+                            <canvas id="distribution_continent"  class="chart_map" width="500" height="400"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </section>
     <script src="{% static 'js/tab_control.js' %}"></script>
     <script src="{% static 'js/charts.js' %}"></script>
+    <script src="{% static 'js/distribution.js' %}"></script>
+    <script src="{% static 'js/distribution.js' %}"></script>
 </main>
 
 {% endblock %}

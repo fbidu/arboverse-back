@@ -174,3 +174,22 @@
   justify-content: center;
   margin: 5vh 0;
 }
+.distribution_map{
+  position: relative;
+  width: 90%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5vh 0;
+}
+.chart_two_distribution{
+  position: relative;
+  width: 50%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5vh 0;
+  
+}
