@@ -42,8 +42,8 @@ async function drawDistributionBarChart() {
     }
 
     //render Bar Chart Two 
-    const myChartTwo = new Chart(
-        document.getElementById('distribution_continent'),
+    const myChart = new Chart(
+        document.getElementById('myChart_D2'),
         config
     );
 }
@@ -129,8 +129,8 @@ async function drawDistributionMap() {
                     }
                 }
             };
-            const myChartDistribution = new Chart(
-                document.getElementById('myChart_distribution'),
+            const myChart = new Chart(
+                document.getElementById('myChart_D1'),
                 configMAp
             );
     
