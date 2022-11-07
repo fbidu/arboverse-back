@@ -9,6 +9,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-stacked100@1.0.0"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-geo@3.9.0/build/index.umd.min.js"></script>
 <script src="https://unpkg.com/@sgratzl/chartjs-chart-boxplot@3.6.0/build/index.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-chart-sankey"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-stacked100@1.0.0"></script>
 <script src="//unpkg.com/circlepack-chart"></script> 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
@@ -31,8 +32,8 @@
                 <button class="arbodash_tablinks" onclick="openTab(event, 'firstChart')" >Discovery</button>
                 <button class="arbodash_tablinks" onclick="openTab(event, 'secondChart')">Taxonomy</button>
                 <button class="arbodash_tablinks" onclick="openTab(event, 'thirdChart')" >Distribution</button>
-                <button class="arbodash_tablinks" onclick="openTab(event, 'fourthChart')" >Transmission</button>
-                <button class="arbodash_tablinks" onclick="openTab(event, 'fifthChart')"id="defaultOpen">Disease</button>
+                <button class="arbodash_tablinks" onclick="openTab(event, 'fourthChart')" id="defaultOpen">Transmission</button>
+                <button class="arbodash_tablinks" onclick="openTab(event, 'fifthChart')">Disease</button>
             </div>
             <div id="firstChart" class="tabcontent">
                 <div class="general_info">
@@ -196,6 +197,59 @@
                     </div>
                 </div>
             </div>
+            <div id="fourthChart" class="tabcontent">
+                <div class="general_info">
+                    <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/arbovirus-min.png' %}" alt="Arbovirus icon"> 
+                        <div class="info_text">
+                            <h5>Arbovirus discovered</h5>
+                            <h6 name="count" id="n_arbovirus">900</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/arbovirus-discovery-min.png' %}" alt="Arbovirus discovery icon"> 
+                        <div class="info_text">
+                            <h5>Countries</h5>
+                            <h6 name="count" id="n_countries">231</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/forest-cover-and-deforestation-min.png' %}" alt="Forest icon"> 
+                        <div class="info_text">
+                            <h5>Biomes</h5>
+                            <h6 name="count" id="n_biomes">6</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/climate-min.png' %}" alt="Climate icon"> 
+                        <div class="info_text">
+                            <h5>Climate</h5>
+                            <h6 name="count" id="n_climate">15</h6>
+                        </div> 
+                      </div>
+                </div>
+                <div class="chart_wrapper discovery_chart">
+                    <div class="chart_pre">
+                        <div class="pre_info">
+                            <h3>Arbovirus Transmission</h3>
+                            <div class="btn_compose">
+                                <button class="circle_compose" id="save_one"><i
+                                    class="fa fa-solid fa-download"></i></button>
+                            <button class="circle_compose" id="blind_one"><i class="fa fa-solid fa-eye"></i></button>
+                                <button class="circle_compose"><i class="fa fa-solid fa-info"></i></button>
+                            </div>
+                        </div>
+                        <div class="chart_one_transmission">
+                            <canvas id="vector_pie"   width="500" height="400"></canvas>
+                            <canvas id="vector_bar"   width="500" height="400"></canvas>
+                        </div>
+                        <div class="chart_two_transmission">
+                            <canvas id="habitat_bar"   width="500" height="400"></canvas>
+                            <canvas id="behavior_bar"   width="500" height="400"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div id="fifthChart" class="tabcontent">
                 <div class="general_info">
                     <div class="info_box">
@@ -255,6 +309,7 @@
     <script src="{% static 'js/distribution.js' %}"></script>
     <script src="{% static 'js/distribution.js' %}"></script>
     <script src="{% static 'js/disease.js' %}"></script>
+    <script src="{% static 'js/transmission.js' %}"></script>
 </main>
 
 {% endblock %}
