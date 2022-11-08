@@ -17,22 +17,20 @@ async function drawBarChartOne() {
     const data = {
         labels : labels,
         datasets: [{
-            label: 'Arbovirus discovered by year',
+            label: 'By Year',
             type: 'bar',
             data: datapoints.timeDataOne,
             yAxisID: 'y',
-            backgroundColor: ['rgba(1, 25, 89, 0.7)'],
-            borderColor: ['rgb(1, 25, 89)'],
-            borderWidth: 1
+            backgroundColor: '#1e3d7d'
         },{
-            label: 'Accumulated Arbovirus discover',
+            label: 'Accumulated',
             type: 'line',
             data: datapoints.timeDataTwo,
             yAxisID: 'accumulated',
             fill: true,
-            backgroundColor: ['rgba(242, 157, 107, 0.2)'],
+            backgroundColor: 'rgba(210,218,184,0.7)',
             borderColor: [
-                '#f29d6b'
+                '#d2dab8'
             ],
             tension: 1
         }
@@ -44,12 +42,32 @@ async function drawBarChartOne() {
         type: 'scatter',
         data: data,
         options: {
+            plugins:{
+                title:{
+                    display: true,
+                    position: 'top',
+                    text: 'Number of Arbovirus Discovered Over Time',
+                    font:{
+                        family: 'Montserrat',
+                        size: 20
+                    }
+                }
+            },
             maintainAspectRatio: false,
             scales: {
                 y: {
                     beginAtZero: true,
                     type: 'linear',
                     position: 'left',
+                    title:{
+                        display: true,
+                        text:'N˚ of Arbovirus by Year',
+                        align: 'center',
+                        font:{
+                            family: 'Montserrat',
+                            size: 14
+                        }
+                    }
                 }, 
                 accumulated: {
                     beginAtZero: true,
@@ -57,6 +75,15 @@ async function drawBarChartOne() {
                     position: 'right',
                     grid: {
                         display: false,
+                    },
+                    title:{
+                        display: true,
+                        text:'N˚ of Arbovirus Accumulated',
+                        align: 'center',
+                        font:{
+                            family: 'Montserrat',
+                            size: 14
+                        }
                     }
                 }
             }
@@ -110,17 +137,32 @@ async function drawBarChartTwo() {
     const datapoints = await getDataContinets();
     const labels = datapoints.labels;
     const data = {
-        labels : labels,
+        labels : ['Continents'],
         datasets: [{
-            label: 'Arbovirus discovery by continents',
-            type: 'bar', 
-            data: datapoints.continentData,
-            backgroundColor: [
-            '#011959',
-            '#216061',
-            '#828231',
-            '#f29d6b',
-            '#faccfa']
+            label: 'America',
+            data: datapoints.america,
+            backgroundColor: '#05598c',
+            borderWidth:1
+        },{
+            label: 'Africa',
+            data: datapoints.africa,
+            backgroundColor: '#436e82',
+            borderWidth:1
+        },{
+            label: 'Europe',
+            data: datapoints.europe,
+            backgroundColor: '#859493',
+            borderWidth:1
+        },{
+            label: 'Asia',
+            data: datapoints.asia,
+            backgroundColor: '#b2b293',
+            borderWidth:1
+        },{
+            label: 'Oceania',
+            data: datapoints.oceania,
+            backgroundColor: '#caca83',
+            borderWidth:1
         }]
     };
 
@@ -129,12 +171,29 @@ async function drawBarChartTwo() {
         type: 'bar', 
         data: data,
         options: {
+            scales:{
+                y:{
+                    title:{
+                        display: true,
+                        text:'N˚ of Arbovirus',
+                        align: 'center',
+                        font:{
+                            family: 'Montserrat',
+                            size: 14
+                        }
+                    }
+                }
+            },
             plugins: {
                 title: {
                     display: true,
                     text: 'Arbovirus discovered by continent',
                     position: 'top',
-                    align: 'center'
+                    align: 'center',
+                    font:{
+                        family: 'Montserrat',
+                        size: 20
+                    }
                 }
             }
         },
@@ -148,24 +207,36 @@ async function drawBarChartTwo() {
 }
 //fetching Data by continent 
 async function getDataContinets() {
-    const labels = [];
-    const continentData = [];
+    const america = [];
+    const africa = [];
+    const europe = [];
+    const asia = [];
+    const oceania = [];
 
-    const url = 'https://gist.githubusercontent.com/JacquelineTida/485e7a798565599f636eb3a3e7e75507/raw/efe6309fd0df002d877a84f7f7b67ddefd036fdc/discovery_by_continent.csv';
+    const url = 'https://gist.githubusercontent.com/JacquelineTida/485e7a798565599f636eb3a3e7e75507/raw/f184e45285e0c8157c96f3f78c1cc2e591cfc29a/discovery_by_continent.csv';
     const response = await fetch(url);
     const tableData = await response.text();
 
     const table = tableData.split('\n');
     table.forEach(row => {
         const column = row.split(',');
-        const continet = column[0];
-        const amount = column[1];
-        labels.push(continet);
-        continentData.push(amount);
+        const america_num = column[0];
+        const africa_num = column[1];
+        const europe_num = column[2];
+        const asia_num = column[3];
+        const oceania_num = column[4];
+        america.push(america_num);
+        africa.push(africa_num);
+        europe.push(europe_num);
+        asia.push(asia_num);
+        oceania.push(oceania_num);
     });
-    labels.shift();
-    continentData.shift();
-    return { labels, continentData}
+    america.shift();
+    africa.shift();
+    europe.shift();
+    asia.shift();
+    oceania.shift();
+    return { america, africa, europe, asia, oceania}
 }
 
 function drawMapDiscovery() {
@@ -596,19 +667,48 @@ const world = fetch(atlasUrl).then((result) => result.json()).then((datapoint) =
                    projection: 'naturalEarth1'
                },
                color: {
-                   interpolate: 'interpolateOrRd', 
-                   quantize: 10
+                interpolate: (v) => {
+                    if (v < 0.1) {
+                      return "#e1e198";
+                    } else if (v < 0.2) {
+                      return "#c8c885";
+                    }  else if (v < 0.3) {
+                      return "#baba8e";
+                    } else if (v < 0.4) {
+                      return "#a8ac93";
+                    }  else if (v < 0.5) {
+                      return "#8f9b93";
+                    }  else if (v < 0.6) {
+                      return "#6f878d";
+                    } else if (v < 0.7) {
+                      return "#4a7284";
+                    }  else if (v < 0.8) {
+                      return "#276586";
+                    }  else if (v < 0.9) {
+                      return "#05598c";
+                    } else {
+                      return "#05598c";
+                    }
+                  },
+                  quantize:10,
+                  legend:{
+                      position: "bottom-right"
+                  }
                }
            },
            plugins: {
                legend: {
-                   diplay: false,
+                   display: false
                },
                title: {
                    display: true,
-                   text: 'Arbovirus discovered by country',
+                   text: 'Arbovirus Discovered by Country',
                    position: 'top',
-                   align: 'center'
+                   align: 'center',
+                   font:{
+                       family: 'Montserrat',
+                       size: 20
+                   }
                }
            }
        }
@@ -632,113 +732,137 @@ async function drawBarChartThree() {
         datasets: [{
             label: 'Af | Rainforest',
             data: datapoint.af,
-            backgroundColor: ['#011959']
+            backgroundColor: ['#011959'],
+            borderWidth: 1
         },
         {
             label: 'Am | Monsson ',
             data: datapoint.am,
-            backgroundColor: ['#0b2d5d']
+            backgroundColor: ['#0b2d5d'],
+            borderWidth: 1
         },
         {
             label: 'As | Dry savanna',
             data: datapoint.as,
-            backgroundColor: ['#103e5f']
+            backgroundColor: ['#103e5f'],
+            borderWidth: 1
         },
         {
             label: 'Aw | Wet savanna',
             data: datapoint.aw,
-            backgroundColor: ['#134b61']
+            backgroundColor: ['#134b61'],
+            borderWidth: 1
         },{
             label: 'BSh | Hot Steppe',
             data: datapoint.bsh,
-            backgroundColor: ['#195762']
+            backgroundColor: ['#195762'],
+            borderWidth: 1
         },
         {
             label: 'BSk | Cold Steppe ',
             data: datapoint.bsk,
-            backgroundColor: ['#256260']
+            backgroundColor: ['#256260'],
+            borderWidth: 1
         },
         {
             label: 'BWh | Hot desert',
             data: datapoint.bwh,
-            backgroundColor: ['#366a58']
+            backgroundColor: ['#366a58'],
+            borderWidth: 1
         },{
             label: 'BWk | Cold desert',
             data: datapoint.bwk,
-            backgroundColor: ['#4a724e']
+            backgroundColor: ['#4a724e'],
+            borderWidth: 1
         },{
             label: 'Cfa | Humid subtropical',
             data: datapoint.cfa,
-            backgroundColor: ['#5b7745']
+            backgroundColor: ['#5b7745'],
+            borderWidth: 1
         },
         {
             label: 'Cfb | Temperate oceanic',
             data: datapoint.cfb,
-            backgroundColor: ['#667a3f']
+            backgroundColor: ['#667a3f'],
+            borderWidth: 1
         },
         {
             label: 'Cfc | Subpolar oceanic',
             data: datapoint.cfc,
-            backgroundColor: ['#707d3a']
+            backgroundColor: ['#707d3a'],
+            borderWidth: 1
         },{
             label: 'Csa | Hot-summer mediterranean',
             data: datapoint.csa,
-            backgroundColor: ['#7c8035']
+            backgroundColor: ['#7c8035'],
+            borderWidth: 1
         },
         {
             label: 'Csb | Warm-summer mediterranean',
             data: datapoint.csb,
-            backgroundColor: ['#888430']
+            backgroundColor: ['#888430'],
+            borderWidth: 1
         },
         {
             label: 'Cwa | Monsoon-influenced humid subtropical',
             data: datapoint.cwa,
-            backgroundColor: ['#94872d']
+            backgroundColor: ['#94872d'],
+            borderWidth: 1
         },{
             label: 'Cwb | Subtropical highlands or temperate oceanic with dry winters ',
             data: datapoint.cwb,
-            backgroundColor: ['#a18a2c']
+            backgroundColor: ['#a18a2c'],
+            borderWidth: 1
         },{
             label: 'Dfa | Hot-summer humid',
             data: datapoint.dfa,
-            backgroundColor: ['#dd964e']
+            backgroundColor: ['#dd964e'],
+            borderWidth: 1
         },
         {
             label: 'Dfb | Warm-summer humid',
             data: datapoint.dfb,
-            backgroundColor: ['#e7995b']
+            backgroundColor: ['#e7995b'],
+            borderWidth: 1
         },
         {
             label: 'Dfc | Subartic ',
             data: datapoint.dfc,
-            backgroundColor: ['#f09c68']
+            backgroundColor: ['#f09c68'],
+            borderWidth: 1
         },{
             label: 'Dsa | Hot, dry-summer',
             data: datapoint.dsa,
-            backgroundColor: ['#f5a077']
+            backgroundColor: ['#f5a077'],
+            borderWidth: 1
         },
         {
             label: 'Dsb | Warm, dry-summer',
             data: datapoint.dsb,
-            backgroundColor: ['#faa586']
+            backgroundColor: ['#faa586'],
+            borderWidth: 1
         },
         {
             label: 'Dsc | Dry-summer subartic',
             data: datapoint.dsc,
-            backgroundColor: ['#fcaa95']
+            backgroundColor: ['#fcaa95'],
+            borderWidth: 1
         },{
             label: 'Dwb | Monsson-influenced warm-summer humid',
             data: datapoint.dwb,
-            backgroundColor: ['#fdafa4']
+            backgroundColor: ['#fdafa4'],
+            borderWidth: 1
         },
         {
             label: 'Dwc | Monsoon-influenced subartic',
             data: datapoint.dwc,
-            backgroundColor: ['#fdb3b2']
+            backgroundColor: ['#fdb3b2'],
+            borderWidth: 1
         }, {
             label: 'Et | Tundra',
             data: datapoint.et,
-            backgroundColor: ['#faccfa']
+            backgroundColor: ['#faccfa'],
+            borderWidth: 1
         }]
     };
     // stacked Bar config
@@ -749,17 +873,31 @@ async function drawBarChartThree() {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Arbovirus discovery by Koppen Geiger classification'
+                    text: 'Arbovirus discovery by Koppen Geiger classification',
+                    font:{
+                        family: 'Montserrat',
+                        size: 20
+                    }
                 }
             },
             resposive: true,
             maintainAspectRatio: false,
             scales: {
                 x: {
-                    stacked: true
+                    stacked: true,
+                    title:{
+                        display: true,
+                        text: 'Climate',
+                        align: 'center'
+                    }
                 },
                 y: {
                     stacked: true,
+                    title:{
+                        display: true,
+                        text: 'N˚ Arbovirus Discovered',
+                        align: 'center'
+                    }
             }
             }
         }
@@ -898,27 +1036,28 @@ async function drawDoughnutOne() {
             {
                 label: 'datase1',
                 data: [datapoints.diptera, datapoints.human, datapoints.primate, datapoints.perissodactyla, datapoints.ixodida, datapoints.artiodactyla, datapoints.rodentia, datapoints.chiroptera, datapoints.aves, datapoints.didelphimorphia, datapoints.lagomorpha, datapoints.unknown, datapoints.squamata, datapoints.pilosa, datapoints.siphonaptera, datapoints.anura, datapoints.eulipotyphla, datapoints.hemiptera, datapoints.carnivora, datapoints.pholidota, datapoints.cingulata],
-                backgroundColor: ['#011959',
-                                    '#0b2c5d',
-                                    '#0f3c5f',
-                                    '#134961',
-                                    '#185562',
-                                    '#216061',
-                                    '#30685b',
-                                    '#426f52',
-                                    '#577647',
-                                    '#6b7c3c',
-                                    '#828231',
-                                    '#9a882b',
-                                    '#b38e2f',
-                                    '#cb923d',
-                                    '#e19751',
-                                    '#f29d6b',
-                                    '#fba689',
-                                    '#fdafa7',
-                                    '#fdb9c1',
-                                    '#fcc3dd',
-                                    '#faccfa']
+                backgroundColor: ['#2c1a4c',
+                                    '#2b2457',
+                                    '#292f62',
+                                    '#283a6d',
+                                    '#274579',
+                                    '#275287',
+                                    '#2b5d97',
+                                    '#3266a7',
+                                    '#3d6fb8',
+                                    '#4f79c7',
+                                    '#6784d3',
+                                    '#7d8fdd',
+                                    '#9398e5',
+                                    '#a6a3eb',
+                                    '#b2adef',
+                                    '#bdb7f1',
+                                    '#c6c1f3',
+                                    '#cfcbf5',
+                                    '#d9d5f7',
+                                    '#e3e0f9',
+                                    '#eceafb'],
+            borderWidth: 0.5
             }
         ]
     };
@@ -933,7 +1072,11 @@ async function drawDoughnutOne() {
             },
             title: {
                 display: true,
-                text: 'Arbovirus discovery by host'
+                text: 'Arbovirus discovery by host',
+                font: {
+                    family: 'Montserrat',
+                    size: 20
+                }
             }
             }
         },
@@ -1057,13 +1200,13 @@ async function drawStackedBarChartSequence() {
             label: 'Complete',
             data: datapoints.complete,
             backgroundColor: 
-                '#216061'
+                '#2e5a96'
         },
         {
             label: 'Partial',
             data: datapoints.partial,
             backgroundColor: 
-                '#828231'
+                '#6b8e93'
         }
         ]
     };
@@ -1076,17 +1219,29 @@ async function drawStackedBarChartSequence() {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Main bioregions were arbovirus where discovered'
+                    text: 'Methods Used for Complete and Partial Genomic Sequence',
+                    font:{
+                        family: 'Montserrat',
+                        size: 20
+                    }
                 }
             },
             resposive: true,
             maintainAspectRatio: false,
             scales: {
                 x: {
-                    stacked: true
+                    stacked: true,
+                    title:{
+                        display: true,
+                        text:'Sequencing Methods'
+                    }
                 },
                 y: {
                     stacked: true,
+                    title:{
+                        display: true,
+                        text: 'N˚ of Arbovirus'
+                    }
             }
             }
         }
@@ -1353,9 +1508,9 @@ async function drawDoughnutSequence() {
             label: 'dataset_sequence',
             data: datapoints.amount,
             backgroundColor: [
-                '#216061',
-                '#828231',
-                '#f29d6b'
+                '#2e5a96',
+                '#6b8e93',
+                '#bcc894'
             ]
         }]
     };
@@ -1370,7 +1525,11 @@ async function drawDoughnutSequence() {
                 },
                 title: {
                     display: true,
-                    text: 'Status of arbovirus sequence'
+                    text: 'Status of arbovirus sequence',
+                    font:{
+                        font: 'Montserrat',
+                        size: 20
+                    }
                 }
             }
         }
@@ -1411,8 +1570,8 @@ async function drawBoxPlotGenome() {
         labels: labels,
         datasets: [{
           label: 'Genome length',
-          backgroundColor: '#f29d6b',
-          borderColor: '#f2806b',
+          backgroundColor: '#6284A7',
+          borderColor: '#426B95',
           borderWidth: 1,
           outlierColor: '#828231',
           padding: 10,
@@ -1441,7 +1600,25 @@ async function drawBoxPlotGenome() {
                 },
                 title: {
                     display: true,
-                    text: 'Genome length by arbovirus length'
+                    text: 'Genome Length by Arbovirus Family',
+                    font:{
+                        family: 'Montserrat',
+                        size: 20
+                    }
+                }
+            },
+            scales:{
+                y:{
+                    title:{
+                        display:true,
+                        text: 'Genome Length in nt'
+                    }
+                },
+                x:{
+                    title:{
+                        display: true,
+                        text: 'Families'
+                    }
                 }
             }
           }

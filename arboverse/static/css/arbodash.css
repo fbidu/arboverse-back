@@ -14,6 +14,11 @@
       height: 70vh;
   }
 }
+main{
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
 .arbodash_section{
   width: 100%;
   height: auto;
@@ -22,17 +27,20 @@
 }
 /* TABS settings */
 .tab{
-  width: 100%;
-  height: 7vh;
-  background:hsla(231, 87%, 61%, 0.05);
+  width: 90%;
+  margin: 5vh auto;
+  height: 10vh;
+  border-radius: 20px;
+  background:hsla(231, 87%, 61%, 0.1);
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items:center;
+  align-items: center;
 }
 .arbodash_tablinks{
   background-color: transparent;
-  width:17%;
+  width: 19%;
+  border-radius: 20px;
   float: right;
   border: none;
   outline: none;
@@ -46,7 +54,8 @@
 }
 .arbodash_tablinks:hover{
   color: white;
-  background: hsla(231, 87%, 61%, 0.5);
+  background: hsla(231, 87%, 61%, 0.2);
+
 }
 .arbodash_tablinks.active{
   color: white;
@@ -70,11 +79,14 @@
 .info_box img{
   width: 20%;
 }
+.info_box .taxonomy_icon{
+  width: 30%;
+}
 .info_text{
-  width: 75%;
+  width: auto;
 }
 .info_text h5{
-  margin: 5px 0;
+  margin: 10px 10px;
   font-weight: 400;
   color: #3345A6;
   font-size: 1.1rem;
@@ -96,29 +108,17 @@
   height: auto;
 }
 .pre_info{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  display: block;
+  text-align: left;
+  margin: 3vh 0;
 }
 .pre_info h3{
   color:#3345A6;
   font-size: 1.3rem;
+  margin: 10px 0;
 }
-.circle_compose{
-  width: 40px;
-  height: 40px;
-  border: none;
-  background: hsla(0, 0%, 50%, 0.3);
-  border-radius: 50%;
-  cursor: pointer;
-}
-.circle_compose i {
-  color:#3c53d4;
-  transform: scale(1.5);
-}
-.circle_compose:hover{
-  background:hsla(29, 91%, 54%, 0.8) ;
+.pre_info h2{
+  color:#676767;
 }
 .chart_gather{
   display: flex;
@@ -128,26 +128,27 @@
 }
 .chart_one_cover{
   position: relative;
-  width:100%;
-  height: 80vh;
+  width: 100%;
+  height: auto;
+  margin: 8vh auto;
 }
 .chart_two_cover{
   position: relative;
   width: 50%;
-  height: 70vh;
+  height: auto;
   display: flex;
   margin: 5vh 0;
 }
 .chart_three_cover{
   position: relative;
   width: 50%;
-  height: 90vh;
+  height: auto;
   display: flex;
   margin: 3vh 0;
 }
 .chart_one_taxonomy{
   width: 100%;
-  height:auto;
+  height: auto;
   margin: 5vh 0;
 }
 .taxonomy_circle{
