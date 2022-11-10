@@ -187,7 +187,7 @@ async function drawBarChartTwo() {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Arbovirus discovered by continent',
+                    text: 'Arbovirus Discovered by Continent',
                     position: 'top',
                     align: 'center',
                     font:{
@@ -730,138 +730,138 @@ async function drawBarChartThree() {
     const data = {
         labels: labels,
         datasets: [{
-            label: 'Af | Rainforest',
+            label: 'Rainforest',
             data: datapoint.af,
-            backgroundColor: ['#011959'],
+            backgroundColor: ['#00054a'],
             borderWidth: 1
         },
         {
-            label: 'Am | Monsson ',
+            label: 'Monsson ',
             data: datapoint.am,
             backgroundColor: ['#0b2d5d'],
             borderWidth: 1
         },
         {
-            label: 'As | Dry savanna',
+            label: 'Dry savanna',
             data: datapoint.as,
-            backgroundColor: ['#103e5f'],
+            backgroundColor: ['#071256'],
             borderWidth: 1
         },
         {
-            label: 'Aw | Wet savanna',
+            label: 'Wet savanna',
             data: datapoint.aw,
-            backgroundColor: ['#134b61'],
+            backgroundColor: ['#0e2062'],
             borderWidth: 1
         },{
-            label: 'BSh | Hot Steppe',
+            label: 'Hot Steppe',
             data: datapoint.bsh,
-            backgroundColor: ['#195762'],
+            backgroundColor: ['#152d6f'],
             borderWidth: 1
         },
         {
-            label: 'BSk | Cold Steppe ',
+            label: 'Cold Steppe ',
             data: datapoint.bsk,
-            backgroundColor: ['#256260'],
+            backgroundColor: ['#1c3a7b'],
             borderWidth: 1
         },
         {
-            label: 'BWh | Hot desert',
+            label: 'Hot Desert',
             data: datapoint.bwh,
-            backgroundColor: ['#366a58'],
+            backgroundColor: ['#254682'],
             borderWidth: 1
         },{
-            label: 'BWk | Cold desert',
+            label: 'Cold Desert',
             data: datapoint.bwk,
-            backgroundColor: ['#4a724e'],
+            backgroundColor: ['#2e5188'],
             borderWidth: 1
         },{
-            label: 'Cfa | Humid subtropical',
+            label: 'Humid Subtropical',
             data: datapoint.cfa,
-            backgroundColor: ['#5b7745'],
+            backgroundColor: ['#365c8d'],
             borderWidth: 1
         },
         {
-            label: 'Cfb | Temperate oceanic',
+            label: 'Temperate Oceanic',
             data: datapoint.cfb,
-            backgroundColor: ['#667a3f'],
+            backgroundColor: ['#3f6893'],
             borderWidth: 1
         },
         {
-            label: 'Cfc | Subpolar oceanic',
+            label: 'Subpolar Oceanic',
             data: datapoint.cfc,
-            backgroundColor: ['#707d3a'],
+            backgroundColor: ['#497195'],
             borderWidth: 1
         },{
-            label: 'Csa | Hot-summer mediterranean',
+            label: 'Hot-Summer Mediterranean',
             data: datapoint.csa,
-            backgroundColor: ['#7c8035'],
+            backgroundColor: ['#527994'],
             borderWidth: 1
         },
         {
-            label: 'Csb | Warm-summer mediterranean',
+            label: 'Warm-Summer Mediterranean',
             data: datapoint.csb,
-            backgroundColor: ['#888430'],
+            backgroundColor: ['#5c8294'],
             borderWidth: 1
         },
         {
-            label: 'Cwa | Monsoon-influenced humid subtropical',
+            label: 'Monsoon-Influenced Humid Subtropical',
             data: datapoint.cwa,
-            backgroundColor: ['#94872d'],
+            backgroundColor: ['#668a93'],
             borderWidth: 1
         },{
-            label: 'Cwb | Subtropical highlands or temperate oceanic with dry winters ',
+            label: 'Subtropical Highlands or Temperate Oceanic with Dry Winters ',
             data: datapoint.cwb,
-            backgroundColor: ['#a18a2c'],
+            backgroundColor: ['#719393'],
             borderWidth: 1
         },{
-            label: 'Dfa | Hot-summer humid',
+            label: 'Hot-Summer Humid',
             data: datapoint.dfa,
-            backgroundColor: ['#dd964e'],
+            backgroundColor: ['#7e9c93'],
             borderWidth: 1
         },
         {
-            label: 'Dfb | Warm-summer humid',
+            label: 'Warm-Summer Humid',
             data: datapoint.dfb,
-            backgroundColor: ['#e7995b'],
+            backgroundColor: ['#8ba594'],
             borderWidth: 1
         },
         {
-            label: 'Dfc | Subartic ',
+            label: 'Subartic ',
             data: datapoint.dfc,
-            backgroundColor: ['#f09c68'],
+            backgroundColor: ['#98ae94'],
             borderWidth: 1
         },{
-            label: 'Dsa | Hot, dry-summer',
+            label: 'Hot, Dry-summer',
             data: datapoint.dsa,
-            backgroundColor: ['#f5a077'],
+            backgroundColor: ['#a5b897'],
             borderWidth: 1
         },
         {
-            label: 'Dsb | Warm, dry-summer',
+            label: 'Warm, Dry-summer',
             data: datapoint.dsb,
-            backgroundColor: ['#faa586'],
+            backgroundColor: ['#b1c1a0'],
             borderWidth: 1
         },
         {
-            label: 'Dsc | Dry-summer subartic',
+            label: 'Dry-Summer Subartic',
             data: datapoint.dsc,
-            backgroundColor: ['#fcaa95'],
+            backgroundColor: ['#bdcaa8'],
             borderWidth: 1
         },{
-            label: 'Dwb | Monsson-influenced warm-summer humid',
+            label: 'Monsson-Influenced Warm-Summer Humid',
             data: datapoint.dwb,
-            backgroundColor: ['#fdafa4'],
+            backgroundColor: ['#c8d3b1'],
             borderWidth: 1
         },
         {
-            label: 'Dwc | Monsoon-influenced subartic',
+            label: 'Monsoon-Influenced Subartic',
             data: datapoint.dwc,
-            backgroundColor: ['#fdb3b2'],
+            backgroundColor: ['#d4dcbb'],
             borderWidth: 1
         }, {
-            label: 'Et | Tundra',
+            label: 'Tundra',
             data: datapoint.et,
-            backgroundColor: ['#faccfa'],
+            backgroundColor: ['#dfe4cc'],
             borderWidth: 1
         }]
     };
@@ -873,7 +873,7 @@ async function drawBarChartThree() {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Arbovirus discovery by Koppen Geiger classification',
+                    text: 'Arbovirus Discovery by Koppen Geiger Classification',
                     font:{
                         family: 'Montserrat',
                         size: 20
@@ -1036,27 +1036,27 @@ async function drawDoughnutOne() {
             {
                 label: 'datase1',
                 data: [datapoints.diptera, datapoints.human, datapoints.primate, datapoints.perissodactyla, datapoints.ixodida, datapoints.artiodactyla, datapoints.rodentia, datapoints.chiroptera, datapoints.aves, datapoints.didelphimorphia, datapoints.lagomorpha, datapoints.unknown, datapoints.squamata, datapoints.pilosa, datapoints.siphonaptera, datapoints.anura, datapoints.eulipotyphla, datapoints.hemiptera, datapoints.carnivora, datapoints.pholidota, datapoints.cingulata],
-                backgroundColor: ['#2c1a4c',
-                                    '#2b2457',
-                                    '#292f62',
-                                    '#283a6d',
-                                    '#274579',
-                                    '#275287',
-                                    '#2b5d97',
-                                    '#3266a7',
-                                    '#3d6fb8',
-                                    '#4f79c7',
-                                    '#6784d3',
-                                    '#7d8fdd',
-                                    '#9398e5',
-                                    '#a6a3eb',
-                                    '#b2adef',
-                                    '#bdb7f1',
-                                    '#c6c1f3',
-                                    '#cfcbf5',
-                                    '#d9d5f7',
-                                    '#e3e0f9',
-                                    '#eceafb'],
+                backgroundColor: ['#00054a',
+                                    '#081458',
+                                    '#102567',
+                                    '#193476',
+                                    '#224380',
+                                    '#2d5088',
+                                    '#375e8e',
+                                    '#426b94',
+                                    '#4e7595',
+                                    '#597f94',
+                                    '#658993',
+                                    '#729493',
+                                    '#829f93',
+                                    '#91a994',
+                                    '#a1b596',
+                                    '#afc09f',
+                                    '#becba9',
+                                    '#cbd5b4',
+                                    '#d9e0c2',
+                                    '#e5ead6',
+                                    '#f2f4ea'],
             borderWidth: 0.5
             }
         ]
@@ -1072,7 +1072,7 @@ async function drawDoughnutOne() {
             },
             title: {
                 display: true,
-                text: 'Arbovirus discovery by host',
+                text: 'Arbovirus Discovery by Host',
                 font: {
                     family: 'Montserrat',
                     size: 20
@@ -1259,7 +1259,7 @@ async function getDataPlattform() {
     const complete = [];
     const partial = [];
 
-    const url = 'https://gist.githubusercontent.com/JacquelineTida/db414818b85717dbbbcf546487a93aa8/raw/14b2e8d58eec0b8fd66629f71422f9593b3a639b/plattform_sequence_complete_partial.csv';
+    const url = 'https://gist.githubusercontent.com/JacquelineTida/db414818b85717dbbbcf546487a93aa8/raw/ebef8658c57b9bb173a3dd6f3c464bd57ac23347/plattform_sequence_complete_partial.csv';
     const response = await fetch(url);
     const tableData = await response.text();
     //console.log(tableData)
@@ -1286,204 +1286,204 @@ async function getDataPlattform() {
 //Circle packing Family and Genus
 const data_tax = {
     name: 'Arbovirus',
-    color: '#011959',
+    color: '#00054a',
     children: [{
       name: 'Asfaviridae',
-      color: '#04225b',
+      color: '#030b4f',
       children:[{
           name: 'Asfivirus',
-          color: '#04225b',
+          color: '#061155',
           size:1
       }]
     },{
       name: 'Flaviviridae',
-      color: '#082c5c',
+      color: '#09175b',
       children: [{
         name: 'Flavivirus',
-        color: '#082c5c',
+        color: '#0c1e61',
         size: 96
       }]
     }, {
         name: 'Nairoviridae', 
-        color: '#0c355e',
+        color: '#102567',
         children:[{
             name: 'Orthonairovirus',
-            color: '#0c355e',
+            color: '#132b6d',
             size: 67
         }]
     }, {
         name: 'Nyamiviridae',
-        color: '#0f3d5f',
+        color: '#173173',
         children:[{
             name: 'Nyavirus', 
-            color: '#0f3d5f',
+            color: '#1b3778',
             size:4
         }, {
             name: 'Unclassified', 
-            color: '#124460',
+            color: '#1e3d7c',
             size: 2
         }]
     }, {
         name: 'Orthomyxoviridae',
-        color: '#144b61', 
+        color: '#224380', 
         children: [{
             name:'Thogotovirus', 
-            color: '#175261',
+            color: '#274984',
             size: 11
         }, {
             name: 'Quaranjavirus', 
-            color: '#1c5860', 
+            color: '#2b4e87', 
             size: 4
         },{
             name: 'Unclassified',
-            color: '#124460',
+            color: '#2f538a',
             size: 3
         }]
     }, {
         name: 'Peribunyaviridae', 
-        color: '#27635e', 
+        color: '#33598c', 
         children: [
             {
                 name: 'Orthobunyavirus', 
-                color: '#27635e', 
+                color: '#375f8e', 
                 size: 219
             }, {
                 name: 'Pacuvirus',
-                color: '#30675a',
+                color: '#3c6491',
                 size: 4 
             }, {
                 name: 'unclassified',
-                color:  '#124460',
+                color:  '#406993',
                 size: 6
             }
         ]
     }, {
         name: 'Phenuiviridae', 
-        color: '#3a6b55',
+        color: '#456e94',
         children: [{
             name: 'Bandavirus', 
-            color: '#3a6b55',
+            color: '#4a7295',
             size:9
         }, {
             name: 'Banyangvirus', 
-            color: '#436f51',
+            color: '#4f7695',
             size:1
         }, {
             name: 'Mobuvirus',
-            color: '#4e734c',
+            color: '#537a95',
             size: 1
         }, {
             name: 'Pacuvirus', 
-            color: '#597646',
+            color: '#587e94',
             size: 1
         }, {
             name: 'Phlebovirus', 
-            color: '#647a40',
+            color: '#5c8294',
             size: 124
         }, {
             name: 'Tanzavirus', 
-            color: '#6f7d3a',
+            color: '#618693',
             size: 1
         }, {
             name: 'Unclassified', 
-            color: '#124460',
+            color: '#668a93',
             size: 1
         }, {
             name: 'Uukuvirus', 
-            color: '#7c8035',
+            color: '#6b8f93',
             size: 16
         }]
     }, {
         name: 'Reoviridae', 
-        color: '#898431', 
+        color: '#719393', 
         children: [{
             name: 'coltivirus',
-            color:'#898431',
+            color:'#779793',
             size: 6
         }, {
             name: 'Orbivirus',
-            color: '#96872c',
+            color: '#7d9c93',
             size: 196
         }, {
             name: 'Seadornavirus',
-            color: '#a38a2f',
+            color: '#84a093',
             size: 4
         }, {
             name: 'Unclassified',
-            color: '#124460',
+            color: '#8aa494',
             size: 2
         }]
     }, {
         name: 'Rhabdoviridae',
-        color: '#b08d33',
+        color: '#90a894',
         children: [{
             name: 'Arurhavirus',
-            color: '#b08d33', 
+            color: '#96ad95', 
             size:3
         },{
             name: 'Curiovirus',
-            color: '#bd8f37', 
+            color: '#9db296', 
             size:4
         }, {
             name: 'Dimarhabdovirus',
-            color: '#ca923e', 
+            color: '#a3b797', 
             size:1
         }, {
             name: 'Ephemerovirus',
-            color: '#d59549', 
+            color: '#a9bb9b', 
             size:13
         }, {
             name: 'Hapavirus',
-            color: '#e09855', 
+            color: '#aec09f', 
             size:16
         }, {
             name: 'Ledantevirus',
-            color: '#eb9b60', 
+            color: '#b4c4a3', 
             size:15
         }, {
             name: 'Ohlsrhavirus ',
-            color: '#f09f70', 
+            color: '#bac9a7', 
             size:1
         }, {
             name: 'Sawgrhavirus',
-            color: '#f6a480', 
+            color: '#c0cdab', 
             size:2
         },{
             name: 'Sripuvirus',
-            color: '#fba890',
+            color: '#c6d1af',
             size: 9
         },{
             name: 'Sunrhavirus',
-            color: '#fcad9f',
+            color: '#cbd5b4',
             size: 1
         }, {
             name: 'Tibrovirus',
-            color: '#fdb2ae',
+            color: '#d0d9b9',
             size: 8
         },{
             name: 'Tupavirus',
-            color: '#fdb8bd',
+            color: '#d6debf',
             size: 2
         },{
             name: 'Unclassified',
-            color: '#124460',
+            color: '#dbe2c6',
             size: 5
         }, {
             name: 'Vesiculovirus',
-            color: '#fdbdcc',
+            color: '#e0e6ce',
             size: 16
         }]
     },{
         name: 'Togaviridae',
-        color: '#fcc2db',
+        color: '#e5ead6',
         children: [{
             name:'Alphavirus',
-            color: '#fbc7eb',
+            color: '#eaeede',
             size: 25
         }]
     }, {
         name:'Unclassified',
-        color: '#faccfa',
+        color: '#eff2e6',
         size: 14
     }]
   };
@@ -1525,7 +1525,7 @@ async function drawDoughnutSequence() {
                 },
                 title: {
                     display: true,
-                    text: 'Status of arbovirus sequence',
+                    text: 'Status of Arbovirus Sequence',
                     font:{
                         font: 'Montserrat',
                         size: 20
@@ -1611,7 +1611,7 @@ async function drawBoxPlotGenome() {
                 y:{
                     title:{
                         display:true,
-                        text: 'Genome Length in nt'
+                        text: 'Genome Length in Nucleotides'
                     }
                 },
                 x:{
@@ -1684,166 +1684,3 @@ async function drawBoxPlotGenome() {
 
      }
 
-drawDistributionMap();
-drawDistributionBarChart();
-
-async function drawDistributionBarChart(){
-    const datapoints = await getDistributionContinent();
-    const labels = datapoints.labels;
-
-}
-//Drawing Bar chart arbovirus dicovery and continent
-async function drawDistributionBarChart() {
-    const datapoints = await getDistributionContinent();
-    const labels = datapoints.labels;
-    const data = {
-        labels : labels,
-        datasets: [{
-            label: 'Arbovirus distribution',
-            type: 'bar', 
-            data: datapoints.continentData,
-            backgroundColor: [
-            '#011959',
-            '#216061',
-            '#828231',
-            '#f29d6b',
-            '#faccfa']
-        }]
-    };
-
-    //Bar Chart config
-    const config = {
-        type: 'bar', 
-        data: data,
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Arbovirus distribution by continent',
-                    position: 'top',
-                    align: 'center'
-                }
-            }
-        },
-    }
-
-    //render Bar Chart Two 
-    const myChart = new Chart(
-        document.getElementById('myChart_D2'),
-        config
-    );
-}
-//fetching Data by continent 
-async function getDistributionContinent() {
-    const labels = [];
-    const continentData = [];
-
-    const url = 'https://gist.githubusercontent.com/JacquelineTida/250f9d2f71cc3d4202a03d54ad0cdd44/raw/0981977658eff88eebb013f23e7f8cd1f264cd95/arbovirus_distribution_continent.csv';
-    const response = await fetch(url);
-    const tableData = await response.text();
-
-    const table = tableData.split('\n');
-    table.forEach(row => {
-        const column = row.split(',');
-        const continet = column[0];
-        const amount = column[1];
-        labels.push(continet);
-        continentData.push(amount);
-    });
-    labels.shift();
-    continentData.shift();
-    return { labels, continentData}
-}
-
-async function drawDistributionMap() {
-    const datapoints = await getDistributionData();
-    const labels = datapoints.labels;
-    console.log(datapoints.distribution);
-    //chart Geo for arbovirus discovery chart Geo for arbovirus discovery by country
-    const atlasUrl = 'https://unpkg.com/world-atlas@2.0.2/countries-50m.json';
-
-    const world = fetch(atlasUrl).then((result) => result.json()).then((datapoint) => {
-        const countries = ChartGeo.topojson.feature(datapoint, datapoint.objects.countries).features;
-        //console.log(countries[45].properties.name);
-        //console.log(countries.map(country => country.properties.name)); 
-        //console.log(pais)
-       
-        //setup
-        const brazil = countries.find(country => country.properties.name === 'Brazil');
-        const china = countries.find(country => country.properties.name === 'China')
-        console.log(datapoints.labels)
-            const data = {
-                labels : labels,
-                datasets : [{
-                    label: 'Countries',
-                    outline: countries,
-                    showOutline: true,
-                    data:[{
-                        value: 211,
-                        feature: brazil
-                    }, {
-                        value: 52,
-                        feature: china
-                    }]
-                }]
-            };
-
-            const configMAp = {
-                type: 'choropleth',
-                data: data,
-                options: {
-                    showOutline: true,
-                    scales: {
-                        xy: {
-                            projection: 'naturalEarth1'
-                        },
-                        color: {
-                            interpolate: 'interpolateOrRd',
-                            quantize: 10
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            diplay: false,
-                        },
-                        title: {
-                            display: true,
-                            text: 'Arbovirus discovered by country',
-                            position: 'top',
-                            align: 'center'
-                        }
-                    }
-                }
-            };
-            const myChart = new Chart(
-                document.getElementById('myChart_D1'),
-                configMAp
-            );
-    
-        
-
-    })
-}
-
-async function getDistributionData() {
-    const labels = [];
-    const distribution = [];
-     const url = 'https://gist.githubusercontent.com/JacquelineTida/b123b2795a23cee87603bf752fe161e1/raw/93897e27be363a87e9e87e8ed16af5df31b537bf/distribution.csv';
-
-     const response = await fetch(url);
-     const tableData = await response.text();
-
-     const table = tableData.split('\n');
-     table.forEach(row => {
-         const column = row.split(',');
-         const country = column[0];
-         const amount = column[1];
-
-         labels.push(country);
-         distribution.push(amount);
-     });
-     labels.shift();
-     distribution.shift();
-     
-     return{labels, distribution}
-}

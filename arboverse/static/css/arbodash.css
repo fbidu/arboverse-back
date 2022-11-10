@@ -146,6 +146,13 @@ main{
   display: flex;
   margin: 3vh 0;
 }
+.circle_pack{
+  font-size: 20;
+  color: #666666;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
 .chart_one_taxonomy{
   width: 100%;
   height: auto;
@@ -174,6 +181,14 @@ main{
   align-items: center;
   justify-content: center;
   margin: 5vh 0;
+}
+.asfivirus_note{
+  width: 80%;
+  margin:0 auto;
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  color: #666666;
 }
 .distribution_map{
   position: relative;
