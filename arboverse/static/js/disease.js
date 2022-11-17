@@ -1,6 +1,7 @@
 drawBarChartLevelDisease();
 drawMultiPieChartHumanDisease()
 drawSpiderChartHumanDisease();
+drawVetBarchart();
 
 
 
@@ -84,6 +85,14 @@ async function drawBarChartLevelDisease() {
                 options: {
                     indexAxis: 'y',
                     plugins: {
+                        title: {
+                            display: true,
+                            text: 'Level of Disease by Arbovirus Family',
+                            font:{
+                                family: 'Montserrat',
+                                size: 20
+                            }
+                        },
                         stacked100 : {
                             enable: true,
                             precision:2
@@ -206,7 +215,11 @@ async function drawSpiderChartHumanDisease() {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Human diseases caused by arbovirus and its family'
+                    text: 'Human Diseases Caused by Arbovirus',
+                    font:{
+                        family: 'Montserrat',
+                        size: 20
+                    }
                 }
             },
             resposive: true,
@@ -277,7 +290,11 @@ const myChart = new Chart(ctx, {
             },
             title: {
                 display: true,
-                text: 'Human Disease'
+                text: 'Human Disease',
+                font:{
+                    family: 'Montserrat',
+                    size: 20
+                }
             }
             }
         },
@@ -299,3 +316,84 @@ const myChart = new Chart(ctx, {
 });
 };
 
+async function drawVetBarchart(){
+    const datapoints = await getDataVet();
+    const labels = datapoints.labels;
+    console.log(labels)
+    const data = {
+        labels : labels,
+        datasets: [{
+            label: 'Yes',
+            data: datapoints.yes,
+            backgroundColor: '#43709d'
+        },{
+            label: 'Unknown',
+            data: datapoints.unknown,
+            backgroundColor: '#d4dba8'
+        }]
+    };
+
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {
+            plugins: {
+                title:{
+                    display: true,
+                    text: 'Veterinary Diseases Caused by Arbovirus',
+                    font:{
+                        family: 'Montserrat',
+                        size: 20
+                    }
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            scales:{
+                x:{
+                    stacked: true,
+                    title:{
+                        display: true,
+                        text: 'Veterinary Host'
+                    }
+                },
+                y:{
+                    stacked: true,
+                    title:{
+                        display: true,
+                        text: 'N˚ of Arbovirus'
+                    }
+                }
+            }
+        }
+    }
+    const myChart = new Chart(
+        document.getElementById('veterinary_disease'),
+        config
+    );
+}
+
+async function getDataVet(){
+    const labels = [];
+    const yes = [];
+    const unknown = [];
+
+    const url = 'https://gist.githubusercontent.com/JacquelineTida/3aa130404608ea94c8ad25965cf9b31a/raw/b64ace19a9896311cdb62e3972b5fbf63effdc2b/veterinary_disease.csv';
+    const response = await fetch(url);
+    const tableData = await response.text();
+    const table = tableData.split('\n');
+    table.forEach(row => {
+        const column = row.split(',');
+        const name = column[0];
+        const yes_num = column[1];
+        const uk_num = column[2];
+
+        labels.push(name);
+        yes.push(yes_num);
+        unknown.push(uk_num);
+    })
+    labels.shift();
+    yes.shift();
+    unknown.shift();
+    return{labels, yes, unknown} 
+}

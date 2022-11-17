@@ -13,11 +13,11 @@ async function drawVectorTransmissionPie(){
             {
                 label: 'order',
                 data: datapoints.order,
-                backgroundColor: ['#00404d', '#607d14', '#ffe599', '#0a4646', '#144c40', '#1e533a', '#285935', '#80922e', '#a0a749', '#e0d17e']
+                backgroundColor: ['#00054a', '#517994', '#abbd9d', '#102668', '#244580', '#3a618f', '#6c8f94', '#8ba695', '#c9d4b4', '#e4ead5']
             },{
                 label: 'organism',
                 data: datapoints.org,
-                backgroundColor: ['#00404d', '#607d14', '#ffe599', '#0a4646', '#144c40', '#1e533a', '#285935', '#80922e', '#a0a749', '#e0d17e']
+                backgroundColor: ['#00054a', '#517994', '#abbd9d', '#102668', '#244580', '#3a618f', '#6c8f94', '#8ba695', '#c9d4b4', '#e4ead5']
             }
         ]
     };
@@ -32,7 +32,11 @@ async function drawVectorTransmissionPie(){
                 },
                 title: {
                     display: true,
-                    text: 'Vectors related to arbovirus transmission'
+                    text: 'Vectors Related to Arbovirus Transmission',
+                    font:{
+                        family: 'Montserrat',
+                        size: 20
+                    }
                 }
             }
         }
@@ -78,157 +82,157 @@ async function drawVectorGenusBarStack(){
         datasets: [{
             label: 'Argas',
             data: datapoints.argas,
-            backgroundColor: ['#011959'],
+            backgroundColor: ['#00054a'],
             borderWidth: 1
         },{
             label: 'Carios',
             data: datapoints.carios,
-            backgroundColor: ['#08265b'],
+            backgroundColor: ['#050f53'],
             borderWidth: 1
         },{
             label: 'Ornithodoros',
             data: datapoints.ornithodoros,
-            backgroundColor: ['#0d325e'],
+            backgroundColor: ['#0a195d'],
             borderWidth: 1
         },{
             label: 'Culicoides',
             data: datapoints.culicoides,
-            backgroundColor: ['#0f3c5f'],
+            backgroundColor: ['#0f2466'],
             borderWidth: 1
         },{
             label: 'Oeciacus',
             data: datapoints.oecicacus,
-            backgroundColor: ['#124561'],
+            backgroundColor: ['#152d6e'],
             borderWidth: 1
         },{
             label: 'Stricticimex',
             data: datapoints.strictimex,
-            backgroundColor: ['#144d62'],
+            backgroundColor: ['#1b3775'],
             borderWidth: 1
         },{
             label: 'Aedeomyia',
             data: datapoints.aedeomyia,
-            backgroundColor: ['#185562'],
+            backgroundColor: ['#21417d'],
             borderWidth: 1
         },{
             label: 'Aedes',
             data: datapoints.aedes,
-            backgroundColor: ['#1e5c62'],
+            backgroundColor: ['#284a83'],
             borderWidth: 1
         },{
             label: 'Anopheles',
             data: datapoints.anopheles,
-            backgroundColor: ['#26635f'],
+            backgroundColor: ['#2f5388'],
             borderWidth: 1
         },{
             label: 'Armigeres',
             data: datapoints.armigeres,
-            backgroundColor: ['#30685b'],
+            backgroundColor: ['#365c8c'],
             borderWidth: 1
         },{
             label: 'Coquillettidia',
             data: datapoints.coquillettidia,
-            backgroundColor: ['#3c6d56'],
+            backgroundColor: ['#3d6490'],
             borderWidth: 1
         },{
             label: 'Culex',
             data: datapoints.culex,
-            backgroundColor: ['#49714e'],
+            backgroundColor: ['#446b91'],
             borderWidth: 1
         },{
             label: 'Culiseta',
             data: datapoints.culiseta,
-            backgroundColor: ['#577647'],
+            backgroundColor: ['#4b7393'],
             borderWidth: 1
         },{
             label: 'Eretmapodites',
             data: datapoints.eretmapodites,
-            backgroundColor: ['#647a3f'],
+            backgroundColor: ['#537a94'],
             borderWidth: 1
         },{
             label: 'Haemagogus',
             data: datapoints.haemagogus,
-            backgroundColor: ['#737e38'],
+            backgroundColor: ['#5b8194'],
             borderWidth: 1
         },{
             label: 'Lutzia',
             data: datapoints.lutzia,
-            backgroundColor: ['#828231'],
+            backgroundColor: ['#638894'],
             borderWidth: 1
         },{
             label: 'Mansonia',
             data: datapoints.mansonia,
-            backgroundColor: ['#91862d'],
+            backgroundColor: ['#6c8f94'],
             borderWidth: 1
         },{
             label: 'Psorophora',
             data: datapoints.psorophora,
-            backgroundColor: ['#a28a2b'],
+            backgroundColor: ['#769694'],
             borderWidth: 1
         },{
             label: 'Sabethes',
             data: datapoints.sabethes,
-            backgroundColor: ['#b38e2f'],
+            backgroundColor: ['#7f9d95'],
             borderWidth: 1  
         },{
             label: 'Trichoprosopon',
             data: datapoints.trichoprosopon,
-            backgroundColor: ['#c39137'],
+            backgroundColor: ['#89a595'],
             borderWidth: 1   
         },{
             label: 'Verrallina',
             data: datapoints.verrallina,
-            backgroundColor: ['#d29343'],
+            backgroundColor: ['#93ac97'],
             borderWidth: 1   
         },{
             label: 'Wyeomyia',
             data: datapoints.wyeomyia,
-            backgroundColor: ['#d29343'],
+            backgroundColor: ['#9db39a'],
             borderWidth: 1   
         },{
             label: 'Amblyomma',
             data: datapoints.amblyomma,
-            backgroundColor: ['#e19751'],
+            backgroundColor: ['#a7ba9c'],
             borderWidth: 1   
         },{
             label: 'Dermacentor',
             data: datapoints.dermacentor,
-            backgroundColor: ['#ed9a62'],
+            backgroundColor: ['#b1c2a1'],
             borderWidth: 1 
         },{
             label: 'Haemaphysalis',
             data: datapoints.haemaphysalis,
-            backgroundColor: ['#f6a075'],
+            backgroundColor: ['#bac9a9'],
             borderWidth: 1 
         },{
             label: 'Hyalomma',
             data: datapoints.hyalomma,
-            backgroundColor: ['#fba689'],
+            backgroundColor: ['#c4d0b0'],
             borderWidth: 1 
         },{
             label: 'Ixodes',
             data: datapoints.ixodes,
-            backgroundColor: ['#fdac9d'],
+            backgroundColor: ['#cdd7b8'],
             borderWidth: 1 
         },{
             label: 'Rhipicephalus',
             data: datapoints.rhipicephalus,
-            backgroundColor: ['#fdb2af'],
+            backgroundColor: ['#d5dec2'],
             borderWidth: 1 
         },{
             label: 'Eucampsipoda',
             data: datapoints.eucampsipoda,
-            backgroundColor: ['#fdb9c1'],
+            backgroundColor: ['#dee4cd'],
             borderWidth: 1 
         },{
             label: 'Lutzomyia',
             data: datapoints.lutzomyia,
-            backgroundColor: ['#fcbfd3'],
+            backgroundColor: ['#e6ebd7'],
             borderWidth: 1 
         },{
             label: 'Phlebotomus',
             data: datapoints.phlebotomus,
-            backgroundColor: ['#fcc6e7'],
+            backgroundColor: ['#eef1e4'],
             borderWidth: 1
         }]
     };
@@ -239,7 +243,11 @@ async function drawVectorGenusBarStack(){
             plugins: {
                 title: {
                     display: true,
-                    text: 'Families and genus related to vectors associated to arbovirus transmission'
+                    text: 'Vector Families and Genus Related to Arbovirus Transmission',
+                    font:{
+                        family: 'Montserrat',
+                        size:20
+                    }
                 }
             },
             resposive: true,
@@ -416,58 +424,46 @@ async function drawVectorHabitat() {
     var ctx = document.getElementById('habitat_bar').getContext('2d');
 
     var colors = {
-        sylvatic : '#234a8c',
-        rural: '#547d9c',
-        periUrban: '#849e89',
-        urban: '#d4dba8',
-        groundLevel: '#00404d',
-        groundAttached: '#0d4745',
-        ground: '#1a4f3e',
-        groundWoods: '#275836',
-        canopy: '#35612d',
-        arboreal: '#456b24',
-        freshWater: '#57771a',
-        costal:'#6b840e',
-        pasture: '#858e03',
-        swampy: '#a1960e',
-        unknown: '#c2ab2e'
+        Sylvatic : '#234a8c',
+        Rural: '#547d9c',
+        'Peri-Urban': '#849e89',
+        Urban: '#d4dba8',
+        'Ground Level': '#00404d',
+        'Ground Level or Attached to the Host': '#0d4745',
+        Ground: '#1a4f3e',
+        'Ground Level at Woods': '#275836',
+        Canopy: '#35612d',
+        Arboreal: '#456b24',
+        'Fresh Water': '#57771a',
+        Costal:'#6b840e',
+        Pasture: '#858e03',
+        Swampy: '#a1960e',
+        Unknown: '#c2ab2e'
 
 
     };
     var priority = {
-        sylvatic: 1,
-        rural: 2,
-        urban: 3,
-        periUrban: 4,
-        groundLevel: 1,
-        groundAttached: 3,
-        ground: 2,
-        groundWoods: 6,
-        canopy: 4,
-        arboreal: 5,
-        freshWater: 9,
-        costal:10,
-        pasture: 8,
-        swampy: 11,
-        unknown: 7
+        Sylvatic: 1,
+        Rural: 2,
+        Urban: 3,
+        'Peri-Urban': 4,
+        'Ground Level': 1,
+        'Ground Level or Attached to the Host': 3,
+        Ground: 2,
+        'Ground Level at Woods': 6,
+        Canopy: 4,
+        Arboreal: 5,
+        'Fresh Water': 9,
+        Costal:10,
+        Pasture: 8,
+        Swampy: 11,
+        Unknown: 7
 
     }
     var labels ={
-        sylvatic: 'Sylvatic',
-        rural: 'Rural',
-        periUrban: 'Peri-Urban',
-        urban: 'Urban',
-        groundLevel: 'Ground Level',
-        groundAttached: 'Ground Level or Attached to the Host',
-        ground: 'Ground',
-        groundWoods: 'Ground Level at Woods',
-        canopy: 'Canopy',
-        arboreal: 'Arboreal',
-        freshWater: 'Fresh Water',
-        costal:'Costal Mangroves | Bammboo Groves | Shady Jungle',
-        pasture: 'Pastures or Long Grasses',
-        swampy: 'Swampy Wetlands',
-        unknown: 'Unknown'
+        Costal:'Costal Mangroves | Bammboo Groves | Shady Jungle',
+        Pasture: 'Pastures or Long Grasses',
+        Swampy: 'Swampy Wetlands'
 
     }
     function getColor(name){
@@ -479,29 +475,29 @@ async function drawVectorHabitat() {
             datasets:[
                 {
                     data:[
-                        {from: 'rural', to: 'groundLevel', flow:32},
-                        {from:'sylvatic', to:'groundLevel', flow:104.5},
-                        {from: 'urban', to: 'groundLevel', flow:7},
-                        {from: 'periUrban', to: 'groundLevel', flow: 1},
-                        {from: 'rural', to: 'groundAttached', flow: 27.25},
-                        {from: 'urban', to:'groundAttached', flow: 4.25},
-                        {from:'sylvatic', to:'groundAttached', flow: 61.25},
-                        {from: 'periUrban', to:'groundAttached', flow:0.25},
-                        {from: 'sylvatic', to:'ground', flow: 17.5},
-                        {from: 'rural', to: 'ground', flow: 7.5},
-                        {from: 'urban', to: 'ground', flow: 2.5},
-                        {from: 'periUrban', to: 'ground', flow: 1.5},
-                        {from:'sylvatic', to:'groundWoods', flow: 2.5},
-                        {from: 'rural', to:'groundWoods', flow: 0.5}, 
-                        {from:'sylvatic', to:'arboreal', flow: 2.83 },
-                        {from:'rural', to: 'arboreal', flow: 0.33},
-                        {from: 'periUrban', to: 'arboreal', flow: 0.33},
-                        {from: 'sylvatic', to:'canopy', flow: 6 },
-                        {from: 'rural', to: 'canopy', flow: 1},
-                        {from: 'sylvatic', to: 'freshWater', flow: 1 },
-                        {from:'sylvatic', to: 'pasture', flow: 0.5},
-                        {from:'rural', to: 'pasture', flow: 0.5}, 
-                        {from:'sylvatic', to:'unknown', flow:2} 
+                        {from: 'Rural', to: 'Ground Level', flow:32},
+                        {from:'Sylvatic', to:'Ground Level', flow:104.5},
+                        {from: 'Urban', to: 'Ground Level', flow:7},
+                        {from: 'Peri-Urban', to: 'Ground Level', flow: 1},
+                        {from: 'Rural', to: 'Ground Level or Attached to the Host', flow: 27.25},
+                        {from: 'Urban', to:'Ground Level or Attached to the Host', flow: 4.25},
+                        {from:'Sylvatic', to:'Ground Level or Attached to the Host', flow: 61.25},
+                        {from: 'Peri-Urban', to:'Ground Level or Attached to the Host', flow:0.25},
+                        {from: 'Sylvatic', to:'Ground', flow: 17.5},
+                        {from: 'Rural', to: 'Ground', flow: 7.5},
+                        {from: 'Urban', to: 'Ground', flow: 2.5},
+                        {from: 'Peri-Urban', to: 'Ground', flow: 1.5},
+                        {from:'Sylvatic', to:'Ground Level at Woods', flow: 2.5},
+                        {from: 'Rural', to:'Ground Level at Woods', flow: 0.5}, 
+                        {from:'Sylvatic', to:'Arboreal', flow: 2.83 },
+                        {from:'Rural', to: 'Arboreal', flow: 0.33},
+                        {from: 'Peri-Urban', to: 'Arboreal', flow: 0.33},
+                        {from: 'Sylvatic', to:'Canopy', flow: 6 },
+                        {from: 'Rural', to: 'Canopy', flow: 1},
+                        {from: 'Sylvatic', to: 'Fresh Water', flow: 1 },
+                        {from:'Sylvatic', to: 'Pasture', flow: 0.5},
+                        {from:'Rural', to: 'Pasture', flow: 0.5}, 
+                        {from:'Sylvatic', to:'Unknown', flow:2} 
                         
                     ],
                     priority,
@@ -517,7 +513,16 @@ async function drawVectorHabitat() {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Vector Transmission Habitat'
+                    text: 'Vector Transmission Habitat',
+                    font:{
+                        family:'Montserrat',
+                        size:20
+                    }
+                },
+                tooltip:{
+                    callback:{
+                        
+                    }
                 }
             },
             responsive: true
@@ -564,7 +569,11 @@ async function drawVectorFeedBehavior() {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Vector Feeding period and behevior '
+                    text: 'Vector Feeding Period and Behavior',
+                    font:{
+                        family: 'Montserrat',
+                        size: 20
+                    }
                 }
             },
             resposive: true,
@@ -575,7 +584,11 @@ async function drawVectorFeedBehavior() {
                     title:{
                         display: true,
                         text:'Feeding Preference Time',
-                        align: 'end'
+                        align: 'center',
+                        font:{
+                            family: 'Montserrat',
+                            size: 14
+                        }
                     }
                 },
                 y: {
@@ -583,7 +596,11 @@ async function drawVectorFeedBehavior() {
                     title:{
                         display: true,
                         text:'Feeding Preference Behavior',
-                        align: 'end'
+                        align: 'center',
+                        font:{
+                            family: 'Montserrat',
+                            size: 14
+                        }
                     }
             }
             }
@@ -603,7 +620,7 @@ async function getVectorFeedData(){
     const zoo = [];
     const unknown = [];
 
-    const url = 'https://gist.githubusercontent.com/JacquelineTida/22575da04fe88bf4206d0f31aa6c3e19/raw/6b08e344ca291ab8ddec78f2c049bccabd791684/Feeding_time_and_behavior.csv';
+    const url = 'https://gist.githubusercontent.com/JacquelineTida/22575da04fe88bf4206d0f31aa6c3e19/raw/3219758fdb0499c7b56ce2995db38e4060a0e2f8/Feeding_time_and_behavior.csv';
     const response = await fetch(url);
     const tableData = await response.text();
     const table = tableData.split('\n');

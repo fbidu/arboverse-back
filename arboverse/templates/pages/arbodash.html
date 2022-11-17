@@ -32,8 +32,8 @@
                 <button class="arbodash_tablinks " onclick="openTab(event, 'firstChart')" id="defaultOpen" >Discovery</button>
                 <button class="arbodash_tablinks" onclick="openTab(event, 'secondChart')" id="taxonomy_btn" >Taxonomy</button>
                 <button class="arbodash_tablinks" onclick="openTab(event, 'thirdChart')" >Distribution</button>
-                <button class="arbodash_tablinks" onclick="openTab(event, 'fourthChart')" >Transmission</button>
-                <button class="arbodash_tablinks" onclick="openTab(event, 'fifthChart')">Disease</button>
+                <button class="arbodash_tablinks" onclick="openTab(event, 'fourthChart')" id="transmission_btn">Transmission</button>
+                <button class="arbodash_tablinks" onclick="openTab(event, 'fifthChart')" id="disease_btn">Disease</button>
             </div>
             <div id="firstChart" class="tabcontent">
                 <div class="general_info">
@@ -65,6 +65,13 @@
                             <h6 name="count" id="n_climate">15</h6>
                         </div> 
                       </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/vector-min.png' %}" alt="Climate icon"> 
+                        <div class="info_text">
+                            <h5>Host Diptera</h5>
+                            <h6 name="count" id="n_host">395</h6>
+                        </div> 
+                      </div>
                 </div>
                 <div class="chart_wrapper discovery_chart">
                     <div class="chart_pre">
@@ -89,31 +96,38 @@
             <div id="secondChart" class="tabcontent">
                 <div class="general_info">
                     <div class="info_box">
-                        <img src="{% static 'images/aboverse/icons/family_virus-min.png' %}" alt="Arbovirus family icon" class="taxonomy_icon"> 
+                        <img src="{% static 'images/aboverse/icons/virus_family-min.png' %}" alt="Arbovirus family icon" class="taxonomy_icon"> 
                         <div class="info_text">
                             <h5>Families</h5>
                             <h6 name="count" id="n_families">11</h6>
                         </div> 
                       </div>
                       <div class="info_box">
-                        <img src="{% static 'images/aboverse/icons/genus_virus-min.png' %}" alt="Arbovirus genus icon" class="taxonomy_icon"> 
+                        <img src="{% static 'images/aboverse/icons/genus-min.png' %}" alt="Arbovirus genus icon" class="taxonomy_icon"> 
                         <div class="info_text">
                             <h5>Genus</h5>
                             <h6 name="count" id="n_genus">37</h6>
                         </div> 
                       </div>
                       <div class="info_box">
-                        <img src="{% static 'images/aboverse/icons/species_virus-min.png' %}" alt="Arbovirus species icon" class="taxonomy_icon"> 
+                        <img src="{% static 'images/aboverse/icons/species-min.png' %}" alt="Arbovirus species icon" class="taxonomy_icon"> 
                         <div class="info_text">
                             <h5>Species</h5>
                             <h6 name="count" id="n_species">467</h6>
                         </div> 
                       </div>
                       <div class="info_box">
-                        <img src="{% static 'images/aboverse/icons/virus_virus-min.png' %}" alt="Arbovirus virus icon" class="taxonomy_icon"> 
+                        <img src="{% static 'images/aboverse/icons/virus-min.png' %}" alt="Arbovirus virus icon" class="taxonomy_icon"> 
                         <div class="info_text">
                             <h5>Arbovirus</h5>
                             <h6 name="count" id="n_virus">922</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/sequence-min.png' %}" alt="Arbovirus virus icon" class="taxonomy_icon"> 
+                        <div class="info_text">
+                            <h5>Arbovirus Sequenced</h5>
+                            <h6 name="count" id="n_sequence">645</h6>
                         </div> 
                       </div>
                 </div>
@@ -173,12 +187,7 @@
                     <div class="chart_pre">
                         <div class="pre_info">
                             <h3>Arbovirus Distribution</h3>
-                            <div class="btn_compose">
-                                <button class="circle_compose" id="save_one"><i
-                                    class="fa fa-solid fa-download"></i></button>
-                            <button class="circle_compose" id="blind_one"><i class="fa fa-solid fa-eye"></i></button>
-                                <button class="circle_compose"><i class="fa fa-solid fa-info"></i></button>
-                            </div>
+                            <h2>Explore commom vectors related to arbovirus transmission and potential transmission. Delve into vector classification, feeding behavior patterns and enviroment patterns.</h2>
                         </div>
                         <div class="chart_one_distribution">
                             <canvas id="myChart_D1"  class="chart_map" width="500" height="400"></canvas>
@@ -192,31 +201,38 @@
             <div id="fourthChart" class="tabcontent">
                 <div class="general_info">
                     <div class="info_box">
-                        <img src="{% static 'images/aboverse/icons/arbovirus-min.png' %}" alt="Arbovirus icon"> 
+                        <img src="{% static 'images/aboverse/icons/vector-min.png' %}" alt="Arbovirus icon"> 
                         <div class="info_text">
-                            <h5>Arbovirus discovered</h5>
-                            <h6 name="count" id="n_arbovirus">922</h6>
+                            <h5>Transmitted by Diptera</h5>
+                            <h6 name="count" id="n_diptera">192</h6>
                         </div> 
                       </div>
                       <div class="info_box">
-                        <img src="{% static 'images/aboverse/icons/arbovirus-discovery-min.png' %}" alt="Arbovirus discovery icon"> 
+                        <img src="{% static 'images/aboverse/icons/ticks-min.png' %}" alt="Arbovirus discovery icon"> 
                         <div class="info_text">
-                            <h5>Countries</h5>
-                            <h6 name="count" id="n_countries">97</h6>
+                            <h5>Transmitted by Ixodida</h5>
+                            <h6 name="count" id="n_ixodida">88</h6>
                         </div> 
                       </div>
                       <div class="info_box">
                         <img src="{% static 'images/aboverse/icons/forest-cover-and-deforestation-min.png' %}" alt="Forest icon"> 
                         <div class="info_text">
-                            <h5>Biomes</h5>
-                            <h6 name="count" id="n_biomes">24</h6>
+                            <h5>Sylvatic Habitat</h5>
+                            <h6 name="count" id="n_habitat">197</h6>
                         </div> 
                       </div>
                       <div class="info_box">
-                        <img src="{% static 'images/aboverse/icons/climate-min.png' %}" alt="Climate icon"> 
+                        <img src="{% static 'images/aboverse/icons/night-min.png' %}" alt="Climate icon"> 
                         <div class="info_text">
-                            <h5>Climate</h5>
-                            <h6 name="count" id="n_climate">5</h6>
+                            <h5>Night Preference</h5>
+                            <h6 name="count" id="n_night">88</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/wild-min.png' %}" alt="Climate icon"> 
+                        <div class="info_text">
+                            <h5>Zoophilic</h5>
+                            <h6 name="count" id="n_zoo">179</h6>
                         </div> 
                       </div>
                 </div>
@@ -224,12 +240,7 @@
                     <div class="chart_pre">
                         <div class="pre_info">
                             <h3>Arbovirus Transmission</h3>
-                            <div class="btn_compose">
-                                <button class="circle_compose" id="save_one"><i
-                                    class="fa fa-solid fa-download"></i></button>
-                            <button class="circle_compose" id="blind_one"><i class="fa fa-solid fa-eye"></i></button>
-                                <button class="circle_compose"><i class="fa fa-solid fa-info"></i></button>
-                            </div>
+                            <h2>Explore commom vectors related to arbovirus transmission and potential transmission. Delve into vector classifications, feeding behavior patterns and enviroment patterns.</h2>
                         </div>
                         <div class="chart_one_transmission">
                             <canvas id="vector_pie"   width="500" height="400"></canvas>
@@ -245,31 +256,38 @@
             <div id="fifthChart" class="tabcontent">
                 <div class="general_info">
                     <div class="info_box">
-                        <img src="{% static 'images/aboverse/icons/arbovirus-min.png' %}" alt="Arbovirus icon"> 
+                        <img src="{% static 'images/aboverse/icons/level-min.png' %}" alt="Arbovirus family icon" class="taxonomy_icon"> 
                         <div class="info_text">
-                            <h5>Arbovirus discovered</h5>
-                            <h6 name="count" id="n_arbovirus">900</h6>
+                            <h5>From Outbreaks to Endemic</h5>
+                            <h6 name="count" id="n_level">6.61%</h6>
                         </div> 
                       </div>
                       <div class="info_box">
-                        <img src="{% static 'images/aboverse/icons/arbovirus-discovery-min.png' %}" alt="Arbovirus discovery icon"> 
+                        <img src="{% static 'images/aboverse/icons/fever-min.png' %}" alt="Arbovirus genus icon" class="taxonomy_icon"> 
                         <div class="info_text">
-                            <h5>Countries</h5>
-                            <h6 name="count" id="n_countries">231</h6>
+                            <h5>Febril Illness</h5>
+                            <h6 name="count" id="n_fever">103</h6>
                         </div> 
                       </div>
                       <div class="info_box">
-                        <img src="{% static 'images/aboverse/icons/forest-cover-and-deforestation-min.png' %}" alt="Forest icon"> 
+                        <img src="{% static 'images/aboverse/icons/fatal-min.png' %}" alt="Arbovirus species icon" class="taxonomy_icon"> 
                         <div class="info_text">
-                            <h5>Biomes</h5>
-                            <h6 name="count" id="n_biomes">6</h6>
+                            <h5>Fatal Human Disease</h5>
+                            <h6 name="count" id="n_fatal">45</h6>
                         </div> 
                       </div>
                       <div class="info_box">
-                        <img src="{% static 'images/aboverse/icons/climate-min.png' %}" alt="Climate icon"> 
+                        <img src="{% static 'images/aboverse/icons/human_disease-min.png' %}" alt="Arbovirus virus icon" class="taxonomy_icon"> 
                         <div class="info_text">
-                            <h5>Climate</h5>
-                            <h6 name="count" id="n_climate">15</h6>
+                            <h5>Human Disease</h5>
+                            <h6 name="count" id="n_human">154</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/vet_disease-min.png' %}" alt="Arbovirus virus icon" class="taxonomy_icon"> 
+                        <div class="info_text">
+                            <h5>Veterinary Disease</h5>
+                            <h6 name="count" id="n_vet">75</h6>
                         </div> 
                       </div>
                 </div>
@@ -277,12 +295,7 @@
                     <div class="chart_pre">
                         <div class="pre_info">
                             <h3>Arbovirus Disease</h3>
-                            <div class="btn_compose">
-                                <button class="circle_compose" id="save_one"><i
-                                    class="fa fa-solid fa-download"></i></button>
-                            <button class="circle_compose" id="blind_one"><i class="fa fa-solid fa-eye"></i></button>
-                                <button class="circle_compose"><i class="fa fa-solid fa-info"></i></button>
-                            </div>
+                            <h2>Explore the levels of disease caused by arbovirus discovered so far. Delve into human and veterinary diseases known until the present moment.</h2>
                         </div>
                         <div class="chart_one_disease">
                             <canvas id="myChart_disease_level"   width="500" height="400"></canvas>
@@ -290,6 +303,9 @@
                         <div class="chart_two_disease">
                             <canvas id="human_disease_pie"  width="500" height="400"></canvas>
                             <canvas id="human_disease"  width="500" height="400"></canvas>
+                        </div>
+                        <div class="chart_three_disease">
+                            <canvas id="veterinary_disease" width="700" height="500"></canvas>
                         </div>
                     </div>
                 </div>

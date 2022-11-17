@@ -71,15 +71,12 @@ main{
   justify-content: center;
 }
 .info_box{
-  width:25%;
+  width:auto;
   display: flex;
   justify-content:center;
   align-items: center;
 }
 .info_box img{
-  width: 20%;
-}
-.info_box .taxonomy_icon{
   width: 30%;
 }
 .info_text{
