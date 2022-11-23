@@ -1,16 +1,15 @@
 {% extends 'base.html' %} {% block content %}
 <!--Banner information-->
 <h1>The arbovirus universe is just one click away</h1>
-<h2>ARBOVERSE offers interactive tools with global arbovirus data in a broad context</h2>
+<h2>ARBOVERSE offers interactive tools with global arbovirus data in a broad context for everyone</h2>
 </div>
 <!--Principal section-->
 <section class="arboverse_explain">
   <h3>Why arbovirus matters?</h3>
   <div class="main_arboverse">
-    <img src="../static/images/Index/illustrations/arbovirus-vector-host-interaction-of-arboverse-min.png"
+    <img src="../static/images/Index/illustrations/arbovirus-vector-host-interaction-of-arboverse3-min.png"
       alt="interaction between arbovirus, vector and human host">
-    <p>Arboviruses (arthropod-borne viruses) are a growing global public health problem, causing a wide range of
-      human diseases with high morbidity, mortality, and economic burdens. </p>
+    <p>Arboviruses (arthropod-borne viruses) are a growing global public health problem, causing a wide range of human and veterinary diseases with high morbidity, mortality, and economic burdens. </p>
   </div>
   <!--Arboverse explanation-->
   <div class="explanation_wrapper">
@@ -21,9 +20,9 @@
       </div>
       <h5>Severe and deadly human diseases:</h5>
       <ul class="examples">
-        <li>Encephalitis (e.g., West Nile Virus)</li>
-        <li>Arthritis (e.g., Chykungunya Virus)</li>
-        <li>Hemorrhagic fever (e.g., yellow fever)</li>
+        <li>Encephalitis</li>
+        <li>Arthritis</li>
+        <li>Hemorrhagic fever</li>
       </ul>
     </div>
     <div class="explanation">
@@ -50,36 +49,80 @@
     </div>
   </div>
   <!--Arboverse in numbers-->
-  <div class="arbovirus_numbers_wrapper">
-    <div class="arbovrius_numbers">
-      <div class="circle_orange"></div>
-      <h5>Dengue fever disease</h5>
-      <ul class="abv_num">
-        <li>10,000 deaths per year</li>
-        <li>100 million cases per year</li>
-        <li>Over 125 countries affected</li>
-      </ul>
-    </div>
-    <div class="arbovrius_numbers">
-      <div class="circle_orange"></div>
-      <h5>Yellow fever disease</h5>
-      <ul class="abv_num">
-        <li>30,000 deaths per year</li>
-        <li>200,000 cases per year</li>
-        <li>Forty-seven endemic countries in Africa and Cantral and South America</li>
-      </ul>
-    </div>
-    <div class="arbovrius_numbers">
-      <div class="circle_orange"></div>
-      <h5>Bluetongue disease</h5>
-      <ul class="abv_num">
-        <li>~US$ 3 billion in economic losses annually</li>
-        <li>Affects wild and domestic ruminants worldwide</li>
-      </ul>
+  <div class="info_grid">
+    <input id="carousel_btn" type="radio" name="position" />
+    <span class="checkmark"></span>
+    <input id="carousel_btn" type="radio" name="position" checked/>
+    <span class="checkmark"></span>
+    <input id="carousel_btn" type="radio" name="position"/>
+    <span class="checkmark"></span>
+    <input id="carousel_btn" type="radio" name="position"/>
+    <span class="checkmark"></span>
+    <div id="carousel" class="arbovirus_numbers_wrapper">
+      <div class="arbovrius_numbers">
+        <div class="circle_orange"></div>
+        <h5>Dengue virus</h5>
+        <ul class="abv_num">
+          <li>~10,000 deaths annually</li>
+          <li>~100 million cases annually</li>
+          <li>Over 125 countries and territories affected</li>
+        </ul>
+      </div>
+      <div class="arbovrius_numbers">
+        <div class="circle_orange"></div>
+        <h5>Yellow fever virus</h5>
+        <ul class="abv_num">
+          <li>~30,000 deaths annually</li>
+          <li>~200,000 cases annually</li>
+          <li>Forty-seven endemic countries in Africa and Central and South America</li>
+        </ul>
+      </div>
+      <div class="arbovrius_numbers">
+        <div class="circle_orange"></div>
+        <h5>Bluetongue virus</h5>
+        <ul class="abv_num">
+          <li>~US$ 3 billion in economic losses annually</li>
+          <li>Affects wild and domestic ruminants worldwide</li>
+        </ul>
+      </div>
+      <div class="arbovrius_numbers">
+        <div class="circle_orange"></div>
+        <h5>Zika virus</h5>
+        <ul class="abv_num">
+          <li>Microcephaly and other severe brain defects</li>
+          <li>Miscarriage, stillbirth, and other birth defects</li>
+          <li>86 countries and territories affected</li>
+        </ul>
+      </div>
+      <div class="arbovrius_numbers">
+        <div class="circle_orange"></div>
+        <h5>West Nile virus</h5>
+        <ul class="abv_num">
+          <li>Fatal neurological disease in humans</li>
+          <li>Cause severe disease and death in horses</li>
+          <li>US$ 56 million cost annually in the USA</li>
+        </ul>
+      </div>
+      <div class="arbovrius_numbers">
+        <div class="circle_orange"></div>
+        <h5>African swine fever virus</h5>
+        <ul class="abv_num">
+          <li>Highly contagious for domestic and wild pigs</li>
+          <li>High mortality rates (95-100%)</li>
+          <li>US$111.2 billion economic loss in China in 2019</li>
+        </ul>
+      </div>
+      <div class="arbovrius_numbers">
+        <div class="circle_orange"></div>
+        <h5>Chikungunya virus</h5>
+        <ul class="abv_num">
+          <li>Fever and acute and chronic polyarthralgia </li>
+          <li>Over 125 countries and territories affected</li>
+          <li>~1.3 billion people live in areas at-risk for transmission</li>
+        </ul>
+      </div>
     </div>
   </div>
-  <img class="moeda" src="../static/images/Index/illustrations/money-min.png"
-    alt="money illustration of financial loses due to arbovirus">
 </section>
 <!--Arboverse Tools-->
 <section class="arbv_tools">
@@ -88,6 +131,7 @@
     <input type="radio" name="slider" id="tool-1" checked>
     <input type="radio" name="slider" id="tool-2">
     <input type="radio" name="slider" id="tool-3">
+    <input type="radio" name="slider" id="tool-4">
     <div class="tools-card">
       <label class="tools" for="tool-1" id="one-tool">
         <div class="myTools">
@@ -96,7 +140,7 @@
               <div class="numbertext">1</div>
               <h5>Catalog of information of all arboviruses</h5>
             </div>
-            <p>Find concise and accurate information about your arbovirus of interest</p>
+            <p>Find concise and accurate information about arbovirus</p>
           </div>
           <div class="tool_img">
             <img class="tool_desktop"
@@ -120,7 +164,7 @@
               <div class="numbertext">2</div>
               <h5>Catalog of information of all vectors related to arboviruses</h5>
             </div>
-            <p>Find concise and accurate information about your vector of interest</p>
+            <p>Find concise and accurate information about vectorsassociated arboviruses</p>
           </div>
           <div class="tool_img">
             <img class="tool_desktop" src="../static/images/Index/illustrations/arbovector-tool-for-vector-research.png"
@@ -143,7 +187,7 @@
               <div class="numbertext">3</div>
               <h5>Explore the interactions of arboviruses in a broad context</h5>
             </div>
-            <p>View, analyse and explore the interactions of arbooviruses linked with ecology data.</p>
+            <p>View, analyze and explore the interactions of arboviruses associated with multiple ecology factors.</p>
           </div>
           <div class="tool_img">
             <img class="tool_desktop"
@@ -156,6 +200,30 @@
           <div class="tool_name">
             <a href="arboverse.html#arbomap">
               <h4><span class="blue">ARBO</span><span class="orange">MAP</span></h4>
+            </a>
+          </div>
+        </div>
+      </label>
+      <label class="tools" for="tool-4" id="four-tool">
+        <div id="box4" class="myTools fade_slide">
+          <div class="tool_info">
+            <div class="info_wrapper">
+              <div class="numbertext">4</div>
+              <h5>Chart and graphs that explore main information of arbovirus</h5>
+            </div>
+            <p>Delve into arbovirus data and visualize clear information.</p>
+          </div>
+          <div class="tool_img">
+            <img class="tool_desktop"
+              src="../static/images/Index/illustrations/arbodash-tool-forarbovirus-analysis-min.png"
+              alt="illustration of Arbodash, a tool for arbovirus, vector and ecology data visualization">
+            <img class="tool_mobile"
+              src="../static/images/Index/illustrations/arbodash-tool-simple-mobile-min.png"
+              alt="illustration of Arbodash, a tool for arbovirus, vector and ecology data visualization">
+          </div>
+          <div class="tool_name">
+            <a href="arboverse.html#arbomap">
+              <h4><span class="blue">ARBO</span><span class="orange">DASH</span></h4>
             </a>
           </div>
         </div>
@@ -238,35 +306,82 @@
   <div class="team_wrapper">
     <div class="person_unit">
       <div class="person_img">
-        <img src="../static/images/people/William-M-De-Souza-min.jpg">
+        <img src="../static/images/people/William-M-De-Souza.png">
       </div>
       <h6>William M. de Souza,</h6>
     </div>
     <div class="person_unit">
       <div class="person_img">
-        <img src="../static/images/people/Oswaldo-Reis-min.jpg">
-      </div>
-      <h6>Oswaldo Reis Jr,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Felipe-Rodrigues-min.jpeg">
-      </div>
-      <h6>Felipe Rodrigues,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Jacqueline-Tida-min.jpg">
+        <img src="../static/images/people/Jacqueline-Tida.png">
       </div>
       <h6>Jacqueline A. Tida,</h6>
     </div>
     <div class="person_unit">
       <div class="person_img">
-        <img src="../static/images/people/Marcílio-Fumagali-min.jpg">
+        <img src="../static/images/people/Oswaldo-Reis.png">
       </div>
-      <h6>Marcílio Fumagalli.</h6>
+      <h6>Oswaldo Reis Jr,</h6>
     </div>
-  </div>
+    <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/Felipe-Rodrigues.png">
+      </div>
+      <h6>Felipe Rodrigues,</h6>
+    </div>
+    <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/Marcilio-Fumagali.png">
+      </div>
+      <h6>Marcilio Fumagalli,</h6>
+    </div>
+    <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/Poliana_Lemos.png">
+      </div>
+      <h6>Poliana Lemos,</h6>
+    </div>
+    <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/Desiree_LaBeaud.png">
+      </div>
+      <h6>Desiree LaBeaud,</h6>
+    </div>
+    <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/Maria_Anice_Sallum.png">
+      </div>
+      <h6>Maria Anice Sallum,</h6>
+    </div>
+    <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/Samir_Bhatt.png">
+      </div>
+      <h6>Samir Bhatt,</h6>
+    </div>
+    <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/Seth_Flaxman.png">
+      </div>
+      <h6>Seth Flaxman,</h6>
+    </div>
+    <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/Swapnil_Mishra.png">
+      </div>
+      <h6>Swapnil Mishra,</h6>
+    </div>
+    <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/Nuno_Faria.png">
+      </div>
+      <h6>Nuno Faria,</h6>
+    </div>
+    <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/Scott_Weaver.png">
+      </div>
+      <h6>Scott C. Weaver.</h6>
+    </div>
 </section>
 
 {% endblock %}

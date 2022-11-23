@@ -25,7 +25,7 @@ html{
   --orange: #F5861F;
   --text: #4B4B4B;
   --darkGrey: #E5E5E5;
-  --lightGrey: #F2F2F2;
+  --lightGrey: #ededed;
   --blueTransparen: hsla(231, 87%, 61%, 0.15);
   --orangeTransparent: hsla(29, 91%, 54%, 0.7);
 }
@@ -482,7 +482,7 @@ transform: rotate(45deg) translate(-5px,-6px);
 .explanation_wrapper{
   width: 100%;
   height: auto;
-  margin-top: 20px;
+  margin: 30px auto;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -513,27 +513,149 @@ transform: rotate(45deg) translate(-5px,-6px);
   font-family: 'Open sans', sans-serif;
   font-weight: 300;
 }
-.arbovirus_numbers_wrapper{
-  width: 92.5%;
-  height: auto;
-  margin-top: 60px;
-  padding: 50px;
-  background-color: var(--blueTransparen);
+.info_grid{
+  height: 80vh;
+  width: 80%;
+  margin: 10vh auto;
+  display: grid;
+  grid-template-rows: 75% 15%;
+  grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
+  align-items: center;
+  justify-content: center;
+}
+#carousel{
+  grid-row: 1 / 2;
+  grid-column: 1 / 8;
+  width: 100vw;
+  height: 80vh;
+  margin: 5vh auto;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  position: relative;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 600px;
+  --items: 5;
+  --middle: 3;
+  --position: 1;
+  pointer-events: none;
+}
+.arbovirus_numbers_wrapper{
+  background-color: var(--blueTransparen);
 }
 .arbovrius_numbers{
-  position: relative;
-  width: 25%;
-  height: auto;
+  position: absolute;
+  width: 23vw;
+  height: 50vh;
   background: white;
   padding: 20px;
+  margin: 0 20px;
+  --r: calc(var(--position) - var(--offset));
+  --abs: max(calc(var(--r) * -1), var(--r));
+  transition: all 0.25s linear;
+  transform: 
+    translateX(calc(-400px * var(--r)));
+  z-index: calc((var(--position) - var(--abs)));
 }
+.arbovrius_numbers:nth-of-type(1) {
+  --offset: 1;
+  background-color: white;
+}
+.arbovrius_numbers:nth-of-type(2) {
+  --offset: 2;
+  background-color: white;
+}
+.arbovrius_numbers:nth-of-type(3) {
+  --offset: 3;
+  background-color: white;
+}
+.arbovrius_numbers:nth-of-type(4) {
+  --offset: 4;
+  background-color: white;
+}
+.arbovrius_numbers:nth-of-type(5) {
+  --offset: 5;
+  background-color: white;
+}
+.arbovrius_numbers:nth-of-type(6) {
+  --offset: 5;
+  background-color: white;
+}
+.arbovrius_numbers:nth-of-type(7) {
+  --offset: 5;
+  background-color: white;
+}
+input#carousel_btn{
+  display: grid;
+  place-content: center;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  width: 25px;
+  height: 25px;
+  background: var(--lightGrey);
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translateY(10vh);
+}
+input#carousel_btn:hover{
+  background: #c0c8f4;
+}
+input#carousel_btn::before{
+  content: '';
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em #c0c8f4;
+}
+input#carousel_btn:checked::before{
+  transform: scale(1);
+}
+input:nth-of-type(1) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(1):checked ~ #carousel {
+  --position: 1;
+}
+
+input:nth-of-type(2) {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(2):checked ~ #carousel {
+  --position: 2;
+}
+
+input:nth-of-type(3) {
+  grid-column: 4 /5;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(3):checked ~ #carousel {
+  --position: 3;
+}
+
+input:nth-of-type(4) {
+  grid-column: 5 / 6;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(4):checked ~ #carousel {
+  --position: 4;
+}
+
+input:nth-of-type(5) {
+  grid-column: 6 / 7;
+  grid-row: 2 / 3;
+}
+input:nth-of-type(5):checked ~ #carousel {
+  --position: 5;
+}
+
+
 .circle_orange{
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   background: var(--orangeTransparent);
   position: absolute;
   top:-25px;
@@ -541,28 +663,26 @@ transform: rotate(45deg) translate(-5px,-6px);
   border-radius: 50%;
 }
 .arbovrius_numbers h5{
-  margin-top: 10px;
-  color:var(--text);
+  font-size: 1.3rem;
+  margin-top: 30px;
+  color:#3345A6;
+  border-bottom: solid 1px #3345A6;
 }
 .abv_num{
   list-style: none;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .abv_num li{
   color: var(--text);
   font-size: 1.2rem;
-  margin:10px 5px;
+  margin: 15px 5px;
   font-family: 'Open sans', sans-serif;
   font-weight: 300;
+  text-align: justify;
 }
 /*---- EXPLAIN Arboverse IPAD Size landscape--*/
 @media screen and (min-width:940px) and (max-width: 1200px) and (orientation: landscape) {
-  .arbovirus_numbers_wrapper{
-      height: auto;
-  }
-  .arbovrius_numbers{
-      height: auto;
-  }
+  
   .examples li{
       font-size: 1rem
   }
@@ -722,7 +842,7 @@ transform: rotate(45deg) translate(-5px,-6px);
   .examples li{
       font-size: 0.9rem;
   }
-  .arbovirus_numbers_wrapper,
+  .info_grid,
   .arboverse_explain .moeda{
       display: none;
   }
@@ -731,7 +851,7 @@ transform: rotate(45deg) translate(-5px,-6px);
 /*_____ABV TOOL_____*/
 .arbv_tools{
   width: 80%;
-  margin: 15vh auto;
+  margin: 10vh auto;
 }
 .arbv_tools h3{
   text-align: center;
@@ -847,23 +967,35 @@ input[type=radio]{
 .tool_name:hover h2 .blue{
   color: white;
 }
-#tool-1:checked ~ .tools-card #three-tool, 
+#tool-1:checked ~ .tools-card #four-tool, 
 #tool-2:checked ~ .tools-card #one-tool, 
-#tool-3:checked ~ .tools-card #two-tool {
+#tool-3:checked ~ .tools-card #two-tool,
+#tool-4:checked ~ .tools-card #three-tool {
   transform: translateX(-40%) scale(0.8);
   opacity: 0.4;
   z-index:0;
 }
 #tool-1:checked ~ .tools-card #two-tool,
 #tool-2:checked ~ .tools-card #three-tool,
-#tool-3:checked ~ .tools-card #one-tool {
+#tool-3:checked ~ .tools-card #four-tool,
+#tool-4:checked ~ .tools-card #one-tool {
   transform: translateX(40%) scale(0.8);
   opacity: 0.4;
   z-index:0;
 }
+#tool-1:checked ~ .tools-card #three-tool,
+#tool-2:checked ~ .tools-card #four-tool,
+#tool-3:checked ~ .tools-card #one-tool,
+#tool-4:checked ~ .tools-card #four-tool {
+  transform: translateX(0) scale(0);
+  opacity: 0;
+  z-index:0;
+}
+
 #tool-1:checked ~ .tools-card #one-tool,
 #tool-2:checked ~ .tools-card #two-tool,
-#tool-3:checked ~ .tools-card #three-tool {
+#tool-3:checked ~ .tools-card #three-tool,
+#tool-4:checked ~ .tools-card #four-tool {
   transform: translateX(0) scale(1);
   opacity: 1;
   z-index:1;
