@@ -5,6 +5,13 @@
     href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap"
     rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{% static 'css/arbodash.css' %}">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-stacked100@1.0.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-chart-geo@3.9.0/build/index.umd.min.js"></script>
+<script src="https://unpkg.com/@sgratzl/chartjs-chart-boxplot@3.6.0/build/index.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-chart-sankey"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-stacked100@1.0.0"></script>
+<script src="//unpkg.com/circlepack-chart"></script> 
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
 <link rel="sortcut icon" href="{% static 'images/Arboverse_logo-2.png' %}" type="image/png" />
 
@@ -19,8 +26,298 @@
 </div>
 <main>
     <section class="arbodash_section">
-        <h3>Arbodash graphics</h3>
+        <h3><span class="orange">ARBO</span><span class="blue">DASH</span></h3>
+        <section class="arbodash_pannel">
+            <div class="tab">
+                <button class="arbodash_tablinks " onclick="openTab(event, 'firstChart')" id="defaultOpen" >Discovery</button>
+                <button class="arbodash_tablinks" onclick="openTab(event, 'secondChart')" id="taxonomy_btn" >Taxonomy</button>
+                <button class="arbodash_tablinks" onclick="openTab(event, 'thirdChart')" >Distribution</button>
+                <button class="arbodash_tablinks" onclick="openTab(event, 'fourthChart')" id="transmission_btn">Transmission</button>
+                <button class="arbodash_tablinks" onclick="openTab(event, 'fifthChart')" id="disease_btn">Disease</button>
+            </div>
+            <div id="firstChart" class="tabcontent">
+                <div class="general_info">
+                    <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/arbovirus-min.png' %}" alt="Arbovirus icon"> 
+                        <div class="info_text">
+                            <h5>Arbovirus discovered</h5>
+                            <h6 name="count" id="n_arbovirus">900</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/arbovirus-discovery-min.png' %}" alt="Arbovirus discovery icon"> 
+                        <div class="info_text">
+                            <h5>Countries</h5>
+                            <h6 name="count" id="n_countries">124</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/forest-cover-and-deforestation-min.png' %}" alt="Forest icon"> 
+                        <div class="info_text">
+                            <h5>Biomes</h5>
+                            <h6 name="count" id="n_biomes">6</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/climate-min.png' %}" alt="Climate icon"> 
+                        <div class="info_text">
+                            <h5>Climate</h5>
+                            <h6 name="count" id="n_climate">15</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/vector-min.png' %}" alt="Climate icon"> 
+                        <div class="info_text">
+                            <h5>Host Diptera</h5>
+                            <h6 name="count" id="n_host">395</h6>
+                        </div> 
+                      </div>
+                </div>
+                <div class="chart_wrapper discovery_chart">
+                    <div class="chart_pre">
+                        <div class="pre_info">
+                            <h3>Arbovirus Discovery</h3>
+                            <h2>Explore interactive charts and maps that summarize arbovirus discovery. Navigate between places, vectors and climate that are more common related to arbovirus discovery. </h2>
+                        </div>
+                        <div class="chart_one_cover">
+                            <canvas id="myChart1" width="500" height="500"></canvas>
+                        </div>
+                        <div class="chart_two_cover">
+                            <canvas id="myChart2" width="500" height="400"></canvas>
+                            <canvas id="myChart3" width="500" height="400"></canvas>
+                        </div>
+                        <div class="chart_three_cover">
+                            <canvas id="myChart4" width="500" height="400"></canvas>
+                            <canvas id="myChart5"  class="chart5" width="500" height="400"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="secondChart" class="tabcontent">
+                <div class="general_info">
+                    <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/virus_family-min.png' %}" alt="Arbovirus family icon" class="taxonomy_icon"> 
+                        <div class="info_text">
+                            <h5>Families</h5>
+                            <h6 name="count" id="n_families">11</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/genus-min.png' %}" alt="Arbovirus genus icon" class="taxonomy_icon"> 
+                        <div class="info_text">
+                            <h5>Genus</h5>
+                            <h6 name="count" id="n_genus">37</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/species-min.png' %}" alt="Arbovirus species icon" class="taxonomy_icon"> 
+                        <div class="info_text">
+                            <h5>Species</h5>
+                            <h6 name="count" id="n_species">467</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/virus-min.png' %}" alt="Arbovirus virus icon" class="taxonomy_icon"> 
+                        <div class="info_text">
+                            <h5>Arbovirus</h5>
+                            <h6 name="count" id="n_virus">922</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/sequence-min.png' %}" alt="Arbovirus virus icon" class="taxonomy_icon"> 
+                        <div class="info_text">
+                            <h5>Arbovirus Sequenced</h5>
+                            <h6 name="count" id="n_sequence">645</h6>
+                        </div> 
+                      </div>
+                </div>
+                <div class="chart_wrapper discovery_chart">
+                    <div class="chart_pre">
+                        <div class="pre_info">
+                            <h3>Arbovirus taxonomy</h3>
+                            <h2>Explore interactive charts that summarize arbovirus taxonomy. Navigate from families to species classifications and analyze the genomic characteristics related to the arbovirus discovered until the present moment. </h2>
+                        </div>
+                        <div class="chart_one_taxonomy">
+                            <h4 class="circle_pack">Arbovirus Taxonomy</h4>
+                            <div id="myChart1_taxonomy" class="taxonomy_circle" ></div>
+                        </div>
+                        <div class="chart_two_taxonomy">
+                            <canvas id="doughnut_taxonomy"  width="500" height="400"></canvas>
+                            <canvas id="bar_taxonomy"  width="500" height="400"></canvas>
+                        </div>
+                        <div class="chart_three_taxonomy">
+                            <canvas id="boxplot_taxonomy"  width="700" height="400"></canvas>
+                        </div>
+                        <p class="asfivirus_note">* Asfivirus that belongs to Asfaviridae family has the longest genome length of 170101nt and for better visualization purposes was removed from the chart.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="thirdChart" class="tabcontent">
+                <div class="general_info">
+                    <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/arbovirus-min.png' %}" alt="Arbovirus icon"> 
+                        <div class="info_text">
+                            <h5>Arbovirus discovered</h5>
+                            <h6 name="count" id="n_arbovirus">900</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/arbovirus-discovery-min.png' %}" alt="Arbovirus discovery icon"> 
+                        <div class="info_text">
+                            <h5>Countries</h5>
+                            <h6 name="count" id="n_countries">231</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/forest-cover-and-deforestation-min.png' %}" alt="Forest icon"> 
+                        <div class="info_text">
+                            <h5>Biomes</h5>
+                            <h6 name="count" id="n_biomes">6</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/climate-min.png' %}" alt="Climate icon"> 
+                        <div class="info_text">
+                            <h5>Climate</h5>
+                            <h6 name="count" id="n_climate">15</h6>
+                        </div> 
+                      </div>
+                </div>
+                <div class="chart_wrapper discovery_chart">
+                    <div class="chart_pre">
+                        <div class="pre_info">
+                            <h3>Arbovirus Distribution</h3>
+                            <h2>Explore commom vectors related to arbovirus transmission and potential transmission. Delve into vector classification, feeding behavior patterns and enviroment patterns.</h2>
+                        </div>
+                        <div class="chart_one_distribution">
+                            <canvas id="myChart_D1"  class="chart_map" width="500" height="400"></canvas>
+                        </div>
+                        <div class="chart_two_distribution">
+                            <canvas id="myChart_D2"  class="chart_map" width="500" height="400"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="fourthChart" class="tabcontent">
+                <div class="general_info">
+                    <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/vector-min.png' %}" alt="Arbovirus icon"> 
+                        <div class="info_text">
+                            <h5>Transmitted by Diptera</h5>
+                            <h6 name="count" id="n_diptera">192</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/ticks-min.png' %}" alt="Arbovirus discovery icon"> 
+                        <div class="info_text">
+                            <h5>Transmitted by Ixodida</h5>
+                            <h6 name="count" id="n_ixodida">88</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/forest-cover-and-deforestation-min.png' %}" alt="Forest icon"> 
+                        <div class="info_text">
+                            <h5>Sylvatic Habitat</h5>
+                            <h6 name="count" id="n_habitat">197</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/night-min.png' %}" alt="Climate icon"> 
+                        <div class="info_text">
+                            <h5>Night Preference</h5>
+                            <h6 name="count" id="n_night">88</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/wild-min.png' %}" alt="Climate icon"> 
+                        <div class="info_text">
+                            <h5>Zoophilic</h5>
+                            <h6 name="count" id="n_zoo">179</h6>
+                        </div> 
+                      </div>
+                </div>
+                <div class="chart_wrapper discovery_chart">
+                    <div class="chart_pre">
+                        <div class="pre_info">
+                            <h3>Arbovirus Transmission</h3>
+                            <h2>Explore commom vectors related to arbovirus transmission and potential transmission. Delve into vector classifications, feeding behavior patterns and enviroment patterns.</h2>
+                        </div>
+                        <div class="chart_one_transmission">
+                            <canvas id="vector_pie"   width="500" height="400"></canvas>
+                            <canvas id="vector_bar"   width="500" height="400"></canvas>
+                        </div>
+                        <div class="chart_two_transmission">
+                            <canvas id="habitat_bar"   width="500" height="400"></canvas>
+                            <canvas id="behavior_bar"   width="500" height="400"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="fifthChart" class="tabcontent">
+                <div class="general_info">
+                    <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/level-min.png' %}" alt="Arbovirus family icon" class="taxonomy_icon"> 
+                        <div class="info_text">
+                            <h5>From Outbreaks to Endemic</h5>
+                            <h6 name="count" id="n_level">6.61%</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/fever-min.png' %}" alt="Arbovirus genus icon" class="taxonomy_icon"> 
+                        <div class="info_text">
+                            <h5>Febril Illness</h5>
+                            <h6 name="count" id="n_fever">103</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/fatal-min.png' %}" alt="Arbovirus species icon" class="taxonomy_icon"> 
+                        <div class="info_text">
+                            <h5>Fatal Human Disease</h5>
+                            <h6 name="count" id="n_fatal">45</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/human_disease-min.png' %}" alt="Arbovirus virus icon" class="taxonomy_icon"> 
+                        <div class="info_text">
+                            <h5>Human Disease</h5>
+                            <h6 name="count" id="n_human">154</h6>
+                        </div> 
+                      </div>
+                      <div class="info_box">
+                        <img src="{% static 'images/aboverse/icons/vet_disease-min.png' %}" alt="Arbovirus virus icon" class="taxonomy_icon"> 
+                        <div class="info_text">
+                            <h5>Veterinary Disease</h5>
+                            <h6 name="count" id="n_vet">75</h6>
+                        </div> 
+                      </div>
+                </div>
+                <div class="chart_wrapper discovery_chart">
+                    <div class="chart_pre">
+                        <div class="pre_info">
+                            <h3>Arbovirus Disease</h3>
+                            <h2>Explore the levels of disease caused by arbovirus discovered so far. Delve into human and veterinary diseases known until the present moment.</h2>
+                        </div>
+                        <div class="chart_one_disease">
+                            <canvas id="myChart_disease_level"   width="500" height="400"></canvas>
+                        </div>
+                        <div class="chart_two_disease">
+                            <canvas id="human_disease_pie"  width="500" height="400"></canvas>
+                            <canvas id="human_disease"  width="500" height="400"></canvas>
+                        </div>
+                        <div class="chart_three_disease">
+                            <canvas id="veterinary_disease" width="700" height="500"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </section>
+    <script src="{% static 'js/tab_control.js' %}"></script>
+    <script src="{% static 'js/charts.js' %}"></script>
+    <script src="{% static 'js/distribution.js' %}"></script>
+    <script src="{% static 'js/distribution.js' %}"></script>
+    <script src="{% static 'js/disease.js' %}"></script>
+    <script src="{% static 'js/transmission.js' %}"></script>
 </main>
 
 {% endblock %}
