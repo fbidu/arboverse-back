@@ -1455,7 +1455,7 @@ input[type=radio]{
 }
 .fund-support,
 .fund-endorsed{
-  width: 50%;
+  width: 100%;
   height: auto;
 }
 .fund-support h6,
@@ -1472,7 +1472,13 @@ input[type=radio]{
   flex-wrap: wrap;
 }
 .support img{
-  width: 20%;
+  height: 100px;
+  margin-right: 50px;
+}
+.support img:hover{
+  transform: scale(1.1);
+  transition: ease-in-out 0.2s;
+  cursor: pointer;
 }
 /*---- funding IPAD Size portrait --*/
 @media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
@@ -1557,7 +1563,7 @@ input[type=radio]{
 .media-wrapper{
   display:flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content:flex-start;
   align-items: center;
 }
 .social-unit{
@@ -1568,6 +1574,7 @@ input[type=radio]{
   justify-content: center;
   align-items: center;
   border: solid 1px white;
+  margin-left: 20px;
 }
 .social-unit:hover{
   border: solid 1px #F5861F;
