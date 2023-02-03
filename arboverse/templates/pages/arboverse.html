@@ -15,7 +15,7 @@
 {% block content %}
 <!--Banner information-->
 <h1>Explore the complexity of arbovirus in a simple way</h1>
-<h2>ARBOVERSE offers arbovirus information by interactive and friendly tools</h2>
+<h2>Arbovirus information by interactive and user-friendly tools</h2>
 </div>
 <main>
   <!--About the plattform-->
@@ -24,10 +24,7 @@
       <h4><span class="blue">ARBO</span><span class="orange">VERSE</span></h4>
       <img src="{% static 'images/logos/logo-arboverse.png' %}" />
     </div>
-    <p>ARBOVERSE is a data-drive platform that integrates information on arboviruses, vectors, and environmental data
-      from multiple sources and allows easy search, correlation analysis, and visualization. The ARBOVERSE was designed
-      to help accelerate the work of researchers, public health workers, and the global community to better prepare for,
-      respond to, and reduce the burden of arboviruses </p>
+    <p>ARBOVERSE is open access data-driven online platform that provides comprehensive knowledge about arboviruses in a broad context and allows easy search, analysis, and visualization. The ARBOVERSE is designed to help accelerate the work of researchers, public health workers, and the global community to better prepare for, respond to, and mitigate the burden of arboviruses</p>
   </section>
   <!-- CATALOGUE-->
   <div class="catalogue">
@@ -49,15 +46,15 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class="tooltext-1">Name of virus searched</span>
+                    <span class="tooltext-1">Virus name</span>
                   </div>
-                  <h5>Virus Name:</h5>
+                  <h5>Virus:</h5>
                   <output id="virus_name">Dengue virus serotype 1</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Virus name abbreviation searched</span>
+                    <span class=" tooltext-1">Virus abbreviation</span>
                   </div>
                   <h5>Abbreviation:</h5>
                   <output id="virus_abbrev">DENV1</output>
@@ -65,8 +62,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class="tooltext-1">Species, genus, and family name recognized by International Committe on
-                      Taxonomy of Viruses</span>
+                    <span class="tooltext-1">Taxonomy of virus recognized by the International Committee on Taxonomy of Viruses, including viral species, genus, and family</span>
                   </div>
                   <h5>Taxonomy:</h5>
                   <output id="virus_taxonomy">Dengue 1 | Flavivirus | Flaviviridae</output>
@@ -74,7 +70,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Date of collection of first viral isolate (prototype/reference)</span>
+                    <span class=" tooltext-1">Date of collection of samples of first viral isolate, prototype, or reference</span>
                   </div>
                   <h5>First Isolate:</h5>
                   <output id="virus_firstIso">20-Feb-44</output>
@@ -82,7 +78,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Name of the strain of the prototype/reference</span>
+                    <span class=" tooltext-1">Name or code of the strain of the first viral isolate, prototype, or reference</span>
                   </div>
                   <h5>Reference Strain:</h5>
                   <output id="virus_strain">Hawaii</output>
@@ -90,7 +86,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">GenBank number of prototype/reference strain</span>
+                    <span class=" tooltext-1">GenBank number of first viral isolate, prototype, or reference strain</span>
                   </div>
                   <h5>Reference Genome:</h5>
                   <output id="virus_reference">NC_001477</output>
@@ -98,7 +94,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Total sequence length of complete genome in nucleotides</span>
+                    <span class=" tooltext-1">Total sequence length of the complete or nearly complete genome in nucleotides</span>
                   </div>
                   <h5>Genome Size:</h5>
                   <output id="virus_size">10,735 nt</output>
@@ -114,7 +110,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Presence or absence of envelope in the virus searched</span>
+                    <span class=" tooltext-1">Presence or absence of an envelope</span>
                   </div>
                   <h5>Envelope:</h5>
                   <output id="virus_envelope">Presence</output>
@@ -128,7 +124,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Type of vectors of the virus searched</span>
+                    <span class=" tooltext-1">Type of vectors or putative vectors</span>
                   </div>
                   <h5>Vector-borne:</h5>
                   <output id="virus_vector">Mosquitoes</output>
@@ -136,8 +132,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">The binominal species name of the primary vectors for the virus
-                      searched</span>
+                    <span class=" tooltext-1">The binominal species names of the main vectors or putative vector</span>
                   </div>
                   <h5>Vector Species:</h5>
                   <output id="virus_vector">Aedes aegypti | Aedes albopictus</output>
@@ -168,7 +163,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class="tooltext-1">Level of disease according to virus-based epidemiology criteria</span>
+                    <span class="tooltext-1">Level of disease-based epidemiology criteria</span>
                   </div>
                   <h5>Level of Diseases:</h5>
                   <output id="virus_level">Hyperendemic</output>
@@ -176,7 +171,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Does the virus associated with human disease?</span>
+                    <span class=" tooltext-1">Human disease associated with the virus</span>
                   </div>
                   <h5>Human Disease:</h5>
                   <output id="virus_human_disease">Febril illness</output>
@@ -184,15 +179,15 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Can human disease be fatal?</span>
+                    <span class=" tooltext-1">Virus is associated with fatal human outcome</span>
                   </div>
-                  <h5>Fatal Disease:</h5>
+                  <h5>Fatal Human Disease:</h5>
                   <output id="virus_human_fatal">Yes</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Does the virus associate with veterinary disease?</span>
+                    <span class=" tooltext-1">Veterinary disease associated with the virus</span>
                   </div>
                   <h5>Veterinary Disease:</h5>
                   <output id="virus_vet_disease">Not applicable</output>
@@ -200,7 +195,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Can veterinary disease be fatal ?</span>
+                    <span class=" tooltext-1">Virus is associated with fatal veterinary outcome</span>
                   </div>
                   <h5>Fatal Veterinary Disease:</h5>
                   <output id="virus_vet_fatal">Not applicable</output>
@@ -208,7 +203,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Are there vaccines available for this virus ?</span>
+                    <span class=" tooltext-1">Is there a vaccine available or in development for this virus?</span>
                   </div>
                   <h5>Vaccine:</h5>
                   <output id="virus_vaccine">None</output>
@@ -222,7 +217,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Is the diagnosis available for the virus searched?</span>
+                    <span class=" tooltext-1">Tests available that can be used to diagnose the virus</span>
                   </div>
                   <h5>Specific Diagnostic:</h5>
                   <output id="virus_diagnostic">RT-PCR | ELISA | Rapid test</output>
@@ -230,7 +225,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Can the virus be propagated with culture cells?</span>
+                    <span class=" tooltext-1">Culture cells used to propagate the virus</span>
                   </div>
                   <h5>Tissue Culture Propagation:</h5>
                   <output id="virus_propagation">Vero cells | C6/36 cells</output>
@@ -238,23 +233,23 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Can the virus cause a cytopathogenic effect in Vero cells?</span>
+                    <span class=" tooltext-1">How long the virus infection can cause a cytopathogenic effect in Vero cells?</span>
                   </div>
-                  <h5>Cytopathic effects:</h5>
+                  <h5>Cytopathic effect:</h5>
                   <output id="virus_cytophatic">~3 days</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Can the virus cause plaque in Vero cells?</span>
+                    <span class=" tooltext-1">How long the virus infection can cause plaque in Vero cells?</span>
                   </div>
-                  <h5>Plaque (days):</h5>
+                  <h5>Plaque:</h5>
                   <output id="virus_plaque">~6 days</output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Is there an animal model for this virus?</span>
+                    <span class=" tooltext-1">Is there a developed animal model to understand disease progression, pathogenesis, and immunologic responses for this virus?</span>
                   </div>
                   <h5>Animal Model:</h5>
                   <output id="virus_animal">Non-human primates | Immunodeficient mouse</output>
@@ -262,8 +257,7 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:gray; opacity: 0.7"></i>
-                    <span class=" tooltext-1">What is the biological safety level required to work with this
-                      virus?</span>
+                    <span class=" tooltext-1">What is the biological safety level required to work with this virus based on Center for Disease Control and Prevention guides?</span>
                   </div>
                   <h5>Biological Safety Levels:</h5>
                   <output id="virus_safety">2</output>
