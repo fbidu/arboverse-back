@@ -211,7 +211,7 @@
 }
 .tab input:checked ~ .tab-content{
   max-height: 100vh;
-  padding: 1em;
+  padding: 1.5em;
 }
 .tab-content-unit{
   padding: 10px 10px;
@@ -784,16 +784,16 @@
   font-size: 1rem;
   line-height: 1.5;
   visibility: hidden;
-  min-width: 300px;
-  max-width: 400px;
+  min-width: 400px;
+  max-width: 500px;
   background-color: #E0E4FD;
   color: var(--text);
   text-align: center;
   padding: 8px 3px;
   border-radius: 5px;
   position: absolute;
-  z-index: 15;
-  top: -10px;
+  z-index: 20;
+  top: -20px;
   left: 110%;
   opacity: 0;
   transition: opacity 0.3s;
