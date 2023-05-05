@@ -655,7 +655,7 @@
 /*Sub-title of Modal Box*/
 .modal-title p {
   color: gray;
-  font-size: 0.7rem;
+  font-size: 1rem;
 }
 /* Modal content features*/
 .modal__content {
@@ -681,7 +681,7 @@
   margin: 0;
 }
 .arrow-table h6 {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   width: 20%;
   color: #002147;
 }
@@ -689,7 +689,7 @@
   display: flex;
   flex-direction: column;
   margin-left: 20px;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 400;
   width: 80%;
   color: #494949;
@@ -705,19 +705,20 @@
 }
 /* Overview and Citation*/
 .column-table {
+  width:100%;
   display: flex;
   flex-direction: column;
 }
 .column-table h6 {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   color: #002147;
   text-align: center;
   padding: 15px 0;
 }
 .p-wrapper-column {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 400;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   color: #494949;
   line-height: 1.5;
