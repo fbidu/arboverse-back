@@ -700,6 +700,7 @@
   padding-bottom: 8px;
 }
 .arrow-table a {
+  font-size: 1rem;
   text-decoration: none;
   color: #ff8700;
 }
