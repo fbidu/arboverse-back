@@ -346,12 +346,12 @@ map.on('load', async () => {
     //land cover
     addRasterTileLayerToMap(map, 'arboverse.8xtrhkxq', 'mapbox://arboverse.8xtrhkxq', 'raster', 'mapbox://arboverse.8xtrhkxq', 0, 19);
     // biomes
-    addTileLayerToMap(map, 'arboverse.biomes', 'mapbox://arboverse.biomes', 'fill', { 'fill-color': ["match", ["get", "BIOME_NUM"], [1], "#2b655e", [2], "#6a7b3d", [3], "#7b8034", [4], "#a18a2b", [5], "#103f60", [6], "#fdbac7", [7], "#195662", [8], "#cf9340", [9], "#0b2b5c", [10], "#f09c69", [11], "#95872c", [12], "#fbc6ea", [13], "#f9a380", [14], "#416f53", "#000000"] }, 'biomes');
+    addTileLayerToMap(map, 'arboverse.biomes', 'mapbox://arboverse.biomes', 'fill', { 'fill-color': ["match", ["get", "BIOME_NUM"], [1], "#011959", [2], "#0d335e", [3], "#124761", [4], "#1a5762", [5], "#2c665d", [6], "#457051", [7], "#627940", [8], "#828231", [9], "#a58b2c", [10], "#c8913b", [11], "#e79858", [12], "#f9a381", [13], "#fdb1aa", [14], "#fcbed1", "#000000"] }, 'biomes');
     // drought vulnerabity
-    addTileLayerToMap(map, 'arboverse.vulnerability', 'mapbox://arboverse.vulnerability', 'fill', { 'fill-color': ["match", ["get", "GW_vulnera"], ["low vulnerability to floods and droughts"], "#66e9d4", ["moderate vulnerability to floods and low vulnerability to droughts"], "#6cd48d", ["low vulnerability to floods and moderate vulnerability to droughts"], "#8abd49", ["moderate vulnerability to floods and droughts"], "#9c961c", ["high vulnerability to floods and moderate vulnerability to droughts"], "#9b6e28", ["moderate vulnerability to floods and high vulnerability to droughts"], "#974e3e", ["high vulnerability to floods and droughts"], "#922e55", "#000000"] }, 'vulnerability');
-    addTileLayerToMap(map, 'arboverse.rivers', 'mapbox://arboverse.rivers', 'line', { 'line-color': "#b3f2fd", 'line-width': ["interpolate", ["linear"], ["zoom"], 0, 1, 22, 2] }, 'rivers');
-    addTileLayerToMap(map, 'arboverse.icesheets', 'mapbox://arboverse.icesheets', 'fill', { 'fill-color': "#c8d0e5" }, 'icesheets');
-    addTileLayerToMap(map, 'arboverse.waterbodies', 'mapbox://arboverse.waterbodies', 'fill', { 'fill-color': "#2f87da" }, 'waterbodies');
+    addTileLayerToMap(map, 'arboverse.vulnerability', 'mapbox://arboverse.vulnerability', 'fill', { 'fill-color': ["match", ["get", "GW_vulnera"], ["low vulnerability to floods and droughts"], "#ffcf67", ["moderate vulnerability to floods and low vulnerability to droughts"], "#e7a95a", ["low vulnerability to floods and moderate vulnerability to droughts"], "#cf874f", ["moderate vulnerability to floods and droughts"], "#b76945", ["high vulnerability to floods and moderate vulnerability to droughts"], "#9d4e3d", ["moderate vulnerability to floods and high vulnerability to droughts"], "#7e3739", ["high vulnerability to floods and droughts"], "#61293f", "#000000"] }, 'vulnerability');
+    addTileLayerToMap(map, 'arboverse.rivers', 'mapbox://arboverse.rivers', 'line', { 'line-color': "#81e7ff", 'line-width': ["interpolate", ["linear"], ["zoom"], 0, 1, 22, 2] }, 'rivers');
+    addTileLayerToMap(map, 'arboverse.icesheets', 'mapbox://arboverse.icesheets', 'fill', { 'fill-color': "#505f9e" }, 'icesheets');
+    addTileLayerToMap(map, 'arboverse.waterbodies', 'mapbox://arboverse.waterbodies', 'fill', { 'fill-color': "#669ed2" }, 'waterbodies');
     //aridity
     addRasterTileLayerToMap(map, 'arboverse.aridity_5km_1970_2000', 'mapbox://arboverse.aridity_5km_1970_2000', 'raster', 'mapbox://arboverse.aridity_5km_1970_2000', 0, 19);
     //population density 
@@ -474,7 +474,7 @@ map.on('load', async () => {
     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_cetartiodactyla', 'mapbox://arboverse.bio_mammals_cetartiodactyla', 'raster', 'mapbox://arboverse.bio_mammals_cetartiodactyla', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_chiroptera_10km', 'mapbox://arboverse.bio_mammals_chiroptera_10km', 'raster', 'mapbox://arboverse.bio_mammals_chiroptera_10km', 0, 19);
     // Tree cover loss by dominat drivers
-    addTileLayerToMap(map, 'arboverse.drivers', 'mapbox://arboverse.drivers', 'fill', { 'fill-color': ['match', ['get', 'classes'], [1], "#FDAFA5", [2], "#50744B", [3], "#1A5762", [4], "#A58B2C", [5], "#0F3B5F", "#000000"] }, 'drivers');
+    addTileLayerToMap(map, 'arboverse.drivers', 'mapbox://arboverse.drivers', 'fill', { 'fill-color': ['match', ['get', 'classes'], [1], "#ea8d6b", [2], "#c36660", [3], "#89606e", [4], "#5d5d79", [5], "#1e4368", "#000000"] }, 'drivers');
     //forest landscape integrity index
     addRasterTileLayerToMap(map, 'arboverse.flii_oceania_5km', 'mapbox://arboverse.flii_oceania_5km', 'raster', 'mapbox://arboverse.flii_oceania_5km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.flii_africa_5km', 'mapbox://arboverse.flii_africa_5km', 'raster', 'mapbox://arboverse.flii_africa_5km', 0, 19);
@@ -489,9 +489,9 @@ map.on('load', async () => {
     addRasterTileLayerToMap(map, 'arboverse.height_2019_nasia_1m', 'mapbox://arboverse.height_2019_nasia_1m', 'raster', 'mapbox://arboverse.height_2019_nasia_1m', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.height_2019_sasia_1km', 'mapbox://arboverse.height_2019_sasia_1km', 'raster', 'mapbox://arboverse.height_2019_sasia_1km', 0, 19);
     //intact forest landscape 2000 2013 2016
-    addTileLayerToMap(map, 'arboverse.ifl_2000', 'mapbox://arboverse.ifl_2000', 'fill', { 'fill-color': "#356A59" }, 'ifl_2000');
-    addTileLayerToMap(map, 'arboverse.ifl_2013', 'mapbox://arboverse.ifl_2013', 'fill', { 'fill-color': "#677B3E " }, 'ifl_2013');
-    addTileLayerToMap(map, 'arboverse.ifl_2016', 'mapbox://arboverse.ifl_2016', 'fill', { 'fill-color': "#175262" }, 'ifl_2016');
+    addTileLayerToMap(map, 'arboverse.ifl_2000', 'mapbox://arboverse.ifl_2000', 'fill', { 'fill-color': "#00404d" }, 'ifl_2000');
+    addTileLayerToMap(map, 'arboverse.ifl_2013', 'mapbox://arboverse.ifl_2013', 'fill', { 'fill-color': "#3a652a" }, 'ifl_2013');
+    addTileLayerToMap(map, 'arboverse.ifl_2016', 'mapbox://arboverse.ifl_2016', 'fill', { 'fill-color': "#969206" }, 'ifl_2016');
     //primary forest
     addRasterTileLayerToMap(map, 'arboverse.primary_africa_1km_2010', 'mapbox://arboverse.primary_africa_1km_2010', 'raster', 'mapbox://arboverse.primary_africa_1km_2010', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.primary_south_america_1km_2010', 'mapbox://arboverse.primary_south_america_1km_2010', 'raster', 'mapbox://arboverse.primary_south_america_1km_2010', 0, 19);
@@ -518,7 +518,7 @@ map.on('load', async () => {
     addTileLayerToMap(map, 'arboverse.logging7', 'mapbox://arboverse.logging', 'fill', { 'fill-color': "#08255B" }, 'camerron_logging');
     addTileLayerToMap(map, 'arboverse.logging8', 'mapbox://arboverse.canada_logging', 'fill', { 'fill-color': "#08255B" }, 'canada_logging_nova');
     //Over 38k dams
-    addTileLayerToMap(map, 'arboverse.dams', 'mapbox://arboverse.dams', 'circle', { 'circle-radius': ["interpolate", ["linear"], ["zoom"], 0, 2, 22, 9], 'circle-color': "#c2608a", 'circle-stroke-color': "#bd548e", 'circle-stroke-width': 0.5 }, 'dams');
+    addTileLayerToMap(map, 'arboverse.dams', 'mapbox://arboverse.dams', 'circle', { 'circle-radius': ["interpolate", ["linear"], ["zoom"], 0, 2, 22, 9], 'circle-color': "#c2618a", 'circle-stroke-color': "#bd548e", 'circle-stroke-width': 0.5 }, 'dams');
     //vector resistance inseticide
     addTileLayerToMap(map, 'arboverse.resistance', 'mapbox://arboverse.resistance', 'circle', { 'circle-radius': ["interpolate", ["linear"], ["zoom"], 0, 3, 22, 15], 'circle-color': ["match", ["get", "Insecticide class"], ["Carbamates"], "#829d8a", ["Pyrethroids"], "#234a8c", ["Organochlorines"], "#5f8598", ["Organophosphates"], "#f2f2d0", "#000000"] }, 'resistance');
 })
@@ -549,7 +549,7 @@ map.on('load', function () {
         'id': 'arboverse.transportation',
         'type': 'circle',
         'source': 'arboverse.transportation',
-        'paint': { 'circle-radius': ["step", ["get", "passengers carried"], 0, 100, 3, 1000, 6, 10000, 9, 100000, 12, 1000000, 15, 10000000, 18, 100000000, 21, 157873000, 24], 'circle-color': ["step", ["get", "passengers carried"], "hsl(61, 0%, 100%)", 100, "#e6e6f0", 1000, "#d9c1d7", 10000, "#d39fbf", 100000, "#d37fa8", 1000000, "#ae6795", 10000000, "#835f8b", 100000000, "#54426e", 926737000, "#2e214d"] },
+        'paint': { 'circle-radius': ["step", ["get", "passengers carried"], 0, 100, 3, 1000, 6, 10000, 9, 100000, 12, 1000000, 15, 10000000, 18, 100000000, 21, 157873000, 24], 'circle-color': ["step", ["get", "passengers carried"], "hsl(61, 0%, 100%)", 100, "#fdf5da", 1000, "#e6bd91", 10000, "#ea8d6b", 100000, "#c36660", 1000000, "#89606e", 10000000, "#5d5d79", 100000000, "#1e4368", 926737000, "#031326"] },
         'source-layer': 'transportation',
         'filter': ['all', filterYear]
     });
@@ -2216,7 +2216,7 @@ map.on('load', function () {
         'source': 'arboverse.vector_distribution',
         'source-layer': 'vector_distribution',
         'type': 'circle',
-        'paint': { 'circle-radius': ["interpolate", ["linear"], ["zoom"], 0, 4, 22, 8], 'circle-color': ["match", ["get", "type"], ["mosquito"], "#FDADA0", ["sandfly"], "#CB923E", ["midge"], "#2D675D", ["tick"], "#031C5A", ["other"], "#868330", "#000000"] },
+        'paint': { 'circle-radius': ["interpolate", ["linear"], ["zoom"], 0, 4, 22, 8], 'circle-color': ["match", ["get", "type"], ["mosquito"], "#0b4578", ["sandfly"], "#65ab6c", ["midge"], "#408a80", ["tick"], "#28728f", ["other"], "#bbdb88", "#000000"] },
         'filter': ["all", vectorFilter]
     });
     map.setLayoutProperty(
@@ -2421,7 +2421,7 @@ map.on('load', function () {
         'type': 'circle',
         'paint': {
             'circle-radius': ["interpolate", ["linear"], ["zoom"], 0, 7, 22, 11],
-            'circle-color': ["match", ["get", "family"], ["Nodaviridae"], "hsl(350, 48%, 72%)", ["Reoviridae"], "#0E365E", ["Orthomyxoviridae"], "#8A842F", ["Peribunyaviridae"], "#FCBDCF", ["Togaviridae"], "#C8913B", ["Phenuiviridae"], "#FDB2AD", ["Nairoviridae"], "#FCC5E5", ["Nyamiviridae"], "#26635F", ["Flaviviridae"], "#E39754", ["Asfarviridae"], "#6D7C3B", ["Rhabdoviridae"], "#0f574e", ["unk"], "#FCA993", "#000000"],
+            'circle-color': ["match", ["get", "family"], ["Nodaviridae"], "#a46267", ["Reoviridae"], "#e99a73", ["Orthomyxoviridae"], "#e57b62", ["Peribunyaviridae"], "#6b5f76", ["Togaviridae"], "#2a4b70", ["Phenuiviridae"], "#85606f", ["Nairoviridae"], "#515b7a", ["Nyamiviridae"], "#c8675f", ["Flaviviridae"], "#0c2e4d", ["Asfarviridae"], "#031326", ["Rhabdoviridae"], "#0f574e", ["unk"], "#e5b589", "#000000"],
         }
     })
     map.setLayoutProperty(
