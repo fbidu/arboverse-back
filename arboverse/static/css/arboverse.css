@@ -211,7 +211,7 @@
 }
 .tab input:checked ~ .tab-content{
   max-height: 100vh;
-  padding: 1em;
+  padding: 1.5em;
 }
 .tab-content-unit{
   padding: 10px 10px;
@@ -655,7 +655,7 @@
 /*Sub-title of Modal Box*/
 .modal-title p {
   color: gray;
-  font-size: 0.7rem;
+  font-size: 1rem;
 }
 /* Modal content features*/
 .modal__content {
@@ -681,7 +681,7 @@
   margin: 0;
 }
 .arrow-table h6 {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   width: 20%;
   color: #002147;
 }
@@ -689,7 +689,7 @@
   display: flex;
   flex-direction: column;
   margin-left: 20px;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 400;
   width: 80%;
   color: #494949;
@@ -700,24 +700,26 @@
   padding-bottom: 8px;
 }
 .arrow-table a {
+  font-size: 1rem;
   text-decoration: none;
   color: #ff8700;
 }
 /* Overview and Citation*/
 .column-table {
+  width:100%;
   display: flex;
   flex-direction: column;
 }
 .column-table h6 {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   color: #002147;
   text-align: center;
   padding: 15px 0;
 }
 .p-wrapper-column {
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 400;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   color: #494949;
   line-height: 1.5;
@@ -784,16 +786,16 @@
   font-size: 1rem;
   line-height: 1.5;
   visibility: hidden;
-  min-width: 300px;
-  max-width: 400px;
+  min-width: 400px;
+  max-width: 500px;
   background-color: #E0E4FD;
   color: var(--text);
   text-align: center;
   padding: 8px 3px;
   border-radius: 5px;
   position: absolute;
-  z-index: 15;
-  top: -10px;
+  z-index: 20;
+  top: -20px;
   left: 110%;
   opacity: 0;
   transition: opacity 0.3s;
@@ -1415,14 +1417,14 @@ background: linear-gradient(
 .passengers-s{
   background: linear-gradient(
     90deg,
-    #e6e6f0,
-    #d9c1d7,
-    #d39fbf,
-    #d37fa8,
-    #ae6795,
-    #835f8b,
-    #54426e,
-    #2e214d
+    #fdf5da,
+    #e6bd91,
+    #ea8d6b,
+    #c36660,
+    #89606e,
+    #5d5d79,
+    #1e4368,
+    #031326
   ) ;
 }
 .arrivals-s{
@@ -1504,34 +1506,34 @@ background: linear-gradient(
   background: #f2f2d0;
 }
 .vuln_1{
-  background: #66e9d4;
+  background: #ffcf67;
 }
 .vuln_2{
-  background: #6cd48d;
+  background: #e7a95a;
 }
 .vuln_3{
-  background: #8abd49;
+  background: #cf874f;
 }
 .vuln_4{
-  background: #9c961c;
+  background: #b76945;
 }
 .vuln_5{
-  background: #9b6e28;
+  background: #9d4e3d;
 }
 .vuln_6{
-  background: #974e3e;
+  background: #7e3739;
 }
 .vuln_7{
-  background: #922e55;
+  background: #61293f;
 }
 .rivers{
-  background: #b3f2fd;
+  background: #81e7ff;
 }
 .waterbodies{
-  background: #2f87da;
+  background: #669ed2;
 }
 .icesheets{
-  background: #c8d0e5;
+  background: #505f9e;
 }
 .jan{
   background: #033198;
@@ -1570,53 +1572,53 @@ background: linear-gradient(
   background: #7e1700;
 }
 .vec1{
-  background: #6D763B;
+  background: #031326;
 }
 .vec2{
-  background: #E39754;
+  background: #0c2e4d;
 }
 .vec3{
-  background: #C8913B;
+  background: #2a4b70;
 }
 .vec4{
-  background: #FCC5E5;
+  background: #515b7a;
 }
 .vec5{
-  background: #FCBDCF;
+  background: #6b5f76;
 }
 .vec6{
-  background: #FDB2AD;
+  background: #85606f;
 }
 .vec7{
-  background: #438bc7;
+  background: #a46267;
 }
 .vec8{
-  background: #26635F;
+  background: #c8675f;
 }
 .vec9{
-  background: #8A842F;
+  background: #e57b62;
 }
 .vec10{
-  background: #0E365E;
+  background: #e99a73;
 }
 .vec11{
-  background: #FCA993;
+  background: #e5b589;
 }
 
 .mos{
-  background: #FDADA0;
+  background: #0b4578;
 }
 .tic{
-  background: #031C5A;
+  background: #28728f;
 }
 .mid{
-  background: #2D675D;
+  background: #408a80;
 }
 .san{
-  background: #CB923E;
+  background: #65ab6c;
 }
 .oth{
-  background: #868330;
+  background: #bbdb88;
 }
 .af{
   background: #8c0273;
@@ -1710,73 +1712,73 @@ background: linear-gradient(
   background: #b3f2fd;
 }
 .biome_1 {
-  background-color: #2b655e;
+  background-color: #011959;
 }
 .biome_2{
-  background-color: #6a7b3d;
+  background-color: #0d335e;
 }
 .biome_3{
-  background-color: #7b8034;
+  background-color: #124761;
 }
 .biome_4 {
-  background-color: #a18a2b;
+  background-color: #1a5762;
 }
 .biome_5{
-  background-color: #103f60;
+  background-color: #2c665d;
 }
 .biome_6{
-  background-color: #fdbac7;
+  background-color: #457051;
 }
 .biome_7{
-  background-color: #195662;
+  background-color: #627940;
 }
 .biome_8{
-  background-color: #cf9340;
+  background-color: #828231;
 }
 .biome_9 {
-  background-color: #0b2b5c;
+  background-color: #a58b2c;
 }
 .biome_10{
-  background-color: #f09c69;
+  background-color: #c8913b;
 }
 .biome_11{
-  background-color: #95872c;
+  background-color: #e79858;
 }
 .biome_12{
-  background-color: #fbc6ea;
+  background-color: #f9a381;
 }
 .biome_13 {
-  background-color: #f9a380;
+  background-color: #fdb1aa;
 }
 .biome_14{
-  background-color: #416f53;
+  background-color: #fcbed1;
 }
 .comod {
-  background: #FDAFA5;
+  background: #ea8d6b;
 }
 .shift {
-  background-color: #50744B;
+  background-color: #c36660;
 }
 .montaingreen-p {
-  background-color: #1A5762;
+  background-color: #89606e;
 }
 .mango-p {
-  background-color: #A58B2C;
+  background-color: #5d5d79;
 }
 .blush-p {
-  background-color: #0F3B5F;
+  background-color: #1e4368;
 }
 .musgo-p {
   background-color: #637a40;
 }
 .green1-p {
-  background: #356A59;
+  background: #00404d;
 }
 .green2-p {
-  background: #677B3E;
+  background: #3a652a;
 }
 .green3-p {
-  background:  #175262;
+  background: #969206;
 }
 .vazio-p {
   background-color: #e9995c;
@@ -1830,7 +1832,7 @@ background: linear-gradient(
   background-color: #720026;
 }
 .dams_38 {
-  background-color: #c2608a;
+  background-color: #c2618a;
 }
 
 /* ======= Sub-menu container Timeline Features  =======*/
