@@ -353,7 +353,7 @@ map.on('load', async () => {
     addTileLayerToMap(map, 'arboverse.icesheets', 'mapbox://arboverse.icesheets', 'fill', { 'fill-color': "#505f9e" }, 'icesheets');
     addTileLayerToMap(map, 'arboverse.waterbodies', 'mapbox://arboverse.waterbodies', 'fill', { 'fill-color': "#669ed2" }, 'waterbodies');
     //aridity
-    addRasterTileLayerToMap(map, 'arboverse.aridity_5km_1970_2000', 'mapbox://arboverse.aridity_5km_1970_2000', 'raster', 'mapbox://arboverse.aridity_5km_1970_2000', 0, 19);
+    addRasterTileLayerToMap(map, 'arboverse.aridity_index_5km_modificado', 'mapbox://arboverse.aridity_index_5km_modificado', 'raster', 'mapbox://arboverse.aridity_index_5km_modificado', 0, 19);
     //population density 
     addRasterTileLayerToMap(map, 'arboverse.pop_2000', 'mapbox://arboverse.pop_2000', 'raster', 'mapbox://arboverse.pop_2000', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.pop_2005', 'mapbox://arboverse.pop_2005', 'raster', 'mapbox://arboverse.pop_2005', 0, 19);
@@ -711,7 +711,7 @@ map.on('load', function () {
     addOpacityVector(biomeSlider, 'arboverse.biomes');
     addOpacityRaster(biodiversitySlider, 'arboverse.bii');
     addOpacityRaster(landSlider, 'arboverse.8xtrhkxq');
-    addOpacityRaster(ariditySlider, 'arboverse.aridity_5km_1970_2000');
+    addOpacityRaster(ariditySlider, 'arboverse.aridity_index_5km_modificado');
     addOpacityCircle(arrSlider, 'arboverse.arrivals');
     addOpacityCircle(depSlider, 'arboverse.departures');
     addOpacityCircle(passengersSlider, 'arboverse.transportation');
