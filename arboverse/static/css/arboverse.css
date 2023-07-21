@@ -1020,9 +1020,17 @@
   display: flex;
   justify-content: space-between;
 }
+#unit_scale{
+  text-align: left;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-left: 5px;
+}
 .discovery_measure{
-  width:85%;
-  margin: 10px 20px;
+  width:98%;
+  margin: 5px auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -2306,11 +2314,20 @@ form #livestock-type-selector {
   color: var(--text);
 }
 form .ae_mosquito::before,
-form .al_mosquito::before,
-form .livestock_group::before{
+form .al_mosquito::before{
   content: " ";
   position: absolute;
   height: 80%;
+  width: 1px;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -55%);
+  background: rgb(180, 180, 180);
+}
+form .livestock_group::before{
+  content: " ";
+  position: absolute;
+  height: 100%;
   width: 1px;
   top: 50%;
   left: 70%;
@@ -2338,7 +2355,8 @@ form #livestock-type-selector label {
   height: 25%;
   user-select: none;
 }
-form #mosquito-type-selector label::before { /*time Label*/
+form #mosquito-type-selector label::before,
+form #livestock-type-selector label::before { /*time Label*/
   content: attr(model);
   color:var(--text);
   position: absolute;
@@ -2350,41 +2368,14 @@ form #mosquito-type-selector label::before { /*time Label*/
   white-space: nowrap;
   opacity: 0.85;
   transition: all 0.15s ease-in-out;
+  
 }
-form #livestock-type-selector label::before { /*animals Label*/
-  content: attr(model);
-  color:var(--text);
-  position: absolute;
-  left: 30%;
-  top:-80%;
-  font-size: 0.8rem;
-  font-weight: 400;
-  white-space: nowrap;
-  opacity: 0.85;
-  transition: all 0.15s ease-in-out;
-}
-form #mosquito-type-selector label::after{ /*time circles*/
+form #mosquito-type-selector label::after,
+form #livestock-type-selector label::after{ /*time circles*/
   content: " ";
   position: absolute;
   left:70%;
   top: 50%;
-  transform: translate(-50%, -50%);
-  width: 15px;
-  height: 15px;
-  border: 1px solid rgb(180, 180, 180);
-  background: #fff;
-  border-radius: 50%;
-  pointer-events: none;
-  user-select: none;
-  z-index: 1;
-  cursor: pointer;
-  transition: all 0.15s ease-in-out;
-}
-form #livestock-type-selector label::after{ /*animal circles*/
-  content: " ";
-  position: absolute;
-  left:70%;
-  top: 10%;
   transform: translate(-50%, -50%);
   width: 15px;
   height: 15px;
@@ -2430,12 +2421,12 @@ form #livestock-type-selector input:checked:nth-child(3) ~ #model-pos {
 }
 form:valid #mosquito-type-selector input + label::before,
 form:valid #livestock-type-selector input + label::before {
-  transform: translate(-50%, 35px) scale(0.9);
+  transform: translate(-50%, 12px) scale(0.9);
   transition: all 0.15s linear;
 }
 form:valid #mosquito-type-selector input:checked + label::before,
 form:valid #livestock-type-selector input:checked + label::before {
-  transform: translate(-50%, 35px) scale(1.1);
+  transform: translate(-50%, 12px) scale(1);
   transition: all 0.15s linear;
 }
 /* ===== Time Selector Radio ======*/

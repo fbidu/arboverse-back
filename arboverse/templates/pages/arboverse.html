@@ -551,6 +551,7 @@
             <span class="tooltext-a">Geolocations of arboviruses discovered</span>
           </div>
         </div>
+        <h6 id="unit_scale">Arbovirus families:</h6>
         <div class="discovery_measure">
           <div class="kp_group">
             <div class="kp_unit">
@@ -664,6 +665,7 @@
             <input id="opacity_slider" name="resistance-opacity" type="range" min="0" max="100" value="100" step="1"
               class="opacity">
           </div>
+          <h6 id="unit_scale">Inseticide classes:</h6>
           <div class="marker">
             <div class="point resist_1"></div>
             <label class="point-mean">Carbamates</label>
@@ -694,29 +696,30 @@
             <span class="tooltext-a">Geolocations of arbovirus vector distribution</span>
           </div>
         </div>
+        <h6 id="unit_scale">Vector types:</h6>
         <div class="vector_measure">
           <div class="kp_group">
             <div class="kp_unit">
               <div class="label_circle mos"></div>
-              <label class="kp">Mosquito</label>
+              <label class="kp">Mosquitoes</label>
             </div>
             <div class="kp_unit">
               <div class="label_circle mid"></div>
-              <label class="kp">Midge</label>
+              <label class="kp">Midges</label>
             </div>
             <div class="kp_unit">
               <div class="label_circle san"></div>
-              <label class="kp">Sandfly</label>
+              <label class="kp">Sandflies</label>
             </div>
           </div>
           <div class="kp_group">
             <div class="kp_unit">
               <div class="label_circle tic"></div>
-              <label class="kp">Tick</label>
+              <label class="kp">Ticks</label>
             </div>
             <div class="kp_unit">
               <div class="label_circle oth"></div>
-              <label class="kp">Other</label>
+              <label class="kp">Others</label>
             </div>
           </div>
         </div>
@@ -1109,7 +1112,7 @@
               <label class="days">120</label>
               <label class="days">180</label>
               <label class="days">240</label>
-              <label class="days">300</label>
+              <label class="days">300 days</label>
             </div>
           </div>
           <!--Time selector-->
@@ -1156,11 +1159,11 @@
             <div class="bar-mesur precipitation_label"></div>
             <div class="indice">
               <label class="days">0</label>
-              <label class="days">1400</label>
-              <label class="days">2800</label>
-              <label class="days">4200</label>
-              <label class="days">5600</label>
-              <label class="days">7000</label>
+              <label class="days">1,400</label>
+              <label class="days">2,800</label>
+              <label class="days">4,200</label>
+              <label class="days">5,600</label>
+              <label class="days">7,000 kg/m<sup>2</sup>/s</label>
             </div>
           </div>
           <!--Time selector-->
@@ -1195,8 +1198,7 @@
             <h6>Extreme precipitation days</h6>
             <div class="wrapper tooltip">
               <a href="#demo-modal4.6"><i class="fa fa-info-circle" style="color:gray; opacity: 0.8;"></i></a>
-              <span class="tooltext">Global estimate of human population density and
-                distribution</span>
+              <span class="tooltext">Projected change in annual average days of extreme precipitation</span>
             </div>
           </div>
           <div class="opacity-wrapper">
@@ -1208,10 +1210,10 @@
             <div class="bar-mesur extreme_precipitation_label"></div>
             <div class="indice">
               <label class="days">0</label>
-              <label class="days">3750</label>
-              <label class="days">7500</label>
-              <label class="days">11250</label>
-              <label class="days">15000</label>
+              <label class="days">3.750</label>
+              <label class="days">7.500</label>
+              <label class="days">11.250</label>
+              <label class="days">15.000 days</label>
             </div>
           </div>
           <!--Time selector-->
@@ -1220,9 +1222,9 @@
             <form>
               <div class="model_group">
                 <input type="radio" id="model_7" name="model_extreme" value="rcp45">
-                <label for="model_7">RCP 45</label>
+                <label for="model_7">RCP 4.5</label>
                 <input type="radio" id="model_8" name="model_extreme" value="rcp85">
-                <label for="model_8">RCP 85</label>
+                <label for="model_8">RCP 8.5</label>
               </div>
             </form>
             <!--Time selector-->
@@ -1257,11 +1259,11 @@
           <div class="measure">
             <div class="bar-mesur dry_spells_label"></div>
             <div class="indice">
-              <label class="days">0</label>
-              <label class="days">0.5</label>
-              <label class="days">1</label>
-              <label class="days">1.5</label>
-              <label class="days">2</label>
+              <label class="days">0x</label>
+              <label class="days">0.5x</label>
+              <label class="days">1x</label>
+              <label class="days">1.5x</label>
+              <label class="days">&#8805;2x</label>
             </div>
           </div>
           <!--Time selector-->
@@ -1270,9 +1272,9 @@
             <form>
               <div class="model_group">
                 <input type="radio" id="model_9" name="model_dry" value="rcp45">
-                <label for="model_9">RCP 45</label>
+                <label for="model_9">RCP 4.5</label>
                 <input type="radio" id="model_10" name="model_dry" value="rcp85">
-                <label for="model_10">RCP 85</label>
+                <label for="model_10">RCP 8.5</label>
               </div>
             </form>
             <!--Time selector-->
@@ -2006,7 +2008,7 @@
                 <label class="millions">50</label>
                 <label class="millions">100</label>
                 <label class="millions">250</label>
-                <label class="millions">&#62;250</label>
+                <label class="millions">&#62;250/~10km2</label>
               </div>
             </div>
             <div id="livestock_type_wrapper">
@@ -2342,7 +2344,7 @@
                 <label class="millions">1k</label>
                 <label class="millions">5k</label>
                 <label class="millions">10k</label>
-                <label class="millions">>10k</label>
+                <label class="millions">>10k/km2</label>
               </div>
             </div>
             <!--Time selector-->
@@ -2378,7 +2380,7 @@
               <div class="indice">
                 <label class="percentage">&lt; 2.5k</label>
                 <label class="percentage">27.5k</label>
-                <label class="percentage">&ge; 50K</label>
+                <label class="percentage">&ge; 50K/10km2</label>
               </div>
             </div>
             <!--Time selector-->
@@ -2413,7 +2415,7 @@
               <div class="bar-mesur hdi_label"></div>
               <div class="indice">
                 <label class="percentage">&lt; 0.3</label>
-                <label class="percentage">1</label>
+                <label class="percentage">1/10km2</label>
               </div>
             </div>
             <!--Time selector-->
