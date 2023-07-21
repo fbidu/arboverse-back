@@ -766,9 +766,9 @@ document.querySelectorAll("input[name=option_mammals]").forEach(i =>{
         var target = document.querySelector(".mammals_new_value");
         var newValue = i.value;
         if(newValue == 20 || newValue == 30|| newValue == 40){
-            target.innerHTML =`≥${newValue}`
+            target.innerHTML =`≥${newValue} species`
         } else if (newValue == 31 || newValue == 26 || newValue == 120 || newValue == 25 || newValue == 62 || newValue == 35 || newValue == 212 || newValue == 4){
-            target.innerHTML = `${newValue}`;
+            target.innerHTML = `${newValue} species`;
         } else {
             target.innerHTML = `select data`
         }
@@ -813,9 +813,9 @@ document.querySelectorAll("input[name=option_amphibians]").forEach(i =>{
         var target = document.querySelector(".other_value");
         var newValue = i.value;
         if(newValue < 35){
-            target.innerHTML =`≥${newValue}`
+            target.innerHTML =`≥${newValue} species`
         } else if (newValue > 100){
-            target.innerHTML = `${newValue}`;
+            target.innerHTML = `${newValue} species`;
         } else {
             target.innerHTML = `select data`
         }
@@ -863,7 +863,7 @@ document.querySelectorAll("input[name=option_birds]").forEach(i =>{
     i.onchange = function () {
         var target = document.querySelector(".other_value_birds");
         var newValue = i.value;
-            target.innerHTML = newValue
+            target.innerHTML = `${newValue} species`
         var j = 0;
         document.querySelectorAll("input[name=option_birds]").forEach(j => {
             j.checked = false;
