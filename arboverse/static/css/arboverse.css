@@ -1451,30 +1451,6 @@ background: linear-gradient(
     #1a0c64
   );
 }
-.browngreen-s {
-  background: linear-gradient(
-    90deg,
-    #ffe599 10%,
-    #e7cd68 10%,
-    #e7cd68 20%,
-    #c6af32 20%,
-    #c6af32 30%,
-    #969206 30%,
-    #969206 40%,
-    #71870b 40%,
-    #71870b 50%,
-    #52741c 50%,
-    #52741c 60%,
-    #3a652a 60%,
-    #3a652a 70%,
-    #255737 70%,
-    #255737 80%,
-    #134b42 80%,
-    #134b42 90%,
-    #00404d 90%,
-    #00404d 100%
-  );
-}
 /*  Measurement size features */
 .celsius,
 .cubicmm,
@@ -1828,6 +1804,18 @@ background: linear-gradient(
 }
 .deforested-p {
   background-color: #720026;
+}
+.protect_1{
+  background-color: #031327;
+}
+.protect_2{
+  background-color: #1a608f;
+}
+.protect_3{
+  background-color: #408a80;
+}
+.protect_4{
+  background-color: #88c369;
 }
 .dams_38 {
   background-color: #c2618a;

@@ -347,6 +347,8 @@ map.on('load', async () => {
     addRasterTileLayerToMap(map, 'arboverse.8xtrhkxq', 'mapbox://arboverse.8xtrhkxq', 'raster', 'mapbox://arboverse.8xtrhkxq', 0, 19);
     // biomes
     addTileLayerToMap(map, 'arboverse.biomes', 'mapbox://arboverse.biomes', 'fill', { 'fill-color': ["match", ["get", "BIOME_NUM"], [1], "#011959", [2], "#0d335e", [3], "#124761", [4], "#1a5762", [5], "#2c665d", [6], "#457051", [7], "#627940", [8], "#828231", [9], "#a58b2c", [10], "#c8913b", [11], "#e79858", [12], "#f9a381", [13], "#fdb1aa", [14], "#fcbed1", "#000000"] }, 'biomes');
+    // biomes recovery index
+    addTileLayerToMap(map, 'arboverse.biomesindex', 'mapbox://arboverse.biomes', 'fill', { 'fill-color': ["match", ["get", "NNH"], [4], "#88c369", [3], "#408a80", [2], "#1a608f", [1], "#031327", "#000000"] }, 'biomes');
     // drought vulnerabity
     addTileLayerToMap(map, 'arboverse.vulnerability', 'mapbox://arboverse.vulnerability', 'fill', { 'fill-color': ["match", ["get", "GW_vulnera"], ["low vulnerability to floods and droughts"], "#ffcf67", ["moderate vulnerability to floods and low vulnerability to droughts"], "#e7a95a", ["low vulnerability to floods and moderate vulnerability to droughts"], "#cf874f", ["moderate vulnerability to floods and droughts"], "#b76945", ["high vulnerability to floods and moderate vulnerability to droughts"], "#9d4e3d", ["moderate vulnerability to floods and high vulnerability to droughts"], "#7e3739", ["high vulnerability to floods and droughts"], "#61293f", "#000000"] }, 'vulnerability');
     addTileLayerToMap(map, 'arboverse.rivers', 'mapbox://arboverse.rivers', 'line', { 'line-color': "#81e7ff", 'line-width': ["interpolate", ["linear"], ["zoom"], 0, 1, 22, 2] }, 'rivers');
@@ -687,6 +689,7 @@ map.on('load', function () {
     var citiesSlider = document.querySelector('input[name=cities-opacity]')
     var biodiversitySlider = document.querySelector('input[name=biodiversity-opacity]')
     var biomeSlider = document.querySelector('input[name=biome-opacity]')
+    var protectBiomeSlider = document.querySelector('input[name=protect-biome-opacity]')
     var cliSlider = document.querySelector('input[name=climate-opacity]');
     var forecastSlider = document.querySelector('input[name=forecast-opacity]');
     var driveSlider = document.querySelector('input[name=drive-opacity]');
@@ -709,6 +712,7 @@ map.on('load', function () {
     addOpacityVector(driveSlider, 'arboverse.drivers');
     addOpacityCircle(resistanceSlider, 'arboverse.resistance');
     addOpacityVector(biomeSlider, 'arboverse.biomes');
+    addOpacityVector(protectBiomeSlider, 'arboverse.biomesindex');
     addOpacityRaster(biodiversitySlider, 'arboverse.bii');
     addOpacityRaster(landSlider, 'arboverse.8xtrhkxq');
     addOpacityRaster(ariditySlider, 'arboverse.aridity_index_5km_modificado');

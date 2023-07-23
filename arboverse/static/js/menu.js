@@ -1109,6 +1109,14 @@ var biomeValue = function(){
 }
 biome.addEventListener('input', biomeValue)
 
+var protectBiome = document.querySelector('input[name=protect-biome-opacity]');
+var protectValue = function(){
+    var newOpValue = protectBiome.value;
+    var target = document.querySelector('.protect_op');
+    target.innerHTML = newOpValue;
+}
+protectBiome.addEventListener('input', protectValue)
+
 var drive = document.querySelector('input[name=drive-opacity]');
 var DriveValue = function(){
     var newOpValue = drive.value;
