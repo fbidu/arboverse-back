@@ -1466,47 +1466,6 @@
               <label class="point-mean">Mangroves</label>
             </div>
           </div>
-          <!--Tree Cover Loss by dominante driver-->
-          <div class="unit-btn2">
-            <div class="unit-toggle">
-              <div class="togglebtn">
-                <label class="switch">
-                  <input type="checkbox" name="forest" id="arboverse.drivers" />
-                  <span class="slider round"></span>
-                </label>
-              </div>
-              <h6>Tree cover loss by dominant driver</h6>
-              <div class="wrapper tooltip">
-                <a href="#demo-modal5.1"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
-                <span class="tooltext">Dominant driver of tree cover loss</span>
-              </div>
-            </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op drive_op">100</span></label>
-              <input id="opacity_slider" name="drive-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
-            <div class="marker">
-              <div class="point comod"></div>
-              <label class="point-mean">Commodity driven deforestation</label>
-            </div>
-            <div class="marker">
-              <div class="point shift"></div>
-              <label class="point-mean">Shifting agriculture</label>
-            </div>
-            <div class="marker">
-              <div class="point montaingreen-p"></div>
-              <label class="point-mean">Foresty</label>
-            </div>
-            <div class="marker">
-              <div class="point mango-p"></div>
-              <label class="point-mean">Wildfire</label>
-            </div>
-            <div class="marker">
-              <div class="point blush-p"></div>
-              <label class="point-mean">Urbanization</label>
-            </div>
-          </div>
           <!--Primary Forest cover-->
           <div class="unit-btn2">
             <div class="unit-toggle">
@@ -1595,48 +1554,86 @@
               <label class="point-mean">Reduction in extent 2013-2016</label>
             </div>
           </div>
-          <!--Forest landscape integrity index-->
+          <!--Protection statuses-->
           <div class="unit-btn2">
             <div class="unit-toggle">
               <div class="togglebtn">
                 <label class="switch">
-                  <input type="checkbox" name="forest"
-                    id="arboverse.flii_northamerica_5km,arboverse.flii_southamerica_5km,arboverse.flii_africa_5km,arboverse.flii_oceania_5km" />
+                  <input type="checkbox" name="forest" id="arboverse.biomesindex" />
                   <span class="slider round"></span>
                 </label>
               </div>
-              <h6>Forest landscape integrity index</h6>
+              <h6>Ecoregion protection statuses</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal5.5"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
-                <span class="tooltext">Forest landscape condition</span>
+                <span class="tooltext">Shows the ecoregion protection categories</span>
               </div>
             </div>
             <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op index_op">100</span></label>
-              <input id="opacity_slider" name="index-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
+              <label>Opacity: <span class="val_op protect_op">100</span></label>
+              <input id="opacity_slider" name="protect-biome-opacity" type="range" min="0" max="100" value="100"
+                step="1" class="opacity">
             </div>
-            <div class="measure">
-              <div class="bar-mesur browngreen-s"></div>
-              <div class="indice">
-                <label class="index">0</label>
-                <label class="index">1</label>
-                <label class="index">2</label>
-                <label class="index">3</label>
-                <label class="index">4</label>
-                <label class="index">5</label>
-                <label class="index">6</label>
-                <label class="index">7</label>
-                <label class="index">8</label>
-                <label class="index">9</label>
-                <label class="index">10</label>
-              </div>
-              <div class="indice">
-                <label class="index">Low integrity</label>
-                <label class="index">High integrity</label>
-              </div>
+            <div class="marker">
+              <div class="point protect_1"></div>
+              <label class="point-mean">Half protected</label>
+            </div>
+            <div class="marker">
+              <div class="point protect_2"></div>
+              <label class="point-mean">Nature could reach half</label>
+            </div>
+            <div class="marker">
+              <div class="point protect_3"></div>
+              <label class="point-mean">Nature could recover</label>
+            </div>
+            <div class="marker">
+              <div class="point protect_4"></div>
+              <label class="point-mean">Nature imperiled</label>
             </div>
           </div>
+          <!--Tree Cover Loss by dominante driver-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="forest" id="arboverse.drivers" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Tree cover loss by dominant driver</h6>
+              <div class="wrapper tooltip">
+                <a href="#demo-modal5.1"><i class="fa fa-info-circle" style="color: gray; opacity: 0.8"></i></a>
+                <span class="tooltext">Dominant driver of tree cover loss</span>
+              </div>
+            </div>
+            <div class="opacity-wrapper">
+              <label>Opacity: <span class="val_op drive_op">100</span></label>
+              <input id="opacity_slider" name="drive-opacity" type="range" min="0" max="100" value="100" step="1"
+                class="opacity">
+            </div>
+            <div class="marker">
+              <div class="point comod"></div>
+              <label class="point-mean">Commodity driven deforestation</label>
+            </div>
+            <div class="marker">
+              <div class="point shift"></div>
+              <label class="point-mean">Shifting agriculture</label>
+            </div>
+            <div class="marker">
+              <div class="point montaingreen-p"></div>
+              <label class="point-mean">Foresty</label>
+            </div>
+            <div class="marker">
+              <div class="point mango-p"></div>
+              <label class="point-mean">Wildfire</label>
+            </div>
+            <div class="marker">
+              <div class="point blush-p"></div>
+              <label class="point-mean">Urbanization</label>
+            </div>
+          </div>
+
+
         </div>
       </div>
       <!--Biodiversity-->
@@ -4076,26 +4073,25 @@
       <a href="#map" class="modal__close">&times;</a>
     </div>
   </div>
-  <!-- Forest landscape integrity index-->
+  <!-- Protect Statuse Biomes-->
   <div id="demo-modal5.5" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
-        <h3>Forest landscape integrity index</h3>
-        <p>Forest landscape condition</p>
+        <h3>Ecoregion protection statuses</h3>
+        <p>Shows the ecoregion protection categories</p>
       </div>
       <!--Layer Information-->
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays forest landscape condition based on an index determined by the degree of anthropogenic
-            modification</p>
+          <p>Displays The protection statuses of ecoregions of the world</p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Resolution</h6>
         <div class="p-wrapper">
-          <p>5km x 5km (original: 300 x 300 m)</p>
+          <p>Not described</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4113,25 +4109,30 @@
       <div class="arrow-table">
         <h6>Date of content</h6>
         <div class="p-wrapper">
-          <p>2019</p>
+          <p>2017</p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>License</h6>
         <div class="p-wrapper">
-          <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+          <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>
         </div>
       </div>
       <!--Overview-->
       <div class="column-table">
         <h6>Overview</h6>
         <div class="p-wrapper-column">
-          <p>This dataset presents the Forest Landscape Integrity Index (FLII), where the authors combined four
-            datasets: (i) forest extent; (ii) ‘observed’ pressure from high impact, localized human activities for which
-            spatial datasets exist, specifically: infrastructure, agriculture, and recent deforestation; (iii)
-            ‘inferred’ pressure associated with edge effects, and other diffuse processes, (e.g., hunting and selective
-            logging) modeled using proximity to observed pressures; and iv) anthropogenic changes in forest connectivity
-            due to forest loss. The authors present a scale from 0 (low integrity) to 10 (high integrity). For more
+          <p>This dataset shows the ecoregions represent geographically distinct assemblages of biodiversity whose
+            boundaries encompass the space required to sustain key ecological processes. (1) Half Protected: More than
+            50% of the total ecoregion area is protected. (2) Nature Could Reach Half: Less than 50% of the total
+            ecoregion area is protected but the sum of total ecoregion protected and unprotected natural habitat
+            remaining is more than 50%. Ecoregions in this category have enough remaining natural habitat to reach Half
+            Protected if additional protected areas or other types of conservation areas are added to the system. (3)
+            Nature Could Recover: The sum of the amount of natural habitat remaining and the amount of the total
+            ecoregion that is protected is less than 50% but more than 20%. Ecoregions in this category would require
+            restoration to reach Half Protected because the amount of available habitat outside protected areas plus the
+            existing protected areas is below 50%. (4) Nature Imperiled: The sum of the amount of natural habitat
+            remaining and the amount of the total ecoregion that is protected is less than or equal to 20%. For more
             methodological details and limitations, please see the original source.
           </p>
         </div>
@@ -4139,28 +4140,31 @@
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>We performed the nearest neighbor reprojection from 300 meters to 5km<sup>2</sup> spatial resolution using
-            int32. We applied the color palette “bamako” as described by Crameri F, Shephard GE, Heron PJ. The misuse of
-            colour in science communication. Nat Commun. 2020 Oct 28;11(1):5444. doi: 10.1038/s41467-020-19160-7. PMID:
-            33116149; PMCID: PMC7595127</p>
+          <p>We applied the scientific colour map navia (Crameri, 2018) to prevent visual distortion (Crameri et al.,
+            2020).</p>
+          <p>Crameri F (2018a), Scientific colour maps. Zenodo. <a href="http://doi.org/10.5281/zenodo.1243862"
+              target="_blank">http://doi.org/10.5281/zenodo.1243862.</a></p>
+          <p>Crameri F, Shephard GE, Heron PJ. The misuse of colour in science communication. Nat. Commun. 2020 Oct
+            28;11(1):5444. <a href="https://www.nature.com/articles/s41467-020-19160-7" target="_blank">doi:
+              10.1038/s41467-020-19160-7.</a></p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Original source</h6>
         <div class="p-wrapper">
-          <p>Grantham HS, Duncan A, Evans TD, Jones KR, Beyer HL, Schuster R, Walston J, Ray JC, Robinson JG, Callow M,
-            Clements T, Costa HM, DeGemmis A, Elsen PR, Ervin J, Franco P, Goldman E, Goetz S, Hansen A, Hofsvang E,
-            Jantz P, Jupiter S, Kang A, Langhammer P, Laurance WF, Lieberman S, Linkie M, Malhi Y, Maxwell S, Mendez M,
-            Mittermeier R, Murray NJ, Possingham H, Radachowsky J, Saatchi S, Samper C, Silverman J, Shapiro A,
-            Strassburg B, Stevens T, Stokes E, Taylor R, Tear T, Tizard R, Venter O, Visconti P, Wang S, Watson JEM.
-            Anthropogenic modification of forests means only 40% of remaining forests have high ecosystem integrity. Nat
-            Commun. 2020 Dec 8;11(1):5978. doi: 10.1038/s41467-020-19493-3.</p>
+          <p>Dinerstein E, Olson D, Joshi A, Vynne C, Burgess ND, Wikramanayake E, Hahn N, Palminteri S, Hedao P, Noss
+            R, Hansen M, Locke H, Ellis EC, Jones B, Barber CV, Hayes R, Kormos C, Martin V, Crist E, Sechrest W, Price
+            L, Baillie JEM, Weeden D, Suckling K, Davis C, Sizer N, Moore R, Thau D, Birch T, Potapov P, Turubanova S,
+            Tyukavina A, de Souza N, Pintea L, Brito JC, Llewellyn OA, Miller AG, Patzelt A, Ghazanfar SA, Timberlake J,
+            Klöser H, Shennan-Farpón Y, Kindt R, Lillesø JB, van Breugel P, Graudal L, Voge M, Al-Shammari KF, Saleem M.
+            An Ecoregion-Based Approach to Protecting Half the Terrestrial Realm. Bioscience. 2017 Jun 1;67(6):534-545.
+            doi: 10.1093/biosci/bix014. Epub 2017 Apr 5. PMID: 28608869; PMCID: PMC5451287.</p>
         </div>
       </div>
       <!--Download data button-->
       <div class="databtn">
         <button class="download-data"><a
-            href="https://data.globalforestwatch.org/documents/gfw::intact-forest-landscapes/about"
+            href="https://storage.googleapis.com/teow2016/Ecoregions2017.zip"
             target="_blank">Download
             Data</a></button>
       </div>
@@ -5346,9 +5350,13 @@
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>We applied the scientific colour map buda (Crameri, 2018) to prevent visual distortion (Crameri et al., 2020).</p>
-          <p>Crameri F (2018a), Scientific colour maps. Zenodo. <a href="http://doi.org/10.5281/zenodo.1243862" target="_blank">http://doi.org/10.5281/zenodo.1243862.</a></p>
-          <p>Crameri F, Shephard GE, Heron PJ. The misuse of colour in science communication. Nat. Commun. 2020 Oct 28;11(1):5444. <a href="https://www.nature.com/articles/s41467-020-19160-7" target="_blank">doi: 10.1038/s41467-020-19160-7.</a></p>
+          <p>We applied the scientific colour map buda (Crameri, 2018) to prevent visual distortion (Crameri et al.,
+            2020).</p>
+          <p>Crameri F (2018a), Scientific colour maps. Zenodo. <a href="http://doi.org/10.5281/zenodo.1243862"
+              target="_blank">http://doi.org/10.5281/zenodo.1243862.</a></p>
+          <p>Crameri F, Shephard GE, Heron PJ. The misuse of colour in science communication. Nat. Commun. 2020 Oct
+            28;11(1):5444. <a href="https://www.nature.com/articles/s41467-020-19160-7" target="_blank">doi:
+              10.1038/s41467-020-19160-7.</a></p>
         </div>
       </div>
       <div class="arrow-table">
@@ -5435,9 +5443,13 @@
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>We applied the scientific colour map imola (Crameri, 2018) to prevent visual distortion (Crameri et al., 2020).</p>
-          <p>Crameri F (2018a), Scientific colour maps. Zenodo. <a href="http://doi.org/10.5281/zenodo.1243862" target="_blank">http://doi.org/10.5281/zenodo.1243862.</a></p>
-          <p>Crameri F, Shephard GE, Heron PJ. The misuse of colour in science communication. Nat. Commun. 2020 Oct 28;11(1):5444. <a href="https://www.nature.com/articles/s41467-020-19160-7" target="_blank">doi: 10.1038/s41467-020-19160-7.</a></p>
+          <p>We applied the scientific colour map imola (Crameri, 2018) to prevent visual distortion (Crameri et al.,
+            2020).</p>
+          <p>Crameri F (2018a), Scientific colour maps. Zenodo. <a href="http://doi.org/10.5281/zenodo.1243862"
+              target="_blank">http://doi.org/10.5281/zenodo.1243862.</a></p>
+          <p>Crameri F, Shephard GE, Heron PJ. The misuse of colour in science communication. Nat. Commun. 2020 Oct
+            28;11(1):5444. <a href="https://www.nature.com/articles/s41467-020-19160-7" target="_blank">doi:
+              10.1038/s41467-020-19160-7.</a></p>
         </div>
       </div>
       <div class="arrow-table">
@@ -5520,9 +5532,13 @@
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>We applied the scientific colour map nuuk (Crameri, 2018) to prevent visual distortion (Crameri et al., 2020).</p>
-          <p>Crameri F (2018a), Scientific colour maps. Zenodo. <a href="http://doi.org/10.5281/zenodo.1243862" target="_blank">http://doi.org/10.5281/zenodo.1243862.</a></p>
-          <p>Crameri F, Shephard GE, Heron PJ. The misuse of colour in science communication. Nat. Commun. 2020 Oct 28;11(1):5444. <a href="https://www.nature.com/articles/s41467-020-19160-7" target="_blank">doi: 10.1038/s41467-020-19160-7.</a></p>
+          <p>We applied the scientific colour map nuuk (Crameri, 2018) to prevent visual distortion (Crameri et al.,
+            2020).</p>
+          <p>Crameri F (2018a), Scientific colour maps. Zenodo. <a href="http://doi.org/10.5281/zenodo.1243862"
+              target="_blank">http://doi.org/10.5281/zenodo.1243862.</a></p>
+          <p>Crameri F, Shephard GE, Heron PJ. The misuse of colour in science communication. Nat. Commun. 2020 Oct
+            28;11(1):5444. <a href="https://www.nature.com/articles/s41467-020-19160-7" target="_blank">doi:
+              10.1038/s41467-020-19160-7.</a></p>
         </div>
       </div>
       <div class="arrow-table">
@@ -5601,9 +5617,13 @@
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>We applied the scientific colour map devon (Crameri, 2018) to prevent visual distortion (Crameri et al., 2020).</p>
-          <p>Crameri F (2018a), Scientific colour maps. Zenodo. <a href="http://doi.org/10.5281/zenodo.1243862" target="_blank">http://doi.org/10.5281/zenodo.1243862.</a></p>
-          <p>Crameri F, Shephard GE, Heron PJ. The misuse of colour in science communication. Nat. Commun. 2020 Oct 28;11(1):5444. <a href="https://www.nature.com/articles/s41467-020-19160-7" target="_blank">doi: 10.1038/s41467-020-19160-7.</a></p>
+          <p>We applied the scientific colour map devon (Crameri, 2018) to prevent visual distortion (Crameri et al.,
+            2020).</p>
+          <p>Crameri F (2018a), Scientific colour maps. Zenodo. <a href="http://doi.org/10.5281/zenodo.1243862"
+              target="_blank">http://doi.org/10.5281/zenodo.1243862.</a></p>
+          <p>Crameri F, Shephard GE, Heron PJ. The misuse of colour in science communication. Nat. Commun. 2020 Oct
+            28;11(1):5444. <a href="https://www.nature.com/articles/s41467-020-19160-7" target="_blank">doi:
+              10.1038/s41467-020-19160-7.</a></p>
         </div>
       </div>
       <div class="arrow-table">
@@ -5651,89 +5671,89 @@
       </div>
     </div>
   </section>
- <!--Team-->
-<section class="team_section">
-  <h3><span class="blue">ARBO</span><span class="orange">VERSE</span> is built by</h3>
-  <div class="team_wrapper">
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/William-M-De-Souza.png">
+  <!--Team-->
+  <section class="team_section">
+    <h3><span class="blue">ARBO</span><span class="orange">VERSE</span> is built by</h3>
+    <div class="team_wrapper">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/William-M-De-Souza.png">
+        </div>
+        <h6>William M. de Souza,</h6>
       </div>
-      <h6>William M. de Souza,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Jacqueline-Tida.png">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Jacqueline-Tida.png">
+        </div>
+        <h6>Jacqueline A. Tida,</h6>
       </div>
-      <h6>Jacqueline A. Tida,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Oswaldo-Reis.png">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Oswaldo-Reis.png">
+        </div>
+        <h6>Oswaldo Reis Jr,</h6>
       </div>
-      <h6>Oswaldo Reis Jr,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Felipe-Rodrigues.png">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Felipe-Rodrigues.png">
+        </div>
+        <h6>Felipe Rodrigues,</h6>
       </div>
-      <h6>Felipe Rodrigues,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Marcilio-Fumagali.png">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Marcilio-Fumagali.png">
+        </div>
+        <h6>Marcilio Fumagalli,</h6>
       </div>
-      <h6>Marcilio Fumagalli,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Poliana_Lemos.png">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Poliana_Lemos.png">
+        </div>
+        <h6>Poliana Lemos,</h6>
       </div>
-      <h6>Poliana Lemos,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Desiree_LaBeaud.png">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Desiree_LaBeaud.png">
+        </div>
+        <h6>Desiree LaBeaud,</h6>
       </div>
-      <h6>Desiree LaBeaud,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Maria_Anice_Sallum.png">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Maria_Anice_Sallum.png">
+        </div>
+        <h6>Maria Anice Sallum,</h6>
       </div>
-      <h6>Maria Anice Sallum,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Samir_Bhatt.png">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Samir_Bhatt.png">
+        </div>
+        <h6>Samir Bhatt,</h6>
       </div>
-      <h6>Samir Bhatt,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Seth_Flaxman.png">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Seth_Flaxman.png">
+        </div>
+        <h6>Seth Flaxman,</h6>
       </div>
-      <h6>Seth Flaxman,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Swapnil_Mishra.png">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Swapnil_Mishra.png">
+        </div>
+        <h6>Swapnil Mishra,</h6>
       </div>
-      <h6>Swapnil Mishra,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Nuno_Faria.png">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Nuno_Faria.png">
+        </div>
+        <h6>Nuno Faria,</h6>
       </div>
-      <h6>Nuno Faria,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Scott_Weaver.png">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Scott_Weaver.png">
+        </div>
+        <h6>Scott C. Weaver.</h6>
       </div>
-      <h6>Scott C. Weaver.</h6>
-    </div>
-</section>
+  </section>
 </main>
 <script src="../static/js/mapboxutil.js"></script>
 {% endblock %}
