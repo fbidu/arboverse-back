@@ -614,6 +614,12 @@
     height: 260px;
   }
 }
+.disclaimer{
+  width: 80%;
+  margin: 20px auto;
+  line-height: 1.5;
+  color: var(--text);
+}
 /* ======== MODAL BOX =========*/
 .wrapper a {
   display: inline-block;
@@ -2937,11 +2943,11 @@ form:valid #populational-time-slider input:checked + label::before {
 .cite_arbv{
   width: 100%;
   padding: 30px 0;
-  text-align: center;
+  text-align: left;
 }
 .cite_arbv p{
   width: 80%;
-  margin: 20px auto;
+  margin: 10px 0;
   color: var(--text);
   font-size: 1.2rem;
   font-weight: 300;

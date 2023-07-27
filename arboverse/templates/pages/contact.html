@@ -1,21 +1,38 @@
 {% extends 'base.html' %}{% load static %}
 {% block resources %}
-  <link href="{% static 'css/contactus.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/contactus.css' %}" rel="stylesheet" type="text/css">
 {% endblock %}
 {% block title %}
-  ARBOVERSE CONTACT
+ARBOVERSE CONTACT
 {% endblock %}
 
 {% block content %}
-  <!--Banner information-->
-  <h1>Help us to keep expanding this universe</h1>
-  <h2>ARBOVERSE is open to sugestions and new data that makes our purpose better</h2>
+<!--Banner information-->
+<h1>Help us to keep expanding this universe</h1>
+<h2>ARBOVERSE is open to sugestions and new data that makes our purpose better</h2>
 </div>
-  <main>
-    <section class="contactus_section">
-      <h3> Contact us </h3>
-    </section>
+<main>
+  <section class="contactus_section">
+    <h3>Collaborate with us</h3>
+    <p>Our database is complete open-accesses, but if you plan to use our data for scientific work, please consider
+      contacting us, as we may be able to collaborate and contribute to your study and/or provide data that we are
+      updating.</p>
+      <div class="help_arbv">
+        <h3>How to help <span class="blue">ARBO</span><span class="orange">VERSE</span> </h3>
+        <div class="help_wrapper">
+          <div class="help_img">
+            <img src="{% static 'images/aboverse/sat-min.png' %}" />
+          </div>
+          <div class="help_info">
+            <p>Did you find a minor error? Have some ideas or suggestions?</p>
+            <p>Help ARBOVERSE to keep our database acurated and updated!</p>
+            <p>Send us your suggestion and consideration to improve our platform.</p>
+            <p>You can contact us by email to <a href="mailto:arboverse@arboverse.com">arboverse@arboverse.com</a></p>
+          </div>
+        </div>
+      </div>
+  </section>
 
 
-  </main>
+</main>
 {% endblock %}
