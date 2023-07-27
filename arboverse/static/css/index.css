@@ -1472,8 +1472,8 @@ input[type=radio]{
   flex-wrap: wrap;
 }
 .support img{
-  height: 100px;
-  margin-right: 50px;
+  height: 60px;
+  margin-right: 20px;
 }
 .support img:hover{
   transform: scale(1.1);
