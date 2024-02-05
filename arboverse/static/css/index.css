@@ -174,7 +174,7 @@ a{
 }
 /*NAVIGATOR*/
 .bannermenu{
-  background-image:url("../images/banners/banner_index.png");
+  background-image:url("../images/banners/homepage_banner-min.png");
   background-position:  center bottom;
   background-repeat: no-repeat;
   background-size:cover;
@@ -267,7 +267,7 @@ transition: all 0.3s ease;
 /*----IPAD Size portrait Banner--*/
 @media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
   .bannermenu{
-      background-image: url("../images/banners/banner-index-mobile.png");
+      background-image: url("../images/banners/homepage_mobile-min.png");
       height: 85vh;
   }
   .bannermenu h1{
@@ -357,7 +357,7 @@ transform: rotate(45deg) translate(-5px,-6px);
 /* NAVIGATOR AND BANNER MOBILE SIZE*/
 @media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait){
   .bannermenu{
-      background-image:url("../images/banners/banner-index-mobile.png");
+      background-image:url("../images/banners/homepage_mobile-min.png");
       height: 70vh;
   }
   .bannermenu h1{
