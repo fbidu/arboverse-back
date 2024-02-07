@@ -1,19 +1,20 @@
 
 /*NAVIGATOR*/
 .bannermenu{
-  background-image:url("../images/banners/banner_arboverse-min.png");
+  background-image:url("../images/banners/arboverse_banner-min.png");
+  height: 97vh;
 }
 /*----IPAD Size portrait Banner--*/
 @media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
   .bannermenu{
-      background-image: url("../images/banners/arboverse_banner_mobile_final-min.png");
+      background-image: url("../images/banners/arboverse_mobile.png");
       height: 85vh;
   }
 }
 /* NAVIGATOR AND BANNER MOBILE SIZE*/
 @media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait){
   .bannermenu{
-      background-image:url("../images/banners/arboverse_banner_mobile_final-min.png");
+      background-image:url("../images/banners/arboverse_mobile.png");
       height: 70vh;
   }
 }
@@ -76,6 +77,10 @@
   height: auto;
   text-align: center;
 }
+.catalogue h4{
+  font-size: 2.1rem;
+  font-weight: 700;
+}
 .arbovirus-catalogue,
 .vector-catalogue{
   padding: 50px 20px;
@@ -84,12 +89,12 @@
   margin: 20px 0;
   border-radius: 5px;
   background-color: var(--lightGrey);
-  box-shadow:  hsla(231, 87%, 61%, 0.3) 0px 1px 2px 0px;
+  box-shadow:  hsla(0, 0%, 15%,0.2) 0px 1px 2px 0px;
 }
 
 /*==== Search catalogue area ======*/
 .search{
-  width:80%;
+  width:90%;
   position: relative;
   display: flex;
   justify-content: center;
@@ -104,7 +109,7 @@
   height: auto;
   border-radius:  20px;
   outline: none;
-  font-family: 'Montserrat', serif;
+  font-family: 'Open Sans', serif;
   color:var(--text);
   background-color:white;
   font-size: 1rem;
@@ -112,13 +117,13 @@
 .search-virus:focus,
 .search-vector:focus
 {
-  color:var(--darkBlue);
+  color:var(--grey2);
 }
 .searchbutton,
 .searchbutton-vector{
   width: 42px;
   height: 42px;
-  background: var(--lightBlue);
+  background: var(--grey3);
   border: solid 1px transparent;
   text-align: center;
   color: #fff;
@@ -131,15 +136,15 @@
 }
 .searchbutton:hover,
 .searchbutton:active{
-  background: var(--darkBlue);
+  background: var(--grey1);
 }
 .searchbutton-vector:hover,
 .searchbutton-vector:active{
-  background: var(--darkBlue);
+  background: var(--grey1);
 }
 /*====== Accordion Catalogue  Arbovirus / vector========*/
 .row-wrapper{
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -165,8 +170,8 @@
   display: flex;
   justify-content: space-between;
   padding: 25px;
-  border-bottom: solid 1px hsla(29, 91%, 54%, 0.2);
-  font-weight:400;
+  border-bottom: solid 1px var(--grey4);
+  font-weight:500;
   cursor: pointer;
   font-family: 'Montserrat', sans-serif;
   color:var(--text);
@@ -195,7 +200,7 @@
 .tab-content{
   max-height: 0;
   padding: 0 1em;
-  color: var(--darkBlue);
+  color: var(--grey1);
   background: white;
   transition: all 0.3s;
 }
@@ -207,7 +212,7 @@
 .tab input:checked + .tab-label-vec::after
 {
   transform: rotate(90deg);
-  color: var(--lightBlue);
+  color: var(--grey1);
 }
 .tab input:checked ~ .tab-content{
   max-height: 100vh;
@@ -792,12 +797,12 @@
   font-size: 1rem;
   line-height: 1.5;
   visibility: hidden;
-  min-width: 400px;
+  min-width: 300px;
   max-width: 500px;
-  background-color: #E0E4FD;
+  background-color: var(--grey5);
   color: var(--text);
-  text-align: center;
-  padding: 8px 3px;
+  text-align: left;
+  padding: 10px;
   border-radius: 5px;
   position: absolute;
   z-index: 20;
@@ -814,7 +819,7 @@
   right: 100%;
   margin-top: -10px;
   border-style: solid;
-  border-color:   transparent  #E0E4FD transparent transparent ;
+  border-color:   transparent  var(--grey5) transparent transparent ;
 }
 .tooltip:hover .tooltext-1 {
   visibility: visible;

@@ -97,6 +97,12 @@ a {
 .white {
   color: white;
 }
+.grey_fade{
+  color: hsla(0, 0%, 5%,0.8);
+}
+.orange_fade{
+  color:hsla(29, 91%, 54%,0.9) ;
+}
 
 /*---font size ipad landscape*/
 @media screen and (min-width:940px) and (max-width: 1200px) and (orientation: landscape) {
