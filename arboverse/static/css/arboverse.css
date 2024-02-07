@@ -282,15 +282,17 @@
 .map-area{
   height: 100%;
   padding: 20px 0;
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
-  border-radius: 10px;
+  border-radius: 5px;
   text-align: center;
-  box-shadow:  hsla(231, 87%, 61%, 0.3) 0px 1px 2px 0px;
+  box-shadow:  hsla(0, 0%, 15%,0.2) 0px 1px 2px 0px;
   background-color: var(--lightGrey);
 }
 .map-area h4{
   margin-bottom: 30px;
+  font-size: 2.1rem;
+  font-weight: 700;
 }
 #map{
     width: 98%;
@@ -299,7 +301,6 @@
     height: 90vh;
     grid-area: 1 / 1 / 3 / 5;
     z-index: 0;
-    border-radius: 0 10px 10px 0;
 }
 
 /* ======= GRID for Map =======*/
@@ -364,19 +365,19 @@
 .item-button {
   padding: 5px;
   cursor: pointer;
-  background-color: var(--lightGrey);
+  background-color: hsla(0, 0%, 93%,0.9);
   border-bottom: solid 1px hsla(0, 0%, 50%, 0.3);
 }
 .item-button:hover {
-  background-color: #E0E4FD;
+  background-color: var(--orangeTransparent);
 }
 .btn-active {
-  background-color: #C1C9FB;
+  background-color: var(--orangeTransparent);
 }
 .check{
   width:20px;
   height: 20px;
-  background-color: hsla(32, 100%, 50%, 0.8);
+  background-color: var(--grey2);
   border-radius: 50%;
   color:white;
   font-family: 'Montserrat', sans-serif;
@@ -408,6 +409,7 @@
 .button-wrapper span {
   margin-top: 5px;
   font-size: 0.6rem;
+  font-weight: 500;
   color: var(--text);
 }
 @media screen and (max-width: 1200px){
@@ -2095,7 +2097,7 @@ input[name=model_extreme]:hover + label {
   width: 100%;
   height: 100%;
   display: block;
-  opacity: 0;
+  opacity: 0%;
   cursor: pointer;
 }
 .select > input:checked ~ i.toggle_icon.fa-chevron-down {
@@ -2167,7 +2169,7 @@ input[name=model_extreme]:hover + label {
 }
 .select label.option_amphibians input,
 .select label.option_birds input,
-.select label.option_mammal input {
+.select label.option_mammals input {
   display: none;
 }
 .select label.option_amphibians input:checked ~ span.title_options,
