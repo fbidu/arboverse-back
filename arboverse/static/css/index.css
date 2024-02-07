@@ -20,20 +20,23 @@ html{
   box-sizing: 0;
 }
 :root{
-  --lightBlue: #445ef2;
-  --darkBlue:#3345A6;
+  --grey1: #0d0d0d;
+  --grey2: #262626;
+  --grey3: #595659;
+  --grey4: #a6a6a6;
+  --grey5: #d9d9d9;
   --orange: #F5861F;
-  --text: #4B4B4B;
+  --text: #262626;
   --darkGrey: #E5E5E5;
   --lightGrey: #ededed;
-  --blueTransparen: hsla(231, 87%, 61%, 0.15);
   --orangeTransparent: hsla(29, 91%, 54%, 0.7);
+  --orangeFade: hsl(29, 91%, 54%, 0.8);
 }
 /*----Typography----*/
 h1{
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 h2{
   font-family: 'Montserrat', sans-serif;
@@ -70,17 +73,14 @@ a{
  font-weight: 300;
  font-size: 1.2rem;
 }
-.blue{
-  color:var(--lightBlue);
-  font-weight: 500;
+.grey{
+  color: var(--grey1);
 }
 .orange{
   color: var(--orange);
-  font-weight: 500;
 }
 .white{
   color:white;
-  font-weight: 500;
 }
 /*---font size ipad landscape*/
 @media screen and (min-width:940px) and (max-width: 1200px) and (orientation: landscape) {
@@ -179,7 +179,7 @@ a{
   background-repeat: no-repeat;
   background-size:cover;
   width: 100%;
-  height: 92vh;
+  height: 97vh;
 }
 .bannermenu h1{
   width: 50%;
@@ -187,14 +187,14 @@ a{
   letter-spacing: 3px;
   text-align: left;
   padding-top: 8vh;
-  color: white;
+  color: var(--grey5);
 }
 .bannermenu h2{
-  width: 35%;
+  width: 45%;
   text-align:left;
   margin: 4vh 5vw;
   line-height: 1.5;
-  color: rgb(255, 255, 255);
+  color: var(--grey5);
 }
 /* NAV BAR*/
 nav{
@@ -439,24 +439,13 @@ transform: rotate(45deg) translate(-5px,-6px);
 
 /*------main arboverse explanation---*/
 .arboverse_explain{
-  width:80%;
-  margin: 0 auto;
+  width:90%;
+  margin: 10% 0 10% 5%;
   height: auto;
   background: transparent;
   display: flex;
   flex-direction: column;
-  position: relative;
   justify-content: center;
-}
-.arboverse_explain .moeda{
-  width: 12%;
-  position: absolute;
-  bottom: -20px;
-  right: 0;
-}
-.arboverse_explain h3{
-  color:var(--darkBlue);
-  text-align: left;
 }
 .main_arboverse{
   width: 100%;
@@ -465,884 +454,123 @@ transform: rotate(45deg) translate(-5px,-6px);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
-  padding: 20px 0;
+  align-items: flex-start;
 }
-.main_arboverse img{
-  width: 12%;
-  height: 12%;
+.explanation_content{
+  width: 45%;
+  padding: 0 10px;
+  border-left: solid 2px var(--orangeFade);
 }
-.main_arboverse p{
-  width: 85%;
+.explanation_content h3{
+  color:var(--orangeFade);
+  text-align: left;
+  font-size: 5rem;
+  font-weight: 700;
+}
+.explanation_content p{
+  margin: 20px 0;
   text-align: left;
   color: var(--text);
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   line-height: 1.5;
 }
-.explanation_wrapper{
-  width: 100%;
-  height: auto;
-  margin: 30px auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-.explanation{
-  width: 30%;
-  height: auto;
-}
-.explanation_image{
-  width: 40%;
-  margin: 0 auto;
-}
-.explanation_image img{
-  width: 100%;
-  height: 100%;
-}
-.explanation h5{
-  color:var(--text);
-  margin: 10px 0;
-}
-.examples{
-  list-style: circle;
-}
-.examples li{
-  color: var(--text);
-  font-size: 1.1rem;
-  margin: 5px 10px;
-  font-family: 'Open sans', sans-serif;
-  font-weight: 300;
-}
-.info_grid{
-  height: 80vh;
-  width: 80%;
-  margin: 10vh auto;
-  display: grid;
-  grid-template-rows: 75% 15%;
-  grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
-  align-items: center;
-  justify-content: center;
-}
-#carousel{
-  grid-row: 1 / 2;
-  grid-column: 1 / 8;
-  width: 100vw;
-  height: 80vh;
-  margin: 5vh auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  perspective: 600px;
-  --items: 5;
-  --middle: 3;
-  --position: 1;
-  pointer-events: none;
-}
-.arbovirus_numbers_wrapper{
-  background-color: var(--blueTransparen);
-}
-.arbovrius_numbers{
-  position: absolute;
-  width: 23vw;
-  height: 50vh;
-  background: white;
-  padding: 20px;
-  margin: 0 20px;
-  --r: calc(var(--position) - var(--offset));
-  --abs: max(calc(var(--r) * -1), var(--r));
-  transition: all 0.25s linear;
-  transform: 
-    translateX(calc(-400px * var(--r)));
-  z-index: calc((var(--position) - var(--abs)));
-}
-.arbovrius_numbers:nth-of-type(1) {
-  --offset: 1;
-  background-color: white;
-}
-.arbovrius_numbers:nth-of-type(2) {
-  --offset: 2;
-  background-color: white;
-}
-.arbovrius_numbers:nth-of-type(3) {
-  --offset: 3;
-  background-color: white;
-}
-.arbovrius_numbers:nth-of-type(4) {
-  --offset: 4;
-  background-color: white;
-}
-.arbovrius_numbers:nth-of-type(5) {
-  --offset: 5;
-  background-color: white;
-}
-.arbovrius_numbers:nth-of-type(6) {
-  --offset: 5;
-  background-color: white;
-}
-.arbovrius_numbers:nth-of-type(7) {
-  --offset: 5;
-  background-color: white;
-}
-input#carousel_btn{
-  display: grid;
-  place-content: center;
-  -webkit-appearance: none;
-  appearance: none;
-  margin: 0;
-  width: 25px;
-  height: 25px;
-  background: var(--lightGrey);
-  border-radius: 50%;
-  cursor: pointer;
-  transform: translateY(10vh);
-}
-input#carousel_btn:hover{
-  background: #c0c8f4;
-}
-input#carousel_btn::before{
-  content: '';
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em #c0c8f4;
-}
-input#carousel_btn:checked::before{
-  transform: scale(1);
-}
-input:nth-of-type(1) {
-  grid-column: 2 / 3;
-  grid-row: 2 / 3;
-}
-input:nth-of-type(1):checked ~ #carousel {
-  --position: 1;
-}
-
-input:nth-of-type(2) {
-  grid-column: 3 / 4;
-  grid-row: 2 / 3;
-}
-input:nth-of-type(2):checked ~ #carousel {
-  --position: 2;
-}
-
-input:nth-of-type(3) {
-  grid-column: 4 /5;
-  grid-row: 2 / 3;
-}
-input:nth-of-type(3):checked ~ #carousel {
-  --position: 3;
-}
-
-input:nth-of-type(4) {
-  grid-column: 5 / 6;
-  grid-row: 2 / 3;
-}
-input:nth-of-type(4):checked ~ #carousel {
-  --position: 4;
-}
-
-input:nth-of-type(5) {
-  grid-column: 6 / 7;
-  grid-row: 2 / 3;
-}
-input:nth-of-type(5):checked ~ #carousel {
-  --position: 5;
-}
-
-
-.circle_orange{
-  width: 40px;
-  height: 40px;
-  background: var(--orangeTransparent);
-  position: absolute;
-  top:-25px;
-  left:-25px;
-  border-radius: 50%;
-}
-.arbovrius_numbers h5{
-  font-size: 1.3rem;
-  margin-top: 30px;
-  color:#3345A6;
-  border-bottom: solid 1px #3345A6;
-}
-.abv_num{
-  list-style: none;
-  margin-top: 30px;
-}
-.abv_num li{
-  color: var(--text);
-  font-size: 1.2rem;
-  margin: 15px 5px;
-  font-family: 'Open sans', sans-serif;
-  font-weight: 300;
-  text-align: justify;
-}
-/*---- EXPLAIN Arboverse IPAD Size landscape--*/
-@media screen and (min-width:940px) and (max-width: 1200px) and (orientation: landscape) {
-  
-  .examples li{
-      font-size: 1rem
-  }
-}
-/*---- EXPLAIN Arboverse IPAD Size portrait --*/
-@media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
-  .arboverse_explain{
-      margin: 5vh auto;
-  }
-  .main_arboverse img{
-      width: 15%;
-      height: 15%;
-  }
-  .main_arboverse p{
-      font-size: 1.2rem;
-      line-height: 1.5;
-      text-align: justify;
-      margin-left: 10px;
-  }
-  .explanation_image{
-      width: 60%;
-  }
-  .examples li{
-      font-size: 0.9rem
-  }
-  .arbovirus_numbers_wrapper{
-      margin-top: 30px;
-      width: 90%;
-      height: auto;
-      padding: 30px 20px;
-  }
-  .circle_orange{
-      width: 30px;
-      height: 30px;
-      top: -15px;
-      left:-15px;
-  }
-  .arbovrius_numbers{
-      width: 28%;
-      padding: 10px;
-      height: auto;
-  }
-  .abv_num li{
-      font-size: 0.8rem;
-  }
-}
-/*EXPLAIN Arboverse Landscape*/
-@media screen and (min-width: 550px) and (max-width: 850px) and (orientation: landscape){
-  .arboverse_explain{
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-  }
-  .arboverse_explain h3{
-      text-align: left;
-      width:80%;
-      margin: 0 auto;
-  }
-  .main_arboverse{
-      width: 80%;
-      margin: 10px auto;
-      padding: 10px 0;
-  }
-  .main_arboverse img{
-      width: 15%;
-  }
-  .main_arboverse p{
-      width: 80%;
-      font-size: 1.1rem;
-      line-height: 1.2;
-  }
-  .explanation_wrapper{
-      width: 80%;
-      margin: 10px auto;
-  }
-  .explanation_image{
-      width: 50%;
-  }
-  .examples li{
-      font-size: 1rem;
-  }
-  .arbovirus_numbers_wrapper{
-      width: 100%;
-      height: 50vh;
-      margin-top: 20px;
-      justify-content: center;
-  }
-  .arbovrius_numbers{
-      height: 45vh;
-      padding: 10px;
-      margin: 0 5px;
-  }
-  .arbovrius_numbers h5{
-      margin-top: 2px;
-  }
-  .circle_orange{
-      width: 30px;
-      height: 30px;
-      top: -15px;
-      left:-15px;
-  }
-  .abv_num{
-      margin-top: 5px;
-  }
-  .abv_num li{
-      font-size: 0.9rem;
-      margin: 3px 0px;
-  }
-}
-/*---EXPLAIN MOBILE SIZE ----*/
-@media screen and (min-width: 300px) and (max-width: 480px) and (orientation: portrait) {
-  .arboverse_explain{
-      margin-top: 5vh;
-      width:100%;
-  } 
-  .arboverse_explain h3{
-      width: 90%;
-      margin: 0 auto;
-  }
-  .main_arboverse{
-      width: 90%;
-      margin: 10px auto;
-      flex-direction: column;
-  } 
-  .main_arboverse img{
-      width: 40%;
-  }
-  .main_arboverse p{
-      width: 100%;
-      margin-top: 10px;
-      text-align: justify;
-      font-size: 1rem;
-  }
-  .explanation_wrapper{
-      flex-direction: column;
-      justify-content: center;
-  }
-  .explanation{
-      width: 100%;
-      margin: 10px auto;
-      padding: 20px 0;
-  }
-  .explanation h5{
-      width: 70%;
-      margin: 0 auto;
-  }
-  .explanation_image{
-      margin: 10px auto;
-  }
-  .bc_blue{
-      background: var(--blueTransparen);
-  }
-  .examples{
-      width: 70%;
-      margin: 0 auto;
-  }
-  .examples li{
-      font-size: 0.9rem;
-  }
-  .info_grid,
-  .arboverse_explain .moeda{
-      display: none;
-  }
-}
-
-/*_____ABV TOOL_____*/
-.arbv_tools{
-  width: 80%;
-  margin: 10vh auto;
-}
-.arbv_tools h3{
-  text-align: center;
-}
-input[type=radio]{
-  display: none;
-}
-.tools{
-  position: absolute;
-  width: 60%;
-  height: 100%;
-  left:0;
-  right:0;
-  margin: auto;
-  transition: transform 0.4s ease;
-  cursor: pointer;
-}
-.slideshow_container{
-  width: 100%;
-  height: 80vh;
-  min-height: 50vh;
-  min-width: 800px;
-  margin: 30px auto;
-  transform-style: preserve-3d;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-}
-.tools-card{
-  position: relative;
-  width: 100%;
-  height:100%;
-}
-.myTools{
-  width: 100%;
-  height: 100%;
-  background: var(--lightGrey);
-  position: relative;
-  border: solid 1px transparent;
-}
-.tool_info{
-  margin:40px;
-  cursor:default;
-}
-.info_wrapper{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-.numbertext{
-  width: 30px;
-  height: 30px;
-  background: var(--orangeTransparent);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: 400;
-}
-.info_wrapper h5{
-  width:90%;
-  margin-left: 10px;
-  color:var(--text);
-  font-size: 1.4rem;
-}
-.tool_info p{
-  color:var(--text);
-  margin: 10px 0 0 60px;
-  
-}
-.tool_img{
-  width: 80%;
-  height: auto;
-  margin: 0 auto;
-  background: white;
-  text-align: center;
+.explanation_content a {
+  margin-top: 2vh;
+  width: 45%;
+  padding: 10px 15px;
+  background-color: var(--grey2);
   border-radius: 20px;
-  cursor: default;
-}
-.tool_img img{
-  width: 80%;
-  text-align: center;
-  margin: 5px auto;
-}
-.tool_mobile{
-  display: none;
-}
-.tool_name{
-  position: absolute;
-  right: 20px;
-  bottom:20px;
-  border: 1px solid #F5861F;
-  padding: 10px 20px;
-  background-color: white;
-  border-radius: 20px;
-  transition: all 0.6s ease;
-}
-.tool_name:hover{
-  background-color: var(--darkBlue);
-  border: none;
-}
-.tool_name h4{
-  font-size: 1.8rem;
-  transition:  0.6s ease;
-}
-.tool_name a{
+  color: var(--grey5);
+  font-size: 1.2rem;
+  font-weight: 300;
   text-decoration: none;
+  text-align: center;
 }
-.tool_name:hover h2 .blue{
+.explanation_content a:hover{
+  background-color: var(--orange);
   color: white;
 }
-#tool-1:checked ~ .tools-card #four-tool, 
-#tool-2:checked ~ .tools-card #one-tool, 
-#tool-3:checked ~ .tools-card #two-tool,
-#tool-4:checked ~ .tools-card #three-tool {
-  transform: translateX(-40%) scale(0.8);
-  opacity: 0.4;
-  z-index:0;
+.main_arboverse img{
+  width: 50%;
 }
-#tool-1:checked ~ .tools-card #two-tool,
-#tool-2:checked ~ .tools-card #three-tool,
-#tool-3:checked ~ .tools-card #four-tool,
-#tool-4:checked ~ .tools-card #one-tool {
-  transform: translateX(40%) scale(0.8);
-  opacity: 0.4;
-  z-index:0;
-}
-#tool-1:checked ~ .tools-card #three-tool,
-#tool-2:checked ~ .tools-card #four-tool,
-#tool-3:checked ~ .tools-card #one-tool,
-#tool-4:checked ~ .tools-card #four-tool {
-  transform: translateX(0) scale(0);
-  opacity: 0;
-  z-index:0;
-}
-
-#tool-1:checked ~ .tools-card #one-tool,
-#tool-2:checked ~ .tools-card #two-tool,
-#tool-3:checked ~ .tools-card #three-tool,
-#tool-4:checked ~ .tools-card #four-tool {
-  transform: translateX(0) scale(1);
-  opacity: 1;
-  z-index:1;
-  box-shadow: hsla(231, 87%, 61%, 0.3) 0px 4px 6px;
-}
-/*---- Tools Arboverse IPAD Size portrait --*/
-@media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
-  .arbv_tools{
-      margin:10vh auto;
-  }
-  .slideshow_container{
-      height:60vh;
-      min-width: 50%;
-      min-height: 30vh;
-  }
-  .info_wrapper h5{
-      font-size: 1.1rem;
-  }
-  .tool_info p{
-      font-size: 0.9rem;
-      margin: 10px 0 0 40px;
-  }
-  .tool_img{
-      border-radius: 10px;
-  }
-  .tool_img img{
-      margin: 0 auto;
-  }
-  .tool_mobile{
-      display: block;
-  }
-  .tool_desktop{
-      display: none;
-  }
-  .tool_name h4{
-      font-size: 1.2rem;
-  }
-}
-/*Tools Arboverse Landscape*/
-@media screen and (min-width:550px) and (max-width: 850px) and (orientation: landscape){
-  .arbv_tools{
-      width: 100%;
-      margin: 10vh auto;
-  }
-  .slideshow_container{
-      min-width: 80%;
-      min-height: 70vh;
-      height: 100vh;
-  }
-  .tool_info{
-      margin: 20px;
-  }
-  .tool_img{
-      width: 70%;
-      border-radius: 5px;
-  }
-  .info_wrapper h5{
-      font-size: 1.1rem;
-  }
-  .tool_name h4{
-      font-size: 1.2rem;
-  }
-  .tool_info p{
-      font-size: 0.9rem;
-  }
-}
-/*------TOOLS MOBILE SIZE ----*/
-@media screen and (min-width: 200px) and (max-width: 600px) and (orientation: portrait) {
-  .arbv_tools{
-      width: 100%;
-      margin: 10vh auto;
-  }
-  .slideshow_container{
-      height: 50vh;
-      min-height: 30vh;
-      min-width: 80vw;
-  }
-  .tool_info{
-      margin: 20px 10px;
-  }
-  .info_wrapper{
-      align-items: flex-start;
-  }
-  .numbertext{
-      width: 20px;
-      height: 20px;
-      font-size: 1rem;
-  }
-  .info_wrapper h5{
-      font-size: 0.8rem;
-  }
-  .tool_info p{
-      font-size: 0.8rem;
-      margin:10px auto;
-      width: 90%;
-      text-align: center;
-  }
-  .tool_img{
-      width: 90%;
-      border-radius: 0;
-  }
-  .tool_img img{
-      margin: 0 auto;
-      width:80%;
-  }
-  .tool_mobile{
-      display:block;
-  }
-  .tool_desktop{
-      display:none;
-  }
-  .tool_name{
-      right: 5px;
-      bottom: 5px;
-      padding: 5px 10px;
-  }
-  .tool_name h4{
-      font-size: 1rem;
-  }
-  #tool-1:checked ~ .tools-card #three-tool, 
-  #tool-2:checked ~ .tools-card #one-tool, 
-  #tool-3:checked ~ .tools-card #two-tool {
-  transform: translateX(-40%) scale(0.8);
-  opacity: 0.6;
-  z-index:0;
-  }
-  #tool-1:checked ~ .tools-card #two-tool,
-  #tool-2:checked ~ .tools-card #three-tool,
-  #tool-3:checked ~ .tools-card #one-tool {
-  transform: translateX(40%) scale(0.8);
-  opacity: 0.6;
-  z-index:0;
-  }
-}
-/*------ARBV APPLIED -----*/
-.arbv_applied{
+/*-----Our work ---*/
+.our_work{
   width: 100%;
-  height: auto;
-  background: var(--blueTransparen);
-  margin:20vh auto;
-  border: solid 1px transparent;
+  margin: 15vh auto;
+  background-image: linear-gradient(120deg, #262626, #0d0d0d), url(../images/Index/photos/mosquito.jpg);
+  padding: 8% 5%;
+  background-position:right;
+  background-size: cover;
+  overflow: hidden;
 }
-.arbv_applied_content{
+.our_work h3{
+  color:var(--grey5);
+  text-align: left;
+  font-size: 5rem;
+  font-weight: 700;
+}
+.our_work p{
   width: 80%;
-  height: 70vh;
-  background: white;
-  margin: 10vh auto;
-  padding: 50px;
+  margin: 30px 0;
+  text-align: left;
+  color: var(--grey5);
+  font-size: 1.6rem;
+  line-height: 1.5;
 }
-.arbv_applied_content h3{
-  margin-left: 20px;
-}
-.field_application{
-  display: none;
-  width: 80%;
-  height: auto;
-  margin: 50px auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  transition: 0.6s ease;
-}
-.quote{
-  width: 60%;
-}
-.quote p{
-  color: --text;
-  font-size: 1.3rem;
-  line-height: 2;
-}
-.image_application{
-  width: 40%;
-  text-align: center;
-}
-.image_application img{
-  width: 70%;
-}
-.field-people-wrapper{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  position: relative;
-}
-.line{
-  width:60%;
-  height: 5px;
-  background: var(--blueTransparen);
-  position: absolute;
-  top:20px;
-  z-index:0;
+.our_work a{
+  width: 45%;
+  padding: 10px 15px;
+  background-color: var(--orange);
   border-radius: 20px;
-}
-.dot_info{
-  z-index: 1;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-decoration: none;
   text-align: center;
-  margin-left: 30px;
+}
+.our_work a:hover{
+  background-color: var(--orangeTransparent);
+  color:white;
+}
+/*-----SERVICES ---*/
+.services_wrap{
+  margin-top: 5%;
+  width: 85%;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-around;
+  align-items: flex-start;
+  row-gap: 10%;
 }
-.dot_info h6{
-  width: 100px;
-  color:var(--text);
-  margin-top: 10px;
+.service_unit{
+  width: 31%;
+  height: auto;
+  padding: 15px 5px;
 }
-.dot{
-  width: 50px;
-  height: 50px;
-  background: var(--lightGrey);
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
- 
+.service_unit h4{
+  font-size: 2rem;
+  color:white;
 }
-.active, .dot:hover{
-  background: #c0c8f4;
+.service_unit p{
+  width:90%;
+  color: var(--grey5);
+  font-size: 1.2rem;
+  padding-left: 5px;
+  border-left: solid 2px var(--orange);
+  
 }
-.fa-book,
-.fa-microscope,
-.fa-vial,
-.fa-pen-fancy{
-  transform: scale(1.5);
-  color:var(--lightBlue);
-}
-/*---- Tools Arboverse IPAD Size portrait --*/
-@media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
-  .arbv_applied{
-      margin: 10vh auto;
-  }
-  .arbv_applied h3{
-      text-align: center;
-  }
-  .arbv_applied_content{
-      margin: 5vh auto;
-      height: auto;
-  }
-  .field_application{
-      flex-direction: column-reverse;
-      justify-content: center;
-      margin: 30px auto;
-  }
-  .quote{
-      width: 100%;
-  }
-  .quote p{
-      font-size: 1rem;
-      line-height: 1.5;
-  }
-  .image_application{
-      width: 60%;
-  }
 
-
-}
-/* Arboverse applied Landscape*/
-@media screen and (min-width:550px) and (max-width:850px) and (orientation: landscape){
-  .arbv_applied_content{
-      padding: 20px;
-      height: auto;
-  }
-  .arbv_applied_content h3{
-      margin-left: 0;
-      text-align: center;
-  }
-  .field_application{
-      width:90%;
-      margin: 20px auto;
-  }
-  .quote p{
-      font-size: 1rem;
-      line-height: 1.2;
-  }
-  .dot_info h6{
-      width: 80px;
-  }
-}
-/*---- Arboverse Applied MOBILE---*/
-@media screen and (min-width:200px) and (max-width:600px) and (orientation: portrait) {
-  .arbv_applied{
-      margin: 0 auto;
-  }
-  .arbv_applied_content{
-      width: 80%;
-      height: auto;
-      padding:20px;
-      margin: 5vh auto;
-  }
-  .arbv_applied_content h3{
-      text-align: center;
-  }
-  .field_application{
-      width: 90%;
-      margin: 10px auto;
-      flex-direction: column-reverse;
-      align-items: flex-start;
-      justify-content: center;
-  }
-  .quote{
-      width:100%;
-  }
-  .quote p{
-      font-size: 0.9rem;
-      text-align: justify;
-  }
-  .image_application{
-      width: 50%;
-      margin:10px auto;
-  }
-  .image_application img{
-      width:100%;
-  }
-  .field-people-wrapper{
-      width: 60%;
-      margin: 0 auto;
-  }
-  .dot_info{
-      margin-left: 0px;
-      width: 40%;
-      padding-top: 10px;
-  }
-  .dot_info h6{
-      font-size: 0.7rem;
-      font-weight: 300;
-  }
-  .dot{
-      width: 40px;
-      height: 40px;
-  }
-  .fa-book,
-  .fa-microscope,
-  .fa-vial,
-  .fa-pen-fancy{
-      transform: scale(1.2);
-  }
-  .line{
-      display: none;
-  }
-}
 /*-----TEAM BUILT ---*/
 .team_section{
-  width: 80%;
+  width: 90%;
   height: auto;
-  margin: 0 auto;
+  margin: 5vh auto;
+}
+.team_section h3{
+  font-size: 5rem;
+  color:hsla(300, 2%, 34%, 0.8);
+  font-weight: 700;
 }
 .team_wrapper{
   margin: 50px 0;

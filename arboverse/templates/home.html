@@ -1,308 +1,55 @@
 {% extends 'base.html' %} {% block content %}
 <!--Banner information-->
-<h1>The arbovirus universe is just one click away</h1>
-<h2>ARBOVERSE offers interactive tools with global arbovirus data in a broad context for everyone</h2>
+<h1>ARBOVERSE: a data-driven platform 
+  about arboviruses</h1>
+<h2>Empowering research and public health workers through comprehensive open-source arbovirus data</h2>
 </div>
-<!--Principal section-->
-<section class="arboverse_explain">
-  <h3>Why arbovirus matters?</h3>
+<Section class="arboverse_explain">
   <div class="main_arboverse">
-    <img src="../static/images/Index/illustrations/arbovirus-vector-host-interaction-of-arboverse3-min.png"
-      alt="interaction between arbovirus, vector and human host">
-    <p>Arboviruses (arthropod-borne viruses) are a growing global public health problem, causing a wide range of human and veterinary diseases with high morbidity, mortality, and economic burdens. </p>
+    <div class="explanation_content">
+      <h3>OUR GOAL</h3>
+      <p>We provide comprehensive knowledge in a friendly and open-access platform to fight against arboviral disease.</p>
+      <a href="#">Contact us for collaboration</a>
+    </div>
+    <img src="../static/images/Index/photos/homepage_image_arboverse.jpg">
   </div>
-  <!--Arboverse explanation-->
-  <div class="explanation_wrapper">
-    <div class="explanation bc_blue">
-      <div class="explanation_image">
-        <img src="../static/images/Index/illustrations/arbovirus-affects-men-pregnats-elderly-people-min.png"
-          alt="illustration of a man, a pregnant woman and an elderly woman who represent arbovirus human disease">
-      </div>
-      <h5>Severe and deadly human diseases:</h5>
-      <ul class="examples">
-        <li>Encephalitis</li>
-        <li>Arthritis</li>
-        <li>Hemorrhagic fever</li>
-      </ul>
-    </div>
-    <div class="explanation">
-      <div class="explanation_image">
-        <img src="../static/images/Index/illustrations/veterinary-diseases-due-to-arbovirus-min.png"
-          alt="illustration of domestic animals and arbovirus veterinary disease">
-      </div>
-      <h5>Wide range of veterinary diseases:</h5>
-      <ul class="examples">
-        <li>Wildlife and domestic animals have disrupted ecosystems</li>
-        <li>Reduced livestock productivity</li>
-      </ul>
-    </div>
-    <div class="explanation bc_blue">
-      <div class="explanation_image">
-        <img src="../static/images/Index/illustrations/financial-loses-due-to-arbovirus-min.png"
-          alt="illustration of financial loses due to arbovirus">
-      </div>
-      <h5>Billions of dollares in economic loses:</h5>
-      <ul class="examples">
-        <li>Overwhelming health systems</li>
-        <li>Increase inequalities globaly</li>
-      </ul>
-    </div>
+</Section>
+<section class="our_work">
+<h3>OUR WORK</h3>
+<p>We deliver an interactive resource integrating knowledge and data visualization about arboviruses in a broad context to better prepare, respond, and mitigate arboviral diseases.</p>
+<a href="#">Explore platform</a>
+<div class="services_wrap">
+  <div class="service_unit">
+    <h4>ARBO<span class="orange">MAP</h4>
+      <p>Explore interactive high-resolution maps to investigate risk factors in an ecological context.
+      </p>
   </div>
-  <!--Arboverse in numbers-->
-  <div class="info_grid">
-    <input id="carousel_btn" type="radio" name="position" />
-    <span class="checkmark"></span>
-    <input id="carousel_btn" type="radio" name="position" checked/>
-    <span class="checkmark"></span>
-    <input id="carousel_btn" type="radio" name="position"/>
-    <span class="checkmark"></span>
-    <input id="carousel_btn" type="radio" name="position"/>
-    <span class="checkmark"></span>
-    <div id="carousel" class="arbovirus_numbers_wrapper">
-      <div class="arbovrius_numbers">
-        <div class="circle_orange"></div>
-        <h5>Dengue virus</h5>
-        <ul class="abv_num">
-          <li>~10,000 deaths annually</li>
-          <li>~100 million cases annually</li>
-          <li>Over 125 countries and territories affected</li>
-        </ul>
-      </div>
-      <div class="arbovrius_numbers">
-        <div class="circle_orange"></div>
-        <h5>Yellow fever virus</h5>
-        <ul class="abv_num">
-          <li>~30,000 deaths annually</li>
-          <li>~200,000 cases annually</li>
-          <li>Forty-seven endemic countries in Africa and Central and South America</li>
-        </ul>
-      </div>
-      <div class="arbovrius_numbers">
-        <div class="circle_orange"></div>
-        <h5>Bluetongue virus</h5>
-        <ul class="abv_num">
-          <li>~US$ 3 billion in economic losses annually</li>
-          <li>Affects wild and domestic ruminants worldwide</li>
-        </ul>
-      </div>
-      <div class="arbovrius_numbers">
-        <div class="circle_orange"></div>
-        <h5>Zika virus</h5>
-        <ul class="abv_num">
-          <li>Microcephaly and other severe brain defects</li>
-          <li>Miscarriage, stillbirth, and other birth defects</li>
-          <li>86 countries and territories affected</li>
-        </ul>
-      </div>
-      <div class="arbovrius_numbers">
-        <div class="circle_orange"></div>
-        <h5>West Nile virus</h5>
-        <ul class="abv_num">
-          <li>Fatal neurological disease in humans</li>
-          <li>Cause severe disease and death in horses</li>
-          <li>US$ 56 million cost annually in the USA</li>
-        </ul>
-      </div>
-      <div class="arbovrius_numbers">
-        <div class="circle_orange"></div>
-        <h5>African swine fever virus</h5>
-        <ul class="abv_num">
-          <li>Highly contagious for domestic and wild pigs</li>
-          <li>High mortality rates (95-100%)</li>
-          <li>US$111.2 billion economic loss in China in 2019</li>
-        </ul>
-      </div>
-      <div class="arbovrius_numbers">
-        <div class="circle_orange"></div>
-        <h5>Chikungunya virus</h5>
-        <ul class="abv_num">
-          <li>Fever and acute and chronic polyarthralgia </li>
-          <li>Over 125 countries and territories affected</li>
-          <li>~1.3 billion people live in areas at-risk for transmission</li>
-        </ul>
-      </div>
-    </div>
+  <div class="service_unit">
+    <h4>ARBO<span class="orange">VECTOR</h4>
+      <p>Access concise information on arboviruses and their diseases to research studies and informed decision-making.
+      </p>
   </div>
-</section>
-<!--Arboverse Tools-->
-<section class="arbv_tools">
-  <h3>What is <span class="blue">ARBO</span><span class="orange">VERSE</span>?</h3>
-  <div class="slideshow_container">
-    <input type="radio" name="slider" id="tool-1" checked>
-    <input type="radio" name="slider" id="tool-2">
-    <input type="radio" name="slider" id="tool-3">
-    <input type="radio" name="slider" id="tool-4">
-    <div class="tools-card">
-      <label class="tools" for="tool-1" id="one-tool">
-        <div class="myTools">
-          <div class="tool_info">
-            <div class="info_wrapper">
-              <div class="numbertext">1</div>
-              <h5>Catalog of information of all arboviruses</h5>
-            </div>
-            <p>Find concise and accurate information about arbovirus</p>
-          </div>
-          <div class="tool_img">
-            <img class="tool_desktop"
-              src="../static/images/Index/illustrations/arbocard-tool-for-arbovirus-research.png"
-              alt="illustration of arbocard, an arbovirus search tool">
-            <img class="tool_mobile"
-              src="../static/images/Index/illustrations/arbocard-tool-for-arbovirus-research-mobile-min.png"
-              alt="illustration of arbocard, an arbovirus search tool">
-          </div>
-          <div class="tool_name">
-            <a href="arboverse.html#arbocard">
-              <h4><span class="blue">ARBO</span><span class="orange">CARD</span></h4>
-            </a>
-          </div>
-        </div>
-      </label>
-      <label class="tools" for="tool-2" id="two-tool">
-        <div class="myTools">
-          <div class="tool_info">
-            <div class="info_wrapper">
-              <div class="numbertext">2</div>
-              <h5>Catalog of information of all vectors related to arboviruses</h5>
-            </div>
-            <p>Find concise and accurate information about vectorsassociated arboviruses</p>
-          </div>
-          <div class="tool_img">
-            <img class="tool_desktop" src="../static/images/Index/illustrations/arbovector-tool-for-vector-research.png"
-              alt="illustration of arbovector, an arbovirus vector search tool">
-            <img class="tool_mobile"
-              src="../static/images/Index/illustrations/arbovector-tool-for-vector-research-mobile-min.png"
-              alt="illustration of arbovector, an arbovirus vector search tool">
-          </div>
-          <div class="tool_name">
-            <a href="arboverse.html#arbovector">
-              <h4><span class="blue">ARBO</span><span class="orange">VECTOR</span></h4>
-            </a>
-          </div>
-        </div>
-      </label>
-      <label class="tools" for="tool-3" id="three-tool">
-        <div id="box3" class="myTools fade_slide">
-          <div class="tool_info">
-            <div class="info_wrapper">
-              <div class="numbertext">3</div>
-              <h5>Explore the interactions of arboviruses in a broad context</h5>
-            </div>
-            <p>View, analyze and explore the interactions of arboviruses associated with multiple ecology factors.</p>
-          </div>
-          <div class="tool_img">
-            <img class="tool_desktop"
-              src="../static/images/Index/illustrations/arbomap-tool-for-arbovirus-vector-and-ecology-analyses.png"
-              alt="illustration of Arbomap, a tool for arbovirus, vector and ecology data visualization">
-            <img class="tool_mobile"
-              src="../static/images/Index/illustrations/arbomap-tool-for-arbovirus-arbovector-and-ecology-analyses-mobile-min.png"
-              alt="illustration of Arbomap, a tool for arbovirus, vector and ecology data visualization">
-          </div>
-          <div class="tool_name">
-            <a href="arboverse.html#arbomap">
-              <h4><span class="blue">ARBO</span><span class="orange">MAP</span></h4>
-            </a>
-          </div>
-        </div>
-      </label>
-      <label class="tools" for="tool-4" id="four-tool">
-        <div id="box4" class="myTools fade_slide">
-          <div class="tool_info">
-            <div class="info_wrapper">
-              <div class="numbertext">4</div>
-              <h5>Chart and graphs that explore main information of arbovirus</h5>
-            </div>
-            <p>Delve into arbovirus data and visualize clear information.</p>
-          </div>
-          <div class="tool_img">
-            <img class="tool_desktop"
-              src="../static/images/Index/illustrations/arbodash-tool-forarbovirus-analysis-min.png"
-              alt="illustration of Arbodash, a tool for arbovirus, vector and ecology data visualization">
-            <img class="tool_mobile"
-              src="../static/images/Index/illustrations/arbodash-tool-simple-mobile-min.png"
-              alt="illustration of Arbodash, a tool for arbovirus, vector and ecology data visualization">
-          </div>
-          <div class="tool_name">
-            <a href="arboverse.html#arbomap">
-              <h4><span class="blue">ARBO</span><span class="orange">DASH</span></h4>
-            </a>
-          </div>
-        </div>
-      </label>
-    </div>
-</section>
-<!--Application of arboverse for users-->
-<section class="arbv_applied">
-  <div class="arbv_applied_content">
-    <h3><span class="blue">ARBO</span><span class="orange">VERSE</span> applications</h3>
-    <div class="field_application">
-      <div class="quote">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt tenetur esse enim ab ex,
-          corporis atque illum illo mollitia praesentium odio, ipsum, qui nulla assumenda laboriosam
-          culpa. Pariatur, praesentium unde!</p>
-      </div>
-      <div class="image_application">
-        <img src="../static/images/Index/illustrations/academic-application-arboverse-min.png"
-          alt="illustration of academic application of Arboverse">
-      </div>
-    </div>
-    <div class="field_application">
-      <div class="quote">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum quasi est eius illo aspernatur
-          ex, nemo deserunt repellendus fugit minima recusandae unde quas? Delectus, ab? Soluta officia
-          laboriosam quo inventore?</p>
-      </div>
-      <div class="image_application">
-        <img src="../static/images/Index/illustrations/researchers-of-arbovirus-vectors-ecology-using-arboverse-min.png"
-          alt="illustration of research application of Arboverse">
-      </div>
-    </div>
-    <div class="field_application">
-      <div class="quote">
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Optio accusantium nostrum mollitia
-          distinctio, non repellat ipsum similique culpa placeat aspernatur eius explicabo possimus
-          molestias, perspiciatis dignissimos excepturi ut corrupti cumque?</p>
-      </div>
-      <div class="image_application">
-        <img src="../static/images/Index/illustrations/public-health-workers-at-arbovirus-survelliance-min.png"
-          alt="illustration of public health worker application of Arboverse">
-      </div>
-    </div>
-    <div class="field_application">
-      <div class="quote">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed, temporibus placeat esse impedit
-          recusandae accusamus iusto minima saepe ullam eum vel, iure dolor quasi, consequatur maiores id
-          libero? Quaerat, doloribus!</p>
-      </div>
-      <div class="image_application">
-        <img src="../static/images/Index/illustrations/policymakers-activities-using-arboverse-min.png"
-          alt="illustration of policymake application of Arboverse">
-      </div>
-    </div>
-    <div class="field-people-wrapper">
-      <div class="line"></div>
-      <div class="dot_info">
-        <div class="dot" onclick="currentSlide(1)"><i class="fa fa-solid fa-book"></i></div>
-        <h6>Educators</h6>
-      </div>
-      <div class="dot_info">
-        <div class="dot" onclick="currentSlide(2)"><i class="fa fa-solid fa-microscope"></i></div>
-        <h6>Researchers</h6>
-      </div>
-      <div class="dot_info">
-        <div class="dot" onclick="currentSlide(3)"><i class="fa fa-solid fa-vial"></i></div>
-        <h6>Public health workers</h6>
-      </div>
-      <div class="dot_info">
-        <div class="dot" onclick="currentSlide(4)"><i class="fa fa-solid fa-pen-fancy"></i></div>
-        <h6>Policymakers</h6>
-      </div>
-    </div>
+  <div class="service_unit">
+    <h4>ARBO<span class="orange">CARD</h4>
+      <p>Find information about arboviral vectors for a better understanding of transmission and improve control strategies.
+      </p>
   </div>
-  <script src="../static/js/slide_tools.js"></script>
+  <div class="service_unit">
+    <h4>ARBO<span class="orange">DASH</h4>
+      <p>Track, understand, and combat arboviral diseases through clear data visualizations and interactive charts.
+      </p>
+  </div>
+  <div class="service_unit">
+    <h4>ARBO<span class="orange">DATA</h4>
+      <p>Accelerate your research with comprehensive arbovirus data connected to vector and ecological information.
+      </p>
+  </div>
+
+</div>
 </section>
 <!--Team-->
 <section class="team_section">
-  <h3><span class="blue">ARBO</span><span class="orange">VERSE</span> is built by</h3>
+  <h3>Built by</h3>
   <div class="team_wrapper">
     <div class="person_unit">
       <div class="person_img">
