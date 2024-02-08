@@ -20,66 +20,7 @@
   }
 }
 
-/*----About Arboverse ---*/
-.arboverse_plattform {
-  width: 80%;
-  height: auto;
-  margin: 10vh auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
 
-.arboverse_plattform_img {
-  width: 20%;
-  text-align: center;
-}
-
-.arboverse_plattform_img h4 {
-  margin-bottom: 10px;
-}
-
-.arboverse_plattform_img img {
-  width: 60%;
-}
-
-.arboverse_plattform p {
-  width: 80%;
-  font-size: 1.3rem;
-  font-weight: 300;
-  color: var(--text);
-  line-height: 1.5;
-  text-align: justify;
-}
-
-@media screen and (max-width: 1000px) {
-  .arboverse_plattform {
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .arboverse_plattform_img {
-    width: 50%;
-  }
-
-  .arboverse_plattform_img img {
-    display: none;
-  }
-
-  .arboverse_plattform p {
-    width: 100%;
-    font-size: 1.2rem;
-  }
-}
-
-/*---About Mobile--*/
-@media screen and (min-width: 300px) and (max-width: 550px) {
-  .arboverse_plattform p {
-    width: 100%;
-    font-size: 1.2rem;
-  }
-}
 
 /* ================ CATALOGUE ==========*/
 .catalogue {
@@ -709,10 +650,11 @@
 }
 
 .disclaimer {
-  width: 80%;
+  width: 90%;
   margin: 20px auto;
   line-height: 1.5;
   color: var(--text);
+  font-size: 1.2rem;
 }
 
 /* ======== MODAL BOX =========*/
@@ -3400,7 +3342,7 @@ form:valid #populational-time-slider input:checked+label::before {
 
 /*---- HOW to cite ---*/
 .how_cite {
-  width: 80%;
+  width: 90%;
   height: auto;
   margin: 15vh auto;
 }
@@ -3410,13 +3352,17 @@ form:valid #populational-time-slider input:checked+label::before {
   padding: 30px 0;
   text-align: left;
 }
-
+.cite_arbv h3{
+  font-size: 5rem;
+  font-weight: 700;
+  color: hsla(300, 2%, 34%, 0.8);
+}
 .cite_arbv p {
-  width: 80%;
+  width: 90%;
   margin: 10px 0;
+  text-align: left;
   color: var(--text);
-  font-size: 1.2rem;
-  font-weight: 300;
+  font-size: 1.6rem;
   line-height: 1.5;
 }
 
