@@ -1335,28 +1335,7 @@ map.on('load', function () {
             parseInt(e.target.value, 10) / 100
         );
     });
-    indexSlider.addEventListener('input', function (e) {
-        map.setPaintProperty(
-            'arboverse.flii_oceania_5km',
-            'raster-opacity',
-            parseInt(e.target.value, 10) / 100
-        );
-        map.setPaintProperty(
-            'arboverse.flii_africa_5km',
-            'raster-opacity',
-            parseInt(e.target.value, 10) / 100
-        );
-        map.setPaintProperty(
-            'arboverse.flii_southamerica_5km',
-            'raster-opacity',
-            parseInt(e.target.value, 10) / 100
-        );
-        map.setPaintProperty(
-            'arboverse.flii_northamerica_5km',
-            'raster-opacity',
-            parseInt(e.target.value, 10) / 100
-        );
-    });
+    
     miniSlider.addEventListener('input', function (e) {
         map.setPaintProperty(
             'arboverse.mining1',
