@@ -754,14 +754,16 @@
 }
 
 .modal-title h3 {
-  color: #002147;
-  font-size: 1.5rem;
+  color: var(--orange);
+  font-size: 2rem;
+  font-weight: 600;
 }
 
 /*Sub-title of Modal Box*/
 .modal-title p {
-  color: gray;
+  color: var(--grey2);
   font-size: 1rem;
+  font-weight: 500;
 }
 
 /* Modal content features*/
@@ -792,7 +794,7 @@
 .arrow-table h6 {
   font-size: 1.2rem;
   width: 20%;
-  color: #002147;
+  color: var(--grey1);
 }
 
 .p-wrapper {
@@ -802,7 +804,7 @@
   font-size: 1rem;
   font-weight: 400;
   width: 80%;
-  color: #494949;
+  color: var(--text);
   line-height: 1.5;
   text-align: justify;
 }
@@ -814,7 +816,11 @@
 .arrow-table a {
   font-size: 1rem;
   text-decoration: none;
-  color: #ff8700;
+  color: var(--orange);
+  font-weight: 500;
+}
+.arrow-table a:hover {
+  color: var(--grey1);
 }
 
 /* Overview and Citation*/
@@ -826,7 +832,7 @@
 
 .column-table h6 {
   font-size: 1.2rem;
-  color: #002147;
+  color: var(--grey1);
   text-align: center;
   padding: 15px 0;
 }
@@ -836,7 +842,7 @@
   font-weight: 400;
   width: 100%;
   margin: 0 auto;
-  color: #494949;
+  color: var(--text);
   line-height: 1.5;
   text-align: justify;
   padding-bottom: 10px;
@@ -850,13 +856,13 @@
 .p-wrapper-column a {
   text-decoration: none;
   color: white;
-  background-color: #f9b16e;
+  background-color: var(--orange);
   padding: 5px;
   border-radius: 5px;
 }
 
 .p-wrapper-column a:hover {
-  background-color: #ff8700;
+  background-color: var(--grey1);
 }
 
 .p-wrapper-column li {
@@ -877,7 +883,7 @@
   border: none;
   padding: 10px 20px;
   border-radius: 40px;
-  background: linear-gradient(90deg, #f9b06c 0%, #f67e7e 100%);
+  background: linear-gradient(90deg, var(--grey3) 0%, var(--grey2) 100%);
 }
 
 .download-data a {
@@ -888,7 +894,7 @@
 }
 
 .download-data:hover {
-  background: linear-gradient(90deg, #ff8700 0%, #f1515e 100%);
+  background: linear-gradient(90deg, var(--grey2) 0%, var(--grey1) 100%);
 }
 
 /* Modal Box closer*/
