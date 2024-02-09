@@ -1,7 +1,7 @@
 body {
   font-size: 16px;
   font-family: 'Montserrat', sans-serif;
-  background-color: hsl(0, 0%, 98%);
+  background-color: hsl(0, 0%, 100%);
   margin: 0;
   width: 100%;
   height: 100%;
@@ -796,14 +796,15 @@ nav {
 .funding_section {
   width: 90%;
   height: auto;
-  margin: 0 auto;
+  margin: 10vh auto 0 auto;
 }
 
 .line-grey {
   width: 100%;
   height: 2px;
-  background: var(--darkGrey);
+  background: var(--grey5);
   border-radius: 20px;
+  margin-bottom: 50px;
 }
 
 .fund-wrapper {
@@ -842,13 +843,31 @@ nav {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .support img {
   height: 60px;
   margin-right: 20px;
 }
+#nus{
+  height: 100px;
+  margin-right: 20px;
+}
 
+#cop,
+#stan{
+  height: 80px;
+  margin-right: 20px;
+}
+#oxf{
+  height: 120px;
+  margin-right: 20px;
+}
+#imp{
+  height: 50px;
+  margin-right: 20px;
+}
 .support img:hover {
   cursor: pointer;
 }
