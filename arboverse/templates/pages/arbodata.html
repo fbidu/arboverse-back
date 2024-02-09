@@ -125,8 +125,8 @@
                 </div>
                 <!--Vector inseticide resistance-->
                 <div class="tab">
-                    <input type="radio" id="checke" name="rd1">
-                    <label class="tab-label" for="checke">Inseticide vector resistance</label>
+                    <input type="radio" id="checkr" name="rd1">
+                    <label class="tab-label" for="checkr">Inseticide vector resistance</label>
                     <div class="tab-content">
                         <p>This dataset displays geolocations where the arbovirus vectors with insecticide resistance have been identified.</p>
                         <div class="database">
@@ -144,6 +144,72 @@
                 </div>
             </div>
             <h4 class="arbodata_title"><span class="white">Arbovirus</span><span class="orange"> vectors</span></h4>
+        </div>
+        <div class="arbodata_unit">
+            <img src="../static/images/dataset/socio_economic_data-min.png" />
+            <div class="tabs">
+                <!-- Pop density-->
+                <div class="tab">
+                    <input type="radio" id="socio_2" name="rd6">
+                    <label class="tab-label" for="socio_2">Population density</label>
+                    <div class="tab-content">
+                        <p>This dataset from Socioeconomics Data and Applications Center <a
+                                href="https://sedac.ciesin.columbia.edu/">(NASA-SEDAC)</a> estimates population density
+                            and distribution in 2015 and 2020, based on counts cosistent with national censuses and
+                            population registers.</p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://sedac.ciesin.columbia.edu/data/sets/browse" target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://sedac.ciesin.columbia.edu/data/collection/gpw-v4"
+                                target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Gdp and HDI-->
+                <div class="tab">
+                    <input type="radio" id="socio_1" name="rd6">
+                    <label class="tab-label" for="socio_1">Gridded global datasets for Gross Domestic Product and Human
+                        Development Index over 1990–2015</label>
+                    <div class="tab-content">
+                        <p>Annual gridded datasets for GDP per capita, total GDP, and HDI, for
+                            the whole world at 5arc-min resolution for the 25-year period of 1990–2015. Additionally,
+                            total GDP is provided with 30 arc-sec resolution for three time steps (1990, 2000,
+                            2015).
+                        </p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.dk1j0"
+                                target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://www.nature.com/articles/sdata20184#Sec9" target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
+                <!--access health care-->
+                <div class="tab">
+                    <input type="radio" id="socio_3" name="rd6">
+                    <label class="tab-label" for="socio_3">Global maps of travel time to healthcare facilities</label>
+                    <div class="tab-content">
+                        <p>This dataset displays the global map of optimal travel time to a hospital or clinic
+                            illustrates the spatial heterogeneity of geographically constrained healthcare access
+                            experienced by individuals with access to motorized transportation.</p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://malariaatlas.org/research-project/accessibility-to-healthcare/"
+                                target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://www.nature.com/articles/s41591-020-1059-1" target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
+                <!--close tabs-->
+                <div class="tab">
+                    <input type="radio" id="rdF" name="rd6">
+                    <label for="rdF" class="tab-close">Close Tabs</label>
+                </div>
+            </div>
+            <h4 class="arbodata_title"><span class="white">Socio</span><span class="orange">economics</span></h4>
         </div>
         <div class="arbodata_unit">
             <img src="../static/images/dataset/climate_data-min.png" />
@@ -288,70 +354,101 @@
             <h4 class="arbodata_title"><span class="white">Clima</span><span class="orange">te</span></h4>
         </div>
         <div class="arbodata_unit">
-            <img src="../static/images/dataset/socio_economic_data-min.png" />
+            <img src="../static/images/dataset/forest_deforestation_data-min.png" />
             <div class="tabs">
-                <!-- Pop density-->
+                <!--Biomes-->
                 <div class="tab">
-                    <input type="radio" id="socio_2" name="rd6">
-                    <label class="tab-label" for="socio_2">Population density</label>
+                    <input type="radio" id="check2.5" name="rd3">
+                    <label class="tab-label" for="check2.5">An ecoregion-based approach to protecting half the terrestrial realm</label>
                     <div class="tab-content">
-                        <p>This dataset from Socioeconomics Data and Applications Center <a
-                                href="https://sedac.ciesin.columbia.edu/">(NASA-SEDAC)</a> estimates population density
-                            and distribution in 2015 and 2020, based on counts cosistent with national censuses and
-                            population registers.</p>
+                        <p>This dataset provides 14 terrestrial biomes of the world and classifies the protection statuses of these ecoregions.
+                        </p>
                         <div class="database">
                             <i class="fa fa-database"></i>
-                            <a href="https://sedac.ciesin.columbia.edu/data/sets/browse" target="_blank">Dataset</a>
+                            <a href="https://storage.googleapis.com/teow2016/Ecoregions2017.zip"
+                                target="_blank">Dataset</a>
                             <i class="fa fa-info-circle"></i>
-                            <a href="https://sedac.ciesin.columbia.edu/data/collection/gpw-v4"
+                            <a href="https://academic.oup.com/bioscience/article/67/6/534/3102935?login=false" target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Primary forest-->
+                <div class="tab">
+                    <input type="radio" id="check2.2" name="rd3">
+                    <label class="tab-label" for="check2.2">Primary forest</label>
+                    <div class="tab-content">
+                        <p>This dataset provides the extent of primary humid tropical forests map in the global pan-tropical regions in 2001.
+                        </p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://glad.umd.edu/dataset/primary-forest-humid-tropics"
+                                target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://iopscience.iop.org/article/10.1088/1748-9326/aacd1c/meta"
                                 target="_blank">Reference</a>
                         </div>
                     </div>
                 </div>
-                <!--Gdp and HDI-->
-                <div class="tab">
-                    <input type="radio" id="socio_1" name="rd6">
-                    <label class="tab-label" for="socio_1">Gridded global datasets for Gross Domestic Product and Human
-                        Development Index over 1990–2015</label>
+                 <!--Tree Cover Height-->
+                 <div class="tab">
+                    <input type="radio" id="check2.3" name="rd3">
+                    <label class="tab-label" for="check2.3">Tree cover height</label>
                     <div class="tab-content">
-                        <p>Annual gridded datasets for GDP per capita, total GDP, and HDI, for
-                            the whole world at 5arc-min resolution for the 25-year period of 1990–2015. Additionally,
-                            total GDP is provided with 30 arc-sec resolution for three time steps (1990, 2000,
-                            2015).
+                        <p>This dataset shows the height of global forest canopy in the year 2019. </p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://glad.umd.edu/dataset/gedi/"
+                                target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://linkinghub.elsevier.com/retrieve/pii/S0034425720305381"
+                                target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Intact forest ladscapes-->
+                <div class="tab">
+                    <input type="radio" id="check2.4" name="rd3">
+                    <label class="tab-label" for="check2.4">Intact forest landscapes</label>
+                    <div class="tab-content">
+                        <p>This dataset identifies the world`s last remaining unfragmented <a
+                                href="http://intactforests.org/" target="_blank"> forest landscapes</a>, large enough to
+                            retain all native biodiversity and showing no signs of human alteration as of the year 2000,
+                            2013 and 2016.</p>
+                        <div class="database">
+                            <i class="fa fa-database"></i>
+                            <a href="https://data.globalforestwatch.org/search?collection=Dataset&q=intact%20forest%20landscapes"
+                                target="_blank">Dataset</a>
+                            <i class="fa fa-info-circle"></i>
+                            <a href="https://advances.sciencemag.org/content/3/1/e1600821" target="_blank">Reference</a>
+                        </div>
+                    </div>
+                </div>
+                <!--Tree cover loss by dominant drivers-->
+                <div class="tab">
+                    <input type="radio" id="check2.1" name="rd3">
+                    <label class="tab-label" for="check2.1">Tree cover loss by dominant drivers</label>
+                    <div class="tab-content">
+                        <p>This dataset shows the dominant driver of tree <a
+                                href="https://earthenginepartners.appspot.com/science-2013-global-forest"
+                                target="_blank">cover loss</a> from 2001-2018, using the following five categories:
+                           commodity-driven deforestation, shifting agriculture, forestry, wildfire and urbanization.
                         </p>
                         <div class="database">
                             <i class="fa fa-database"></i>
-                            <a href="https://datadryad.org/stash/dataset/doi:10.5061/dryad.dk1j0"
+                            <a href="https://www.arcgis.com/home/item.html?id=f2b7de1bdde04f7a9034ecb363d71f0e"
                                 target="_blank">Dataset</a>
                             <i class="fa fa-info-circle"></i>
-                            <a href="https://www.nature.com/articles/sdata20184#Sec9" target="_blank">Reference</a>
+                            <a href="https://science.sciencemag.org/content/342/6160/850" target="_blank">Reference</a>
                         </div>
                     </div>
                 </div>
-                <!--access health care-->
                 <div class="tab">
-                    <input type="radio" id="socio_3" name="rd6">
-                    <label class="tab-label" for="socio_3">Global maps of travel time to healthcare facilities</label>
-                    <div class="tab-content">
-                        <p>This dataset displays the global map of optimal travel time to a hospital or clinic
-                            illustrates the spatial heterogeneity of geographically constrained healthcare access
-                            experienced by individuals with access to motorized transportation.</p>
-                        <div class="database">
-                            <i class="fa fa-database"></i>
-                            <a href="https://malariaatlas.org/research-project/accessibility-to-healthcare/"
-                                target="_blank">Dataset</a>
-                            <i class="fa fa-info-circle"></i>
-                            <a href="https://www.nature.com/articles/s41591-020-1059-1" target="_blank">Reference</a>
-                        </div>
-                    </div>
-                </div>
-                <!--close tabs-->
-                <div class="tab">
-                    <input type="radio" id="rdF" name="rd6">
-                    <label for="rdF" class="tab-close">Close Tabs</label>
+                    <input type="radio" id="rdC" name="rd3">
+                    <label for="rdC" class="tab-close">Close Tabs</label>
                 </div>
             </div>
-            <h4 class="arbodata_title"><span class="white">Socio</span><span class="orange">economics</span></h4>
+            <h4 class="arbodata_title"><span class="white">Forest Cover </span><span class="orange">&
+                    Deforestation</span></h4>
         </div>
         <div class="arbodata_unit">
             <img src="../static/images/dataset/land_use_data-min.png" />
@@ -502,106 +599,6 @@
                 </div>
             </div>
             <h4 class="arbodata_title"><span class="white">Bio</span><span class="orange">diversity</span></h4>
-        </div>
-        <div class="arbodata_unit">
-            <img src="../static/images/dataset/forest_deforestation_data-min.png" />
-            <div class="tabs">
-                <!--Biomes-->
-                <div class="tab">
-                    <input type="radio" id="check2.5" name="rd3">
-                    <label class="tab-label" for="check2.5">An ecoregion-based approach to protecting half the terrestrial realm</label>
-                    <div class="tab-content">
-                        <p>This dataset provides 14 terrestrial biomes of the world and classifies the protection statuses of these ecoregions.
-                        </p>
-                        <div class="database">
-                            <i class="fa fa-database"></i>
-                            <a href="https://storage.googleapis.com/teow2016/Ecoregions2017.zip"
-                                target="_blank">Dataset</a>
-                            <i class="fa fa-info-circle"></i>
-                            <a href="https://academic.oup.com/bioscience/article/67/6/534/3102935?login=false" target="_blank">Reference</a>
-                        </div>
-                    </div>
-                </div>
-                <!--Primary forest-->
-                <div class="tab">
-                    <input type="radio" id="check2.2" name="rd3">
-                    <label class="tab-label" for="check2.2">Primary forest</label>
-                    <div class="tab-content">
-                        <p>This dataset provides the extent of primary humid tropical forests map in the global pan-tropical regions in 2001.
-                        </p>
-                        <div class="database">
-                            <i class="fa fa-database"></i>
-                            <a href="https://glad.umd.edu/dataset/primary-forest-humid-tropics"
-                                target="_blank">Dataset</a>
-                            <i class="fa fa-info-circle"></i>
-                            <a href="https://iopscience.iop.org/article/10.1088/1748-9326/aacd1c/meta"
-                                target="_blank">Reference</a>
-                        </div>
-                    </div>
-                </div>
-                 <!--Tree Cover Height-->
-                 <div class="tab">
-                    <input type="radio" id="check2.3" name="rd3">
-                    <label class="tab-label" for="check2.3">Tree cover height</label>
-                    <div class="tab-content">
-                        <p>This dataset shows the height of global forest canopy in the year 2019. </p>
-                        <div class="database">
-                            <i class="fa fa-database"></i>
-                            <a href="https://glad.umd.edu/dataset/gedi/"
-                                target="_blank">Dataset</a>
-                            <i class="fa fa-info-circle"></i>
-                            <a href="https://linkinghub.elsevier.com/retrieve/pii/S0034425720305381"
-                                target="_blank">Reference</a>
-                        </div>
-                    </div>
-                </div>
-                <!--Intact forest ladscapes-->
-                <div class="tab">
-                    <input type="radio" id="check2.4" name="rd3">
-                    <label class="tab-label" for="check2.4">Intact forest landscapes</label>
-                    <div class="tab-content">
-                        <p>This dataset identifies the world`s last remaining unfragmented <a
-                                href="http://intactforests.org/" target="_blank"> forest landscapes</a>, large enough to
-                            retain all native biodiversity and showing no signs of human alteration as of the year 2000,
-                            2013 and 2016.</p>
-                        <div class="database">
-                            <i class="fa fa-database"></i>
-                            <a href="https://data.globalforestwatch.org/search?collection=Dataset&q=intact%20forest%20landscapes"
-                                target="_blank">Dataset</a>
-                            <i class="fa fa-info-circle"></i>
-                            <a href="https://advances.sciencemag.org/content/3/1/e1600821" target="_blank">Reference</a>
-                        </div>
-                    </div>
-                </div>
-                <!--Tree cover loss by dominant drivers-->
-                <div class="tab">
-                    <input type="radio" id="check2.1" name="rd3">
-                    <label class="tab-label" for="check2.1">Tree cover loss by dominant drivers</label>
-                    <div class="tab-content">
-                        <p>This dataset shows the dominant driver of tree <a
-                                href="https://earthenginepartners.appspot.com/science-2013-global-forest"
-                                target="_blank">cover loss</a> from 2001-2018, using the following five categories:
-                           commodity-driven deforestation, shifting agriculture, forestry, wildfire and urbanization.
-                        </p>
-                        <div class="database">
-                            <i class="fa fa-database"></i>
-                            <a href="https://www.arcgis.com/home/item.html?id=f2b7de1bdde04f7a9034ecb363d71f0e"
-                                target="_blank">Dataset</a>
-                            <i class="fa fa-info-circle"></i>
-                            <a href="https://science.sciencemag.org/content/342/6160/850" target="_blank">Reference</a>
-                        </div>
-                    </div>
-                </div>
-                
-               
-                
-                <div class="tab">
-                    <input type="radio" id="rdC" name="rd3">
-                    <label for="rdC" class="tab-close">Close Tabs</label>
-                </div>
-            </div>
-            <h4 class="arbodata_title"><span class="white">Forest Cover </span><span class="orange">&
-                    Deforestation</span></h4>
         </div>
         <div class="arbodata_unit">
             <img src="../static/images/dataset/human_mobility_data-min.png" />
