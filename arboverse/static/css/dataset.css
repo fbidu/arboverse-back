@@ -1,16 +1,17 @@
 .bannermenu{
-    background-image: url("../images/banners/banner_arbodata-min.png");
+    background-image: url("../images/banners/arbodata_banner-min.png");
+    height: 97%;
 }
 /*----IPAD Size portrait Banner--*/
 @media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
   .bannermenu{
-      background-image: url("../images/banners/arbodata-banner-mobile-min.png");
+      background-image: url("../images/banners/arbodata_banner-min.png");
       height: 85vh;
   }
 }
 @media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait){
   .bannermenu{
-      background-image:url("../images/banners/arbodata-banner-mobile-min.png");
+      background-image:url("../images/banners/arbodata_mobile.png");
       height: 70vh;
   }
 }
