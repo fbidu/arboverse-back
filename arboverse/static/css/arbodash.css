@@ -1,16 +1,16 @@
 .bannermenu{
-  background-image: url("../images/banners/arbodash-banner-min.png");
+  background-image: url("../images/banners/arbodash_banner-min.png");
 }
 /*----IPAD Size portrait Banner--*/
 @media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
   .bannermenu{
-      background-image: url("../images/banners/arbodash-banner-mobile-min.png");
+      background-image: url("../images/banners/arbodash_mobile-min.png");
       height: 85vh;
   }
 }
 @media screen and (max-width:600px) and (orientation: portrait){
   .bannermenu{
-      background-image:url("../images/banners/arbodash-banner-min.png");
+      background-image:url("../images/banners/arbodash_mobile-min.png");
       height: 70vh;
   }
 }
@@ -20,14 +20,19 @@ main{
   margin: 0 auto;
 }
 .arbodash_section{
-  width: 100%;
+  width: 90%;
   height: auto;
   text-align: center;
-  margin: 5vh; 
+  margin: 5vh auto; 
+}
+.arbodash_section h3{
+  text-align: left;
+  font-size: 2.1rem;
+  font-weight: 700;
 }
 /* TABS settings */
 .tab{
-  width: 90%;
+  width: 100%;
   margin: 5vh auto;
   height: 10vh;
   border-radius: 20px;
