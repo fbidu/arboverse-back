@@ -379,7 +379,7 @@ nav {
     right: 0;
     height: 45vh;
     top: 12vh;
-    background: linear-gradient(-45deg, rgba(68, 94, 242, 0.8), rgba(51, 69, 166, 0.9));
+    background: linear-gradient(-45deg, hsla(0, 0%, 15%, 0.8), hsla(0, 0%, 5%, 0.9));
     display: flex;
     flex-direction: column;
     align-items: flex-start;
