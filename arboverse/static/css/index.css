@@ -986,16 +986,10 @@ nav {
 .social-unit {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: solid 1px white;
   margin-left: 20px;
-}
-
-.social-unit:hover {
-  border: solid 1px #F5861F;
 }
 
 .social-unit:hover i {
