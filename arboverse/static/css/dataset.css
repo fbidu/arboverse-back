@@ -1,16 +1,17 @@
 .bannermenu{
-    background-image: url("../images/banners/banner_arbodata-min.png");
+    background-image: url("../images/banners/arbodata_banner-min.png");
+    height: 97%;
 }
 /*----IPAD Size portrait Banner--*/
 @media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
   .bannermenu{
-      background-image: url("../images/banners/arbodata-banner-mobile-min.png");
+      background-image: url("../images/banners/arbodata_banner-min.png");
       height: 85vh;
   }
 }
 @media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait){
   .bannermenu{
-      background-image:url("../images/banners/arbodata-banner-mobile-min.png");
+      background-image:url("../images/banners/arbodata_mobile.png");
       height: 70vh;
   }
 }
@@ -73,18 +74,19 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  width: 80%;
+  width: 90%;
   height: auto;
   margin: 10vh auto;
 }
 .arbodata_unit{
   width: 49%;
-  height: 90vh;
-  border-radius: 15px;
-  background: #1D2751;
+  height: 100vh;
+  border-radius: 5px;
+  background: var(--grey1);
   transition: ease-in-out 1.3s;
   position: relative;
-  margin: 30px 0;
+  margin: 20px 0;
+  overflow: hidden;
 }
 .arbodata_unit img{
   width:100%;
@@ -93,16 +95,18 @@
   transition: ease-in-out 1s;
   position: relative;
   display: block;
-  margin-top: 5vh;;
 }
 .arbodata_unit:hover img{
   opacity: 0.4;
+  filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 .arbodata_unit:hover .tabs{
   opacity:1;
 }
 .arbodata_title {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  font-weight: 600;
   position: absolute;
   bottom: 30px;
   left: 40px;
@@ -130,21 +134,21 @@
   justify-content: space-between;
   padding: 0.8em;
   background: transparent;
-  font-weight: 400;
+  font-weight: 500;
   cursor: pointer;
-  color:white;
-  font-size: 1rem;
+  color:var(--grey5);
+  font-size: 1.1rem;
   /* Icon */
 }
 .tab-label:hover {
-  background: rgba(68, 94, 242, 0.11);
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+  background: hsla(0, 0%, 5%, 0.15);
+  box-shadow: 0 4px 5px white;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border-bottom: solid 1px var(--lightBlue);
+  border-bottom: solid 1px var(--grey5) ;
 }
 .tab-label:hover .tab-label::after{
-  color: var(--darkBlue);
+  color: var(--orange);
 }
 .tab-label::after {
   content: "\276F";
@@ -160,14 +164,20 @@
   color: var(--text);
   background: hsla(0, 0%, 100%,0.9);
   transition: all 0.35s;
-  font-size:0.9rem;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.tab-content p{
+  font-size: 0.9rem;
+  font-weight: 400;
 }
 .tab-content a{
-  color: var(--orange);
+  color: var(--grey3);
   font-size: 0.9rem;
+  font-weight: 400;
 }
 .tab-content a:hover{
-  font-weight: bold;
+  color: var(--orange);
 }
 .database{
   display: flex;
@@ -181,17 +191,17 @@
   text-decoration: none;
   padding: 5px 10px;
   border-radius: 20px;
-  border: solid 1px var(--lightBlue);
-  color: var(--lightBlue);
+  border: solid 2px var(--orange);
+  color: var(--grey1);
   font-size: 0.8rem;
   margin-left: 10px;
   margin-right: 20px;
-  font-weight: 400;
+  font-weight: 500;
 }
 .database a:hover{
-  background-color: var(--lightBlue);
-  color: white;
-  font-weight: bold;
+  border: solid 2px var(--grey1);
+  font-weight: 500;
+  color: var(--grey1);
 }
 .fa-database,
 .fa-info-circle{
@@ -213,11 +223,12 @@
     margin-left: 10px;
 }
 .tab-close:hover {
-  background: rgba(68, 94, 242, 0.11);
+  background: hsla(29, 91%, 54%, 0.5);
   box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border-bottom: 1px solid var(--lightBlue);
+  border-bottom: 1px solid var(--orange);
+  color: var(--grey5)
 }
 input {
   position: absolute;
@@ -225,18 +236,18 @@ input {
   z-index: -1;
 }
 input:checked + .tab-label {
-  background: rgba(68, 94, 242, 0.11);
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+  background: hsla(0, 0%, 15%,0.15);
+  box-shadow: 0 4px 5px var(--grey5);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  border-bottom: 1px solid var(--lightBlue);
+  border-bottom: 1px solid var(--grey4);
 }
 input:checked + .tab-label::after {
   transform: rotate(90deg);
 }
 input:checked ~ .tab-content {
   max-height: 100vh;
-  padding: 1em;
+  padding: 0.5em;
 }
 @media screen and (max-width: 550px) {
   .arbodata_container{

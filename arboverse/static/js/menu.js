@@ -9,7 +9,7 @@ buttons.forEach(button => {
 
 // Open and Close submenu Discovery
 function openNav() {
-    document.getElementById("discovery-menu").style.width = "260px";
+    document.getElementById("discovery-menu").style.width = "300px";
     document.getElementById("discovery-menu").style.opacity = "1";
     document.getElementById("distribution-menu").style.width = "0";
     document.getElementById('vector-menu').style.width = "0";
@@ -29,7 +29,7 @@ function closeNav() {
 
 // Open and Close submenu Distribution
 function openNavdist() {
-    document.getElementById("distribution-menu").style.width = "260px";
+    document.getElementById("distribution-menu").style.width = "300px";
     document.getElementById("distribution-menu").style.opacity = "1";
     document.getElementById("discovery-menu").style.width = "0";
     document.getElementById('vector-menu').style.width = "0";
@@ -49,7 +49,7 @@ function closeNavdist() {
 
 // Open and Close submenu Vector
 function openNavVec() {
-    document.getElementById('vector-menu').style.width = "260px";
+    document.getElementById('vector-menu').style.width = "300px";
     document.getElementById('vector-menu').style.opacity = "1";
     document.getElementById("discovery-menu").style.width = "0";
     document.getElementById("distribution-menu").style.width = "0";
@@ -1157,13 +1157,6 @@ var biodiversityValue = function(){
 }
 biodiversity.addEventListener('input', biodiversityValue)
 
-var index = document.querySelector('input[name=index-opacity]');
-var indexValue = function(){
-    var newOpValue = index.value;
-    var target = document.querySelector('.index_op');
-    target.innerHTML = newOpValue;
-}
-index.addEventListener('input', indexValue)
 
 var land = document.querySelector('input[name=land-opacity]');
 var landValue = function(){
@@ -1196,14 +1189,6 @@ var logValue = function(){
     target.innerHTML = newOpValue;
 }
 log.addEventListener('input', logValue);
-
-var soy = document.querySelector('input[name=soy-opacity]');
-var soyValue = function(){
-    var newOpValue = soy.value;
-    var target = document.querySelector('.soy_op');
-    target.innerHTML = newOpValue;
-}
-soy.addEventListener('input', soyValue);
 
 var dams = document.querySelector('input[name=dams-opacity]');
 var damsValue = function(){
