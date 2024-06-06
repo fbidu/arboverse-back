@@ -997,7 +997,6 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 20px;
 }
 
 .social-unit:hover i {
@@ -1008,10 +1007,8 @@ nav {
   padding: 15px
 }
 
-.fa-twitter,
-.fa-facebook,
-.fa-envelope,
-.fa-instagram {
+
+.fa-envelope {
   color: white;
   transform: scale(1.5);
 }
