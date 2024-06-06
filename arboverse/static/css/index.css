@@ -622,7 +622,7 @@ nav {
   line-height: 1.5;
 }
 
-.our_work a {
+.our_work .platform-link {
   width: 45%;
   padding: 10px 15px;
   background-color: var(--orange);
@@ -633,11 +633,19 @@ nav {
   text-decoration: none;
   text-align: center;
 }
-
-.our_work a:hover {
+.our_work .platform-link:hover {
   background-color: var(--orangeTransparent);
   color: white;
 }
+.tool_link h4{
+  width: 60%;
+  border-bottom:  solid 1px transparent;
+}
+.tool_link:hover h4{
+  border-bottom: solid 1px #F5861F;
+}
+
+
 
 /*-----SERVICES ---*/
 .services_wrap {
