@@ -1,26 +1,22 @@
 <section class="contact">
   <div class="footer-wrapper">
     <div class="logo-foot">
-      <a href="index.html"><img src="../static/images/logos/logo-arboverse.png"></a>
+      <a href="{% url 'home' %}"><img src="../static/images/logos/logo-arboverse.png"></a>
       <h3><span class="white">ARBO</span><span class="orange">VERSE</span></h3>
     </div>
     <div class="navigation-links ">
       <h4>Explore</h4>
       <ul class="nav-links nav-foot">
-        <li><a href="index.html" aria-label="Link for home">HOME</a></li>
-        <li><a href="arboverse.html" aria-label="Link for arboverse plattform">ARBOVERSE</a></li>
-        <li><a href="arbodash.html" aria-label="Link for research">ARBODASH</a></li>
-        <li><a href="arbodata.html" aria-label="Link for publications">ARBODATA</a></li>
-        <li><a href="collaborators.html" aria-label="Link for collaborators">CONTACT US</a></li>
+        <li><a href="{% url 'home' %}" aria-label="Link for home">HOME</a></li>
+        <li><a href="{% url 'arboverse' %}" aria-label="Link for arboverse plattform">ARBOVERSE</a></li>
+        <li><a href="{% url 'arbodash' %}" aria-label="Link for research">ARBODASH</a></li>
+        <li><a href="{% url 'arbodata' %}" aria-label="Link for publications">ARBODATA</a></li>
+        <li><a href="{% url 'contact' %}" aria-label="Link for collaborators">CONTACT US</a></li>
       </ul>
     </div>
     <div class="social-wrapper">
       <h4>Contact us</h4>
       <div class="media-wrapper">
-        <div class="social-unit">
-          <a href="https://twitter.com/intent/tweet?text=TITULO&url=LINK&via=SEUPERFIL" target="_blank"><i
-              class="fa fa-twitter "></i></a>
-        </div>
         <div class="social-unit">
           <a href="mailto:wmdesouza@uky.edu"><i class=" fa fa-regular fa-envelope"></i></a>
         </div>
