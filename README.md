@@ -53,3 +53,8 @@ Run it with `docker-compose run --rm web python manage.py shell_plus`
 0. Install [pre-commit](https://pre-commit.com/)
 1. Run `pre-commit install -t pre-commit -t pre-push`
 2. Optional: you may run all hooks with `pre-commit run --all`
+
+
+## Prod Setup
+
+1. Copy `sample.env` to `.env` -> `cp sample.env .env`
