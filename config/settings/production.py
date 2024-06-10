@@ -6,8 +6,9 @@ from .base import env
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
 SECRET_KEY = env("DJANGO_SECRET_KEY")
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["arbo.felipevr.com"])
-
+ALLOWED_HOSTS = env.list(
+    "DJANGO_ALLOWED_HOSTS", default=["arbo.felipevr.com", "fbidu.pythonanywhere.com"]
+)
 # DATABASES
 # ------------------------------------------------------------------------------
 DATABASES["default"] = env.db("DATABASE_URL")  # noqa: F405
@@ -68,15 +69,15 @@ COLLECTFAST_STRATEGY = "collectfast.strategies.filesystem.FileSystemStrategy"
 # TEMPLATES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#templates
-TEMPLATES[-1]["OPTIONS"]["loaders"] = [  # type: ignore[index] # noqa: F405
-    (
-        "django.template.loaders.cached.Loader",
-        [
-            "django.template.loaders.filesystem.Loader",
-            "django.template.loaders.app_directories.Loader",
-        ],
-    )
-]
+# TEMPLATES[-1]["OPTIONS"]["loaders"] = [  # type: ignore[index] # noqa: F405
+#     (
+#         "django.template.loaders.cached.Loader",
+#         [
+#             "django.template.loaders.filesystem.Loader",
+#             "django.template.loaders.app_directories.Loader",
+#         ],
+#     )
+# ]
 
 # EMAIL
 # ------------------------------------------------------------------------------
