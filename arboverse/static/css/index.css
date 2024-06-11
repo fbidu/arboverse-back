@@ -888,7 +888,7 @@ nav {
 
   .team_wrapper {
     width: 90%;
-    margin: 10px 0;
+    margin: 10px auto;
   }
   .person_unit {
     margin: 5px;
@@ -1016,18 +1016,43 @@ nav {
 
   .fund-wrapper {
     flex-direction: column;
+    row-gap: 20px;
   }
 
   .fund-support,
-  .fund-endorsed {
-    width: 80%;
+  .fund-endorsed,
+  .fund-partners {
+    width: 90%;
   }
 
   .fund-support h6,
-  .fund-endorsed h6 {
-    font-weight: 300;
-    font-size: 1rem;
-    text-align: center;
+  .fund-endorsed h6,
+  .fund-partners h6 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    text-align: left;
+  }
+  .support img {
+    height: 40px;
+    margin-right: 15px;
+  }
+  #nus{
+    height: 60px;
+    margin-right: 15px;
+  }
+  
+  #cop,
+  #stan{
+    height: 50px;
+    margin-right: 15px;
+  }
+  #oxf{
+    height: 70px;
+    margin-right:5px;
+  }
+  #imp{
+    height:30px;
+    margin-right: 5px;
   }
 }
 
