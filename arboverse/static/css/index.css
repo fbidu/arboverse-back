@@ -181,9 +181,9 @@ a {
 }
 
 /*---font size mobile portrait*/
-@media screen and (min-width: 300px) and (max-width:450px) and (orientation: portrait) {
+@media screen and (min-width: 300px) and (max-width:490px) and (orientation: portrait) {
   h1 {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
 
   h2 {
@@ -440,7 +440,7 @@ nav {
     width: 90%;
     margin: 0 auto;
     letter-spacing: 1px;
-    text-align: center;
+    text-align: left;
     padding-top: 8vh;
   }
 
