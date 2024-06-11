@@ -1244,11 +1244,12 @@ aside p {
     font-size: 0.6rem;
   }
 }
-
+/*---- footer Mobile Size portrait --*/
 @media screen and (min-width: 300px) and (max-width:480px) and (orientation: portrait) {
   .footer-wrapper {
     width: 90%;
     padding: 20px 0;
+    justify-content: space-between;
     align-items: center;
   }
 
@@ -1270,7 +1271,7 @@ aside p {
   }
 
   .social-wrapper {
-    width: 50%;
+    width: 40%;
   }
 
   .social-wrapper h4 {
@@ -1290,6 +1291,7 @@ aside p {
   }
 
   aside {
+    width: 90%;
     flex-direction: column;
     justify-content: center;
   }
