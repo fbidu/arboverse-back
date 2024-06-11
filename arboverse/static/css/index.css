@@ -437,7 +437,7 @@ nav {
   }
 
   .bannermenu h1 {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
     letter-spacing: 1px;
     text-align: center;
@@ -594,7 +594,47 @@ nav {
 .main_arboverse img {
   width: 50%;
 }
-
+/* main explanantion MOBILE SIZE*/
+@media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait) {
+  .arboverse_explain {
+    width: 100%;
+  }
+  
+  .main_arboverse {
+    width: 100%;
+    flex-direction: column;
+  }
+  
+  .explanation_content {
+    width: 80%;
+    padding: 0 10px;
+    border-left: solid 2px var(--orangeFade);
+  }
+  
+  .explanation_content h3 {
+    font-size: 1.5rem;
+  }
+  
+  .explanation_content p {
+    font-size: 1rem;
+  }
+  
+  .explanation_content a {
+    margin: 2vh 0;
+    width: 45%;
+    font-size: 1.1rem;
+  }
+  
+  .explanation_content a:hover {
+    background-color: var(--orange);
+    color: white;
+  }
+  
+  .main_arboverse img {
+    margin-top: 50px;
+    width: 100%;
+  }
+}
 /*-----Our work ---*/
 .our_work {
   width: 100%;
@@ -645,7 +685,37 @@ nav {
   border-bottom: solid 1px #F5861F;
 }
 
-
+/* our work MOBILE SIZE*/
+@media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait) { 
+  
+  .our_work{
+    margin: 15vh auto 5vh auto;
+    padding: 10% 5%;
+  }
+  .our_work h3 {
+    font-size: 1.5rem;
+  }
+  
+  .our_work p {
+    width: 90%;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .our_work .platform-link {
+    font-size: 1.1rem;
+  }
+  .our_work .platform-link:hover {
+    background-color: var(--orangeTransparent);
+    color: white;
+  }
+  .tool_link h4{
+    width: 90%;
+  }
+  .tool_link:hover h4{
+    border-bottom: solid 1px transparent;
+  }
+}
 
 /*-----SERVICES ---*/
 .services_wrap {
@@ -678,7 +748,38 @@ nav {
   border-left: solid 2px var(--orange);
 
 }
-
+/* our work MOBILE SIZE*/
+@media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait) { 
+  .services_wrap {
+    margin-top: 15%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+    align-items: flex-start;
+    column-gap: 10%;
+  }
+  
+  .service_unit {
+    width: 100%;
+    height: auto;
+    padding: 15px 0;
+  }
+  
+  .service_unit h4 {
+    font-size: 1.1rem;
+    color: white;
+  }
+  
+  .service_unit p {
+    width: 90%;
+    margin: 5px 0;
+    color: var(--grey5);
+    font-size: 1rem;
+  
+  }
+}
 /*-----TEAM BUILT ---*/
 .team_section {
   width: 90%;
@@ -775,19 +876,23 @@ nav {
 @media screen and (min-width: 200px) and (max-width: 600px) and (orientation:portrait) {
   .team_section {
     width: 100%;
-    margin-top: 10vh;
+    margin-top: 0vh;
   }
 
   .team_section h3 {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
-    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
   }
 
   .team_wrapper {
+    width: 90%;
     margin: 10px 0;
   }
-
+  .person_unit {
+    margin: 5px;
+  }
   .person_img {
     width: 30px;
     height: 30px;
@@ -795,7 +900,7 @@ nav {
   }
 
   .person_unit h6 {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 300;
   }
 }
