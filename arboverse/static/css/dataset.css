@@ -262,7 +262,7 @@ input:checked ~ .tab-content {
     width: 100%;
     height:auto;
     border-radius:10px;
-    background: #1D2751;
+    background: var(--grey1);
     position: relative;
     margin: 30px 0;
     padding-bottom: 40px;
@@ -277,12 +277,14 @@ input:checked ~ .tab-content {
   }
   .arbodata_unit:hover img{
     opacity: 1;
+    filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
   }
   .arbodata_title {
     font-size: 1.5rem;
     position: absolute;
-    top: 80px;
-    left: 45%;
+    top: 90px;
+    left: 40%;
     margin: 0;
     opacity: 1;
   }
