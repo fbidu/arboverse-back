@@ -25,6 +25,8 @@ exportBtn.addEventListener('click', function () {
 })
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
+ // Add a scale control to the map
+ map.addControl(new mapboxgl.ScaleControl());
 // To labels appear on top of the layers
 map.on('load', function () {
     var layers = map.getStyle().layers;
@@ -44,6 +46,15 @@ map.on('load', function () {
 //   (url) the raster tile URL to add to the map
 const addTileLayerToMap = (mapVar, title, url, type, paint, source_layer) => {
     console.log(mapVar, title, url)
+    var layers = map.getStyle().layers;
+    //Find the index of the first symbol layer in the map style
+    var firstSymbolId;
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === 'symbol') {
+            firstSymbolId = layers[i].id;
+            break;
+        }
+    }
     // need to first add a source
     mapVar.addSource(title, {
         type: 'vector',
@@ -59,7 +70,9 @@ const addTileLayerToMap = (mapVar, title, url, type, paint, source_layer) => {
         'source': title,
         'paint': paint,
         "source-layer": source_layer
-    });
+    },
+    firstSymbolId
+    );
 
     mapVar.setLayoutProperty(
         title,
@@ -79,6 +92,15 @@ const addTileLayerToMap = (mapVar, title, url, type, paint, source_layer) => {
 //   (url) the raster tile URL to add to the map
 const addRasterTileLayerToMap = (mapVar, title, url, type, source_layer, minzoom, maxzoom) => {
     console.log(mapVar, title, url)
+    var layers = map.getStyle().layers;
+    //Find the index of the first symbol layer in the map style
+    var firstSymbolId;
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === 'symbol') {
+            firstSymbolId = layers[i].id;
+            break;
+        }
+    }
     // need to first add a source
     mapVar.addSource(title, {
         type: 'raster',
@@ -95,7 +117,9 @@ const addRasterTileLayerToMap = (mapVar, title, url, type, source_layer, minzoom
         "source-layer": source_layer,
         'minzoom': minzoom,
         'maxzoom': maxzoom
-    });
+    },
+    firstSymbolId
+);
 
     mapVar.setLayoutProperty(
         title,
