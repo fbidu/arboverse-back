@@ -8,6 +8,7 @@
 
 <!-- Mapbox GL JS includes -->
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+  <script type="module" src="../static/js/search_functions.js"></script>
 
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
 {% endblock %}
@@ -26,9 +27,9 @@
       <div class="arbovirus-catalogue">
         <div class="arbovirus-content">
           <h4><span class="grey_fade">ARBO</span><span class="orange_fade">CARD</span></h4>
-          <div class="search">
+          <div class="search" id="arbo-autocomplete">
             <input class="search-virus" type="texts" placeholder="Search arbovirus..." id="arbovirus-search">
-            <button class="searchbutton" type="submit"><i class="fa fa-search"></i></button>
+            <button id="arbovirus-submit" class="searchbutton" type="submit" onclick="searchDB(this.id)"><i class="fa fa-search"></i></button>
           </div>
           <div class="tabs">
             <div class="tab">
@@ -271,9 +272,9 @@
       <div class="vector-catalogue">
         <div class="vector-content">
           <h4><span class="grey_fade">ARBO</span><span class="orange_fade">VECTOR</span></h4>
-          <div class="search">
+          <div class="search" id="vector-autocomplete">
             <input class="search-vector" type="texts" placeholder="Search vector..." id="vector-search">
-            <button class="searchbutton-vector" type="submit"><i class="fa fa-search"></i></button>
+            <button id="vector-submit" class="searchbutton-vector" type="submit" onclick="searchDB(this.id)"><i class="fa fa-search"></i></button>
           </div>
           <div class="tabs">
             <div class="tab">
@@ -5727,5 +5728,5 @@
       </div>
   </section>
 </main>
-<script src="../static/js/mapboxutil.js"></script>
+{#<script src="../static/js/mapboxutil.js"></script#}
 {% endblock %}

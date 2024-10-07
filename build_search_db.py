@@ -1,7 +1,6 @@
 import pandas as pd
 from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
-from pandas import *
 import os
 
 load_dotenv()
@@ -14,16 +13,16 @@ def get_engine():
 
 
 # This runs when docker-compose is run to build the initial search DB.
-def initial_upload(engine, csv_file_path):
+def initial_upload(engine, csv_file_path, table_name):
     df = pd.read_csv(csv_file_path)
     try:
-        df.to_sql('arboverse_search', con=engine)
+        df.to_sql(table_name, con=engine)
+        print(f'Table {table_name} was successfully created. Printing contents')
     except ValueError as ve:
         print(f'Error: {ve}. Printing database contents.')
     with engine.connect() as conn:
-        result = conn.execute(text("""select * from \"arboverse_search\""""))
+        result = conn.execute(text(f"""select * from \"{table_name}\""""))
 
-        # Don't want to print too many results
         for row in result:
             print(row)
 
@@ -37,7 +36,8 @@ def update_database(engine, csv_file_path):
 
 def main():
     engine = get_engine()
-    initial_upload(engine, 'Arbovector_database.csv')
+    initial_upload(engine, 'Arbovector_database.csv', 'vector_search')  # upload vectors
+
     return
 
 

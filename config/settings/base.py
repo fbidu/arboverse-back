@@ -1,9 +1,8 @@
 """
 Base settings to build other settings files upon.
 """
-
+import os
 from pathlib import Path
-
 import environ
 
 # arboverse/
@@ -49,10 +48,14 @@ DATABASES = {
     # The DATABASE_URL environment variables
     # expect a value in the following format:
     # DATABASE_URL=postgres://user:password@hostname_or_ip:port/database_name
-    "default": env.db(
-        "DATABASE_URL",
-        default="postgres://arboverse:postgres@db/arboverse_db",
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env('PGSQL_DB'),
+        'USER': env('PGSQL_USER'),
+        'PASSWORD': env('PGSQL_PASS'),
+        'HOST': env('PGSQL_HOST'),
+        'PORT': env('PGSQL_PORT'),
+    }
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
@@ -134,6 +137,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
+    "allauth.account.middleware.AccountMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
