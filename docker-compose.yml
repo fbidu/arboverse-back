@@ -9,6 +9,8 @@ services:
       - POSTGRES_DB=arboverse_db
       - POSTGRES_USER=arboverse
       - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
   web:
     build:
         context: .
