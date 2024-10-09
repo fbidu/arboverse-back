@@ -4,6 +4,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
+from rest_framework.routers import DefaultRouter
+from .views import VirusViewSet, VectorViewSet
+
+router = DefaultRouter()
+router.register(r'virus', VirusViewSet)
+router.register(r'vector', VectorViewSet)
 
 urlpatterns = [
     path(
@@ -49,6 +55,7 @@ urlpatterns = [
         include("arboverse.users.urls", namespace="users"),
     ),
     path("accounts/", include("allauth.urls")),
+    path("api/", include(router.urls))
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

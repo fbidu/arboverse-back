@@ -3,7 +3,7 @@ SQLAlchemy~=2.0.35
 pandas~=2.2.3
 django-debug-toolbar
 django-extensions
-
+djangorestframework
 
 -r production.txt
 
