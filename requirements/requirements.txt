@@ -1,8 +1,10 @@
 # This file is expected by Heroku.
 SQLAlchemy~=2.0.35
 pandas~=2.2.3
+django-debug-toolbar
+django-extensions
 
 
--r requirements/production.txt
+-r production.txt
 
 

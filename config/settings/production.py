@@ -11,9 +11,24 @@ ALLOWED_HOSTS = env.list(
 )
 # DATABASES
 # ------------------------------------------------------------------------------
-DATABASES["default"] = env.db("DATABASE_URL")  # noqa: F405
+DATABASES = {
+    # Raises ImproperlyConfigured Exception
+    # if DATABASE_URL Not in os.environ and
+    # the "default" argument is not defined.
+    # The DATABASE_URL environment variables
+    # expect a value in the following format:
+    # DATABASE_URL=postgres://user:password@hostname_or_ip:port/database_name
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': env('PGSQL_DB'),
+        'USER': env('PGSQL_USER'),
+        'PASSWORD': env('PGSQL_PASS'),
+        'HOST': env('PGSQL_HOST'),
+        'PORT': env('PGSQL_PORT'),
+    }
+}
 DATABASES["default"]["ATOMIC_REQUESTS"] = True  # noqa: F405
-DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)  # noqa: F405
+#DATABASES["default"]["CONN_MAX_AGE"] = env.int("CONN_MAX_AGE", default=60)  # noqa: F405
 
 # CACHES
 # ------------------------------------------------------------------------------
