@@ -1,0 +1,135 @@
+.bannermenu{
+  background-image: url("../images/banners/contact_banner-min.png");
+  height: 97vh;
+}
+/*----IPAD Size portrait Banner--*/
+@media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
+  .bannermenu{
+      background-image: url("../images/banners/contact_mobile-min.png");
+      height: 85vh;
+  }
+}
+@media screen and (max-width:600px) and (orientation: portrait){
+  .bannermenu{
+      background-image:url("../images/banners/contact_mobile-min.png");
+      height: 70vh;
+  }
+}
+
+.contactus_section{
+  width: 90%;
+  height: auto;
+  margin: 5vh auto; 
+}
+.contactus_section h3,
+.help_arbv h3{
+  font-size: 5rem;
+  color: hsla(300, 2%, 34%, 0.8);
+  font-weight: 700;
+}
+.contactus_section p{
+  margin-top: 5vh;
+  width: 90%;
+  color: var(--text);
+  font-size: 1.6rem;
+  line-height: 1.5;
+  padding-left: 5px;
+  border-left: solid 2px var(--orange);
+}
+
+.help_arbv{
+  margin: 15vh auto;
+  width: 90%;
+}
+.help_wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  align-items: center;
+  margin: 50px 0;
+  position: relative;
+}
+.help_img{
+  width: 22%;
+  z-index: 1;
+  position: absolute;
+  left:0;
+}
+.help_img img{
+  width: 100%;
+}
+.help_info{
+  background-color: var(--lightGrey);
+  width: 75%;
+  height: auto;
+  padding: 30px;
+  border-radius: 5px;
+  z-index: 0;
+  text-align: center;
+}
+.help_info p{
+  text-align: left;
+  color: var(--text);
+  font-size: 1.6rem;
+  line-height: 1.5;
+  font-weight: 300;
+  margin: 10px 0 0 17%;
+}
+.help_info a{
+  text-decoration: none;
+  color: var(--grey1);
+  font-weight: 400;
+  font-size: 1.6rem;
+}
+.help_info a:hover{
+  color: var(--orange);
+}
+@media screen and (max-width: 1000px) {
+  .help_wrapper{
+    flex-direction: column;
+  }
+  .help_img{
+    top:0%;
+    left: 0%;
+  }
+}
+/* how to cite mobile -*/
+@media screen and (min-width: 300px)  and (max-width: 550px){
+  .help_arbv{
+    margin: 8vh auto;
+  }
+  .contactus_section h3,
+  .help_arbv h3{
+    font-size:1.5rem;
+  }
+  .contactus_section p{
+    font-size: 1rem;
+    margin-top: 3vh;
+  }
+  .help_wrapper{
+    margin: 80px 0 30px 0;
+    flex-direction: column;
+  }
+  .help_img{
+    width: 25%;
+    z-index: 1;
+    position: absolute;
+    top: -60px;
+    left: 0;
+  }
+  .help_img img{
+    width: 100%;
+  }
+  .help_info{
+    width: 100%;
+    padding: 30px 10px;
+  }
+  .help_info p{
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 10px 0 0 5%;
+  }
+  .help_info a{
+    font-size: 1rem;
+  }
+}

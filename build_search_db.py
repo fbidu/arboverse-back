@@ -36,7 +36,7 @@ def update_database(engine, csv_file_path):
 
 def main():
     engine = get_engine()
-    initial_upload(engine, 'Arbovector_database.csv', 'vector_search')  # upload vectors
+    initial_upload(engine, 'Arbovector_database.csv', 'arboverse_updated_virusvector')  # upload vectors
 
     return
 

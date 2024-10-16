@@ -9,6 +9,7 @@ INSTALLED_APPS = (
     "django.contrib.admin",
     "crispy_forms",
     "arboverse",
+    "config"
 )
 
 DATABASES = {

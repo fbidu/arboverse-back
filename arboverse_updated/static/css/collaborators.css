@@ -1,0 +1,584 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+}
+
+body {
+  font-size: 16px;
+  font-family: lato, sans-serif, serif;
+  background-color: hsl(0, 0%, 95%);
+  margin: 0 auto;
+}
+/*NAVIGATOR*/
+.bannermenu {
+  background-image: linear-gradient(
+      to right bottom,
+      hsla(212, 100%, 14%, 0.4),
+      transparent
+    ),
+    url("../images/Collaborators/banner_ilhadocardoso.jpg");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 80vh;
+}
+.bannermenu h1 {
+  font-family: "Monteserrat", sans-serif;
+  font-weight: 400;
+  font-size: 3rem;
+  letter-spacing: 4px;
+  text-align: center;
+  padding-top: 35vh;
+  color: white;
+}
+.bannermenu h3 {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: rgb(255, 255, 255);
+}
+/* NAV BAR*/
+nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(
+    180deg,
+    hsla(209, 100%, 13%, 0.8),
+    hsla(209, 100%, 13%, 0.5),
+    transparent
+  );
+  height: 11vh;
+  font-family: "Montserrat", sans-serif;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+.hl {
+  width: 90%;
+  margin: 0 auto;
+  border-bottom: solid 1px hsl(0, 0%, 100%, 1);
+  position: relative;
+  top: 11vh;
+}
+nav img {
+  width: 10%;
+  height: 10%;
+  margin-right: 10px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  padding-left: 5%;
+}
+.logo span {
+  color: #ff8700;
+}
+.logo a {
+  text-decoration: none;
+  color: #fff;
+}
+.nav-links {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+.nav-links li {
+  list-style: none;
+  font-weight: bold;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 5px;
+  margin: 5px;
+}
+.nav-links a:hover {
+  color: #002147;
+  background-color: hsla(0, 0%, 100%, 0.4);
+  border-radius: 10px;
+}
+
+/*Burger features*/
+.burger {
+  display: none;
+}
+.burger div {
+  cursor: pointer;
+  width: 30px;
+  height: 5px;
+  background-color: white;
+  margin: 3px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+@media screen and (max-width: 1050px) {
+  .nav-links {
+    width: 60%;
+  }
+}
+
+/* NAVIGATOR TABLET SIZE*/
+
+@media screen and (max-width: 900px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .nav-links {
+    position: absolute;
+    right: 0;
+    height: 45vh;
+    top: 12vh;
+    background: linear-gradient(
+      to bottom,
+      hsla(212, 69%, 28%, 0.7),
+      hsla(212, 69%, 28%, 0.4)
+    );
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    transform: translateX(100%);
+    transition: transform 0.5s ease-in;
+  }
+  .nav-links li {
+    opacity: 0;
+  }
+  .burger {
+    display: block;
+    margin-right: 30px;
+  }
+  .nav-active {
+    transform: translateX(0%);
+  }
+}
+
+/*LINK FADE*/
+
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2 {
+  opacity: 0;
+}
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* NAVIGATOR MOBILE SIZE*/
+@media screen and (max-width: 450px) {
+  nav {
+    height: 8vh;
+  }
+  .logo {
+    font-size: 1rem;
+    padding-left: 15px;
+  }
+  nav img {
+    width: 11%;
+    height: 11%;
+  }
+  .burger {
+    margin-right: 20px;
+  }
+  .burger div {
+    width: 25px;
+    height: 3px;
+    margin-right: 15px;
+  }
+  .nav-links {
+    top: 9vh;
+    height: 39vh;
+  }
+  .toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 4px);
+  }
+  .toggle .line2 {
+    opacity: 0;
+  }
+  .toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -4px);
+  }
+}
+/*NAVIGATOR FOR LANDSCAPE*/
+
+@media screen and (min-width: 650px) and (max-width: 750px) and (orientation: landscape) {
+  nav {
+    height: 15vh;
+  }
+  nav img {
+    width: 7%;
+    height: 7%;
+  }
+  .hl {
+    padding-bottom: 10px;
+  }
+  .burger div {
+    width: 25px;
+    height: 3px;
+    margin-right: 15px;
+  }
+  .nav-links {
+    top: 15vh;
+    height: 80vh;
+  }
+  .logo {
+    font-size: 1rem;
+    padding-left: 15px;
+  }
+  .toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 4px);
+  }
+  .toggle .line2 {
+    opacity: 0;
+  }
+  .toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -4px);
+  }
+}
+
+/* BANNER TABLET SIZE*/
+@media screen and (max-width: 900px) {
+  .bannermenu {
+    height: 25rem;
+    background-position: bottom;
+  }
+  .hl {
+    top: 12vh;
+  }
+  .bannermenu h1 {
+    font-size: 2.7rem;
+    padding-top: 27vh;
+    letter-spacing: 1px;
+  }
+  .bannermenu h3 {
+    font-size: 1.2rem;
+  }
+}
+
+/*BANNER MOBILE SIZE*/
+@media screen and (max-width: 450px) {
+  .bannermenu {
+    height: 20rem;
+    background-position: bottom;
+  }
+  .bannermenu h1 {
+    padding-top: 20vh;
+    font-size: 1.8rem;
+  }
+  .bannermenu h3 {
+    font-size: 0.9rem;
+  }
+  .hl {
+    top: 8vh;
+  }
+
+  /* TEAM and icons overlay*/
+}
+.team-title h1 {
+  margin: 0 auto;
+  width: 35%;
+  text-align: center;
+  font-family: "Monteserrat", sans-serif;
+  font-weight: 500;
+  font-size: 1.8rem;
+  color: #002147;
+  margin-top: 15vh;
+  padding-bottom: 5px;
+  border-bottom: solid 1px hsla(0, 0%, 50%, 0.5);
+}
+.orange{
+  color: #ff8700;
+}
+.single-team img {
+  filter: grayscale(100%);
+}
+.single-team {
+  margin: 45px 25px;
+  width:250px;
+  height: 300px;
+  padding: 20px;
+  background: #fff;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  transition: 0.6s ease-out;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.single-team:hover:before {
+  opacity: 1;
+}
+.single-team:hover .team-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+.single-team:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgb(40, 39, 39),
+    transparent,
+    transparent
+  );
+  z-index: 2;
+  transition: 0.5s;
+  opacity: 0;
+}
+.single-team img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+}
+.single-team .team-text {
+  position: relative;
+  z-index: 6;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.5s;
+}
+.team-text h2 {
+  color: white;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+.team-text p {
+  font-size: 11px;
+  margin-top: 8px;
+  color: white;
+  font-family: "montserrat", sans-serif;
+}
+.team-text a i {
+  position: relative;
+  z-index: 8;
+  color: #ff8700;
+  padding: 6px 6px;
+}
+.plattform-team {
+  width: 75%;
+  margin: 10px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.lab-team {
+  padding-top: 5vh;
+  width: 85%;
+  margin: 10px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.lab {
+  padding-top: 1px;
+  background-color: hsla(0, 0%, 77%, 0.2);
+}
+/* Mobile team */
+@media screen and (max-width: 450px){
+  .team-title h1{
+    width:90%;
+    font-size: 1.3rem;
+  }
+}
+@media screen and (min-width:650px) and (max-width: 750px) and (orientation: landscape){
+  .team-title h1{
+    width:80%;
+    font-size: 1.3rem;
+  }
+  .lab-team{
+    justify-content: center;
+  }
+}
+/* modal Box*/
+.modal {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom:0;
+  left:0;
+  width: 100%;
+  height:100%;
+  z-index: 20;
+  opacity: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsla(0, 0%, 23%, 0.7);
+  transition: all .4s;
+}
+.modal:target {
+  visibility: visible;
+  opacity: 1;
+}
+.modal__content {
+  border-radius: 4px;
+  position: relative;
+  width: 400px;
+  height: 70vh;
+  max-width: 90%;
+  background:white;
+  padding: 1em 2em;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+.modal_inner{
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+}
+.modal_inner h2{
+  color:#002147;
+  font-size: 1.3rem;
+  font-family: 'Montserrat', serif;
+  margin: 10px auto;
+  text-align: center;
+}
+.modal_inner p{
+  margin: 20px 0;
+  font-family: 'montserrat', serif;
+  color: #666569;
+  line-height: 2;
+  text-align: justify;
+}
+.modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #585858;
+  text-decoration: none;
+  font-size: 2rem;
+  text-align: center;
+}
+.modal__close:hover{
+  color:#ff8700;
+}
+/* PEOPLE tablet size*/
+
+/*PEOPLE MIBILE SIZE*/
+
+/*SOCIAL MEDIA*/
+#socialmedia {
+  background-color: hsla(0, 0%, 35%, 0.7);
+  padding: 50px 0;
+}
+.mediacontent {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+}
+.media {
+  width: 15%;
+  display: block;
+  padding-top: 60px;
+  text-align: center;
+}
+.media h4 {
+  font-family: "Montserrat", sans serif, arial;
+  font-weight: 400;
+  font-size: 1rem;
+  color: white;
+  border-bottom: solid 1px hsla(0, 0%, 100%, 0.7);
+  padding-bottom: 10px;
+  width: 80%;
+  margin: 0 auto;
+}
+.share-icons {
+  margin-top: 10px;
+}
+.share-icons a{
+  color:white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.share-icons i{
+  margin-right: 5px;
+}
+/*SOCIAL MEDIA TABLET SIZE*/
+@media screen and (max-width: 900px) {
+  .media {
+    width: 20%;
+  }
+  .media h4 {
+    font-size: 0.9rem;
+  }
+}
+/*SOCIAL MEDIA MOBILE SIZE*/
+@media screen and (max-width: 450px) {
+  #socialmedia {
+    padding: 30px 0;
+  }
+  .media {
+    width: 40%;
+    padding-top: 20px;
+  }
+  .media h4 {
+    font-size: 0.8rem;
+  }
+}
+/*LANDSCAPE SOCIAL MEDIA*/
+
+@media screen and (min-width: 650px) and (max-width: 750px) and (orientation: landscape) {
+  .media {
+    width: 50%;
+    padding-top: 20px;
+  }
+}
+/*FOOTER*/
+footer {
+  background-color: hsla(0, 0%, 35%, 0.7);
+  font-family: robot, sans-serif, arial;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  font-size: 0.8rem;
+  padding: 5px 30px;
+}
+/*F MOBILE SIZE*/
+
+@media screen and (max-width: 450px) {
+  footer {
+    font-size: 0.6rem;
+    flex-direction: column;
+    text-align: center;
+  }
+}

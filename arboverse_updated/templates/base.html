@@ -1,0 +1,21 @@
+{% load static i18n %}<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    {% block meta %}{% endblock meta %}
+    {% include "resources.html" %}
+    {% block resources %}{% endblock resources %}
+    <title>{% block title %}Arboverse Home{% endblock title %}</title>
+  </head>
+
+  <body>
+    <!--NAVEGADOR-->
+    {% include "navbar.html" %}
+
+    <!-- Conteúdo -->
+    {% block content %}{% endblock content %}
+    {% include "funding.html" %}
+    {% include "contact.html" %}
+    {% include "footer.html" %}
+  </body>
+</html>

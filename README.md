@@ -58,3 +58,4 @@ Run it with `docker-compose run --rm web python manage.py shell_plus`
 ## Prod Setup
 
 1. Copy `sample.env` to `.env` -> `cp sample.env .env`
+2. Run `python manage.py collectstatic` and ensure that the resulting folder will be web-accessible.
