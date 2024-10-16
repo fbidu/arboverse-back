@@ -9,7 +9,7 @@ load_dotenv()
 # Creates a DB engine for use in other functions
 def get_engine():
     return create_engine(
-        f'postgresql+psycopg2://{os.getenv('PGSQL_USER')}:{os.getenv('PGSQL_PASS')}@{os.getenv('PGSQL_HOST')}:{int(os.getenv('PGSQL_PORT'))}/{os.getenv('PGSQL_DB')}')
+        f'postgresql+psycopg2://{os.getenv('PGSQL_USER')}:{os.getenv('PGSQL_PASS')}@localhost:{int(os.getenv('PGSQL_PORT'))}/{os.getenv('PGSQL_DB')}')
 
 
 # This runs when docker-compose is run to build the initial search DB.
@@ -36,7 +36,7 @@ def update_database(engine, csv_file_path):
 
 def main():
     engine = get_engine()
-    initial_upload(engine, 'Arbovector_database.csv', 'arboverse_updated_virusvector')  # upload vectors
+    initial_upload(engine, 'Arbovector_database.csv', 'vector_search')  # upload vectors
 
     return
 
