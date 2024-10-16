@@ -9,7 +9,8 @@ from arboverse_updated import views
 
 router = DefaultRouter()
 router.register('virus', views.VirusViewSet, basename="Virus")
-router.register('vector', views.VectorViewSet, basename="VirusVector")
+router.register('virus-vector', views.VectorViewSet, basename="VirusVector")
+router.register('vector-species', views.VectorSpeciesSet, basename="VectorSpecies")
 
 urlpatterns = ([
     path(
