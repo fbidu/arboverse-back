@@ -8,8 +8,6 @@
 
 <!-- Mapbox GL JS includes -->
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
-  <script type="module" src="../static/js/search_functions.js"></script>
-
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
 {% endblock %}
 {% block title %} ARBOVERSE {% endblock %}
@@ -27,14 +25,11 @@
       <div class="arbovirus-catalogue">
         <div class="arbovirus-content">
           <h4><span class="grey_fade">ARBO</span><span class="orange_fade">CARD</span></h4>
-          <div class="search" id="arbo-autocomplete">
+          <div class="search" id="autocomplete-container">
             <input class="search-virus" type="texts" placeholder="Search arbovirus..." id="arbovirus-search">
             <button id="arbovirus-submit" class="searchbutton" type="submit" onclick="searchDB(this.id)"><i class="fa fa-search"></i></button>
+            <div id="arbo-autocomplete" class="autocomplete-box"></div>
           </div>
-          <script>
-            const virusSearch = document.getElementById('arbovirus-search');
-            //$.get('/api/virus')
-          </script>
           <div class="tabs">
             <div class="tab">
               <input type="checkbox" id="chck1">
@@ -276,9 +271,10 @@
       <div class="vector-catalogue">
         <div class="vector-content">
           <h4><span class="grey_fade">ARBO</span><span class="orange_fade">VECTOR</span></h4>
-          <div class="search" id="vector-autocomplete">
-            <input class="search-vector" type="texts" placeholder="Search vector..." id="vector-search">
+          <div class="search" id="autocomplete-container">
+            <input class="search-vector" type="text" placeholder="Search vector..." id="vector-search">
             <button id="vector-submit" class="searchbutton-vector" type="submit" onclick="searchDB(this.id)"><i class="fa fa-search"></i></button>
+            <div id="vector-autocomplete" class="autocomplete-box"></div>
           </div>
           <div class="tabs">
             <div class="tab">
@@ -5732,5 +5728,121 @@
       </div>
   </section>
 </main>
+{#<script type="module" src="../../static/js/search_functions.js"></script>#}
+<script>
+  const arbovirus = document.getElementById('arbovirus-search');
+  const vector = document.getElementById('vector-search');
+  const arboAutocomplete = document.getElementById('arbo-autocomplete');
+  const vectorAutocomplete = document.getElementById('vector-autocomplete');
+
+  const viruses = []
+  const vectors = []
+
+  // Fetch the data for viruses and vectors from the API with error handling
+  fetch('/api/virus')
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.json();
+      })
+      .then(data => {
+          data.forEach(object => {
+            viruses.push(object.name);
+          });
+      })
+      .catch(error => {
+          console.error('Error fetching viruses:', error);
+      });
+
+  fetch('/api/vector-species')
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.json();
+      })
+      .then(data => {
+        data.forEach(object => {
+          vectors.push(object.name);
+        });
+      })
+      .catch(error => {
+          console.error('Error fetching vectors:', error);
+      });
+
+  function filterData(query, dataArray, key = 'name') {
+      return dataArray
+          .filter(item => item[key] && item[key].toLowerCase().includes(query.toLowerCase()));
+  }
+
+  // Add basic styles
+  const style = document.createElement('style');
+  style.textContent = `
+    .autocomplete-box {
+      position: absolute;
+      border: 1px solid #ddd;
+      background: white;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .autocomplete-item {
+      padding: 8px;
+      cursor: pointer;
+    }
+    .autocomplete-item:hover {
+      background: #f0f0f0;
+    }
+  `;
+  document.head.appendChild(style);
+
+  function showSuggestions(inputElement, suggestions, autocompleteBox) {
+    // Clear previous suggestions
+    autocompleteBox.innerHTML = '';
+
+    // Show new suggestions
+    suggestions.forEach(suggestion => {
+      const div = document.createElement('div');
+      div.textContent = suggestion;
+      div.className = 'autocomplete-item';
+
+      // When clicked, update the input value
+      div.onclick = function() {
+        inputElement.value = suggestion;
+        autocompleteBox.innerHTML = ''; // Clear suggestions after selection
+      };
+
+      autocompleteBox.appendChild(div);
+    });
+  }
+
+  // Filter suggestions based on input
+  function filterSuggestions(input, items) {
+    const searchTerm = input.toLowerCase();
+    return items.filter(item =>
+      item.toLowerCase().includes(searchTerm)
+    );
+  }
+
+  // Event listeners for arbovirus search
+  arbovirus.addEventListener('input', function() {
+    const filteredSuggestions = filterSuggestions(this.value, viruses);
+    showSuggestions(this, filteredSuggestions, arboAutocomplete);
+  });
+
+  // Event listeners for vector search
+  vector.addEventListener('input', function() {
+    const filteredSuggestions = filterSuggestions(this.value, vectors);
+    showSuggestions(this, filteredSuggestions, vectorAutocomplete);
+  });
+
+  // Close suggestions when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.autocomplete-container')) {
+      arboAutocomplete.innerHTML = '';
+      vectorAutocomplete.innerHTML = '';
+    }
+  });
+</script>
 {#<script src="../static/js/mapboxutil.js"></script#}
 {% endblock %}
