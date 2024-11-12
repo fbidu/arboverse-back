@@ -41,7 +41,7 @@ DATABASES = {
     }
 }
 
-ALLOWED_HOSTS = ['*']  # probably should not leave this enabled in production
+ALLOWED_HOSTS = ['*', 'localhost', '127.0.0.1']  # probably should not leave this enabled in production
 
 DJANGO_APPS = [
     "django.contrib.auth",

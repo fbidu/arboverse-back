@@ -5,8 +5,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Load CSV data
-df = pd.read_csv('Arbovector_database.csv')
+# Load CSV data, run both of these individually, commenting out the other
+vector = pd.read_csv('Arbovector_database.csv')
+virus = pd.read_excel('The global distribution of arbovirus diversity - OFFICIAL.xlsx', sheet_name='main_arbovirus')
+
 
 # Database connection setup (PostgreSQL example)
 engine = create_engine(f'postgresql+psycopg2://{os.getenv('PGSQL_USER')}:{os.getenv('PGSQL_PASS')}@{os.getenv('PGSQL_HOST')}:{int(os.getenv('PGSQL_PORT'))}/{os.getenv('PGSQL_DB')}')
@@ -136,13 +138,13 @@ def insert_feeding_period(feeding_period_name):
 
 
 # Function to insert into virus table
-def insert_virus(virus_name, family_name):
+def insert_virus(name, species, abbreviation, collection_date, genome_type, family):
     existing_virus = connection.execute(
-        virus_table.select().where(virus_table.c.name == str(virus_name))
+        virus_table.select().where(virus_table.c.name == str(name))
     ).fetchone()
 
     if not existing_virus:
-        insert_stmt = virus_table.insert().values(name=virus_name, family_name=family_name)
+        insert_stmt = virus_table.insert().values(name=name, family_name=family)
         connection.execute(insert_stmt)
 
 
@@ -167,7 +169,7 @@ def insert_virus_vector(virus_name, vector_name):
 
 
 # Iterate over rows in the CSV and insert into the appropriate tables
-for index, row in df.iterrows():
+for index, row in vector.iterrows():
     print(row['taxonomy_order'])
     # Insert into vector_order, vector_family, vector_sub_family
     insert_vector_order(row['taxonomy_order'])
@@ -196,6 +198,13 @@ for index, row in df.iterrows():
 
     # Insert into virus-vector relationship
     insert_virus_vector(row['virus_name'], row['binominal_name'])  # Assuming binominal_name is the vector name
+
+connection.commit()
+
+# Iterate over rows in the excel sheet and insert into the appropriate tables
+for index, row in virus.iterrows():
+    insert_virus(row['virus_name'], row['family'])
+    print("LARRY")
 
 connection.commit()
 

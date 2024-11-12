@@ -644,7 +644,7 @@
                 <span class="slider round"></span>
               </label>
             </div>
-            <h6>Inseticide vector resistance</h6>
+            <h6>Insecticide vector resistance</h6>
             <div class="wrapper tooltip">
               <a href="#demo-modal3.1"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
               <span class="tooltext-a">Geolocations of arbovirus vectors with insecticide resistance</span>
@@ -5843,6 +5843,25 @@
       vectorAutocomplete.innerHTML = '';
     }
   });
+
+  function populate_vector_tabs(searched) {
+    fetch(`/api/vector-species?bin=${searched}`)
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.json();
+      })
+      .then(data => {
+        data.forEach(object => {
+          vectors.push(object.name);
+        });
+      })
+      .catch(error => {
+          console.error('Error fetching vectors:', error);
+      });
+    document.getElementById('vector_name').innerHTML
+  }
 </script>
 {#<script src="../static/js/mapboxutil.js"></script#}
 {% endblock %}
