@@ -1,4 +1,6 @@
 import os
+
+import numpy as np
 import pandas as pd
 from sqlalchemy import create_engine, Column, Integer, String, Boolean, ForeignKey
 from sqlalchemy.orm import declarative_base, sessionmaker
@@ -8,7 +10,7 @@ load_dotenv()
 
 # Database connection
 engine = create_engine(
-    f"postgresql+psycopg2://{os.getenv('PGSQL_USER')}:{os.getenv('PGSQL_PASS')}@{os.getenv('PGSQL_HOST')}:{int(os.getenv('PGSQL_PORT'))}/{os.getenv('PGSQL_DB')}")
+    f"postgresql+psycopg2://{os.getenv('PGSQL_USER')}:{os.getenv('PGSQL_PASS')}@localhost:{int(os.getenv('PGSQL_PORT'))}/{os.getenv('PGSQL_DB')}")
 Base = declarative_base()
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -86,11 +88,13 @@ class VectorOrder(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String, unique=True)
 
+
 # Create all tables
 Base.metadata.create_all(engine)
 
 # Load data from Excel and CSV
 virus_df = pd.read_excel("The global distribution of arbovirus diversity - OFFICIAL.xlsx", sheet_name='main_arbovirus')
+main_vector_df = pd.read_excel("The global distribution of arbovirus diversity - OFFICIAL.xlsx", sheet_name='main_vector')
 vector_df = pd.read_csv('Arbovector_database.csv')
 
 
@@ -151,34 +155,35 @@ insert_data(Location, virus_df, {'name': 'municipality'}, True)
 insert_data(BloodMeal, vector_df, {'name': 'blood_meal'}, True)
 insert_data(FeedingPeriod, vector_df, {'name': 'feeding_period'}, True)
 
+
 # Define classes that have second step dependencies
 class VectorLandscape(Base):
     __tablename__ = 'arboverse_updated_vectorspecies_landscape'
-    vector_id = Column(ForeignKey('arboverse_updated_vectorspecies.id'), primary_key=True)
+    vectorspecies_id = Column(ForeignKey('arboverse_updated_vectorspecies.id'), primary_key=True)
     landscape_id = Column(ForeignKey('arboverse_updated_landscape.id'), primary_key=True)
 
 
 class VectorBloodmeal(Base):
     __tablename__ = 'arboverse_updated_vectorspecies_blood_meal'
-    vector_id = Column(ForeignKey('arboverse_updated_vectorspecies.id'), primary_key=True)
-    blood_meal_id = Column(ForeignKey('arboverse_updated_bloodmeal.id'), primary_key=True)
+    vectorspecies_id = Column(ForeignKey('arboverse_updated_vectorspecies.id'), primary_key=True)
+    bloodmeal_id = Column(ForeignKey('arboverse_updated_bloodmeal.id'), primary_key=True)
 
 
 class VectorFeedingPeriod(Base):
     __tablename__ = 'arboverse_updated_vectorspecies_feeding_period'
-    vector_id = Column(ForeignKey('arboverse_updated_vectorspecies.id'), primary_key=True)
-    blood_meal_id = Column(ForeignKey('arboverse_updated_feedingperiod.id'), primary_key=True)
+    vectorspecies_id = Column(ForeignKey('arboverse_updated_vectorspecies.id'), primary_key=True)
+    feedingperiod_id = Column(ForeignKey('arboverse_updated_feedingperiod.id'), primary_key=True)
 
 
 class VectorLocation(Base):
     __tablename__ = 'arboverse_updated_vectorspecies_location'
-    vector_id = Column(ForeignKey('arboverse_updated_vectorspecies.id'), primary_key=True)
+    vectorspecies_id = Column(ForeignKey('arboverse_updated_vectorspecies.id'), primary_key=True)
     location_id = Column(ForeignKey('arboverse_updated_location.id'), primary_key=True)
 
 
 class VectorHabitat(Base):
     __tablename__ = 'arboverse_updated_vectorspecies_habitat'
-    vector_id = Column(ForeignKey('arboverse_updated_vectorspecies.id'), primary_key=True)
+    vectorspecies_id = Column(ForeignKey('arboverse_updated_vectorspecies.id'), primary_key=True)
     habitat_id = Column(ForeignKey('arboverse_updated_habitat.id'), primary_key=True)
 
 
@@ -186,8 +191,7 @@ class VectorFamily(Base):
     __tablename__ = 'arboverse_updated_vectorfamily'
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String, unique=True)
-    order = Column(Integer, ForeignKey('arboverse_updated_vectororder.id'))
-    genus = Column(String, ForeignKey('arboverse_updated_vectorgenus.name'))
+    order_id = Column(Integer, ForeignKey('arboverse_updated_vectororder.id'))
 
 
 class VectorSubFamily(Base):
@@ -195,7 +199,6 @@ class VectorSubFamily(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String, unique=True)
     family_id = Column(Integer, ForeignKey('arboverse_updated_vectorfamily.id'))
-    genus = Column(String, ForeignKey('arboverse_updated_vectorgenus.id'))
 
 
 class VirusVector(Base):
@@ -208,12 +211,14 @@ class VirusVector(Base):
 
 class VirusCountry(Base):
     __tablename__ = 'arboverse_updated_virus_country'
+    id = Column(Integer, primary_key=True, autoincrement=True)
     virus_id = Column(Integer, ForeignKey('arboverse_updated_virus.id'))
     country_id = Column(Integer, ForeignKey('arboverse_updated_country.id'))
 
 
 class VirusDiseases(Base):
     __tablename__ = 'arboverse_updated_virus_diseases'
+    id = Column(Integer, primary_key=True, autoincrement=True)
     virus_id = Column(Integer, ForeignKey('arboverse_updated_virus.id'))
     country_id = Column(Integer, ForeignKey('arboverse_updated_disease.id'))
 
@@ -222,23 +227,23 @@ class VirusDiseases(Base):
 class Virus(Base):
     __tablename__ = 'arboverse_updated_virus'
     id = Column(Integer, primary_key=True, autoincrement=True)
-    virus_name = Column(String)
-    genus = Column(Integer, ForeignKey("arboverse_updated_virusgenus.id"))  # Update to actual table and column
-    species = Column(String)
-    family = Column(Integer, ForeignKey("arboverse_updated_virusfamily.id"))  # Update to actual table and column
+    name = Column(String)
+    genus_id = Column(Integer, ForeignKey("arboverse_updated_virusgenus.id"))  # Update to actual table and column
+    specie = Column(String)
+    family_id = Column(Integer, ForeignKey("arboverse_updated_virusfamily.id"))  # Update to actual table and column
     abbreviation = Column(String)
     collection_date = Column(String)
     genome_type = Column(String)
-    envelope = Column(Boolean)
+    enveloped = Column(Boolean)
     reference_strain = Column(String)
     genome_length_nt = Column(Integer)
-    borning = Column(Integer, ForeignKey("arboverse_updated_borning.id"))  # Update to actual table and column
+    borning_id = Column(Integer, ForeignKey("arboverse_updated_borning.id"))  # Update to actual table and column
     host_amplifier = Column(String)
     human_fatal_disease = Column(Boolean)
     veterinary_diseases = Column(Boolean)
     veterinary_fatal_diseases = Column(Boolean)
     no_cases = Column(String)
-    level_of_disease__autocolour = Column(String)
+    level_of_disease = Column(String)
     vaccine = Column(String)
     vero_cells = Column(Boolean)
     C6_36_cells = Column(Boolean)
@@ -252,8 +257,8 @@ class VectorSpecies(Base):
     __tablename__ = 'arboverse_updated_vectorspecies'
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String)
-    arthropods_type = Column(String)
-    genus = Column(Integer, ForeignKey('arboverse_updated_vectorgenus.id'))
+    arthropod_type = Column(String)
+    genus_id = Column(Integer, ForeignKey('arboverse_updated_vectorgenus.id'))
     genome = Column(Boolean)
     reference_genome = Column(String)
     genome_size = Column(Integer)
@@ -266,6 +271,221 @@ class VectorSpecies(Base):
     lifecycle_time_days = Column(String)
     experimental_infection = Column(String)
 
+
+def insert_compound_data(compound_class, data, column_mappings):
+    records = []
+
+    for _, row in data.iterrows():
+        row_data = {}
+
+        for compound_column, (ref_table, df_column) in column_mappings.items():
+            value = row[df_column]
+
+            if pd.isna(value):
+                row_data[compound_column] = None  # or skip the row if None isn't valid
+                continue
+
+            ref_record = session.query(ref_table).filter_by(name=value).first()
+            if ref_record:
+                row_data[compound_column] = ref_record.id
+            else:
+                row_data[compound_column] = None  # Ensure None if no match found
+
+        # Insert records only if all required columns have valid values
+        if row_data.get('landscape_id') is not None:
+            records.append(compound_class(**row_data))
+
+    if records:
+        session.bulk_save_objects(records)
+        session.commit()
+
+
+def insert_compound_data_borning(compound_class, data, column_mappings):
+    """
+    Populate compound tables (many-to-many relationships) using foreign key references.
+
+    :param compound_class: SQLAlchemy table class for the compound table
+    :param data: Source DataFrame containing the relationships
+    :param column_mappings: A dictionary where keys are compound table columns
+                            and values are (referenced table, DataFrame column) tuples
+    """
+    records = []
+
+    for _, row in data.iterrows():
+        row_data = {}
+
+        # Retrieve foreign key IDs for the compound table
+        for compound_column, (ref_table, df_column) in column_mappings.items():
+            value = row[df_column]
+
+            if pd.isna(value):
+                continue  # Skip if value is NaN
+
+            # Fetch the foreign key ID from the referenced table
+            ref_record = session.query(ref_table).filter_by(borne_type=value).first()
+            if ref_record:
+                row_data[compound_column] = ref_record.id
+            else:
+                # Skip rows with no valid foreign key match
+                continue
+
+        if len(row_data) == len(column_mappings):  # Only insert complete relationships
+            # Check if this combination of foreign keys already exists
+            existing_record = session.query(compound_class).filter_by(**row_data).first()
+            if not existing_record:
+                records.append(compound_class(**row_data))  # Add to the list if not exists
+
+    if records:
+        session.bulk_save_objects(records)
+        session.commit()
+
+
+insert_compound_data(
+    VectorLandscape,
+    vector_df,
+    {
+        'vectorspecies_id': (VectorSpecies, 'binominal_name'),
+        'landscape_id': (Landscape, 'natural_landscape'),
+    }
+)
+insert_compound_data(
+    VectorBloodmeal,
+    vector_df,
+    {
+        'vectorspecies_id': (VectorSpecies, 'binominal_name'),
+        'bloodmeal_id': (BloodMeal, 'blood_meal'),
+    }
+)
+insert_compound_data(
+    VectorFeedingPeriod,
+    vector_df,
+    {
+        'vectorspecies_id': (VectorSpecies, 'binominal_name'),
+        'feedingperiod_id': (FeedingPeriod, 'feeding_period'),
+    }
+)
+insert_compound_data(
+    VectorLocation,
+    vector_df,
+    {
+        'vectorspecies_id': (VectorSpecies, 'binominal_name'),
+        'location_id': (Location, 'distribution'),
+    }
+)
+insert_data(VectorFamily, vector_df, {'name': 'taxonomy_family'}, True)
+insert_compound_data(
+    VectorFamily,
+    vector_df,
+    {
+        'order_id': (VectorOrder, 'taxonomy_order'),
+    }
+)
+insert_data(VectorSubFamily, vector_df, {'name': 'taxonomy_sub-family'}, True)
+insert_compound_data(
+    VectorSubFamily,
+    vector_df,
+    {
+        'family_id': (VectorOrder, 'taxonomy_family'),
+    }
+)
+virus_df['is_enveloped'] = virus_df['envelope'].apply(lambda x: 1 if x == "enveloped" else 0)
+virus_df['is_human_fatal'] = virus_df['human-fatal-diseases'].apply(
+    lambda x: 1 if x == "yes" else (np.nan if x == "unknown" else 0)
+)
+virus_df['is_veterinary_disease'] = virus_df['veterinary-diseases'].apply(
+    lambda x: 1 if x == "yes" else (np.nan if x == "unknown" else 0)
+)
+virus_df['is_veterinary_fatal'] = virus_df['veterinary-fatal-diseases'].apply(
+    lambda x: 1 if x == "yes" else (np.nan if x == "unknown" else 0)
+)
+virus_df['vero_cells'] = virus_df['tissue culture'].apply(
+    lambda x: np.nan if x == "unk" else (1 if "Vero" in str(x) else 0)
+)
+virus_df['C6_36_cells'] = virus_df['tissue culture'].apply(
+    lambda x: np.nan if x == "unk" else (1 if "C6/36" in str(x) else 0)
+)
+virus_df['genome_length_nt'] = virus_df['genome_length_nt'].apply(
+    lambda x: np.nan if x == 'unk' else (np.nan if x == '?' else int(x))
+)
+
+insert_data(Virus,
+            virus_df,
+            {
+                'name': 'virus_name',
+                'specie': 'species',
+                'abbreviation': 'abbreviation',
+                'collection_date': 'collection_date',
+                'genome_type': 'genome_type',
+                'enveloped': 'is_enveloped',
+                'reference_strain': 'Reference',
+                'genome_length_nt': 'genome_length_nt',
+                'host_amplifier': 'host-discovery',
+                'human_fatal_disease': 'is_human_fatal',
+                'veterinary_diseases': 'is_veterinary_disease',
+                'veterinary_fatal_diseases': 'is_veterinary_fatal',
+                'no_cases': 'no._human_cases',
+                'level_of_disease': 'level_of_disease',
+                'vaccine': 'vaccine',
+                'vero_cells': 'vero_cells',
+                'C6_36_cells': 'C6_36_cells',
+                'cpe_vero': 'CPE_VERO',
+                'plaques_vero': 'PLAQUES_VERO',
+                'animal_model': 'animal model',
+                'sals_level': 'SALS-level'
+            }
+)
+insert_compound_data(
+    Virus,
+    virus_df,
+    {
+        'genus_id': (VirusGenus, 'genus'),
+        'family_id': (VirusFamily, 'family'),
+    }
+)
+insert_compound_data_borning(
+    Virus,
+    virus_df,
+    {
+        'borning_id': (Borning, 'borne-virus')
+    }
+)
+
+'''insert_compound_data(
+    Virus,
+    virus_df,
+    {
+
+    }
+)
+'''
+
+vector_1 = virus_df[['vector_1']].copy()
+vector_2 = virus_df[['vector_2']].copy()
+
+vector_1['main_vector'] = 1
+vector_2['main_vector'] = 0
+
+vector_1 = vector_1.rename(columns={'vector_1': 'vector'})
+vector_2 = vector_2.rename(columns={'vector_2': 'vector'})
+
+other_columns = virus_df.drop(columns=['vector_1', 'vector_2'])
+
+# Add these other columns to both 'vector_1' and 'vector_2'
+vector_1 = pd.concat([vector_1, other_columns], axis=1)
+vector_2 = pd.concat([vector_2, other_columns], axis=1)
+
+virusvector_df = pd.concat([vector_1, vector_2], ignore_index=True)
+
+print(virusvector_df.columns)
+
+insert_compound_data(
+    VirusVector,
+    virusvector_df,
+    {
+        'vector_id': (VectorSpecies, 'vector'),
+        'virus_id': (Virus, 'virus_name'),
+    }
+)
 
 # Close session
 session.close()
