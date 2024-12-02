@@ -27,7 +27,7 @@
           <h4><span class="grey_fade">ARBO</span><span class="orange_fade">CARD</span></h4>
           <div class="search" id="autocomplete-container">
             <input class="search-virus" type="texts" placeholder="Search arbovirus..." id="arbovirus-search">
-            <button id="arbovirus-submit" class="searchbutton" type="submit" onclick="searchDB(this.id)"><i class="fa fa-search"></i></button>
+            <button id="arbovirus-submit" class="searchbutton" type="submit" onclick="searchVirusDB('arbovirus-search')"><i class="fa fa-search"></i></button>
             <div id="arbo-autocomplete" class="autocomplete-box"></div>
           </div>
           <div class="tabs">
@@ -273,7 +273,7 @@
           <h4><span class="grey_fade">ARBO</span><span class="orange_fade">VECTOR</span></h4>
           <div class="search" id="autocomplete-container">
             <input class="search-vector" type="text" placeholder="Search vector..." id="vector-search">
-            <button id="vector-submit" class="searchbutton-vector" type="submit" onclick="searchDB(this.id)"><i class="fa fa-search"></i></button>
+            <button id="vector-submit" class="searchbutton-vector" type="submit" onclick="searchVectorDB('vector-search')"><i class="fa fa-search"></i></button>
             <div id="vector-autocomplete" class="autocomplete-box"></div>
           </div>
           <div class="tabs">
@@ -287,7 +287,7 @@
                     <span class="tooltext-1">Type of viral disease vector</span>
                   </div>
                   <h5>Vector type:</h5>
-                  <output id="vector_name">Mosquito</output>
+                  <output id="vector_name"></output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -295,7 +295,7 @@
                     <span class=" tooltext-1">The binominal species name of the viral disease vector</span>
                   </div>
                   <h5>Binominal Name:</h5>
-                  <output id="vector_binominal">Aedes aegypti</output>
+                  <output id="vector_binominal"></output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -303,7 +303,7 @@
                     <span class=" tooltext-1">Species, subfamily, family, and order of viral disease vector</span>
                   </div>
                   <h5>Taxonomy:</h5>
-                  <output id="vector_taxonomy">Aedes aegypti | Culicinae | Culicidae | Diptera</output>
+                  <output id="vector_taxonomy"></output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -311,7 +311,7 @@
                     <span class=" tooltext-1">Genomic status of viral disease vector</span>
                   </div>
                   <h5>Genome:</h5>
-                  <output id="vector_genome">Complete</output>
+                  <output id="vector_genome"></output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -319,7 +319,7 @@
                     <span class=" tooltext-1">GenBank number of viral disease vector</span>
                   </div>
                   <h5>Reference Genome:</h5>
-                  <output id="vector_reference">GCA_002204515.1</output>
+                  <output id="vector_reference"></output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -328,7 +328,7 @@
                       nucleotides of viral disease vector</span>
                   </div>
                   <h5>Genome Size:</h5>
-                  <output id="vector_gensize">~1.27Gb</output>
+                  <output id="vector_gensize"></output>
                 </div>
               </div>
             </div>
@@ -342,7 +342,7 @@
                     <span class=" tooltext-1">The habitat preference of viral disease vector</span>
                   </div>
                   <h5>Habitat:</h5>
-                  <output id="vector_habitat">Urban</output>
+                  <output id="vector_habitat"></output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -350,7 +350,7 @@
                     <span class=" tooltext-1">The natural landscape of viral disease vector</span>
                   </div>
                   <h5>Natural Landscape:</h5>
-                  <output id="vector_land">Fresh water</output>
+                  <output id="vector_land"></output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -358,7 +358,7 @@
                     <span class=" tooltext-1">Temperature range for the viral disease vector in Celsius degree</span>
                   </div>
                   <h5>Survival Temperature Range:</h5>
-                  <output id="vector_temp"> 16 - 45 </output>
+                  <output id="vector_temp"></output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -366,7 +366,7 @@
                     <span class=" tooltext-1">The humidity ideal for the viral disease vector in percentage</span>
                   </div>
                   <h5>Survival Humidity:</h5>
-                  <output id="vector_hum"> 70 </output>
+                  <output id="vector_hum"></output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -374,7 +374,7 @@
                     <span class=" tooltext-1">Geographical distribution of the viral disease vector</span>
                   </div>
                   <h5>Geographic Distribution:</h5>
-                  <output id="vector_geo">Globally </output>
+                  <output id="vector_geo"></output>
                 </div>
               </div>
             </div>
@@ -389,7 +389,7 @@
                       vector</span>
                   </div>
                   <h5>Blood Meal Preference:</h5>
-                  <output id="vector_meal">Humans</output>
+                  <output id="vector_meal"></output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -397,7 +397,7 @@
                     <span class=" tooltext-1">Time of day of blood-feeding of the viral disease vector</span>
                   </div>
                   <h5>Blood-feeding Periods:</h5>
-                  <output id="vector_feed">Daily</output>
+                  <output id="vector_feed"></output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -405,7 +405,7 @@
                     <span class=" tooltext-1">Does this vector present anthropophilic behavior?</span>
                   </div>
                   <h5>Anthropophilic Behavior:</h5>
-                  <output id="vector_anthro">Yes</output>
+                  <output id="vector_anthro"></output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -413,7 +413,7 @@
                     <span class=" tooltext-1">What is the viral disease vector eggs viability in days?</span>
                   </div>
                   <h5>Eggs Viability:</h5>
-                  <output id="vector_eggs">up to 360 days</output>
+                  <output id="vector_eggs"></output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -421,7 +421,7 @@
                     <span class=" tooltext-1">Life cycle time of the viral disease vector in days</span>
                   </div>
                   <h5>Lifecycle Time:</h5>
-                  <output id="vector_life">8 - 10 days</output>
+                  <output id="vector_life"></output>
                 </div>
               </div>
             </div>
@@ -436,7 +436,7 @@
                       vector?</span>
                   </div>
                   <h5>Main Vector:</h5>
-                  <output id="vector_main">Dengue | Zika | Chikungunya | Yellow Fever</output>
+                  <output id="vector_main"></output>
                 </div>
                 <div class="tab-content-unit">
                   <div class="tooltip">
@@ -445,7 +445,7 @@
                       vector</span>
                   </div>
                   <h5>Experimental Infection:</h5>
-                  <output id="vector_experimental">Mayaro</output>
+                  <output id="vector_experimental"></output>
                 </div>
               </div>
             </div>
@@ -5845,8 +5845,9 @@
     }
   });
 
-  function populate_vector_tabs(searched) {
-    fetch(`/api/vector-species?bin=${searched}`)
+  function searchVectorDB(id) {
+    let input = document.getElementById(id);
+    fetch(`/api/vector-by-name?name=${input.value}`)
       .then(response => {
           if (!response.ok) {
               throw new Error('Network response was not ok');
@@ -5854,14 +5855,110 @@
           return response.json();
       })
       .then(data => {
-        data.forEach(object => {
-          vectors.push(object.name);
-        });
+        data = data[0];
+        console.log(data);
+
+        // Taxonomy and Genomics
+        document.getElementById('vector_name').innerHTML = data.arthropod_type;
+        document.getElementById('vector_binominal').innerHTML = data.name;
+        document.getElementById('vector_taxonomy').innerHTML = `${data.genus}`;
+        document.getElementById('vector_genome').innerHTML = data.genome;
+        document.getElementById('vector_reference').innerHTML = data.reference_genome;
+        document.getElementById('vector_gensize').innerHTML = data.genome_size;
+
+        // Habitat
+        let habitat = '';
+        if (data.habitat.length > 1) {
+          habitat = data.habitat[0];
+          for (let i=1; i < data.habitat.length; i++) {
+            habitat = habitat + ' | ' + data.habitat[i];
+          }
+        }
+        else {
+          habitat = data.habitat[0];
+        }
+        document.getElementById('vector_habitat').innerHTML = habitat;
+
+        let landscape = '';
+        if (data.landscape.length > 1) {
+          landscape = data.landscape[0];
+          for (let i=1; i < data.landscape.length; i++) {
+            landscape = landscape + ' | ' + data.landscape[i];
+          }
+        }
+        else {
+          landscape = data.landscape[0];
+        }
+        document.getElementById('vector_land').innerHTML = landscape;
+        document.getElementById('vector_temp').innerHTML = data.survival_temperature_ranges;
+        document.getElementById('vector_hum').innerHTML = data.survival_humidity_percent;
+        document.getElementById('vector_geo').innerHTML = data.location;
+
+        // Behavior
+        let blood_meal = '';
+        if (data.blood_meal.length > 1) {
+          blood_meal = data.blood_meal[0];
+          for (let i=1; i < data.blood_meal.length; i++) {
+            blood_meal = blood_meal + ' | ' + data.blood_meal[i];
+          }
+        }
+        else {
+          blood_meal = data.blood_meal[0];
+        }
+        document.getElementById('vector_meal').innerHTML = blood_meal;
+
+        let feeding_period = '';
+        if (data.feeding_period.length > 1) {
+          feeding_period = data.feeding_period[0];
+          for (let i=1; i < data.feeding_period.length; i++) {
+            feeding_period = feeding_period + ' | ' + data.feeding_period[i];
+          }
+        }
+        else {
+          feeding_period = data.feeding_period[0];
+        }
+        document.getElementById('vector_feed').innerHTML = feeding_period;
+        document.getElementById('vector_anthro').innerHTML = data.anthropophilic_behavior;
+        document.getElementById('vector_eggs').innerHTML = data.eggs_viability_days;
+        document.getElementById('vector_life').innerHTML = data.adult_life_expectancy_days;
+
+        // Viruses
+        let virus = '';
+        if (data.virus.length > 1) {
+          virus = data.virus[0];
+          for (let i=1; i < data.virus.length; i++) {
+            virus = virus + ' | ' + data.virus[i];
+          }
+        }
+        else {
+          virus = data.virus[0];
+        }
+        document.getElementById('vector_main').innerHTML = virus;
+        document.getElementById('vector_experimental').innerHTML = data.experimental_infection;
       })
       .catch(error => {
           console.error('Error fetching vectors:', error);
       });
-    document.getElementById('vector_name').innerHTML
+    document.getElementById('vector_name').innerHTML = '';
+  }
+
+  function searchVirusDB(id) {
+    let input = document.getElementById(id);
+    fetch(`/api/vector-by-name?name=${input.value}`)
+      .then(response => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          return response.json();
+      })
+      .then(data => {
+        document.getElementById('vector_name').innerHTML = data.name;
+      })
+      .catch(error => {
+          console.error('Error fetching vectors:', error);
+      });
+
+
   }
 </script>
 {#<script src="../static/js/mapboxutil.js"></script#}

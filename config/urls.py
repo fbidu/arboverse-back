@@ -11,6 +11,7 @@ router = DefaultRouter()
 router.register('virus', views.VirusViewSet, basename="Virus")
 router.register('virus-vector', views.VectorViewSet, basename="VirusVector")
 router.register('vector-species', views.VectorSpeciesSet, basename="VectorSpecies")
+#router.register('vector-search', views.get_vector_by_name, basename="VectorSpeciesSearch")
 
 urlpatterns = ([
     path(
@@ -56,7 +57,8 @@ urlpatterns = ([
         include("arboverse_updated.users.urls", namespace="users"),
     ),
     path("accounts/", include("allauth.urls")),
-    path("api/", include(router.urls))
+    path("api/", include(router.urls)),
+    path('api/vector-by-name/', views.get_vector_by_name, name='get-vector-by-name')
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
                + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))

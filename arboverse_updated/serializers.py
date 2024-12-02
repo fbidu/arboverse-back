@@ -5,7 +5,7 @@ from .models import Virus, VirusVector, VectorSpecies
 class VirusSerializer(serializers.ModelSerializer):
     class Meta:
         model = Virus
-        fields = '__all__'
+        fields = ['name']
 
 
 class VectorSerializer(serializers.ModelSerializer):
@@ -15,6 +15,12 @@ class VectorSerializer(serializers.ModelSerializer):
 
 
 class VectorSpeciesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VectorSpecies
+        fields = ['name']
+
+
+class VectorSpeciesAllSerializer(serializers.ModelSerializer):
     class Meta:
         model = VectorSpecies
         fields = '__all__'
