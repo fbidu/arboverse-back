@@ -277,67 +277,165 @@ def insert_compound_data(compound_class, data, column_mappings):
 
     for _, row in data.iterrows():
         row_data = {}
+        skip_record = False
 
+        # Process each column mapping
         for compound_column, (ref_table, df_column) in column_mappings.items():
             value = row[df_column]
 
+            # Skip if value is NaN/None
             if pd.isna(value):
-                row_data[compound_column] = None  # or skip the row if None isn't valid
-                continue
+                skip_record = True
+                break
 
+            # Look up reference record
             ref_record = session.query(ref_table).filter_by(name=value).first()
             if ref_record:
                 row_data[compound_column] = ref_record.id
             else:
-                row_data[compound_column] = None  # Ensure None if no match found
+                skip_record = True
+                break
 
-        # Insert records only if all required columns have valid values
-        if row_data.get('landscape_id') is not None:
-            records.append(compound_class(**row_data))
+        # Skip this record if any required values were missing
+        if skip_record or not row_data:
+            continue
 
+        # Check if a conflicting record exists
+        try:
+            existing_record = session.query(compound_class).filter_by(**row_data).first()
+            if existing_record:
+                for key, val in row_data.items():
+                    setattr(existing_record, key, val)  # Update fields
+            else:
+                records.append(compound_class(**row_data))
+        except Exception as e:
+            print(f"Error processing record: {row_data}")
+            print(f"Error: {str(e)}")
+            continue
+
+    # Commit in batches
     if records:
-        session.bulk_save_objects(records)
-        session.commit()
+        try:
+            session.bulk_save_objects(records)
+            session.commit()
+        except Exception as e:
+            session.rollback()
+            print(f"Error during bulk insert: {str(e)}")
+            # Could add more detailed error handling here if needed
+
+    session.commit()  # Commit any remaining updates
 
 
 def insert_compound_data_borning(compound_class, data, column_mappings):
-    """
-    Populate compound tables (many-to-many relationships) using foreign key references.
-
-    :param compound_class: SQLAlchemy table class for the compound table
-    :param data: Source DataFrame containing the relationships
-    :param column_mappings: A dictionary where keys are compound table columns
-                            and values are (referenced table, DataFrame column) tuples
-    """
     records = []
 
     for _, row in data.iterrows():
         row_data = {}
+        skip_record = False
 
-        # Retrieve foreign key IDs for the compound table
+        # Process each column mapping
         for compound_column, (ref_table, df_column) in column_mappings.items():
             value = row[df_column]
 
+            # Skip if value is NaN/None
             if pd.isna(value):
-                continue  # Skip if value is NaN
+                skip_record = True
+                break
 
-            # Fetch the foreign key ID from the referenced table
+            # Look up reference record
             ref_record = session.query(ref_table).filter_by(borne_type=value).first()
             if ref_record:
                 row_data[compound_column] = ref_record.id
             else:
-                # Skip rows with no valid foreign key match
+                skip_record = True
+                break
+
+        # Skip this record if any required values were missing
+        if skip_record or not row_data:
+            continue
+
+        # Check if a conflicting record exists
+        try:
+            existing_record = session.query(compound_class).filter_by(**row_data).first()
+            if existing_record:
+                for key, val in row_data.items():
+                    setattr(existing_record, key, val)  # Update fields
+            else:
+                records.append(compound_class(**row_data))
+        except Exception as e:
+            print(f"Error processing record: {row_data}")
+            print(f"Error: {str(e)}")
+            continue
+
+    # Commit in batches
+    if records:
+        try:
+            session.bulk_save_objects(records)
+            session.commit()
+        except Exception as e:
+            session.rollback()
+            print(f"Error during bulk insert: {str(e)}")
+            # Could add more detailed error handling here if needed
+
+    session.commit()  # Commit any remaining updates
+
+
+def update_virus_vector_main_status(data_df):
+    """
+    Updates the main_vector column in the VirusVector table based on the provided DataFrame.
+
+    Args:
+        data_df: DataFrame containing 'vector', 'virus_name', and 'main_vector' columns
+    """
+    # Keep track of updates for logging
+    update_count = 0
+    error_count = 0
+
+    try:
+        # Process each row in the DataFrame
+        for _, row in data_df.iterrows():
+            if pd.isna(row['vector']) or pd.isna(row['virus_name']):
                 continue
 
-        if len(row_data) == len(column_mappings):  # Only insert complete relationships
-            # Check if this combination of foreign keys already exists
-            existing_record = session.query(compound_class).filter_by(**row_data).first()
-            if not existing_record:
-                records.append(compound_class(**row_data))  # Add to the list if not exists
+            try:
+                # Get the vector_id from VectorSpecies table
+                vector_record = session.query(VectorSpecies).filter_by(name=row['vector']).first()
+                if not vector_record:
+                    continue
 
-    if records:
-        session.bulk_save_objects(records)
+                # Get the virus_id from Virus table
+                virus_record = session.query(Virus).filter_by(name=row['virus_name']).first()
+                if not virus_record:
+                    continue
+
+                # Update the VirusVector record
+                virus_vector_record = session.query(VirusVector).filter_by(
+                    vector_id=vector_record.id,
+                    virus_id=virus_record.id
+                ).first()
+
+                if virus_vector_record:
+                    virus_vector_record.main_vector = bool(row['main_vector'])
+                    update_count += 1
+
+            except Exception as e:
+                error_count += 1
+                print(f"Error processing record - vector: {row['vector']}, virus: {row['virus_name']}")
+                print(f"Error: {str(e)}")
+                continue
+
+        # Commit all updates
         session.commit()
+        print(f"Successfully updated {update_count} records")
+        if error_count > 0:
+            print(f"Encountered errors in {error_count} records")
+
+    except Exception as e:
+        session.rollback()
+        print(f"Fatal error during update process: {str(e)}")
+    finally:
+        session.close()
+
 
 
 insert_compound_data(
@@ -364,6 +462,7 @@ insert_compound_data(
         'feedingperiod_id': (FeedingPeriod, 'feeding_period'),
     }
 )
+vector_df['distribution'] = vector_df['distribution'].replace([None], 'NaN')
 insert_compound_data(
     VectorLocation,
     vector_df,
@@ -449,6 +548,14 @@ insert_compound_data_borning(
         'borning_id': (Borning, 'borne-virus')
     }
 )
+insert_compound_data(
+    VirusCountry,
+    virus_df,
+    {
+        'virus_id': (Virus, 'virus_name'),
+        'country_id': (Country, 'country'),
+    }
+)
 
 '''insert_compound_data(
     Virus,
@@ -476,7 +583,7 @@ vector_2 = pd.concat([vector_2, other_columns], axis=1)
 
 virusvector_df = pd.concat([vector_1, vector_2], ignore_index=True)
 
-print(virusvector_df.columns)
+#print(virusvector_df.columns)
 
 insert_compound_data(
     VirusVector,
@@ -486,6 +593,8 @@ insert_compound_data(
         'virus_id': (Virus, 'virus_name'),
     }
 )
+
+update_virus_vector_main_status(virusvector_df)
 
 # Close session
 session.close()
