@@ -5869,25 +5869,25 @@
         // Habitat
         let habitat = '';
         if (data.habitat.length > 1) {
-          habitat = data.habitat[0];
+          habitat = data.habitat[0].name;
           for (let i=1; i < data.habitat.length; i++) {
-            habitat = habitat + ' | ' + data.habitat[i];
+            habitat = habitat + ' | ' + data.habitat[i].name;
           }
         }
         else {
-          habitat = data.habitat[0];
+          habitat = data.habitat[0].name;
         }
         document.getElementById('vector_habitat').innerHTML = habitat;
 
         let landscape = '';
         if (data.landscape.length > 1) {
-          landscape = data.landscape[0];
+          landscape = data.landscape[0].name;
           for (let i=1; i < data.landscape.length; i++) {
-            landscape = landscape + ' | ' + data.landscape[i];
+            landscape = landscape + ' | ' + data.landscape[i].name;
           }
         }
         else {
-          landscape = data.landscape[0];
+          landscape = data.landscape[0].name;
         }
         document.getElementById('vector_land').innerHTML = landscape;
         document.getElementById('vector_temp').innerHTML = data.survival_temperature_ranges;
@@ -5897,25 +5897,25 @@
         // Behavior
         let blood_meal = '';
         if (data.blood_meal.length > 1) {
-          blood_meal = data.blood_meal[0];
+          blood_meal = data.blood_meal[0].name;
           for (let i=1; i < data.blood_meal.length; i++) {
-            blood_meal = blood_meal + ' | ' + data.blood_meal[i];
+            blood_meal = blood_meal + ' | ' + data.blood_meal[i].name;
           }
         }
         else {
-          blood_meal = data.blood_meal[0];
+          blood_meal = data.blood_meal[0].name;
         }
         document.getElementById('vector_meal').innerHTML = blood_meal;
 
         let feeding_period = '';
         if (data.feeding_period.length > 1) {
-          feeding_period = data.feeding_period[0];
+          feeding_period = data.feeding_period[0].name;
           for (let i=1; i < data.feeding_period.length; i++) {
-            feeding_period = feeding_period + ' | ' + data.feeding_period[i];
+            feeding_period = feeding_period + ' | ' + data.feeding_period[i].name;
           }
         }
         else {
-          feeding_period = data.feeding_period[0];
+          feeding_period = data.feeding_period[0].name;
         }
         document.getElementById('vector_feed').innerHTML = feeding_period;
         document.getElementById('vector_anthro').innerHTML = data.anthropophilic_behavior;
@@ -5925,13 +5925,13 @@
         // Viruses
         let virus = '';
         if (data.virus.length > 1) {
-          virus = data.virus[0];
+          virus = data.virus[0].name;
           for (let i=1; i < data.virus.length; i++) {
-            virus = virus + ' | ' + data.virus[i];
+            virus = virus + ' | ' + data.virus[i].name;
           }
         }
         else {
-          virus = data.virus[0];
+          virus = data.virus[0].name;
         }
         document.getElementById('vector_main').innerHTML = virus;
         document.getElementById('vector_experimental').innerHTML = data.experimental_infection;
@@ -5957,8 +5957,6 @@
       .catch(error => {
           console.error('Error fetching vectors:', error);
       });
-
-
   }
 </script>
 {#<script src="../static/js/mapboxutil.js"></script#}
