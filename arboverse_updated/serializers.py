@@ -8,6 +8,12 @@ class VirusSerializer(serializers.ModelSerializer):
         fields = ['name']
 
 
+class VirusAllSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Virus
+        fields = '__all__'
+
+
 class VectorSerializer(serializers.ModelSerializer):
     class Meta:
         model = VirusVector
