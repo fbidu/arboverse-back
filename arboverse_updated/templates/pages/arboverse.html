@@ -5925,7 +5925,7 @@
         document.getElementById('vector_land').innerHTML = landscape;
         document.getElementById('vector_temp').innerHTML = data.survival_temperature_ranges;
         document.getElementById('vector_hum').innerHTML = data.survival_humidity_percent;
-        document.getElementById('vector_geo').innerHTML = data.location;
+        document.getElementById('vector_geo').innerHTML = data.distribution;
 
         // Behavior
         let blood_meal = '';
@@ -6040,6 +6040,10 @@
           document.getElementById('virus_vet_disease').innerHTML = "unknown";
           document.getElementById('virus_vet_fatal').innerHTML = "unknown";
         }
+        else if ((data.veterinary_diseases !== null) && (data.veterinary_datal_diseases == null)) {
+          document.getElementById('virus_vet_disease').innerHTML = data.veterinary_diseases;
+          document.getElementById('virus_vet_fatal').innerHTML = 'unknown';
+        }
         else {
           document.getElementById('virus_vet_disease').innerHTML = data.veterinary_diseases;
           document.getElementById('virus_vet_fatal').innerHTML = data.veterinary_fatal_diseases;
@@ -6059,5 +6063,5 @@
       });
   }
 </script>
-{#<script src="../static/js/mapboxutil.js"></script#}
+<script src="../static/js/mapboxutil-noahsversion.js"></script>
 {% endblock %}

@@ -3,6 +3,7 @@
 Arboviruses geographic info
 
 ## Quick setup
+Note: when running commands in docker, your .env needs to have the PGSQL host as db. When running code from the terminal here, you need the .env to reflect the host as localhost.
 
 ### Running for the First Time
 
