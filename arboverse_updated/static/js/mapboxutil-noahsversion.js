@@ -2132,3 +2132,12 @@ map.on('load', function () {
     })
 })
 
+// Holds visible vectors features for filtering
+var map_vectors = [];
+// Create a popup, but don't add it to the map yet.
+var popup = new mapboxgl.Popup({
+    closeButton: false,
+    className: "vector_popup"
+});
+var filterEl = document.getElementById('vector_dist');
+var listingEl = document.getElementById('feature-listing');

@@ -5735,8 +5735,8 @@
   const arboAutocomplete = document.getElementById('arbo-autocomplete');
   const vectorAutocomplete = document.getElementById('vector-autocomplete');
 
-  const viruses = []
-  const vectors = []
+  const search_viruses = []
+  const search_vectors = []
 
   // Fetch the data for viruses and vectors from the API with error handling
   fetch('/api/virus')
@@ -5748,7 +5748,7 @@
       })
       .then(data => {
           data.forEach(object => {
-            viruses.push(object.name);
+            search_viruses.push(object.name);
           });
       })
       .catch(error => {
@@ -5764,7 +5764,7 @@
       })
       .then(data => {
         data.forEach(object => {
-          vectors.push(object.name);
+          search_vectors.push(object.name);
         });
       })
       .catch(error => {
@@ -5826,13 +5826,13 @@
 
   // Event listeners for arbovirus search
   arbovirus.addEventListener('input', function() {
-    const filteredSuggestions = filterSuggestions(this.value, viruses);
+    const filteredSuggestions = filterSuggestions(this.value, search_viruses);
     showSuggestions(this, filteredSuggestions, arboAutocomplete);
   });
 
   // Event listeners for vector search
   vector.addEventListener('input', function() {
-    const filteredSuggestions = filterSuggestions(this.value, vectors);
+    const filteredSuggestions = filterSuggestions(this.value, search_vectors);
     showSuggestions(this, filteredSuggestions, vectorAutocomplete);
   });
 
