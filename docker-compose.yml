@@ -13,11 +13,20 @@ services:
       - "5432:5432"
     restart: unless-stopped
   web:
-    restart: unless-stopped
+#    restart: unless-stopped
     build:
         context: .
         dockerfile: dev.dockerfile
-    command: python manage.py runserver 0.0.0.0:8000
+#1    command: python manage.py migrate                     # rebuild database after dropping and recrateing databsae
+#2    command: python manage.py import_data arbovirus_data.xlsx arbovirus.csv
+    command: python manage.py runserver 0.0.0.0:8000     # normal running command
+
+# inspectdb # migrate
+#                    --sheet-name codebook_vector \
+#                    --sheet-name codebook_vector \
+#                    --sheet-name main_arbovirus \
+#                    --sheet-name main_vector \
+
     volumes:
       - .:/code
     ports:
