@@ -83,7 +83,9 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Django Admin URL.
 ADMIN_URL = "admin/"
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
-ADMINS = [("Felipe Rodrigues", "felipe@felipevr.com"), ("Noah Perry", "noah.perry@uky.edu")]
+ADMINS = [("Felipe Rodrigues", "felipe@felipevr.com"),
+          ("Noah Perry", "noah.perry@uky.edu"),
+          ("Steve Roggenkamp","steve.roggenkamps@uky.edu")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
 
@@ -107,8 +109,8 @@ MIDDLEWARE = [
 # STATIC
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-# STATIC_ROOT = str(BASE_DIR / "staticfiles")
-STATIC_ROOT = str(BASE_DIR / "static")
+STATIC_ROOT = str(BASE_DIR / "staticfiles")
+# STATIC_ROOT = str(APP_DIR / "static")
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS

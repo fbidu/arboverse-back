@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    {% block meta %} {% endblock %}
+    {% block meta %} {% endblock meta %}
     {% include "resources.html" %}
-    {% block resources %} {% endblock %}
-    <title>{% block title %}Arboverse Home{% endblock %}</title>
+    {% block resources %} {% endblock resources %}
+    <title>{% block title %}Arboverse Home{% endblock title %}</title>
   </head>
 
   <body>
@@ -13,7 +13,7 @@
     {% include "navbar.html" %}
 
     <!-- Conteúdo -->
-    {% block content %} {% endblock %}
+    {% block content %} {% endblock content %}
     {% include "funding.html" %}
     {% include "contact.html" %}
     {% include "footer.html" %}

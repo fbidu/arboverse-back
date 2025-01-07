@@ -4,7 +4,7 @@
 {% load account socialaccount %}
 {% load crispy_forms_tags %}
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block head_title %}{% trans "Sign In" %}{% endblock head_title %}
 
 {% block inner %}
 
@@ -44,4 +44,4 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
   <button class="primaryAction btn btn-primary" type="submit">{% trans "Sign In" %}</button>
 </form>
 
-{% endblock %}
+{% endblock inner %}

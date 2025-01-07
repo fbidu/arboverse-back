@@ -1,4 +1,4 @@
-version: "3.9"
+# version: "3.9"
 
 services:
   db:
@@ -12,14 +12,18 @@ services:
     ports:
       - "5432:5432"
     restart: unless-stopped
+
   web:
-#    restart: unless-stopped
     build:
-        context: .
-        dockerfile: dev.dockerfile
-#1    command: python manage.py migrate                     # rebuild database after dropping and recrateing databsae
-#2    command: python manage.py import_data arbovirus_data.xlsx arbovirus.csv
+      context: .
+      dockerfile: dev.dockerfile
+#    command: ls
+#    command: python manage.py collectstatic               # normal running command
     command: python manage.py runserver 0.0.0.0:8000     # normal running command
+
+#1    command: python manage.py migrate                   # rebuild database after dropping and recrateing databsae
+#2    command: python manage.py import_data arbovirus_data.xlsx arbovirus.csv
+#    command: python -m pip list --outdated
 
 # inspectdb # migrate
 #                    --sheet-name codebook_vector \
@@ -33,3 +37,5 @@ services:
       - "8000:8000"
     depends_on:
       - db
+
+#    restart: unless-stopped
