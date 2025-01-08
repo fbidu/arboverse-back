@@ -154,6 +154,7 @@ class Command(BaseCommand):
                 animal_model=self.clean_text(row.get('animal_model')),
                 sals_level=self.clean_text(row.get('sals_level'))
             )
+            virus.save()
 
             if debug_mode:
                 print( "import_virus_data(virus):  "+repr(virus.name))
@@ -223,7 +224,8 @@ class Command(BaseCommand):
                 experimental_infection=self.clean_text(row.get('experimental_infection')),
                 genus=genus
             )
-
+            vector.save()
+            
             if debug_mode:
                 print( "import_vector_data(vector): "+vector.name )
                 
