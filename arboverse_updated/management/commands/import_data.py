@@ -9,6 +9,7 @@ from arboverse_updated.models import (
     VectorSpecies, VirusVector
 )
 
+debug_mode = True
 
 class Command(BaseCommand):
     help = 'Import virus and vector data from Excel and CSV files'
@@ -122,9 +123,13 @@ class Command(BaseCommand):
             genus = self.get_or_create_related(VirusGenus, row.get('genus'))
             borning = self.get_or_create_related(Borning, row.get('borne_type'))
 
+            if debug_mode:
+                print( "import_virus_data(name,raw):   "+row.get('virus_name'))
+                print( "import_virus_data(name,clean): "+self.clean_text(row.get('virus_name')))
+                
             # Create virus instance with cleaned data
             virus = Virus.objects.create(
-                name=self.clean_text(row.get('name')),
+                name=self.clean_text(row.get('virus_name')),
                 specie=self.clean_text(row.get('specie')),
                 family=family,
                 genus=genus,
@@ -150,6 +155,9 @@ class Command(BaseCommand):
                 sals_level=self.clean_text(row.get('sals_level'))
             )
 
+            # if debug_mode:
+                # print( "import_virus_data(virus): "+repr(virus.name))
+                
             # Handle many-to-many relationships
             if 'diseases' in row and not pd.isna(row['diseases']):
                 diseases = [d.strip() for d in str(row['diseases']).split(',')]
@@ -168,6 +176,11 @@ class Command(BaseCommand):
         df = pd.read_csv(file_path)
 
         for _, row in df.iterrows():
+
+            if debug_mode:
+                print( "import_vector_data(common name,raw):   "+row.get('main_vector'))
+                print( "import_vector_data(common name,clean): "+self.clean_text(row.get('main_vector')))
+
             # Create or get taxonomic hierarchy
             order = self.get_or_create_related(VectorOrder, row.get('order'))
             family = None
@@ -210,6 +223,9 @@ class Command(BaseCommand):
                 genus=genus
             )
 
+            if debug_mode:
+                print( "import_vector_data(vector): "+vector.name )
+                
             # Handle many-to-many relationships
             for field, model in [
                 ('feeding_period', FeedingPeriod),
