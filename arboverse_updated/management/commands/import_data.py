@@ -155,8 +155,9 @@ class Command(BaseCommand):
                 sals_level=self.clean_text(row.get('sals_level'))
             )
 
-            # if debug_mode:
-                # print( "import_virus_data(virus): "+repr(virus.name))
+            if debug_mode:
+                print( "import_virus_data(virus):  "+repr(virus.name))
+                print( "import_virus_data(specie): "+repr(virus.specie))
                 
             # Handle many-to-many relationships
             if 'diseases' in row and not pd.isna(row['diseases']):
@@ -178,8 +179,8 @@ class Command(BaseCommand):
         for _, row in df.iterrows():
 
             if debug_mode:
-                print( "import_vector_data(common name,raw):   "+row.get('main_vector'))
-                print( "import_vector_data(common name,clean): "+self.clean_text(row.get('main_vector')))
+                print( "import_vector_data(binominal_name,raw):   "+row.get('binominal_name'))
+                print( "import_vector_data(binominal_name,clean): "+self.clean_text(row.get('binominal_name')))
 
             # Create or get taxonomic hierarchy
             order = self.get_or_create_related(VectorOrder, row.get('order'))
@@ -207,7 +208,7 @@ class Command(BaseCommand):
 
             # Create vector species with cleaned data
             vector = VectorSpecies.objects.create(
-                name=self.clean_text(row.get('species')),
+                name=self.clean_text(row.get('binominal_name')),
                 arthropod_type=self.clean_text(row.get('arthropod_type')),
                 genome=self.clean_boolean(row.get('genome')),
                 reference_genome=self.clean_text(row.get('reference_genome')),
