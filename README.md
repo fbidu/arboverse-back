@@ -60,3 +60,9 @@ Run it with `docker-compose run --rm web python manage.py shell_plus`
 
 1. Copy `sample.env` to `.env` -> `cp sample.env .env`
 2. Run `python manage.py collectstatic` and ensure that the resulting folder will be web-accessible.
+
+
+## Creating a Virus Layer
+A new layer based on new virus data can be created by editing the filename located in `virus_geojson_builder.py` and running the script.
+From there, you can go to mapbox and upload the data as a new layer for the map. The script will have associated each virus to the ISO of 
+each country which Mapbox can interpret to build a layer for you.
