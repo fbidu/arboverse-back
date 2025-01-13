@@ -23,9 +23,9 @@ services:
     build:
       context: .
       dockerfile: dev.dockerfile
-    command: python manage.py runserver 0.0.0.0:8000     # normal running command
-#    command: python manage.py migrate                    # to create database
-#    command: python schema_populator.py                  # populate the database with existing data
+#    command: python manage.py migrate                    # (1) to create database
+#    command: python schema_populator.py                  # (2) populate the database with existing data
+    command: python manage.py runserver 0.0.0.0:8000     # (3) normal running command
 #    command: python manage.py --help                     # when all else fails ...
 
     volumes:
