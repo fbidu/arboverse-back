@@ -59,7 +59,8 @@ urlpatterns = ([
     path("accounts/", include("allauth.urls")),
     path("api/", include(router.urls)),
     path('api/vector-by-name/', views.get_vector_by_name, name='get-vector-by-name'),
-    path('api/virus-by-name/', views.get_virus_by_name, name='get-virus-by-name')
+    path('api/virus-by-name/', views.get_virus_by_name, name='get-virus-by-name'),
+    path('api/virusvector-by-virus/', views.get_virusvector_by_virus, name='get-virusvector-by-virus')
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
                + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))

@@ -47,3 +47,14 @@ def get_virus_by_name(request):
         queryset = Virus.objects.all()
     serializer = VirusAllSerializer(queryset, many=True)
     return Response(serializer.data)
+
+
+@api_view(['GET'])
+def get_virusvector_by_virus(request):
+    name = request.GET.get('name')
+    if name:
+        queryset = VirusVector.objects.filter(name__iexact=name)
+    else:
+        queryset = VirusVector.objects.all()
+    serializer = VectorSerializer(queryset, many=True)
+    return Response(serializer.data)

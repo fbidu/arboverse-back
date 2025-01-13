@@ -8,9 +8,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+debug_mode = True
 # Database connection
+
+if debug_mode:
+   print(f"postgresql+psycopg2://{os.getenv('PGSQL_USER')}:{os.getenv('PGSQL_PASS')}@{os.getenv('PGSQL_HOST')}:{int(os.getenv('PGSQL_PORT'))}/{os.getenv('PGSQL_DB')}")
+
 engine = create_engine(
-    f"postgresql+psycopg2://{os.getenv('PGSQL_USER')}:{os.getenv('PGSQL_PASS')}@localhost:{int(os.getenv('PGSQL_PORT'))}/{os.getenv('PGSQL_DB')}")
+    f"postgresql+psycopg2://{os.getenv('PGSQL_USER')}:{os.getenv('PGSQL_PASS')}@{os.getenv('PGSQL_HOST')}:{int(os.getenv('PGSQL_PORT'))}/{os.getenv('PGSQL_DB')}")
 Base = declarative_base()
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -25,12 +30,6 @@ class Borning(Base):
 
 class Country(Base):
     __tablename__ = 'arboverse_updated_country'
-    id = Column(Integer, primary_key=True, autoincrement=True)
-    name = Column(String, unique=True)
-
-
-class VectorGenus(Base):
-    __tablename__ = 'arboverse_updated_vectorgenus'
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String, unique=True)
 
@@ -96,6 +95,18 @@ Base.metadata.create_all(engine)
 virus_df = pd.read_excel("The global distribution of arbovirus diversity - OFFICIAL.xlsx", sheet_name='main_arbovirus')
 main_vector_df = pd.read_excel("The global distribution of arbovirus diversity - OFFICIAL.xlsx", sheet_name='main_vector')
 vector_df = pd.read_csv('Arbovector_database.csv')
+vector_df["genus"] = vector_df["binominal_name"].apply(
+    lambda x: x.split()[0]
+)
+vector_df["genome"] = vector_df["genome"].apply(
+    lambda x: 0 if x in ["tbc"] else 1
+)
+vector_df["genome_size"] = vector_df["genome_size"].apply(
+    lambda x: 0 if x in ["tbc"] else 1
+)
+vector_df["anthropophilic_behaviour"] = vector_df["anthropophilic_behaviour"].apply(
+    lambda x: 0 if x in ["no", "unk"] else 1
+)
 
 
 def insert_data(table_class, data, column_mapping, unique=False):
@@ -124,28 +135,76 @@ def insert_data(table_class, data, column_mapping, unique=False):
             else:
                 row_data[table_column] = value
 
-        if row_data:  # Only add rows where data is valid
-            # Check for existing records in the database if unique is True
-            if unique:
-                exists = session.query(table_class).filter_by(**row_data).first() is not None
-                if not exists:
-                    records.append(table_class(**row_data))
+        if row_data:  # Only proceed if row_data is valid
+            # Check if a record with the same name exists
+            existing_record = session.query(table_class).filter_by(name=row_data.get('name')).first()
+            if existing_record:
+                # Update the existing record's fields
+                for key, value in row_data.items():
+                    setattr(existing_record, key, value)
             else:
+                # Add the row as a new record
                 records.append(table_class(**row_data))
 
-    # Bulk save the objects to the session and commit
-    if records:  # Only commit if there are records to insert
+    # Bulk save the objects to the session
+    if records:  # Insert only if there are new records
         session.bulk_save_objects(records)
-        session.commit()
+
+    # Commit all changes (both updates and new inserts)
+    session.commit()
+
+
+def insert_borning_data(table_class, data, column_mapping, unique=False):
+    # Create a new list to store the records
+    records = []
+
+    # If `unique` is True, remove duplicates based on the specified columns
+    if unique:
+        # Get the list of columns to check for duplicates (using the keys of the mapping)
+        columns_to_check = list(column_mapping.values())
+        # Drop duplicates based on these columns
+        data = data.drop_duplicates(subset=columns_to_check)
+
+    # Process each row in the DataFrame
+    for _, row in data.iterrows():
+        # Create a dictionary for the current row, mapping DataFrame columns to table class columns
+        row_data = {}
+        for table_column, df_column in column_mapping.items():
+            value = row[df_column]
+
+            # Handle NaN values (skip or replace)
+            if pd.isna(value):
+                if table_column == 'borne_type':  # Skip records with NaN in required columns
+                    continue  # Skip this row entirely
+                row_data[table_column] = None  # or replace with a default value if needed
+            else:
+                row_data[table_column] = value
+
+        if row_data:  # Only proceed if row_data is valid
+            # Check if a record with the same name exists
+            existing_record = session.query(table_class).filter_by(borne_type=row_data.get('name')).first()
+            if existing_record:
+                # Update the existing record's fields
+                for key, value in row_data.items():
+                    setattr(existing_record, key, value)
+            else:
+                # Add the row as a new record
+                records.append(table_class(**row_data))
+
+    # Bulk save the objects to the session
+    if records:  # Insert only if there are new records
+        session.bulk_save_objects(records)
+
+    # Commit all changes (both updates and new inserts)
+    session.commit()
 
 
 # Build all dependency tables first, this is any table which only has and ID and a name value
 insert_data(Country, virus_df, {'name': 'country'}, True)
 insert_data(VirusGenus, virus_df, {'name': 'genus'}, True)
 insert_data(VirusFamily, virus_df, {'name': 'family'}, True)
-insert_data(Borning, virus_df, {'borne_type': 'borne-virus'}, True)
+#insert_borning_data(Borning, virus_df, {'borne_type': 'borne-virus'}, True)
 insert_data(VectorOrder, vector_df, {'name': 'taxonomy_order'}, True)
-insert_data(VectorGenus, vector_df, {'name': 'genome'}, True)
 insert_data(Disease, virus_df, {'name': 'category-human-disease'}, True)
 insert_data(Landscape, vector_df, {'name': 'natural_landscape'}, True)
 insert_data(Habitat, vector_df, {'name': 'habitat'}, True)
@@ -161,6 +220,14 @@ class VectorLandscape(Base):
     __tablename__ = 'arboverse_updated_vectorspecies_landscape'
     vectorspecies_id = Column(ForeignKey('arboverse_updated_vectorspecies.id'), primary_key=True)
     landscape_id = Column(ForeignKey('arboverse_updated_landscape.id'), primary_key=True)
+
+
+class VectorGenus(Base):
+    __tablename__ = 'arboverse_updated_vectorgenus'
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    name = Column(String, unique=True)
+    family_id = Column(ForeignKey('arboverse_updated_vectorfamily.id'), primary_key=True)
+    sub_family_id = Column(ForeignKey('arboverse_updated_vectorsubfamily.id'), primary_key=True)
 
 
 class VectorBloodmeal(Base):
@@ -305,8 +372,13 @@ def insert_compound_data(compound_class, data, column_mappings):
             existing_record = session.query(compound_class).filter_by(**row_data).first()
             if existing_record:
                 for key, val in row_data.items():
+                    if key == 'name' and (val is None or pd.isna(val)):
+                        continue  # Ignore updates to 'name' if it's not populated
                     setattr(existing_record, key, val)  # Update fields
             else:
+                # Skip adding new records if `name` is missing
+                if 'name' in row_data and (row_data['name'] is None or pd.isna(row_data['name'])):
+                    continue
                 records.append(compound_class(**row_data))
         except Exception as e:
             print(f"Error processing record: {row_data}")
@@ -359,6 +431,8 @@ def insert_compound_data_borning(compound_class, data, column_mappings):
             existing_record = session.query(compound_class).filter_by(**row_data).first()
             if existing_record:
                 for key, val in row_data.items():
+                    if key == 'name' and (val is None or pd.isna(val)):
+                        continue  # Ignore updates to 'name' if it's not populated
                     setattr(existing_record, key, val)  # Update fields
             else:
                 records.append(compound_class(**row_data))
@@ -436,8 +510,33 @@ def update_virus_vector_main_status(data_df):
     finally:
         session.close()
 
-
-
+insert_data(
+    VectorSpecies,
+    vector_df,
+    {
+        'name': 'binominal_name',
+        'arthropod_type': 'arthropods_type',
+        'genome': 'genome',
+        'reference_genome': 'reference_genome',
+        'genome_size': 'genome_size',
+        'survival_temperature_ranges': 'survival_temperature_ranges',
+        'survival_humidity_percent': 'survival_humidity_%',
+        'distribution': 'distribution',
+        'adult_life_expectancy_days': 'adult_life_expectancy_(day)',
+        'anthropophilic_behaviour': 'anthropophilic_behaviour',
+        'eggs_viability_days': 'eggs_viability_(days)',
+        'lifecycle_time_days': 'lifecycle_time_(days)',
+        'experimental_infection': 'experimental infection',
+    }
+)
+insert_compound_data(
+    VectorHabitat,
+    vector_df,
+    {
+        'vectorspecies_id': (VectorSpecies, 'binominal_name'),
+        'habitat_id': (Habitat, 'habitat'),
+    }
+)
 insert_compound_data(
     VectorLandscape,
     vector_df,
@@ -485,6 +584,15 @@ insert_compound_data(
     vector_df,
     {
         'family_id': (VectorOrder, 'taxonomy_family'),
+    }
+)
+insert_data(VectorGenus, vector_df, {'name': 'genus'}, True)
+insert_compound_data(
+    VectorGenus,
+    vector_df,
+    {
+        'family_id': (VectorFamily, 'taxonomy_family'),
+        'sub_family_id': (VectorSubFamily, 'taxonomy_sub-family'),
     }
 )
 virus_df['is_enveloped'] = virus_df['envelope'].apply(lambda x: 1 if x == "enveloped" else 0)
@@ -556,15 +664,6 @@ insert_compound_data(
         'country_id': (Country, 'country'),
     }
 )
-
-'''insert_compound_data(
-    Virus,
-    virus_df,
-    {
-
-    }
-)
-'''
 
 vector_1 = virus_df[['vector_1']].copy()
 vector_2 = virus_df[['vector_2']].copy()

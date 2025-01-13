@@ -14,16 +14,18 @@ class VirusAllSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class VectorSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = VirusVector
-        fields = '__all__'
-
-
 class VectorSpeciesSerializer(serializers.ModelSerializer):
     class Meta:
         model = VectorSpecies
         fields = ['name']
+
+
+class VectorSerializer(serializers.ModelSerializer):
+    vector_id = VectorSpeciesSerializer(many=True, read_only=True)
+    virus_id = VirusSerializer(many=True, read_only=True)
+    class Meta:
+        model = VirusVector
+        fields = '__all__'
 
 
 class FeedingPeriodSerializer(serializers.ModelSerializer):

@@ -5735,8 +5735,8 @@
   const arboAutocomplete = document.getElementById('arbo-autocomplete');
   const vectorAutocomplete = document.getElementById('vector-autocomplete');
 
-  const viruses = []
-  const vectors = []
+  const search_viruses = []
+  const search_vectors = []
 
   // Fetch the data for viruses and vectors from the API with error handling
   fetch('/api/virus')
@@ -5748,7 +5748,7 @@
       })
       .then(data => {
           data.forEach(object => {
-            viruses.push(object.name);
+            search_viruses.push(object.name);
           });
       })
       .catch(error => {
@@ -5764,7 +5764,7 @@
       })
       .then(data => {
         data.forEach(object => {
-          vectors.push(object.name);
+          search_vectors.push(object.name);
         });
       })
       .catch(error => {
@@ -5826,13 +5826,13 @@
 
   // Event listeners for arbovirus search
   arbovirus.addEventListener('input', function() {
-    const filteredSuggestions = filterSuggestions(this.value, viruses);
+    const filteredSuggestions = filterSuggestions(this.value, search_viruses);
     showSuggestions(this, filteredSuggestions, arboAutocomplete);
   });
 
   // Event listeners for vector search
   vector.addEventListener('input', function() {
-    const filteredSuggestions = filterSuggestions(this.value, vectors);
+    const filteredSuggestions = filterSuggestions(this.value, search_vectors);
     showSuggestions(this, filteredSuggestions, vectorAutocomplete);
   });
 
@@ -5925,7 +5925,7 @@
         document.getElementById('vector_land').innerHTML = landscape;
         document.getElementById('vector_temp').innerHTML = data.survival_temperature_ranges;
         document.getElementById('vector_hum').innerHTML = data.survival_humidity_percent;
-        document.getElementById('vector_geo').innerHTML = data.location;
+        document.getElementById('vector_geo').innerHTML = data.distribution;
 
         // Behavior
         let blood_meal = '';
@@ -5972,7 +5972,11 @@
       .catch(error => {
           console.error('Error fetching vectors:', error);
       });
-    document.getElementById('vector_name').innerHTML = '';
+    const arr = ['a', 'c', 'd', 'e']
+    for (let i=0; i < arr.length; i++) {
+      document.getElementById('chck'+arr[i]).checked = true;
+    }
+    //document.getElementById('vector_name').innerHTML = '';
   }
 
   function searchVirusDB(id) {
@@ -6040,6 +6044,10 @@
           document.getElementById('virus_vet_disease').innerHTML = "unknown";
           document.getElementById('virus_vet_fatal').innerHTML = "unknown";
         }
+        else if ((data.veterinary_diseases !== null) && (data.veterinary_datal_diseases == null)) {
+          document.getElementById('virus_vet_disease').innerHTML = data.veterinary_diseases;
+          document.getElementById('virus_vet_fatal').innerHTML = 'unknown';
+        }
         else {
           document.getElementById('virus_vet_disease').innerHTML = data.veterinary_diseases;
           document.getElementById('virus_vet_fatal').innerHTML = data.veterinary_fatal_diseases;
@@ -6057,7 +6065,12 @@
       .catch(error => {
           console.error('Error fetching vectors:', error);
       });
+
+    for (let i=1; i<=4; i++) {
+      document.getElementById('chck'+i).checked = true;
+    }
   }
 </script>
-{#<script src="../static/js/mapboxutil.js"></script#}
+
+<script src="../static/js/mapboxutil.js"></script>
 {% endblock content %}

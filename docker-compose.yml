@@ -10,7 +10,7 @@ services:
       - POSTGRES_USER=arboverse
       - POSTGRES_PASSWORD=postgres
     healthcheck:
-      test:  ["CMD", "sleep", "10"]
+      test:  ["CMD", "sleep", "10"]  # just have it pause for 10 secs before starting web
       interval: 1s
       timeout: 20s
       retries: 10
@@ -23,25 +23,17 @@ services:
     build:
       context: .
       dockerfile: dev.dockerfile
-#    command: ls
-#    command: python manage.py collectstatic               # normal running command
     command: python manage.py runserver 0.0.0.0:8000     # normal running command
-
-#1    command: python manage.py migrate                   # rebuild database after dropping and recrateing databsae
-#2    command: python manage.py import_data arbovirus_data.xlsx arbovirus.csv
-#    command: python -m pip list --outdated
-
-# inspectdb # migrate
-#                    --sheet-name codebook_vector \
-#                    --sheet-name codebook_vector \
-#                    --sheet-name main_arbovirus \
-#                    --sheet-name main_vector \
+#    command: python manage.py migrate                    # to create database
+#    command: python schema_populator.py                  # populate the database with existing data
+#    command: python manage.py --help                     # when all else fails ...
 
     volumes:
       - .:/code
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
 #    restart: unless-stopped

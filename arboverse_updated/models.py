@@ -3,36 +3,51 @@ from django.db import models
 class Country(models.Model):
     name = models.TextField()
 
-    class Meta:
-        db_table = "arbovirus_country"
-    
+    def __str__(self):
+        return self.name
+
+#    class Meta:
+#        db_table = "arbovirus_country"
+#    
 
 class Disease(models.Model):
     name = models.TextField()
 
-    class Meta:
-        db_table = "arbovirus_disease"
+    def __str__(self):
+        return self.name
 
+#    class Meta:
+#        db_table = "arbovirus_disease"
+#
 class Borning(models.Model):
     borne_type = models.TextField()
 
-    class Meta:
-        db_table = "arbovirus_borning"
+    def __str__(self):
+        return self.borne_type
 
+#    class Meta:
+#        db_table = "arbovirus_borning"
+#
 
 class VirusFamily(models.Model):
     name = models.TextField()
 
-    class Meta:
-        db_table = "arbovirus_virusfamily"
-
+    def __str__(self):
+        return self.name
+    
+#    class Meta:
+#        db_table = "arbovirus_virusfamily"
+#
 
 class VirusGenus(models.Model):
     name = models.TextField()
 
-    class Meta:
-        db_table = "arbovirus_virusgenus"
+    def __str__(self):
+        return self.name
 
+#    class Meta:
+#        db_table = "arbovirus_virusgenus"
+#
 
 class Virus(models.Model):
     """
@@ -51,7 +66,7 @@ class Virus(models.Model):
     borning = models.ForeignKey(
         Borning, on_delete=models.RESTRICT, default=None, null=True
     )
-    diseases = models.ManyToManyField(Disease)
+    diseases = models.ManyToManyField(Disease,)
     country = models.ManyToManyField(Country)
 
     abbreviation = models.TextField(default="")
@@ -74,9 +89,9 @@ class Virus(models.Model):
     animal_model = models.TextField(default="")
     sals_level = models.TextField(default="")
 
-    class Meta:
-        db_table = "arbovirus_virus"
-
+#    class Meta:
+#        db_table = "arbovirus_virus"
+#
     def __repr__(self):
         return f"<Virus: {self.name} #{self.id}>"
 
@@ -87,44 +102,62 @@ class Virus(models.Model):
 class FeedingPeriod(models.Model):
     name = models.TextField()
 
-    class Meta:
-        db_table = "arbovirus_fedingperiod"
+    def __str__(self):
+        return self.name
 
+#    class Meta:
+#        db_table = "arbovirus_fedingperiod"
+#
 
 class BloodMeal(models.Model):
     name = models.TextField()
 
-    class Meta:
-        db_table = "arbovirus_bloodmeal"
+    def __str__(self):
+        return self.name
 
+#    class Meta:
+#        db_table = "arbovirus_bloodmeal"
+#
 
 class Landscape(models.Model):
     name = models.TextField()
 
-    class Meta:
-        db_table = "arbovirus_landscape"
+    def __str__(self):
+        return self.name
 
+#    class Meta:
+#        db_table = "arbovirus_landscape"
+#
 
 class Habitat(models.Model):
     name = models.TextField()
 
-    class Meta:
-        db_table = "arbovius_habitat"
+    def __str__(self):
+        return self.name
 
+#    class Meta:
+#        db_table = "arbovius_habitat"
+#
 
 class Location(models.Model):
     name = models.TextField()
 
-    class Meta:
-        db_table = "arbovirs_location"
+    def __str__(self):
+        return self.name
 
+#    class Meta:
+#        db_table = "arbovirus_location"
+#
 
 class VectorOrder(models.Model):
     name = models.TextField()
 
-    class Meta:
-        db_table = "arbovirus_vectororder"
+    def __str__(self):
+        return self.name
 
+#    class Meta:
+#        db_table = "arbovirus_vectororder"
+#
 
 class VectorFamily(models.Model):
     name = models.TextField()
@@ -132,9 +165,12 @@ class VectorFamily(models.Model):
         VectorOrder, on_delete=models.RESTRICT, default=None, null=True
     )
 
-    class Meta:
-        db_table = "arbovirus_vectorfamily"
+    def __str__(self):
+        return self.name
 
+#    class Meta:
+#        db_table = "arbovirus_vectorfamily"
+#
 
 class VectorSubFamily(models.Model):
     name = models.TextField()
@@ -142,9 +178,12 @@ class VectorSubFamily(models.Model):
         VectorFamily, on_delete=models.RESTRICT, default=None, null=True
     )
 
-    class Meta:
-        db_table = "arbovirus__vecorsubfamily"
+    def __str__(self):
+        return self.name
 
+#    class Meta:
+#        db_table = "arbovirus_vectorsubfamily"
+#
 
 class VectorGenus(models.Model):
     name = models.TextField()
@@ -155,9 +194,12 @@ class VectorGenus(models.Model):
         VectorSubFamily, on_delete=models.RESTRICT, default=None, null=True
     )
 
-    class Meta:
-        db_table = "arbovirus_vectorgenus"
+    def __str__(self):
+        return self.name
 
+#    class Meta:
+#        db_table = "arbovirus_vectorgenus"
+#
 
 class VectorSpecies(models.Model):
     name = models.TextField(blank=True, null=True)
@@ -185,9 +227,12 @@ class VectorSpecies(models.Model):
     )
     virus = models.ManyToManyField(Virus, related_name="virus", through="VirusVector")
 
-    class Meta:
-        db_table = "arbovirus_vectorspecies"
+    def __str__(self):
+        return self.name
 
+#    class Meta:
+#        db_table = "arbovirus_vectorspecies"
+#
 class VirusVector(models.Model):
     virus = models.ForeignKey(Virus, on_delete=models.RESTRICT, default=None, null=True)
     vector = models.ForeignKey(
@@ -195,5 +240,6 @@ class VirusVector(models.Model):
     )
     main_vector = models.BooleanField(blank=True, null=True)
 
-    class Meta:
-        db_table = "arbovirus_virusvector"
+#    class Meta:
+#        db_table = "arbovirus_virusvector"
+#

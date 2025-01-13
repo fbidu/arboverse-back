@@ -2,6 +2,8 @@
 // https://account.mapbox.com
 mapboxgl.accessToken = 'pk.eyJ1IjoiYXJib3ZlcnNlIiwiYSI6ImNrbXA2ODdnMzJibDAycXF1ODc2dmJtNngifQ.qHL3R2dqFpECCzUckaSl3w';
 
+console.log('mapbox code loaded')
+
 // initiate a new map by passing an object describing a config
 // for more info see: https://docs.mapbox.com/mapbox-gl-js/api/map/
 var map = new mapboxgl.Map({
@@ -18,17 +20,19 @@ var map = new mapboxgl.Map({
     center: [20, 0],
     preserveDrawingBuffer: true
 });
+
 var exportBtn = document.getElementById('downloadLink');
 exportBtn.addEventListener('click', function () {
-    var imgMap = map.getCanvas().toDataURL('image/png')
-    this.href = imgMap
-})
+    this.href = map.getCanvas().toDataURL('image/png')
+});
+
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
+
 // To labels appear on top of the layers
 map.on('load', function () {
     var layers = map.getStyle().layers;
-    //Find the index of the first symbol layer in the map style
+    // Find the index of the first symbol layer in the map style
     var firstSymbolId;
     for (var i = 0; i < layers.length; i++) {
         if (layers[i].type === 'symbol') {
@@ -37,14 +41,15 @@ map.on('load', function () {
         }
     }
 });
-// declare a function that can add a raster tile layer to a Mapbox map
-// takes three parameters:
+
+// Declare a function that can add a raster tile layer to a Mapbox map
+// Takes three parameters:
 //   (mapVar) the Mapbox map object
 //   (title) a string identifier for the source and layer
 //   (url) the raster tile URL to add to the map
 const addTileLayerToMap = (mapVar, title, url, type, paint, source_layer) => {
-    console.log(mapVar, title, url)
-    // need to first add a source
+    console.log(mapVar, title, url);
+    // Need to first add a source
     mapVar.addSource(title, {
         type: 'vector',
         // Use any Mapbox-hosted tileset using its tileset id.
@@ -52,13 +57,13 @@ const addTileLayerToMap = (mapVar, title, url, type, paint, source_layer) => {
         // https://docs.mapbox.com/help/glossary/tileset-id/
         url: url
     });
-    // then add the layer, referencing the source
-    map.addLayer({
+    // Then add the layer, referencing the source
+    mapVar.addLayer({
         'id': title,
         'type': type,
         'source': title,
         'paint': paint,
-        "source-layer": source_layer
+        'source-layer': source_layer
     });
 
     mapVar.setLayoutProperty(
@@ -66,10 +71,7 @@ const addTileLayerToMap = (mapVar, title, url, type, paint, source_layer) => {
         'visibility',
         'none'
     );
-}
-// ...
-// var map = new mapboxgl.Map({
-// ...
+};
 
 //RASTER
 // declare a function that can add a raster tile layer to a Mapbox map
@@ -171,7 +173,7 @@ function update_map_only_time(cb, year, prefix) {
     var clickedLayer = "arboverse." + prefix + "_" + year
     console.log(clickedLayer);
     if (cb.checked) {
-        if (clickedLayer_old != "") {
+        if (clickedLayer_old !== "") {
             map.setLayoutProperty(
                 clickedLayer_old,
                 'visibility',
@@ -340,7 +342,7 @@ map.on('load', async () => {
     addRasterTileLayerToMap(map, 'arboverse.dryspells_ch_rcp85_2045_2075', 'mapbox://arboverse.dryspells_ch_rcp85_2045_2075', 'raster', 'mapbox://arboverse.dryspells_ch_rcp85_2045_2075', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.dryspells_ch_rcp85_2055_2085', 'mapbox://arboverse.dryspells_ch_rcp85_2055_2085', 'raster', 'mapbox://arboverse.dryspells_ch_rcp85_2055_2085', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.dryspells_ch_rcp85_2065_2095', 'mapbox://arboverse.dryspells_ch_rcp85_2065_2095', 'raster', 'mapbox://arboverse.dryspells_ch_rcp85_2065_2095', 0, 19);
-    //Koppengeiger 
+    //Koppengeiger
     addTileLayerToMap(map, 'arboverse.presentfull', 'mapbox://arboverse.presentfull', 'fill', { 'fill-color': ["case", ["==", ["get", "classes"], 0], "hsla(0, 0%, 0%, 0)", ["match", ["get", "classes"], [1], true, false], "#8c0273", ["match", ["get", "classes"], [2], true, false], "#8f1966", ["match", ["get", "classes"], [3], true, false], "#91285a", ["match", ["get", "classes"], [4], true, false], "#922e54", ["match", ["get", "classes"], [5], true, false], "#943c4a", ["match", ["get", "classes"], [6], true, false], "#964941", ["match", ["get", "classes"], [7], true, false], "#974f3c", ["match", ["get", "classes"], [8], true, false], "#996330", ["match", ["get", "classes"], [9], true, false], "#9a692b", ["match", ["get", "classes"], [10], true, false], "#9b7127", ["match", ["get", "classes"], [11], true, false], "#9c7923", ["match", ["get", "classes"], [12], true, false], "#9c801f", ["match", ["get", "classes"], [13], true, false], "#9d891c", ["match", ["get", "classes"], [14], true, false], "#9c911c", ["match", ["get", "classes"], [15], true, false], "#9b9a1d", ["match", ["get", "classes"], [16], true, false], "#99a323", ["match", ["get", "classes"], [17], true, false], "#91b437", ["match", ["get", "classes"], [18], true, false], "#8cba44", ["match", ["get", "classes"], [19], true, false], "#86c051", ["match", ["get", "classes"], [20], true, false], "#80c55f", ["match", ["get", "classes"], [21], true, false], "#79ca6d", ["match", ["get", "classes"], [22], true, false], "#73ce7b", ["match", ["get", "classes"], [23], true, false], "#6dd389", ["match", ["get", "classes"], [24], true, false], "#68d797", ["match", ["get", "classes"], [26], true, false], "#60e0b5", ["match", ["get", "classes"], [27], true, false], "#60e4c4", ["match", ["get", "classes"], [28], true, false], "#65e8d2", ["match", ["get", "classes"], [29], true, false], "#8ff0f1", ["match", ["get", "classes"], [30], true, false], "#b3f2fd", ["match", ["get", "classes"], [25], true, false], "#62dca7", "#000000"] }, 'kopeen_fullpresent');
     addTileLayerToMap(map, 'arboverse.koppenfuture', 'mapbox://arboverse.koppenfuture', 'fill', { 'fill-color': ["case", ["==", ["get", "classes"], 0], "hsla(0, 0%, 0%, 0)", ["match", ["get", "classes"], [1], true, false], "#8c0273", ["match", ["get", "classes"], [2], true, false], "#8f1966", ["match", ["get", "classes"], [3], true, false], "#91285a", ["match", ["get", "classes"], [4], true, false], "#922e54", ["match", ["get", "classes"], [5], true, false], "#943c4a", ["match", ["get", "classes"], [6], true, false], "#964941", ["match", ["get", "classes"], [7], true, false], "#974f3c", ["match", ["get", "classes"], [8], true, false], "#996330", ["match", ["get", "classes"], [9], true, false], "#9a692b", ["match", ["get", "classes"], [10], true, false], "#9b7127", ["match", ["get", "classes"], [11], true, false], "#9c7923", ["match", ["get", "classes"], [12], true, false], "#9c801f", ["match", ["get", "classes"], [13], true, false], "#9d891c", ["match", ["get", "classes"], [14], true, false], "#9c911c", ["match", ["get", "classes"], [15], true, false], "#9b9a1d", ["match", ["get", "classes"], [16], true, false], "#99a323", ["match", ["get", "classes"], [17], true, false], "#91b437", ["match", ["get", "classes"], [18], true, false], "#8cba44", ["match", ["get", "classes"], [19], true, false], "#86c051", ["match", ["get", "classes"], [20], true, false], "#80c55f", ["match", ["get", "classes"], [21], true, false], "#79ca6d", ["match", ["get", "classes"], [22], true, false], "#73ce7b", ["match", ["get", "classes"], [23], true, false], "#6dd389", ["match", ["get", "classes"], [24], true, false], "#68d797", ["match", ["get", "classes"], [26], true, false], "#60e0b5", ["match", ["get", "classes"], [27], true, false], "#60e4c4", ["match", ["get", "classes"], [28], true, false], "#65e8d2", ["match", ["get", "classes"], [29], true, false], "#8ff0f1", ["match", ["get", "classes"], [30], true, false], "#b3f2fd", ["match", ["get", "classes"], [25], true, false], "#62dca7", "#000000"] }, 'kopeen_future');
     //land cover
@@ -356,7 +358,7 @@ map.on('load', async () => {
     addTileLayerToMap(map, 'arboverse.waterbodies', 'mapbox://arboverse.waterbodies', 'fill', { 'fill-color': "#669ed2" }, 'waterbodies');
     //aridity
     addRasterTileLayerToMap(map, 'arboverse.aridity_index_5km_modificado', 'mapbox://arboverse.aridity_index_5km_modificado', 'raster', 'mapbox://arboverse.aridity_index_5km_modificado', 0, 19);
-    //population density 
+    //population density
     addRasterTileLayerToMap(map, 'arboverse.pop_2000', 'mapbox://arboverse.pop_2000', 'raster', 'mapbox://arboverse.pop_2000', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.pop_2005', 'mapbox://arboverse.pop_2005', 'raster', 'mapbox://arboverse.pop_2005', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.pop_2010', 'mapbox://arboverse.pop_2010', 'raster', 'mapbox://arboverse.pop_2010', 0, 19);
@@ -432,7 +434,7 @@ map.on('load', async () => {
     addRasterTileLayerToMap(map, 'arboverse.healthcare_time_motorized', 'mapbox://arboverse.healthcare_time_motorized', 'raster', 'mapbox://arboverse.healthcare_time_motorized', 0, 19);
     //Biodiversity intactness index
     addRasterTileLayerToMap(map, 'arboverse.bii', 'mapbox://arboverse.bii', 'raster', 'mapbox://arboverse.bii', 0, 19);
-    //forecast mosquito 
+    //forecast mosquito
     addRasterTileLayerToMap(map, 'arboverse.c89hazcs', 'mapbox://arboverse.c89hazcs', 'raster', 'mapbox://arboverse.c89hazcs', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.cugep9k4', 'mapbox://arboverse.cugep9k4', 'raster', 'mapbox://arboverse.cugep9k4', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.9uh1mltv', 'mapbox://arboverse.9uh1mltv', 'raster', 'mapbox://arboverse.9uh1mltv', 0, 19);
@@ -443,7 +445,7 @@ map.on('load', async () => {
     addRasterTileLayerToMap(map, 'arboverse.2wsi2z3v', 'mapbox://arboverse.2wsi2z3v', 'raster', 'mapbox://arboverse.2wsi2z3v', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.a51uv49z', 'mapbox://arboverse.a51uv49z', 'raster', 'mapbox://arboverse.a51uv49z', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.92xut72i', 'mapbox://arboverse.92xut72i', 'raster', 'mapbox://arboverse.92xut72i', 0, 19);
-    //Amphibians biodiversity 
+    //Amphibians biodiversity
     addRasterTileLayerToMap(map, 'arboverse.bio_amp_richness_10km', 'mapbox://arboverse.bio_amp_richness_10km', 'raster', 'mapbox://arboverse.bio_amp_richness_10km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.bio_amp_gymnophiona_10km', 'mapbox://arboverse.bio_amp_gymnophiona_10km', 'raster', 'mapbox://arboverse.bio_amp_gymnophiona_10km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.bio_amp_threatened_10km', 'mapbox://arboverse.bio_amp_threatened_10km', 'raster', 'mapbox://arboverse.bio_amp_threatened_10km', 0, 19);
@@ -451,7 +453,7 @@ map.on('load', async () => {
     addRasterTileLayerToMap(map, 'arboverse.bio_amp_anura_10km', 'mapbox://arboverse.bio_amp_anura_10km', 'raster', 'mapbox://arboverse.bio_amp_anura_10km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.bio_amp_data_def_10km', 'mapbox://arboverse.bio_amp_data_def_10km', 'raster', 'mapbox://arboverse.bio_amp_data_def_10km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.bio_amp_smal_range_10km', 'mapbox://arboverse.bio_amp_smal_range_10km', 'raster', 'mapbox://arboverse.bio_amp_smal_range_10km', 0, 19);
-    //Birds biodiversity 
+    //Birds biodiversity
     addRasterTileLayerToMap(map, 'arboverse.biodiversity_birds_richness_10km', 'mapbox://arboverse.biodiversity_birds_richness_10km', 'raster', 'mapbox://arboverse.biodiversity_birds_richness_10km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.bio_birds_trochilidae_10km', 'mapbox://arboverse.bio_birds_trochilidae_10km', 'raster', 'mapbox://arboverse.bio_birds_trochilidae_10km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.bio_birds_small_ranged_10km', 'mapbox://arboverse.bio_birds_small_ranged_10km', 'raster', 'mapbox://arboverse.bio_birds_small_ranged_10km', 0, 19);
@@ -463,7 +465,7 @@ map.on('load', async () => {
     addRasterTileLayerToMap(map, 'arboverse.bio_birds_breeding_range_10km', 'mapbox://arboverse.bio_birds_breeding_range_10km', 'raster', 'mapbox://arboverse.bio_birds_breeding_range_10km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.bio_birds_threatened_small', 'mapbox://arboverse.bio_birds_threatened_small', 'raster', 'mapbox://arboverse.bio_birds_threatened_small', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.bio_birds_data_deficient_10km', 'mapbox://arboverse.bio_birds_data_deficient_10km', 'raster', 'mapbox://arboverse.bio_birds_data_deficient_10km', 0, 19);
-    //Mammals biodiversity 
+    //Mammals biodiversity
     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_primates_10km', 'mapbox://arboverse.bio_mammals_primates_10km', 'raster', 'mapbox://arboverse.bio_mammals_primates_10km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_threatened_10km', 'mapbox://arboverse.bio_mammals_threatened_10km', 'raster', 'mapbox://arboverse.bio_mammals_threatened_10km', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.bio_mammals_marsupialia_10km', 'mapbox://arboverse.bio_mammals_marsupialia_10km', 'raster', 'mapbox://arboverse.bio_mammals_marsupialia_10km', 0, 19);
@@ -614,7 +616,7 @@ map.on('load', function () {
 });
 
 
-//Opacity 
+//Opacity
 const addOpacityVector = (element, title1) => {
     element.addEventListener('input', function (e) {
         map.setPaintProperty(
@@ -1335,7 +1337,7 @@ map.on('load', function () {
             parseInt(e.target.value, 10) / 100
         );
     });
-    
+
     miniSlider.addEventListener('input', function (e) {
         map.setPaintProperty(
             'arboverse.mining1',
@@ -2138,7 +2140,7 @@ var popup = new mapboxgl.Popup({
 var filterEl = document.getElementById('vector_dist');
 var listingEl = document.getElementById('feature-listing');
 
-//Render List in specific location Ok 
+//Render List in specific location Ok
 function renderListings(features) {
     var empty = document.createElement('p');
     //clear any existing listings
@@ -2216,7 +2218,7 @@ map.on('load', function () {
         map.setFilter('arboverse.vector_distribution', ["all", vectorFilter])
     });
 
-    //Select the vectors which are rendered on the map 
+    //Select the vectors which are rendered on the map
     map.on('movestart', function () {
         // reset features filter as the map starts moving
         map.setFilter('arboverse.vector_distribution', ['has', 'species']);// applied to species and type
@@ -2235,7 +2237,7 @@ map.on('load', function () {
             vectors = uniqueFeatures;
         }
     });
-    //Popup 
+    //Popup
     map.on('mousemove', 'arboverse.vector_distribution', function (e) {
         // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
@@ -2253,7 +2255,7 @@ map.on('load', function () {
         map.getCanvas().style.cursor = '';
         popup.remove();
     });
-    //Filter by the search box 
+    //Filter by the search box
     filterEl.addEventListener('keyup', function (e) {
         //normalize the letters
         var value = normalize(e.target.value);
@@ -2282,7 +2284,7 @@ map.on('load', function () {
     });
     renderListings([]);
 })
-//VIRUS DISCOVERY 
+//VIRUS DISCOVERY
 // holds visible families features for filtering
 let virusFamily = [];
 let virusGenus = [];
@@ -2304,7 +2306,7 @@ const listingSpecies = document.getElementById('species-listing');
 //Render the list of families in the listing box
 function renderListFamily(features) {
     const empty = document.createElement('p');
-    // clear existing linst 
+    // clear existing linst
     listingFamily.innerHTML = '';
     if (features.length) {
         for (const feature of features) {
@@ -2334,7 +2336,7 @@ function renderListFamily(features) {
 //Render the list of genus in the listing box
 function renderListGenus(features) {
     const empty = document.createElement('p');
-    // clear existing linst 
+    // clear existing linst
     listingGenus.innerHTML = '';
     if (features.length) {
         for (const feature of features) {
@@ -2364,7 +2366,7 @@ function renderListGenus(features) {
 //Render the list of Species in the listing box
 function renderListSpecies(features) {
     const empty = document.createElement('p');
-    // clear existing linst 
+    // clear existing linst
     listingSpecies.innerHTML = '';
     if (features.length) {
         for (const feature of features) {
