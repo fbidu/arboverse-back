@@ -2531,6 +2531,9 @@ map.on('load', function () {
     renderListGenus([]);
     renderListSpecies([]);
 })
+//Virus Distribution popup
+
+
 
 //VECTOR Resistance POPUp
 map.on('load', function () {

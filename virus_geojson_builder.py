@@ -1,49 +1,90 @@
-import datetime
-
+import geopandas as gpd
 import pandas as pd
 import json
+import datetime
+from shapely.geometry import mapping
+from shapely.geometry import shape
+import numpy as np
 
-doc = 'Arbovirus_distribution-use-for-layer.xlsx'  # put the filepath for the file you wish to pull data from here
-sheetname = 'Binary ISO alpha 3 - virus'  # if your document has multiple sheets, match the name here so that the right data is gotten
-spreadsheet = pd.ExcelFile(doc)
 
-data = pd.read_excel(spreadsheet, sheet_name=sheetname)
+def simplify_geometry(geom, tolerance=0.01):
+    """Simplify geometry with specified tolerance"""
+    return geom.simplify(tolerance, preserve_topology=True)
 
-iso_column = 'ISO ALPHA-3'  # column containing country label
-data.columns = data.columns.str.strip()  # clean extra spaces
 
-# Get a list of the columns containing viruses only, removing country and ISO columns
-virus_columns = data.columns
-print(virus_columns)
-virus_columns.pop(0)
-virus_columns.pop(0)
+def round_coordinates(geometry_dict, precision=4):
+    """Round coordinates in a geometry dictionary to reduce precision"""
+    if geometry_dict['type'] == 'Polygon':
+        geometry_dict['coordinates'] = [[[round(x, precision) for x in point]
+                                         for point in linear_ring]
+                                        for linear_ring in geometry_dict['coordinates']]
+    elif geometry_dict['type'] == 'MultiPolygon':
+        geometry_dict['coordinates'] = [[[[round(x, precision) for x in point]
+                                          for point in linear_ring]
+                                         for linear_ring in polygon]
+                                        for polygon in geometry_dict['coordinates']]
+    return geometry_dict
 
-# Create a GeoJSON for uploading to Mapbox
+
+# Load the shapefile
+shapefile_path = "GeoJSON/ne_110m_admin_0_countries.shp"
+gdf = gpd.read_file(shapefile_path)
+
+# Load your spreadsheet data
+doc = "Arbovirus_distribution-use-for-layer.xlsx"
+sheetname = "Binary ISO alpha 3 - virus"
+data = pd.read_excel(doc, sheet_name=sheetname)
+
+# Strip spaces from column names
+data.columns = data.columns.str.strip()
+
+# Get the list of virus columns
+iso_column = "ISO ALPHA-3"
+virus_columns = data.columns.tolist()[2:]
+
+# Create a dictionary for fast ISO lookup
+# Simplify geometries before creating the lookup
+gdf['geometry'] = gdf['geometry'].apply(lambda x: simplify_geometry(x, tolerance=0.01))
+gdf = gdf.set_index("ISO_A3")
+geo_lookup = gdf["geometry"].to_dict()
+
+# Build the GeoJSON
 features = []
 for index, row in data.iterrows():
     iso_code = row[iso_column]
-    # here we need a way to check each column after ISO ALPHA-3 for 0 and 1 values.
+    geometry = geo_lookup.get(iso_code)
 
-    for each in virus_columns:
-        feature = {
-            "type": "Feature",
-            "properties": {
-                "iso_code": iso_code,
-                "virus_name": each,
-                "virus_present": not pd.isna(row[each])
-            },
-            "geometry": None  # Mapbox has the ISO code above, so we don't actually need this
-        }
-        features.append(feature)
+    if geometry is not None:
+        # Convert geometry to GeoJSON dict and round coordinates
+        geom_dict = round_coordinates(mapping(geometry), precision=4)
 
-        geojson = {
-            "type": "FeatureCollection",
-            "features": features
-        }
+        for virus in virus_columns:
+            features.append({
+                "type": "Feature",
+                "properties": {
+                    "i": iso_code,  # Shortened property name
+                    "v": virus,  # Shortened property name
+                    "p": int(not pd.isna(row[virus]))  # Convert boolean to int (smaller)
+                },
+                "geometry": geom_dict
+            })
 
-output_path = 'GeoJSON/' + datetime.datetime.now() + '.geojson'
-with open(output_path, 'w') as f:
-    json.dump(geojson, f)
+geojson = {
+    "type": "FeatureCollection",
+    "features": features
+}
 
+# Save GeoJSON to file
+timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+output_path = f"GeoJSON/{timestamp}.geojson"
 
+# Save with minimal whitespace
+with open(output_path, "w") as f:
+    json.dump(geojson, f, separators=(',', ':'))
 
+# Print file size
+import os
+
+file_size = os.path.getsize(output_path) / (1024 * 1024)  # Convert to MB
+print(f"GeoJSON saved to {output_path}")
+print(f"File size: {file_size:.2f} MB")
