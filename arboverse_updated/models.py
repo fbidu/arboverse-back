@@ -1,35 +1,54 @@
+from django.contrib import admin
 from django.db import models
+from django.db.models import Value
+from django.db.models.functions import Concat
+
 
 class Country(models.Model):
-    name = models.TextField()
+    name = models.TextField(unique=True)
+
+    class Meta:
+        ordering=["name"]
 
     def __str__(self):
         return self.name
 
 
 class Disease(models.Model):
-    name = models.TextField()
+    name = models.TextField(unique=True)
+
+    class Meta:
+        ordering=["name"]
 
     def __str__(self):
         return self.name
 
 
 class Borning(models.Model):
-    borne_type = models.TextField()
+    borne_type = models.TextField(unique=True)
+
+    class Meta:
+        ordering=["borne_type"]
 
     def __str__(self):
         return self.borne_type
 
 
 class VirusFamily(models.Model):
-    name = models.TextField()
+    name = models.TextField(unique=True)
+
+    class Meta:
+        ordering=["name"]
 
     def __str__(self):
         return self.name
     
 
 class VirusGenus(models.Model):
-    name = models.TextField()
+    name = models.TextField(unique=True)
+
+    class Meta:
+        ordering=["name"]
 
     def __str__(self):
         return self.name
@@ -40,7 +59,7 @@ class Virus(models.Model):
     Model an arbovirus
     """
 
-    name = models.TextField(default="")
+    name = models.TextField(default="",unique=True)
 
     specie = models.TextField(default="")
     family = models.ForeignKey(
@@ -75,82 +94,111 @@ class Virus(models.Model):
     animal_model = models.TextField(default="")
     sals_level = models.TextField(default="")
 
+    class Meta:
+        ordering=["name"]
+
     def __repr__(self):
         return f"<Virus: {self.name} #{self.id}>"
 
     def __str__(self):
         return self.name
 
-
 class FeedingPeriod(models.Model):
-    name = models.TextField()
+    name = models.TextField(unique=True)
+
+    class Meta:
+        ordering=["name"]
 
     def __str__(self):
         return self.name
 
 
 class BloodMeal(models.Model):
-    name = models.TextField()
+    name = models.TextField(unique=True)
+
+    class Meta:
+        ordering=["name"]
 
     def __str__(self):
         return self.name
 
 
 class Landscape(models.Model):
-    name = models.TextField()
+    name = models.TextField(unique=True)
+
+    class Meta:
+        ordering=["name"]
 
     def __str__(self):
         return self.name
 
 
 class Habitat(models.Model):
-    name = models.TextField()
+    name = models.TextField(unique=True)
+
+    class Meta:
+        ordering=["name"]
 
     def __str__(self):
         return self.name
 
 class Location(models.Model):
-    name = models.TextField()
+    name = models.TextField(unique=True)
+
+    class Meta:
+        ordering=["name"]
 
     def __str__(self):
         return self.name
 
 
 class VectorOrder(models.Model):
-    name = models.TextField()
+    name = models.TextField(unique=True)
+
+    class Meta:
+        ordering=["name"]
 
     def __str__(self):
         return self.name
 
 
 class VectorFamily(models.Model):
-    name = models.TextField()
+    name = models.TextField(unique=True)
     order = models.ForeignKey(
         VectorOrder, on_delete=models.RESTRICT, default=None, null=True
     )
+
+    class Meta:
+        ordering=["name"]
 
     def __str__(self):
         return self.name
 
 
 class VectorSubFamily(models.Model):
-    name = models.TextField()
+    name = models.TextField(unique=True)
     family = models.ForeignKey(
         VectorFamily, on_delete=models.RESTRICT, default=None, null=True
     )
+
+    class Meta:
+        ordering=["name"]
 
     def __str__(self):
         return self.name
 
 
 class VectorGenus(models.Model):
-    name = models.TextField()
+    name = models.TextField(unique=True)
     family = models.ForeignKey(
         VectorFamily, on_delete=models.RESTRICT, default=None, null=True
     )
     sub_family = models.ForeignKey(
         VectorSubFamily, on_delete=models.RESTRICT, default=None, null=True
     )
+
+    class Meta:
+        ordering=["name"]
 
     def __str__(self):
         return self.name
@@ -182,6 +230,9 @@ class VectorSpecies(models.Model):
     )
     virus = models.ManyToManyField(Virus, related_name="virus", through="VirusVector")
 
+    class Meta:
+        ordering=["name"]
+
     def __str__(self):
         return self.name
 
@@ -191,6 +242,9 @@ class VirusVector(models.Model):
         VectorSpecies, on_delete=models.RESTRICT, default=None, null=True
     )
     main_vector = models.BooleanField(blank=True, null=True)
+
+    class Meta:
+        ordering=["virus","vector"]
 
     def __str__(self):
         return self.virus.name + ":" + self.vector.name
