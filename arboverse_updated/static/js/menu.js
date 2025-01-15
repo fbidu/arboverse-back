@@ -198,12 +198,14 @@ document.querySelectorAll("input[name=discovery]").forEach(i => {
 //Checked Distribution
 showChekedDistri();
 var i = 0;
-function showChekedDistri() {
+function showCheckedDistri() {
     document.getElementById('check2').textContent = document.querySelectorAll("input[name=distribution]:checked").length;
 }
 document.querySelectorAll("input[name=distribution]").forEach(i => {
+    console.log('yar')
     i.onclick = function () {
-        showChekedDistri();
+        showCheckedDistri();
+        update_map(this);
     }
 });
 //Checked Vector
@@ -235,7 +237,7 @@ function annual_switch() {
     temp = document.querySelector('input[name=annual_time]:checked').value;
     model = document.querySelector('input[name=model_selector]:checked').value;
     year = document.querySelector('input[name=annual]').value;
-    
+
     return [model, year, temp];
 }
 
@@ -246,7 +248,7 @@ document.querySelectorAll("input[name=annual_time]").forEach(i => {
             var [model, year, temp] = annual_switch();
             update_map_time(cb, model, year, temp);
         }
-    } 
+    }
 });
 
 document.querySelectorAll("input[name=model_selector]").forEach(i => {
@@ -257,7 +259,7 @@ document.querySelectorAll("input[name=model_selector]").forEach(i => {
             var [model, year, temp] = annual_switch();
             update_map_time(cb, model, year, temp);
         }
-    } 
+    }
 });
 
 document.querySelectorAll("input[name=annual]").forEach(i => {
@@ -267,7 +269,7 @@ document.querySelectorAll("input[name=annual]").forEach(i => {
             var [model, year, temp] = annual_switch();
             update_map_time(cb, model, year, temp);
         }
-    } 
+    }
 });
 
 document.querySelectorAll("input[name=climate]").forEach(i => {
@@ -345,7 +347,7 @@ function hotDays_switch() {
     temp = "hot_days_yr"
     model = document.querySelector('input[name=hotdays_model]:checked').value;
     year = document.querySelector('input[name=hotdays_year]').value;
-    
+
     return [model, year, temp];
 }
 document.querySelectorAll("input[name=hotdays_model]").forEach(i => {
@@ -355,7 +357,7 @@ document.querySelectorAll("input[name=hotdays_model]").forEach(i => {
             var [model, year, temp] = hotDays_switch();
             update_map_time(cb, model, year, temp);
         }
-    } 
+    }
 });
 document.querySelectorAll("input[name=hotdays_year]").forEach(i => {
     i.onchange = function(){
@@ -364,7 +366,7 @@ document.querySelectorAll("input[name=hotdays_year]").forEach(i => {
             var [model, year, temp] = hotDays_switch();
             update_map_time(cb, model, year, temp);
         }
-    } 
+    }
 });
 //Precipitation
 function precipitation_switch() {
@@ -375,7 +377,7 @@ function precipitation_switch() {
     temp = "prec"
     model = document.querySelector('input[name=model_precipitation]:checked').value;
     year = document.querySelector('input[name=precipitation_year]').value;
-    
+
     return [model, year, temp];
 }
 document.querySelectorAll("input[name=model_precipitation]").forEach(i => {
@@ -385,7 +387,7 @@ document.querySelectorAll("input[name=model_precipitation]").forEach(i => {
             var [model, year, temp] = precipitation_switch();
             update_map_time(cb, model, year, temp);
         }
-    } 
+    }
 });
 document.querySelectorAll("input[name=precipitation_year]").forEach(i => {
     i.onchange = function(){
@@ -394,7 +396,7 @@ document.querySelectorAll("input[name=precipitation_year]").forEach(i => {
             var [model, year, temp] = precipitation_switch();
             update_map_time(cb, model, year, temp);
         }
-    } 
+    }
 });
 //Extreme Precipitation
 function extreme_switch() {
@@ -405,7 +407,7 @@ function extreme_switch() {
     temp = "extreme"
     model = document.querySelector('input[name=model_extreme]:checked').value;
     year = document.querySelector('input[name=extreme_precipitation_annual]').value;
-    
+
     return [model, year, temp];
 }
 document.querySelectorAll("input[name=model_extreme]").forEach(i => {
@@ -415,7 +417,7 @@ document.querySelectorAll("input[name=model_extreme]").forEach(i => {
             var [model, year, temp] = extreme_switch();
             update_map_time(cb, model, year, temp);
         }
-    } 
+    }
 });
 document.querySelectorAll("input[name=extreme_precipitation_annual]").forEach(i => {
     i.onchange = function(){
@@ -424,7 +426,7 @@ document.querySelectorAll("input[name=extreme_precipitation_annual]").forEach(i 
             var [model, year, temp] = extreme_switch();
             update_map_time(cb, model, year, temp);
         }
-    } 
+    }
 });
 
 //dryspells
@@ -436,7 +438,7 @@ function dryspells_switch() {
     temp = "dryspells_ch"
     model = document.querySelector('input[name=model_dry]:checked').value;
     year = document.querySelector('input[name=dry_spells_annual]').value;
-    
+
     return [model, year, temp];
 }
 document.querySelectorAll("input[name=model_dry]").forEach(i => {
@@ -446,7 +448,7 @@ document.querySelectorAll("input[name=model_dry]").forEach(i => {
             var [model, year, temp] = dryspells_switch();
             update_map_time(cb, model, year, temp);
         }
-    } 
+    }
 });
 document.querySelectorAll("input[name=dry_spells_annual]").forEach(i => {
     i.onchange = function(){
@@ -455,7 +457,7 @@ document.querySelectorAll("input[name=dry_spells_annual]").forEach(i => {
             var [model, year, temp] = dryspells_switch();
             update_map_time(cb, model, year, temp);
         }
-    } 
+    }
 });
 //Checked Forest
 showChekedFor();
@@ -499,11 +501,11 @@ var i = 0;
 function showChekedSoc() {
     document.getElementById('check8').textContent = document.querySelectorAll("input[name=socioeconomics]:checked").length;
 }
-//Population density 
+//Population density
 function population_switch() {
     prefix = "pop"
     year = document.querySelector('input[name=pop_year]').value;
-    
+
     return[year, prefix]
 }
 document.querySelectorAll("input[name=pop_year]").forEach (i => {
@@ -520,7 +522,7 @@ document.querySelectorAll("input[name=pop_year]").forEach (i => {
 function gdp_switch() {
     prefix = "gdp"
     year = document.querySelector('input[name=gdp_year]').value;
-    
+
     return[year, prefix]
 }
 document.querySelectorAll("input[name=gdp_year]").forEach (i => {
@@ -537,7 +539,7 @@ document.querySelectorAll("input[name=gdp_year]").forEach (i => {
 function hdi_switch() {
     prefix = "hdi"
     year = document.querySelector('input[name=hdi_year]').value;
-    
+
     return[year, prefix]
 }
 document.querySelectorAll("input[name=hdi_year]").forEach (i => {
@@ -589,7 +591,7 @@ document.querySelectorAll("input[name=biodiversity]").forEach(i => {
         update_map(this)
     }
 });
-//Forecast mosquito climate Condition 
+//Forecast mosquito climate Condition
 var i=0;
 var forecastSwitchbtn = document.getElementById('forecast_switch')
 function enableForecastRadio() {
@@ -646,7 +648,7 @@ document.querySelectorAll("input[name=model_climate]").forEach(i => {
         update_map(this);
     }
 })
-//Forecast mosquito climate Condition 
+//Forecast mosquito climate Condition
 var i=0;
 var livestockSwitchbtn = document.getElementById('livestock_switch')
 function enablelivestockRadio() {
@@ -697,7 +699,7 @@ document.querySelectorAll("input[name=model_livestock]").forEach(i => {
         update_map(this);
     }
 })
-//Koppen geiger climate Condition 
+//Koppen geiger climate Condition
 var i=0;
 var climateSwitchbtn = document.getElementById('kp_switch')
 function enableClimateRadio() {
@@ -874,7 +876,7 @@ document.querySelectorAll("input[name=option_birds]").forEach(i =>{
     }
 })
 
-//healthcare access Condition 
+//healthcare access Condition
 var i=0;
 var healthSwitchbtn = document.getElementById('health_switch')
 function enableHealthRadio() {
@@ -907,7 +909,7 @@ document.querySelectorAll("input[name=type-locomotion]").forEach(i => {
         update_map(this);
     }
 })
-//slider 
+//slider
 //Slider time response for climate
 var dryspellsYear = document.querySelector('input[name=dry_spells_annual]');
 var dryspellsValue = function(){
@@ -952,7 +954,7 @@ var hotValue = function () {
     target.innerHTML = `${newValue} - ${endValue}`
 }
 hot.addEventListener("input", hotValue);
-//Slider time response for arrivals, departures and passengers 
+//Slider time response for arrivals, departures and passengers
 var arr = document.querySelector('input[name=arrivals]');
 var arrValue = function () {
     var newValue = arr.value;
