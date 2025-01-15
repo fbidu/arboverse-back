@@ -190,20 +190,21 @@ function showChekedDis() {
     document.getElementById('check1').textContent = document.querySelectorAll("input[name=discovery]:checked").length;
 }
 document.querySelectorAll("input[name=discovery]").forEach(i => {
+    console.log('yar land ho')
     i.onclick = function () {
         showChekedDis();
         update_map(this);
     }
 });
 //Checked Distribution
-showChekedDistri();
+showCheckedDistri();
 var i = 0;
 function showCheckedDistri() {
     document.getElementById('check2').textContent = document.querySelectorAll("input[name=distribution]:checked").length;
 }
 document.querySelectorAll("input[name=distribution]").forEach(i => {
-    console.log('yar')
     i.onclick = function () {
+        console.log(this);
         showCheckedDistri();
         update_map(this);
     }

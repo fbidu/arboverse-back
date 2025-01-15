@@ -1,7 +1,6 @@
 // TO MAKE THE MAP APPEAR YOU MUST ADD YOUR ACCESS TOKEN FROM
 // https://account.mapbox.com
 mapboxgl.accessToken = 'pk.eyJ1IjoiYXJib3ZlcnNlIiwiYSI6ImNrbXA2ODdnMzJibDAycXF1ODc2dmJtNngifQ.qHL3R2dqFpECCzUckaSl3w';
-const accessToken = 'pk.eyJ1IjoiYXJib3ZlcnNlIiwiYSI6ImNrbXA2ODdnMzJibDAycXF1ODc2dmJtNngifQ.qHL3R2dqFpECCzUckaSl3w';
 
 console.log('mapbox code loaded')
 
@@ -2403,18 +2402,8 @@ map.on('load', function () {
     map.addLayer({
         'id': 'arboverse.2d02q3oi',
         'source': 'arboverse.2d02q3oi',
-        'source-layer': 'virus_distribution', // Ensure this matches the actual source layer name in your tileset
-        'type': 'circle',
-        'paint': {
-            'circle-radius': ["interpolate", ["linear"], ["zoom"], 0, 4, 22, 8],
-            'circle-color': [
-                "match",
-                ["get", "type"],
-                "virus", "#ff0000", // Example color for "virus"
-                "other", "#aaaaaa", // Example color for other types
-                "#000000"
-            ]
-        },
+        'source-layer': '2025-01-13_11-24-18-dmlg1x', // Ensure this matches the actual source layer name in your tileset
+        'type': 'fill',
         'filter': ["all", virusFilter]
     });
 
