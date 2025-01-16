@@ -18,6 +18,8 @@ from arboverse_updated.models import BloodMeal, \
                                      VirusGenus, \
                                      VirusVector
 
+# Register your models here.
+
 admin.site.register(BloodMeal)
 admin.site.register(Borning)
 admin.site.register(Country)
@@ -36,8 +38,3 @@ admin.site.register(VirusFamily)
 admin.site.register(VirusGenus)
 admin.site.register(VirusVector)
 
-# admin.site.register(Virus)
-# admin.site.register(VirusFamily)
-# admin.site.register(VirusVector)
-
-# Register your models here.
