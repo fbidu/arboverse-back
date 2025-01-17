@@ -54,6 +54,11 @@ Run `python manage.py collectstatic` and ensure that the resulting folder will b
 
 
 ## Creating a Virus Layer
-A new layer based on new virus data can be created by editing the filename located in `virus_geojson_builder.py` and running the script.
-From there, you can go to mapbox and upload the data as a new layer for the map. The script will have associated each virus to the ISO of 
-each country which Mapbox can interpret to build a layer for you.
+The `virus_geojson_builder.py` contains code to generate new GeoJSON layers for displaying the presence of viruses in countries around the world.
+When run, the program will look for a GeoJSON folder and a shapefile which describes the countries around the world in a way that can be broken down
+into geometries. In my implementation, I used free maps from [Natural Earth Data](https://www.naturalearthdata.com/) to source my shapefile.
+
+The script also expects an excel document following the format of `The global distribution of arbovirus diversity - OFFICIAL.xlsx` included in this repo.
+
+Once you have the resulting GeoJSON file, you can go to mapbox and upload the data as a new layer for the map. The script will have associated each virus to the ISO of 
+each country which Mapbox can interpret to build a layer for you. From there, you can use the id to render a layer out in `/arboverse_updated/static/js/mapboxutil.js`.

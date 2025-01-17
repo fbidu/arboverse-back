@@ -59,12 +59,13 @@ for index, row in data.iterrows():
         geom_dict = round_coordinates(mapping(geometry), precision=4)
 
         for virus in virus_columns:
+            presence = row[virus]
             features.append({
                 "type": "Feature",
                 "properties": {
                     "i": iso_code,  # Shortened property name
                     "v": virus,  # Shortened property name
-                    "p": int(not pd.isna(row[virus]))  # Convert boolean to int (smaller)
+                    "p": int(presence) if not pd.isna(presence) else 0  # Ensure correct presence value
                 },
                 "geometry": geom_dict
             })

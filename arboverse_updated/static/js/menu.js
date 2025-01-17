@@ -204,7 +204,7 @@ function showCheckedDistri() {
 }
 document.querySelectorAll("input[name=distribution]").forEach(i => {
     i.onclick = function () {
-        console.log(this);
+        //console.log(this);
         showCheckedDistri();
         update_map(this);
     }

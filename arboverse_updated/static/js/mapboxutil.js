@@ -48,7 +48,7 @@ map.on('load', function () {
 //   (title) a string identifier for the source and layer
 //   (url) the raster tile URL to add to the map
 const addTileLayerToMap = (mapVar, title, url, type, paint, source_layer) => {
-    console.log(mapVar, title, url);
+    //console.log(mapVar, title, url);
     // Need to first add a source
     mapVar.addSource(title, {
         type: 'vector',
@@ -80,7 +80,7 @@ const addTileLayerToMap = (mapVar, title, url, type, paint, source_layer) => {
 //   (title) a string identifier for the source and layer
 //   (url) the raster tile URL to add to the map
 const addRasterTileLayerToMap = (mapVar, title, url, type, source_layer, minzoom, maxzoom) => {
-    console.log(mapVar, title, url)
+    //console.log(mapVar, title, url)
     // need to first add a source
     mapVar.addSource(title, {
         type: 'raster',
@@ -109,7 +109,7 @@ const addRasterTileLayerToMap = (mapVar, title, url, type, source_layer, minzoom
 function update_map(cb) {
     var clickedLayers = cb.id
     clickedLayersList = clickedLayers.split(',')
-    console.log(clickedLayersList)
+    //console.log(clickedLayersList)
     if (cb.checked) {
         for (let i = 0; i < clickedLayersList.length; i++) {
             clickedLayer = clickedLayersList[i];
@@ -131,7 +131,7 @@ function update_map(cb) {
         }
     }
 
-    console.log(cb.checked);
+    //console.log(cb.checked);
 }
 
 var activeLayer = {}
@@ -2394,7 +2394,9 @@ map.on('load', function () {
 // Virus Distribution
 // VIRUS DISTRIBUTION
 map.on('load', function () {
-    var virusFilter = ["==", ["string", ["get", "type"]], "v"];
+    var virusFilter = ["==", ["string", ["get", "v"]], "Israel turkey meningoencephalitis"];
+    console.log('Virus Filter')
+    console.log(virusFilter)
     map.addSource('arboverse.2d02q3oi', {
         'type': 'vector',
         'url': 'mapbox://arboverse.2d02q3oi' // Ensure this is the correct tileset ID for your virus data
@@ -2418,8 +2420,9 @@ map.on('load', function () {
     virusType.addEventListener('change', function () {
         console.log(virusType.value);
         var vType = virusType.value;
-        virusFilter = ["==", ["string", ["get", "type"]], vType];
-        map.setFilter('arboverse.2d02q3oi', ["all", virusFilter]);
+        //virusFilter = ["==", ["string", ["get", "v"]], vType];
+        virusFilter = ['all', ['==', 'v', vType], ['==', 'p', 1]];
+        map.setFilter('arboverse.2d02q3oi', virusFilter);
     });
 
     // Popup
@@ -2453,9 +2456,10 @@ map.on('load', function () {
         if (filtered.length) {
             map.setFilter('arboverse.2d02q3oi', [
                 'match',
-                ['get', 'v'],
+                ['get', 'i'],
                 filtered.map(function (feature) {
-                    return feature.properties.virus;
+                    console.log(feature);
+                    return feature.properties.p;
                 }),
                 true,
                 false
