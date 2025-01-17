@@ -176,14 +176,9 @@ def insert_borning_data(table_class, data, column_mapping, unique=False):
                 row_data[table_column] = value
 
         if row_data:  # Only proceed if row_data is valid
-            # Check if a record with the same name exists
-            existing_record = session.query(table_class).filter_by(borne_type=row_data.get('name')).first()
-            if existing_record:
-                # Update the existing record's fields
-                for key, value in row_data.items():
-                    setattr(existing_record, key, value)
-            else:
-                # Add the row as a new record
+            # Check if a record with the same unique identifier already exists
+            existing_record = session.query(table_class).filter_by(**row_data).first()
+            if not existing_record:  # Only add the record if it does not already exist
                 records.append(table_class(**row_data))
 
     # Bulk save the objects to the session
@@ -198,7 +193,7 @@ def insert_borning_data(table_class, data, column_mapping, unique=False):
 insert_data(Country, virus_df, {'name': 'country'}, True)
 insert_data(VirusGenus, virus_df, {'name': 'genus'}, True)
 insert_data(VirusFamily, virus_df, {'name': 'family'}, True)
-#insert_borning_data(Borning, virus_df, {'borne_type': 'borne-virus'}, True)
+insert_borning_data(Borning, virus_df, {'borne_type': 'borne-virus'}, True)
 insert_data(VectorOrder, vector_df, {'name': 'taxonomy_order'}, True)
 insert_data(Disease, virus_df, {'name': 'category-human-disease'}, True)
 insert_data(Landscape, vector_df, {'name': 'natural_landscape'}, True)
