@@ -561,6 +561,7 @@ insert_compound_data(
     }
 )
 insert_data(VectorFamily, vector_df, {'name': 'taxonomy_family'}, True)
+print(vector_df.iloc[37])
 insert_compound_data(
     VectorFamily,
     vector_df,

@@ -2394,9 +2394,9 @@ map.on('load', function () {
 // Virus Distribution
 // VIRUS DISTRIBUTION
 map.on('load', function () {
-    var virusFilter = ["==", ["string", ["get", "v"]], "Israel turkey meningoencephalitis"];
-    console.log('Virus Filter')
-    console.log(virusFilter)
+    var virusFilter = ["==", ["string", ["get", "v"]], "none"];
+    //console.log('Virus Filter')
+    //console.log(virusFilter)
     map.addSource('arboverse.ausl8dan', {
         'type': 'vector',
         'url': 'mapbox://arboverse.ausl8dan' // Ensure this is the correct tileset ID for your virus data
@@ -2411,8 +2411,8 @@ map.on('load', function () {
             'fill-color': '#F5861F', // Set the overlay color
             'fill-opacity': 0.2     // Set the overlay opacity
         },
-        'minzoom': 1,
-        'maxzoom': 24
+        'minzoom': 0,
+        'maxzoom': 10
     });
 
     map.setLayoutProperty(
