@@ -2397,20 +2397,20 @@ map.on('load', function () {
     var virusFilter = ["==", ["string", ["get", "v"]], "Israel turkey meningoencephalitis"];
     console.log('Virus Filter')
     console.log(virusFilter)
-    map.addSource('arboverse.2d02q3oi', {
+    map.addSource('arboverse.ausl8dan', {
         'type': 'vector',
-        'url': 'mapbox://arboverse.2d02q3oi' // Ensure this is the correct tileset ID for your virus data
+        'url': 'mapbox://arboverse.ausl8dan' // Ensure this is the correct tileset ID for your virus data
     });
     map.addLayer({
-        'id': 'arboverse.2d02q3oi',
-        'source': 'arboverse.2d02q3oi',
-        'source-layer': '2025-01-13_11-24-18-dmlg1x', // Ensure this matches the actual source layer name in your tileset
+        'id': 'arboverse.ausl8dan',
+        'source': 'arboverse.ausl8dan',
+        'source-layer': '2025-01-17_12-36-35-0izb12', // Ensure this matches the actual source layer name in your tileset
         'type': 'fill',
         'filter': ["all", virusFilter]
     });
 
     map.setLayoutProperty(
-        'arboverse.2d02q3oi',
+        'arboverse.ausl8dan',
         'visibility',
         'none'
     );
@@ -2422,11 +2422,11 @@ map.on('load', function () {
         var vType = virusType.value;
         //virusFilter = ["==", ["string", ["get", "v"]], vType];
         virusFilter = ['all', ['==', 'v', vType], ['==', 'p', 1]];
-        map.setFilter('arboverse.2d02q3oi', virusFilter);
+        map.setFilter('arboverse.ausl8dan', virusFilter);
     });
 
     // Popup
-    map.on('mousemove', 'arboverse.2d02q3oi', function (e) {
+    map.on('mousemove', 'arboverse.ausl8dan', function (e) {
         map.getCanvas().style.cursor = 'pointer';
         var feature = e.features[0];
         popup
@@ -2437,7 +2437,7 @@ map.on('load', function () {
         popupElem.style.fontSize = "14px";
     });
 
-    map.on('mouseleave', 'arboverse.2d02q3oi', function () {
+    map.on('mouseleave', 'arboverse.ausl8dan', function () {
         map.getCanvas().style.cursor = '';
         popup.remove();
     });
@@ -2454,7 +2454,7 @@ map.on('load', function () {
         renderListings(filtered);
 
         if (filtered.length) {
-            map.setFilter('arboverse.2d02q3oi', [
+            map.setFilter('arboverse.ausl8dan', [
                 'match',
                 ['get', 'i'],
                 filtered.map(function (feature) {
