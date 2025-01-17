@@ -2406,7 +2406,11 @@ map.on('load', function () {
         'source': 'arboverse.ausl8dan',
         'source-layer': '2025-01-17_12-36-35-0izb12', // Ensure this matches the actual source layer name in your tileset
         'type': 'fill',
-        'filter': ["all", virusFilter]
+        'filter': ["all", virusFilter],
+        'paint': {
+            'fill-color': '#F5861F', // Set the overlay color
+            'fill-opacity': 0.2     // Set the overlay opacity
+        }
     });
 
     map.setLayoutProperty(

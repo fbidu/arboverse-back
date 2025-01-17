@@ -27,7 +27,7 @@ def round_coordinates(geometry_dict, precision=4):
 
 
 # Load the shapefile
-shapefile_path = "GeoJSON/ne_110m_admin_0_countries.shp"
+shapefile_path = "GeoJSON/ne_50m_admin_0_countries.shp"
 gdf = gpd.read_file(shapefile_path)
 
 # Load your spreadsheet data
