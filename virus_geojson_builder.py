@@ -64,7 +64,7 @@ for index, row in data.iterrows():
                 "type": "Feature",
                 "properties": {
                     "i": iso_code,  # Shortened property name
-                    "v": virus,  # Shortened property name
+                    "v": virus.lower(),  # Shortened property name
                     "p": int(presence) if not pd.isna(presence) else 0  # Ensure correct presence value
                 },
                 "geometry": geom_dict

@@ -2410,7 +2410,9 @@ map.on('load', function () {
         'paint': {
             'fill-color': '#F5861F', // Set the overlay color
             'fill-opacity': 0.2     // Set the overlay opacity
-        }
+        },
+        'minzoom': 1,
+        'maxzoom': 24
     });
 
     map.setLayoutProperty(
@@ -2423,18 +2425,18 @@ map.on('load', function () {
     const virusType = document.getElementById("species-distribution-search");
     virusType.addEventListener('change', function () {
         console.log(virusType.value);
-        var vType = virusType.value;
+        var vType = virusType.value.toLowerCase();
         //virusFilter = ["==", ["string", ["get", "v"]], vType];
         virusFilter = ['all', ['==', 'v', vType], ['==', 'p', 1]];
         map.setFilter('arboverse.ausl8dan', virusFilter);
     });
 
-    // Popup
+/*    // Popup
     map.on('mousemove', 'arboverse.ausl8dan', function (e) {
         map.getCanvas().style.cursor = 'pointer';
         var feature = e.features[0];
         popup
-            .setLngLat(feature.geometry.coordinates)
+            //.setLngLat(feature.geometry.coordinates)
             .setText('Virus: ' + feature.properties.v)
             .addTo(map);
         var popupElem = popup.getElement();
@@ -2444,7 +2446,7 @@ map.on('load', function () {
     map.on('mouseleave', 'arboverse.ausl8dan', function () {
         map.getCanvas().style.cursor = '';
         popup.remove();
-    });
+    });*/
 
     // Filter by the search box
     filterEl.addEventListener('keyup', function (e) {
