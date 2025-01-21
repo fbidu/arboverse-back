@@ -23,7 +23,7 @@ for image in $( docker ps -a | awk '$2 == "arboverse-back-web" {print $1;}'); do
 # Remove old images
 for image in $( docker image ls -a | awk '$1 == "arboverse-back-web" {print $3;}'); do docker image rm "$image"; done
 
-# Start Postgres
+# Rebuild and start Postgres
 docker compose build && \
     docker compose up -d --remove-orphans db 
 
