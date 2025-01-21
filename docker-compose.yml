@@ -10,11 +10,11 @@ services:
       - POSTGRES_USER=arboverse
       - POSTGRES_PASSWORD=postgres
     healthcheck:
-      test:  ["CMD", "sleep", "10"]  # just have it pause for 10 secs before starting web
+      test:  ["CMD", "sleep", "3"]  # just have it pause for 3 secs before starting web
       interval: 1s
       timeout: 20s
       retries: 10
-      start_period: 10s
+      start_period: 3s
     ports:
       - "5432:5432"
     restart: unless-stopped

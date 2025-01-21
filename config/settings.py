@@ -1,6 +1,10 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+
+import logging
+logger = logging.getLogger(__name__)
+
 load_dotenv()
 
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -28,16 +32,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#locale-paths
 LOCALE_PATHS = [str(BASE_DIR / "locale")]
 
-DEBUG = os.getenv('DEBUG')  # set to false in production, STATIC_ROOT below should be a web-accessible folder for static files
+DEBUG = os.getenv('DEBUG',False)  # set to false in production, STATIC_ROOT below should be a web-accessible folder for static files
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('PGSQL_DB'),
-        'USER': os.getenv('PGSQL_USER'),
-        'PASSWORD': os.getenv('PGSQL_PASS'),
-        'HOST': os.getenv('PGSQL_HOST', 'localhost'),
-        'PORT': os.getenv('PGSQL_PORT', '5432'),
+        'HOST':     os.environ['PGSQL_HOST'],
+        'NAME':     os.environ['PGSQL_DB'],
+        'PASSWORD': os.environ['PGSQL_PASS'],
+        'PORT':     os.environ['PGSQL_PORT'],
+        'USER':     os.environ['PGSQL_USER'],
     }
 }
 
@@ -83,8 +87,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Django Admin URL.
 ADMIN_URL = "admin/"
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
-ADMINS = [("Felipe Rodrigues", "felipe@felipevr.com"),
-          ("Noah Perry", "noah.perry@uky.edu"),
+ADMINS = [("Noah Perry", "noah.perry@uky.edu"),
           ("Steve Roggenkamp","steve.roggenkamps@uky.edu")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
@@ -110,12 +113,10 @@ MIDDLEWARE = [
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
 STATIC_ROOT = str(BASE_DIR / "staticfiles")
-# STATIC_ROOT = str(APP_DIR / "static")
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS
 STATICFILES_DIRS = [str(APP_DIR) + "/static"]
-print(STATICFILES_DIRS)
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
 STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.FileSystemFinder",
@@ -192,5 +193,12 @@ LOGGING = {
             "formatter": "verbose",
         }
     },
-    "root": {"level": "INFO", "handlers": ["console"]},
+    "root": {"level": "DEBUG", "handlers": ["console"]},
 }
+
+
+# logger.warn("config/settings.py read")
+# logger.warn(f"DEBUG=${DEBUG}")
+# logger.warn(f"DB NAME=${os.environ['PGSQL_DB']}")
+# logger.warn(f"DB USER=${os.environ['PGSQL_USER']}")
+# logger.warn(f"DB PASS=${os.environ['PGSQL_PASS']}")
