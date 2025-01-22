@@ -1,5 +1,24 @@
 #!/bin/bash
 
+# This script rebuilds the services from the codebase.
+#
+# It requires an environment file, .env, to set
+# environment variables for the system.  A default
+# set of values is contained in the dotenv.dev file.
+# Change these for production systems.
+#
+# First, it rebuilds the Docker service containers from their
+# specifications.
+#
+# It removes the existing database, recreates it from the
+# current code, and repopulates it from the Excel data.
+#
+# Finally, it restarts the web server.
+#
+# See the comments at the end to enable the administrative
+# interface by manually creating the Django superuser.
+#
+
 if [ -f .env ]; then
     source .env
 else
@@ -62,7 +81,7 @@ fi
 # to go to http://localhost:8000/admin/
 # to see the administrative interface
 #
-# docker compose exec web python manage.py createsuperuser
+# $ docker compose exec web python manage.py createsuperuser
 # <admin_user>
 # <admin_email>
 # <admin_password>
