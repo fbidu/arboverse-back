@@ -2468,6 +2468,7 @@ map.on('load', function () {
             'arboverse.virusdiscovery',
             'visibility',
             'visible'
+
         );
         map.setFilter('arboverse.virusdiscovery', newFilter);
     }
