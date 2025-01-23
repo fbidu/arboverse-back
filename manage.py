@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 if __name__ == "__main__":
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.local")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 
     try:
         from django.core.management import (
@@ -28,6 +28,6 @@ if __name__ == "__main__":
     # This allows easy placement of apps within the interior
     # arboverse directory.
     current_path = Path(__file__).parent.resolve()
-    sys.path.append(str(current_path / "arboverse"))
+    sys.path.append(str(current_path / "arboverse_updated"))
 
     execute_from_command_line(sys.argv)

@@ -1,0 +1,311 @@
+.bannermenu{
+    background-image: url("../images/banners/arbodata_banner-min.png");
+    height: 97%;
+}
+/*----IPAD Size portrait Banner--*/
+@media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
+  .bannermenu{
+      background-image: url("../images/banners/arbodata_banner-min.png");
+      height: 85vh;
+  }
+}
+@media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait){
+  .bannermenu{
+      background-image:url("../images/banners/arbodata_mobile.png");
+      height: 70vh;
+  }
+}
+/*----About Arboverse ---*/
+.about_arbodata{
+  width:80%;
+  height: auto;
+  margin: 5vh auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.arboverse_plattform_img{
+  width: 20%;
+  text-align: center;
+}
+.arboverse_plattform_img h4{
+  margin-bottom: 10px;
+}
+.arboverse_plattform_img img{
+  width: 60%;
+}
+.arbodata_text {
+  width:80%;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: var(--text);
+  text-align: justify;
+  line-height: 1.5;
+}
+@media screen and (max-width: 1000px) {
+  .about_arbodata{
+    flex-direction: column;
+    justify-content:center;
+  }
+  .arboverse_plattform_img{
+    width: 50%;
+  }
+  .arboverse_plattform_img img{
+    display: none;
+  }
+  .arbodata_text{
+    width: 100%;
+    font-size: 1.2rem;
+  }
+}
+/*---About Mobile--*/
+@media screen and (max-width: 550px) {
+  .about_arbodata{
+    width: 85%;
+  }
+  .arboverse_plattform p{
+    width: 100%;
+    font-size: 1.1rem;
+  }
+}
+/*ARBODATA------*/
+.arbodata_container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 90%;
+  height: auto;
+  margin: 10vh auto;
+}
+.arbodata_unit{
+  width: 49%;
+  height: 100vh;
+  border-radius: 5px;
+  background: var(--grey1);
+  transition: ease-in-out 1.3s;
+  position: relative;
+  margin: 20px 0;
+  overflow: hidden;
+}
+.arbodata_unit img{
+  width:100%;
+  height: auto;
+  opacity: 1;
+  transition: ease-in-out 1s;
+  position: relative;
+  display: block;
+}
+.arbodata_unit:hover img{
+  opacity: 0.4;
+  filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+.arbodata_unit:hover .tabs{
+  opacity:1;
+}
+.arbodata_title {
+  font-size: 2rem;
+  font-weight: 600;
+  position: absolute;
+  bottom: 30px;
+  left: 40px;
+  margin: 0;
+  opacity: 1;
+}
+.tabs {
+  width:100%;
+  margin-top: 1.5vh;
+  opacity:0;
+  overflow: hidden;
+  cursor: default;
+  transition: all 1s ease-in-out;
+  position: absolute;
+  top: 5vh;
+}
+.tab {
+  width: 95%;
+  margin: 0 auto;
+  overflow: hidden;
+  border: none;
+}
+.tab-label {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8em;
+  background: transparent;
+  font-weight: 500;
+  cursor: pointer;
+  color:var(--grey5);
+  font-size: 1.1rem;
+  /* Icon */
+}
+.tab-label:hover {
+  background: hsla(0, 0%, 5%, 0.15);
+  box-shadow: 0 4px 5px white;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-bottom: solid 1px var(--grey5) ;
+}
+.tab-label:hover .tab-label::after{
+  color: var(--orange);
+}
+.tab-label::after {
+  content: "\276F";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  transition: all 0.35s;
+  color: var(--orange)
+}
+.tab-content {
+  max-height: 0;
+  padding: 0 10px;
+  color: var(--text);
+  background: hsla(0, 0%, 100%,0.9);
+  transition: all 0.35s;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.tab-content p{
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.tab-content a{
+  color: var(--grey3);
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.tab-content a:hover{
+  color: var(--orange);
+}
+.database{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 10px 2px;
+}
+.database a{
+  font-family: 'Montserrat', serif;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: solid 2px var(--orange);
+  color: var(--grey1);
+  font-size: 0.8rem;
+  margin-left: 10px;
+  margin-right: 20px;
+  font-weight: 500;
+}
+.database a:hover{
+  border: solid 2px var(--grey1);
+  font-weight: 500;
+  color: var(--grey1);
+}
+.fa-database,
+.fa-info-circle{
+  color: var(--darkBlue);
+  transform: scale(1.1);
+}
+.tab-close {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0.8em;
+  font-size: 0.9rem;
+  background: transparent;
+  cursor: pointer;
+  color: var(--orange);
+}
+.close{
+    font-size: 20px;
+    margin-left: 10px;
+}
+.tab-close:hover {
+  background: hsla(29, 91%, 54%, 0.5);
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-bottom: 1px solid var(--orange);
+  color: var(--grey5)
+}
+input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+}
+input:checked + .tab-label {
+  background: hsla(0, 0%, 15%,0.15);
+  box-shadow: 0 4px 5px var(--grey5);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-bottom: 1px solid var(--grey4);
+}
+input:checked + .tab-label::after {
+  transform: rotate(90deg);
+}
+input:checked ~ .tab-content {
+  max-height: 100vh;
+  padding: 0.5em;
+}
+@media screen and (max-width: 550px) {
+  .arbodata_container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90%;
+    height: auto;
+    margin: 10vh auto;
+  }
+  .arbodata_unit{
+    width: 100%;
+    height:auto;
+    border-radius:10px;
+    background: var(--grey1);
+    position: relative;
+    margin: 30px 0;
+    padding-bottom: 40px;
+  }
+  .arbodata_unit img{
+    width:40%;
+    height: auto;
+    opacity: 1;
+    position:static;
+    margin-top: 2vh;
+    margin-left: 5px;
+  }
+  .arbodata_unit:hover img{
+    opacity: 1;
+    filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+  }
+  .arbodata_title {
+    font-size: 1.5rem;
+    position: absolute;
+    top: 90px;
+    left: 40%;
+    margin: 0;
+    opacity: 1;
+  }
+  .tabs {
+    width:100%;
+    margin-top: 0vh;
+    overflow: hidden;
+    cursor: default;
+    transition: all 1s ease-in-out;
+    position: relative;
+    opacity:1;
+    top: 5vh;
+  }
+  .tab-label,
+  .tab-close {
+    font-size: 1rem;
+  }
+  .tab-content{
+    font-size: 0.9rem;
+  }
+  .database a{
+    font-size: 0.8rem;
+  }
+}

@@ -12,7 +12,11 @@ services:
       - POSTGRES_DB=arboverse_db
       - POSTGRES_USER=arboverse
       - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
   web:
+    restart: unless-stopped
     build:
         context: .
         dockerfile: dev.dockerfile
@@ -23,4 +27,5 @@ services:
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy

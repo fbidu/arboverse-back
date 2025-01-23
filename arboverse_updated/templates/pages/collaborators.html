@@ -1,0 +1,246 @@
+{% extends 'base.html' %}{% load static %}
+{% block resources %}
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" type="text/css" href="{% static 'css/collaborators.css' %}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+{% endblock %}
+{% block title%} Collaborators Arboverse {% endblock %}
+{% block content %}
+    <!--Banner information-->
+    <h1>Team and Collaborators</h1>
+    <h3>Arbovirus | Diseases | Ecology | Evolution</h3>
+</div>
+<main>
+    <div class="team-title">
+        <h1>ARBO<span class="orange">VERSE</span> Dashboard Team</h1>
+    </div>
+    <div class="plattform-team" id="plattform-team">
+        <!--WILLIAM MARCIEL DE SOUZA-->
+        <div class="single-team">
+            <img src="{% static 'images/Collaborators/William Merciel de Souza.jpg' %}"
+                alt="Photograph of William Marciel de Souza">
+            <div class="team-text">
+                <h2>William Marciel de Souza, PhD</h2>
+                <p>Universidade de São Paulo, Brazil</p>
+                <p>
+                    <a href="https://orcid.org/0000-0002-0025-8293" target="_blank"><i
+                            class="ai ai-orcid ai-2x"></i></a>
+                    <a href="https://www.researchgate.net/profile/William_Souza3" target="_blank"><i
+                            class="ai ai-researchgate ai-2x"></i></a>
+                    <a href="https://scholar.google.com.br/citations?user=WGc3XJ8AAAAJ&hl=en" target="_blank"><i
+                            class="ai ai-google-scholar ai-2x"></i></a>
+                    <a href="https://twitter.com/wmarciels" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+                    <a href="#william-modal"><i class="fa fa-info-circle fa-2x"></i></a>
+                </p>
+            </div>
+        </div>
+        <!--Luciana SOUTO MOFATTO-->
+        <div class="single-team">
+            <img src="{% static 'images/Collaborators/Luciana SOuto.jpeg' %}" alt="Photograph of Luciana Souto Mofatto">
+            <div class="team-text">
+                <h2>Luciana Souto Mofatto, PhD</h2>
+                <p>Universidade Estadual de Campinas, Brazil</p>
+                <p>
+                    <a href="https://orcid.org/0000-0002-2087-7251" target="_blank"><i
+                            class="ai ai-orcid ai-2x"></i></a>
+                    <a href="https://www.researchgate.net/profile/Luciana-Mofatto" target="_blank"><i
+                            class="ai ai-researchgate ai-2x"></i></a>
+                    <a href="https://scholar.google.com.br/citations?hl=en&user=x2CgmVAAAAAJ" target="_blank"><i
+                            class="ai ai-google-scholar ai-2x"></i></a>
+                    <a href="#luciana-modal"><i class="fa fa-info-circle fa-2x"></i></a>
+                </p>
+            </div>
+            <!--Team-text close tag-->
+        </div>
+        <!--Osvaldo Reis-->
+        <div class="single-team">
+            <img src="{% static 'images/Collaborators/OSwaldo.jpg' %}" alt="Photograph of Oswaldo Reis Junior">
+            <div class="team-text">
+                <h2>Osvaldo Reis Júnior, MSc</h2>
+                <p>Universidade Estadual de Campinas, Brazil</p>
+                <p>
+                    <a href="#" target="_blank"><i class="ai ai-orcid ai-2x"></i></a>
+                    <a href="https://www.researchgate.net/profile/Osvaldo-Reis-Junior" target="_blank"><i
+                            class="ai ai-researchgate ai-2x"></i></a>
+                    <a href="#" target="_blank"><i class="ai ai-google-scholar ai-2x"></i></a>
+                    <a href="https://twitter.com/osvaldoreisss" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+                    <a href="#oswaldo-modal"><i class="fa fa-info-circle fa-2x"></i></a>
+                </p>
+            </div>
+        </div>
+        <!--Felipe Bidu-->
+        <div class="single-team" id="bidu">
+            <img src="{% static 'images/Collaborators/Felipe Bidu.jpeg' %}" alt="Photograph of Felipe Rodrigues Bidu">
+            <div class="team-text">
+                <h2>Felipe Rodrigues Bidu</h2>
+                <p>Software Engineer</p>
+                <p>
+                    <a href="https://twitter.com/fevir0" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+                    <a href="#bidu-modal"><i class="fa fa-info-circle fa-2x"></i></a>
+                </p>
+            </div>
+        </div>
+        <!--Poliana Lemos-->
+        <div class="single-team" id="polianna">
+            <img src="{% static 'images/Collaborators/Poliana-Lemos.jpeg' %}"
+                alt="Photograph of Polianna da Silva Lemos">
+            <div class="team-text">
+                <h2>Polianna da Silva Lemos, PhD</h2>
+                <p>Universidade de São Paulo, Brazil</p>
+                <p>
+                    <a href="https://orcid.org/0000-0003-1271-8549" target="_blank"><i
+                            class="ai ai-orcid ai-2x"></i></a>
+                    <a href="https://www.researchgate.net/profile/Poliana-Lemos" target="_blank"><i
+                            class="ai ai-researchgate ai-2x"></i></a>
+                    <a href="https://scholar.google.com.br/citations?user=-GaJymoAAAAJ&hl=pt-BR" target="_blank"><i
+                            class="ai ai-google-scholar ai-2x"></i></a>
+                    <a href="#polianna-modal"><i class="fa fa-info-circle fa-2x"></i></a>
+                </p>
+            </div>
+        </div>
+        <!--Jacqueline Tida-->
+        <div class="single-team" id="jacqueline">
+            <img src="{% static 'images/Collaborators/JacquelineTida.jpg' %}"
+                alt="Photograph of Jacqueline Atsuko Tida">
+            <div class="team-text">
+                <h2>Jacqueline Atsuko Tida</h2>
+                <p>Web Designer</p>
+                <p>
+                    <a href="mailto:jacquelinetida@gmail.com" target="_blank"><i class="fa fa-envelope fa-2x"></i></a>
+                    <a href="#jacqueline-modal"><i class="fa fa-info-circle fa-2x"></i></a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="william-modal" class="modal">
+        <div class="modal__content">
+            <div class="modal_inner">
+                <h2>William Marciel de Souza, PhD</h2>
+                <p>FAPESP Postdoctoral researcher at the Virology Center Research, University of São Paulo, Brazil.
+                    He is a member of the International Committee of Taxonomy of Viruses (Peribunyaviridae and
+                    Hepeviridae Group). Dr. Souza work focuses on prospective, genomic and evolutionary studies of
+                    arboviruses and emerging zoonotic viruses.</p>
+            </div>
+            <a href="#plattform-team" class="modal__close">&times;</a>
+        </div>
+    </div>
+    <div id="luciana-modal" class="modal">
+        <div class="modal__content">
+            <div class="modal_inner">
+                <h2>Luciana Souto Mofatto, PhD</h2>
+                <p>I am currently a fellow in Industrial Technological Development (DTI-A / CNPq) of the
+                    Corona-Ômica Network, working in the bioinformatics area with the Emerging Virus Studies
+                    Laboratory (LEVE / UNICAMP).</p>
+            </div>
+            <a href="#plattform-team" class="modal__close">&times;</a>
+        </div>
+    </div>
+    <div id="oswaldo-modal" class="modal">
+        <div class="modal__content">
+            <div class="modal_inner">
+                <h2>Osvaldo Reis Júnior, MSc</h2>
+                <p>I'm a Phd student in Genetics and Molecular Biology (Bioinformatics) at the State University of
+                    Campinas/UNICAMP, which is best graduate school in this area according to Capes (Coordination
+                    for the Improvement of Higher Education Personnel, foundation of Ministry of Education).</p>
+            </div>
+            <a href="#plattform-team" class="modal__close">&times;</a>
+        </div>
+    </div>
+    <div id="bidu-modal" class="modal">
+        <div class="modal__content">
+            <div class="modal_inner">
+                <h2>Felipe Rodrigues Bidu</h2>
+                <p>Senior Software Engineer in Doist.<br> Infrastructure Architect.<br> Software Developer.</p>
+            </div>
+            <a href="#bidu" class="modal__close">&times;</a>
+        </div>
+    </div>
+    <div id="polianna-modal" class="modal">
+        <div class="modal__content">
+            <div class="modal_inner">
+                <h2>Polianna da Silva Lemos, PhD</h2>
+                <p>Graduated from the Full Degree Course in Biology (IFPA), with a master's degree in Parasitic
+                    Biology from the Amazon, from the State University of Pará (UEPA) in partnership with Instituto
+                    Evandro Chagas / SVS / MS, and a doctorate from the Postgraduate Program in Biology of
+                    Infectious and Parasitic Agents of the Institute of Biological Sciences (ICB) of the Federal
+                    University of Pará (UFPA). Currently, she is developing a post-doctoral internship at the
+                    Faculty of Public Health of the University of São Paulo (FSP-USP), under the supervision of Dr.
+                    Maria Anice Sallum and is a Technical Consultant in Vector Control of the Pan American Health
+                    Organization (PAHO). They have experience in the field of Medical Entomology, Virology,
+                    Microbiology, Genomics and Transcriptomics.</p>
+            </div>
+            <a href="#polianna" class="modal__close">&times;</a>
+        </div>
+    </div>
+    <div id="jacqueline-modal" class="modal">
+        <div class="modal__content">
+            <div class="modal_inner">
+                <h2>Jacqueline Atsuko Tida</h2>
+                <p>Web desginer.<br>Front-end Engineer in progress.</p>
+            </div>
+            <a href="#jacqueline" class="modal__close">&times;</a>
+        </div>
+    </div>
+    <div class="lab">
+        <div class="team-title">
+            <h1>Laboratory Team</h1>
+        </div>
+        <div class="lab-team" id="lab-team">
+            <!--Priscila Barbosa-->
+            <div class="single-team">
+                <img src="{% static 'images/Collaborators/Priscilla Pascoal Barbosa.jpeg' %}"
+                    alt="Photograph of Priscilla Pascoal Barbosa">
+                <div class="team-text">
+                    <h2>Priscilla Paschoal Barbosa, MSc</h2>
+                    <p>Universidade Estadual de Campinas, Brazil</p>
+                    <p>
+                        <a href="https://orcid.org/0000-0003-4403-4395" target="_blank"><i
+                                class="ai ai-orcid ai-2x"></i></a>
+                        <a href="https://www.researchgate.net/profile/Priscilla-Barbosa-3" target="_blank"><i
+                                class="ai ai-researchgate ai-2x"></i></a>
+                        <a href="https://scholar.google.com/citations?user=do_MSkUAAAAJ&hl=pt-BR" target="_blank"><i
+                                class="ai ai-google-scholar ai-2x"></i></a>
+                        <a href="#priscilla-modal"><i class="fa fa-info-circle fa-2x"></i></a>
+                    </p>
+                </div>
+            </div>
+            <!--Shirlene Telmos-->
+            <div class="single-team">
+                <img src="{% static 'images/Collaborators/shirlene_telmos.jpeg' %}" alt="Photograph of Shirlene Telmos">
+                <div class="team-text">
+                    <h2>Shirlene Telmos, PhD</h2>
+                    <p>Universidade Estadual de Campinas, Brazil</p>
+                    <p>
+                        <a href="https://orcid.org/0000-0003-4738-9626" target="_blank"><i class="ai ai-orcid ai-2x"></i></a>
+                        <a href="https://www.researchgate.net/profile/Shirlene-Lima" target="_blank"><i class="ai ai-researchgate ai-2x"></i></a>
+                        <a href="https://scholar.google.com/citations?hl=pt-BR&user=2BjiJtIAAAAJ" target="_blank"><i class="ai ai-google-scholar ai-2x"></i></a>
+                        <a href="#shirlene-modal"><i class="fa fa-info-circle fa-2x"></i></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!--Lab team close tag-->
+    </div>
+    <div id="priscilla-modal" class="modal">
+        <div class="modal__content">
+            <div class="modal_inner">
+                <h2>Priscilla Paschoal Barbosa, MSc</h2>
+                <p>PhD student at the University of Campinas (Brazil) in the Department of Genetics, Evolution, Microbiology and Immunology. For her dissertation, Priscilla will be standardizing a low-cost molecular diagnostic method for neglected arboviruses and conducting molecular epidemiology studies on arboviruses in the tri-border area (Brazil, Paraguay and Bolivia).</p>
+            </div>
+            <a href="#lab-team" class="modal__close">&times;</a>
+        </div>
+    </div>
+    <div id="shirlene-modal" class="modal">
+        <div class="modal__content">
+            <div class="modal_inner">
+                <h2>Shirlene Telmos, PhD</h2>
+                <p>Laboratorist at Laboratory of Public Health of the State of Ceará and Visiting Researcher at the University of Campinas (Brazil) in the Department of Genetics, Evolution, Microbiology and Immunology. She works on arboviruses associated with central nervous system infection and in fatal cases in Ceará State, Brazil.</p>
+            </div>
+            <a href="#lab-team" class="modal__close">&times;</a>
+        </div>
+    </div>
+</main>
+{% endblock %}
