@@ -18,6 +18,8 @@ With that, your application should be running. You may access it at http://local
 to run, this service will run in the background. When docker is restarted, the service too should be restarted automatically.
 If not, you can rerun the command.
 
+Note: It may take a minute or two for the site to be accessible. A health check is performed on the database to ensure that the containers load in the correct order.
+
 ## Seeing the Logs
 
 Got stuck somewhere? You can see the logs with `docker-compose logs`.
