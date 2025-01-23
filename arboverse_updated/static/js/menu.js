@@ -190,7 +190,7 @@ function showChekedDis() {
     document.getElementById('check1').textContent = document.querySelectorAll("input[name=discovery]:checked").length;
 }
 document.querySelectorAll("input[name=discovery]").forEach(i => {
-    console.log('yar land ho')
+    //console.log('yar land ho')
     i.onclick = function () {
         showChekedDis();
         update_map(this);
@@ -204,7 +204,7 @@ function showCheckedDistri() {
 }
 document.querySelectorAll("input[name=distribution]").forEach(i => {
     i.onclick = function () {
-        console.log(this);
+        ////console.log(this);
         showCheckedDistri();
         update_map(this);
     }
@@ -256,7 +256,7 @@ document.querySelectorAll("input[name=model_selector]").forEach(i => {
     i.onchange = function(){
         cb = document.querySelector("input[name=climate][id=annual_switch]")
         if(cb.checked){
-            console.log(this.value);
+            //console.log(this.value);
             var [model, year, temp] = annual_switch();
             update_map_time(cb, model, year, temp);
         }
@@ -274,7 +274,7 @@ document.querySelectorAll("input[name=annual]").forEach(i => {
 });
 
 document.querySelectorAll("input[name=climate]").forEach(i => {
-    console.log(i.id)
+    //console.log(i.id)
     if(i.id == "annual_switch"){
         i.onclick = function () {
             showChekedCli();
@@ -336,7 +336,7 @@ document.querySelectorAll("input[name=climate]").forEach(i => {
 
 document.querySelectorAll("input[name=annual]").forEach(i => {
     i.onclick = function () {
-        console.log(this.value)
+        //console.log(this.value)
     }
 });
 //Extreme hot days
@@ -513,7 +513,7 @@ document.querySelectorAll("input[name=pop_year]").forEach (i => {
     i.onchange = function() {
         cb = document.querySelector("input[name=socioeconomics][id=population_switch]")
         if(cb.checked){
-            console.log(this.value);
+            //console.log(this.value);
             var[year, prefix] = population_switch();
             update_map_only_time(cb, year, prefix)
         }
@@ -530,7 +530,7 @@ document.querySelectorAll("input[name=gdp_year]").forEach (i => {
     i.onchange = function() {
         cb = document.querySelector("input[name=socioeconomics][id=gdp_switch]")
         if(cb.checked){
-            console.log(this.value);
+            //console.log(this.value);
             var[year, prefix] = gdp_switch();
             update_map_only_time(cb, year, prefix)
         }
@@ -547,14 +547,14 @@ document.querySelectorAll("input[name=hdi_year]").forEach (i => {
     i.onchange = function() {
         cb = document.querySelector("input[name=socioeconomics][id=hdi_switch]")
         if(cb.checked){
-            console.log(this.value);
+            //console.log(this.value);
             var[year, prefix] = hdi_switch();
             update_map_only_time(cb, year, prefix)
         }
     }
 });
 document.querySelectorAll("input[name=socioeconomics]").forEach(i => {
-    console.log(i.id);
+    //console.log(i.id);
    if(i.id == "population_switch") {
        i.onclick = function() {
            showChekedSoc();

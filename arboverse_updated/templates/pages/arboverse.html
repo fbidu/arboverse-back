@@ -15,6 +15,31 @@
 <!--Banner information-->
 <h1>Explore the complexity of arbovirus in a simple way</h1>
 <h2>Arbovirus information by interactive and user-friendly tools</h2>
+
+<style>
+  .suggestions {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    background-color: white;
+    z-index: 1000;
+    width: calc(100% - 40px); /* Match input width */
+    display: none; /* Hidden by default */
+}
+
+.suggestions li {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.suggestions li:hover {
+    background-color: #f0f0f0;
+}
+</style>
 </div>
 <main>
   <!-- CATALOGUE-->
@@ -614,7 +639,7 @@
         <div class="title-sub">
           <div class="togglebtn">
             <label class="switch">
-              <input type="checkbox" name="distribution" id="arboverse.2d02q3oi"/>
+              <input type="checkbox" name="distribution" id="arboverse.virusdiscovery"/>
               <span class="slider round"></span>
             </label>
           </div>
@@ -629,6 +654,7 @@
             id="species-distribution-search">
           <button class="search-btn" id="search-distribution-btn" type="submit"><i class="fa fa-search"></i></button>
         </div>
+        <ul class="suggestions" id="species-suggestions"></ul>
       </div>
       <!--Vector Menu-->
       <div id="vector-menu" class="sub-menu sub-2">
@@ -5855,32 +5881,13 @@
       })
       .then(data => {
         data = data[0];
-        console.log(data);
+        //console.log(data);
 
         // Taxonomy and Genomics
         document.getElementById('vector_name').innerHTML = data.arthropod_type;
         document.getElementById('vector_binominal').innerHTML = data.name;
-        let taxonomy = '';
-        if (data.family) {
-          taxonomy = data.family;
-        }
-        if (data.genus) {
-          if (taxonomy == '') {
-            taxonomy = data.genus;
-          }
-          else {
-            taxonomy = taxonomy + " | " + data.genus;
-          }
-        }
-        if (data.name) {
-          if (taxonomy == '') {
-            taxonomy = data.name;
-          }
-          else {
-            taxonomy = taxonomy + " | " + data.name;
-          }
-        }
-        document.getElementById('vector_taxonomy').innerHTML = taxonomy;
+        console.log(data.genus.family.name, data.genus.sub_family.name, data.genus.name)
+        document.getElementById('vector_taxonomy').innerHTML = data.genus.family.name + ' | ' + data.genus.sub_family.name + ' | ' + data.genus.name;
         let genome = '';
         if (data.genome) {
           genome = data.genome;
@@ -5995,37 +6002,25 @@
         // Taxonomy and Genomics
         document.getElementById('virus_name').innerHTML = data.name;
         document.getElementById('virus_abbrev').innerHTML = data.abbreviation;
-        let taxonomy = '';
-        if (data.family) {
-          taxonomy = data.family;
-        }
-        if (data.genus) {
-          if (taxonomy == '') {
-            taxonomy = data.genus;
-          }
-          else {
-            taxonomy = taxonomy + " | " + data.genus;
-          }
-        }
-        if (data.specie) {
-          if (taxonomy == '') {
-            taxonomy = data.specie;
-          }
-          else {
-            taxonomy = taxonomy + " | " + data.specie;
-          }
-        }
-        document.getElementById('virus_taxonomy').innerHTML = taxonomy;
+        document.getElementById('virus_taxonomy').innerHTML = data.family.name + " | " + data.genus.name;
         document.getElementById('virus_firstIso').innerHTML = data.collection_date;
         document.getElementById('virus_strain').innerHTML = `<a href=${data.reference_strain} target='_blank'>${data.reference_strain}</a>`;
         document.getElementById('virus_reference').innerHTML = data.genome_type;
         document.getElementById('virus_size').innerHTML = data.genome_length_nt;
         document.getElementById('virus_genome').innerHTML = data.genome_type;
         document.getElementById('virus_envelope').innerHTML = data.enveloped;
-
+        let vectors = [];
         // Transmission
-        document.getElementById('virus_vector').innerHTML = data.borning; // these two need to reference virusvector
-        document.getElementById('virus_vector_binominal').innerHTML = "";
+        for (let i=0; i<data.vectors.length; i++) {
+          if (data.vectors[i].main_vector) {
+            vectors.unshift(data.vectors[i].vector.name);
+          }
+          else {
+            vectors.push(data.vectors[i].vector.name);
+          }
+        }
+        document.getElementById('virus_vector').innerHTML = data.borning.borne_type; // these two need to reference virusvector
+        document.getElementById('virus_vector_binominal').innerHTML = vectors.join(" | ");
         document.getElementById('virus_host').innerHTML = data.host_amplifier;
 
         // Diseases
@@ -6055,8 +6050,18 @@
         document.getElementById('virus_vaccine').innerHTML = data.vaccine;
 
         // Laboratory
-        document.getElementById('virus_diagnostic').innerHTML = data.vero_cells;
-        document.getElementById('virus_propagation').innerHTML = data.C6_36_cells;
+        if (data.vero_cells == null) {
+          document.getElementById('virus_diagnostic').innerHTML = "unknown";
+        }
+        else {
+          document.getElementById('virus_diagnostic').innerHTML = data.vero_cells;
+        }
+        if (data.C6_36_cells == null) {
+          document.getElementById('virus_propagation').innerHTML = "unknown";
+        }
+        else {
+          document.getElementById('virus_propagation').innerHTML = data.C6_36_cells;
+        }
         document.getElementById('virus_cytophatic').innerHTML = data.cpe_vero;
         document.getElementById('virus_plaque').innerHTML = data.plaques_vero;
         document.getElementById('virus_animal').innerHTML = data.animal_model;

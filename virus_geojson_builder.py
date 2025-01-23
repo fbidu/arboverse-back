@@ -27,7 +27,7 @@ def round_coordinates(geometry_dict, precision=4):
 
 
 # Load the shapefile
-shapefile_path = "GeoJSON/ne_110m_admin_0_countries.shp"
+shapefile_path = "GeoJSON/ne_50m_admin_0_countries.shp"
 gdf = gpd.read_file(shapefile_path)
 
 # Load your spreadsheet data
@@ -59,12 +59,13 @@ for index, row in data.iterrows():
         geom_dict = round_coordinates(mapping(geometry), precision=4)
 
         for virus in virus_columns:
+            presence = row[virus]
             features.append({
                 "type": "Feature",
                 "properties": {
                     "i": iso_code,  # Shortened property name
-                    "v": virus,  # Shortened property name
-                    "p": int(not pd.isna(row[virus]))  # Convert boolean to int (smaller)
+                    "v": virus.lower(),  # Shortened property name
+                    "p": int(presence) if not pd.isna(presence) else 0  # Ensure correct presence value
                 },
                 "geometry": geom_dict
             })

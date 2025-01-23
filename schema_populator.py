@@ -181,14 +181,9 @@ def insert_borning_data(table_class, data, column_mapping, unique=False):
                 row_data[table_column] = value
 
         if row_data:  # Only proceed if row_data is valid
-            # Check if a record with the same name exists
-            existing_record = session.query(table_class).filter_by(borne_type=row_data.get('name')).first()
-            if existing_record:
-                # Update the existing record's fields
-                for key, value in row_data.items():
-                    setattr(existing_record, key, value)
-            else:
-                # Add the row as a new record
+            # Check if a record with the same unique identifier already exists
+            existing_record = session.query(table_class).filter_by(**row_data).first()
+            if not existing_record:  # Only add the record if it does not already exist
                 records.append(table_class(**row_data))
 
     # Bulk save the objects to the session
@@ -203,7 +198,7 @@ def insert_borning_data(table_class, data, column_mapping, unique=False):
 insert_data(Country, virus_df, {'name': 'country'}, True)
 insert_data(VirusGenus, virus_df, {'name': 'genus'}, True)
 insert_data(VirusFamily, virus_df, {'name': 'family'}, True)
-#insert_borning_data(Borning, virus_df, {'borne_type': 'borne-virus'}, True)
+insert_borning_data(Borning, virus_df, {'borne_type': 'borne-virus'}, True)
 insert_data(VectorOrder, vector_df, {'name': 'taxonomy_order'}, True)
 insert_data(Disease, virus_df, {'name': 'category-human-disease'}, True)
 insert_data(Landscape, vector_df, {'name': 'natural_landscape'}, True)
@@ -398,50 +393,63 @@ def insert_compound_data(compound_class, data, column_mappings):
     session.commit()  # Commit any remaining updates
 
 
-def insert_compound_data_borning(compound_class, data, column_mappings):
+def insert_taxonomy_data(compound_class, data, column_mappings, name_column=None):
     records = []
 
     for _, row in data.iterrows():
         row_data = {}
         skip_record = False
 
-        # Process each column mapping
+        # Get name value if column specified
+        name_value = None
+        if name_column and name_column in data.columns:
+            name_value = row[name_column]
+            if pd.isna(name_value):
+                continue
+            row_data['name'] = name_value
+
+        # Process foreign key mappings
         for compound_column, (ref_table, df_column) in column_mappings.items():
             value = row[df_column]
 
-            # Skip if value is NaN/None
             if pd.isna(value):
                 skip_record = True
                 break
 
-            # Look up reference record
-            ref_record = session.query(ref_table).filter_by(borne_type=value).first()
-            if ref_record:
-                row_data[compound_column] = ref_record.id
-            else:
+            ref_record = session.query(ref_table).filter_by(name=value).first()
+            if not ref_record:
+                print(f"No {ref_table.__name__} found for {value}")
                 skip_record = True
                 break
 
-        # Skip this record if any required values were missing
+            row_data[compound_column] = ref_record.id
+
         if skip_record or not row_data:
             continue
 
-        # Check if a conflicting record exists
         try:
-            existing_record = session.query(compound_class).filter_by(**row_data).first()
-            if existing_record:
+            # First try to find existing record by name
+            existing = None
+            if name_value:
+                existing = session.query(compound_class).filter_by(name=name_value).first()
+
+            # If no name match, check for matching foreign keys
+            if not existing and all(k in row_data for k in column_mappings.keys()):
+                filter_dict = {k: row_data[k] for k in column_mappings.keys()}
+                existing = session.query(compound_class).filter_by(**filter_dict).first()
+
+            if existing:
+                # Update existing record
                 for key, val in row_data.items():
-                    if key == 'name' and (val is None or pd.isna(val)):
-                        continue  # Ignore updates to 'name' if it's not populated
-                    setattr(existing_record, key, val)  # Update fields
+                    setattr(existing, key, val)
             else:
                 records.append(compound_class(**row_data))
+
         except Exception as e:
-            print(f"Error processing record: {row_data}")
+            print(f"Error processing: {row_data}")
             print(f"Error: {str(e)}")
             continue
 
-    # Commit in batches
     if records:
         try:
             session.bulk_save_objects(records)
@@ -449,9 +457,76 @@ def insert_compound_data_borning(compound_class, data, column_mappings):
         except Exception as e:
             session.rollback()
             print(f"Error during bulk insert: {str(e)}")
-            # Could add more detailed error handling here if needed
 
-    session.commit()  # Commit any remaining updates
+    session.commit()
+
+
+def insert_compound_data_borning(compound_class, data, column_mappings, name_column=None):
+    records = []
+
+    for _, row in data.iterrows():
+        row_data = {}
+        skip_record = False
+
+        # Get name value if column specified
+        name_value = None
+        if name_column and name_column in data.columns:
+            name_value = row[name_column]
+            if pd.isna(name_value):
+                continue
+            row_data['name'] = name_value
+
+        # Process foreign key mappings
+        for compound_column, (ref_table, df_column) in column_mappings.items():
+            value = row[df_column]
+
+            if pd.isna(value):
+                skip_record = True
+                break
+
+            ref_record = session.query(ref_table).filter_by(borne_type=value).first()
+            if not ref_record:
+                print(f"No {ref_table.__name__} found for {value}")
+                skip_record = True
+                break
+
+            row_data[compound_column] = ref_record.id
+
+        if skip_record or not row_data:
+            continue
+
+        try:
+            # First try to find existing record by name
+            existing = None
+            if name_value:
+                existing = session.query(compound_class).filter_by(name=name_value).first()
+
+            # If no name match, check for matching foreign keys
+            if not existing and all(k in row_data for k in column_mappings.keys()):
+                filter_dict = {k: row_data[k] for k in column_mappings.keys()}
+                existing = session.query(compound_class).filter_by(**filter_dict).first()
+
+            if existing:
+                # Update existing record
+                for key, val in row_data.items():
+                    setattr(existing, key, val)
+            else:
+                records.append(compound_class(**row_data))
+
+        except Exception as e:
+            print(f"Error processing: {row_data}")
+            print(f"Error: {str(e)}")
+            continue
+
+    if records:
+        try:
+            session.bulk_save_objects(records)
+            session.commit()
+        except Exception as e:
+            session.rollback()
+            print(f"Error during bulk insert: {str(e)}")
+
+    session.commit()
 
 
 def update_virus_vector_main_status(data_df):
@@ -509,6 +584,7 @@ def update_virus_vector_main_status(data_df):
         print(f"Fatal error during update process: {str(e)}")
     finally:
         session.close()
+
 
 insert_data(
     VectorSpecies,
@@ -570,30 +646,46 @@ insert_compound_data(
         'location_id': (Location, 'distribution'),
     }
 )
-insert_data(VectorFamily, vector_df, {'name': 'taxonomy_family'}, True)
-insert_compound_data(
+
+#
+#
+# For the Family, Sub-Family, Genus, and Order we need to have a trimmed dataset.
+#
+#
+unique_combinations = vector_df[["taxonomy_order", "taxonomy_family", "genus", "taxonomy_sub-family"]].drop_duplicates()
+#print(unique_combinations)
+order_to_family = unique_combinations[["taxonomy_order", "taxonomy_family"]].drop_duplicates().dropna().reset_index(drop=True)
+subfamily_to_family = unique_combinations[["taxonomy_sub-family", "taxonomy_family"]].drop_duplicates().dropna().reset_index(drop=True)
+genus_to_family_to_sub = unique_combinations[["genus", "taxonomy_family", "taxonomy_sub-family"]].drop_duplicates().dropna().reset_index(drop=True)
+
+# Insert first column data
+#insert_data(VectorFamily, vector_df, {'name': 'taxonomy_family'}, True)
+#insert_data(VectorSubFamily, vector_df, {'name': 'taxonomy_sub-family'}, True)
+#insert_data(VectorGenus, vector_df, {'name': 'genus'}, True)
+
+# Relationships
+insert_taxonomy_data(
     VectorFamily,
-    vector_df,
-    {
-        'order_id': (VectorOrder, 'taxonomy_order'),
-    }
+    order_to_family,
+    {'order_id': (VectorOrder, 'taxonomy_order')},
+    name_column='taxonomy_family'  # Add name from this column
 )
-insert_data(VectorSubFamily, vector_df, {'name': 'taxonomy_sub-family'}, True)
-insert_compound_data(
+
+insert_taxonomy_data(
     VectorSubFamily,
-    vector_df,
-    {
-        'family_id': (VectorOrder, 'taxonomy_family'),
-    }
+    subfamily_to_family,
+    {'family_id': (VectorFamily, 'taxonomy_family')},
+    name_column='taxonomy_sub-family'  # Add name from this column
 )
-insert_data(VectorGenus, vector_df, {'name': 'genus'}, True)
-insert_compound_data(
+
+insert_taxonomy_data(
     VectorGenus,
-    vector_df,
+    genus_to_family_to_sub,
     {
         'family_id': (VectorFamily, 'taxonomy_family'),
-        'sub_family_id': (VectorSubFamily, 'taxonomy_sub-family'),
-    }
+        'sub_family_id': (VectorSubFamily, 'taxonomy_sub-family')
+    },
+    name_column='genus'  # Add name from this column
 )
 virus_df['is_enveloped'] = virus_df['envelope'].apply(lambda x: 1 if x == "enveloped" else 0)
 virus_df['is_human_fatal'] = virus_df['human-fatal-diseases'].apply(
@@ -614,6 +706,24 @@ virus_df['C6_36_cells'] = virus_df['tissue culture'].apply(
 virus_df['genome_length_nt'] = virus_df['genome_length_nt'].apply(
     lambda x: np.nan if x == 'unk' else (np.nan if x == '?' else int(x))
 )
+
+# First, determine which viruses are associated with these family-genus combinations
+virus_names = virus_df[virus_df['family'].notna() & virus_df['genus'].notna()]['virus_name'].unique()
+
+# Filter the dataframe to only include rows with virus names
+unique_combinations = virus_df[
+    virus_df['virus_name'].isin(virus_names)
+][["virus_name", "family", "genus"]].drop_duplicates().dropna().reset_index(drop=True)
+
+borning_unique = virus_df[
+    virus_df['virus_name'].isin(virus_names)
+][["virus_name", "borne-virus"]].drop_duplicates().dropna().reset_index(drop=True)
+
+# Optionally map "borne-virus" to "borne_type" if required
+borning_unique.rename(columns={"borne-virus": "borne_type"}, inplace=True)
+
+print(borning_unique)
+print(virus_df.keys())
 
 insert_data(Virus,
             virus_df,
@@ -641,20 +751,30 @@ insert_data(Virus,
                 'sals_level': 'SALS-level'
             }
 )
-insert_compound_data(
+insert_taxonomy_data(
     Virus,
-    virus_df,
+    unique_combinations,
     {
         'genus_id': (VirusGenus, 'genus'),
         'family_id': (VirusFamily, 'family'),
-    }
+    },
+    name_column="virus_name"
 )
-insert_compound_data_borning(
+'''insert_taxonomy_data(
     Virus,
     virus_df,
     {
         'borning_id': (Borning, 'borne-virus')
-    }
+    },
+    name_column="virus_name"
+)'''
+insert_compound_data_borning(
+    Virus,
+    borning_unique,
+    {
+        'borning_id': (Borning, 'borne_type')
+    },
+    name_column="virus_name"
 )
 insert_compound_data(
     VirusCountry,
@@ -691,6 +811,13 @@ insert_compound_data(
         'vector_id': (VectorSpecies, 'vector'),
         'virus_id': (Virus, 'virus_name'),
     }
+)
+
+insert_taxonomy_data(
+    VectorSpecies,
+    vector_df,
+    {'genus_id': (VectorGenus, 'genus')},
+    name_column='binominal_name'  # Add name from this column
 )
 
 update_virus_vector_main_status(virusvector_df)

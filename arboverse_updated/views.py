@@ -7,7 +7,7 @@ from rest_framework.response import Response
 
 from arboverse_updated.models import Virus, VirusVector, VectorSpecies
 from arboverse_updated.serializers import VirusSerializer, VectorSerializer, VectorSpeciesSerializer, \
-    VectorSpeciesAllSerializer, VirusAllSerializer
+    VectorSpeciesAllSerializer, VirusAllSerializer, VirusDetailedSerializer
 import logging
 logger = logging.getLogger(__name__)
 
@@ -45,7 +45,7 @@ def get_virus_by_name(request):
         queryset = Virus.objects.filter(name__iexact=name)
     else:
         queryset = Virus.objects.all()
-    serializer = VirusAllSerializer(queryset, many=True)
+    serializer = VirusDetailedSerializer(queryset, many=True)
     return Response(serializer.data)
 
 

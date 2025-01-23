@@ -48,7 +48,7 @@ map.on('load', function () {
 //   (title) a string identifier for the source and layer
 //   (url) the raster tile URL to add to the map
 const addTileLayerToMap = (mapVar, title, url, type, paint, source_layer) => {
-    console.log(mapVar, title, url);
+    //console.log(mapVar, title, url);
     // Need to first add a source
     mapVar.addSource(title, {
         type: 'vector',
@@ -80,7 +80,7 @@ const addTileLayerToMap = (mapVar, title, url, type, paint, source_layer) => {
 //   (title) a string identifier for the source and layer
 //   (url) the raster tile URL to add to the map
 const addRasterTileLayerToMap = (mapVar, title, url, type, source_layer, minzoom, maxzoom) => {
-    console.log(mapVar, title, url)
+    //console.log(mapVar, title, url)
     // need to first add a source
     mapVar.addSource(title, {
         type: 'raster',
@@ -109,7 +109,7 @@ const addRasterTileLayerToMap = (mapVar, title, url, type, source_layer, minzoom
 function update_map(cb) {
     var clickedLayers = cb.id
     clickedLayersList = clickedLayers.split(',')
-    console.log(clickedLayersList)
+    //console.log(clickedLayersList)
     if (cb.checked) {
         for (let i = 0; i < clickedLayersList.length; i++) {
             clickedLayer = clickedLayersList[i];
@@ -131,7 +131,7 @@ function update_map(cb) {
         }
     }
 
-    console.log(cb.checked);
+    //console.log(cb.checked);
 }
 
 var activeLayer = {}
@@ -2392,74 +2392,133 @@ map.on('load', function () {
 });
 
 // Virus Distribution
-// VIRUS DISTRIBUTION
 map.on('load', function () {
-    var virusFilter = ["==", ["string", ["get", "type"]], "v"];
-    map.addSource('arboverse.2d02q3oi', {
+    var virusFilter = ['all',
+        ['==', ['string', ['get', 'v']], ""],
+        ['==', ['get', 'p'], 1]
+    ];
+
+    map.addSource('arboverse.virusdiscovery', {
         'type': 'vector',
-        'url': 'mapbox://arboverse.2d02q3oi' // Ensure this is the correct tileset ID for your virus data
+        'url': 'mapbox://arboverse.virusdiscovery'
     });
+
     map.addLayer({
-        'id': 'arboverse.2d02q3oi',
-        'source': 'arboverse.2d02q3oi',
-        'source-layer': '2025-01-13_11-24-18-dmlg1x', // Ensure this matches the actual source layer name in your tileset
+        'id': 'arboverse.virusdiscovery',
+        'source': 'arboverse.virusdiscovery',
+        'source-layer': '20250117_123635',
         'type': 'fill',
-        'filter': ["all", virusFilter]
+        'filter': virusFilter,
+        'paint': {
+            'fill-color': '#F5861F',
+            'fill-opacity': 0.2
+        },
+        'minzoom': 0,
+        'maxzoom': 10
     });
 
-    map.setLayoutProperty(
-        'arboverse.2d02q3oi',
-        'visibility',
-        'none'
-    );
+    const searchInput = document.getElementById('species-distribution-search');
+    const suggestionsEl = document.getElementById('species-suggestions');
+    const searchBtn = document.getElementById('search-distribution-btn');
 
-    // Select option Virus type
-    const virusType = document.getElementById("species-distribution-search");
-    virusType.addEventListener('change', function () {
-        console.log(virusType.value);
-        var vType = virusType.value;
-        virusFilter = ["==", ["string", ["get", "type"]], vType];
-        map.setFilter('arboverse.2d02q3oi', ["all", virusFilter]);
-    });
-
-    // Popup
-    map.on('mousemove', 'arboverse.2d02q3oi', function (e) {
-        map.getCanvas().style.cursor = 'pointer';
-        var feature = e.features[0];
-        popup
-            .setLngLat(feature.geometry.coordinates)
-            .setText('Virus: ' + feature.properties.v)
-            .addTo(map);
-        var popupElem = popup.getElement();
-        popupElem.style.fontSize = "14px";
-    });
-
-    map.on('mouseleave', 'arboverse.2d02q3oi', function () {
-        map.getCanvas().style.cursor = '';
-        popup.remove();
-    });
-
-    // Filter by the search box
-    filterEl.addEventListener('keyup', function (e) {
-        var value = normalize(e.target.value);
-
-        var filtered = vectors.filter(function (feature) {
-            var virus = normalize(feature.properties.v);
-            return virus.indexOf(value) > -1;
+    // Function to extract unique virus names from the map layer
+    let viruses = [];
+    function fetchVirusNames() {
+        const features = map.querySourceFeatures('arboverse.virusdiscovery', {
+            sourceLayer: '20250117_123635'
         });
 
-        renderListings(filtered);
+        // Extract unique virus names
+        const virusSet = new Set();
+        features.forEach(feature => {
+            const virusName = feature.properties.v;
+            if (virusName) {
+                virusSet.add(virusName);
+            }
+        });
 
-        if (filtered.length) {
-            map.setFilter('arboverse.2d02q3oi', [
-                'match',
-                ['get', 'v'],
-                filtered.map(function (feature) {
-                    return feature.properties.virus;
-                }),
-                true,
-                false
-            ]);
+        viruses = Array.from(virusSet).sort(); // Sort alphabetically for a better UX
+    }
+
+    // Fetch virus names after the map layer is loaded
+    fetchVirusNames();
+
+    function normalize(string) {
+        return string.trim().toLowerCase();
+    }
+
+    function applyFilter() {
+        const searchValue = normalize(searchInput.value);
+
+        if (searchValue === '') {
+            map.setLayoutProperty(
+                'arboverse.virusdiscovery',
+                'visibility',
+                'none'
+            );
+            return;
+        }
+
+        const newFilter = ['all',
+            ['==', ['get', 'p'], 1],
+            ['in', searchValue, ['downcase', ['string', ['get', 'v']]]]
+        ];
+
+        map.setLayoutProperty(
+            'arboverse.virusdiscovery',
+            'visibility',
+            'visible'
+
+        );
+        map.setFilter('arboverse.virusdiscovery', newFilter);
+    }
+
+    function showSuggestions(value) {
+        const normalizedValue = normalize(value);
+        const matches = viruses.filter(v =>
+            normalize(v).includes(normalizedValue)
+        );
+
+        suggestionsEl.innerHTML = '';
+        if (matches.length > 0) {
+            matches.forEach(match => {
+                const li = document.createElement('li');
+                li.textContent = match;
+                li.addEventListener('click', () => {
+                    searchInput.value = match;
+                    suggestionsEl.style.display = 'none';
+                    applyFilter();
+                });
+                suggestionsEl.appendChild(li);
+            });
+            suggestionsEl.style.display = 'block';
+        } else {
+            suggestionsEl.style.display = 'none';
+        }
+    }
+
+    searchInput.addEventListener('input', function (e) {
+        const value = e.target.value;
+        if (value.trim() !== '') {
+            showSuggestions(value);
+        } else {
+            suggestionsEl.style.display = 'none';
+        }
+    });
+
+    searchBtn.addEventListener('click', applyFilter);
+
+    searchInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+            applyFilter();
+            suggestionsEl.style.display = 'none';
+        }
+    });
+
+    // Re-fetch viruses whenever the map data changes (e.g., when zooming or panning)
+    map.on('sourcedata', function (e) {
+        if (e.sourceId === 'arboverse.virusdiscovery' && e.isSourceLoaded) {
+            fetchVirusNames();
         }
     });
 

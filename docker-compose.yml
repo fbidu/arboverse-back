@@ -3,6 +3,9 @@
 services:
   db:
     image: postgres:13
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:
@@ -10,24 +13,17 @@ services:
       - POSTGRES_USER=arboverse
       - POSTGRES_PASSWORD=postgres
     healthcheck:
-      test:  ["CMD", "sleep", "3"]  # just have it pause for 3 secs before starting web
-      interval: 1s
-      timeout: 20s
-      retries: 10
-      start_period: 3s
-    ports:
-      - "5432:5432"
-    restart: unless-stopped
-
+      test: [ "CMD-SHELL", "pg_isready -U arboverse -d arboverse_db" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
   web:
     build:
-      context: .
-      dockerfile: dev.dockerfile
-#    command: python manage.py migrate                    # (1) to create database
-#    command: python schema_populator.py                  # (2) populate the database with existing data
-    command: python manage.py runserver 0.0.0.0:8000     # (3) normal running command
-#    command: python manage.py --help                     # when all else fails ...
-
+        context: .
+        dockerfile: dev.dockerfile
+    command: python manage.py runserver 0.0.0.0:8000
+    restart: unless-stopped
     volumes:
       - .:/code
     ports:
@@ -35,5 +31,3 @@ services:
     depends_on:
       db:
         condition: service_healthy
-
-#    restart: unless-stopped
