@@ -1,8 +1,8 @@
 {% extends 'base.html' %}{% load static %}
 {% block resources %}
 <link href="{% static 'css/dataset.css' %}" rel="stylesheet" type="text/css">
-{% endblock %}
-{% block title%} ARBODATA {% endblock %}
+{% endblock resources %}
+{% block title%} ARBODATA {% endblock title %}
 {% block content %}
 <!--Banner information-->
 <h1>Open source data for everyone</h1>
@@ -747,4 +747,4 @@
           </div>
       </section>
 </main>
-{% endblock %}
+{% endblock content %}

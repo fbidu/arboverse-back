@@ -3,7 +3,7 @@
 {% load i18n %}
 {% load crispy_forms_tags %}
 
-{% block head_title %}{% trans "Signup" %}{% endblock %}
+{% block head_title %}{% trans "Signup" %}{% endblock head_title %}
 
 {% block inner %}
 <h1>{% trans "Sign Up" %}</h1>
@@ -19,4 +19,4 @@
   <button class="btn btn-primary" type="submit">{% trans "Sign Up" %} &raquo;</button>
 </form>
 
-{% endblock %}
+{% endblock inner %}

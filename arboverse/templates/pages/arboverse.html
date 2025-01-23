@@ -1,6 +1,6 @@
 {% extends 'base.html' %}{% load static %} {% block meta %}
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-{% endblock %}
+{% endblock meta %}
 {% block resources %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/arboverse.css' %}" />
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
@@ -11,8 +11,8 @@
   <script type="module" src="../static/js/search_functions.js"></script>
 
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
-{% endblock %}
-{% block title %} ARBOVERSE {% endblock %}
+{% endblock resources %}
+{% block title %} ARBOVERSE {% endblock title %}
 {% block content %}
 <!--Banner information-->
 <h1>Explore the complexity of arbovirus in a simple way</h1>
@@ -5729,4 +5729,4 @@
   </section>
 </main>
 {#<script src="../static/js/mapboxutil.js"></script#}
-{% endblock %}
+{% endblock content %}
