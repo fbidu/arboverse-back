@@ -332,3 +332,4 @@ data/
 env/
 .vscode/
 .~lock.*
+/GeoJSON
