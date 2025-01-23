@@ -20,6 +20,9 @@ If not, you can rerun the command.
 
 Note: It may take a minute or two for the site to be accessible. A health check is performed on the database to ensure that the containers load in the correct order.
 
+## Creating a Superuser
+Firstly, make sure that your env PGSQL_HOST is set to db. Then run `docker-compose run --rm web python manage.py createsuperuser` and follow the prompts.
+
 ## Seeing the Logs
 
 Got stuck somewhere? You can see the logs with `docker-compose logs`.
@@ -53,6 +56,8 @@ Run it with `docker-compose run --rm web python manage.py shell_plus`
 
 ## Prod Setup
 Run `python manage.py collectstatic` and ensure that the resulting folder will be web-accessible.
+
+Make sure to change username and password in .env and in docker-compose.yml to match your production database.
 
 
 ## Creating a Virus Layer
