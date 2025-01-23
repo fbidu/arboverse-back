@@ -108,7 +108,6 @@ vector_df["anthropophilic_behaviour"] = vector_df["anthropophilic_behaviour"].ap
     lambda x: 0 if x in ["no", "unk"] else 1
 )
 
-
 def insert_data(table_class, data, column_mapping, unique=False):
     # Create a new list to store the records
     records = []
@@ -706,6 +705,8 @@ virus_df['C6_36_cells'] = virus_df['tissue culture'].apply(
 virus_df['genome_length_nt'] = virus_df['genome_length_nt'].apply(
     lambda x: np.nan if x == 'unk' else (np.nan if x == '?' else int(x))
 )
+
+virus_df['virus_name'] = virus_df['virus_name'].str.strip()
 
 # First, determine which viruses are associated with these family-genus combinations
 virus_names = virus_df[virus_df['family'].notna() & virus_df['genus'].notna()]['virus_name'].unique()
