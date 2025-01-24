@@ -4,12 +4,17 @@ from rest_framework.views import APIView
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.views import generic
 
-from arboverse_updated.models import Virus, VirusVector, VectorSpecies
+from arboverse_updated.models import DataUpload, Virus, VirusVector, VectorSpecies
 from arboverse_updated.serializers import VirusSerializer, VectorSerializer, VectorSpeciesSerializer, \
     VectorSpeciesAllSerializer, VirusAllSerializer, VirusDetailedSerializer
 import logging
 logger = logging.getLogger(__name__)
+
+
+class DataUploadView(generic.DetailView):
+    model = DataUpload
 
 
 class VirusViewSet(viewsets.ModelViewSet):
@@ -58,3 +63,14 @@ def get_virusvector_by_virus(request):
         queryset = VirusVector.objects.all()
     serializer = VectorSerializer(queryset, many=True)
     return Response(serializer.data)
+
+
+def upload_dataupdate(request):
+    if request.method == "POST":
+        form = UploadFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            # handle_uploaded_file(request.FILES["file"])
+            return HttpResponseRedirect("/admin/")
+    else:
+        form = UploadFileForm()
+    return render(request, "upload.html", {"form": form})

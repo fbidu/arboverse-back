@@ -3,6 +3,7 @@ from django.contrib import admin
 from arboverse_updated.models import BloodMeal, \
                                      Borning, \
                                      Country, \
+                                     DataUpload, \
                                      Disease, \
                                      FeedingPeriod,\
                                      Habitat, \
@@ -24,6 +25,7 @@ admin.site.register(BloodMeal)
 admin.site.register(Borning)
 admin.site.register(Country)
 admin.site.register(Disease)
+admin.site.register(DataUpload)
 admin.site.register(FeedingPeriod)
 admin.site.register(Habitat)
 admin.site.register(Landscape)

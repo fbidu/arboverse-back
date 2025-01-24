@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+   <form mehod="post" class="DataUploadForm">
+     {{ form|crispy }}
+   </form>
+{% endblock content %}
+

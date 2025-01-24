@@ -66,8 +66,11 @@ THIRD_PARTY_APPS = [
     "allauth.socialaccount",
 ]
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 LOCAL_APPS = [
     'arboverse_updated',  # my app
+    'management',
     #"arboverse.users.apps.UsersConfig",
     #"arboverse.arbovirus.apps.ArbovirusConfig",
     # Your stuff: custom apps go here
@@ -136,9 +139,9 @@ REST_FRAMEWORK = {
 # MEDIA
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = str(APP_DIR / "media")
+MEDIA_ROOT = str(APP_DIR / "data")
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
-MEDIA_URL = "/media/"
+MEDIA_URL = "/data/"
 
 # TEMPLATES
 # ------------------------------------------------------------------------------
