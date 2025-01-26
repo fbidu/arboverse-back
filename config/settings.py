@@ -1,7 +1,6 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
-
 import logging
 logger = logging.getLogger(__name__)
 
@@ -65,8 +64,6 @@ THIRD_PARTY_APPS = [
     "allauth.account",
     "allauth.socialaccount",
 ]
-
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOCAL_APPS = [
     'arboverse_updated',  # my app
@@ -139,9 +136,9 @@ REST_FRAMEWORK = {
 # MEDIA
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-root
-MEDIA_ROOT = str(APP_DIR / "data")
+MEDIA_ROOT = str(APP_DIR / "media")
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
-MEDIA_URL = "/data/"
+MEDIA_URL = "/media/"
 
 # TEMPLATES
 # ------------------------------------------------------------------------------

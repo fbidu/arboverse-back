@@ -21,22 +21,22 @@ from arboverse_updated.models import BloodMeal, \
 
 # Register your models here.
 
+class DataUploadAdmin(admin.ModelAdmin):
+
+    list_display = ["datafile", "notes"]
+
+    @admin.action(description="Save data file")
+    def save_data(modeladmin, request, queryset):
+        data = request.FILES["datafile"]
+        
+    actions = [save_data]
+
+
 admin.site.register(BloodMeal)
 admin.site.register(Borning)
 admin.site.register(Country)
+admin.site.register(DataUpload,DataUploadAdmin)
 admin.site.register(Disease)
-admin.site.register(DataUpload)
-admin.site.register(FeedingPeriod)
-admin.site.register(Habitat)
-admin.site.register(Landscape)
-admin.site.register(Location)
-admin.site.register(VectorFamily)
-admin.site.register(VectorGenus)
-admin.site.register(VectorOrder)
-admin.site.register(VectorSpecies)
-admin.site.register(VectorSubFamily)
-admin.site.register(Virus)
-admin.site.register(VirusFamily)
 admin.site.register(VirusGenus)
 admin.site.register(VirusVector)
 
