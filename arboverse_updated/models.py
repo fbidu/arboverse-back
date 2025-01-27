@@ -16,14 +16,10 @@ class Country(models.Model):
         return self.name
 
 class DataUpload(models.Model):
+
+    uploaded = models.DateField(auto_now_add=True)
     datafile = models.FileField(storage=dataloc)
     notes    = models.TextField(blank=True, null=True)
-
-#    class Meta:
-#        ordering=["datafile"]
-
-#    def __str__(self):
-#        return self.datafile.path()
 
     
 class Disease(models.Model):

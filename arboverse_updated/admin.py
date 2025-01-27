@@ -26,13 +26,13 @@ from arboverse_updated.models import BloodMeal, \
 
 class DataUploadAdmin(admin.ModelAdmin):
 
-    list_display = ["datafile", "notes"]
+    list_display = ["uploaded", "datafile", "notes"]
 
     @admin.action(description="Reload application data file")
     def reload_data(self, request, queryset):
 
         logger.info(f"/admin/arboverse_updated/dataupload/ action: process {repr(queryset[0].datafile)}")
-        
+
     actions = ["reload_data"]
 
 
