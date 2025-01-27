@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.core.files.storage import FileSystemStorage
 from django.db import models
 
-dataloc = FileSystemStorage(location="/data")
+dataloc = FileSystemStorage(location="/media")
 
 class DataUploader(models.Model):
     
