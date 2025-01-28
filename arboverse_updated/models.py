@@ -1,32 +1,43 @@
 from django.contrib import admin
 from django.core.files.storage import FileSystemStorage
 from django.db import models
-from django.db.models import Value
 from django.db.models.functions import Concat
+from django.db.models.fields.files import FieldFile
+from django.forms import FileInput
+
+import logging
+logger = logging.getLogger(__name__)
+
 
 dataloc = FileSystemStorage(location="/code/media")
+
+class DataReload(models.Model):
+
+
+    FileInput
+    uploaded   = models.DateTimeField(auto_now_add=True)
+
+    # @admin.display(widget=FileInput(attrs={'accept':'text/csv'}))
+    vectorfile = models.FileField(storage=dataloc)
+
+    # @admin.display(widget=FileInput(attrs={'accept':'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}))
+    virusfile  = models.FileField(storage=dataloc)
+    notes      = models.TextField(blank=True, null=True)
+
 
 class Country(models.Model):
     name = models.TextField(unique=True)
 
-    class Meta:
-        ordering=["name"]
-
     def __str__(self):
         return self.name
-
-class DataUpload(models.Model):
-
-    uploaded = models.DateField(auto_now_add=True)
-    datafile = models.FileField(storage=dataloc)
-    notes    = models.TextField(blank=True, null=True)
-
+        
     
 class Disease(models.Model):
     name = models.TextField(unique=True)
 
     class Meta:
         ordering=["name"]
+        db_table='arboverse_updated_disease'
 
     def __str__(self):
         return self.name
@@ -37,6 +48,7 @@ class Borning(models.Model):
 
     class Meta:
         ordering=["borne_type"]
+        db_table='arboverse_updated_borning'
 
     def __str__(self):
         return self.borne_type
@@ -46,7 +58,8 @@ class VirusFamily(models.Model):
     name = models.TextField(unique=True)
 
     class Meta:
-        ordering=["name"]
+        db_table = 'arboverse_updated_virusfamily'
+        ordering = ["name"]
 
     def __str__(self):
         return self.name
@@ -56,7 +69,8 @@ class VirusGenus(models.Model):
     name = models.TextField(unique=True)
 
     class Meta:
-        ordering=["name"]
+        db_table  = 'arboverse_updated_virusgenus'
+        ordering = ["name"]
 
     def __str__(self):
         return self.name
@@ -103,7 +117,8 @@ class Virus(models.Model):
     sals_level = models.TextField(default="")
 
     class Meta:
-        ordering=["name"]
+        db_table = 'arboverse_updated_virus'
+        ordering = ["name"]
 
     def __repr__(self):
         return f"<Virus: {self.name} #{self.id}>"
@@ -115,6 +130,7 @@ class FeedingPeriod(models.Model):
     name = models.TextField(unique=True)
 
     class Meta:
+        db_table = 'arboverse_updated_feedingperiod'
         ordering=["name"]
 
     def __str__(self):
@@ -125,7 +141,8 @@ class BloodMeal(models.Model):
     name = models.TextField(unique=True)
 
     class Meta:
-        ordering=["name"]
+        db_table = 'arboverse_updated_bloodmeal'
+        ordering = ["name"]
 
     def __str__(self):
         return self.name

@@ -67,7 +67,6 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     'arboverse_updated',  # my app
-    'management',
     #"arboverse.users.apps.UsersConfig",
     #"arboverse.arbovirus.apps.ArbovirusConfig",
     # Your stuff: custom apps go here

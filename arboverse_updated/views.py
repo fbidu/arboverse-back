@@ -6,15 +6,15 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from django.views import generic
 
-from arboverse_updated.models import DataUpload, Virus, VirusVector, VectorSpecies
+from arboverse_updated.models import DataReload, Virus, VirusVector, VectorSpecies
 from arboverse_updated.serializers import VirusSerializer, VectorSerializer, VectorSpeciesSerializer, \
     VectorSpeciesAllSerializer, VirusAllSerializer, VirusDetailedSerializer
 import logging
 logger = logging.getLogger(__name__)
 
 
-class DataUploadView(generic.DetailView):
-    model = DataUpload
+class DataReloadView(generic.DetailView):
+    model = DataReload
 
 
 class VirusViewSet(viewsets.ModelViewSet):
