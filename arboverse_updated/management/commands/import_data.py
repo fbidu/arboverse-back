@@ -129,7 +129,8 @@ class Command(BaseCommand):
                 
             # Create virus instance with cleaned data
             virus = Virus.objects.create(
-                name=self.clean_text(row.get('virus_name')),
+                name=self.clean_text(row.get('name')),
+#      orig      name=self.clean_text(row.get('virus_name')),
                 specie=self.clean_text(row.get('specie')),
                 family=family,
                 genus=genus,
@@ -209,7 +210,8 @@ class Command(BaseCommand):
 
             # Create vector species with cleaned data
             vector = VectorSpecies.objects.create(
-                name=self.clean_text(row.get('binominal_name')),
+                name=self.clean_text(row.get('species')),
+# orig           name=self.clean_text(row.get('binominal_name')),
                 arthropod_type=self.clean_text(row.get('arthropod_type')),
                 genome=self.clean_boolean(row.get('genome')),
                 reference_genome=self.clean_text(row.get('reference_genome')),
