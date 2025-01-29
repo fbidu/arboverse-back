@@ -152,6 +152,7 @@ class Landscape(models.Model):
     name = models.TextField(unique=True)
 
     class Meta:
+        db_table = 'arboverse_updated_landscape'
         ordering=["name"]
 
     def __str__(self):
@@ -162,6 +163,7 @@ class Habitat(models.Model):
     name = models.TextField(unique=True)
 
     class Meta:
+        db_table = 'arboverse_updated_habitat'
         ordering=["name"]
 
     def __str__(self):
@@ -171,6 +173,7 @@ class Location(models.Model):
     name = models.TextField(unique=True)
 
     class Meta:
+        db_table = 'arboverse_updated_location'
         ordering=["name"]
 
     def __str__(self):
@@ -181,6 +184,7 @@ class VectorOrder(models.Model):
     name = models.TextField(unique=True)
 
     class Meta:
+        db_table = 'arboverse_updated_vectororder'
         ordering=["name"]
 
     def __str__(self):
@@ -194,6 +198,7 @@ class VectorFamily(models.Model):
     )
 
     class Meta:
+        db_table = 'arboverse_updated_vectorfamily'
         ordering=["name"]
 
     def __str__(self):
@@ -207,6 +212,7 @@ class VectorSubFamily(models.Model):
     )
 
     class Meta:
+        db_table = 'arboverse_updated_subfamily'
         ordering=["name"]
 
     def __str__(self):
@@ -223,6 +229,7 @@ class VectorGenus(models.Model):
     )
 
     class Meta:
+        db_table = 'arboverse_updated_vectorgenus'
         ordering=["name"]
 
     def __str__(self):
@@ -256,6 +263,7 @@ class VectorSpecies(models.Model):
     virus = models.ManyToManyField(Virus, related_name="virus", through="VirusVector")
 
     class Meta:
+        db_table = 'arboverse_updated_vectorspecies'
         ordering=["name"]
 
     def __str__(self):
@@ -269,6 +277,7 @@ class VirusVector(models.Model):
     main_vector = models.BooleanField(blank=True, null=True)
 
     class Meta:
+        db_table = 'arboverse_updated_virusvector'
         ordering=["virus","vector"]
 
     def __str__(self):

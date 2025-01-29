@@ -9,6 +9,9 @@ from arboverse_updated.models import (
     VectorSpecies, VirusVector
 )
 
+import logging
+logger = logging.getLogger(__name__)
+
 debug_mode = True
 
 class Command(BaseCommand):
@@ -129,9 +132,8 @@ class Command(BaseCommand):
                 
             # Create virus instance with cleaned data
             virus = Virus.objects.create(
-                name=self.clean_text(row.get('name')),
-#      orig      name=self.clean_text(row.get('virus_name')),
-                specie=self.clean_text(row.get('specie')),
+                name=self.clean_text(row.get('virus_name')),
+                specie=self.clean_text(row.get('species')),
                 family=family,
                 genus=genus,
                 borning=borning,
@@ -155,24 +157,29 @@ class Command(BaseCommand):
                 animal_model=self.clean_text(row.get('animal_model')),
                 sals_level=self.clean_text(row.get('sals_level'))
             )
-            virus.save()
 
             if debug_mode:
-                print( "import_virus_data(virus):  "+repr(virus.name))
-                print( "import_virus_data(specie): "+repr(virus.specie))
+                print( "import_virus_data(virus):    "+repr(virus.name))
+                print( "import_virus_data(specie):   "+repr(virus.specie))
+                print( f"import_virus_data(country): {repr(row['country'])}")
+                print( f"import_virus_data(disease): {repr(row['category-human-disease'])}")
                 
             # Handle many-to-many relationships
-            if 'diseases' in row and not pd.isna(row['diseases']):
-                diseases = [d.strip() for d in str(row['diseases']).split(',')]
+            if 'category-human-disease' in row and not pd.isna(row['category-human-disease']):
+                diseases = [d.strip() for d in str(row['category-human-disease']).split(',')]
                 for disease in diseases:
-                    disease_obj, _ = Disease.objects.get_or_create(name=disease)
+                    disease_obj, created = Disease.objects.get_or_create(name=disease)
                     virus.diseases.add(disease_obj)
+                    if debug_mode:
+                        print( f"import_virus_data(disease_obj):  {repr(disease_obj.name)} {created}")
 
-            if 'countries' in row and not pd.isna(row['countries']):
-                countries = [c.strip() for c in str(row['countries']).split(',')]
+            if 'country' in row and not pd.isna(row['country']):
+                countries = [c.strip() for c in str(row['country']).split(',')]
                 for country in countries:
-                    country_obj, _ = Country.objects.get_or_create(name=country)
+                    country_obj, created = Country.objects.get_or_create(name=country)
                     virus.country.add(country_obj)
+                    if debug_mode:
+                        print( f"import_virus_data(country_obj):  {repr(country_obj.name)} {created}")
 
     def import_vector_data(self, file_path):
         """Import vector data from CSV file"""
@@ -181,37 +188,38 @@ class Command(BaseCommand):
         for _, row in df.iterrows():
 
             if debug_mode:
-                print( "import_vector_data(binominal_name,raw):   "+row.get('binominal_name'))
                 print( "import_vector_data(binominal_name,clean): "+self.clean_text(row.get('binominal_name')))
 
             # Create or get taxonomic hierarchy
-            order = self.get_or_create_related(VectorOrder, row.get('order'))
+            order = self.get_or_create_related(VectorOrder, row.get('taxonomy_order'))
             family = None
-            if order and row.get('family'):
+            col = 'taxonomy_family'
+            if order and row.get(col):
                 family, _ = VectorFamily.objects.get_or_create(
-                    name=row['family'],
+                    name=row[col],
                     order=order
                 )
 
             subfamily = None
-            if family and row.get('subfamily'):
+            col = 'taxonomy_sub-family'
+            if family and row.get(col):
                 subfamily, _ = VectorSubFamily.objects.get_or_create(
-                    name=row['subfamily'],
+                    name=row[col],
                     family=family
                 )
 
             genus = None
-            if family and row.get('genus'):
+            col = 'genus'
+            if family and row.get(col):
                 genus, _ = VectorGenus.objects.get_or_create(
-                    name=row['genus'],
+                    name=row[col],
                     family=family,
                     sub_family=subfamily
                 )
 
             # Create vector species with cleaned data
             vector = VectorSpecies.objects.create(
-                name=self.clean_text(row.get('species')),
-# orig           name=self.clean_text(row.get('binominal_name')),
+                name=self.clean_text(row.get('binominal_name')),
                 arthropod_type=self.clean_text(row.get('arthropod_type')),
                 genome=self.clean_boolean(row.get('genome')),
                 reference_genome=self.clean_text(row.get('reference_genome')),
@@ -226,24 +234,23 @@ class Command(BaseCommand):
                 experimental_infection=self.clean_text(row.get('experimental_infection')),
                 genus=genus
             )
-            vector.save()
             
             if debug_mode:
                 print( "import_vector_data(vector): "+vector.name )
                 
             # Handle many-to-many relationships
-            for field, model in [
-                ('feeding_period', FeedingPeriod),
-                ('blood_meal', BloodMeal),
-                ('landscape', Landscape),
-                ('habitat', Habitat),
-                ('location', Location)
+            for infield, vectorfield, model in [
+                ('blood_meal',        'blood_meal',     BloodMeal),
+                ('location',          'location',       Location),
+                ('feeding_period',    'feeding_period', FeedingPeriod),
+                ('habitat',           'habitat',        Habitat),
+                ('natural_landscape', 'landscape',      Landscape),
             ]:
-                if field in row and not pd.isna(row[field]):
-                    values = [v.strip() for v in str(row[field]).split(',')]
+                if infield in row and not pd.isna(row[infield]):
+                    values = [v.strip() for v in str(row[infield]).split(',')]
                     for value in values:
                         obj, _ = model.objects.get_or_create(name=value)
-                        getattr(vector, field).add(obj)
+                        getattr(vector, vectorfield).add(obj)
 
             # Handle virus relationships
             if 'viruses' in row and not pd.isna(row['viruses']):
