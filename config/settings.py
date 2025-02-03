@@ -1,3 +1,4 @@
+import csp
 import os
 from pathlib import Path
 from dotenv import load_dotenv
@@ -59,10 +60,12 @@ DJANGO_APPS = [
     "rest_framework",
 ]
 THIRD_PARTY_APPS = [
-    "crispy_forms",
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
+    "crispy_forms",
+    "csp",
+    "fontawesomefree",
 ]
 
 LOCAL_APPS = [
@@ -96,8 +99,8 @@ MANAGERS = ADMINS
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
 MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
+    "csp.middleware.CSPMiddleware",
     "django.middleware.security.SecurityMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -106,6 +109,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.common.BrokenLinkEmailsMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 # STATIC
@@ -195,7 +199,49 @@ LOGGING = {
     "root": {"level": "DEBUG", "handlers": ["console"]},
 }
 
+# CONTENT SECURITY POLICY
+# ------------------------------------------------------------------------------
+# https://www.w3.org/TR/CSP/
+# CONTENT SECURITY POLICY header settings communicates security policies from
+# the server to the user agent to mitigate potential security risks.
 
+# django-csp 3.8
+
+CSP_DEFAULT_SRC               = ["http://*.fontawesome.com/","http://*.googleapis.com/","http://*.jquery.com/","'self'",]
+CSP_FONT_SRC                  = ["http://*.fontawesome.com/","http://*.googleapis.com/","http://*.jquery.com/","'self'",]
+CSP_FRAME_ANCESTORS           = ["'self'"]
+# CSP_REPORT_URI                = ["'/csp-report/'"]
+CSP_SCRIPT_SRC                = ["http://*.fontawesome.com/","http://*.googleapis.com/","http://*.jquery.com/","'self'",]
+CSP_UPGRADE_INSECURE_REQUESTS = True
+
+# CSP-4.0 from csp.constants import NONE, SELF
+# 
+# CONTENT_SECURITY_POLICY = {
+#     "EXCLUDE_URL_PREFIXES": [NONE],
+#     "DIRECTIVES": {
+#         "default-src":     [SELF],
+#         "frame-ancestors": [SELF],
+#         "form-action":     [SELF],
+#         "report-uri":      "/csp-report/",
+#     },
+# }
+# 
+# CONTENT_SECURITY_POLICY_REPORT_ONLY = {
+#     "EXCLUDE_URL_PREFIXES": ["/excluded-path/"],
+#     "DIRECTIVES": {
+#         "default-src":               [NONE],
+#         "connect-src":               [SELF],
+#         "img-src":                   [SELF],
+#         "form-action":               [SELF],
+#         "frame-ancestors":           [SELF],
+#         "script-src":                [SELF],
+#         "style-src":                 [SELF],
+#         "upgrade-insecure-requests": True,
+#         "report-uri":                "/csp-report/",
+#     },
+# }
+# 
+#
 # logger.warn("config/settings.py read")
 # logger.warn(f"DEBUG=${DEBUG}")
 # logger.warn(f"DB NAME=${os.environ['PGSQL_DB']}")
