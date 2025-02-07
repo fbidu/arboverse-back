@@ -62,10 +62,9 @@ docker compose up -d web
 sleep 3
 docker compose exec web python manage.py makemigrations \
     && docker compose exec web python manage.py migrate \
-    && docker compose exec web python manage.py import_data --verbosity 3 --sheet-name "main_arbovirus" "The global distribution of arbovirus diversity - OFFICIAL.xlsx" Arbovector_database.csv
+    && docker compose exec web python schema_populator.py
 
-#    && docker compose exec web python schema_populator.py
-
+#    && docker compose exec web python manage.py import_data --verbosity 3 --sheet-name "main_arbovirus" "The global distribution of arbovirus diversity - OFFICIAL.xlsx" Arbovector_database.csv
 
 
 

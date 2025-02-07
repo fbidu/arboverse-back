@@ -50,10 +50,10 @@ class DataReloadAdmin(admin.ModelAdmin):
         Habitat.objects.all().delete()
         Landscape.objects.all().delete()
         Location.objects.all().delete()
-        VectorGenus.objects.all().delete()
-        VectorSubFamily.objects.all().delete()
         VectorFamily.objects.all().delete()
+        VectorGenus.objects.all().delete()
         VectorOrder.objects.all().delete()
+        VectorSubFamily.objects.all().delete()
         VirusFamily.objects.all().delete()
         VirusGenus.objects.all().delete()
 
