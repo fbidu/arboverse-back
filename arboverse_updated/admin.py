@@ -1,7 +1,4 @@
 from django.contrib import admin
-import logging
-logger = logging.getLogger(__name__)
-
 
 from arboverse_updated.models import BloodMeal, \
                                      Borning, \
@@ -28,12 +25,11 @@ class DataUploadAdmin(admin.ModelAdmin):
 
     list_display = ["datafile", "notes"]
 
-    @admin.action(description="Reload application data file")
-    def reload_data(self, request, queryset):
-
-        logger.info(f"/admin/arboverse_updated/dataupload/ action: process {repr(queryset[0].datafile)}")
+    @admin.action(description="Save data file")
+    def save_data(modeladmin, request, queryset):
+        data = request.FILES["datafile"]
         
-    actions = ["reload_data"]
+    actions = [save_data]
 
 
 admin.site.register(BloodMeal)
