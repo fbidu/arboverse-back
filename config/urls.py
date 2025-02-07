@@ -51,10 +51,6 @@ urlpatterns = ([
     ),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
-    path(
-        "management/",
-        include("arboverse_updated.management.urls", namespace="management"),
-    ),
     # User management
     path(
         "users/",
