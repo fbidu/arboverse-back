@@ -4,7 +4,7 @@ from django.db import models
 from django.db.models import Value
 from django.db.models.functions import Concat
 
-dataloc = FileSystemStorage(location="/code/media")
+dataloc = FileSystemStorage(location="/data")
 
 class Country(models.Model):
     name = models.TextField(unique=True)
@@ -19,11 +19,11 @@ class DataUpload(models.Model):
     datafile = models.FileField(storage=dataloc)
     notes    = models.TextField(blank=True, null=True)
 
-#    class Meta:
-#        ordering=["datafile"]
+    class Meta:
+        ordering=["datafile"]
 
-#    def __str__(self):
-#        return self.datafile.path()
+    def __str__(self):
+        return self.datafile
 
     
 class Disease(models.Model):

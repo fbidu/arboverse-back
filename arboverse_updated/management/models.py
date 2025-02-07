@@ -5,7 +5,6 @@ from django.db import models
 dataloc = FileSystemStorage(location="/data")
 
 class DataUploader(models.Model):
-    
     datafile = models.FileField(storage=dataloc)
     notes    = models.TextField(blank=True, null=True)
 
