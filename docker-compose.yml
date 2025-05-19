@@ -1,22 +1,33 @@
-version: "3.9"
+# version: "3.9"
 
 services:
   db:
     image: postgres:13
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=arboverse_db
       - POSTGRES_USER=arboverse
       - POSTGRES_PASSWORD=postgres
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U arboverse -d arboverse_db" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
   web:
     build:
         context: .
         dockerfile: dev.dockerfile
     command: python manage.py runserver 0.0.0.0:8000
+    restart: unless-stopped
     volumes:
       - .:/code
     ports:
       - "8000:8000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy

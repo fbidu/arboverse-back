@@ -4,8 +4,16 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views import defaults as default_views
+from rest_framework.routers import DefaultRouter
+from arboverse_updated import views
 
-urlpatterns = [
+router = DefaultRouter()
+router.register('virus', views.VirusViewSet, basename="Virus")
+router.register('virus-vector', views.VectorViewSet, basename="VirusVector")
+router.register('vector-species', views.VectorSpeciesSet, basename="VectorSpecies")
+#router.register('vector-search', views.get_vector_by_name, basename="VectorSpeciesSearch")
+
+urlpatterns = ([
     path(
         "",
         TemplateView.as_view(template_name="home.html"),
@@ -46,11 +54,16 @@ urlpatterns = [
     # User management
     path(
         "users/",
-        include("arboverse.users.urls", namespace="users"),
+        include("arboverse_updated.users.urls", namespace="users"),
     ),
     path("accounts/", include("allauth.urls")),
+    path("api/", include(router.urls)),
+    path('api/vector-by-name/', views.get_vector_by_name, name='get-vector-by-name'),
+    path('api/virus-by-name/', views.get_virus_by_name, name='get-virus-by-name'),
+    path('api/virusvector-by-virus/', views.get_virusvector_by_virus, name='get-virusvector-by-virus')
     # Your stuff: custom urls includes go here
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+               + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT))
 
 if settings.DEBUG:
     # This allows the error pages to be debugged during development, just visit

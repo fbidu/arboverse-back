@@ -1,201 +1,201 @@
-﻿arthropods_type,binominal_name ,taxonomy_order,taxonomy_family,taxonomy_sub-family,genome,reference_genome,genome_size,habitat,natural_landscape,survival_temperature_ranges (ºC),survival_humidity_%,distribution,blood_meal,feeding_period,adult_life_expectancy_(day),anthropophilic_behaviour,eggs_viability_(days),lifecycle_time_(days),main_vector,secondary_vector,experimental infection,
-mosquito,Aedeomyia catasticta,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,ground_water_habitats,26-32.5,>70,Australasian_Regions,birds,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Aedeomyia squamipennis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,lakes,unk,>70,Neotropical,birds,night,unk,no,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Aedes abnormalis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,unk,unk,unk,unk,Afrotropical,unk,unk,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Aedes aegypti,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,urban,frash water,21-29,70,Cosmopolitan,human,day,~40,yes,360 (diapause),~10,tbc,tbc,tbc,tbc
-mosquito,Aedes africanus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,bamboo_stumps,unk,unk,Afrotropical,primates,day/crepuscular activity,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Aedes albopictus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,urban,frash water,20-30,~70,Cosmopolitan,human,day,~40,yes,unk,10,tbc,tbc,tbc,tbc
-mosquito,Aedes circumluteolus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,Afrotropical Region,Bovidae,day,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Aedes cumminsii,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,ground_water_habitats,~25,unk,Afrotropical,large mammals,unk,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Aedes dalzieli,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,unk,unk,unk,Africa,eclectc,unk,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Aedes furcifer-taylori,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,savannah/forest,tree holes,unk,unk,Africa,eclectc,crepuscular activity,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Aedes iyengari ,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,urban/forest,bamboo_stumps,unk,unk,Southeast Asia,hunans,day,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Aedes lineatopennis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,ground_water_habitats,~27,70 - 80,African and Asia,eclectc,day/crepuscular,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Aedes longipalpis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,"bamboo, leaf axils, banana fibre",unk,unk,Afrotropical,primate,day,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Aedes palpalis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,savannah/mangrove  forest ,ground_water_habitats,unk,unk,Afrotropical,mammals,day,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Aedes pembaensis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,crab holes in tidal swamps and estuaries,unk,unk,Afrotropical,mammals,day,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Aedes serratus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,puddles_ground,unk,unk,America,large_mammals,day/crepuscular activity,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Aedes taeniorhynchus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/coast,puddles_ground,unk,unk,neotropical and Atlantic coast ,eclectic,day/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Aedes tarsalis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,unk,unk,unk,Africa,unk,unk,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Aedes vexans,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,"shallow, tempo-rary pools, marshes, roadside ditches, and grassypools",unk,unk,cosmopolitan,humans,day,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Aedes vexans nipponii,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,"shallow, tempo-rary pools, marshes, roadside ditches, and grassypools",unk,unk,Asia,humans,day,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-tick,Amblyomma americanum,Ixodida,Ixodidae,Amblyomminae,tbc,tbc,tbc,unk,soil,~27,>85,North America,eclectic,unk,8 - 24,yes,31 to 60,2 years,tbc,tbc,tbc,tbc
-tick,Amblyomma gemma,Ixodida,Ixodidae,Amblyomminae,tbc,tbc,tbc,forest/rural,unk,~27,>85,"Africa, Asia, America, Europe",mammals,unk,unk,unk,69,unk,tbc,tbc,tbc,tbc
-tick,Amblyomma loculosum,Ixodida,Ixodidae,Amblyomminae,tbc,tbc,tbc,coast,unk,~27,>85,Africa,seabird,unk,5 - 24,yes,60,unk,tbc,tbc,tbc,tbc
-tick,Amblyomma variegatum,Ixodida,Ixodidae,Amblyomminae,tbc,tbc,tbc,forest/savannah,mammals/soil,~27,>85,"Africa, Central America",eclectic,unk,,unk,52,unk,tbc,tbc,tbc,tbc
-mosquito,Anopheles albitarsis,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest/rural,eclectic,unk,>70,neotropical,eclectic,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Anopheles annulipes,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest,puddles_ground,unk,unk,Oceania,eclectic,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Anopheles boliviensis,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest,leaf axils and bromeliands,unk,unk,Neotropical,large_mammals,all time,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Anopheles crucians,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest,ponds and swamps,unk,unk,America,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Anopheles cruzii,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest,bromeliads,unk,unk,Atlantic forest,eclectic,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Anopheles freeborni,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest/rural/urban,puddles_ground,unk,unk,North America,eclectic,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Anopheles funestus,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,caves/forest/rural,lakes and swamps,unk,unk,Africa,humans,day/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Anopheles gambiae,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,urban,eclectic,unk,unk,cosmopolit,humans,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Anopheles maculipennis,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,rural,"puddles_ground, diches",unk,unk,Europe/Asia,large_mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Anopheles meraukensis,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest,water bodies,unk,unk,Australia/Indonesia,vertebrades,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Anopheles nimbus,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest,ater of leaf axils of bromeliads (,unk,unk,Neotropical,eclectic,crepuscular,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Anopheles paludis,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest/rural,river/water bodies,unk,unk,Afrotropical,primate,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Anopheles pharoensis,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,urban/rural,large bodies of water,unk,unk,Africa,humans and mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Anopheles pseudopunctipennis,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest/rural,puddles_ground,unk,unk,America,eclectic,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Anopheles subpictus,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,rural/urban,eclectic bodies of water,unk,unk,Asia,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Anopheles triannulatus,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest,lakes,unk,>70,neotropical,eclectic,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-tick,Argas abdussalami,Ixodida,Argasidae,no,tbc,tbc,tbc,unk,soil/bird,unk,unk,Asia,birds,night,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-tick,Argas africolumbae,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,soil/bird,unk,unk,Africa,birds,night,unk,unk,~16,unk,tbc,tbc,tbc,tbc
-tick,Argas arboreus,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,soil/bird,unk,unk,Africa,birds/cattles,night,unk,unk,unk,~ 90,tbc,tbc,tbc,tbc
-tick,Argas cooleyi,Ixodida,Argasidae,no,tbc,tbc,tbc,unk,soil/bird,unk,unk,North America,birds,night,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-tick,Argas hermanni,Ixodida,Argasidae,no,tbc,tbc,tbc,urban,soil/bird,unk,unk,Africa/Asia,birds,night,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-tick,Argas miniatus,Ixodida,Argasidae,no,tbc,tbc,tbc,rural,soil/bird,unk,>70,Neotropical,birds,night,unk,unk,12 - 41,317,tbc,tbc,tbc,tbc
-tick,Argas persicus,Ixodida,Argasidae,no,tbc,tbc,tbc,rural/urban,soil/bird,21-32,>75,cosmopolitan,birds,night,unk,rarely,unk,111 - 260,tbc,tbc,tbc,tbc
-tick,Argas pusillus,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,soil/bats,unk,unk,Asia,bats,night,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-tick,Argas reflexus,Ixodida,Argasidae,no,tbc,tbc,tbc,urban/rural,soil/bird,unk,unk,Paleartic,birds,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-tick,Argas robertsi,Ixodida,Argasidae,no,tbc,tbc,tbc,unk,soil/bird,unk,unk,Asia,unk,night,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-tick,Carios vespertilionis,Ixodida,Argasidae,no,tbc,tbc,tbc,urban/rural,soil/bats,unk,unk,Afrotropical‐Oriental‐Palearctic,bats,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Coquillettidia albicosta,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,mammals,unk,>70,neotropical,bodies of water,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex accelerans,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,margins and root caves of swamps,unk,>70,neotropical,birds,night,unk,no,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex adamesi,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,swamp,unk,>70,Neotropical,mammals/birds,night,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex aikenii,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,aquatic floating plant,unk,>70,Neotropical,mammals/birds,day,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex albiventris,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,water bodies,unk,unk,Afrotropical,mammals/birds,unk,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex amazonensis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,swamp margins and root cave,unk,>70,neotropical,mammals,night,unk,no,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex annulirostris,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,caves/forest/rural,swamp,unk,unk,Australia/Africa,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex antennatus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,urban/rural,fresh water bodies,unk,unk,Africa/Asia,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex declarator,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,>70,neotropical,birds,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex delpontei,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,>70,Neotropical,birds,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex dunni,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,>70,Neotropical,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex eastor,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,~26,>70,Neotropical,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex guiarti,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,Africa,mammals/birds,night,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex modestus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,rural,ground_water_habitats,unk,unk,Paleartic,birds,crepuscular,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex neavei,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,water bodies,unk,unk,Africa,mammals,crepuscular,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex ocossa,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,>70,Neotropical,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex paracrybda,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,>70,Neotropical,unk,night,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex perfuscus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/urban,ground_water_habitats,unk,unk,Africa,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex pipiens,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,urban,ground_water_habitats,unk,unk,Cosmopolitan,bird,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex portesi,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,swamps,unk,>70,Neotropical,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex pseudovishnui,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,Asia/Australia,mammals/birds,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex quinquefasciatus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,urban,water tank,unk,unk,Cosmopolit,humans,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex restuans,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,North America,bird,night,unk,no,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex rima,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,caves/forest,ground_water_habitats,unk,unk,Africa,mammals,night,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex rubinotus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,Africa,mammals/brids,night,unk,low*,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex sacchettae,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,>70,Neotropical,unk,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex sitiens,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,,"small pits, pit lakes, wells, swamps, ponds, canals, shrimp ponds and water that collects in abandoned tin mines",29 - 31,64 - 70,Asia/Australia/Africa,mammals,night,unk,yes,2 - 3,unk,tbc,tbc,tbc,tbc
-mosquito,Culex spissipes,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,Neotropical,vertebrates,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex taeniopus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,>70,Neotropical,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex tarsalis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,North America,bird,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex telesilla,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,Africa,bird,night,unk,no,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex territans,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,"North America, Europe",frogs,night,unk,no,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex tritaeniorhynchus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,rice fields,unk,unk,"North America, Europe, Asia, Africa",mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex univittatus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,rice fields,unk,unk,Asia/Africa/Europe,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex vishnui,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,rice fields,unk,unk,Asia,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culex vomerifer,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,root caves/swamp,unk,>70,Neotropical,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-biting midges,Culicoides austropalpalis,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,forest,fresh water habitats,unk,unk,Oceania,birds,crepuscular/night,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-biting midges,Culicoides brevitarsis,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,"""surrounding  bush""",bovine dung,unk,unk,Asia/Oceania,large mammals,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-biting midges,Culicoides imicola,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,unk,organic soil substrates,unk,unk,Cosmopolitan,mammals,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-biting midges,Culicoides insignis,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,unk,ground_water_habitats,unk,unk,America,large mammals,crepuscular,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-biting midges,Culicoides marksi,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,forest,fresh water habitats,unk,unk,Oceania,birds/mammals,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-biting midges,Culicoides oxystoma,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,rural,unk,~27,80,Africa/Asia,mammals,crepuscular/night,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-biting midges,Culicoides peregrinus,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,rural,organic soil substrates,unk,unk,Asia/Oceania,birds/mammals,crepuscular/night,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-biting midges,Culicoides puncutatus,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,forest,unk,unk,unk,Palearctic,mammals,crepuscular,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-biting midges,Culicoides schultzei,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,rural/forest,unk,unk,unk,Africa/Asia,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-biting midges,Culicoides variipennis,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,rural,Aquatic sites contaminated with livestock manure,unk,unk,North America,large mammals,,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culiseta inornata,Diptera,Culicidae,Culicinae,tbc,tbc,tbc, coastal marshes in California.,diches,unk,unk,North America,large mammals,day,unk,rarely,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culiseta melanura,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,unk,ground_water_habitats,unk,unk,North America,songbirds/mammals,day,unk,rarely,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Culiseta tonnoiri,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,">4,5 ºC",unk,Oceania,bird,unk,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-tick,Dermacentor albipictus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest,mammals,unk,unk,North America,mammals,night*,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-tick,Dermacentor andersoni,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest,small mammals,unk,unk,North America,mammals,night*,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-tick,Dermacentor auratus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest,unk,unk,unk,India,mammals,night*,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-tick,Dermacentor marginatus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,unk,mice/rabbits,unk,unk,"Asia, Europe and North Africa",small mammals,night*,unk,yes,unk,75–163,tbc,tbc,tbc,tbc
-tick,Dermacentor nuttalli,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,unk,unk,unk,unk,Asia,mammals,night*,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-tick,Dermacentor occidentalis,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest/rural,small mammals,unk,unk,North America,mammals,night*,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Eretmapodites chrysogaster,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,"fruit husks, leaf axils",unk,unk,Africa,primates,day,unk,yes,<20,unk,tbc,tbc,tbc,tbc
-mosquito,Eretmapodites leucopus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,"fruit husks, leaf axils",unk,unk,Africatropical,primates,day,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-bats fly,Eucampsipoda africana,Diptera,Nycteribiidae,Cyclopodiinae,tbc,tbc,tbc,forest,unk,unk,unk,Africa,bats,unk,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Haemagogus spegazzinii,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,fruit husks,25 - 30,>70,neotropical,primate,day,3,yes,unk,~40,tbc,tbc,tbc,tbc
-tick,Haemaphysalis doenitzi,Ixodida,Ixodidae,Haemaphysalinae,tbc,tbc,tbc,forest,unk,20 - 30,>70,Asia/Oceania,birds/mammals,night*,unk,yes,91-137  ,~ 365,tbc,tbc,tbc,tbc
-Tick,Haemaphysalis flava,Ixodida,Ixodidae,Haemaphysalinae,tbc,tbc,tbc,forest,mammals,20 - 30,>70,Asia,mammals,night*,unk,unk,,~ 365,tbc,tbc,tbc,tbc
-Tick,Haemaphysalis hystricis,Ixodida,Ixodidae,Haemaphysalinae,tbc,tbc,tbc,forest/urban,unk,20 - 30,>70,Southeast Asia,mammals,night*,unk,rarely,,~ 365,tbc,tbc,tbc,tbc
-Tick,Haemaphysalis intermedia,Ixodida,Ixodidae,Haemaphysalinae,tbc,tbc,tbc,forest,unk,26 - 28,>70,Asia,goats,night*,unk,unk,,~ 365,tbc,tbc,tbc,tbc
-Tick,Haemaphysalis leporispalustris,Ixodida,Ixodidae,Haemaphysalinae,tbc,tbc,tbc,forest,mammals/birds,~27,>70,America,small mammals/birds,night*,unk,unk,22 - 61,~ 365,tbc,tbc,tbc,tbc
-Tick,Haemaphysalis longicornis,Ixodida,Ixodidae,Haemaphysalinae,tbc,tbc,tbc,rural,unk,20 - 30,>70,Cosmopolitan,mammals,night*,unk,unk,unk,~ 365,tbc,tbc,tbc,tbc
-Tick,Haemaphysalis punctata,Ixodida,Ixodidae,Haemaphysalinae,tbc,tbc,tbc,rural,"Small mammals, hares,hedgehogs, birds, lizards",20 - 30,>70,Europa/Africa/Asia,"cattle, sheep and goats",night*,unk,yes,unk,165 - 229,tbc,tbc,tbc,tbc
-Tick,Haemaphysalis spinigera,Ixodida,Ixodidae,Haemaphysalinae,tbc,tbc,tbc,rural/forest,birds,20 - 30,>70,Asia,mammals,night*,unk,unk,unk,~ 365,tbc,tbc,tbc,tbc
-Tick,Hyalomma asiaticum,Ixodida,Ixodidae,Hyalomminae,tbc,tbc,tbc,desert,small mammals,30 - 43,~60,Asia,large mammals/birds,unk,unk,yes,unk,103 -132,tbc,tbc,tbc,tbc
-Tick,Hyalomma dromedarii,Ixodida,Ixodidae,Hyalomminae,tbc,tbc,tbc,"desert, semi-desert and steppe habitats",mammals/birds/reptiles,~28,85,Africa/Asia,mammals/reptiles,unk,unk,unk,unk,108-146,tbc,tbc,tbc,tbc
-Tick,Hyalomma marginatum,Ixodida,Ixodidae,Hyalomminae,tbc,tbc,tbc,rural/forest,small mammals/birds,27,>80,Palearctic,large mammals,unk,unk,yes,unk,73 - 97,tbc,tbc,tbc,tbc
-tick,Ixodes cookei,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,forest,unk,25–29,>90,North America,mammals,unk,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-tick,Ixodes dentatus,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,forest/rural,birds,unk,unk,North America,mammals/birds,unk,unk,rarely,unk,~2 years,tbc,tbc,tbc,tbc
-tick,Ixodes eudyptidis,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,unk,unk,unk,unk,Oceania,birds,unk,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-tick,Ixodes frontalis,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,forest,birds,unk,unk,Europa/Asia/Africa,birds,unk,unk,yes,unk,365,tbc,tbc,tbc,tbc
-tick,Ixodes granulatus,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,forest,unk,unk,unk,Asia,mammals,unk,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-tick,Ixodes persulcatus,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,forest/rural,medium-sized mammals/birds,20,>80,Eurasia,larger mammals/birds,unk,2 years,yes,unk,250,tbc,tbc,tbc,tbc
-tick,Ixodes redikorzevi,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,unk,eclectic,unk,unk,Eurasia,eclectic,unk,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-tick,Ixodes ricinus,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,forest/rural,"small mammals, birds, lizard",unk,>80,"Europe, Africa, Asia",larger mammals/birds,unk,2 - 3 years,yes,unk,155,tbc,tbc,tbc,tbc
-tick,Ixodes scapularis,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,forest/rural,ground,unk,unk,North America/Neartic,eclectic,unk,2 years,yes,unk,unk,tbc,tbc,tbc,tbc
-tick,Ixodes uriae,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,unk,ground,−30 to +40,unk,"North America, polar areas, Afrotropical, Australasian,Nearctic, Neotropical and Palaearctic Regions",birds,unk,unk,yes,unk,270 - 360,tbc,tbc,tbc,tbc
-mosquito,Lutzia tigripes,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,Afrotropical,birds,night,unk,rarely,unk,unk,tbc,tbc,tbc,tbc
-sandfly,Lutzomyia longipalpis,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,urban,soil,25,80,Neotropical,eclectic,night,20 days,yes,6-9 days,28 - 36,tbc,tbc,tbc,tbc
-sandfly,Lutzomyia trapidoi,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,-,-,-,-,-,-,-,-,-,-,-,tbc,tbc,tbc,tbc
-mosquito,Mansonia africana,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,bodies of water,27-29,>70,Africa,mammals,crepuscular/night,unk,yes,unk,~40,tbc,tbc,tbc,tbc
-mosquito,Mansonia maculipennis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,bodies of water,unk,unk,Africa,birds,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Mansonia septempunctata,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,bodies of water,unk,unk,Oceania,mammals,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Mansonia uniformis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,bodies of water,27-29,>70,Asia/Africa,mammals,crepuscular/night,unk,yes,unk,~40,tbc,tbc,tbc,tbc
-sandfly,Nyssomyia flaviscutellata,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,forest,soil,unk,>70,Neotropical,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-sandfly,Nyssomyia trapidoi,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,forest/rural,soil,unk,>70,Neotropical,eclectic,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-sandfly,Nyssomyia umbratilis,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,forest ,soil,unk,>70,Neotropical,eclectic,day/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-sandfly,Nyssomyia ylephiletor,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,forest,soil,unk,>70,Neotropical,eclectic,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Ochlerotatus angustivittatus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,bodies of water,unk,unk,Neotropical,mammals ,day,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Ochlerotatus atlanticus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,bodeis of water,unk,unk,North America,small mammals,day,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Ochlerotatus caballus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,ground_water_habitats,unk,unk,Afrotropical,mammals/birds,day,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Ochlerotatus campestris,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,North America,mammals,day,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Ochlerotatus camptorhynchus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,rural,saline water,unk,unk,Oceania,mammals,day,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Ochlerotatus caspius,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,bodies of water,11.5 - 36,52 - 92,"Africa, Asia, Europe",mammals,corpuscular-nocturnal,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Ochlerotatus communis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,bodies of water,~20,unk,"Europe, Asia, America",mammals,,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Ochlerotatus fulvus pallens,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,muddy water,unk,unk,,mammals,day,unk,yes,unk,10,tbc,tbc,tbc,tbc
-mosquito,Ochlerotatus melanimon,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,,bodies of fresh water,unk,unk,North America,mammals,day,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Ochlerotatus normanensis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,fresh water pools/swampy,unk,unk,Oceania,mammals,,unk,,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Ochlerotatus scapularis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,puddles_ground,unk,>70,neotropical,eclectic,day/twilight,25 - 30,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Ochlerotatus squamiger,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,coastal salt marshes,unk,unk,North America,,,unk,,unk,48,tbc,tbc,tbc,tbc
-mosquito,Ochlerotatus trivittatus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,rural/forest,floodwater,~27,>80,North America,mammals/birds,day,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Ochlerotatus vigilax,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,Coast,estuarine pools of saltmarshes,unk,unk,Asia/Oceania,,,unk,,unk,unk,tbc,tbc,tbc,tbc
-swallow bug,Oeciacus vicarius,Hemiptera,Cimicidae,Cimicinae,tbc,tbc,tbc,urban/rural,bird nests,~28,>70,North America,birds,,unk,yes,unk,60 days,tbc,tbc,tbc,tbc
-tick,Ornithodoros muesebecki,Ixodida,Argasidae,no,tbc,tbc,tbc,rural,birds,unk,unk,Asia ,birds,,unk,,unk,unk,tbc,tbc,tbc,tbc
-tick,Ornithodoros alactagalis,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,mice,26,>90,Palearctic,"mammals, lizard",,unk,yes,unk,150 - 300,tbc,tbc,tbc,tbc
-tick,Ornithodoros amblus,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,birds,unk,unk,Neotropical,birds,,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-tick,Ornithodoros capensis,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,birds,unk,unk,Cosmopolitan,birds/mammals,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-tick,Ornithodoros coriaceus,Ixodida,Argasidae,no,tbc,tbc,tbc,rural,birds/mammals,unk,>70,North America,birds/mammals,,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-tick,Ornithodoros denmarki,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,birds,unk,>70,unk,birds,unk,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-tick,Ornithodoros erraticus,Ixodida,Argasidae,no,tbc,tbc,tbc,rural,mammals/burrow/birds,unk,unk,"Iberian Peninsula, Western Asia and Northern Africa",mammals,night,unk,yes,unk,154,tbc,tbc,tbc,tbc
-tick,Ornithodoros kohlsi,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,bats,unk,unk,Neotropical,bats,,unk,,unk,unk,tbc,tbc,tbc,tbc
-tick,Ornithodoros maritimus,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,birds,unk,>70,Europe/Africa,birds,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-tick,Ornithodoros moubat aporcinus,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,birds,unk,unk,Africa,birds/mammals,,unk,,unk,unk,tbc,tbc,tbc,tbc
-tick,Ornithodoros papillipes,Ixodida,Argasidae,no,tbc,tbc,tbc,forest/rural,mammals/burrow/birds,20.3 - 28.5,unk,Palearctic,birds/mammals,,unk,,unk,88 - 147,tbc,tbc,tbc,tbc
-tick,Ornithodoros savignyi,Ixodida,Argasidae,no,tbc,tbc,tbc,semi-deserts/deserts,mammals,unk,unk,Africa/Asia,mammals,,15 - 20 (years),,unk,unk,tbc,tbc,tbc,tbc
-tick,Ornithodoros tadaridae,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,mammals,unk,>70,Neotropical,bats,night,unk,,unk,unk,tbc,tbc,tbc,tbc
-tick,Ornithodoros verrucosus,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,mammals,26,80 - 90,Palearctic,mammals,night,unk,,unk,unk,tbc,tbc,tbc,tbc
-sand fly,Phlebotomus major,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,urban/peri-urban,soil,unk,unk,Asia/Africa/Europa,mammals/birds,night*,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-sand fly,Phlebotomus neglectus,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,urban/peri-urban,soil,~27,unk,Europe,mammals/birds,night*,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-sand fly,Phlebotomus papatasi,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,urban/peri-urban,soil,26 - 30,unk,Africa,mammals/birds,night*,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-sand fly,Phlebotomus perfiliewi,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,urban/peri-urban,soil,unk,unk,Europe/Africa,mammals/birds,night*,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-sand fly,Phlebotomus perniciosus,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,urban/peri-urban,soil,~28,>90,Europe/Africa,mammals/birds,night*,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-sand fly,Phlebotomus spp.,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,,,,,,,,,,,,tbc,tbc,tbc,tbc
-sand fly,Phlebotomus tobbi,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,urban/peri-urban,soil,unk,unk,Europe/Asia,mammals/birds,night*,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Psorophora albipes,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,puddles_ground,~26,>70,Neotropical,eclectic,day,~40,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Psorophora ferox,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,puddles_ground,~26,>70,Neotropical,eclectic,day,~40,yes,unk,unk,tbc,tbc,tbc,tbc
-sandfly,Psychodopygus panamensis,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,forest,puddles_ground,unk,unk,neotropical,mammals,day/night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-tick,Rhipicephalus appendiculatus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,savannah and woodland savannah,mammals/soil,unk,unk,Africa/Asia/Europe,large mammals,unk,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-tick,Rhipicephalus decoloratus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest/rural,mammals/soil,unk,unk,Africa/Asia/Oceania,large mammals,unk,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-tick,Rhipicephalus geigyi,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,rural,mammals/soil,unk,unk,Africa,large mammals,unk,unk,no,unk,unk,tbc,tbc,tbc,tbc
-tick,Rhipicephalus guilhoni,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest,mammals/soil,unk,unk,Africa,mammals,unk,unk,yes,unk,365,tbc,tbc,tbc,tbc
-tick,Rhipicephalus microplus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest/rural,mammals/soil,unk,unk,Cosmopolitan,large mammals,unk,unk,rarely,unk,unk,tbc,tbc,tbc,tbc
-tick,Rhipicephalus muhsamae,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest/rural,small mammals/soil,unk,unk,Africa,mammals,unk,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-tick,Rhipicephalus pravus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest/rural,mammals/soil,25-27,unk,Africa,large mammals,unk,unk,unk,unk,unk,tbc,tbc,tbc,tbc
-tick,Rhipicephalus pulchellus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest,mammals/soil,23-25,>70,Africa,large mammals,unk,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-tick,Rhipicephalus turanicus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,desert/semi-desert,mammals/birds,unk,unk,Palearctic,"mammals, birds, lizard",unk,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Sabethes glaucadaemon,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,leaf axils and bromeliads,~27,>70,neotropical,primate,day,~40,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Sabethes intermedius,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,leaf axils and bromeliads,~27,>70,neotropical,primate,day,~40,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Sabethes soperi,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,leaf axils and bromeliads,~27,>70,neotropical,primate,day,~40,yes,unk,unk,tbc,tbc,tbc,tbc
-bugs,Stricticimex parvus,Hemiptera,Cimicidae,unk,tbc,tbc,tbc,forest,caves,27,>70,Asia,bats,night,unk,yes,unk,37 - 56,tbc,tbc,tbc,tbc
-mosquito,Trichoprosopon pallidiventer,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,water with organic matter/ fruit husks,unk,>70,neotropical,eclectic,day/twilight,~35,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Trichoprosopon sp.,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,water with organic matter/ fruit husks,,>70,neotropical,eclectic,day/twilight,,unk,,,tbc,tbc,tbc,tbc
-mosquito,Verrallina funerea,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/peri-urban,brackish water habitats,17 - 34,70,Asia/Australia,,night,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Wyeomyia melanocephala,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,leaf axils and bromeliads,unk,>70,neotropical,eclectic,day,unk,yes,unk,unk,tbc,tbc,tbc,tbc
-mosquito,Wyeomyia sp.,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,leaf axils and bromeliads,,>70,neotropical,eclectic,day,,unk,,,tbc,tbc,tbc,tbc
-mosquito,Wyeomyia spp.,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,leaf axils and bromeliads,,>70,neotropical,eclectic,day,,unk,,,tbc,tbc,tbc,tbc
+﻿arthropods_type,binominal_name,taxonomy_order,taxonomy_family,taxonomy_sub-family,genome,reference_genome,genome_size,habitat,natural_landscape,survival_temperature_ranges,survival_humidity_%,distribution,blood_meal,feeding_period,adult_life_expectancy_(day),anthropophilic_behaviour,eggs_viability_(days),lifecycle_time_(days),main_vector,secondary_vector,experimental infection
+mosquito,Aedeomyia catasticta,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,ground_water_habitats,26-32.5,>70,Australasian_Regions,birds,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Aedeomyia squamipennis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,lakes,unk,>70,Neotropical,birds,night,unk,no,unk,unk,tbc,tbc,tbc
+mosquito,Aedes abnormalis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,unk,unk,unk,unk,Afrotropical,unk,unk,unk,unk,unk,unk,tbc,tbc,tbc
+mosquito,Aedes aegypti,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,urban,frash water,21-29,70,Cosmopolitan,human,day,~40,yes,360 (diapause),~10,tbc,tbc,tbc
+mosquito,Aedes africanus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,bamboo_stumps,unk,unk,Afrotropical,primates,day/crepuscular activity,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Aedes albopictus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,urban,frash water,20-30,~70,Cosmopolitan,human,day,~40,yes,unk,10,tbc,tbc,tbc
+mosquito,Aedes circumluteolus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,Afrotropical Region,Bovidae,day,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Aedes cumminsii,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,ground_water_habitats,~25,unk,Afrotropical,large mammals,unk,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Aedes dalzieli,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,unk,unk,unk,Africa,eclectc,unk,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Aedes furcifer-taylori,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,savannah/forest,tree holes,unk,unk,Africa,eclectc,crepuscular activity,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Aedes iyengari ,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,urban/forest,bamboo_stumps,unk,unk,Southeast Asia,hunans,day,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Aedes lineatopennis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,ground_water_habitats,~27,70 - 80,African and Asia,eclectc,day/crepuscular,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Aedes longipalpis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,"bamboo, leaf axils, banana fibre",unk,unk,Afrotropical,primate,day,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Aedes palpalis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,savannah/mangrove  forest ,ground_water_habitats,unk,unk,Afrotropical,mammals,day,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Aedes pembaensis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,crab holes in tidal swamps and estuaries,unk,unk,Afrotropical,mammals,day,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Aedes serratus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,puddles_ground,unk,unk,America,large_mammals,day/crepuscular activity,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Aedes taeniorhynchus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/coast,puddles_ground,unk,unk,neotropical and Atlantic coast ,eclectic,day/night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Aedes tarsalis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,unk,unk,unk,Africa,unk,unk,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Aedes vexans,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,"shallow, tempo-rary pools, marshes, roadside ditches, and grassypools",unk,unk,cosmopolitan,humans,day,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Aedes vexans nipponii,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,"shallow, tempo-rary pools, marshes, roadside ditches, and grassypools",unk,unk,Asia,humans,day,unk,yes,unk,unk,tbc,tbc,tbc
+tick,Amblyomma americanum,Ixodida,Ixodidae,Amblyomminae,tbc,tbc,tbc,unk,soil,~27,>85,North America,eclectic,unk,8 - 24,yes,31 to 60,2 years,tbc,tbc,tbc
+tick,Amblyomma gemma,Ixodida,Ixodidae,Amblyomminae,tbc,tbc,tbc,forest/rural,unk,~27,>85,"Africa, Asia, America, Europe",mammals,unk,unk,unk,69,unk,tbc,tbc,tbc
+tick,Amblyomma loculosum,Ixodida,Ixodidae,Amblyomminae,tbc,tbc,tbc,coast,unk,~27,>85,Africa,seabird,unk,5 - 24,yes,60,unk,tbc,tbc,tbc
+tick,Amblyomma variegatum,Ixodida,Ixodidae,Amblyomminae,tbc,tbc,tbc,forest/savannah,mammals/soil,~27,>85,"Africa, Central America",eclectic,unk,,unk,52,unk,tbc,tbc,tbc
+mosquito,Anopheles albitarsis,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest/rural,eclectic,unk,>70,neotropical,eclectic,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Anopheles annulipes,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest,puddles_ground,unk,unk,Oceania,eclectic,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Anopheles boliviensis,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest,leaf axils and bromeliands,unk,unk,Neotropical,large_mammals,all time,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Anopheles crucians,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest,ponds and swamps,unk,unk,America,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Anopheles cruzii,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest,bromeliads,unk,unk,Atlantic forest,eclectic,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Anopheles freeborni,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest/rural/urban,puddles_ground,unk,unk,North America,eclectic,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Anopheles funestus,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,caves/forest/rural,lakes and swamps,unk,unk,Africa,humans,day/night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Anopheles gambiae,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,urban,eclectic,unk,unk,cosmopolit,humans,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Anopheles maculipennis,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,rural,"puddles_ground, diches",unk,unk,Europe/Asia,large_mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Anopheles meraukensis,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest,water bodies,unk,unk,Australia/Indonesia,vertebrades,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Anopheles nimbus,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest,ater of leaf axils of bromeliads (,unk,unk,Neotropical,eclectic,crepuscular,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Anopheles paludis,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest/rural,river/water bodies,unk,unk,Afrotropical,primate,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Anopheles pharoensis,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,urban/rural,large bodies of water,unk,unk,Africa,humans and mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Anopheles pseudopunctipennis,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest/rural,puddles_ground,unk,unk,America,eclectic,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Anopheles subpictus,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,rural/urban,eclectic bodies of water,unk,unk,Asia,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Anopheles triannulatus,Diptera,Culicidae,Anophelinae,tbc,tbc,tbc,forest,lakes,unk,>70,neotropical,eclectic,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc
+tick,Argas abdussalami,Ixodida,Argasidae,no,tbc,tbc,tbc,unk,soil/bird,unk,unk,Asia,birds,night,unk,unk,unk,unk,tbc,tbc,tbc
+tick,Argas africolumbae,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,soil/bird,unk,unk,Africa,birds,night,unk,unk,~16,unk,tbc,tbc,tbc
+tick,Argas arboreus,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,soil/bird,unk,unk,Africa,birds/cattles,night,unk,unk,unk,~ 90,tbc,tbc,tbc
+tick,Argas cooleyi,Ixodida,Argasidae,no,tbc,tbc,tbc,unk,soil/bird,unk,unk,North America,birds,night,unk,unk,unk,unk,tbc,tbc,tbc
+tick,Argas hermanni,Ixodida,Argasidae,no,tbc,tbc,tbc,urban,soil/bird,unk,unk,Africa/Asia,birds,night,unk,unk,unk,unk,tbc,tbc,tbc
+tick,Argas miniatus,Ixodida,Argasidae,no,tbc,tbc,tbc,rural,soil/bird,unk,>70,Neotropical,birds,night,unk,unk,12 - 41,317,tbc,tbc,tbc
+tick,Argas persicus,Ixodida,Argasidae,no,tbc,tbc,tbc,rural/urban,soil/bird,21-32,>75,cosmopolitan,birds,night,unk,rarely,unk,111 - 260,tbc,tbc,tbc
+tick,Argas pusillus,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,soil/bats,unk,unk,Asia,bats,night,unk,unk,unk,unk,tbc,tbc,tbc
+tick,Argas reflexus,Ixodida,Argasidae,no,tbc,tbc,tbc,urban/rural,soil/bird,unk,unk,Paleartic,birds,night,unk,yes,unk,unk,tbc,tbc,tbc
+tick,Argas robertsi,Ixodida,Argasidae,no,tbc,tbc,tbc,unk,soil/bird,unk,unk,Asia,unk,night,unk,unk,unk,unk,tbc,tbc,tbc
+tick,Carios vespertilionis,Ixodida,Argasidae,no,tbc,tbc,tbc,urban/rural,soil/bats,unk,unk,Afrotropical‐Oriental‐Palearctic,bats,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Coquillettidia albicosta,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,mammals,unk,>70,neotropical,bodies of water,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex accelerans,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,margins and root caves of swamps,unk,>70,neotropical,birds,night,unk,no,unk,unk,tbc,tbc,tbc
+mosquito,Culex adamesi,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,swamp,unk,>70,Neotropical,mammals/birds,night,unk,unk,unk,unk,tbc,tbc,tbc
+mosquito,Culex aikenii,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,aquatic floating plant,unk,>70,Neotropical,mammals/birds,day,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex albiventris,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,water bodies,unk,unk,Afrotropical,mammals/birds,unk,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex amazonensis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,swamp margins and root cave,unk,>70,neotropical,mammals,night,unk,no,unk,unk,tbc,tbc,tbc
+mosquito,Culex annulirostris,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,caves/forest/rural,swamp,unk,unk,Australia/Africa,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex antennatus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,urban/rural,fresh water bodies,unk,unk,Africa/Asia,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex declarator,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,>70,neotropical,birds,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex delpontei,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,>70,Neotropical,birds,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex dunni,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,>70,Neotropical,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex eastor,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,~26,>70,Neotropical,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex guiarti,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,Africa,mammals/birds,night,unk,unk,unk,unk,tbc,tbc,tbc
+mosquito,Culex modestus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,rural,ground_water_habitats,unk,unk,Paleartic,birds,crepuscular,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex neavei,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,water bodies,unk,unk,Africa,mammals,crepuscular,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex ocossa,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,>70,Neotropical,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex paracrybda,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,>70,Neotropical,unk,night,unk,unk,unk,unk,tbc,tbc,tbc
+mosquito,Culex perfuscus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/urban,ground_water_habitats,unk,unk,Africa,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex pipiens,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,urban,ground_water_habitats,unk,unk,Cosmopolitan,bird,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex portesi,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,swamps,unk,>70,Neotropical,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex pseudovishnui,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,Asia/Australia,mammals/birds,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex quinquefasciatus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,urban,water tank,unk,unk,Cosmopolit,humans,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex restuans,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,North America,bird,night,unk,no,unk,unk,tbc,tbc,tbc
+mosquito,Culex rima,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,caves/forest,ground_water_habitats,unk,unk,Africa,mammals,night,unk,unk,unk,unk,tbc,tbc,tbc
+mosquito,Culex rubinotus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,Africa,mammals/brids,night,unk,low*,unk,unk,tbc,tbc,tbc
+mosquito,Culex sacchettae,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,>70,Neotropical,unk,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex sitiens,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,,"small pits, pit lakes, wells, swamps, ponds, canals, shrimp ponds and water that collects in abandoned tin mines",29 - 31,64 - 70,Asia/Australia/Africa,mammals,night,unk,yes,2 - 3,unk,tbc,tbc,tbc
+mosquito,Culex spissipes,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,Neotropical,vertebrates,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex taeniopus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,>70,Neotropical,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex tarsalis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,North America,bird,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex telesilla,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,Africa,bird,night,unk,no,unk,unk,tbc,tbc,tbc
+mosquito,Culex territans,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,"North America, Europe",frogs,night,unk,no,unk,unk,tbc,tbc,tbc
+mosquito,Culex tritaeniorhynchus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,rice fields,unk,unk,"North America, Europe, Asia, Africa",mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex univittatus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,rice fields,unk,unk,Asia/Africa/Europe,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex vishnui,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,rice fields,unk,unk,Asia,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Culex vomerifer,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,root caves/swamp,unk,>70,Neotropical,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+biting midges,Culicoides austropalpalis,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,forest,fresh water habitats,unk,unk,Oceania,birds,crepuscular/night,unk,unk,unk,unk,tbc,tbc,tbc
+biting midges,Culicoides brevitarsis,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,"""surrounding  bush""",bovine dung,unk,unk,Asia/Oceania,large mammals,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc
+biting midges,Culicoides imicola,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,unk,organic soil substrates,unk,unk,Cosmopolitan,mammals,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc
+biting midges,Culicoides insignis,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,unk,ground_water_habitats,unk,unk,America,large mammals,crepuscular,unk,unk,unk,unk,tbc,tbc,tbc
+biting midges,Culicoides marksi,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,forest,fresh water habitats,unk,unk,Oceania,birds/mammals,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc
+biting midges,Culicoides oxystoma,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,rural,unk,~27,80,Africa/Asia,mammals,crepuscular/night,unk,unk,unk,unk,tbc,tbc,tbc
+biting midges,Culicoides peregrinus,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,rural,organic soil substrates,unk,unk,Asia/Oceania,birds/mammals,crepuscular/night,unk,unk,unk,unk,tbc,tbc,tbc
+biting midges,Culicoides puncutatus,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,forest,unk,unk,unk,Palearctic,mammals,crepuscular,unk,yes,unk,unk,tbc,tbc,tbc
+biting midges,Culicoides schultzei,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,rural/forest,unk,unk,unk,Africa/Asia,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+biting midges,Culicoides variipennis,Diptera,Ceratopogonidae,Culicoidini,tbc,tbc,tbc,rural,Aquatic sites contaminated with livestock manure,unk,unk,North America,large mammals,,unk,unk,unk,unk,tbc,tbc,tbc
+mosquito,Culiseta inornata,Diptera,Culicidae,Culicinae,tbc,tbc,tbc, coastal marshes in California.,diches,unk,unk,North America,large mammals,day,unk,rarely,unk,unk,tbc,tbc,tbc
+mosquito,Culiseta melanura,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,unk,ground_water_habitats,unk,unk,North America,songbirds/mammals,day,unk,rarely,unk,unk,tbc,tbc,tbc
+mosquito,Culiseta tonnoiri,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,">4,5 ºC",unk,Oceania,bird,unk,unk,yes,unk,unk,tbc,tbc,tbc
+tick,Dermacentor albipictus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest,mammals,unk,unk,North America,mammals,night*,unk,unk,unk,unk,tbc,tbc,tbc
+tick,Dermacentor andersoni,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest,small mammals,unk,unk,North America,mammals,night*,unk,yes,unk,unk,tbc,tbc,tbc
+tick,Dermacentor auratus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest,unk,unk,unk,India,mammals,night*,unk,yes,unk,unk,tbc,tbc,tbc
+tick,Dermacentor marginatus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,unk,mice/rabbits,unk,unk,"Asia, Europe and North Africa",small mammals,night*,unk,yes,unk,75–163,tbc,tbc,tbc
+tick,Dermacentor nuttalli,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,unk,unk,unk,unk,Asia,mammals,night*,unk,unk,unk,unk,tbc,tbc,tbc
+tick,Dermacentor occidentalis,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest/rural,small mammals,unk,unk,North America,mammals,night*,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Eretmapodites chrysogaster,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,"fruit husks, leaf axils",unk,unk,Africa,primates,day,unk,yes,<20,unk,tbc,tbc,tbc
+mosquito,Eretmapodites leucopus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,"fruit husks, leaf axils",unk,unk,Africatropical,primates,day,unk,yes,unk,unk,tbc,tbc,tbc
+bats fly,Eucampsipoda africana,Diptera,Nycteribiidae,Cyclopodiinae,tbc,tbc,tbc,forest,unk,unk,unk,Africa,bats,unk,unk,unk,unk,unk,tbc,tbc,tbc
+mosquito,Haemagogus spegazzinii,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,fruit husks,25 - 30,>70,neotropical,primate,day,3,yes,unk,~40,tbc,tbc,tbc
+tick,Haemaphysalis doenitzi,Ixodida,Ixodidae,Haemaphysalinae,tbc,tbc,tbc,forest,unk,20 - 30,>70,Asia/Oceania,birds/mammals,night*,unk,yes,91-137  ,~ 365,tbc,tbc,tbc
+Tick,Haemaphysalis flava,Ixodida,Ixodidae,Haemaphysalinae,tbc,tbc,tbc,forest,mammals,20 - 30,>70,Asia,mammals,night*,unk,unk,,~ 365,tbc,tbc,tbc
+Tick,Haemaphysalis hystricis,Ixodida,Ixodidae,Haemaphysalinae,tbc,tbc,tbc,forest/urban,unk,20 - 30,>70,Southeast Asia,mammals,night*,unk,rarely,,~ 365,tbc,tbc,tbc
+Tick,Haemaphysalis intermedia,Ixodida,Ixodidae,Haemaphysalinae,tbc,tbc,tbc,forest,unk,26 - 28,>70,Asia,goats,night*,unk,unk,,~ 365,tbc,tbc,tbc
+Tick,Haemaphysalis leporispalustris,Ixodida,Ixodidae,Haemaphysalinae,tbc,tbc,tbc,forest,mammals/birds,~27,>70,America,small mammals/birds,night*,unk,unk,22 - 61,~ 365,tbc,tbc,tbc
+Tick,Haemaphysalis longicornis,Ixodida,Ixodidae,Haemaphysalinae,tbc,tbc,tbc,rural,unk,20 - 30,>70,Cosmopolitan,mammals,night*,unk,unk,unk,~ 365,tbc,tbc,tbc
+Tick,Haemaphysalis punctata,Ixodida,Ixodidae,Haemaphysalinae,tbc,tbc,tbc,rural,"Small mammals, hares,hedgehogs, birds, lizards",20 - 30,>70,Europa/Africa/Asia,"cattle, sheep and goats",night*,unk,yes,unk,165 - 229,tbc,tbc,tbc
+Tick,Haemaphysalis spinigera,Ixodida,Ixodidae,Haemaphysalinae,tbc,tbc,tbc,rural/forest,birds,20 - 30,>70,Asia,mammals,night*,unk,unk,unk,~ 365,tbc,tbc,tbc
+Tick,Hyalomma asiaticum,Ixodida,Ixodidae,Hyalomminae,tbc,tbc,tbc,desert,small mammals,30 - 43,~60,Asia,large mammals/birds,unk,unk,yes,unk,103 -132,tbc,tbc,tbc
+Tick,Hyalomma dromedarii,Ixodida,Ixodidae,Hyalomminae,tbc,tbc,tbc,"desert, semi-desert and steppe habitats",mammals/birds/reptiles,~28,85,Africa/Asia,mammals/reptiles,unk,unk,unk,unk,108-146,tbc,tbc,tbc
+Tick,Hyalomma marginatum,Ixodida,Ixodidae,Hyalomminae,tbc,tbc,tbc,rural/forest,small mammals/birds,27,>80,Palearctic,large mammals,unk,unk,yes,unk,73 - 97,tbc,tbc,tbc
+tick,Ixodes cookei,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,forest,unk,25–29,>90,North America,mammals,unk,unk,yes,unk,unk,tbc,tbc,tbc
+tick,Ixodes dentatus,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,forest/rural,birds,unk,unk,North America,mammals/birds,unk,unk,rarely,unk,~2 years,tbc,tbc,tbc
+tick,Ixodes eudyptidis,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,unk,unk,unk,unk,Oceania,birds,unk,unk,unk,unk,unk,tbc,tbc,tbc
+tick,Ixodes frontalis,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,forest,birds,unk,unk,Europa/Asia/Africa,birds,unk,unk,yes,unk,365,tbc,tbc,tbc
+tick,Ixodes granulatus,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,forest,unk,unk,unk,Asia,mammals,unk,unk,unk,unk,unk,tbc,tbc,tbc
+tick,Ixodes persulcatus,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,forest/rural,medium-sized mammals/birds,20,>80,Eurasia,larger mammals/birds,unk,2 years,yes,unk,250,tbc,tbc,tbc
+tick,Ixodes redikorzevi,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,unk,eclectic,unk,unk,Eurasia,eclectic,unk,unk,yes,unk,unk,tbc,tbc,tbc
+tick,Ixodes ricinus,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,forest/rural,"small mammals, birds, lizard",unk,>80,"Europe, Africa, Asia",larger mammals/birds,unk,2 - 3 years,yes,unk,155,tbc,tbc,tbc
+tick,Ixodes scapularis,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,forest/rural,ground,unk,unk,North America/Neartic,eclectic,unk,2 years,yes,unk,unk,tbc,tbc,tbc
+tick,Ixodes uriae,Ixodida,Ixodidae,Ixodinae,tbc,tbc,tbc,unk,ground,−30 to +40,unk,"North America, polar areas, Afrotropical, Australasian,Nearctic, Neotropical and Palaearctic Regions",birds,unk,unk,yes,unk,270 - 360,tbc,tbc,tbc
+mosquito,Lutzia tigripes,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,Afrotropical,birds,night,unk,rarely,unk,unk,tbc,tbc,tbc
+sandfly,Lutzomyia longipalpis,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,urban,soil,25,80,Neotropical,eclectic,night,20 days,yes,6-9 days,28 - 36,tbc,tbc,tbc
+sandfly,Lutzomyia trapidoi,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,-,-,-,-,-,-,-,-,-,-,-,tbc,tbc,tbc
+mosquito,Mansonia africana,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,bodies of water,27-29,>70,Africa,mammals,crepuscular/night,unk,yes,unk,~40,tbc,tbc,tbc
+mosquito,Mansonia maculipennis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,bodies of water,unk,unk,Africa,birds,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Mansonia septempunctata,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,bodies of water,unk,unk,Oceania,mammals,crepuscular/night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Mansonia uniformis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,bodies of water,27-29,>70,Asia/Africa,mammals,crepuscular/night,unk,yes,unk,~40,tbc,tbc,tbc
+sandfly,Nyssomyia flaviscutellata,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,forest,soil,unk,>70,Neotropical,mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+sandfly,Nyssomyia trapidoi,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,forest/rural,soil,unk,>70,Neotropical,eclectic,night,unk,yes,unk,unk,tbc,tbc,tbc
+sandfly,Nyssomyia umbratilis,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,forest ,soil,unk,>70,Neotropical,eclectic,day/night,unk,yes,unk,unk,tbc,tbc,tbc
+sandfly,Nyssomyia ylephiletor,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,forest,soil,unk,>70,Neotropical,eclectic,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Ochlerotatus angustivittatus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,bodies of water,unk,unk,Neotropical,mammals ,day,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Ochlerotatus atlanticus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,bodeis of water,unk,unk,North America,small mammals,day,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Ochlerotatus caballus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,ground_water_habitats,unk,unk,Afrotropical,mammals/birds,day,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Ochlerotatus campestris,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,ground_water_habitats,unk,unk,North America,mammals,day,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Ochlerotatus camptorhynchus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,rural,saline water,unk,unk,Oceania,mammals,day,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Ochlerotatus caspius,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,bodies of water,11.5 - 36,52 - 92,"Africa, Asia, Europe",mammals,corpuscular-nocturnal,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Ochlerotatus communis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,bodies of water,~20,unk,"Europe, Asia, America",mammals,,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Ochlerotatus fulvus pallens,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,muddy water,unk,unk,,mammals,day,unk,yes,unk,10,tbc,tbc,tbc
+mosquito,Ochlerotatus melanimon,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,,bodies of fresh water,unk,unk,North America,mammals,day,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Ochlerotatus normanensis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,fresh water pools/swampy,unk,unk,Oceania,mammals,,unk,,unk,unk,tbc,tbc,tbc
+mosquito,Ochlerotatus scapularis,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,puddles_ground,unk,>70,neotropical,eclectic,day/twilight,25 - 30,yes,unk,unk,tbc,tbc,tbc
+mosquito,Ochlerotatus squamiger,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,coastal salt marshes,unk,unk,North America,,,unk,,unk,48,tbc,tbc,tbc
+mosquito,Ochlerotatus trivittatus,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,rural/forest,floodwater,~27,>80,North America,mammals/birds,day,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Ochlerotatus vigilax,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,Coast,estuarine pools of saltmarshes,unk,unk,Asia/Oceania,,,unk,,unk,unk,tbc,tbc,tbc
+swallow bug,Oeciacus vicarius,Hemiptera,Cimicidae,Cimicinae,tbc,tbc,tbc,urban/rural,bird nests,~28,>70,North America,birds,,unk,yes,unk,60 days,tbc,tbc,tbc
+tick,Ornithodoros muesebecki,Ixodida,Argasidae,no,tbc,tbc,tbc,rural,birds,unk,unk,Asia ,birds,,unk,,unk,unk,tbc,tbc,tbc
+tick,Ornithodoros alactagalis,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,mice,26,>90,Palearctic,"mammals, lizard",,unk,yes,unk,150 - 300,tbc,tbc,tbc
+tick,Ornithodoros amblus,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,birds,unk,unk,Neotropical,birds,,unk,yes,unk,unk,tbc,tbc,tbc
+tick,Ornithodoros capensis,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,birds,unk,unk,Cosmopolitan,birds/mammals,night,unk,yes,unk,unk,tbc,tbc,tbc
+tick,Ornithodoros coriaceus,Ixodida,Argasidae,no,tbc,tbc,tbc,rural,birds/mammals,unk,>70,North America,birds/mammals,,unk,yes,unk,unk,tbc,tbc,tbc
+tick,Ornithodoros denmarki,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,birds,unk,>70,unk,birds,unk,unk,unk,unk,unk,tbc,tbc,tbc
+tick,Ornithodoros erraticus,Ixodida,Argasidae,no,tbc,tbc,tbc,rural,mammals/burrow/birds,unk,unk,"Iberian Peninsula, Western Asia and Northern Africa",mammals,night,unk,yes,unk,154,tbc,tbc,tbc
+tick,Ornithodoros kohlsi,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,bats,unk,unk,Neotropical,bats,,unk,,unk,unk,tbc,tbc,tbc
+tick,Ornithodoros maritimus,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,birds,unk,>70,Europe/Africa,birds,night,unk,yes,unk,unk,tbc,tbc,tbc
+tick,Ornithodoros moubat aporcinus,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,birds,unk,unk,Africa,birds/mammals,,unk,,unk,unk,tbc,tbc,tbc
+tick,Ornithodoros papillipes,Ixodida,Argasidae,no,tbc,tbc,tbc,forest/rural,mammals/burrow/birds,20.3 - 28.5,unk,Palearctic,birds/mammals,,unk,,unk,88 - 147,tbc,tbc,tbc
+tick,Ornithodoros savignyi,Ixodida,Argasidae,no,tbc,tbc,tbc,semi-deserts/deserts,mammals,unk,unk,Africa/Asia,mammals,,15 - 20 (years),,unk,unk,tbc,tbc,tbc
+tick,Ornithodoros tadaridae,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,mammals,unk,>70,Neotropical,bats,night,unk,,unk,unk,tbc,tbc,tbc
+tick,Ornithodoros verrucosus,Ixodida,Argasidae,no,tbc,tbc,tbc,forest,mammals,26,80 - 90,Palearctic,mammals,night,unk,,unk,unk,tbc,tbc,tbc
+sand fly,Phlebotomus major,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,urban/peri-urban,soil,unk,unk,Asia/Africa/Europa,mammals/birds,night*,unk,yes,unk,unk,tbc,tbc,tbc
+sand fly,Phlebotomus neglectus,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,urban/peri-urban,soil,~27,unk,Europe,mammals/birds,night*,unk,yes,unk,unk,tbc,tbc,tbc
+sand fly,Phlebotomus papatasi,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,urban/peri-urban,soil,26 - 30,unk,Africa,mammals/birds,night*,unk,yes,unk,unk,tbc,tbc,tbc
+sand fly,Phlebotomus perfiliewi,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,urban/peri-urban,soil,unk,unk,Europe/Africa,mammals/birds,night*,unk,yes,unk,unk,tbc,tbc,tbc
+sand fly,Phlebotomus perniciosus,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,urban/peri-urban,soil,~28,>90,Europe/Africa,mammals/birds,night*,unk,yes,unk,unk,tbc,tbc,tbc
+sand fly,Phlebotomus spp.,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,,,,,,,,,,,,tbc,tbc,tbc
+sand fly,Phlebotomus tobbi,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,urban/peri-urban,soil,unk,unk,Europe/Asia,mammals/birds,night*,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Psorophora albipes,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,puddles_ground,~26,>70,Neotropical,eclectic,day,~40,yes,unk,unk,tbc,tbc,tbc
+mosquito,Psorophora ferox,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,puddles_ground,~26,>70,Neotropical,eclectic,day,~40,yes,unk,unk,tbc,tbc,tbc
+sandfly,Psychodopygus panamensis,Diptera,Psychodidae,Phlebotominae,tbc,tbc,tbc,forest,puddles_ground,unk,unk,neotropical,mammals,day/night,unk,yes,unk,unk,tbc,tbc,tbc
+tick,Rhipicephalus appendiculatus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,savannah and woodland savannah,mammals/soil,unk,unk,Africa/Asia/Europe,large mammals,unk,unk,yes,unk,unk,tbc,tbc,tbc
+tick,Rhipicephalus decoloratus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest/rural,mammals/soil,unk,unk,Africa/Asia/Oceania,large mammals,unk,unk,yes,unk,unk,tbc,tbc,tbc
+tick,Rhipicephalus geigyi,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,rural,mammals/soil,unk,unk,Africa,large mammals,unk,unk,no,unk,unk,tbc,tbc,tbc
+tick,Rhipicephalus guilhoni,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest,mammals/soil,unk,unk,Africa,mammals,unk,unk,yes,unk,365,tbc,tbc,tbc
+tick,Rhipicephalus microplus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest/rural,mammals/soil,unk,unk,Cosmopolitan,large mammals,unk,unk,rarely,unk,unk,tbc,tbc,tbc
+tick,Rhipicephalus muhsamae,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest/rural,small mammals/soil,unk,unk,Africa,mammals,unk,unk,unk,unk,unk,tbc,tbc,tbc
+tick,Rhipicephalus pravus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest/rural,mammals/soil,25-27,unk,Africa,large mammals,unk,unk,unk,unk,unk,tbc,tbc,tbc
+tick,Rhipicephalus pulchellus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,forest,mammals/soil,23-25,>70,Africa,large mammals,unk,unk,yes,unk,unk,tbc,tbc,tbc
+tick,Rhipicephalus turanicus,Ixodida,Ixodidae,Rhipicephalinae,tbc,tbc,tbc,desert/semi-desert,mammals/birds,unk,unk,Palearctic,"mammals, birds, lizard",unk,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Sabethes glaucadaemon,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,leaf axils and bromeliads,~27,>70,neotropical,primate,day,~40,yes,unk,unk,tbc,tbc,tbc
+mosquito,Sabethes intermedius,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,leaf axils and bromeliads,~27,>70,neotropical,primate,day,~40,yes,unk,unk,tbc,tbc,tbc
+mosquito,Sabethes soperi,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,leaf axils and bromeliads,~27,>70,neotropical,primate,day,~40,yes,unk,unk,tbc,tbc,tbc
+bugs,Stricticimex parvus,Hemiptera,Cimicidae,unk,tbc,tbc,tbc,forest,caves,27,>70,Asia,bats,night,unk,yes,unk,37 - 56,tbc,tbc,tbc
+mosquito,Trichoprosopon pallidiventer,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,water with organic matter/ fruit husks,unk,>70,neotropical,eclectic,day/twilight,~35,yes,unk,unk,tbc,tbc,tbc
+mosquito,Trichoprosopon sp.,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/rural,water with organic matter/ fruit husks,,>70,neotropical,eclectic,day/twilight,,unk,,,tbc,tbc,tbc
+mosquito,Verrallina funerea,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest/peri-urban,brackish water habitats,17 - 34,70,Asia/Australia,,night,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Wyeomyia melanocephala,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,leaf axils and bromeliads,unk,>70,neotropical,eclectic,day,unk,yes,unk,unk,tbc,tbc,tbc
+mosquito,Wyeomyia sp.,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,leaf axils and bromeliads,,>70,neotropical,eclectic,day,,unk,,,tbc,tbc,tbc
+mosquito,Wyeomyia spp.,Diptera,Culicidae,Culicinae,tbc,tbc,tbc,forest,leaf axils and bromeliads,,>70,neotropical,eclectic,day,,unk,,,tbc,tbc,tbc

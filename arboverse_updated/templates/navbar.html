@@ -1,0 +1,42 @@
+{% load static i18n %}
+<div class="bannermenu">
+  <nav>
+    <div class="logo">
+      <img src="{% static 'images/logos/logo-arboverse.png' %}" />
+      <h4>ARBO<span>VERSE</span></h4>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="{% url 'home' %}" aria-label="Link for home">HOME</a>
+      </li>
+      <li>
+        <a href="{% url 'arboverse' %}" aria-label="Link for arboverse plattform">ARBOVERSE</a>
+      </li>
+      <li>
+        <a href="{% url 'arbodash' %}"
+          aria-label="Link for arbodash, arboverse dashboard">ARBODASH</a>
+      </li>
+      <li>
+        <a href="{% url 'arbodata' %}" aria-label="Link for arbodata, arboverse dataset">ARBODATA</a>
+      </li>
+      <li>
+        <a href="{% url 'contact' %}" aria-label="Link for contact">CONTACT</a>
+      </li>
+    </ul>
+    <!--Burger Menu-->
+    <div class="burger">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+  </nav>
+  <!--Script highlight current page-->
+  <script>
+   for (var i = 0; i < document.links.length; i++) {
+    if (document.links[i].href == document.URL) {
+        document.links[i].className = 'current';
+    }
+}
+  </script>
+  <!--Script burgerbar toggler-->
+  <script src="{% static 'js/main.js' %}"></script>
