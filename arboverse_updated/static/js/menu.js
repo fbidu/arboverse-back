@@ -190,7 +190,6 @@ function showChekedDis() {
     document.getElementById('check1').textContent = document.querySelectorAll("input[name=discovery]:checked").length;
 }
 document.querySelectorAll("input[name=discovery]").forEach(i => {
-    //console.log('yar land ho')
     i.onclick = function () {
         showChekedDis();
         update_map(this);
@@ -1272,3 +1271,32 @@ var dryspellsOpValue = function(){
     target.innerHTML = newOpValue;
 }
 dryspellsOp.addEventListener('input', dryspellsOpValue);
+
+//map visibility checked
+function update_map(cb) {
+    var clickedLayers = cb.id
+    clickedLayersList = clickedLayers.split(',')
+    console.log(clickedLayersList)
+    if (cb.checked) {
+        for (let i = 0; i < clickedLayersList.length; i++) {
+            clickedLayer = clickedLayersList[i];
+            map.setLayoutProperty(
+                clickedLayer,
+                'visibility',
+                'visible'
+            );
+        }
+
+    } else {
+        for (let i = 0; i < clickedLayersList.length; i++) {
+            clickedLayer = clickedLayersList[i];
+            map.setLayoutProperty(
+                clickedLayer,
+                'visibility',
+                'none'
+            );
+        }
+    }
+
+    console.log(cb.checked);
+}

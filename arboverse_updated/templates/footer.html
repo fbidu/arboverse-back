@@ -3,4 +3,27 @@
       <p>© Copyrights 2024 - ARBOVERSE  | All rights reserved</p>
       <p>Website by <a class="plot" href="https://plotmyscience.com/">PLOT My Science</a></p>
   </aside>
+
+  <script src="../static/js/mapboxutil.js"></script>
+  <script>
+    window.addEventListener('load', function () {
+      requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+              console.log('Unchecking switches after paint');
+              const switches = document.getElementsByClassName('switch');
+              const checks = document.getElementsByClassName('check');
+              for (let i = 0; i < switches.length; i++) {
+                  let children = switches[i].children;
+                  for (let j = 0; j < children.length; j++) {
+                      if (children[j].checked === true) {
+                          console.log('Unchecking:', children[j]);
+                          children[j].checked = false;
+                      }
+                  }
+                  checks[i].innerHTML = 0;
+              }
+          });
+      });
+  });
+  </script>
 </footer>

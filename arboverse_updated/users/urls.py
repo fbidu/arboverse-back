@@ -1,6 +1,6 @@
 from django.urls import path
 
-from arboverse.users.views import (
+from arboverse_updated.users.views import (
     user_redirect_view,
     user_update_view,
     user_detail_view,

@@ -12,7 +12,13 @@ Note: when running commands in docker, your .env needs to have the PGSQL host as
 2. Navigate to the project root.
 3. Populate the values of `.env.sample` to match your desired configuration, and remove .sample from the filename. 
 4. Run `docker-compose up --build -d`.
-5. Run the command `py schema_populator.py` once you have verified that the db is running to build out the full database.
+5. Run `pip install -r requirements\requirements.txt`
+6. Run `python manage.py makemigrations`
+7. Run `python manage.py migrate`
+8. Run the command `py schema_populator.py` once you have verified that the db is running to build out the full database.
+
+If you do not follow steps 5 through 8 in this order, you will encounter issues with not all the tables being available in
+the database. This will require manually dropping the tables, and making a new migration so that all data models are correctly tracked.
 
 With that, your application should be running. You may access it at http://localhost:8000. As long as docker continues 
 to run, this service will run in the background. When docker is restarted, the service too should be restarted automatically.
@@ -76,3 +82,6 @@ Each of these scripts have been added for a specific purpose.
 1. `mapbox_api_upload.py` - This script is used to upload the GeoJSON file to Mapbox and create a new layer. You will need to add your Mapbox API key to the .env file for this to work.
 2. `virus_geojson_builder.py` - This script is used to generate a GeoJSON file from a shapefile and excel document. You will need to add the path to the shapefile and the excel document to the file for this to work.
 3. `schema_populator.py` - This script is used to populate the database. The script is dependent on `The global distribution of arbovirus diversity - OFFICIAL.xlsx` and `Arbovector_database.csv` to populate. If you wish to use alternative files, their names will need to be changed in the script. The format of data cannot be changed from how it is presented in these two files or it will not work.
+
+
+## 

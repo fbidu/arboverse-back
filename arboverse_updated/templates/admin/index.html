@@ -1,0 +1,9 @@
+{% extends "admin/index.html" %}
+
+{% block content %}
+  <div class="app-zip-download module">
+    <a class="button" href="{% url 'download_all_csvs' %}">⬇ Download All Virus-Vector Data (CSV)</a>
+  </div>
+    {{ block.super }}
+
+{% endblock %}

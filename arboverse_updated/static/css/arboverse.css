@@ -2154,9 +2154,9 @@
 }
 
 .vector_listing {
-  height: 230px;
-  border: 1px solid var(--grey1);
-  padding: 10px 5px;
+  height: 230px !important;
+  border: 1px solid var(--grey1) !important;
+  padding: 10px 5px !important;
 }
 
 .family_listing {
@@ -2174,6 +2174,7 @@
 #feature-listing p,
 #family-listing p,
 #genus-listing p,
+#species-distribution-autocomplete p,
 #species-listing p {
   font-family: 'Montserrat', serif;
   color: var(--text);
@@ -2185,6 +2186,7 @@
 #feature-listing a,
 #family-listing a,
 #genus-listing a,
+#species-distribution-autocomplete a,
 #species-listing a {
   padding: 5px;
   border-bottom: solid 1px hsla(0, 0%, 50%, 0.3);
@@ -2198,6 +2200,7 @@
 #feature-listing a:hover,
 #family-listing a:hover,
 #genus-listing a:hover,
+#species-distribution-autocomplete a:hover,
 #species-listing a:hover {
   background-color: #f4bd88;
 }

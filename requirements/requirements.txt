@@ -60,5 +60,7 @@ django-crispy-forms                    #+ https://github.com/django-crispy-forms
 django-autoslug>=1.9.9                 #+ https://github.com/justinmayer/django-autoslug/
 django-heroku
 
+numpy
+
 
 

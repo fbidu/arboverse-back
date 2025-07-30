@@ -7,7 +7,7 @@ from rest_framework.response import Response
 
 from arboverse_updated.models import Virus, VirusVector, VectorSpecies
 from arboverse_updated.serializers import VirusSerializer, VectorSerializer, VectorSpeciesSerializer, \
-    VectorSpeciesAllSerializer, VirusAllSerializer, VirusDetailedSerializer
+    VectorSpeciesAllSerializer, VirusAllSerializer, VirusDetailedSerializer, VirusVectorSerializer
 import logging
 logger = logging.getLogger(__name__)
 
@@ -46,7 +46,16 @@ def get_virus_by_name(request):
     else:
         queryset = Virus.objects.all()
     serializer = VirusDetailedSerializer(queryset, many=True)
-    return Response(serializer.data)
+
+    virus_id = serializer.data[0]['id']
+    print(f'virus id: {virus_id}')
+    vectors_queryset = VirusVector.objects.filter(virus_id=virus_id)
+    print(f'vectors queryset: {vectors_queryset}')
+    vectors_data = VirusVectorSerializer(vectors_queryset, many=True).data
+
+    return Response({
+        'virus': serializer.data,
+        'virus_vector': vectors_data})
 
 
 @api_view(['GET'])

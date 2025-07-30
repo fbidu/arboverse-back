@@ -196,6 +196,8 @@ function update_map_only_time(cb, year, prefix) {
     console.log(cb.checked);
 }
 map.on('load', async () => {
+
+
     //Annual temperature
     addRasterTileLayerToMap(map, 'arboverse.temp_min_rcp45_1985_2015', 'mapbox://arboverse.temp_min_rcp45_1985_2015', 'raster', 'mapbox://arboverse.temp_min_rcp45_1985_2015', 0, 19);
     addRasterTileLayerToMap(map, 'arboverse.temp_average_rcp45_1985_2015', 'mapbox://arboverse.temp_average_rcp45_1985_2015', 'raster', 'mapbox://arboverse.temp_average_rcp45_1985_2015', 0, 19);
@@ -2140,6 +2142,42 @@ var popup = new mapboxgl.Popup({
 var filterEl = document.getElementById('vector_dist');
 var listingEl = document.getElementById('feature-listing');
 
+    /**
+     * A helper function to combine filters and apply them to the map.
+     * This ensures that the vector type dropdown and the text search
+     * can work together.
+     */
+    function applyFilters() {
+        const vectorType = document.getElementById("vectortype").value;
+        const searchText = normalize(filterEl.value);
+
+        // 1. Create the base filter from the dropdown selection.
+        const typeFilter = ["==", ["get", "type"], vectorType];
+
+        // 2. Create the filter from the text search input.
+        // We filter the `allVectors` array first in JavaScript, which is very fast.
+        const filteredByText = allVectors.filter(function (feature) {
+            const species = normalize(feature.properties.species);
+            return species.indexOf(searchText) > -1;
+        });
+
+        // Update the sidebar list with the text-filtered results.
+        renderListings(filteredByText);
+
+        // 3. Create a Mapbox filter expression from the text-filtered results.
+        const speciesFilter = [
+            'match',
+            ['get', 'species'],
+            filteredByText.map(feature => feature.properties.species),
+            true, // If a feature's species is in the list, show it.
+            false // Otherwise, hide it.
+        ];
+
+        // 4. Combine the filters and apply them to the map layer.
+        // The layer will only show features that match BOTH the type and the species search.
+        map.setFilter('arboverse.vector_distribution', ["all", typeFilter, speciesFilter]);
+    }
+
 //Render List in specific location Ok
 function renderListings(features) {
     var empty = document.createElement('p');
@@ -2156,13 +2194,26 @@ function renderListings(features) {
                     .setText(feature.properties.species)
                     .addTo(map);
             });
+            // Click centers map on feature
+            item.addEventListener('click', function () {
+                map.flyTo({
+                    center: feature.geometry.coordinates,
+                    zoom: 4, // adjust zoom level as needed
+                    speed: 1.2, // optional
+                    curve: 1,   // optional
+                    essential: true
+                });
+                document.getElementById('vector_dist').value = feature.properties.species;
+                applyFilters();
+            });
             listingEl.appendChild(item);
         });
+
     } else if (features.length === 0 && filterEl.value !== '') {
         empty.textContent = 'No results found';
         listingEl.appendChild(empty)
     } else {
-        empty.textContent = 'Zoom desired area to populate results';
+        empty.textContent = 'Enable the layer to begin searching species.';
         listingEl.appendChild(empty);
         // remove features filter
         map.setFilter('arboverse.vector_distribution', ['has', 'species']);
@@ -2190,179 +2241,317 @@ function getUniqueFeatures(features, comparatorProperty) {
     return uniqueFeatures;
 }
 //VECTOR DISTRIBUTION
+// VECTOR DISTRIBUTION - REFACTORED
+
+// This variable will hold all the unique vector features once loaded.
+// It acts as the master dataset for our search functionality.
+let allVectors = [];
+
 map.on('load', function () {
-    var vectorFilter = ["==", ["string", ["get", "type"]], "mosquito"];
+    // Add the vector tile source for vector distribution.
     map.addSource('arboverse.vector_distribution', {
         'type': 'vector',
         'url': 'mapbox://arboverse.vector_distribution'
     });
+
+    /**
+     * This function runs when the source data is loaded.
+     * It queries ALL features from the source, not just the ones in view.
+     */
+    function onSourceDataLoaded(e) {
+        // Ensure the event is for our source and it has fully loaded.
+        if (e.sourceId === 'arboverse.vector_distribution' && e.isSourceLoaded) {
+            // Query all features from the source layer.
+            const allFeatures = map.querySourceFeatures('arboverse.vector_distribution', {
+                sourceLayer: 'vector_distribution'
+            });
+
+            if (allFeatures.length) {
+                // Get the unique features and store them in our master variable.
+                allVectors = getUniqueFeatures(allFeatures, 'species');
+
+                // Initially populate the sidebar with all available vectors.
+                renderListings(allVectors);
+
+                // We have our data, so we can remove this event listener to prevent it from running again.
+                map.off('sourcedata', onSourceDataLoaded);
+            }
+        }
+    }
+
+    // Listen for the 'sourcedata' event to know when we can query the features.
+    map.on('sourcedata', onSourceDataLoaded);
+
+    // Add the map layer.
     map.addLayer({
         'id': 'arboverse.vector_distribution',
         'source': 'arboverse.vector_distribution',
         'source-layer': 'vector_distribution',
         'type': 'circle',
-        'paint': { 'circle-radius': ["interpolate", ["linear"], ["zoom"], 0, 4, 22, 8], 'circle-color': ["match", ["get", "type"], ["mosquito"], "#0b4578", ["sandfly"], "#65ab6c", ["midge"], "#408a80", ["tick"], "#28728f", ["other"], "#bbdb88", "#000000"] },
-        'filter': ["all", vectorFilter]
+        'paint': {
+            'circle-radius': ["interpolate", ["linear"], ["zoom"], 0, 4, 22, 8],
+            'circle-color': ["match", ["get", "type"],
+                ["mosquito"], "#0b4578",
+                ["sandfly"], "#65ab6c",
+                ["midge"], "#408a80",
+                ["tick"], "#28728f",
+                ["other"], "#bbdb88",
+                "#000000"
+            ]
+        },
+        // Set an initial filter based on the dropdown's default value.
+        'filter': ["==", ["string", ["get", "type"]], "mosquito"]
     });
+
+    // Hide the layer by default as in your original code.
     map.setLayoutProperty(
         'arboverse.vector_distribution',
         'visibility',
         'none'
     );
-    //Select option Vector type
-    const vectorType = document.getElementById("vectortype")
-    vectorType.addEventListener('change', function () {
-        console.log(vectorType.value)
-        var vecType = vectorType.value
-        vectorFilter = ["==", ["string", ["get", "type"]], vecType]
-        map.setFilter('arboverse.vector_distribution', ["all", vectorFilter])
-    });
 
-    //Select the vectors which are rendered on the map
-    map.on('movestart', function () {
-        // reset features filter as the map starts moving
-        map.setFilter('arboverse.vector_distribution', ['has', 'species']);// applied to species and type
-    });
-    map.on('moveend', function () {
-        var features = map.queryRenderedFeatures({ layers: ['arboverse.vector_distribution'] });
-        if (features) {
-            var uniqueFeatures = getUniqueFeatures(features, 'species');
-            // Populate features for the listing overlay.
-            renderListings(uniqueFeatures);
-            // Clear the input container
-            filterEl.value = '';
+    // --- EVENT LISTENERS ---
 
-            // Store the current features in sn `airports` variable to
-            // later use for filtering on `keyup`.
-            vectors = uniqueFeatures;
-        }
-    });
-    //Popup
+    // When the user changes the vector type in the dropdown, re-apply the filters.
+    document.getElementById("vectortype").addEventListener('change', applyFilters);
+
+    // When the user types in the search box, re-apply the filters.
+    filterEl.addEventListener('keyup', applyFilters);
+
+    // NOTE: The 'movestart' and 'moveend' listeners have been removed
+    // as they are no longer needed for filtering, which solves the original issue.
+
+    // --- POPUP LOGIC (Unchanged) ---
     map.on('mousemove', 'arboverse.vector_distribution', function (e) {
-        // Change the cursor style as a UI indicator.
         map.getCanvas().style.cursor = 'pointer';
-
-        // Populate the popup and set its coordinates based on the feature.
-        var feature = e.features[0];
+        const feature = e.features[0];
         popup
             .setLngLat(feature.geometry.coordinates)
             .setText('Species: ' + feature.properties.species + ' | Order: ' + feature.properties.order + ' | Family: ' + feature.properties.family + ' | Year: ' + feature.properties.year)
             .addTo(map);
-        var popupElem = popup.getElement();
+        const popupElem = popup.getElement();
         popupElem.style.fontSize = "14px";
     });
+
     map.on('mouseleave', 'arboverse.vector_distribution', function () {
         map.getCanvas().style.cursor = '';
         popup.remove();
     });
-    //Filter by the search box
-    filterEl.addEventListener('keyup', function (e) {
-        //normalize the letters
-        var value = normalize(e.target.value);
 
-        // Filter visible features that don't match the input value.
-        var filtered = vectors.filter(function (feature) {
-            var species = normalize(feature.properties.species);
-            return species.indexOf(value) > -1;
-        });
-        //populate the side bar with filtered results
-        renderListings(filtered);
-
-        //set the filter to populate features into the layer
-        if (filtered.length) {
-            map.setFilter('arboverse.vector_distribution', [
-                'match',
-                ['get', 'species'],
-                filtered.map(function (feature) {
-                    return feature.properties.species;
-                }),
-                true,
-                false
-            ]);
-        }
-
-    });
+    // Initial call to populate the list.
     renderListings([]);
-})
-//VIRUS DISCOVERY
-// holds visible families features for filtering
-let virusFamily = [];
-let virusGenus = [];
-let virusSpecies = [];
-//Create Popup, but do not add any information
-const popupDiscovery = new mapboxgl.Popup({
-    closeButton: false,
-    className: "discovery_popup"
 });
 
-const filterFamily = document.getElementById('family-discovery-search');
-const listingFamily = document.getElementById('family-listing');
 
-const filterGenus = document.getElementById('genus-discovery-search');
-const listingGenus = document.getElementById('genus-listing');
+// VIRUS DISCOVERY
+map.on('load', () => {
+  // 1. Add the vector source
+  map.addSource('arbovirus', {
+    type: 'vector',
+    url: 'mapbox://arboverse.bo7kkb4r'
+  });
 
-const filterSpecies = document.getElementById('species-discovery-search');
-const listingSpecies = document.getElementById('species-listing');
-//Render the list of families in the listing box
-function renderListFamily(features) {
-    const empty = document.createElement('p');
-    // clear existing linst
-    listingFamily.innerHTML = '';
-    if (features.length) {
-        for (const feature of features) {
-            const itemLink = document.createElement('a');
-            itemLink.textContent = feature.properties.family;
-            itemLink.addEventListener('mouseover', () => {
-                // highlight the corresponding feature on the map
-                popupDiscovery
-                    .setLngLat(feature.geometry.coordinates)
-                    .setText(feature.properties.family)
-                    .addTo(map);
+  // 2. Add the layer (initially hidden)
+  map.addLayer({
+    id: 'arboverse.bo7kkb4r',
+    type: 'fill',
+    source: 'arbovirus',
+    'source-layer': 'taxonomic_distribution_2025-0-2qxsp7',
+    layout: { visibility: 'none' },
+    paint: {
+      'fill-color': '#0080ff',
+      'fill-opacity': 0.5
+    }
+  });
+
+  // 3. Popup
+  const popupDiscovery = new mapboxgl.Popup({
+    closeButton: false,
+    className: "discovery_popup"
+  });
+
+  // 4. Taxonomic caches
+  let virusFamily = [], virusGenus = [], virusSpecies = [];
+
+  // 5. Fetch values from map source
+  function fetchTaxonomicValues() {
+    const features = map.querySourceFeatures('arbovirus', {
+      sourceLayer: 'taxonomic_distribution_2025-0-2qxsp7'
+    });
+
+    const familySet = new Set();
+    const genusSet = new Set();
+    const speciesSet = new Set();
+
+
+    features.forEach(f => {
+      let families, genera, species;
+
+      try {
+        families = JSON.parse(f.properties.families || '[]');
+      } catch {
+        families = [];
+      }
+
+      try {
+        genera = JSON.parse(f.properties.genera || '[]');
+      } catch {
+        genera = [];
+      }
+
+      try {
+        species = JSON.parse(f.properties.species || '[]');
+      } catch {
+        species = [];
+      }
+
+      families.forEach(fam => familySet.add(fam));
+      genera.forEach(gen => genusSet.add(gen));
+      species.forEach(sp => speciesSet.add(sp));
+    });
+
+
+    virusFamily = Array.from(familySet).sort();
+    virusGenus = Array.from(genusSet).sort();
+    virusSpecies = Array.from(speciesSet).sort();
+  }
+
+  // 6. Filter function
+  function filterTaxonomicLayer({ family, genus, species }) {
+    const filter = ['all'];
+
+    if (family) {
+      filter.push(['in', family, ['downcase', ['get', 'families']]]);
+    }
+    if (genus) {
+      filter.push(['in', genus, ['downcase', ['get', 'genera']]]);
+    }
+    if (species) {
+      filter.push(['in', species, ['downcase', ['get', 'species']]]);
+    }
+
+    map.setLayoutProperty('arboverse.bo7kkb4r', 'visibility', 'visible');
+    map.setFilter('arboverse.bo7kkb4r', filter);
+  }
+
+  // 7. Generic autocomplete setup
+  function setupAutocomplete({ inputEl, listEl, values }) {
+      inputEl.addEventListener('input', function () {
+        const val = inputEl.value.trim().toLowerCase();
+        listEl.innerHTML = '';
+
+        // 👇 If input is empty, re-run the filter to remove it
+        if (val === '') {
+          const selected = {
+            family: document.getElementById('family-discovery-search').value.toLowerCase(),
+            genus: document.getElementById('genus-discovery-search').value.toLowerCase(),
+            species: document.getElementById('species-discovery-search').value.toLowerCase()
+          };
+
+          filterTaxonomicLayer(selected);
+
+          // Optional: Zoom back out if no filters are set
+          if (!selected.family && !selected.genus && !selected.species) {
+            map.flyTo({
+              center: [0, 0], // Or your preferred initial center
+              zoom: 0,
+              speed: 1.2,
+              curve: 1,
+              easing: t => t,
+              essential: true
             });
-            listingFamily.appendChild(itemLink);
+          }
+
+          return;
         }
 
-    } else if (features.length === 0 && filterFamily.value !== '') {
-        empty.textContent = 'No results found';
-        listingFamily.appendChild(empty);
-    } else {
-        empty.textContent = 'Drag the map to populate results';
-        listingFamily.appendChild(empty);
+        const matches = values.filter(v => v.toLowerCase().includes(val));
+        if (matches.length === 0) return;
 
-        //remove features filter
-        map.setFilter('arboverse.6qvctboh', ['has', 'family'])
-    }
-}
-//Render the list of genus in the listing box
-function renderListGenus(features) {
-    const empty = document.createElement('p');
-    // clear existing linst
-    listingGenus.innerHTML = '';
-    if (features.length) {
-        for (const feature of features) {
-            const itemLink = document.createElement('a');
-            itemLink.textContent = feature.properties.genus;
-            itemLink.addEventListener('mouseover', () => {
-                // highlight the corresponding feature on the map
-                popupDiscovery
-                    .setLngLat(feature.geometry.coordinates)
-                    .setText(feature.properties.genus)
-                    .addTo(map);
+
+      for (const match of matches) {
+        const item = document.createElement('a');
+        item.textContent = match;
+        item.addEventListener('click', () => {
+            inputEl.value = match;
+
+          const selected = {
+            family: document.getElementById('family-discovery-search').value.toLowerCase(),
+            genus: document.getElementById('genus-discovery-search').value.toLowerCase(),
+            species: document.getElementById('species-discovery-search').value.toLowerCase()
+          };
+
+          filterTaxonomicLayer(selected);
+
+          // Delay slightly to ensure filter is applied before querying
+          setTimeout(() => {
+            const features = map.queryRenderedFeatures({
+              layers: ['arboverse.bo7kkb4r']
             });
-            listingGenus.appendChild(itemLink);
-        }
+            zoomToFeatures(features);
+          }, 300);
+        });
+        listEl.appendChild(item);
+      }
+    });
+  }
 
-    } else if (features.length === 0 && filterGenus.value !== '') {
-        empty.textContent = 'No results found';
-        listingGenus.appendChild(empty);
-    } else {
-        empty.textContent = 'Drag the map to populate results';
-        listingGenus.appendChild(empty);
+    function zoomToFeatures(features) {
+      if (!features.length) return;
 
-        //remove features filter
-        map.setFilter('arboverse.6qvctboh', ['has', 'genus'])
+      const coordinates = features.flatMap(f => {
+        if (f.geometry.type === 'Polygon') return f.geometry.coordinates[0];
+        if (f.geometry.type === 'MultiPolygon') return f.geometry.coordinates.flat(2);
+        return [];
+      });
+
+      // Calculate bounding box of all matching features
+      const bounds = coordinates.reduce(
+        (b, coord) => b.extend(coord),
+        new mapboxgl.LngLatBounds(coordinates[0], coordinates[0])
+      );
+
+      const center = bounds.getCenter();
+
+      // Perform the animated pan and zoom using flyTo
+      map.flyTo({
+        center: center,
+        zoom: 4,  // Optional max zoom limit
+        speed: 1.2,                   // Higher is faster
+        curve: 1,                   // Flight arc curvature
+        easing: t => t,
+        essential: true
+      });
     }
-}
+
+
+
+  // 8. Wait for tiles to be loaded before fetching values
+  map.on('sourcedata', function (e) {
+    if (e.sourceId === 'arbovirus' && e.isSourceLoaded) {
+      fetchTaxonomicValues();
+
+      setupAutocomplete({
+        inputEl: document.getElementById('family-discovery-search'),
+        listEl: document.getElementById('family-listing'),
+        values: virusFamily
+      });
+
+      setupAutocomplete({
+        inputEl: document.getElementById('genus-discovery-search'),
+        listEl: document.getElementById('genus-listing'),
+        values: virusGenus
+      });
+
+      setupAutocomplete({
+        inputEl: document.getElementById('species-discovery-search'),
+        listEl: document.getElementById('species-listing'),
+        values: virusSpecies
+      });
+    }
+  });
+});
+
 
 //VECTOR Resistance POPUp
 map.on('load', function () {
@@ -2418,7 +2607,7 @@ map.on('load', function () {
     });
 
     const searchInput = document.getElementById('species-distribution-search');
-    const suggestionsEl = document.getElementById('species-suggestions');
+    const suggestionsEl = document.getElementById('species-distribution-autocomplete');
     const searchBtn = document.getElementById('search-distribution-btn');
 
     // Function to extract unique virus names from the map layer
@@ -2482,18 +2671,18 @@ map.on('load', function () {
         suggestionsEl.innerHTML = '';
         if (matches.length > 0) {
             matches.forEach(match => {
-                const li = document.createElement('li');
+                const li = document.createElement('a');
                 li.textContent = match;
                 li.addEventListener('click', () => {
                     searchInput.value = match;
-                    suggestionsEl.style.display = 'none';
+                    //suggestionsEl.style.display = 'none';
                     applyFilter();
                 });
                 suggestionsEl.appendChild(li);
             });
-            suggestionsEl.style.display = 'block';
+            //suggestionsEl.style.display = 'block';
         } else {
-            suggestionsEl.style.display = 'none';
+            //suggestionsEl.style.display = 'none';
         }
     }
 
@@ -2502,7 +2691,7 @@ map.on('load', function () {
         if (value.trim() !== '') {
             showSuggestions(value);
         } else {
-            suggestionsEl.style.display = 'none';
+            //suggestionsEl.style.display = 'none';
         }
     });
 
@@ -2511,7 +2700,7 @@ map.on('load', function () {
     searchInput.addEventListener('keydown', function (e) {
         if (e.key === 'Enter') {
             applyFilter();
-            suggestionsEl.style.display = 'none';
+            //suggestionsEl.style.display = 'none';
         }
     });
 
@@ -2523,5 +2712,18 @@ map.on('load', function () {
     });
 
     renderListings([]);
+
+    // add in a scale in both measurement systems
+    const imperial = new mapboxgl.ScaleControl({
+        maxWidth: 80, // The maximum width of the scale control in pixels.
+        unit: 'imperial' // Use 'metric' for kilometers or 'imperial' for miles.
+    });
+    const metric = new mapboxgl.ScaleControl({
+        maxWidth: 80, // The maximum width of the scale control in pixels.
+        unit: 'metric' // Use 'metric' for kilometers or 'imperial' for miles.
+    });
+    map.addControl(imperial, 'bottom-right');
+    map.addControl(metric, 'bottom-right');
 });
+
 

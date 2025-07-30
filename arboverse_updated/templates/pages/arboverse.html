@@ -29,16 +29,55 @@
     z-index: 1000;
     width: calc(100% - 40px); /* Match input width */
     display: none; /* Hidden by default */
-}
+  }
 
-.suggestions li {
+  .suggestions li {
+      padding: 8px 12px;
+      cursor: pointer;
+  }
+
+  .suggestions li:hover {
+      background-color: #f0f0f0;
+  }
+
+  .autocomplete-box {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: inherit;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .autocomplete-item {
     padding: 8px 12px;
     cursor: pointer;
-}
+    border-bottom: 1px solid #eee;
+  }
 
-.suggestions li:hover {
+  .autocomplete-item:last-child {
+    border-bottom: none;
+  }
+
+  .autocomplete-item:hover {
     background-color: #f0f0f0;
-}
+  }
+
+  .search {
+    position: relative;
+  }
+
 </style>
 </div>
 <main>
@@ -298,7 +337,7 @@
           <div class="search" id="autocomplete-container">
             <input class="search-vector" type="text" placeholder="Search vector..." id="vector-search">
             <button id="vector-submit" class="searchbutton-vector" type="submit" onclick="searchVectorDB('vector-search')"><i class="fa fa-search"></i></button>
-            <div id="vector-autocomplete" class="autocomplete-box"></div>
+            <div id="vector-autocomplete" class="autocomplete-box hidden"></div>
           </div>
           <div class="tabs">
             <div class="tab">
@@ -555,7 +594,7 @@
         <div class="title-sub">
           <div class="togglebtn">
             <label class="switch">
-              <input type="checkbox" name="discovery" id="arboverse.6qvctboh" />
+              <input type="checkbox" name="discovery" id="arboverse.bo7kkb4r" />
               <span class="slider round"></span>
             </label>
           </div>
@@ -650,11 +689,11 @@
           </div>
         </div>
         <div class="search_sub">
-          <input class="search-distribution" type="text" placeholder="Search by species..."
-            id="species-distribution-search">
+          <input class="search-distribution" type="text" placeholder="Search by species..." id="species-distribution-search">
           <button class="search-btn" id="search-distribution-btn" type="submit"><i class="fa fa-search"></i></button>
         </div>
-        <ul class="suggestions" id="species-suggestions"></ul>
+        <div id="species-distribution-autocomplete" class="listing vector_listing"></div>
+
       </div>
       <!--Vector Menu-->
       <div id="vector-menu" class="sub-menu sub-2">
@@ -750,7 +789,7 @@
         </div>
         <div class="search_sub">
           <h6>Find location by species</h6>
-          <input id="vector_dist" class="search-distribution" type="text"placeholder="Search by species...">
+          <input id="vector_dist" class="search-distribution" type="text" placeholder="Search by species...">
         </div>
         <div id="feature-listing" class="listing vector_listing"></div>
       </div>
@@ -5826,6 +5865,13 @@
     // Clear previous suggestions
     autocompleteBox.innerHTML = '';
 
+    if (suggestions.length === 0) {
+      autocompleteBox.classList.add('hidden'); // Hide if no suggestions
+      return;
+    }
+
+    autocompleteBox.classList.remove('hidden'); // Show if there are suggestions
+
     // Show new suggestions
     suggestions.forEach(suggestion => {
       const div = document.createElement('div');
@@ -5836,18 +5882,20 @@
       div.onclick = function() {
         inputElement.value = suggestion;
         autocompleteBox.innerHTML = ''; // Clear suggestions after selection
+        autocompleteBox.classList.add('hidden'); // Hide suggestions
       };
 
       autocompleteBox.appendChild(div);
     });
   }
 
+
   // Filter suggestions based on input
   function filterSuggestions(input, items) {
     const searchTerm = input.toLowerCase();
     return items.filter(item =>
       item.toLowerCase().includes(searchTerm)
-    );
+    ).slice(0,3);
   }
 
   // Event listeners for arbovirus search
@@ -5862,11 +5910,19 @@
     showSuggestions(this, filteredSuggestions, vectorAutocomplete);
   });
 
+/*  // Event listeners for vector search
+  vector_dist.addEventListener('input', function() {
+    const filteredSuggestions = filterSuggestions(this.value, search_vectors);
+    showSuggestions(this, filteredSuggestions, vectorAutocomplete);
+  });*/
+
   // Close suggestions when clicking outside
   document.addEventListener('click', function(e) {
-    if (!e.target.closest('.autocomplete-container')) {
+    if (!e.target.closest('.search')) {
       arboAutocomplete.innerHTML = '';
+      arboAutocomplete.classList.add('hidden');
       vectorAutocomplete.innerHTML = '';
+      vectorAutocomplete.classList.add('hidden');
     }
   });
 
@@ -5958,7 +6014,8 @@
           feeding_period = data.feeding_period[0].name;
         }
         document.getElementById('vector_feed').innerHTML = feeding_period;
-        document.getElementById('vector_anthro').innerHTML = data.anthropophilic_behavior;
+        console.log(data);
+        document.getElementById('vector_anthro').innerHTML = data.anthropophilic_behaviour;
         document.getElementById('vector_eggs').innerHTML = data.eggs_viability_days;
         document.getElementById('vector_life').innerHTML = data.adult_life_expectancy_days;
 
@@ -5995,16 +6052,19 @@
           }
           return response.json();
       })
-      .then(data => {
-        data = data[0]
-        console.log(data);
+      .then(full_data => {
+
+        const data = full_data['virus'][0];
+        let virusvector = full_data['virus_vector'];
+        //console.log(data);
+        //console.log(virusvector);
 
         // Taxonomy and Genomics
         document.getElementById('virus_name').innerHTML = data.name;
         document.getElementById('virus_abbrev').innerHTML = data.abbreviation;
         document.getElementById('virus_taxonomy').innerHTML = data.family.name + " | " + data.genus.name;
         document.getElementById('virus_firstIso').innerHTML = data.collection_date;
-        document.getElementById('virus_strain').innerHTML = `<a href=${data.reference_strain} target='_blank'>${data.reference_strain}</a>`;
+        document.getElementById('virus_strain').innerHTML = data.reference_strain;
         document.getElementById('virus_reference').innerHTML = data.genome_type;
         document.getElementById('virus_size').innerHTML = data.genome_length_nt;
         document.getElementById('virus_genome').innerHTML = data.genome_type;
@@ -6020,7 +6080,22 @@
           }
         }
         document.getElementById('virus_vector').innerHTML = data.borning.borne_type; // these two need to reference virusvector
-        document.getElementById('virus_vector_binominal').innerHTML = vectors.join(" | ");
+        if (virusvector.length == 0) {
+          document.getElementById('virus_vector_binominal').innerHTML = "unknown";
+        } else {
+          // Probably will need some further processing
+          let vv_names = [];
+          for (let i=0; i<virusvector.length; i++) {
+            // If the vector is the main vector, put it at the front of the list
+            if (virusvector[i].main_vector) {
+              vv_names.unshift(virusvector[i].vector.name);
+            } else {
+              vv_names.push(virusvector[i].vector.name);
+            }
+          }
+          //console.log(vv_names);
+          document.getElementById('virus_vector_binominal').innerHTML = vv_names.join(" | ");
+        }
         document.getElementById('virus_host').innerHTML = data.host_amplifier;
 
         // Diseases
@@ -6075,7 +6150,7 @@
       document.getElementById('chck'+i).checked = true;
     }
   }
+
 </script>
 
-<script src="../static/js/mapboxutil.js"></script>
 {% endblock content %}

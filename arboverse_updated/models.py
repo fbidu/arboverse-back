@@ -42,7 +42,7 @@ class VirusFamily(models.Model):
 
     def __str__(self):
         return self.name
-    
+
 
 class VirusGenus(models.Model):
     name = models.TextField(unique=True)
@@ -236,6 +236,7 @@ class VectorSpecies(models.Model):
     def __str__(self):
         return self.name
 
+
 class VirusVector(models.Model):
     virus = models.ForeignKey(Virus, on_delete=models.RESTRICT, default=None, null=True)
     vector = models.ForeignKey(
@@ -249,3 +250,57 @@ class VirusVector(models.Model):
     def __str__(self):
         return self.virus.name + ":" + self.vector.name
 
+
+class VectorSpeciesBloodMeal(models.Model):
+    vectorspecies_id = models.ForeignKey(
+        VectorSpecies, on_delete=models.RESTRICT, default=None, null=True
+    )
+    bloodmeal_id = models.ForeignKey(
+        BloodMeal, on_delete=models.RESTRICT, default=None, null=True
+    )
+    def __str__(self):
+        return self.name
+
+
+class VectorSpeciesFeedingPeriod(models.Model):
+    vectorspecies_id = models.ForeignKey(
+        VectorSpecies, on_delete=models.RESTRICT, default=None, null=True
+    )
+    feedingperiod_id = models.ForeignKey(
+        FeedingPeriod, on_delete=models.RESTRICT, default=None, null=True
+    )
+    def __str__(self):
+        return self.name
+
+
+class VectorSpeciesHabitat(models.Model):
+    vectorspecies_id = models.ForeignKey(
+        VectorSpecies, on_delete=models.RESTRICT, default=None, null=True
+    )
+    habitat_id = models.ForeignKey(
+        Habitat, on_delete=models.RESTRICT, default=None, null=True
+    )
+    def __str__(self):
+        return self.name
+
+
+class VectorSpeciesLandscape(models.Model):
+    vectorspecies_id = models.ForeignKey(
+        VectorSpecies, on_delete=models.RESTRICT, default=None, null=True
+    )
+    landscape_id = models.ForeignKey(
+        Landscape, on_delete=models.RESTRICT, default=None, null=True
+    )
+    def __str__(self):
+        return self.name
+
+
+class VectorSpeciesLocation(models.Model):
+    vectorspecies_id = models.ForeignKey(
+        VectorSpecies, on_delete=models.RESTRICT, default=None, null=True
+    )
+    location_id = models.ForeignKey(
+        Location, on_delete=models.RESTRICT, default=None, null=True
+    )
+    def __str__(self):
+        return self.name
