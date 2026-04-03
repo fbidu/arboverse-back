@@ -32,7 +32,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/dev/ref/settings/#locale-paths
 LOCALE_PATHS = [str(BASE_DIR / "locale")]
 
-DEBUG = os.getenv('DEBUG',False)  # set to false in production, STATIC_ROOT below should be a web-accessible folder for static files
+DEBUG = os.getenv('DEBUG', 'True') == 'True'  # set to false in production, STATIC_ROOT below should be a web-accessible folder for static files
 
 DATABASES = {
     'default': {

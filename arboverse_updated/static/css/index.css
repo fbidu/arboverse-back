@@ -29,23 +29,25 @@ html {
   --grey4: #a6a6a6;
   --grey5: #d9d9d9;
   --orange: #F5861F;
+  --darkOrange: #D37620;
   --text: #262626;
   --darkGrey: #E5E5E5;
-  --lightGrey: #ededed;
+  --lightGrey: #F3F3F3;
   --orangeTransparent: hsla(29, 91%, 54%, 0.7);
   --orangeFade: hsl(29, 91%, 54%, 0.8);
+  --greyFade: #868686;
 }
 
 /*----Typography----*/
 h1 {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
-  font-size: 2.5rem;
+  font-weight: 700;
+  font-size: 3rem;
 }
 
 h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
+  font-family: "Lora", serif;
+  font-weight: 400;
   font-size: 1.5rem;
 }
 
@@ -75,8 +77,8 @@ h6 {
 }
 
 p {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
+  font-family: "Lora", serif;
+  font-weight: 400;
 }
 
 a {
@@ -220,31 +222,43 @@ a {
 
 /*NAVIGATOR*/
 .bannermenu {
-  background-image: url("../images/banners/homepage_banner-min.png");
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
+  background: linear-gradient(to bottom right, #262626, #0d0d0d);
+  width: 100%;;
   height: 97vh;
 }
 
 .bannermenu h1 {
-  width: 50%;
+  width: 60%;
   margin: 0 5%;
   letter-spacing: 3px;
   text-align: left;
-  padding-top: 8vh;
-  color: var(--grey5);
+  padding-top: 18vh;
+  color: white;
+  font-weight: 600;
 }
 
 .bannermenu h2 {
-  width: 45%;
+  width: 65%;
   text-align: left;
-  margin: 4vh 5vw;
+  margin: 2% 5%;
   line-height: 1.5;
-  color: var(--grey5);
+  color: var(--lightGrey);
 }
-
+.home_banner_btn{
+  margin: 1% 5%;
+  width: 15%;
+  padding: 15px 35px;
+  background-color: var(--orange);
+  border-radius: 50px;
+  color: var(--grey1);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+}
+.home_banner_btn:hover{
+  background-color: var(--grey5);
+}
 /* NAV BAR*/
 nav {
   display: flex;
@@ -533,8 +547,9 @@ nav {
 
 /*------main arboverse explanation---*/
 .arboverse_explain {
-  width: 90%;
-  margin: 10% 0 10% 5%;
+  width: 100%;
+  max-width: 1800px;
+  margin: 10% 0 10% 3%;
   height: auto;
   background: transparent;
   display: flex;
@@ -545,7 +560,7 @@ nav {
 .main_arboverse {
   width: 100%;
   height: auto;
-  margin-top: 20px;
+  margin: 5% 3%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -553,20 +568,18 @@ nav {
 }
 
 .explanation_content {
-  width: 45%;
-  padding: 0 10px;
-  border-left: solid 2px var(--orangeFade);
+  width: 50%;
 }
 
 .explanation_content h3 {
-  color: var(--orangeFade);
+  color: var(--greyFade);
   text-align: left;
   font-size: 5rem;
   font-weight: 700;
 }
 
 .explanation_content p {
-  margin: 20px 0;
+  margin: 20px 0 30px 0;
   text-align: left;
   color: var(--text);
   font-size: 1.6rem;
@@ -574,14 +587,14 @@ nav {
 }
 
 .explanation_content a {
-  margin-top: 2vh;
+  margin-top: 1% 0;
   width: 45%;
-  padding: 10px 15px;
+  padding: 15px 40px;
   background-color: var(--grey2);
-  border-radius: 20px;
-  color: var(--grey5);
-  font-size: 1.2rem;
-  font-weight: 300;
+  border-radius: 50px;
+  color: var(--lightGrey);
+  font-size: 1.5rem;
+  font-weight: 600;
   text-decoration: none;
   text-align: center;
 }
@@ -591,9 +604,6 @@ nav {
   color: white;
 }
 
-.main_arboverse img {
-  width: 50%;
-}
 /* main explanantion MOBILE SIZE*/
 @media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait) {
   .arboverse_explain {
@@ -639,7 +649,7 @@ nav {
 .our_work {
   width: 100%;
   margin: 15vh auto;
-  background-image: linear-gradient(120deg, #262626, #0d0d0d), url(../images/Index/photos/mosquito.jpg);
+  background-image: linear-gradient(120deg, #262626, #0d0d0d);
   padding: 8% 5%;
   background-position: right;
   background-size: cover;
@@ -647,7 +657,7 @@ nav {
 }
 
 .our_work h3 {
-  color: var(--grey5);
+  color: var(--lightGrey);
   text-align: left;
   font-size: 5rem;
   font-weight: 700;
@@ -657,32 +667,34 @@ nav {
   width: 80%;
   margin: 30px 0;
   text-align: left;
-  color: var(--grey5);
+  color: var(--lightGrey);
   font-size: 1.6rem;
   line-height: 1.5;
 }
 
 .our_work .platform-link {
+  margin-top: 1%;
   width: 45%;
-  padding: 10px 15px;
+  padding: 15px 45px;
   background-color: var(--orange);
-  border-radius: 20px;
+  border-radius: 50px;
   color: white;
-  font-size: 1.2rem;
-  font-weight: 300;
+  font-size: 1.5rem;
+  font-weight: 600;
   text-decoration: none;
   text-align: center;
 }
 .our_work .platform-link:hover {
-  background-color: var(--orangeTransparent);
-  color: white;
+  background-color: var(--lightGrey);
+  color: var(--grey1);
 }
 .tool_link h4{
   width: 60%;
-  border-bottom:  solid 1px transparent;
+  font-weight: 600;
+  transition: transform 0.3s ease;
 }
 .tool_link:hover h4{
-  border-bottom: solid 1px #F5861F;
+  transform: translateX(15px);
 }
 
 /* our work MOBILE SIZE*/
@@ -710,6 +722,7 @@ nav {
     color: white;
   }
   .tool_link h4{
+    border: solid 1px var(--orange);
     width: 90%;
   }
   .tool_link:hover h4{
@@ -719,7 +732,7 @@ nav {
 
 /*-----SERVICES ---*/
 .services_wrap {
-  margin-top: 5%;
+  margin: 2% 0;
   width: 85%;
   display: flex;
   flex-direction: row;
@@ -730,7 +743,7 @@ nav {
 }
 
 .service_unit {
-  width: 31%;
+  width: 45%;
   height: auto;
   padding: 15px 5px;
 }
@@ -742,9 +755,9 @@ nav {
 
 .service_unit p {
   width: 90%;
-  color: var(--grey5);
-  font-size: 1.2rem;
-  padding-left: 5px;
+  color: var(--lightGrey);
+  font-size: 1.5rem;
+  padding: 15px 0px 15px 20px;
   border-left: solid 2px var(--orange);
 
 }
