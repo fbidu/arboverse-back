@@ -42,13 +42,13 @@ html {
 h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  font-size: 3rem;
+  font-size: 3.3rem;
 }
 
 h2 {
   font-family: "Lora", serif;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 h3 {
@@ -99,11 +99,13 @@ a {
 .white {
   color: white;
 }
-.grey_fade{
-  color: hsla(0, 0%, 5%,0.8);
+
+.grey_fade {
+  color: hsla(0, 0%, 5%, 0.8);
 }
-.orange_fade{
-  color:hsla(29, 91%, 54%,0.9) ;
+
+.orange_fade {
+  color: hsla(29, 91%, 54%, 0.9);
 }
 
 /*---font size ipad landscape*/
@@ -118,13 +120,13 @@ a {
 }
 
 /*---font size ipad portrait*/
-@media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
+@media screen and (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
   h1 {
     font-size: 2.5rem;
   }
 
   h2 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   h3 {
@@ -171,8 +173,8 @@ a {
   }
 
   p {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-family: "Lora", serif;
+    font-weight: 400;
   }
 
   a {
@@ -183,9 +185,9 @@ a {
 }
 
 /*---font size mobile portrait*/
-@media screen and (min-width: 300px) and (max-width:490px) and (orientation: portrait) {
+@media screen and (min-width: 300px) and (max-width:600px) and (orientation: portrait) {
   h1 {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 
   h2 {
@@ -209,8 +211,8 @@ a {
   }
 
   p {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-family: "Lora", serif;
+    font-weight: 400;
   }
 
   a {
@@ -223,12 +225,12 @@ a {
 /*NAVIGATOR*/
 .bannermenu {
   background: linear-gradient(to bottom right, #262626, #0d0d0d);
-  width: 100%;;
-  height: 97vh;
+  width: 100%;
+  height: 85vh;
 }
 
 .bannermenu h1 {
-  width: 60%;
+  width: 900px;
   margin: 0 5%;
   letter-spacing: 3px;
   text-align: left;
@@ -238,13 +240,14 @@ a {
 }
 
 .bannermenu h2 {
-  width: 65%;
+  width: 950px;
   text-align: left;
   margin: 2% 5%;
   line-height: 1.5;
   color: var(--lightGrey);
 }
-.home_banner_btn{
+
+.home_banner_btn {
   margin: 1% 5%;
   width: 15%;
   padding: 15px 35px;
@@ -256,9 +259,11 @@ a {
   text-decoration: none;
   text-align: center;
 }
-.home_banner_btn:hover{
+
+.home_banner_btn:hover {
   background-color: var(--grey5);
 }
+
 /* NAV BAR*/
 nav {
   display: flex;
@@ -308,6 +313,7 @@ nav {
   text-decoration: none;
   padding: 5px;
   margin: 5px;
+  font-weight: 500;
 }
 
 .nav-links a:hover {
@@ -340,22 +346,29 @@ nav {
 }
 
 /*----IPAD Size portrait Banner--*/
-@media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
+@media screen and (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
   .bannermenu {
-    background-image: url("../images/banners/homepage_mobile-min.png");
-    height: 85vh;
+    height: 50vh;
   }
 
   .bannermenu h1 {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
-    padding-top: 2vh;
-    text-align: center;
+    padding-top: 5vh;
+    text-align: left;
     letter-spacing: 2px;
   }
 
   .bannermenu h2 {
-    display: none;
+    width: 90%;
+    margin: 20px auto 30px auto;
+  }
+
+  .home_banner_btn {
+    padding: 10px 30px;
+  }
+  .nav-links a{
+    font-size: 1.6rem;
   }
 }
 
@@ -379,7 +392,7 @@ nav {
 
 /* NAVIGATOR TABLET SIZE*/
 
-@media screen and (max-width: 1010px) {
+@media screen and (max-width: 1024px) {
   body {
     overflow-x: hidden;
   }
@@ -393,12 +406,12 @@ nav {
     right: 0;
     height: 45vh;
     top: 12vh;
-    background: linear-gradient(-45deg, hsla(0, 0%, 15%, 0.8), hsla(0, 0%, 5%, 0.9));
+    background: linear-gradient(-45deg, hsla(0, 0%, 15%, 0.9), hsla(0, 0%, 5%, 1));
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding-left: 20px;
-    width: 50%;
+    width: 90%;
     transform: translateX(100%);
     transition: transform 0.5s ease-in;
   }
@@ -446,8 +459,7 @@ nav {
 /* NAVIGATOR AND BANNER MOBILE SIZE*/
 @media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait) {
   .bannermenu {
-    background-image: url("../images/banners/homepage_mobile-min.png");
-    height: 70vh;
+    height: 50vh;
   }
 
   .bannermenu h1 {
@@ -459,7 +471,15 @@ nav {
   }
 
   .bannermenu h2 {
-    display: none;
+    width: 90%;
+    margin: 20px auto 30px auto;
+  }
+
+  .home_banner_btn {
+    margin: 4% 5%;
+    width: 15%;
+    padding: 10px 20px;
+    font-size: 0.9rem;
   }
 
   nav {
@@ -548,8 +568,7 @@ nav {
 /*------main arboverse explanation---*/
 .arboverse_explain {
   width: 100%;
-  max-width: 1800px;
-  margin: 10% 0 10% 3%;
+  margin: 3% 0 3% 3%;
   height: auto;
   background: transparent;
   display: flex;
@@ -568,7 +587,7 @@ nav {
 }
 
 .explanation_content {
-  width: 50%;
+  width: 60%;
 }
 
 .explanation_content h3 {
@@ -579,6 +598,7 @@ nav {
 }
 
 .explanation_content p {
+  max-width: 850px;
   margin: 20px 0 30px 0;
   text-align: left;
   color: var(--text);
@@ -604,47 +624,72 @@ nav {
   color: white;
 }
 
+/* main explanantion Tablet SIZE*/
+@media screen and (min-width: 600px) and (max-width:1024px) {
+  .arboverse_explain {
+    margin: 3% 0 3% 3%;
+  }
+
+  .explanation_content h3 {
+    font-size: 3rem;
+  }
+
+  .explanation_content {
+    width: 90%;
+    padding: 0 10px;
+  }
+
+  .explanation_content a {
+    margin: 2vh 0;
+    width: 45%;
+    font-size: 1.5rem;
+  }
+
+  .explanation_content a:hover {
+    background-color: var(--orange);
+    color: white;
+  }
+}
+
 /* main explanantion MOBILE SIZE*/
 @media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait) {
   .arboverse_explain {
     width: 100%;
   }
-  
+
   .main_arboverse {
     width: 100%;
     flex-direction: column;
   }
-  
+
   .explanation_content {
-    width: 80%;
+    width: 90%;
     padding: 0 10px;
-    border-left: solid 2px var(--orangeFade);
   }
-  
+
   .explanation_content h3 {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
-  
+
   .explanation_content p {
     font-size: 1rem;
   }
-  
+
   .explanation_content a {
     margin: 2vh 0;
     width: 45%;
-    font-size: 1.1rem;
+    font-size: 1rem;
+    padding: 10px 20px;
+    text-wrap: nowrap;
   }
-  
+
   .explanation_content a:hover {
     background-color: var(--orange);
     color: white;
   }
-  
-  .main_arboverse img {
-    margin-top: 50px;
-    width: 100%;
-  }
+
 }
+
 /*-----Our work ---*/
 .our_work {
   width: 100%;
@@ -684,49 +729,82 @@ nav {
   text-decoration: none;
   text-align: center;
 }
+
 .our_work .platform-link:hover {
   background-color: var(--lightGrey);
   color: var(--grey1);
 }
-.tool_link h4{
+
+.tool_link h4 {
   width: 60%;
   font-weight: 600;
   transition: transform 0.3s ease;
 }
-.tool_link:hover h4{
+
+.tool_link:hover h4 {
   transform: translateX(15px);
 }
 
 /* our work MOBILE SIZE*/
-@media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait) { 
-  
-  .our_work{
-    margin: 15vh auto 5vh auto;
-    padding: 10% 5%;
+@media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait) {
+
+  .our_work {
+    margin: 8vh auto 5vh auto;
+    padding: 15% 5%;
   }
+
   .our_work h3 {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
-  
+
   .our_work p {
     width: 90%;
+    margin: 10px 0;
     font-size: 1rem;
     line-height: 1.5;
   }
-  
+
   .our_work .platform-link {
     font-size: 1.1rem;
+    padding: 10px 25px;
   }
+
   .our_work .platform-link:hover {
-    background-color: var(--orangeTransparent);
-    color: white;
+    background-color: var(--lightGrey);
+    color: var(--grey1);
   }
-  .tool_link h4{
-    border: solid 1px var(--orange);
+
+  .tool_link h4 {
+    font-size: 1.8rem;
     width: 90%;
   }
-  .tool_link:hover h4{
-    border-bottom: solid 1px transparent;
+}
+
+/* our work TABLET SIZE*/
+@media screen and (min-width: 600px) and (max-width:1024px) and (orientation: portrait) {
+  .our_work {
+    margin: 8vh auto 5vh auto;
+    padding: 10% 5%;
+  }
+
+  .our_work h3 {
+    font-size: 3rem;
+  }
+
+  .our_work p {
+    width: 90%;
+    margin: 10px 0;
+    line-height: 1.5;
+  }
+
+  .our_work .platform-link {
+    font-size: 1.8rem;
+    padding: 15px 35px;
+  }
+
+  .our_work .platform-link:hover {
+    background-color: var(--lightGrey);
+    color: var(--grey1);
   }
 }
 
@@ -761,10 +839,11 @@ nav {
   border-left: solid 2px var(--orange);
 
 }
+
 /* our work MOBILE SIZE*/
-@media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait) { 
+@media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait) {
   .services_wrap {
-    margin-top: 15%;
+    margin: 5% 0;
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -773,26 +852,53 @@ nav {
     align-items: flex-start;
     column-gap: 10%;
   }
-  
+
   .service_unit {
     width: 100%;
     height: auto;
     padding: 15px 0;
   }
-  
+
   .service_unit h4 {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     color: white;
   }
-  
+
   .service_unit p {
     width: 90%;
     margin: 5px 0;
-    color: var(--grey5);
+    color: var(--lightGrey);
     font-size: 1rem;
-  
+    padding: 5px 0px 3px 5px;
+
   }
 }
+
+/* our work TABLET SIZE*/
+@media screen and (min-width: 600px) and (max-width:1024px) and (orientation: portrait) {
+  .services_wrap {
+    margin: 5% 0;
+  }
+
+  .service_unit {
+    width: 100%;
+    height: auto;
+    padding: 15px 0;
+  }
+
+  .service_unit h4 {
+    font-size: 2.3rem;
+    color: white;
+  }
+
+  .service_unit p {
+    width: 80%;
+    color: var(--lightGrey);
+    padding: 5px 0px 3px 5px;
+
+  }
+}
+
 /*-----TEAM BUILT ---*/
 .team_section {
   width: 90%;
@@ -802,12 +908,12 @@ nav {
 
 .team_section h3 {
   font-size: 5rem;
-  color: hsla(300, 2%, 34%, 0.8);
+  color: var(--greyFade);
   font-weight: 700;
 }
 
 .team_wrapper {
-  margin: 50px 0;
+  margin: 30px 0;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -841,17 +947,14 @@ nav {
 }
 
 /*---- Team IPAD Size portrait --*/
-@media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
-  .team_section {
-    width: 100%;
-  }
-
+@media screen and (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
   .team_section h3 {
-    text-align: center;
+    text-align: left;
   }
 
   .team_wrapper {
-    margin: 30px 0;
+    margin: 20px 0;
+    justify-content: flex-start;
   }
 
   .person_img {
@@ -895,17 +998,20 @@ nav {
   .team_section h3 {
     width: 90%;
     margin: 0 auto;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 700;
   }
 
   .team_wrapper {
     width: 90%;
     margin: 10px auto;
+    justify-content: flex-start;
   }
+
   .person_unit {
     margin: 5px;
   }
+
   .person_img {
     width: 30px;
     height: 30px;
@@ -922,7 +1028,7 @@ nav {
 .funding_section {
   width: 90%;
   height: auto;
-  margin: 20vh auto 0 auto;
+  margin: 10vh 5vw 0 5vw;
 }
 
 .line-grey {
@@ -934,7 +1040,7 @@ nav {
 }
 
 .fund-wrapper {
-  margin: 30px 0;
+  margin: 50px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -943,15 +1049,17 @@ nav {
   flex-wrap: wrap;
   row-gap: 50px;
 }
-.fund-endorsed{
+
+.fund-endorsed {
   width: 30%;
   height: auto;
 }
 
-.fund-support{
+.fund-support {
   width: 50%;
   height: auto;
 }
+
 .fund-partners {
   width: 90%;
   height: auto;
@@ -964,9 +1072,11 @@ nav {
   font-size: 2rem;
   color: hsla(300, 2%, 34%, 0.8);
 }
-.gvn{
+
+.gvn {
   filter: grayscale(100%);
 }
+
 .support {
   margin: 20px 0;
   width: 100%;
@@ -980,34 +1090,40 @@ nav {
   height: 60px;
   margin-right: 30px;
 }
-#nus{
-  height: 100px;
-  margin-right: 30px;
-}
 
-#cop,
-#stan{
-  height: 70px;
-  margin-right: 30px;
-}
-#oxf{
-  height: 100px;
-  margin-right: 30px;
-}
-#imp{
-  height:60px;
-  margin-right: 30px;
-}
 .support img:hover {
   cursor: pointer;
 }
 
 /*---- funding IPAD Size portrait --*/
 @media screen and (min-width: 600px) and (max-width: 940px) and (orientation: portrait) {
+  .funding_section {
+    margin: 3vh auto;
+    width: 90%;
+  }
+
+  .line-grey {
+    margin-bottom: 15px;
+  }
+
+  .fund-wrapper {
+    margin: 2px;
+    column-gap: 15px;
+  }
 
   .fund-support h6,
   .fund-endorsed h6 {
-    font-size: 1rem;
+    font-size: 2rem;
+  }
+
+  .support {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .support img {
+    height: 60px;
+    margin-right: 25px;
   }
 }
 
@@ -1023,13 +1139,18 @@ nav {
 /*--Funding Mobile --*/
 @media screen and (min-width: 200px) and (max-width: 600px) and (orientation: portrait) {
   .funding_section {
-    margin: 5vh auto;
+    margin: 3vh auto;
     width: 90%;
+  }
+
+  .line-grey {
+    margin-bottom: 10px;
   }
 
   .fund-wrapper {
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 10px;
+    margin: 2px;
   }
 
   .fund-support,
@@ -1045,27 +1166,10 @@ nav {
     font-size: 1.5rem;
     text-align: left;
   }
+
   .support img {
     height: 40px;
     margin-right: 15px;
-  }
-  #nus{
-    height: 60px;
-    margin-right: 15px;
-  }
-  
-  #cop,
-  #stan{
-    height: 50px;
-    margin-right: 15px;
-  }
-  #oxf{
-    height: 70px;
-    margin-right:5px;
-  }
-  #imp{
-    height:30px;
-    margin-right: 5px;
   }
 }
 
@@ -1101,14 +1205,24 @@ nav {
   padding-left: 10px;
 }
 
+.navigation-links ul {
+  list-style-type: none;
+}
+
 .navigation-links .nav-foot {
+  display: flex;
   flex-direction: row;
   justify-content: flex-start;
-
 }
-.navigation-links .nav-foot a{
+
+.navigation-links .nav-foot a {
   font-weight: 600;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
+  color: var(--lightGrey);
+  margin-right: 40px;
+}
+.navigation-links .nav-foot a:hover{
+  color: var(--orange);
 }
 
 .nav-foot li {
@@ -1138,46 +1252,65 @@ aside p {
   font-size: 0.9rem;
   font-family: "Montserrat", sans-serif;
 }
+
 .plot {
   font-size: 0.9rem;
   color: white;
 }
-.plot:hover{
+
+.plot:hover {
   color: var(--orange);
 }
-.wordmark_footer{
+
+.wordmark_footer {
   width: 90%;
   margin: 0 auto;
   overflow: hidden;
   height: 145px;
   text-align: center;
 }
-.wordmark_footer h5{
+
+.wordmark_footer h5 {
   font-size: 10rem;
-  color:#3e3d3e;
+  color: #3e3d3e;
   font-weight: 700;
 }
 
 /*---- footer IPAD Size portrait --*/
-@media screen and (max-width: 1010px) {
+@media screen and (min-width: 600px) and (max-width: 1024px) and (orientation: portrait){
+  .contact {
+    padding: 5vh 0 0 0;
+  }
+
   .footer-wrapper {
-    width: 80%;
+    width: 90%;
   }
 
   .logo-foot {
-    width: 40%;
+    width: 18%;
   }
 
-  .social-wrapper {
-    width: 50%;
+  .navigation-links .nav-foot {
+    flex-direction: row;
+    justify-content: flex-start;
   }
 
-  .navigation-links {
-    display: none;
+  .navigation-links .nav-foot a {
+    font-weight: 600;
+    font-size: 1.5em;
   }
 
-  .social-wrapper h4 {
-    font-size: 1rem;
+  aside{
+    padding-left: 5%;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .wordmark_footer {
+    height: 100px;
+  }
+  .wordmark_footer h5 {
+    font-size: 7rem;
   }
 }
 
@@ -1210,77 +1343,44 @@ aside p {
     display: none;
   }
 
-  .social-wrapper h4 {
-    font-size: 1rem;
-  }
-
-  .social-unit {
-    width: 40px;
-    height: 40px
-  }
-
-  .fa-twitter,
-  .fa-facebook,
-  .fa-envelope,
-  .fa-instagram {
-    color: white;
-    transform: scale(1.2);
-  }
-
   aside p {
     font-size: 0.6rem;
   }
 }
+
 /*---- footer Mobile Size portrait --*/
-@media screen and (min-width: 300px) and (max-width:480px) and (orientation: portrait) {
+@media screen and (min-width: 300px) and (max-width:600px) and (orientation: portrait) {
+  .contact {
+    padding: 3vh 0 0 0;
+  }
+
   .footer-wrapper {
     width: 90%;
     padding: 20px 0;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-  }
-
-  .navigation-links {
-    display: none;
+    flex-direction: row;
   }
 
   .logo-foot {
-    width: 50%;
+    width: 80%;
+    text-align: center;
   }
 
   .logo-foot img {
     width: 30%;
   }
 
-  .logo-foot h3 {
-    font-size: 0.9rem;
-    margin: 0;
-  }
-
-  .social-wrapper {
-    width: 40%;
-  }
-
-  .social-wrapper h4 {
-    font-size: 1rem;
-  }
-
-  .social-unit {
-    width: 30px;
-    height: 30px;
-  }
-
-  .fa-twitter,
-  .fa-facebook,
-  .fa-envelope,
-  .fa-instagram {
-    transform: scale(0.9);
+  .navigation-links {
+    display: none;
   }
 
   aside {
     width: 90%;
     flex-direction: column;
     justify-content: center;
+    padding-left: 1%;
+    gap: 2px;
   }
 
   aside p {
@@ -1288,5 +1388,15 @@ aside p {
     text-align: center;
   }
 
- 
+  .wordmark_footer {
+    width: 100%;
+    height: 54px;
+  }
+
+  .wordmark_footer h5 {
+    font-size: 3.5rem;
+    color: #3e3d3e;
+    font-weight: 700;
+  }
+
 }
