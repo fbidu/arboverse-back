@@ -28,6 +28,12 @@ exportBtn.addEventListener('click', function () {
 
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
+const scale = new mapboxgl.ScaleControl({
+    maxWidth: 100,
+    unit: 'metric' // options: 'metric', 'imperial', 'nautical'
+});
+ // Add a scale control to the map
+ map.addControl(new mapboxgl.ScaleControl());
 
 // To labels appear on top of the layers
 map.on('load', function () {
@@ -49,6 +55,15 @@ map.on('load', function () {
 //   (url) the raster tile URL to add to the map
 const addTileLayerToMap = (mapVar, title, url, type, paint, source_layer) => {
     //console.log(mapVar, title, url);
+    var layers = map.getStyle().layers;
+    //Find the index of the first symbol layer in the map style
+    var firstSymbolId;
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === 'symbol') {
+            firstSymbolId = layers[i].id;
+            break;
+        }
+    }
     // Need to first add a source
     mapVar.addSource(title, {
         type: 'vector',
@@ -64,7 +79,7 @@ const addTileLayerToMap = (mapVar, title, url, type, paint, source_layer) => {
         'source': title,
         'paint': paint,
         'source-layer': source_layer
-    });
+    }, firstSymbolId);
 
     mapVar.setLayoutProperty(
         title,
@@ -81,6 +96,15 @@ const addTileLayerToMap = (mapVar, title, url, type, paint, source_layer) => {
 //   (url) the raster tile URL to add to the map
 const addRasterTileLayerToMap = (mapVar, title, url, type, source_layer, minzoom, maxzoom) => {
     //console.log(mapVar, title, url)
+     var layers = map.getStyle().layers;
+    //Find the index of the first symbol layer in the map style
+    var firstSymbolId;
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === 'symbol') {
+            firstSymbolId = layers[i].id;
+            break;
+        }
+    }
     // need to first add a source
     mapVar.addSource(title, {
         type: 'raster',
@@ -97,13 +121,14 @@ const addRasterTileLayerToMap = (mapVar, title, url, type, source_layer, minzoom
         "source-layer": source_layer,
         'minzoom': minzoom,
         'maxzoom': maxzoom
-    });
+    }, firstSymbolId);
 
     mapVar.setLayoutProperty(
         title,
         'visibility',
         'none'
     );
+    firstSymbolId
 }
 //map visibility checked
 function update_map(cb) {
@@ -2284,7 +2309,7 @@ map.on('load', function () {
     });
     renderListings([]);
 })
-//VIRUS DISCOVERY
+//VIRUS DISCOVERY 
 // holds visible families features for filtering
 let virusFamily = [];
 let virusGenus = [];
@@ -2306,7 +2331,7 @@ const listingSpecies = document.getElementById('species-listing');
 //Render the list of families in the listing box
 function renderListFamily(features) {
     const empty = document.createElement('p');
-    // clear existing linst
+    // clear existing linst 
     listingFamily.innerHTML = '';
     if (features.length) {
         for (const feature of features) {
@@ -2336,7 +2361,7 @@ function renderListFamily(features) {
 //Render the list of genus in the listing box
 function renderListGenus(features) {
     const empty = document.createElement('p');
-    // clear existing linst
+    // clear existing linst 
     listingGenus.innerHTML = '';
     if (features.length) {
         for (const feature of features) {
@@ -2363,7 +2388,174 @@ function renderListGenus(features) {
         map.setFilter('arboverse.6qvctboh', ['has', 'genus'])
     }
 }
+//Render the list of Species in the listing box
+function renderListSpecies(features) {
+    const empty = document.createElement('p');
+    // clear existing linst 
+    listingSpecies.innerHTML = '';
+    if (features.length) {
+        for (const feature of features) {
+            const itemLink = document.createElement('a');
+            itemLink.textContent = feature.properties.species;
+            itemLink.addEventListener('mouseover', () => {
+                // highlight the corresponding feature on the map
+                popupDiscovery
+                    .setLngLat(feature.geometry.coordinates)
+                    .setText(feature.properties.species)
+                    .addTo(map);
+            });
+            listingSpecies.appendChild(itemLink);
+        }
 
+    } else if (features.length === 0 && filterSpecies.value !== '') {
+        empty.textContent = 'No results found';
+        listingSpecies.appendChild(empty);
+    } else {
+        empty.textContent = 'Drag the map to populate results';
+        listingSpecies.appendChild(empty);
+
+        //remove features filter
+        map.setFilter('arboverse.6qvctboh', ['has', 'species'])
+    }
+}
+map.on('load', function () {
+
+    map.addSource('arboverse.6qvctboh', {
+        'type': 'vector',
+        'url': 'mapbox://arboverse.6qvctboh'
+    })
+    map.addLayer({
+        'id': 'arboverse.6qvctboh',
+        'source': 'arboverse.6qvctboh',
+        'source-layer': 'virus_discovery-5quy5w',
+        'type': 'circle',
+        'paint': {
+            'circle-radius': ["interpolate", ["linear"], ["zoom"], 0, 7, 22, 11],
+            'circle-color': ["match", ["get", "family"], ["Nodaviridae"], "#a46267", ["Reoviridae"], "#e99a73", ["Orthomyxoviridae"], "#e57b62", ["Peribunyaviridae"], "#6b5f76", ["Togaviridae"], "#2a4b70", ["Phenuiviridae"], "#85606f", ["Nairoviridae"], "#515b7a", ["Nyamiviridae"], "#c8675f", ["Flaviviridae"], "#0c2e4d", ["Asfarviridae"], "#031326", ["Rhabdoviridae"], "#0f574e", ["unk"], "#e5b589", "#000000"],
+        }
+    })
+    map.setLayoutProperty(
+        'arboverse.6qvctboh',
+        'visibility',
+        'none'
+    );
+    map.on('movestart', () => {
+        // reset features filter as the map starts moving
+        map.setFilter('arboverse.6qvctboh', ['has', 'family']);
+    });
+    map.on('moveend', () => {
+        const features = map.queryRenderedFeatures({ layers: ['arboverse.6qvctboh'] });
+
+        if (features) {
+            const uniqueFeaturesFamily = getUniqueFeatures(features, 'family');
+            renderListFamily(uniqueFeaturesFamily)
+            //clear the input container for family
+            filterFamily.value = '';
+
+            families = uniqueFeaturesFamily;
+
+            const uniqueFeaturesGenus = getUniqueFeatures(features, 'genus');
+            renderListGenus(uniqueFeaturesGenus)
+            //clear the input container for genus
+            filterGenus.value = '';
+
+            genuses = uniqueFeaturesGenus;
+
+            const uniqueFeaturesSpeciesDiscovery = getUniqueFeatures(features, 'species');
+            renderListSpecies(uniqueFeaturesSpeciesDiscovery)
+            //clear the input container for species
+            filterSpecies.value = '';
+
+            speciesDiscovery = uniqueFeaturesSpeciesDiscovery;
+        }
+    });
+    map.on('mousemove', 'arboverse.6qvctboh', (e) => {
+        map.getCanvas().style.cursor = 'pointer';
+
+        const feature = e.features[0];
+        //Popup when hover on virus discovery
+        popupDiscovery
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+                `<strong>${feature.properties.virus_name}</strong> was discovered in ${feature.properties.collection_year} in ${feature.properties.country}. It belongs to ${feature.properties.family} family, ${feature.properties.genus} genus and ${feature.properties.species} species.`
+            )
+            .addTo(map);
+    });
+    map.on('mouseleave', 'arboverse.6qvctboh', () => {
+        map.getCanvas().style.cursor = '';
+        popupDiscovery.remove();
+    });
+    filterFamily.addEventListener('keyup', (e) => {
+        const value = normalize(e.target.value);
+
+        const filteredFamily = families.filter(function (feature) {
+            var family = normalize(feature.properties.family);
+            return family.indexOf(value) > -1;
+
+        })
+
+        //populate the side bar with filtered results
+        renderListFamily(filteredFamily);
+        //set the filter to populate features into the layer
+        if (filteredFamily.length) {
+            map.setFilter('arboverse.6qvctboh', [
+                'match',
+                ['get', 'family'],
+                filteredFamily.map((feature) => {
+                    return feature.properties.family;
+                }),
+                true,
+                false
+            ]);
+        }
+    });
+    filterGenus.addEventListener('keyup', (e) => {
+        const value = normalize(e.target.value);
+
+        const filteredGenus = genuses.filter(function (feature) {
+            var genus = normalize(feature.properties.genus);
+            return genus.indexOf(value) > -1;
+        })
+
+        renderListGenus(filteredGenus);
+        if (filteredGenus.length) {
+            map.setFilter('arboverse.6qvctboh', [
+                'match',
+                ['get', 'genus'],
+                filteredGenus.map((feature) => {
+                    return feature.properties.genus;
+                }),
+                true,
+                false
+            ]);
+        }
+    });
+
+    filterSpecies.addEventListener('keyup', (e) => {
+        const value = normalize(e.target.value);
+
+        const filteredSpeciesDiscovery = speciesDiscovery.filter(function (feature) {
+            var specieDiscover = normalize(feature.properties.species);
+            return specieDiscover.indexOf(value) > -1;
+        })
+
+        renderListSpecies(filteredSpeciesDiscovery);
+        if (filteredSpeciesDiscovery.length) {
+            map.setFilter('arboverse.6qvctboh', [
+                'match',
+                ['get', 'species'],
+                filteredSpeciesDiscovery.map((feature) => {
+                    return feature.properties.species;
+                }),
+                true,
+                false
+            ]);
+        }
+    })
+    renderListFamily([]);
+    renderListGenus([]);
+    renderListSpecies([]);
+})
 //VECTOR Resistance POPUp
 map.on('load', function () {
     var resistancePopup = new mapboxgl.Popup({
@@ -2525,3 +2717,163 @@ map.on('load', function () {
     renderListings([]);
 });
 
+// Wrap everything in a function to ensure the map and DOM are ready
+function setupMapToggleGroup(masterId, radioName, defaultRadioId, updateUI) {
+    const masterSwitch = document.getElementById(masterId);
+    // Use the name attribute to find all radios in this specific group
+    const radioButtons = document.querySelectorAll(`input[name="${radioName}"]`);
+
+    if (!masterSwitch) {
+        console.error(`Master switch with ID ${masterId} not found.`);
+        return;
+    }
+
+    const hideAllInGroup = () => {
+        radioButtons.forEach(rb => {
+            if (map.getLayer(rb.id)) {
+                map.setLayoutProperty(rb.id, 'visibility', 'none');
+            }
+        });
+    };
+
+    // 1. MASTER TOGGLE LOGIC
+    masterSwitch.addEventListener('change', function() {
+        if (this.checked) {
+            // Enable all radios
+            radioButtons.forEach(rb => {
+                rb.disabled = false;
+            });
+
+            // Find and check the default radio
+            const defaultBtn = document.getElementById(defaultRadioId);
+            if (defaultBtn) {
+                defaultBtn.checked = true;
+                
+                // Show layer
+                hideAllInGroup();
+                if (map.getLayer(defaultRadioId)) {
+                    map.setLayoutProperty(defaultRadioId, 'visibility', 'visible');
+                }
+                
+                // UPDATE LABEL: Pass the default button to the UI function
+                updateUI(defaultBtn);
+            }
+        } else {
+            // Disable all and uncheck
+            radioButtons.forEach(rb => {
+                rb.disabled = true;
+                rb.checked = false;
+            });
+            hideAllInGroup();
+            
+            // RESET LABEL: Pass null to reset text
+            updateUI(null);
+        }
+    });
+
+    // 2. RADIO SELECTION LOGIC
+    radioButtons.forEach(radio => {
+        radio.addEventListener('change', function() {
+            if (this.checked) {
+                hideAllInGroup();
+                if (map.getLayer(this.id)) {
+                    map.setLayoutProperty(this.id, 'visibility', 'visible');
+                }
+                // UPDATE LABEL: Pass the clicked button
+                updateUI(this);
+            }
+        });
+    });
+}
+
+// Mammals Label Logic (Already done)
+const updateMammalsUI = (input) => {
+    const target = document.querySelector(".mammals_new_value");
+    if (!target) return;
+    if (!input) { target.textContent = "select data"; return; }
+    
+    const gteValues = ["20", "30", "40"];
+    target.textContent = gteValues.includes(input.value) ? `≥${input.value} species` : `${input.value} species`;
+};
+
+// Example 2: Virus/Forecast Label Logic
+const updateBirdsUI = (input) => {
+    const target = document.querySelector(".other_value_birds"); // Make sure this class exists in HTML
+    if (!target) return;
+    if (!input) { target.textContent = "select data"; return; }
+    
+    const gteValues = ["20", "30", "40"];
+    target.textContent = gteValues.includes(input.value) ? `≥${input.value} species` : `${input.value} species`;
+};
+
+// Example 3: Socioeconomic Label Logic
+const updateAnphibiansUI = (input) => {
+    const target = document.querySelector(".other_value");
+    if (!target) return;
+    if (!input) { target.textContent = "select data"; return; }
+    
+    const gteValues = ["20", "30", "40"];
+    target.textContent = gteValues.includes(input.value) ? `≥${input.value} species` : `${input.value} species`;
+};
+// 4. EXECUTION
+// Ensure this runs AFTER your map is loaded
+map.on('load', function() {
+    
+    // Group 1: Mammals
+    setupMapToggleGroup(
+        'mammals_switch', 
+        'option_mammals', 
+        'arboverse.bio_mammals_carnivora_10km', 
+        updateMammalsUI
+    );
+
+    // Group 2: Birds
+    setupMapToggleGroup(
+        'birds_switch_diversity', 
+        'option_birds', 
+        'arboverse.bio_birds_passeriformes_10km', 
+        updateBirdsUI
+    );
+
+    // Group 3: Your Third Toggle
+    setupMapToggleGroup(
+        'amphibians_switch', 
+        'option_amphibians', 
+        'arboverse.bio_amp_caudata_10km', 
+        updateAnphibiansUI
+    );
+
+});
+setupMapToggleGroup(
+    'forecast_switch', 
+    [
+        'arboverse.c89hazcs', 'arboverse.9uh1mltv', 'arboverse.59jzfz3w', 
+        'arboverse.bud0k3bq', 'arboverse.a51uv49z', 'arboverse.cugep9k4', 
+        'arboverse.7va6tx65', 'arboverse.2wsi2z3v', 'arboverse.cot4nhox', 
+        'arboverse.92xut72i'
+    ], 
+    'arboverse.c89hazcs' // The one that turns on automatically
+);
+setupMapToggleGroup('kp_switch', ['arboverse.presentfull', 'arboverse.koppenfuture'], 'arboverse.presentfull');
+setupMapToggleGroup('mammals_switch', ['arboverse.bio_mammals_carnivora_10km', 'arboverse.bio_mammals_cetartiodactyla', 'arboverse.bio_mammals_chiroptera_10km', 'arboverse.bio_mammals_eulipotyphla_10km', 'arboverse.bio_mammals_primates_10km','arboverse.bio_mammals_rodentia_10km', 'arboverse.bio_mammals_marsupialia_10km', 'arboverse.bio_mammals_richness_10km', 'arboverse.bio_mammals_small_ranged_10km', 'arboverse.bio_mammals_threatened_10km', 'arboverse.bio_mammals_data_deficient_10km'], 'arboverse.bio_mammals_carnivora_10km');
+setupMapToggleGroup('birds_switch_diversity', ['arboverse.bio_birds_passeriformes_10km', 'arboverse.bio_birds_non_passeriformes', 'arboverse.bio_birds_psittaciformes_10km', 'arboverse.bio_birds_trochilidae_10km', 'arboverse.biodiversity_birds_richness_10km', 'arboverse.bio_birds_small_ranged_10km', 'arboverse.bio_birds_threatened_bird', 'arboverse.bio_birds_breeding_range_10km', 'arboverse.bio_birds_nonbreeding_10km', 'arboverse.bio_birds_threatened_small', 'arboverse.bio_birds_data_deficient_10km'], 'arboverse.bio_birds_passeriformes_10km');
+setupMapToggleGroup('amphibians_switch', ['arboverse.bio_amp_caudata_10km', 'arboverse.bio_amp_anura_10km', 'arboverse.bio_amp_gymnophiona_10km', 'arboverse.bio_amp_smal_range_10km', 'arboverse.bio_amp_richness_10km', 'arboverse.bio_amp_threatened_10km', 'arboverse.bio_amp_data_def_10km'], 'arboverse.bio_amp_caudata_10km');
+setupMapToggleGroup('livestock_switch', ['arboverse.livestock_catle_2010_da_10km', 'arboverse.livestock_bufalo_2010_da_10km', 'arboverse.livestock_sheep_2010_da_10km', 'arboverse.livestock_goat_2010_da_10km', 'arboverse.livestock_horse_2010_da_10km', 'arboverse.livestock_pig_2010_da_10km', 'arboverse.livestock_chicken_2010_da_10km', 'arboverse.livestock_duck_2010_da_10km'], 'arboverse.livestock_catle_2010_da_10km');
+setupMapToggleGroup('health_switch', ['arboverse.healthcare_time_walking_5km_2020', 'arboverse.healthcare_time_motorized'], 'arboverse.healthcare_time_walking_5km_2020')
+
+// This function updates the textContent of #check4
+function showChekedCli() {
+    const count = document.querySelectorAll("input[name=climate]:checked").length;
+    const target = document.getElementById('check4');
+    if (target) {
+        target.textContent = count;
+    }
+}
+
+// Attach a listener to EVERY climate checkbox JUST for the counter
+document.querySelectorAll("input[name=climate]").forEach(input => {
+    input.addEventListener('change', showChekedCli);
+});
+
+// Run once on load to catch any pre-checked boxes
+showChekedCli();

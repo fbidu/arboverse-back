@@ -97,9 +97,9 @@
   background: transparent;
   font-weight: 500;
   cursor: pointer;
-  color:var(--grey1);
+  color: var(--text);
   font-size: 1.6rem;
-  border-bottom: solid 2px var(--grey1);
+  border-bottom: solid 1px var(--grey4);
   /* Icon */
 }
 .tab-label:hover {
