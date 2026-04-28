@@ -84,7 +84,7 @@ p {
 a {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   text-decoration: none;
 }
 
@@ -289,9 +289,8 @@ nav {
 }
 
 .logo img {
-  width: 80px;
-  height: 80px;
-  margin-right: 10px;
+  width: 300px;
+  height: auto;
 }
 
 .logo span {
@@ -492,8 +491,8 @@ nav {
   }
 
   .logo img {
-    width: 50px;
-    height: 50px;
+    width: 150px;
+    height: auto;
   }
 
   .burger {
@@ -1203,7 +1202,7 @@ nav {
 
 
 .logo-foot img {
-  width: 60%;
+  width: 50%;
 }
 
 .navigation-links {
@@ -1370,11 +1369,12 @@ aside p {
 
   .logo-foot {
     width: 80%;
+    margin: 0 auto;
     text-align: center;
   }
 
   .logo-foot img {
-    width: 30%;
+    width: 20%;
   }
 
   .navigation-links {
