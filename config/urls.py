@@ -49,6 +49,16 @@ urlpatterns = ([
         TemplateView.as_view(template_name="pages/contact.html"),
         name="contact",
     ),
+    path(
+        "privacy_policy/",
+        TemplateView.as_view(template_name="pages/privacy_policy.html"),
+        name="privacy_policy"
+    ),
+    path(
+        "open_data/",
+        TemplateView.as_view(template_name="pages/open_data.html"),
+        name="open_data"
+    ),
     # Django Admin, use {% url 'admin:index' %}
     path(settings.ADMIN_URL, admin.site.urls),
     # User management

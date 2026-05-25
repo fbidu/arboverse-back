@@ -1,16 +1,17 @@
-
-.contactus_section{
+.contactus_section {
   width: 90%;
   height: auto;
-  margin: 10vh auto; 
+  margin: 10vh auto;
 }
+
 .contactus_section h3,
-.help_arbv h3{
+.help_arbv h3 {
   font-size: 4rem;
   color: var(--greyFade);
   font-weight: 700;
 }
-.contactus_section p{
+
+.contactus_section p {
   margin-top: 2vh;
   width: 60%;
   max-width: 950px;
@@ -19,19 +20,20 @@
   line-height: 1.5;
 }
 
-.help_arbv{
+.help_arbv {
   margin: 15vh auto;
   width: 90%;
 }
 
-.help_info{
+.help_info {
   width: 60%;
   height: auto;
   border-radius: 5px;
   z-index: 0;
   text-align: left;
 }
-.help_info p{
+
+.help_info p {
   text-align: left;
   color: var(--text);
   font-size: 1.6rem;
@@ -39,7 +41,8 @@
   font-weight: 300;
   margin-bottom: 5px;
 }
-.help_info a{
+
+.help_info a {
   text-decoration: none;
   color: var(--lightGrey);
   font-weight: 400;
@@ -48,64 +51,96 @@
   margin: 0 10px;
   border: solid 1px var(--grey1);
   border-radius: 50px;
-  padding:2px 20px;
+  padding: 2px 20px;
   background-color: var(--grey1);
 }
-.help_info a:hover{
+
+.help_info a:hover {
   color: var(--grey1);
   background-color: var(--orange);
 }
+
 @media screen and (min-width: 660px) and (max-width: 1024px) {
-  .contactus_section{
-  margin: 5vh auto; 
-}
-  
+  .contactus_section {
+    margin: 5vh auto;
+  }
+
   .contactus_section h3,
-  .help_arbv h3{
+  .help_arbv h3 {
     font-size: 2.5rem;
   }
-  .contactus_section p{
+
+  .contactus_section p {
     margin-top: 1vh;
     width: 100%;
   }
-  .help_arbv{
+
+  .help_arbv {
     margin: 3vh auto;
   }
-  .help_info{
+
+  .help_info {
     width: 100%;
   }
-  .help_info a{
+
+  .help_info a {
     padding: 5px 15px;
     margin: 0;
   }
 }
+
 /* how to cite mobile -*/
-@media screen and (min-width: 300px)  and (max-width: 600px){
-  .contactus_section{
-  margin: 5vh auto; 
-}
-  
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  .contactus_section {
+    margin: 5vh auto;
+  }
+
   .contactus_section h3,
-  .help_arbv h3{
+  .help_arbv h3 {
     font-size: 1.5rem;
   }
-  .contactus_section p{
+
+  .contactus_section p {
     font-size: 1rem;
     margin-top: 1vh;
     width: 100%;
   }
-  .help_arbv{
+
+  .help_arbv {
     margin: 3vh auto;
   }
-  .help_info{
+
+  .help_info {
     width: 100%;
   }
-  .help_info p{
+
+  .help_info p {
     font-size: 1rem;
   }
-  .help_info a{
+
+  .help_info a {
     font-size: 1rem;
     padding: 2px 8px;
     margin: 0;
+  }
+}
+
+@media screen and (min-width:600px) and (max-width: 940px) and (orientation: landscape) {
+  .contactus_section {
+    margin: 15vh auto;
+  }
+
+  .contactus_section h3,
+  .help_arbv h3 {
+    font-size: 3rem;
+  }
+
+  .contactus_section p,
+  .help_info p {
+    font-size: 1.2rem;
+  }
+  .help_info a{
+      padding: 5px 20px;
+  font-size: 1.2rem;
   }
 }

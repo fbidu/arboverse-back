@@ -698,43 +698,49 @@ const addOpacityTwoRaster = (element, title1, title2) => {
         );
     })
 };
-//Opacity response
+//Opacity response slide selector
 map.on('load', function () {
-    var dryspellsSlider = document.querySelector('input[name=dryspells-opacity]')
-    var extremeSlider = document.querySelector('input[name=extreme-opacity]')
-    var hotdaysSlider = document.querySelector('input[name=hotdays-opacity]')
-    var precSlider = document.querySelector('input[name=precipitation-opacity]')
-    var tempSlider = document.querySelector('input[name=temp-opacity]')
-    var hdiSlider = document.querySelector('input[name=hdi-opacity]')
-    var gdpSlider = document.querySelector('input[name=gdp-opacity]')
-    var mammalsSlider = document.querySelector('input[name=mammals-opacity]')
-    var birdsSlider = document.querySelector('input[name=birds-opacity]')
-    var amphibiansSlider = document.querySelector('input[name=amphibians-opacity]')
-    var resistanceSlider = document.querySelector('input[name=resistance-opacity]')
-    var droughtSlider = document.querySelector('input[name=drought-opacity]')
-    var healthSlider = document.querySelector('input[name=health-opacity]')
-    var citiesSlider = document.querySelector('input[name=cities-opacity]')
-    var biodiversitySlider = document.querySelector('input[name=biodiversity-opacity]')
-    var biomeSlider = document.querySelector('input[name=biome-opacity]')
-    var protectBiomeSlider = document.querySelector('input[name=protect-biome-opacity]')
-    var cliSlider = document.querySelector('input[name=climate-opacity]');
-    var forecastSlider = document.querySelector('input[name=forecast-opacity]');
-    var driveSlider = document.querySelector('input[name=drive-opacity]');
-    var primarySlider = document.querySelector('input[name=primary-opacity]');
-    var heightSlider = document.querySelector('input[name=height-opacity]');
-    var intactSlider = document.querySelector('input[name=intact_opacity]');
-    var indexSlider = document.querySelector('input[name=index-opacity]');
-    var landSlider = document.querySelector('input[name=land-opacity]');
-    var miniSlider = document.querySelector('input[name=mini-opacity]');
-    var logSlider = document.querySelector('input[name=log-opacity]');
-    var damsSlider = document.querySelector('input[name=dams-opacity]')
-    var popSlider = document.querySelector('input[name=pop-opacity]');
-    var arrSlider = document.querySelector('input[name=opacity-Arr]');
-    var depSlider = document.querySelector('input[name=dep-opacity]');
-    var passengersSlider = document.querySelector('input[name=pass-opacity]');
+    var discoverySlider = document.querySelector('input[name=discovery-opacity]');
+    var distributionSlider = document.querySelector('input[name=distribution-opacity]');
+    var resistanceSlider = document.querySelector('input[name=inseticide-opacity]');
+    var vectorSlider = document.querySelector('input[name=vector-opacity]');
+    var forecastSlider = document.querySelector('input[name=aedes-opacity]');
+    var cliSlider = document.querySelector('input[name=kp-opacity]');
+    var tempSlider = document.querySelector('input[name=temperature-opacity]');
+    var hotdaysSlider = document.querySelector('input[name=hot-opacity]');
+    var precSlider = document.querySelector('input[name=precipitation-opacity]');
+    var extremeSlider = document.querySelector('input[name=extremeprecipitation-opacity]');
+    var dryspellsSlider = document.querySelector('input[name=spell-opacity]');
     var ariditySlider = document.querySelector('input[name=aridity-opacity]');
-    var livestockSlider = document.querySelector('input[name=stock-opacity]');
+    var droughtSlider = document.querySelector('input[name=drought-opacity]');
+    var biomeSlider = document.querySelector('input[name=biome-opacity]');
+    var primarySlider = document.querySelector('input[name=primary-opacity]');
+    var heightSlider = document.querySelector('input[name=coverheight-opacity]');
+    var intactSlider = document.querySelector('input[name=landscapes-opacity]');
+    var protectBiomeSlider = document.querySelector('input[name=ecoregion-opacity]');
+    var driveSlider = document.querySelector('input[name=dominant-opacity]');
+    var biodiversitySlider = document.querySelector('input[name=intactness-opacity]');
+    var mammalsSlider = document.querySelector('input[name=mammals-opacity]');
+    var birdsSlider = document.querySelector('input[name=birds-opacity]');
+    var amphibiansSlider = document.querySelector('input[name=amphibians-opacity]');
+    var landSlider = document.querySelector('input[name=landcover-opacity]');
+    var livestockSlider = document.querySelector('input[name=livestock-opacity]');
+    var miniSlider = document.querySelector('input[name=mining-opacity]');
+    var logSlider = document.querySelector('input[name=logging-opacity]');
+    var damsSlider = document.querySelector('input[name=dams-opacity]');
+    var citiesSlider = document.querySelector('input[name=cities-opacity]');
+    var arrSlider = document.querySelector('input[name=arrivals-opacity]');
+    var depSlider = document.querySelector('input[name=departures-opacity]');
+    var passengersSlider = document.querySelector('input[name=passengers-opacity]');
+    var popSlider = document.querySelector('input[name=population-opacity]');
+    var gdpSlider = document.querySelector('input[name=gdp-opacity]');
+    var hdiSlider = document.querySelector('input[name=hdi-opacity]');
+    var healthSlider = document.querySelector('input[name=health-opacity]');
 
+    //Linking opacity slider to map
+    addOpacityCircle(discoverySlider, 'arboverse.6qvctboh');
+    addOpacityVector(distributionSlider, 'arboverse.virusdiscovery');
+    addOpacityCircle(vectorSlider, 'arboverse.vector_distribution')
     addOpacityTwoVector(cliSlider, 'arboverse.presentfull', 'arboverse.koppenfuture');
     addOpacityVector(driveSlider, 'arboverse.drivers');
     addOpacityCircle(resistanceSlider, 'arboverse.resistance');
@@ -1415,6 +1421,7 @@ map.on('load', function () {
             parseInt(e.target.value, 10) / 100
         );
     });
+    //Logging opacity
     logSlider.addEventListener('input', function (e) {
         map.setPaintProperty(
             'arboverse.logging1',
@@ -1457,6 +1464,7 @@ map.on('load', function () {
             parseInt(e.target.value, 10) / 100
         );
     });
+    //livestock opacity
     livestockSlider.addEventListener('input', function (e) {
         map.setPaintProperty(
             'arboverse.livestock_goat_2010_da_10km',
@@ -1500,6 +1508,7 @@ map.on('load', function () {
             parseInt(e.target.value, 10) / 100
         );
     });
+    //temperature opacity
     tempSlider.addEventListener('input', function (e) {
         map.setPaintProperty(
             'arboverse.temp_min_rcp45_1985_2015',
@@ -2844,36 +2853,28 @@ map.on('load', function() {
     );
 
 });
-setupMapToggleGroup(
-    'forecast_switch', 
-    [
-        'arboverse.c89hazcs', 'arboverse.9uh1mltv', 'arboverse.59jzfz3w', 
-        'arboverse.bud0k3bq', 'arboverse.a51uv49z', 'arboverse.cugep9k4', 
-        'arboverse.7va6tx65', 'arboverse.2wsi2z3v', 'arboverse.cot4nhox', 
-        'arboverse.92xut72i'
-    ], 
-    'arboverse.c89hazcs' // The one that turns on automatically
-);
-setupMapToggleGroup('kp_switch', ['arboverse.presentfull', 'arboverse.koppenfuture'], 'arboverse.presentfull');
-setupMapToggleGroup('mammals_switch', ['arboverse.bio_mammals_carnivora_10km', 'arboverse.bio_mammals_cetartiodactyla', 'arboverse.bio_mammals_chiroptera_10km', 'arboverse.bio_mammals_eulipotyphla_10km', 'arboverse.bio_mammals_primates_10km','arboverse.bio_mammals_rodentia_10km', 'arboverse.bio_mammals_marsupialia_10km', 'arboverse.bio_mammals_richness_10km', 'arboverse.bio_mammals_small_ranged_10km', 'arboverse.bio_mammals_threatened_10km', 'arboverse.bio_mammals_data_deficient_10km'], 'arboverse.bio_mammals_carnivora_10km');
-setupMapToggleGroup('birds_switch_diversity', ['arboverse.bio_birds_passeriformes_10km', 'arboverse.bio_birds_non_passeriformes', 'arboverse.bio_birds_psittaciformes_10km', 'arboverse.bio_birds_trochilidae_10km', 'arboverse.biodiversity_birds_richness_10km', 'arboverse.bio_birds_small_ranged_10km', 'arboverse.bio_birds_threatened_bird', 'arboverse.bio_birds_breeding_range_10km', 'arboverse.bio_birds_nonbreeding_10km', 'arboverse.bio_birds_threatened_small', 'arboverse.bio_birds_data_deficient_10km'], 'arboverse.bio_birds_passeriformes_10km');
-setupMapToggleGroup('amphibians_switch', ['arboverse.bio_amp_caudata_10km', 'arboverse.bio_amp_anura_10km', 'arboverse.bio_amp_gymnophiona_10km', 'arboverse.bio_amp_smal_range_10km', 'arboverse.bio_amp_richness_10km', 'arboverse.bio_amp_threatened_10km', 'arboverse.bio_amp_data_def_10km'], 'arboverse.bio_amp_caudata_10km');
-setupMapToggleGroup('livestock_switch', ['arboverse.livestock_catle_2010_da_10km', 'arboverse.livestock_bufalo_2010_da_10km', 'arboverse.livestock_sheep_2010_da_10km', 'arboverse.livestock_goat_2010_da_10km', 'arboverse.livestock_horse_2010_da_10km', 'arboverse.livestock_pig_2010_da_10km', 'arboverse.livestock_chicken_2010_da_10km', 'arboverse.livestock_duck_2010_da_10km'], 'arboverse.livestock_catle_2010_da_10km');
-setupMapToggleGroup('health_switch', ['arboverse.healthcare_time_walking_5km_2020', 'arboverse.healthcare_time_motorized'], 'arboverse.healthcare_time_walking_5km_2020')
+// A simple fallback UI function if you don't need label updating
+const noopUI = () => {};
 
-// This function updates the textContent of #check4
-function showChekedCli() {
-    const count = document.querySelectorAll("input[name=climate]:checked").length;
-    const target = document.getElementById('check4');
-    if (target) {
-        target.textContent = count;
-    }
-}
+map.on('load', function() {
+    // 1. Group 1: Mammals
+    setupMapToggleGroup('mammals_switch', 'option_mammals', 'arboverse.bio_mammals_carnivora_10km', updateMammalsUI);
 
-// Attach a listener to EVERY climate checkbox JUST for the counter
-document.querySelectorAll("input[name=climate]").forEach(input => {
-    input.addEventListener('change', showChekedCli);
+    // 2. Group 2: Birds
+    setupMapToggleGroup('birds_switch_diversity', 'option_birds', 'arboverse.bio_birds_passeriformes_10km', updateBirdsUI);
+
+    // 3. Group 3: Amphibians
+    setupMapToggleGroup('amphibians_switch', 'option_amphibians', 'arboverse.bio_amp_caudata_10km', updateAnphibiansUI);
+
+    // 4. Group 4: Forecast (Fixed: name string instead of array + noopUI added)
+    setupMapToggleGroup('forecast_switch', 'option_forecast', 'arboverse.c89hazcs', noopUI);
+
+    // 5. Group 5: KP
+    setupMapToggleGroup('kp_switch', 'option_kp', 'arboverse.presentfull', noopUI);
+
+    // 6. Group 6: Livestock
+    setupMapToggleGroup('livestock_switch', 'option_livestock', 'arboverse.livestock_catle_2010_da_10km', noopUI);
+
+    // 7. Group 7: Health
+    setupMapToggleGroup('health_switch', 'option_health', 'arboverse.healthcare_time_walking_5km_2020', noopUI);
 });
-
-// Run once on load to catch any pre-checked boxes
-showChekedCli();

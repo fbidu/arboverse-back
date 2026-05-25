@@ -1,0 +1,93 @@
+.policy_section {
+    width: 90%;
+    max-width: 1440px;
+    height: auto;
+    margin: 10vh auto;
+}
+
+.policy_section h2 {
+    margin-top: 50px;
+    font-size: 3rem;
+    color: var(--greyFade);
+    font-family: 'montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.policy_section p {
+    margin-top: 15px;
+    width: 80%;
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+.policy_section a {
+    font-family: "Lora", serif;
+    font-weight: 500;
+    text-decoration: underline;
+    color: var(--grey1);
+    font-size: 1.3rem;
+}
+
+.policy_section a:hover {
+    color: var(--orange);
+}
+
+.policy_section ol {
+    margin-left: 30px;
+    font-family: "Lora", serif;
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
+@media screen and (min-width: 300px) and (max-width:600px) {
+    .policy_section {
+        margin: 3vh auto;
+    }
+
+    .policy_section h2 {
+        margin-top: 20px;
+        font-size: 1.5rem;
+    }
+
+    .policy_section p {
+        width: 100%;
+        font-size: 1rem;
+        line-height: 1;
+        margin-top: 10px;
+    }
+
+    .policy_section ol {
+        font-size: 1rem;
+    }
+
+    .policy_section a {
+        font-size: 1rem;
+    }
+
+}
+@media screen and (min-width: 600px) and (max-width:1024px) {
+    .policy_section {
+        margin: 5vh auto;
+    }
+
+    .policy_section h2 {
+        margin-top: 30px;
+        font-size: 2rem;
+    }
+
+    .policy_section p {
+        width: 90%;
+        font-size: 1.2rem;
+        line-height: 1;
+        margin-top: 10px;
+    }
+
+    .policy_section ol {
+        font-size: 1.2rem;
+    }
+
+    .policy_section a {
+        font-size: 1.2rem;
+    }
+
+}

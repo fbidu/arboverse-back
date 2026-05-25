@@ -149,7 +149,7 @@ a {
 /*---font size mobile landscape*/
 @media screen and (min-width: 550px) and (max-width: 850px) and (orientation: landscape) {
   h1 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
 
   h2 {
@@ -231,7 +231,7 @@ a {
 }
 
 .bannermenu h1 {
-  width: 900px;
+  width: 1100px;
   margin: 0 5%;
   letter-spacing: 3px;
   text-align: left;
@@ -246,7 +246,7 @@ a {
   margin: 2% 5%;
   line-height: 1.5;
   color: var(--lightGrey);
-  
+
 }
 
 .home_banner_btn {
@@ -369,26 +369,41 @@ nav {
   .home_banner_btn {
     padding: 10px 30px;
   }
-  .nav-links a{
+
+  .nav-links a {
     font-size: 1.6rem;
   }
 }
 
-/*banner Landscape*/
+/*banner Mobile Landscape*/
 @media screen and (min-width: 550px) and (max-width: 940px) and (orientation: landscape) {
- .bannermenu {
+  .bannermenu {
     height: auto;
-    padding-bottom: 10px;
+    padding-bottom: 60px;
+  }
+
+  .bannermenu h1 {
+    width: 60%;
+    letter-spacing: 0;
+    text-align: left;
+    padding-top: 18vh;
   }
 
   .bannermenu h2 {
-    width: 50%;
-    line-height: 1;
+    width: 56%;
+    line-height: 1.2;
   }
 
   .logo img {
-    width: 40px;
-    height: 40px;
+    width: 200px;
+    height: auto;
+  }
+
+  .home_banner_btn {
+    margin: 1% 5%;
+    width: 10%;
+    padding: 10px 20px;
+    font-size: 1rem;
   }
 }
 
@@ -461,9 +476,9 @@ nav {
 
 /* NAVIGATOR AND BANNER MOBILE SIZE*/
 @media screen and (min-width: 200px) and (max-width:600px) and (orientation: portrait) {
-   .bannermenu {
+  .bannermenu {
     height: auto;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
   }
 
   .bannermenu h1 {
@@ -695,6 +710,25 @@ nav {
 
 }
 
+/*banner Mobile Landscape*/
+@media screen and (min-width: 550px) and (max-width: 940px) and (orientation: landscape) {
+  .explanation_content h3 {
+    font-size: 3rem;
+  }
+
+  .explanation_content p {
+    max-width: 90%;
+    font-size: 1.2rem;
+  }
+
+  .explanation_content a {
+    margin-top: 1% 0;
+    width: 35%;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+  }
+}
+
 /*-----Our work ---*/
 .our_work {
   width: 100%;
@@ -812,6 +846,23 @@ nav {
     color: var(--grey1);
   }
 }
+/* our work Mobile Landscape*/
+@media screen and (min-width: 550px) and (max-width: 940px) and (orientation: landscape) {
+  .our_work h3 {
+    font-size: 3rem;
+  }
+
+  .our_work p {
+    font-size: 1.2rem;
+  }
+
+  .our_work .platform-link {
+    margin-top: 1% 0;
+    width: 35%;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+  }
+}
 
 /*-----SERVICES ---*/
 .services_wrap {
@@ -904,6 +955,23 @@ nav {
   }
 }
 
+/*Services Mobile Landscape*/
+@media screen and (min-width: 550px) and (max-width: 940px) and (orientation: landscape) {
+  .service_unit {
+    padding: 5px 0;
+  }
+
+  .service_unit h4 {
+    font-size: 2rem;
+  }
+
+  .service_unit p {
+    padding: 3px 0px 3px 3px;
+    font-size: 1rem;
+
+  }
+}
+
 /*-----TEAM BUILT ---*/
 .team_section {
   width: 90%;
@@ -969,14 +1037,15 @@ nav {
 }
 
 /* Team Landscape*/
-@media screen and (min-width: 550px) and (max-width: 850px) and (orientation: landscape) {
+@media screen and (min-width: 550px) and (max-width: 940px) and (orientation: landscape) {
   .team_section {
     width: 100%;
   }
 
   .team_section h3 {
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
+    font-size: 3rem;
   }
 
   .team_wrapper {
@@ -1010,7 +1079,7 @@ nav {
   .team_wrapper {
     width: 90%;
     margin: 10px auto;
-    justify-content:flex-start;
+    justify-content: flex-start;
   }
 
   .person_unit {
@@ -1137,8 +1206,12 @@ nav {
 
   .fund-support h6,
   .fund-endorsed h6 {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
+  .support img {
+  height: 40px;
+  margin-right: 30px;
+}
 }
 
 /*--Funding Mobile --*/
@@ -1177,7 +1250,7 @@ nav {
     margin-right: 15px;
   }
 }
-
+/*--FOOTER--*/
 .contact {
   width: 100%;
   height: auto;
@@ -1191,7 +1264,7 @@ nav {
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 
@@ -1202,11 +1275,11 @@ nav {
 
 
 .logo-foot img {
-  width: 50%;
+  width: 40%;
 }
 
 .navigation-links {
-  width: 80%;
+  width: 50%;
   padding-left: 10px;
 }
 
@@ -1226,7 +1299,8 @@ nav {
   color: var(--lightGrey);
   margin-right: 40px;
 }
-.navigation-links .nav-foot a:hover{
+
+.navigation-links .nav-foot a:hover {
   color: var(--orange);
 }
 
@@ -1243,19 +1317,30 @@ footer {
 }
 
 aside {
-  padding-left: 15%;
   width: 90%;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 100px;
 }
 
 aside p {
   color: white;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 400;
   font-family: "Montserrat", sans-serif;
+}
+
+aside a {
+  color: white;
+  font-size: 1rem;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+}
+
+aside a:hover {
+  color: var(--orange);
 }
 
 .plot {
@@ -1281,8 +1366,10 @@ aside p {
   font-weight: 700;
 }
 
+
+
 /*---- footer IPAD Size portrait --*/
-@media screen and (min-width: 600px) and (max-width: 1024px) and (orientation: portrait){
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   .contact {
     padding: 5vh 0 0 0;
   }
@@ -1292,47 +1379,46 @@ aside p {
   }
 
   .logo-foot {
-    width: 18%;
+    width: 20%;
+  }
+   .navigation-links {
+    display: none;
   }
 
-  .navigation-links .nav-foot {
-    flex-direction: row;
-    justify-content: flex-start;
-  }
-
-  .navigation-links .nav-foot a {
-    font-weight: 600;
-    font-size: 1.5em;
-  }
-
-  aside{
+  aside {
     padding-left: 5%;
     align-items: center;
+    justify-content: center;
     gap: 20px;
+    flex-direction: column;
   }
-  
+  .aside p{
+    width: 60%;
+  }
+
+  aside a {
+    font-size: 0.9rem;
+  }
+
   .wordmark_footer {
     height: 100px;
   }
+
   .wordmark_footer h5 {
     font-size: 7rem;
   }
 }
-
-@media screen and (min-width: 550px) and (max-width: 850px) and (orientation: landscape) {
+/* footer mobile landscape*/
+@media screen and (min-width: 550px) and (max-width: 940px) and (orientation: landscape) {
   .footer-wrapper {
     width: 80%;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 20px 0;
   }
 
   .logo-foot {
     width: 20%;
-  }
-
-  .social-wrapper {
-    width: 50%
   }
 
   .logo-foot h3 {
@@ -1347,14 +1433,30 @@ aside p {
   .navigation-links {
     display: none;
   }
+  aside{
+    padding-left: 0;
+    flex-direction: column;
+    gap: 10px
+  }
 
   aside p {
-    font-size: 0.6rem;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+  aside a{
+    font-size: 0.8rem;
+  }
+    .wordmark_footer {
+    height: 75px;
+  }
+
+  .wordmark_footer h5 {
+    font-size: 5rem;
   }
 }
 
 /*---- footer Mobile Size portrait --*/
-@media screen and (min-width: 300px) and (max-width:600px) and (orientation: portrait) {
+@media screen and (min-width: 300px) and (max-width: 600px){
   .contact {
     padding: 3vh 0 0 0;
   }
@@ -1374,7 +1476,7 @@ aside p {
   }
 
   .logo-foot img {
-    width: 20%;
+    width: 15%;
   }
 
   .navigation-links {
@@ -1390,8 +1492,14 @@ aside p {
   }
 
   aside p {
-    font-size: 0.6rem;
+    margin-top: 5px;
+    font-size: 0.8rem;
     text-align: center;
+  }
+
+  aside a,
+  .plot {
+    font-size: 0.8rem;
   }
 
   .wordmark_footer {

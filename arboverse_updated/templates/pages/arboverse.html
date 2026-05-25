@@ -4,19 +4,20 @@
 {% block resources %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/arboverse.css' %}" />
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" />
-<link rel="sortcut icon" href="{% static 'images/Arboverse_logo-2.png' %}" type="image/png" />
 
 <!-- Mapbox GL JS includes -->
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
 <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
 {% endblock resources %}
-{% block meta_description %}Access ARBOCARD and ARBOVECTOR catalogues alongside interactive ARBOMAP. Access essential virus data easily and explore arboviruses within their ecological context{% endblock %} 
+{% block meta_description %}Use ARBOCARD, ARBOVECTOR, and ARBOMAP to explore arboviruses in their ecological contexts.
+Access interactive tools for advanced virus data analysis{% endblock %}
 {% block meta_keywords %}arbovirus, arboverse, dengue, zika, open-source, global health data{% endblock %}
-{% block title %} ARBOCARD, ARBOVECTOR & ARBOMAP Tools | ARBOVERSE {% endblock title %}
+{% block title %}ARBOVERSE Tools | ARBOCARD, ARBOVECTOR & ARBOMAP{% endblock title %}
 {% block content %}
 <!--Banner information-->
-<h1>ARBO<span class="orange">VERSE</span></h1>
-<h2>Arbovirus information through interactive and user-friendly tools</h2>
+<h1>ARBO<span class="orange">VERSE</span>: Interactive Tools for Arboviruses and their Ecology</h1>
+<h2>Study arboviruses through their specific environmental and ecological relationships through accessible interactive
+  tools</h2>
 
 <style>
   .suggestions {
@@ -29,18 +30,20 @@
     position: absolute;
     background-color: white;
     z-index: 1000;
-    width: calc(100% - 40px); /* Match input width */
-    display: none; /* Hidden by default */
-}
+    width: calc(100% - 40px);
+    /* Match input width */
+    display: none;
+    /* Hidden by default */
+  }
 
-.suggestions li {
+  .suggestions li {
     padding: 8px 12px;
     cursor: pointer;
-}
+  }
 
-.suggestions li:hover {
+  .suggestions li:hover {
     background-color: #f0f0f0;
-}
+  }
 </style>
 </div>
 <main>
@@ -54,7 +57,8 @@
           <h4><span class="grey_fade">ARBO</span><span class="orange_fade">CARD</span></h4>
           <div class="search" id="autocomplete-container">
             <input class="search-virus" type="texts" placeholder="Search arbovirus..." id="arbovirus-search">
-            <button id="arbovirus-submit" class="searchbutton" type="submit" onclick="searchVirusDB('arbovirus-search')"><i class="fa fa-search"></i></button>
+            <button id="arbovirus-submit" class="searchbutton" type="submit"
+              onclick="searchVirusDB('arbovirus-search')"><i class="fa fa-search"></i></button>
             <div id="arbo-autocomplete" class="autocomplete-box"></div>
           </div>
           <div class="tabs">
@@ -71,7 +75,7 @@
                   <h5>Virus:</h5>
                   <output id="virus_name"></output>
                 </div>
-                 <!--Abbreviation-->
+                <!--Abbreviation-->
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
@@ -84,7 +88,8 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
-                    <span class="tooltext-1">Taxonomic classification recognized by the International Committee on Taxonomy of Viruses, including family, genus, and species</span>
+                    <span class="tooltext-1">Taxonomic classification recognized by the International Committee on
+                      Taxonomy of Viruses, including family, genus, and species</span>
                   </div>
                   <h5>Taxonomy:</h5>
                   <output id="virus_taxonomy"></output>
@@ -205,7 +210,8 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Indication of whether the virus is associated with fatal outcomes in humans</span>
+                    <span class=" tooltext-1">Indication of whether the virus is associated with fatal outcomes in
+                      humans</span>
                   </div>
                   <h5>Fatal outcome:</h5>
                   <output id="virus_human_fatal"></output>
@@ -238,7 +244,8 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Commercial laboratory tests available to detect and diagnose the virus</span>
+                    <span class=" tooltext-1">Commercial laboratory tests available to detect and diagnose the
+                      virus</span>
                   </div>
                   <h5>Specific diagnostic:</h5>
                   <output id="virus_diagnostic"></output>
@@ -256,7 +263,8 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
-                    <span class=" tooltext-1">The typical time interval (in days) required for the virus to induce a visible cytopathic effect in Vero cells</span>
+                    <span class=" tooltext-1">The typical time interval (in days) required for the virus to induce a
+                      visible cytopathic effect in Vero cells</span>
                   </div>
                   <h5>Cytopathic effect:</h5>
                   <output id="virus_cytophatic"></output>
@@ -265,7 +273,8 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
-                    <span class=" tooltext-1">The typical time interval (in days) required for plaque development in Vero cells</span>
+                    <span class=" tooltext-1">The typical time interval (in days) required for plaque development in
+                      Vero cells</span>
                   </div>
                   <h5>Plaque formation:</h5>
                   <output id="virus_plaque"></output>
@@ -274,7 +283,8 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Established <i>in vivo</i> models used to study disease, pathogenesis, and immunological responses</span>
+                    <span class=" tooltext-1">Established <i>in vivo</i> models used to study disease, pathogenesis, and
+                      immunological responses</span>
                   </div>
                   <h5>Animal models:</h5>
                   <output id="virus_animal"></output>
@@ -283,7 +293,8 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
-                    <span class=" tooltext-1">The required containment level for laboratory work, as defined by the CDC’s Biosafety in Microbiological and Biomedical Laboratories - 6th Edition</span>
+                    <span class=" tooltext-1">The required containment level for laboratory work, as defined by the
+                      CDC’s Biosafety in Microbiological and Biomedical Laboratories - 6th Edition</span>
                   </div>
                   <h5>Biosafety level:</h5>
                   <output id="virus_safety"></output>
@@ -299,7 +310,8 @@
           <h4><span class="grey_fade">ARBO</span><span class="orange_fade">VECTOR</span></h4>
           <div class="search" id="autocomplete-container">
             <input class="search-vector" type="text" placeholder="Search vector..." id="vector-search">
-            <button id="vector-submit" class="searchbutton-vector" type="submit" onclick="searchVectorDB('vector-search')"><i class="fa fa-search"></i></button>
+            <button id="vector-submit" class="searchbutton-vector" type="submit"
+              onclick="searchVectorDB('vector-search')"><i class="fa fa-search"></i></button>
             <div id="vector-autocomplete" class="autocomplete-box"></div>
           </div>
           <div class="tabs">
@@ -329,7 +341,8 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Taxonomic classification, including order, family, genus and species</span>
+                    <span class=" tooltext-1">Taxonomic classification, including order, family, genus and
+                      species</span>
                   </div>
                   <h5>Taxonomy:</h5>
                   <output id="vector_taxonomy"></output>
@@ -340,7 +353,7 @@
               <input type="checkbox" id="chckc">
               <label class="tab-label-vec" for="chckc">Habitat & Environment</label>
               <div class="tab-content">
-                 <!--Macrohabitat-->
+                <!--Macrohabitat-->
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
@@ -362,7 +375,8 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
-                    <span class=" tooltext-1">The temperature range in degrees Celsius required for adult vector survival and activity</span>
+                    <span class=" tooltext-1">The temperature range in degrees Celsius required for adult vector
+                      survival and activity</span>
                   </div>
                   <h5>Temperature range (ºC):</h5>
                   <output id="vector_temp"></output>
@@ -380,7 +394,8 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Indication of whether the vector is classified as an invasive species</span>
+                    <span class=" tooltext-1">Indication of whether the vector is classified as an invasive
+                      species</span>
                   </div>
                   <h5>Invasive species: </h5>
                   <output id="vector_invasive"></output>
@@ -395,7 +410,8 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
-                    <span class=" tooltext-1">The primary host species or groups targeted by the vector for blood-feeding</span>
+                    <span class=" tooltext-1">The primary host species or groups targeted by the vector for
+                      blood-feeding</span>
                   </div>
                   <h5>Host preference:</h5>
                   <output id="vector_host"></output>
@@ -404,7 +420,8 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
-                    <span class=" tooltext-1">The specific time of day when the vector is most active in blood-feeding</span>
+                    <span class=" tooltext-1">The specific time of day when the vector is most active in
+                      blood-feeding</span>
                   </div>
                   <h5>Feeding periodicity</h5>
                   <output id="vector_feed"></output>
@@ -436,7 +453,8 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Arboviruses for which the species is a confirmed or presumptive primary vector in natural transmission cycles</span>
+                    <span class=" tooltext-1">Arboviruses for which the species is a confirmed or presumptive primary
+                      vector in natural transmission cycles</span>
                   </div>
                   <h5>Main Vector:</h5>
                   <output id="vector_main"></output>
@@ -445,7 +463,8 @@
                 <div class="tab-content-unit">
                   <div class="tooltip">
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
-                    <span class=" tooltext-1">Arboviruses that have successfully infected or been transmitted by the vector under controlled laboratory conditions</span>
+                    <span class=" tooltext-1">Arboviruses that have successfully infected or been transmitted by the
+                      vector under controlled laboratory conditions</span>
                   </div>
                   <h5>Experimental infection:</h5>
                   <output id="vector_experimental"></output>
@@ -463,63 +482,63 @@
     <div class="grid">
       <!-- Main Menu Bar Filter-->
       <div id="menulateral">
-        <div class="item-button" id="discovery" onclick="openNav()">
+        <div class="item-button" id="discovery" data-target="discovery-menu">
           <div class="button-wrapper">
             <div id="check1" class="check"></div>
             <img src="{% static 'images/aboverse/icons_2024/discovery_icon.png' %}" />
             <span>Discovery</span>
           </div>
         </div>
-        <div class="item-button" id="distribution" onclick="openNavdist()">
+        <div class="item-button" id="distribution" data-target="distribution-menu">
           <div class="button-wrapper">
             <div id="check2" class="check"></div>
             <img src="{% static 'images/aboverse/icons_2024/virus_icon.png' %}" />
             <span>Distribution</span>
           </div>
         </div>
-        <div class="item-button" id="vector" onclick="openNavVec()">
+        <div class="item-button" id="vector" data-target="vector-menu">
           <div class="button-wrapper">
             <div id="check3" class="check"></div>
             <img src="{% static 'images/aboverse/icons_2024/vector_icon.png' %}" />
             <span>Vector</span>
           </div>
         </div>
-        <div class="item-button" id="climate" onclick="openNavCli()">
+        <div class="item-button" id="climate" data-target="climate-menu">
           <div class="button-wrapper">
             <div id="check4" class="check"></div>
             <img src="{% static 'images/aboverse/icons_2024/climate_icon.png' %}" />
             <span>Climate</span>
           </div>
         </div>
-        <div class="item-button" id="forest" onclick="openNavFor()">
+        <div class="item-button" id="forest" data-target="forest-menu">
           <div class="button-wrapper forest">
             <div id="check5" class="check"></div>
             <img src="{% static 'images/aboverse/icons_2024/forest_icon.png' %}" />
             <span>Forest cover & Deforestation</span>
           </div>
         </div>
-        <div class="item-button" id="biodiversity" onclick="openNavBio()">
+        <div class="item-button" id="biodiversity" data-target="biodiversity-menu">
           <div class="button-wrapper">
             <div id="check9" class="check"></div>
             <img src="{% static 'images/aboverse/icons_2024/biodiversity_icon.png' %}" />
             <span>Biodiversity</span>
           </div>
         </div>
-        <div class="item-button" id="land" onclick="openNavLan()">
+        <div class="item-button" id="land" data-target="land-menu">
           <div class="button-wrapper">
             <div id="check6" class="check"></div>
             <img src="{% static 'images/aboverse/icons_2024/land_icon.png' %}" />
             <span>Land use</span>
           </div>
         </div>
-        <div class="item-button" id="mobility" onclick="openNavMob()">
+        <div class="item-button" id="mobility" data-target="mobility-menu">
           <div class="button-wrapper">
             <div id="check7" class="check"></div>
             <img src="{% static 'images/aboverse/icons_2024/mobility_icon.png' %}" />
             <span>Human mobility</span>
           </div>
         </div>
-        <div class="item-button" id="socioeconomic" onclick="openNavSocio()">
+        <div class="item-button" id="socioeconomic" data-target="socioecomics-menu">
           <div class="button-wrapper">
             <div id="check8" class="check"></div>
             <img src="{% static 'images/aboverse/icons_2024/socio_icon.png' %}" />
@@ -528,8 +547,8 @@
         </div>
       </div>
       <!--Discovery Menu-->
-      <div id="discovery-menu" class="sub-menu sub-1">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div id="discovery-menu" class="map-menu-drawer">
+        <button class="closebtn" data-close="discovery-menu">&times;</button>
         <h3>Discovery</h3>
         <div class="title-sub">
           <div class="togglebtn">
@@ -541,8 +560,14 @@
           <h6>Virus discovery</h6>
           <div class="wrapper tooltip">
             <a href="#demo-modal1.1"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.7;"></i></a>
-            <span class="tooltext-a">Geolocations of arboviruses discovered</span>
+            <span class="tooltext-a">Geolocations of first arbovirus identifications</span>
           </div>
+        </div>
+        <div class="new_opacity_wrapper">
+          <label for="discovery-slider">Opacity:</label>
+          <input type="range" id="discovery-slider" name="discovery-opacity" min="0" max="100" value="100">
+          <span class="val_op">100</span>
+          
         </div>
         <h6 id="unit_scale">Arbovirus families:</h6>
         <div class="discovery_measure">
@@ -612,21 +637,26 @@
         <div id="species-listing" class="listing_discovery species_listing"></div>
       </div>
       <!--Distribution Menu-->
-      <div id="distribution-menu" class="sub-menu sub-1">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNavdist()">&times;</a>
+      <div id="distribution-menu" class="map-menu-drawer">
+        <button class="closebtn" data-close="distribution-menu">&times;</button>
         <h3>Distribution</h3>
         <div class="title-sub">
           <div class="togglebtn">
             <label class="switch">
-              <input type="checkbox" name="distribution" id="arboverse.virusdiscovery"/>
+              <input type="checkbox" name="distribution" id="arboverse.virusdiscovery" />
               <span class="slider round"></span>
             </label>
           </div>
           <h6>Virus distribution</h6>
           <div class="wrapper tooltip">
             <a href="#demo-modal2.1"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.7;"></i></a>
-            <span class="tooltext-a">Geolocations of arboviruses distribution</span>
+            <span class="tooltext-a">Global occurrences of arbovirus transmission</span>
           </div>
+        </div>
+        <div class="new_opacity_wrapper">
+          <label for="distribution-slider">Opacity:</label>
+          <input type="range" id="distribution-slider" name="distribution-opacity" min="0" max="100" value="100">
+          <span class="val_op">100</span>
         </div>
         <div class="search_sub">
           <input class="search-distribution" type="text" placeholder="Search by species..."
@@ -634,10 +664,15 @@
           <button class="search-btn" id="search-distribution-btn" type="submit"><i class="fa fa-search"></i></button>
         </div>
         <ul class="suggestions" id="species-suggestions"></ul>
+        <h6 id="unit_scale">Seleted arbovirus distribution:</h6>
+        <div class="marker">
+          <div class="point arbv_distribution"></div>
+          <label class="point-mean">Selected arbovirus</label>
+        </div>
       </div>
       <!--Vector Menu-->
-      <div id="vector-menu" class="sub-menu sub-2">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNavVec()">&times;</a>
+      <div id="vector-menu" class="map-menu-drawer">
+        <button class="closebtn" data-close="vector-menu">&times;</button>
         <h3>Vector</h3>
         <!--Inseticide resistant-->
         <div class="unit-btn2">
@@ -651,13 +686,13 @@
             <h6>Insecticide vector resistance</h6>
             <div class="wrapper tooltip">
               <a href="#demo-modal3.1"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
-              <span class="tooltext-a">Geolocations of arbovirus vectors with insecticide resistance</span>
+              <span class="tooltext-a">Documented resistance in vectors to chemical classes</span>
             </div>
           </div>
-          <div class="opacity-wrapper">
-            <label>Opacity: <span class="val_op resistance_op">100</span></label>
-            <input id="opacity_slider" name="resistance-opacity" type="range" min="0" max="100" value="100" step="1"
-              class="opacity">
+          <div class="new_opacity_wrapper">
+            <label for="inseticide-slider">Opacity:</label>
+            <input type="range" id="inseticide-slider" name="inseticide-opacity" min="0" max="100" value="100">
+            <span class="val_op">100</span>
           </div>
           <h6 id="unit_scale">Inseticide classes:</h6>
           <div class="marker">
@@ -687,8 +722,13 @@
           <h6>Vector distribution</h6>
           <div class="wrapper tooltip">
             <a href="#demo-modal3.2"><i class="fa fa-info-circle" style="color:#595659; opacity:0.7"></i></a>
-            <span class="tooltext-a">Geolocations of arbovirus vector distribution</span>
+            <span class="tooltext-a">Geographical occurrences of known arbovirus vectors</span>
           </div>
+        </div>
+        <div class="new_opacity_wrapper">
+          <label for="vector-slider">Opacity:</label>
+          <input type="range" id="vector-slider" name="vector-opacity" min="0" max="100" value="100">
+          <span class="val_op">100</span>
         </div>
         <h6 id="unit_scale">Vector types:</h6>
         <div class="vector_measure">
@@ -729,13 +769,13 @@
         </div>
         <div class="search_sub">
           <h6>Find location by species</h6>
-          <input id="vector_dist" class="search-distribution" type="text"placeholder="Search by species...">
+          <input id="vector_dist" class="search-distribution" type="text" placeholder="Search by species...">
         </div>
         <div id="feature-listing" class="listing vector_listing"></div>
       </div>
       <!--Climate Menu-->
-      <div id="climate-menu" class="sub-second-menu">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNavCli()">&times;</a>
+      <div id="climate-menu" class="map-menu-drawer">
+        <button class="closebtn" data-close="climate-menu">&times;</button>
         <h3>Climate</h3>
         <!--Mosquito Forecast -->
         <div class="unit-btn">
@@ -749,13 +789,13 @@
             <h6>Expansion of Aedes-borne virus transmission risk with climate change</h6>
             <div class="wrapper tooltip">
               <a href="#demo-modal4.1"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.7;"></i></a>
-              <span class="tooltext-a">Forecasting of the impacts of climate change on Aedes-borne viruses</span>
+              <span class="tooltext-a">Projected shifts in Aedes-borne risk under climate change</span>
             </div>
           </div>
-          <div class="opacity-wrapper">
-            <label>Opacity: <span class="val_op fore_op">100</span></label>
-            <input id="opacity_slider" name="forecast-opacity" type="range" min="0" max="100" value="100" step="1"
-              class="opacity">
+          <div class="new_opacity_wrapper">
+            <label for="aedes-slider">Opacity:</label>
+            <input type="range" id="aedes-slider" name="aedes-opacity" min="0" max="100" value="100">
+            <span class="val_op">100</span>
           </div>
           <label class="forecast_label">Months</label>
           <div class="measure">
@@ -833,13 +873,13 @@
             <h6>Köppen-Geiger classification</h6>
             <div class="wrapper tooltip">
               <a href="#demo-modal4.2"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.7;"></i></a>
-              <span class="tooltext">Present and future Köppen-Geiger climate classification.</span>
+              <span class="tooltext">Present and future global climate classification zones</span>
             </div>
           </div>
-          <div class="opacity-wrapper">
-            <label>Opacity: <span class="val_op cli_op">100</span></label>
-            <input id="opacity_slider" name="climate-opacity" type="range" min="0" max="100" value="100" step="1"
-              class="opacity">
+          <div class="new_opacity_wrapper">
+            <label for="kp-slider">Opacity:</label>
+            <input type="range" id="kp-slider" name="kp-opacity" min="0" max="100" value="100">
+            <span class="val_op">100</span>
           </div>
           <!--Time selector-->
           <div id="time-wrapper">
@@ -1026,13 +1066,13 @@
             <h6>Annual temperature</h6>
             <div class="wrapper tooltip">
               <a href="#demo-modal4.3"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
-              <span class="tooltext">Projected change in annual minimal, average, and maximum temperature </span>
+              <span class="tooltext">Projected changes in min, mean, and max temperatures</span>
             </div>
           </div>
-          <div class="opacity-wrapper">
-            <label>Opacity: <span class="val_op temp_op">100</span></label>
-            <input id="opacity_slider" name="temp-opacity" type="range" min="0" max="100" value="100" step="1"
-              class="opacity">
+          <div class="new_opacity_wrapper">
+            <label for="temperature-slider">Opacity:</label>
+            <input type="range" id="temperature-slider" name="temperature-opacity" min="0" max="100" value="100">
+            <span class="val_op">100</span>
           </div>
           <div class="measure">
             <div class="bar-mesur annual_temp_label"></div>
@@ -1091,13 +1131,13 @@
             <h6>Extreme hot days</h6>
             <div class="wrapper tooltip">
               <a href="#demo-modal4.4"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
-              <span class="tooltext">Projected change in average number of days of extreme heat</span>
+              <span class="tooltext">Projected change in the frequency of extreme heat days</span>
             </div>
           </div>
-          <div class="opacity-wrapper">
-            <label>Opacity: <span class="val_op hotdays_op">100</span></label>
-            <input id="opacity_slider" name="hotdays-opacity" type="range" min="0" max="100" value="100" step="1"
-              class="opacity">
+          <div class="new_opacity_wrapper">
+            <label for="hot-slider">Opacity:</label>
+            <input type="range" id="hot-slider" name="hot-opacity" min="0" max="100" value="100">
+            <span class="val_op">100</span>
           </div>
           <div class="measure">
             <div class="bar-mesur extreme_hot_label"></div>
@@ -1145,10 +1185,10 @@
               <span class="tooltext">Projected change in annual cumulative precipitation</span>
             </div>
           </div>
-          <div class="opacity-wrapper">
-            <label>Opacity: <span class="val_op precipitation_op">100</span></label>
-            <input id="opacity_slider" name="precipitation-opacity" type="range" min="0" max="100" value="100" step="1"
-              class="opacity">
+          <div class="new_opacity_wrapper">
+            <label for="precipitation-slider">Opacity:</label>
+            <input type="range" id="precipitation-slider" name="precipitation-opacity" min="0" max="100" value="100">
+            <span class="val_op">100</span>
           </div>
           <div class="measure">
             <div class="bar-mesur precipitation_label"></div>
@@ -1193,13 +1233,14 @@
             <h6>Extreme precipitation days</h6>
             <div class="wrapper tooltip">
               <a href="#demo-modal4.6"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
-              <span class="tooltext">Projected change in annual average days of extreme precipitation</span>
+              <span class="tooltext">Projected change in frequency of extreme rain events</span>
             </div>
           </div>
-          <div class="opacity-wrapper">
-            <label>Opacity: <span class="val_op extreme_op">100</span></label>
-            <input id="opacity_slider" name="extreme-opacity" type="range" min="0" max="100" value="100" step="1"
-              class="opacity">
+          <div class="new_opacity_wrapper">
+            <label for="extremeprecipitation-slider">Opacity:</label>
+            <input type="range" id="extremeprecipitation-slider" name="extremeprecipitation-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
           </div>
           <div class="measure">
             <div class="bar-mesur extreme_precipitation_label"></div>
@@ -1243,13 +1284,14 @@
             <h6>Dry spells</h6>
             <div class="wrapper tooltip">
               <a href="#demo-modal4.7"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
-              <span class="tooltext">Projected change in dry spells </span>
+              <span class="tooltext">Projected change in the duration of annual dry periods</span>
             </div>
           </div>
-          <div class="opacity-wrapper">
-            <label>Opacity: <span class="val_op dryspells_op">100</span></label>
-            <input id="opacity_slider" name="dryspells-opacity" type="range" min="0" max="100" value="100" step="1"
-              class="opacity">
+           <div class="new_opacity_wrapper">
+            <label for="spell-slider">Opacity:</label>
+            <input type="range" id="spell-slider" name="spell-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
           </div>
           <div class="measure">
             <div class="bar-mesur dry_spells_label"></div>
@@ -1293,13 +1335,14 @@
             <h6>Aridity index</h6>
             <div class="wrapper tooltip">
               <a href="#demo-modal4.8"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
-              <span class="tooltext">Show the aridity index</span>
+              <span class="tooltext">Ratio of precipitation to potential evapotranspiration</span>
             </div>
           </div>
-          <div class="opacity-wrapper">
-            <label>Opacity: <span class="val_op aridity_op">100</span></label>
-            <input id="opacity_slider" name="aridity-opacity" type="range" min="0" max="100" value="100" step="1"
-              class="opacity">
+           <div class="new_opacity_wrapper">
+            <label for="aridity-slider">Opacity:</label>
+            <input type="range" id="aridity-slider" name="aridity-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
           </div>
           <div class="measure">
             <div class="bar-mesur aridity_label"></div>
@@ -1325,13 +1368,14 @@
             <h6>Vulnerability to drought and floods</h6>
             <div class="wrapper tooltip">
               <a href="#demo-modal4.9"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
-              <span class="tooltext">Show the vulnerability to floods and droughts</span>
+              <span class="tooltext">Sensitivity of groundwater to extreme hydrological events</span>
             </div>
           </div>
-          <div class="opacity-wrapper">
-            <label>Opacity: <span class="val_op drought_op">100</span></label>
-            <input id="opacity_slider" name="drought-opacity" type="range" min="0" max="100" value="100" step="1"
-              class="opacity">
+           <div class="new_opacity_wrapper">
+            <label for="drought-slider">Opacity:</label>
+            <input type="range" id="drought-slider" name="drought-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
           </div>
           <div class="marker">
             <div class="point vuln_1"></div>
@@ -1380,8 +1424,8 @@
         </div>
       </div>
       <!--FOREST COVER AND DEFORESTATION MENU-->
-      <div id="forestcover-menu" class="sub-th-menu">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNavFor()">&times;</a>
+      <div id="forest-menu" class="map-menu-drawer">
+        <button class="closebtn" data-close="forest-menu">&times;</button>
         <h3>Forest cover & Desforestation</h3>
         <div class="menu-btn">
           <!--Biomes-->
@@ -1396,14 +1440,15 @@
               <h6>Biomes</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal5.0"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
-                <span class="tooltext">Terrestrial ecoregions of the world</span>
+                <span class="tooltext">Global distribution of the 14 terrestrial biomes</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op biome_op">100</span></label>
-              <input id="opacity_slider" name="biome-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="biome-slider">Opacity:</label>
+            <input type="range" id="biome-slider" name="biome-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="marker">
               <div class="point biome_1"></div>
               <label class="point-mean">Tropical and subtropical moist broadleaf forests</label>
@@ -1474,14 +1519,15 @@
               <h6>Primary forest</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal5.2"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
-                <span class="tooltext">Primary forests in the global pan-tropical regions in 2001</span>
+                <span class="tooltext">Extent of primary pan-tropical humid forests</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op primary_op">100</span></label>
-              <input id="opacity_slider" name="primary-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="primary-slider">Opacity:</label>
+            <input type="range" id="primary-slider" name="primary-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="marker">
               <div class="point musgo-p"></div>
               <label class="point-mean">Primary humid tropical forest</label>
@@ -1500,14 +1546,15 @@
               <h6>Tree cover height</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal5.3"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
-                <span class="tooltext">Global forest canopy in 2000 and 2020</span>
+                <span class="tooltext">Global forest canopy height for 2000 and 2020</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op height_op">100</span></label>
-              <input id="opacity_slider" name="height-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="coverheight-slider">Opacity:</label>
+            <input type="range" id="coverheight-slider" name="coverheight-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="measure">
               <div class="bar-mesur green-s"></div>
               <div class="indice">
@@ -1528,14 +1575,15 @@
               <h6>Intact forest landscapes</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal5.4"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
-                <span class="tooltext">Unfragmented forest landscapes</span>
+                <span class="tooltext">Remaining unfragmented natural forest ecosystems</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op intact_op">100</span></label>
-              <input id="opacity_slider" name="intact_opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="landscapes-slider">Opacity:</label>
+            <input type="range" id="landscapes-slider" name="landscapes-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="marker">
               <div class="point green1-p"></div>
               <label class="point-mean">Intact forest landscapes</label>
@@ -1561,14 +1609,15 @@
               <h6>Ecoregion protection statuses</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal5.5"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
-                <span class="tooltext">Shows the ecoregion protection categories</span>
+                <span class="tooltext">Protection and conservation status of global ecoregions</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op protect_op">100</span></label>
-              <input id="opacity_slider" name="protect-biome-opacity" type="range" min="0" max="100" value="100"
-                step="1" class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="ecoregion-slider">Opacity:</label>
+            <input type="range" id="ecoregion-slider" name="ecoregion-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="marker">
               <div class="point protect_1"></div>
               <label class="point-mean">Half protected</label>
@@ -1598,14 +1647,15 @@
               <h6>Tree cover loss by dominant driver</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal5.1"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
-                <span class="tooltext">Dominant driver of tree cover loss</span>
+                <span class="tooltext">Primary causes of forest loss (e.g., fire, agriculture)</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op drive_op">100</span></label>
-              <input id="opacity_slider" name="drive-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="dominant-slider">Opacity:</label>
+            <input type="range" id="dominant-slider" name="dominant-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="marker">
               <div class="point comod"></div>
               <label class="point-mean">Commodity driven deforestation</label>
@@ -1627,14 +1677,12 @@
               <label class="point-mean">Urbanization</label>
             </div>
           </div>
-
-
         </div>
       </div>
       <!--Biodiversity-->
-      <div id="biodiversity-menu" class="sub-sev-menu">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNavBio()">&times;</a>
-        <h3>Biodiversity</h3>
+      <div id="biodiversity-menu" class="map-menu-drawer">
+        <button class="closebtn" data-close="biodiversity-menu">&times;</button>
+         <h3>Biodiversity</h3>
         <div class="menu-btn">
           <!--biodiversity Intactness-->
           <div class="unit-btn2">
@@ -1648,14 +1696,15 @@
               <h6>Biodiversity intactness index</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal6.1"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
-                <span class="tooltext">Impacts of forest change on local biodiversity intactness</span>
+                <span class="tooltext">Anthropogenic impact on local species community health</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op biodiversity_op">100</span></label>
-              <input id="opacity_slider" name="biodiversity-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="intactness-slider">Opacity:</label>
+            <input type="range" id="intactness-slider" name="intactness-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="measure">
               <div class="bar-mesur biodiversity_label"></div>
               <div class="indice">
@@ -1679,14 +1728,15 @@
               <h6>Mammal diversity</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal6.2"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
-                <span class="tooltext">Global mammal diversity</span>
+                <span class="tooltext">Global richness and status of mammal species</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op mammals_op">100</span></label>
-              <input id="opacity_slider" name="mammals-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="mammals-slider">Opacity:</label>
+            <input type="range" id="mammals-slider" name="mammals-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="measure">
               <div class="bar-mesur mammals_label"></div>
               <div class="indice">
@@ -1762,14 +1812,15 @@
               <h6>Birds diversity</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal6.3"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
-                <span class="tooltext">Global bird diversity</span>
+                <span class="tooltext">Global richness and status of avian species</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op birds_op">100</span></label>
-              <input id="opacity_slider" name="birds-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="birds-slider">Opacity:</label>
+            <input type="range" id="birds-slider" name="birds-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="measure">
               <div class="bar-mesur birds_label"></div>
               <div class="indice">
@@ -1845,14 +1896,15 @@
               <h6>Amphibians diversity</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal6.4"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
-                <span class="tooltext">Global amphibian diversity</span>
+                <span class="tooltext">Global richness and status of amphibian species</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op amphibians_op">100</span></label>
-              <input id="opacity_slider" name="amphibians-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="amphibians-slider">Opacity:</label>
+            <input type="range" id="amphibians-slider" name="amphibians-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="measure">
               <div class="bar-mesur amphibians_label"></div>
               <div class="indice">
@@ -1903,8 +1955,8 @@
         </div>
       </div>
       <!--Land COVER MENU-->
-      <div id="land-cover-menu" class="sub-fou-menu">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNavLan()">&times;</a>
+      <div id="land-menu" class="map-menu-drawer">
+        <button class="closebtn" data-close="land-menu">&times;</button>
         <h3>Land use</h3>
         <div clas="menu-btn">
           <h5 class="area">Commodities</h5>
@@ -1920,14 +1972,15 @@
               <h6>Land cover</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal7.0"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
-                <span class="tooltext">Global distribution of land cover</span>
+                <span class="tooltext">Global classification of land use and vegetation types</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op land_op">100</span></label>
-              <input id="opacity_slider" name="land-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="landcover-slider">Opacity:</label>
+            <input type="range" id="landcover-slider" name="landcover-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="marker">
               <div class="point agriculture-p"></div>
               <label class="point-mean">Agriculture</label>
@@ -1981,14 +2034,15 @@
               <h6>Livestock</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal7.1"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
-                <span class="tooltext">Global distribution of livestock</span>
+                <span class="tooltext">Global population densities of major livestock species</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op stock_op">100</span></label>
-              <input id="opacity_slider" name="stock-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="livestock-slider">Opacity:</label>
+            <input type="range" id="livestock-slider" name="livestock-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="measure">
               <div class="bar-mesur livestock"></div>
               <div class="indice">
@@ -2059,14 +2113,15 @@
               <h6>Mining concessions</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal7.2"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
-                <span class="tooltext">Areas allocated by governments to companies for extraction of minerals</span>
+                <span class="tooltext">Government-allocated areas for mineral extraction</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op mini_op">100</span></label>
-              <input id="opacity_slider" name="mini-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="mining-slider">Opacity:</label>
+            <input type="range" id="mining-slider" name="mining-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="marker">
               <div class="point mining-p"></div>
               <label class="point-mean">Mining concessions</label>
@@ -2093,14 +2148,15 @@
               <h6>Logging concessions</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal7.3"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
-                <span class="tooltext">Global forested areas allocated for wood products</span>
+                <span class="tooltext">Government-allocated areas for timber harvesting</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op log_op">100</span></label>
-              <input id="opacity_slider" name="log-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="logging-slider">Opacity:</label>
+            <input type="range" id="logging-slider" name="logging-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="marker">
               <div class="point logging-p"></div>
               <label class="point-mean">Logging concessions</label>
@@ -2128,14 +2184,15 @@
               <h6>Global dams</h6>
               <div class="tooltip">
                 <a href="#demo-modal7.4"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
-                <span class="tooltext">Global georeferenced dams</span>
+                <span class="tooltext">Locations of 38,000+ dams and associated catchments</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op dams_op">100</span></label>
-              <input id="opacity_slider" name="dams-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="dams-slider">Opacity:</label>
+            <input type="range" id="dams-slider" name="dams-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="marker">
               <div class="point dams_38"></div>
               <label class="point-mean">Dams</label>
@@ -2144,8 +2201,8 @@
         </div>
       </div>
       <!--Human Mobility-->
-      <div id="mobility-menu" class="sub-fiv-menu">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNavMob()">&times;</a>
+      <div id="mobility-menu" class="map-menu-drawer">
+       <button class="closebtn" data-close="mobility-menu">&times;</button>
         <h3>Human mobility</h3>
         <div class="menu-btn">
           <!--cities accessibility-->
@@ -2160,14 +2217,15 @@
               <h6>Cities acessibility</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal8.0"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
-                <span class="tooltext">Amount of time to access the cities</span>
+                <span class="tooltext">Estimated travel time to the nearest urban center</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op cities_op">100</span></label>
-              <input id="opacity_slider" name="cities-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="cities-slider">Opacity:</label>
+            <input type="range" id="cities-slider" name="cities-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="measure">
               <div class="bar-mesur cities_label"></div>
               <div class="indice">
@@ -2190,14 +2248,15 @@
               <h6>Number of arrivals</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal8.1"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
-                <span class="tooltext">International tourism by number of arrivals</span>
+                <span class="tooltext">Annual international inbound tourist arrivals</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op opArr">100</span></label>
-              <input id="opacity_slider" name="opacity-Arr" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="arrivals-slider">Opacity:</label>
+            <input type="range" id="arrivals-slider" name="arrivals-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="measure">
               <div class="bar-mesur arrivals-s"></div>
               <div class="indice">
@@ -2230,14 +2289,15 @@
               <h6>Number of departures</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal8.2"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
-                <span class="tooltext">International tourism by number of departures</span>
+                <span class="tooltext">Annual international outbound tourist departures</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op dep_op">100</span></label>
-              <input id="opacity_slider" name="dep-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="departures-slider">Opacity:</label>
+            <input type="range" id="departures-slider" name="departures-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="measure">
               <div class="bar-mesur departures-s"></div>
               <div class="indice">
@@ -2270,14 +2330,15 @@
               <h6>Number of passengers</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal8.3"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
-                <span class="tooltext">Passengers carried by air transport</span>
+                <span class="tooltext">Total annual air passengers carried by country</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op pass_op">100</span></label>
-              <input id="opacity_slider" name="pass-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="passengers-slider">Opacity:</label>
+            <input type="range" id="passengers-slider" name="passengers-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="measure">
               <div class="bar-mesur passengers-s"></div>
               <div class="indice">
@@ -2302,8 +2363,8 @@
         </div>
       </div>
       <!--Socioeconomics-->
-      <div id="socio-menu" class="sub-six-menu">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNavSocio()">&times;</a>
+      <div id="socioecomics-menu" class="map-menu-drawer">
+        <button class="closebtn" data-close="ocioecomics-menu">&times;</button>
         <h3>Socioeconomics</h3>
         <div class="menu-btn">
           <!--populational density-->
@@ -2318,14 +2379,15 @@
               <h6>Population density</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal9.0"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
-                <span class="tooltext">Gridded population of the world</span>
+                <span class="tooltext">Estimates of human population per square kilometer</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op pop_op">100</span></label>
-              <input id="opacity_slider" name="pop-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="population-slider">Opacity:</label>
+            <input type="range" id="population-slider" name="population-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="measure">
               <div class="bar-mesur people-s"></div>
               <div class="indice">
@@ -2359,14 +2421,15 @@
               <h6>Global GDP per capita</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal9.1"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
-                <span class="tooltext">Average Gross Domestic Production (GDP) per capita</span>
+                <span class="tooltext">Average GDP per capita</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op gdp_op">100</span></label>
-              <input id="opacity_slider" name="gdp-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="gdp-slider">Opacity:</label>
+            <input type="range" id="gdp-slider" name="gdp-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="measure">
               <div class="bar-mesur gdp_label"></div>
               <div class="indice">
@@ -2395,14 +2458,15 @@
               <h6>Global HDI</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal9.2"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
-                <span class="tooltext">Global Human Development Index</span>
+                <span class="tooltext">Subnational Human Development Index values</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op hdi_op">100</span></label>
-              <input id="opacity_slider" name="hdi-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="hdi-slider">Opacity:</label>
+            <input type="range" id="hdi-slider" name="hdi-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="measure">
               <div class="bar-mesur hdi_label"></div>
               <div class="indice">
@@ -2429,14 +2493,15 @@
               <h6>Accessibility to health care</h6>
               <div class="wrapper tooltip">
                 <a href="#demo-modal9.3"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
-                <span class="tooltext">Travel time to healthcare facilities</span>
+                <span class="tooltext">Travel time to the nearest healthcare facility</span>
               </div>
             </div>
-            <div class="opacity-wrapper">
-              <label>Opacity: <span class="val_op health_op">100</span></label>
-              <input id="opacity_slider" name="health-opacity" type="range" min="0" max="100" value="100" step="1"
-                class="opacity">
-            </div>
+            <div class="new_opacity_wrapper">
+            <label for="health-slider">Opacity:</label>
+            <input type="range" id="health-slider" name="health-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
             <div class="measure">
               <div class="bar-mesur access_health_label"></div>
               <div class="indice">
@@ -2466,7 +2531,7 @@
         <a class="download_btn" id="downloadLink" href="" download="map.png"><i
             class="icone_down fa fa-arrow-circle-down"></i>Download Map</a>
       </div>
-      <script src="{% static 'js/menu.js' %}"></script>
+      <script src="{% static 'js/menu.js' %}" defer></script>
       <!--Menu js-->
       <!--MAP-->
       <div id="map"></div>
@@ -2474,7 +2539,10 @@
     <!--uphere-->
   </div>
   <div class="disclaimer_wrap">
-  <p class="disclaimer">ARBOVERSE maintains a neutral position with respect to territorial claims and jurisdictional boundaries in all maps presented. Our research and platform development are supported by governmental and non-governmental funding agencies; these sponsors had no role in the study design, data collection, analysis, interpretation, or the decision to publish the associated datasets</p>
+    <p class="disclaimer">ARBOVERSE maintains a neutral position with respect to territorial claims and jurisdictional
+      boundaries in all maps presented. Our research and platform development are supported by governmental and
+      non-governmental funding agencies; these sponsors had no role in the study design, data collection, analysis,
+      interpretation, or the decision to publish the associated datasets</p>
   </div>
   <!-- Discovery Modal Box-->
   <div id="demo-modal1.1" class="modal">
@@ -2524,7 +2592,9 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset describes the geographical locations where arboviruses were identified, based on information from primary sources such as articles, books, or reports. The precision of the location depends on the descriptions in the original studies, and the geolocation provided may be an estimate of the site described
+          <p>This dataset describes the geographical locations where arboviruses were identified, based on information
+            from primary sources such as articles, books, or reports. The precision of the location depends on the
+            descriptions in the original studies, and the geolocation provided may be an estimate of the site described
           </p>
         </div>
       </div>
@@ -2598,7 +2668,11 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset shows the geographic locations by country where arboviruses have been reported, based on information from primary sources such as articles, books, or reports. The presence of arboviruses in each country was considered confirmed only if detected by molecular assays (e.g., reverse transcription polymerase chain reaction and its variants) or viral isolation. Imported cases and/or serological assays were not included
+          <p>This dataset shows the geographic locations by country where arboviruses have been reported, based on
+            information from primary sources such as articles, books, or reports. The presence of arboviruses in each
+            country was considered confirmed only if detected by molecular assays (e.g., reverse transcription
+            polymerase chain reaction and its variants) or viral isolation. Imported cases and/or serological assays
+            were not included
           </p>
         </div>
       </div>
@@ -2636,7 +2710,8 @@
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays specific geolocations where arbovirus vectors have been identified as resistant to one or more insecticide classes</p>
+          <p>Displays specific geolocations where arbovirus vectors have been identified as resistant to one or more
+            insecticide classes</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -2673,22 +2748,25 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset maps documented instances of insecticide resistance in arbovirus vectors across four major chemical classes: carbamates, pyrethroids, organochlorines, and organophosphates. Please consult the original source for detailed methodologies and specific data limitations.
+          <p>This dataset maps documented instances of insecticide resistance in arbovirus vectors across four major
+            chemical classes: carbamates, pyrethroids, organochlorines, and organophosphates. Please consult the
+            original source for detailed methodologies and specific data limitations.
           </p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>This layer merges two distinct datasets compiled by the World Health Organization’s Global Malaria Programme and Moyes et al. (2017). The layer utilizes the “davos” scientific color map developed by Crameri et al. (2020; PMID: 33116149)</p>
+          <p>This layer merges two distinct datasets compiled by the World Health Organization’s Global Malaria
+            Programme and Moyes et al. (2017). The layer utilizes the “davos” scientific color map developed by Crameri
+            et al. (2020; PMID: 33116149)</p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Source</h6>
         <div class="p-wrapper">
-          <p>World Health Organization – <a
-              href="https://apps.who.int/malaria/maps/threats"
-              target="_blank">Global Malaria Programme</a> and Moyes et al., PLoS Negl Trop Dis. 2017 (PMID: 28727779)</p>
+          <p>World Health Organization – <a href="https://apps.who.int/malaria/maps/threats" target="_blank">Global
+              Malaria Programme</a> and Moyes et al., PLoS Negl Trop Dis. 2017 (PMID: 28727779)</p>
         </div>
       </div>
       <!--Download data button-->
@@ -2750,23 +2828,27 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset maps the occurrences of arbovirus vectors based on primary sources, including peer-reviewed articles, books, and technical reports. Positional accuracy is derived from the original studies and records available via the Global Biodiversity Information Facility (GBIF)
+          <p>This dataset maps the occurrences of arbovirus vectors based on primary sources, including peer-reviewed
+            articles, books, and technical reports. Positional accuracy is derived from the original studies and records
+            available via the Global Biodiversity Information Facility (GBIF)
           </p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>Duplicate geolocations for the same species were removed, and records with restricted licenses were excluded. The layer utilizes the “navia” scientific color map developed by Crameri et al. (2020; PMID: 33116149)</p>
+          <p>Duplicate geolocations for the same species were removed, and records with restricted licenses were
+            excluded. The layer utilizes the “navia” scientific color map developed by Crameri et al. (2020; PMID:
+            33116149)</p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Source</h6>
         <div class="p-wrapper">
-          <p>GBIF Occurrence (<a
-              href="https://doi.org/10.15468/dl.cmtw79" target="_blank">https://doi.org/10.15468/dl.cmtw79</a>;<a
-              href="https://doi.org/10.15468/dl.jruhb8" target="_blank"> https://doi.org/10.15468/dl.jruhb8</a>; <a
-              href="https://doi.org/10.15468/dl.qhx8ba" target="_blank">https://doi.org/10.15468/dl.qhx8ba</a>)</p>
+          <p>GBIF Occurrence (<a href="https://doi.org/10.15468/dl.cmtw79"
+              target="_blank">https://doi.org/10.15468/dl.cmtw79</a>;<a href="https://doi.org/10.15468/dl.jruhb8"
+              target="_blank"> https://doi.org/10.15468/dl.jruhb8</a>; <a href="https://doi.org/10.15468/dl.qhx8ba"
+              target="_blank">https://doi.org/10.15468/dl.qhx8ba</a>)</p>
         </div>
       </div>
       <!--Download data button-->
@@ -2791,7 +2873,8 @@
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays the global expansion and redistribution of <i>Aedes</i>-borne virus transmission risk under various climate change scenarios</p>
+          <p>Displays the global expansion and redistribution of <i>Aedes</i>-borne virus transmission risk under
+            various climate change scenarios</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -2828,7 +2911,11 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset illustrates the number of months per year in which temperature suitability allows <i>Aedes</i>-borne virus transmission by comparing baseline conditions (1960–1990) with future projections for 2050 and 2080. The original study evaluated four scenarios (RCP 2.6, 4.5, 6.0, and 8.5), ARBOVERSE displays the RCP 2.6 and RCP 8.5 models. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset illustrates the number of months per year in which temperature suitability allows
+            <i>Aedes</i>-borne virus transmission by comparing baseline conditions (1960–1990) with future projections
+            for 2050 and 2080. The original study evaluated four scenarios (RCP 2.6, 4.5, 6.0, and 8.5), ARBOVERSE
+            displays the RCP 2.6 and RCP 8.5 models. Please consult the original source for detailed methodologies and
+            specific data limitations
           </p>
         </div>
       </div>
@@ -2903,7 +2990,12 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset illustrates the Köppen-Geiger climate classification, which categorizes global climates into tropical, arid, temperate, continental, and polar, and further divides them into 29 subclasses. The present-day map was derived from an ensemble of four high-resolution, topographically corrected climatic maps. The future map (2071–2100) was generated by superimposing projected climate change anomalies from 32 models onto the high-resolution baseline. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset illustrates the Köppen-Geiger climate classification, which categorizes global climates into
+            tropical, arid, temperate, continental, and polar, and further divides them into 29 subclasses. The
+            present-day map was derived from an ensemble of four high-resolution, topographically corrected climatic
+            maps. The future map (2071–2100) was generated by superimposing projected climate change anomalies from 32
+            models onto the high-resolution baseline. Please consult the original source for detailed methodologies and
+            specific data limitations
           </p>
         </div>
       </div>
@@ -2977,7 +3069,10 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset illustrates projected shifts in annual temperature metrics (minimum, average, and maximum) from 1985 through 2095. Projections are based on the greenhouse gas emission pathways (RCP 4.5 and 8.5) determined by the Intergovernmental Panel on Climate Change (IPCC). Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset illustrates projected shifts in annual temperature metrics (minimum, average, and maximum)
+            from 1985 through 2095. Projections are based on the greenhouse gas emission pathways (RCP 4.5 and 8.5)
+            determined by the Intergovernmental Panel on Climate Change (IPCC). Please consult the original source for
+            detailed methodologies and specific data limitations
           </p>
         </div>
       </div>
@@ -3051,7 +3146,10 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset illustrates the average number of extreme heat days in ten-year intervals between 2000 and 2095, compared to a baseline period of 1960–1990. Projections are based on the greenhouse gas emission pathways (RCP 4.5 and 8.5) determined by the Intergovernmental Panel on Climate Change (IPCC). Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset illustrates the average number of extreme heat days in ten-year intervals between 2000 and
+            2095, compared to a baseline period of 1960–1990. Projections are based on the greenhouse gas emission
+            pathways (RCP 4.5 and 8.5) determined by the Intergovernmental Panel on Climate Change (IPCC). Please
+            consult the original source for detailed methodologies and specific data limitations
           </p>
         </div>
       </div>
@@ -3124,7 +3222,10 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset illustrates the annual cumulative precipitation in ten-year intervals between 2000 and 2095, compared to a baseline period of 1960–1990. Projections are based on the greenhouse gas emission pathways (RCP 4.5 and 8.5) determined by the Intergovernmental Panel on Climate Change (IPCC). Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset illustrates the annual cumulative precipitation in ten-year intervals between 2000 and 2095,
+            compared to a baseline period of 1960–1990. Projections are based on the greenhouse gas emission pathways
+            (RCP 4.5 and 8.5) determined by the Intergovernmental Panel on Climate Change (IPCC). Please consult the
+            original source for detailed methodologies and specific data limitations
         </div>
       </div>
       <div class="arrow-table">
@@ -3197,7 +3298,10 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset illustrates the annual average number of extreme precipitation days in ten-year intervals between 2000 and 2095, compared to a baseline period of 1960–1990. Projections are based on the greenhouse gas emission pathways (RCP 4.5 and 8.5) determined by the Intergovernmental Panel on Climate Change (IPCC). Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset illustrates the annual average number of extreme precipitation days in ten-year intervals
+            between 2000 and 2095, compared to a baseline period of 1960–1990. Projections are based on the greenhouse
+            gas emission pathways (RCP 4.5 and 8.5) determined by the Intergovernmental Panel on Climate Change (IPCC).
+            Please consult the original source for detailed methodologies and specific data limitations
           </p>
         </div>
       </div>
@@ -3270,7 +3374,10 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset illustrates the annual average number of dry spells in ten-year intervals between 2000 and 2095, compared to a baseline period of 1960–1990. Projections are based on the greenhouse gas emission pathways (RCP 4.5 and 8.5) determined by the Intergovernmental Panel on Climate Change (IPCC). Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset illustrates the annual average number of dry spells in ten-year intervals between 2000 and
+            2095, compared to a baseline period of 1960–1990. Projections are based on the greenhouse gas emission
+            pathways (RCP 4.5 and 8.5) determined by the Intergovernmental Panel on Climate Change (IPCC). Please
+            consult the original source for detailed methodologies and specific data limitations
           </p>
         </div>
       </div>
@@ -3306,7 +3413,8 @@
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays the average aridity, calculated as the ratio of mean annual precipitation to mean annual potential evapotranspiration</p>
+          <p>Displays the average aridity, calculated as the ratio of mean annual precipitation to mean annual potential
+            evapotranspiration</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -3343,14 +3451,17 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset provides the Aridity Index, a bioclimatic indicator influenced by solar radiation, temperature, humidity, and wind speed. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset provides the Aridity Index, a bioclimatic indicator influenced by solar radiation,
+            temperature, humidity, and wind speed. Please consult the original source for detailed methodologies and
+            specific data limitations
           </p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>Spatial data underwent nearest-neighbor resampling to a 5 km2 resolution. The layer utilizes the “tokyo” scientific color map developed by Crameri et al. (2020; PMID: 33116149)</p>
+          <p>Spatial data underwent nearest-neighbor resampling to a 5 km2 resolution. The layer utilizes the “tokyo”
+            scientific color map developed by Crameri et al. (2020; PMID: 33116149)</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -3375,21 +3486,19 @@
       <!--Title-->
       <div class="modal-title">
         <h3>Vulnerability to drought and floods</h3>
-        <p>Show the vulnerability to floods and droughts</p>
       </div>
       <!--Layer Information-->
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays the level of vulnerability of groundwater resources of the earth. It presents the intrinsic
-            vulnerability of groundwater systems and the sensitivity or resistance of those systems to natural disasters
+          <p>Displays the level of vulnerability of groundwater resources
           </p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Spatial resolution</h6>
         <div class="p-wrapper">
-          <p>1:25,000,000 scale</p>
+          <p>Not applicable</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -3401,13 +3510,13 @@
       <div class="arrow-table">
         <h6>Update frequency</h6>
         <div class="p-wrapper">
-          <p>Not updated</p>
+          <p>Not updated (Static model)</p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Temporal coverage</h6>
         <div class="p-wrapper">
-          <p>2016-Present</p>
+          <p>2016</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -3420,33 +3529,22 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset presents a global overview of groundwater vulnerability classification. The authors developed
-            a scale called “Total Vulnerability Range” (TVR), which is divided into three categories: low, moderate, and
-            high groundwater vulnerability. Generally, the lower the numerical score the lower the vulnerability and the
-            higher the level of natural protection of groundwater against hydro-climatic disasters. Finally, the TVR for
-            floods and the TVR for droughts have been combined. The resulting categories of vulnerability are depicted
-            on the map in different colors. For more methodological details and limitations, please see the original
-            source.
+          <p>This dataset provides global overview of groundwater vulnerability classification. Please consult the
+            original source for detailed methodologies and specific data limitations
           </p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>We applied the scientific colour map managua (Crameri, 2018) to prevent visual distortion (Crameri et al.,
-            2020).</p>
-          <p>Crameri F (2018a), Scientific colour maps. Zenodo. <a href="http://doi.org/10.5281/zenodo.1243862"
-              target="_blank">http://doi.org/10.5281/zenodo.1243862.</a></p>
-          <p>Crameri F, Shephard GE, Heron PJ. The misuse of colour in science communication. Nat. Commun. 2020 Oct
-            28;11(1):5444. <a href="https://www.nature.com/articles/s41467-020-19160-7" target="_blank">doi:
-              10.1038/s41467-020-19160-7.</a></p>
+          <p>Spatial data underwent nearest-neighbor resampling to a 5 km2 resolution. The layer utilizes the “managua”
+            scientific color map developed by Crameri et al. (2020; PMID: 33116149)</p>
         </div>
       </div>
       <div class="arrow-table">
-        <h6>Original source</h6>
+        <h6>Source</h6>
         <div class="p-wrapper">
-          <p>Richts, A. and Vrba, J. (2016): Groundwater resources and hydroclimatic extremes: mapping global
-            groundwater vulnerability to floods and droughts. Environ Earth Sci 75: 926. doi: 10.1007/s12665-016-5632-3
+          <p>Richts et al., Environ Earth Sci. 2016 (DOI: 10.1007/s12665-016-5632-3)
           </p>
         </div>
       </div>
@@ -3509,7 +3607,11 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset maps the 14 terrestrial biomes worldwide, representing major ecological communities adapted to specific climatic and environmental conditions. This map incorporates data on ecoregions, which are geographically distinct assemblages of biodiversity whose boundaries encompass the area required to sustain key ecological processes. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset maps the 14 terrestrial biomes worldwide, representing major ecological communities adapted to
+            specific climatic and environmental conditions. This map incorporates data on ecoregions, which are
+            geographically distinct assemblages of biodiversity whose boundaries encompass the area required to sustain
+            key ecological processes. Please consult the original source for detailed methodologies and specific data
+            limitations
           </p>
         </div>
       </div>
@@ -3545,7 +3647,8 @@
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays the dominant driver of tree cover loss within each 10 km<sup>2</sup> and the intensity of that loss from 2001 to 2019</p>
+          <p>Displays the dominant driver of tree cover loss within each 10 km<sup>2</sup> and the intensity of that
+            loss from 2001 to 2019</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -3582,7 +3685,10 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset identifies the primary drivers of tree cover loss using five categories: (i) Commodity-driven deforestation (large-scale commercial agriculture); (ii) Shifting agriculture (small- to medium-scale farming); (iii) Forestry (harvesting/plantations); (iv) Wildfire; and (v) Urbanization. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset identifies the primary drivers of tree cover loss using five categories: (i) Commodity-driven
+            deforestation (large-scale commercial agriculture); (ii) Shifting agriculture (small- to medium-scale
+            farming); (iii) Forestry (harvesting/plantations); (iv) Wildfire; and (v) Urbanization. Please consult the
+            original source for detailed methodologies and specific data limitations
           </p>
         </div>
       </div>
@@ -3656,14 +3762,19 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset reports primary humid tropical forest extent for the year 2001, along with primary forest loss and distance to loss from 2002–2014 for key rainforest regions in Brazil, the Democratic Republic of the Congo, and Indonesia. Primary forest is defined as mature, natural humid tropical forest cover that has not been completely cleared and regrown in recent history. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset reports primary humid tropical forest extent for the year 2001, along with primary forest loss
+            and distance to loss from 2002–2014 for key rainforest regions in Brazil, the Democratic Republic of the
+            Congo, and Indonesia. Primary forest is defined as mature, natural humid tropical forest cover that has not
+            been completely cleared and regrown in recent history. Please consult the original source for detailed
+            methodologies and specific data limitations
           </p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>Spatial data underwent nearest-neighbor resampling to a 1 km2 resolution. The layer utilizes the color HEX #637a40</p>
+          <p>Spatial data underwent nearest-neighbor resampling to a 1 km2 resolution. The layer utilizes the color HEX
+            #637a40</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -3729,14 +3840,18 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset provides a global forest canopy height map, developed by integrating LiDAR-based forest structure measurements from the Global Ecosystem Dynamics Investigation (GEDI) with Landsat analysis-ready data time-series. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset provides a global forest canopy height map, developed by integrating LiDAR-based forest
+            structure measurements from the Global Ecosystem Dynamics Investigation (GEDI) with Landsat analysis-ready
+            data time-series. Please consult the original source for detailed methodologies and specific data
+            limitations
           </p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>Spatial data underwent nearest-neighbor resampling to a 1 km<sup>2</sup> resolution. The layer utilizes a linear color gradient from HEX #9ef01a (low height) to HEX #004b23 (high height)</p>
+          <p>Spatial data underwent nearest-neighbor resampling to a 1 km<sup>2</sup> resolution. The layer utilizes a
+            linear color gradient from HEX #9ef01a (low height) to HEX #004b23 (high height)</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -3764,7 +3879,8 @@
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays the world’s remaining unfragmented forest landscapes large enough to retain native biodiversity and showing no signs of significant human alteration</p>
+          <p>Displays the world’s remaining unfragmented forest landscapes large enough to retain native biodiversity
+            and showing no signs of significant human alteration</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -3801,7 +3917,11 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset identifies unbroken expanses of natural forest ecosystems that exhibit no signs of significant human activity. To qualify as an “intact forest landscape”, the area must be at least 50,000 hectares in size with a minimum width of 10 kilometers. Primary drivers of fragmentation include agricultural conversion, industrial activities (logging, mining), infrastructure development, and human-induced fires. Please consult the original source for detailed methodologies and specific data limitations.
+          <p>This dataset identifies unbroken expanses of natural forest ecosystems that exhibit no signs of significant
+            human activity. To qualify as an “intact forest landscape”, the area must be at least 50,000 hectares in
+            size with a minimum width of 10 kilometers. Primary drivers of fragmentation include agricultural
+            conversion, industrial activities (logging, mining), infrastructure development, and human-induced fires.
+            Please consult the original source for detailed methodologies and specific data limitations.
           </p>
         </div>
       </div>
@@ -3875,7 +3995,11 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset categorizes ecoregions based on the percentage of protected area and remaining natural habitat. Statuses range from “Half Protected” (>50% protected), “Nature Could Reach Half” (<50% protected but total natural habitat >50%), “Nature Could Recover” (total natural habitat between 20–50%; restoration required), to “Nature Imperiled” (total natural habitat ≤20%). Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset categorizes ecoregions based on the percentage of protected area and remaining natural
+            habitat. Statuses range from “Half Protected” (>50% protected), “Nature Could Reach Half” (<50% protected
+              but total natural habitat>50%), “Nature Could Recover” (total natural habitat between 20–50%; restoration
+              required), to “Nature Imperiled” (total natural habitat ≤20%). Please consult the original source for
+              detailed methodologies and specific data limitations
           </p>
         </div>
       </div>
@@ -3948,14 +4072,17 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset quantifies anthropogenic impact on the intactness of species communities, where higher values indicate minimal human influence and lower values reflect reduced biodiversity. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset quantifies anthropogenic impact on the intactness of species communities, where higher values
+            indicate minimal human influence and lower values reflect reduced biodiversity. Please consult the original
+            source for detailed methodologies and specific data limitations
           </p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>Spatial data underwent nearest-neighbor resampling to a 5 km<sup>2</sup> resolution. The layer utilizes the “roma” scientific color map developed by Crameri et al. (2020; PMID: 33116149)</p>
+          <p>Spatial data underwent nearest-neighbor resampling to a 5 km<sup>2</sup> resolution. The layer utilizes the
+            “roma” scientific color map developed by Crameri et al. (2020; PMID: 33116149)</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -3985,7 +4112,9 @@
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays mammal diversity metrics, including total species richness, major taxonomic orders (Carnivora, Cetartiodactyla, Chiroptera, Eulipotyphla, Primates, Rodentia, and Marsupials), small-range species, threatened species, and data-deficient species</p>
+          <p>Displays mammal diversity metrics, including total species richness, major taxonomic orders (Carnivora,
+            Cetartiodactyla, Chiroptera, Eulipotyphla, Primates, Rodentia, and Marsupials), small-range species,
+            threatened species, and data-deficient species</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4022,14 +4151,18 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset provides a spatial assessment of mammal species richness and conservation status, quantifying the anthropogenic impacts on communities where higher values reflect minimal human influence and lower values indicate reduced biodiversity or high levels of threat. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset provides a spatial assessment of mammal species richness and conservation status, quantifying
+            the anthropogenic impacts on communities where higher values reflect minimal human influence and lower
+            values indicate reduced biodiversity or high levels of threat. Please consult the original source for
+            detailed methodologies and specific data limitations
           </p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>Data were reprojected from Eckert IV to EPSG:2346. The layer utilizes the “hawaii” scientific color map developed by Crameri et al. (2020; PMID: 33116149)</p>
+          <p>Data were reprojected from Eckert IV to EPSG:2346. The layer utilizes the “hawaii” scientific color map
+            developed by Crameri et al. (2020; PMID: 33116149)</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4058,7 +4191,8 @@
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays global bird diversity metrics, including species richness (breeding, non-breeding, and combined), taxonomic groups (Passeriformes and non-Passeriformes), and specific conservation categories</p>
+          <p>Displays global bird diversity metrics, including species richness (breeding, non-breeding, and combined),
+            taxonomic groups (Passeriformes and non-Passeriformes), and specific conservation categories</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4095,14 +4229,18 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset quantifies global avian diversity across native and extant species, mapping total richness, specialized groups like parrots and hummingbirds, and conservation-priority categories such as small-ranged, threatened, or data-deficient species. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset quantifies global avian diversity across native and extant species, mapping total richness,
+            specialized groups like parrots and hummingbirds, and conservation-priority categories such as small-ranged,
+            threatened, or data-deficient species. Please consult the original source for detailed methodologies and
+            specific data limitations
           </p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>Data were reprojected from Eckert IV to EPSG:2346. The layer utilizes the “lapaz” scientific color map developed by Crameri et al. (2020; PMID: 33116149)</p>
+          <p>Data were reprojected from Eckert IV to EPSG:2346. The layer utilizes the “lapaz” scientific color map
+            developed by Crameri et al. (2020; PMID: 33116149)</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4131,7 +4269,8 @@
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays global amphibian diversity metrics, including species richness, major taxonomic orders (Anura, Caudata, and Gymnophiona), and conservation-priority categories</p>
+          <p>Displays global amphibian diversity metrics, including species richness, major taxonomic orders (Anura,
+            Caudata, and Gymnophiona), and conservation-priority categories</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4168,14 +4307,18 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset maps the global distribution of native and extant amphibian species, quantifying total richness and richness within specific taxonomic groups and status-based categories such as small-ranged, threatened, or data-deficient species. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset maps the global distribution of native and extant amphibian species, quantifying total
+            richness and richness within specific taxonomic groups and status-based categories such as small-ranged,
+            threatened, or data-deficient species. Please consult the original source for detailed methodologies and
+            specific data limitations
           </p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>Data were reprojected from Eckert IV to EPSG:2346. The layer utilizes the “batlow” scientific color map developed by Crameri et al. (2020; PMID: 33116149)</p>
+          <p>Data were reprojected from Eckert IV to EPSG:2346. The layer utilizes the “batlow” scientific color map
+            developed by Crameri et al. (2020; PMID: 33116149)</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4241,14 +4384,18 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset, developed under the European Space Agency’s Climate Change Initiative, provides a global classification of land cover types, including agriculture, forest, grassland, shrubland, wetlands, settlements, and permanent ice. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset, developed under the European Space Agency’s Climate Change Initiative, provides a global
+            classification of land cover types, including agriculture, forest, grassland, shrubland, wetlands,
+            settlements, and permanent ice. Please consult the original source for detailed methodologies and specific
+            data limitations
           </p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>Spatial data underwent nearest-neighbor resampling to a 5 km<sup>2</sup> resolution. The layer utilizes the “lipari” scientific color map developed by Crameri et al. (2020; PMID: 33116149)</p>
+          <p>Spatial data underwent nearest-neighbor resampling to a 5 km<sup>2</sup> resolution. The layer utilizes the
+            “lipari” scientific color map developed by Crameri et al. (2020; PMID: 33116149)</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4277,7 +4424,8 @@
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays the global distribution and population densities of cattle, water buffalo, sheep, goats, horses, pigs, chickens, and ducks
+          <p>Displays the global distribution and population densities of cattle, water buffalo, sheep, goats, horses,
+            pigs, chickens, and ducks
           </p>
         </div>
       </div>
@@ -4315,14 +4463,17 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset provides harmonized subnational livestock distribution data, mapping global population densities of cattle, buffaloes, horses, sheep, goats, pigs, chickens, and ducks. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset provides harmonized subnational livestock distribution data, mapping global population
+            densities of cattle, buffaloes, horses, sheep, goats, pigs, chickens, and ducks. Please consult the original
+            source for detailed methodologies and specific data limitations
           </p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>The layer utilizes the “lajolla” scientific color map developed by Crameri et al. (2020; PMID: 33116149)</p>
+          <p>The layer utilizes the “lajolla” scientific color map developed by Crameri et al. (2020; PMID: 33116149)
+          </p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4388,7 +4539,9 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset aggregates mining concession boundaries and areas designated by governing bodies for mineral extraction from various government agencies and non-governmental organizations. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset aggregates mining concession boundaries and areas designated by governing bodies for mineral
+            extraction from various government agencies and non-governmental organizations. Please consult the original
+            source for detailed methodologies and specific data limitations
           </p>
         </div>
       </div>
@@ -4424,7 +4577,8 @@
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays the boundaries of forested areas allocated by governments for the harvesting of timber and other wood products</p>
+          <p>Displays the boundaries of forested areas allocated by governments for the harvesting of timber and other
+            wood products</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4462,7 +4616,9 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset aggregates logging concession boundaries and areas designated for industrial timber extraction, from various government agencies and non-governmental organizations. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset aggregates logging concession boundaries and areas designated for industrial timber
+            extraction, from various government agencies and non-governmental organizations. Please consult the original
+            source for detailed methodologies and specific data limitations
           </p>
         </div>
       </div>
@@ -4536,7 +4692,9 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset provides a comprehensive global inventory of over 38,000 georeferenced dams and associated hydrological catchments. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset provides a comprehensive global inventory of over 38,000 georeferenced dams and associated
+            hydrological catchments. Please consult the original source for detailed methodologies and specific data
+            limitations
           </p>
         </div>
       </div>
@@ -4573,7 +4731,8 @@
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays a global map of travel time to the nearest urban center to assess geographic inequalities in accessibility</p>
+          <p>Displays a global map of travel time to the nearest urban center to assess geographic inequalities in
+            accessibility</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4610,14 +4769,17 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset quantifies travel time to the nearest of 13,840 high-density urban centers by integrating ten global-scale surfaces that characterize friction factors affecting human movement rates. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset quantifies travel time to the nearest of 13,840 high-density urban centers by integrating ten
+            global-scale surfaces that characterize friction factors affecting human movement rates. Please consult the
+            original source for detailed methodologies and specific data limitations
           </p>
         </div>
       </div>
       <div class="arrow-table">
         <h6>Modification</h6>
         <div class="p-wrapper">
-          <p>Spatial data underwent bilinear resampling to a 5 km<sup>2</sup> resolution. The layer utilizes the “acton” scientific color map developed by Crameri et al. (2020; PMID: 33116149)</p>
+          <p>Spatial data underwent bilinear resampling to a 5 km<sup>2</sup> resolution. The layer utilizes the “acton”
+            scientific color map developed by Crameri et al. (2020; PMID: 33116149)</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4647,7 +4809,8 @@
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays the number of international inbound tourists (overnight visitors) traveling to a country other than their usual residence</p>
+          <p>Displays the number of international inbound tourists (overnight visitors) traveling to a country other
+            than their usual residence</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4684,7 +4847,10 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset tracks international inbound tourists, defined as overnight visitors traveling outside their usual environment for less than 12 months for purposes other than activities remunerated within the destination country. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset tracks international inbound tourists, defined as overnight visitors traveling outside their
+            usual environment for less than 12 months for purposes other than activities remunerated within the
+            destination country. Please consult the original source for detailed methodologies and specific data
+            limitations
           </p>
         </div>
       </div>
@@ -4720,7 +4886,8 @@
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays the number of departures made by residents from their country of usual residence to any other country</p>
+          <p>Displays the number of departures made by residents from their country of usual residence to any other
+            country</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4757,7 +4924,8 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset quantifies outbound international travel by tracking the total number of departures. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset quantifies outbound international travel by tracking the total number of departures. Please
+            consult the original source for detailed methodologies and specific data limitations
           </p>
         </div>
       </div>
@@ -4793,7 +4961,8 @@
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays the total number of domestic and international aircraft passengers carried by air carriers registered in each country</p>
+          <p>Displays the total number of domestic and international aircraft passengers carried by air carriers
+            registered in each country</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4830,7 +4999,9 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset quantifies air travel volume by aggregating both domestic and international passenger counts for all air carriers registered in each country. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset quantifies air travel volume by aggregating both domestic and international passenger counts
+            for all air carriers registered in each country. Please consult the original source for detailed
+            methodologies and specific data limitations
           </p>
         </div>
       </div>
@@ -4904,7 +5075,9 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset provides systematic estimates of human population density (persons per km<sup>2</sup>) derived from national censuses and population registers for 2000, 2005, 2010, 2015, and 2020. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset provides systematic estimates of human population density (persons per km<sup>2</sup>) derived
+            from national censuses and population registers for 2000, 2005, 2010, 2015, and 2020. Please consult the
+            original source for detailed methodologies and specific data limitations
           </p>
         </div>
       </div>
@@ -4917,7 +5090,8 @@
       <div class="arrow-table">
         <h6>Source</h6>
         <div class="p-wrapper">
-          <p>Center for International Earth Science Information Network - Columbia University. 2018 (DOI: 10.7927/H49C6VHW)</p>
+          <p>Center for International Earth Science Information Network - Columbia University. 2018 (DOI:
+            10.7927/H49C6VHW)</p>
         </div>
       </div>
       <!--Download data button-->
@@ -4941,7 +5115,8 @@
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays the average Gross Domestic Product (GDP) per capita, adjusted for Purchasing Power Parity (PPP), across administrative units from 1990 to 2015</p>
+          <p>Displays the average Gross Domestic Product (GDP) per capita, adjusted for Purchasing Power Parity (PPP),
+            across administrative units from 1990 to 2015</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4978,7 +5153,10 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset provides a high-resolution spatial assessment of Gross Domestic Product (GDP) per capita, a primary economic indicator reflecting the monetary value of goods and services produced per person within a specific administrative area. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset provides a high-resolution spatial assessment of Gross Domestic Product (GDP) per capita, a
+            primary economic indicator reflecting the monetary value of goods and services produced per person within a
+            specific administrative area. Please consult the original source for detailed methodologies and specific
+            data limitations
           </p>
         </div>
       </div>
@@ -5014,7 +5192,8 @@
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays the Human Development Index (HDI), measuring average achievements in education, health, and standard of living from 1990 to 2015</p>
+          <p>Displays the Human Development Index (HDI), measuring average achievements in education, health, and
+            standard of living from 1990 to 2015</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -5051,7 +5230,9 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset provides subnational Human Development Index (HDI) values, offering a multi-dimensional assessment of human well-being. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset provides subnational Human Development Index (HDI) values, offering a multi-dimensional
+            assessment of human well-being. Please consult the original source for detailed methodologies and specific
+            data limitations
           </p>
         </div>
       </div>
@@ -5087,7 +5268,8 @@
       <div class="arrow-table">
         <h6>Fuction</h6>
         <div class="p-wrapper">
-          <p>Displays a global map of travel time to healthcare facilities, accounting for both motorized and non-motorized transport scenarios</p>
+          <p>Displays a global map of travel time to healthcare facilities, accounting for both motorized and
+            non-motorized transport scenarios</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -5124,7 +5306,9 @@
       <div class="arrow-table">
         <h6>Overview</h6>
         <div class="p-wrapper">
-          <p>This dataset maps travel times to the nearest healthcare provider, distinguishing between motorized transport and walking speeds. Please consult the original source for detailed methodologies and specific data limitations
+          <p>This dataset maps travel times to the nearest healthcare provider, distinguishing between motorized
+            transport and walking speeds. Please consult the original source for detailed methodologies and specific
+            data limitations
           </p>
         </div>
       </div>
@@ -5161,114 +5345,115 @@
   <section class="team_section">
     <h3>OUR TEAM</h3>
     <div class="team_wrapper">
-       <!--William-->
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/William-M-De-Souza.png">
+      <!--William-->
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/William-M-De-Souza.png" alt="Dr. William M de Souza, Lead Principal Investigator">
+        </div>
+        <h6>William M. de Souza,</h6>
       </div>
-      <h6>William M. de Souza,</h6>
-    </div>
-    <!--Jacqueline-->
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Jacqueline-Tida.png">
+      <!--Jacqueline-->
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Jacqueline-Tida.png" alt="Jacqueline A Tida, Webdesigner">
+        </div>
+        <h6>Jacqueline A. Tida,</h6>
       </div>
-      <h6>Jacqueline A. Tida,</h6>
-    </div>
-    <!--Oswaldo-->
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Oswaldo-Reis.png">
+      <!--Oswaldo-->
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Oswaldo-Reis.png" alt="Oswaldo Reis Junior, Bioinformatics Developer">
+        </div>
+        <h6>Oswaldo Reis Jr,</h6>
       </div>
-      <h6>Oswaldo Reis Jr,</h6>
-    </div>
-    <!--Bidu-->
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Felipe-Rodrigues.png">
+      <!--Bidu-->
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Felipe-Rodrigues.png" alt="Felipe Rodrigues, Software Developer">
+        </div>
+        <h6>Felipe Rodrigues,</h6>
       </div>
-      <h6>Felipe Rodrigues,</h6>
-    </div>
-    <!--Xinyi Hua-->
-     <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Xinyi_Hua_.png">
+      <!--Xinyi Hua-->
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Xinyi_Hua_.png" alt="Xinyi Hua (华心怡), Infectious Disease Epidemiologist">
+        </div>
+        <h6>Xinyi Hua (华心怡),</h6>
       </div>
-      <h6>Xinyi Hua (华心怡),</h6>
-    </div>
-    <!--Marcilio-->
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Marcilio-Fumagali.png">
+      <!--Marcilio-->
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Marcilio-Fumagali.png" alt="Marcilio Jorge Fumagalli, Virologist">
+        </div>
+        <h6>Marcilio Fumagalli,</h6>
       </div>
-      <h6>Marcilio Fumagalli,</h6>
-    </div>
-    <!--Poliana-->
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Poliana_Lemos.png">
+      <!--Poliana-->
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Poliana_Lemos.png" alt="Poliana Silva Lemos, Entomologist">
+        </div>
+        <h6>Poliana Lemos,</h6>
       </div>
-      <h6>Poliana Lemos,</h6>
-    </div>
-    <!--Desiree-->
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Desiree_LaBeaud.png">
+      <!--Desiree-->
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Desiree_LaBeaud.png" alt="Desiree LaBeaud, Arboviral Epidemiologist Professor">
+        </div>
+        <h6>Desiree LaBeaud,</h6>
       </div>
-      <h6>Desiree LaBeaud,</h6>
-    </div>
-    <!--Maria Anice-->
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Maria_Anice_Sallum.png">
+      <!--Maria Anice-->
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Maria_Anice_Sallum.png" alt="Maria Anice Mureb Sallum, Entomologist Professor">
+        </div>
+        <h6>Maria Anice Sallum,</h6>
       </div>
-      <h6>Maria Anice Sallum,</h6>
-    </div>
-    <!--Samir-->
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Samir_Bhatt.png">
+      <!--Samir-->
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Samir_Bhatt.png" alt="Samir Bhatt, Machine Learning and Public Health Professor">
+        </div>
+        <h6>Samir Bhatt,</h6>
       </div>
-      <h6>Samir Bhatt,</h6>
-    </div>
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Seth_Flaxman.png">
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Seth_Flaxman.png" alt="Seth Flaxman, Spatiotemporal Statistics and Bayesian Machine Learning Professor">
+        </div>
+        <h6>Seth Flaxman,</h6>
       </div>
-      <h6>Seth Flaxman,</h6>
-    </div>
-    <!--Swapnil-->
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Swapnil_Mishra.png">
+      <!--Swapnil-->
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Swapnil_Mishra.png" alt="Swapil Mishra, Public Health, Machine Learning and Bayesian Modelling Professor">
+        </div>
+        <h6>Swapnil Mishra,</h6>
       </div>
-      <h6>Swapnil Mishra,</h6>
-    </div>
-    <!--Nuno-->
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Nuno_Faria.png">
+      <!--Nuno-->
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Nuno_Faria.png" alt="Nuno Faria, Virus Genomic Epidemiologist Professor">
+        </div>
+        <h6>Nuno Faria,</h6>
       </div>
-      <h6>Nuno Faria,</h6>
-    </div>
-    <!--Ze-->
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Jose_Luiz_Modena.png">
+      <!--Ze-->
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Jose_Luiz_Modena.png" alt="Jose Luiz Proenca-Modena, Arbovirus Pathogenesis Professor">
+        </div>
+        <h6>Jose Luiz Proenca-Modena,</h6>
       </div>
-      <h6>Jose Luiz Proenca-Modena,</h6>
-    </div>
-    <!--Scott-->
-    <div class="person_unit">
-      <div class="person_img">
-        <img src="../static/images/people/Scott_Weaver.png">
+      <!--Scott-->
+      <div class="person_unit">
+        <div class="person_img">
+          <img src="../static/images/people/Scott_Weaver.png" alt="Scott Weaver, Arbovirus Virologist Professor">
+        </div>
+        <h6>Scott C. Weaver.</h6>
       </div>
-      <h6>Scott C. Weaver.</h6>
-    </div>
     </div>
   </section>
 </main>
-{#<script type="module" src="../../static/js/search_functions.js"></script>#}
+
+<script type="module" src="../../static/js/search_functions.js"></script>
 <script>
   const arbovirus = document.getElementById('arbovirus-search');
   const vector = document.getElementById('vector-search');
@@ -5280,40 +5465,40 @@
 
   // Fetch the data for viruses and vectors from the API with error handling
   fetch('/api/virus')
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Network response was not ok');
-          }
-          return response.json();
-      })
-      .then(data => {
-          data.forEach(object => {
-            search_viruses.push(object.name);
-          });
-      })
-      .catch(error => {
-          console.error('Error fetching viruses:', error);
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      data.forEach(object => {
+        search_viruses.push(object.name);
       });
+    })
+    .catch(error => {
+      console.error('Error fetching viruses:', error);
+    });
 
   fetch('/api/vector-species')
-      .then(response => {
-          if (!response.ok) {
-              throw new Error('Network response was not ok');
-          }
-          return response.json();
-      })
-      .then(data => {
-        data.forEach(object => {
-          search_vectors.push(object.name);
-        });
-      })
-      .catch(error => {
-          console.error('Error fetching vectors:', error);
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      data.forEach(object => {
+        search_vectors.push(object.name);
       });
+    })
+    .catch(error => {
+      console.error('Error fetching vectors:', error);
+    });
 
   function filterData(query, dataArray, key = 'name') {
-      return dataArray
-          .filter(item => item[key] && item[key].toLowerCase().includes(query.toLowerCase()));
+    return dataArray
+      .filter(item => item[key] && item[key].toLowerCase().includes(query.toLowerCase()));
   }
 
   // Add basic styles
@@ -5347,7 +5532,7 @@
       div.className = 'autocomplete-item';
 
       // When clicked, update the input value
-      div.onclick = function() {
+      div.onclick = function () {
         inputElement.value = suggestion;
         autocompleteBox.innerHTML = ''; // Clear suggestions after selection
       };
@@ -5365,19 +5550,19 @@
   }
 
   // Event listeners for arbovirus search
-  arbovirus.addEventListener('input', function() {
+  arbovirus.addEventListener('input', function () {
     const filteredSuggestions = filterSuggestions(this.value, search_viruses);
     showSuggestions(this, filteredSuggestions, arboAutocomplete);
   });
 
   // Event listeners for vector search
-  vector.addEventListener('input', function() {
+  vector.addEventListener('input', function () {
     const filteredSuggestions = filterSuggestions(this.value, search_vectors);
     showSuggestions(this, filteredSuggestions, vectorAutocomplete);
   });
 
   // Close suggestions when clicking outside
-  document.addEventListener('click', function(e) {
+  document.addEventListener('click', function (e) {
     if (!e.target.closest('.autocomplete-container')) {
       arboAutocomplete.innerHTML = '';
       vectorAutocomplete.innerHTML = '';
@@ -5388,10 +5573,10 @@
     let input = document.getElementById(id);
     fetch(`/api/vector-by-name?name=${input.value}`)
       .then(response => {
-          if (!response.ok) {
-              throw new Error('Network response was not ok');
-          }
-          return response.json();
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
       })
       .then(data => {
         data = data[0];
@@ -5424,7 +5609,7 @@
         let habitat = '';
         if (data.habitat.length > 1) {
           habitat = data.habitat[0].name;
-          for (let i=1; i < data.habitat.length; i++) {
+          for (let i = 1; i < data.habitat.length; i++) {
             habitat = habitat + ' | ' + data.habitat[i].name;
           }
         }
@@ -5436,7 +5621,7 @@
         let landscape = '';
         if (data.landscape.length > 1) {
           landscape = data.landscape[0].name;
-          for (let i=1; i < data.landscape.length; i++) {
+          for (let i = 1; i < data.landscape.length; i++) {
             landscape = landscape + ' | ' + data.landscape[i].name;
           }
         }
@@ -5452,7 +5637,7 @@
         let blood_meal = '';
         if (data.blood_meal.length > 1) {
           blood_meal = data.blood_meal[0].name;
-          for (let i=1; i < data.blood_meal.length; i++) {
+          for (let i = 1; i < data.blood_meal.length; i++) {
             blood_meal = blood_meal + ' | ' + data.blood_meal[i].name;
           }
         }
@@ -5464,7 +5649,7 @@
         let feeding_period = '';
         if (data.feeding_period.length > 1) {
           feeding_period = data.feeding_period[0].name;
-          for (let i=1; i < data.feeding_period.length; i++) {
+          for (let i = 1; i < data.feeding_period.length; i++) {
             feeding_period = feeding_period + ' | ' + data.feeding_period[i].name;
           }
         }
@@ -5480,7 +5665,7 @@
         let virus = '';
         if (data.virus.length > 1) {
           virus = data.virus[0].name;
-          for (let i=1; i < data.virus.length; i++) {
+          for (let i = 1; i < data.virus.length; i++) {
             virus = virus + ' | ' + data.virus[i].name;
           }
         }
@@ -5491,11 +5676,11 @@
         document.getElementById('vector_experimental').innerHTML = data.experimental_infection;
       })
       .catch(error => {
-          console.error('Error fetching vectors:', error);
+        console.error('Error fetching vectors:', error);
       });
     const arr = ['a', 'c', 'd', 'e']
-    for (let i=0; i < arr.length; i++) {
-      document.getElementById('chck'+arr[i]).checked = true;
+    for (let i = 0; i < arr.length; i++) {
+      document.getElementById('chck' + arr[i]).checked = true;
     }
     //document.getElementById('vector_name').innerHTML = '';
   }
@@ -5504,10 +5689,10 @@
     let input = document.getElementById(id);
     fetch(`/api/virus-by-name?name=${input.value}`)
       .then(response => {
-          if (!response.ok) {
-              throw new Error('Network response was not ok');
-          }
-          return response.json();
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
       })
       .then(data => {
         data = data[0]
@@ -5525,7 +5710,7 @@
         document.getElementById('virus_envelope').innerHTML = data.enveloped;
         let vectors = [];
         // Transmission
-        for (let i=0; i<data.vectors.length; i++) {
+        for (let i = 0; i < data.vectors.length; i++) {
           if (data.vectors[i].main_vector) {
             vectors.unshift(data.vectors[i].vector.name);
           }
@@ -5582,11 +5767,11 @@
         document.getElementById('virus_safety').innerHTML = data.sals_level;
       })
       .catch(error => {
-          console.error('Error fetching vectors:', error);
+        console.error('Error fetching vectors:', error);
       });
 
-    for (let i=1; i<=4; i++) {
-      document.getElementById('chck'+i).checked = true;
+    for (let i = 1; i <= 4; i++) {
+      document.getElementById('chck' + i).checked = true;
     }
   }
 </script>

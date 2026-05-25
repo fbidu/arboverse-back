@@ -270,3 +270,21 @@ input:checked ~ .tab-content {
     padding: 3px 10px;
   }
 }
+@media screen and (min-width: 550px) and (max-width: 940px) and (orientation: landscape) {
+  .arbodata_title{
+    font-size: 2rem;
+  }
+  .tab-label{
+    font-size: 1.5rem;
+  }
+  .tab-content p{
+    font-size: 1.2rem;
+  }
+  .tab-content a{
+    font-size: 1rem;
+    padding: 3px 10px;
+  }
+  .tab-close{
+    font-size: 1.2rem;
+  }
+}

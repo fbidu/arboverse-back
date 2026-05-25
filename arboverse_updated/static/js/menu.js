@@ -1,188 +1,48 @@
-//Lateral buton active
-const buttons = document.querySelectorAll('.item-button')
+
+// --- Existing logic to handle clicking sidebar menu buttons ---
+const buttons = document.querySelectorAll('.item-button');
+const menus = document.querySelectorAll('.map-menu-drawer');
+
 buttons.forEach(button => {
     button.addEventListener('click', function () {
+        const targetMenuId = this.getAttribute('data-target');
+        const targetMenu = document.getElementById(targetMenuId);
+        
+        if (targetMenu && targetMenu.classList.contains('is-open')) {
+            targetMenu.classList.remove('is-open');
+            this.classList.remove('btn-active');
+            return;
+        }
+
         buttons.forEach(btn => btn.classList.remove('btn-active'));
+        menus.forEach(menu => menu.classList.remove('is-open'));
+
         this.classList.add('btn-active');
+        if (targetMenu) targetMenu.classList.add('is-open');
     });
 });
 
-// Open and Close submenu Discovery
-function openNav() {
-    document.getElementById("discovery-menu").style.width = "300px";
-    document.getElementById("discovery-menu").style.opacity = "1";
-    document.getElementById("distribution-menu").style.width = "0";
-    document.getElementById('vector-menu').style.width = "0";
-    document.getElementById('climate-menu').style.width = "0";
-    document.getElementById('forestcover-menu').style.width = "0";
-    document.getElementById('land-cover-menu').style.width = "0";
-    document.getElementById('mobility-menu').style.width = "0";
-    document.getElementById('socio-menu').style.width = "0";
-    document.getElementById('biodiversity-menu').style.width = "0";
-    document.getElementById('discovery').classList.add('btn-active')
+// --- NEW: Handle internal close buttons inside the drawers ---
+const closeButtons = document.querySelectorAll('.closebtn');
 
-}
-function closeNav() {
-    document.getElementById("discovery-menu").style.width = "0";
-    document.getElementById('discovery').classList.remove('btn-active')
-}
+closeButtons.forEach(closeBtn => {
+    closeBtn.addEventListener('click', function () {
+        const menuIdToClose = this.getAttribute('data-close');
+        const menuToClose = document.getElementById(menuIdToClose);
+        
+        if (menuToClose) {
+            // Close the menu drawer
+            menuToClose.classList.remove('is-open');
+            
+            // Find the sidebar button that opens this menu and turn off its active style
+            const correspondingBtn = document.querySelector(`[data-target="${menuIdToClose}"]`);
+            if (correspondingBtn) {
+                correspondingBtn.classList.remove('btn-active');
+            }
+        }
+    });
+});
 
-// Open and Close submenu Distribution
-function openNavdist() {
-    document.getElementById("distribution-menu").style.width = "300px";
-    document.getElementById("distribution-menu").style.opacity = "1";
-    document.getElementById("discovery-menu").style.width = "0";
-    document.getElementById('vector-menu').style.width = "0";
-    document.getElementById('climate-menu').style.width = "0";
-    document.getElementById('forestcover-menu').style.width = "0";
-    document.getElementById('land-cover-menu').style.width = "0";
-    document.getElementById('mobility-menu').style.width = "0";
-    document.getElementById('socio-menu').style.width = "0";
-    document.getElementById('biodiversity-menu').style.width = "0";
-    document.getElementById('distribution').classList.add('btn-active')
-
-}
-function closeNavdist() {
-    document.getElementById("distribution-menu").style.width = "0";
-    document.getElementById('distribution').classList.remove('btn-active')
-}
-
-// Open and Close submenu Vector
-function openNavVec() {
-    document.getElementById('vector-menu').style.width = "300px";
-    document.getElementById('vector-menu').style.opacity = "1";
-    document.getElementById("discovery-menu").style.width = "0";
-    document.getElementById("distribution-menu").style.width = "0";
-    document.getElementById('climate-menu').style.width = "0";
-    document.getElementById('forestcover-menu').style.width = "0";
-    document.getElementById('land-cover-menu').style.width = "0";
-    document.getElementById('mobility-menu').style.width = "0";
-    document.getElementById('socio-menu').style.width = "0";
-    document.getElementById('biodiversity-menu').style.width = "0";
-    document.getElementById('vector').classList.add('btn-active')
-
-}
-function closeNavVec() {
-    document.getElementById('vector-menu').style.width = "0";
-    document.getElementById('vector').classList.remove('btn-active')
-}
-// Open and Close submenu Climate
-function openNavCli() {
-    document.getElementById('climate-menu').style.width = "320px";
-    document.getElementById('climate-menu').style.opacity = "1";
-    document.getElementById("discovery-menu").style.width = "0";
-    document.getElementById("distribution-menu").style.width = "0";
-    document.getElementById('vector-menu').style.width = "0";
-    document.getElementById('forestcover-menu').style.width = "0";
-    document.getElementById('land-cover-menu').style.width = "0";
-    document.getElementById('mobility-menu').style.width = "0";
-    document.getElementById('socio-menu').style.width = "0";
-    document.getElementById('biodiversity-menu').style.width = "0";
-    document.getElementById('climate').classList.add('btn-active')
-
-}
-function closeNavCli() {
-    document.getElementById('climate-menu').style.width = "0";
-    document.getElementById('climate').classList.remove('btn-active')
-}
-
-// Open and Close submenu Forest cover
-function openNavFor() {
-    document.getElementById('forestcover-menu').style.width = "320px";
-    document.getElementById('forestcover-menu').style.opacity = "1";
-    document.getElementById("discovery-menu").style.width = "0";
-    document.getElementById("distribution-menu").style.width = "0";
-    document.getElementById('vector-menu').style.width = "0";
-    document.getElementById('climate-menu').style.width = "0";
-    document.getElementById('land-cover-menu').style.width = "0";
-    document.getElementById('mobility-menu').style.width = "0";
-    document.getElementById('socio-menu').style.width = "0";
-    document.getElementById('biodiversity-menu').style.width = "0";
-    document.getElementById('forest').classList.add('btn-active')
-
-}
-function closeNavFor() {
-    document.getElementById('forestcover-menu').style.width = "0";
-    document.getElementById('forest').classList.remove('btn-active')
-}
-
-// Open and Close submenu Land cover
-function openNavLan() {
-    document.getElementById('land-cover-menu').style.width = "320px";
-    document.getElementById('land-cover-menu').style.opacity = "1";
-    document.getElementById("discovery-menu").style.width = "0";
-    document.getElementById("distribution-menu").style.width = "0";
-    document.getElementById('vector-menu').style.width = "0";
-    document.getElementById('climate-menu').style.width = "0";
-    document.getElementById('forestcover-menu').style.width = "0";
-    document.getElementById('mobility-menu').style.width = "0";
-    document.getElementById('socio-menu').style.width = "0";
-    document.getElementById('biodiversity-menu').style.width = "0";
-    document.getElementById('land').classList.add('btn-active')
-
-}
-function closeNavLan() {
-    document.getElementById('land-cover-menu').style.width = "0";
-    document.getElementById('land').classList.remove('btn-active')
-}
-
-// Open and Close submenu Mobility
-function openNavMob() {
-    document.getElementById('mobility-menu').style.width = "320px";
-    document.getElementById('mobility-menu').style.opacity = "1";
-    document.getElementById("discovery-menu").style.width = "0";
-    document.getElementById("distribution-menu").style.width = "0";
-    document.getElementById('vector-menu').style.width = "0";
-    document.getElementById('climate-menu').style.width = "0";
-    document.getElementById('forestcover-menu').style.width = "0";
-    document.getElementById('land-cover-menu').style.width = "0";
-    document.getElementById('socio-menu').style.width = "0";
-    document.getElementById('biodiversity-menu').style.width = "0";
-    document.getElementById('mobility').classList.add('btn-active')
-
-}
-function closeNavMob() {
-    document.getElementById('mobility-menu').style.width = "0";
-    document.getElementById('mobility').classList.remove('btn-active')
-}
-// Open and Close submenu socio
-function openNavSocio() {
-    document.getElementById('socio-menu').style.width = "320px";
-    document.getElementById('socio-menu').style.opacity = "1";
-    document.getElementById("discovery-menu").style.width = "0";
-    document.getElementById("distribution-menu").style.width = "0";
-    document.getElementById('vector-menu').style.width = "0";
-    document.getElementById('climate-menu').style.width = "0";
-    document.getElementById('forestcover-menu').style.width = "0";
-    document.getElementById('land-cover-menu').style.width = "0";
-    document.getElementById('mobility-menu').style.width = "0";
-    document.getElementById('biodiversity-menu').style.width = "0";
-    document.getElementById('socioeconomic').classList.add('btn-active')
-
-}
-function closeNavSocio() {
-    document.getElementById('socio-menu').style.width = "0";
-    document.getElementById('socioeconomic').classList.remove('btn-active')
-}
-// Open and Close submenu biodiversity
-function openNavBio() {
-    document.getElementById('biodiversity-menu').style.width = "320px";
-    document.getElementById('biodiversity-menu').style.opacity = "1";
-    document.getElementById("discovery-menu").style.width = "0";
-    document.getElementById("distribution-menu").style.width = "0";
-    document.getElementById('vector-menu').style.width = "0";
-    document.getElementById('climate-menu').style.width = "0";
-    document.getElementById('forestcover-menu').style.width = "0";
-    document.getElementById('land-cover-menu').style.width = "0";
-    document.getElementById('mobility-menu').style.width = "0";
-    document.getElementById('socio-menu').style.width = "0";
-    document.getElementById('biodiversity').classList.add('btn-active')
-
-}
-function closeNavBio() {
-    document.getElementById('biodiversity-menu').style.width = "0";
-    document.getElementById('biodiversity').classList.remove('btn-active')
-}
 //Checked Discovery
 showChekedDis();
 var i = 0;
@@ -223,14 +83,14 @@ document.querySelectorAll("input[name=vector]").forEach(i => {
 });
 
 //Checked climate
-showChekedCLi();
+showChekedCli();
 var i = 0;
-function showChekedCLi() {
+function showChekedCli() {
     document.getElementById('check4').textContent = document.querySelectorAll("input[name=climate]:checked").length;
 }
 document.querySelectorAll("input[name=climate]").forEach(i => {
     i.onclick = function () {
-        showChekedFor();
+        showChekedCli();
         update_map(this);
     }
 });
@@ -779,275 +639,59 @@ var hdiValuesYear = function() {
 hdi_year.addEventListener("input", hdiValuesYear);
 
 // OPACITY SLIDE RESPONSE NUMBER %
-var gdp = document.querySelector('input[name=gdp-opacity]');
-var gdpValue = function(){
-    var newOpValue = gdp.value;
-    var target = document.querySelector('.gdp_op');
-    target.innerHTML = newOpValue;
+document.addEventListener('input', function (event) {
+  // 1. Check if the element being changed is a range slider
+  if (event.target && event.target.type === 'range') {
+    const slider = event.target;
+    
+    // 2. Grab the element that sits immediately after this slider in the HTML
+    const targetSpan = slider.nextElementSibling;
+    
+    // 3. If that next element is a span, update its text
+    if (targetSpan && targetSpan.tagName === 'SPAN') {
+      targetSpan.textContent = slider.value;
+    }
+  }
+});
+
+
+// --- 1. MASTER CLIMATE COUNTER ---
+// Corrected the spelling casing to match 'showChekedCli' used in your modules
+function showChekedCli() {
+    const counterDisplay = document.getElementById('check4');
+    if (!counterDisplay) return;
+
+    // Counts any master input with name="climate" that is currently checked
+    const activeMasters = document.querySelectorAll("input[name=climate]:checked").length;
+    
+    counterDisplay.textContent = activeMasters;
 }
-gdp.addEventListener('input', gdpValue)
 
-var hdi = document.querySelector('input[name=hdi-opacity]');
-var hdiValue = function(){
-    var newOpValue = hdi.value;
-    var target = document.querySelector('.hdi_op');
-    target.innerHTML = newOpValue;
-}
-hdi.addEventListener('input', hdiValue)
+// Run once immediately on script load to set initial counter string
+showChekedCli();
 
-var birds = document.querySelector('input[name=birds-opacity]');
-var birdsValue = function(){
-    var newOpValue = birds.value;
-    var target = document.querySelector('.birds_op');
-    target.innerHTML = newOpValue;
-}
-birds.addEventListener('input', birdsValue)
-
-var mammals = document.querySelector('input[name=mammals-opacity]');
-var mammalsValue = function(){
-    var newOpValue = mammals.value;
-    var target = document.querySelector('.mammals_op');
-    target.innerHTML = newOpValue;
-}
-mammals.addEventListener('input', mammalsValue)
-
-var amphibian = document.querySelector('input[name=amphibians-opacity]');
-var amphibianValue = function(){
-    var newOpValue = amphibian.value;
-    var target = document.querySelector('.amphibians_op');
-    target.innerHTML = newOpValue;
-}
-amphibian.addEventListener('input', amphibianValue)
+// Attach counter events safely to your master climate checkboxes
+document.querySelectorAll("input[name=climate]").forEach(masterCheckbox => {
+    // FIX: Using addEventListener prevents overwriting map modules!
+    masterCheckbox.addEventListener('change', function () {
+        
+        // 1. Update the counter UI
+        showChekedCli();
+        
+        // 2. Safely trigger your secondary counter if it exists
+        if (typeof showChekedFor === 'function') {
+            showChekedFor();
+        }
+        
+        // 3. Fire map visibility updater if explicitly needed
+        if (typeof update_map === 'function') {
+            update_map(this);
+        }
+    });
+});
 
 
-var resist = document.querySelector('input[name=resistance-opacity]');
-var resistValue = function(){
-    var newOpValue = resist.value;
-    var target = document.querySelector('.resistance_op');
-    target.innerHTML = newOpValue;
-}
-resist.addEventListener('input', resistValue)
-
-
-var cli = document.querySelector('input[name=climate-opacity]');
-var opValue = function(){
-    var newOpValue = cli.value;
-    var target = document.querySelector('.cli_op');
-    target.innerHTML = newOpValue;
-}
-cli.addEventListener('input', opValue)
-
-var cities = document.querySelector('input[name=cities-opacity]');
-var citiesValue = function(){
-    var newOpValue = cities.value;
-    var target = document.querySelector('.cities_op');
-    target.innerHTML = newOpValue;
-}
-cities.addEventListener('input', citiesValue)
-
-var health = document.querySelector('input[name=health-opacity]');
-var healthValue = function(){
-    var newOpValue = health.value;
-    var target = document.querySelector('.health_op');
-    target.innerHTML = newOpValue;
-}
-health.addEventListener('input', healthValue)
-
-var drought = document.querySelector('input[name=drought-opacity]');
-var droughtValue = function(){
-    var newOpValue = drought.value;
-    var target = document.querySelector('.drought_op');
-    target.innerHTML = newOpValue;
-}
-drought.addEventListener('input', droughtValue)
-
-var fore = document.querySelector('input[name=forecast-opacity]');
-var foreValue = function(){
-    var newForeValue = fore.value;
-    var target = document.querySelector('.fore_op');
-    target.innerHTML = newForeValue;
-}
-fore.addEventListener('input', foreValue)
-
-var arid = document.querySelector('input[name=aridity-opacity]');
-var ariValue = function(){
-    var newAriValue = arid.value;
-    var target = document.querySelector('.aridity_op');
-    target.innerHTML = newAriValue;
-}
-arid.addEventListener('input', ariValue)
-
-
-var biome = document.querySelector('input[name=biome-opacity]');
-var biomeValue = function(){
-    var newOpValue = biome.value;
-    var target = document.querySelector('.biome_op');
-    target.innerHTML = newOpValue;
-}
-biome.addEventListener('input', biomeValue)
-
-var protectBiome = document.querySelector('input[name=protect-biome-opacity]');
-var protectValue = function(){
-    var newOpValue = protectBiome.value;
-    var target = document.querySelector('.protect_op');
-    target.innerHTML = newOpValue;
-}
-protectBiome.addEventListener('input', protectValue)
-
-var drive = document.querySelector('input[name=drive-opacity]');
-var DriveValue = function(){
-    var newOpValue = drive.value;
-    var target = document.querySelector('.drive_op');
-    target.innerHTML = newOpValue;
-}
-drive.addEventListener('input', DriveValue)
-
-var primary = document.querySelector('input[name=primary-opacity]');
-var primaryValue = function(){
-    var newOpValue = primary.value;
-    var target = document.querySelector('.primary_op');
-    target.innerHTML = newOpValue;
-}
-primary.addEventListener('input', primaryValue)
-
-var height = document.querySelector('input[name=height-opacity]');
-var heightValue = function(){
-    var newOpValue = height.value;
-    var target = document.querySelector('.height_op');
-    target.innerHTML = newOpValue;
-}
-height.addEventListener('input', heightValue)
-
-var intact = document.querySelector('input[name=intact_opacity]');
-var intactValue = function(){
-    var newOpValue = intact.value;
-    var target = document.querySelector('.intact_op');
-    target.innerHTML = newOpValue;
-}
-intact.addEventListener('input', intactValue)
-
-var biodiversity = document.querySelector('input[name=biodiversity-opacity]');
-var biodiversityValue = function(){
-    var newOpValue = biodiversity.value;
-    var target = document.querySelector('.biodiversity_op');
-    target.innerHTML = newOpValue;
-}
-biodiversity.addEventListener('input', biodiversityValue)
-
-
-var land = document.querySelector('input[name=land-opacity]');
-var landValue = function(){
-    var newOpValue = land.value;
-    var target = document.querySelector('.land_op');
-    target.innerHTML = newOpValue;
-}
-land.addEventListener('input', landValue);
-
-var stock = document.querySelector('input[name=stock-opacity]');
-var stockValue = function(){
-    var newOpValue = stock.value;
-    var target = document.querySelector('.stock_op');
-    target.innerHTML = newOpValue;
-}
-stock.addEventListener('input', stockValue);
-
-var mini = document.querySelector('input[name=mini-opacity]');
-var miniValue = function(){
-    var newOpValue = mini.value;
-    var target = document.querySelector('.mini_op');
-    target.innerHTML = newOpValue;
-}
-mini.addEventListener('input', miniValue);
-
-var log = document.querySelector('input[name=log-opacity]');
-var logValue = function(){
-    var newOpValue = log.value;
-    var target = document.querySelector('.log_op');
-    target.innerHTML = newOpValue;
-}
-log.addEventListener('input', logValue);
-
-var dams = document.querySelector('input[name=dams-opacity]');
-var damsValue = function(){
-    var newOpValue = dams.value;
-    var target = document.querySelector('.dams_op');
-    target.innerHTML = newOpValue;
-}
-dams.addEventListener('input', damsValue);
-
-var pop = document.querySelector('input[name=pop-opacity]');
-var popValue = function(){
-    var newOpValue = pop.value;
-    var target = document.querySelector('.pop_op');
-    target.innerHTML = newOpValue;
-}
-pop.addEventListener('input', popValue);
-
-var OpArrival = document.querySelector('input[name=opacity-Arr]');
-var OpArrValue = function(){
-    var newOpValue = OpArrival.value;
-    var target = document.querySelector('.opArr');
-    target.innerHTML = newOpValue;
-}
-OpArrival.addEventListener('input', OpArrValue);
-
-var depOp = document.querySelector('input[name=dep-opacity]');
-var depOpValue = function(){
-    var newOpValue = depOp.value;
-    var target = document.querySelector('.dep_op');
-    target.innerHTML = newOpValue;
-}
-depOp.addEventListener('input', depOpValue);
-
-var pass = document.querySelector('input[name=pass-opacity]');
-var passValue = function(){
-    var newOpValue = pass.value;
-    var target = document.querySelector('.pass_op');
-    target.innerHTML = newOpValue;
-}
-pass.addEventListener('input', passValue);
-
-var tempOp = document.querySelector('input[name=temp-opacity]');
-var tempOpValue = function(){
-    var newOpValue = tempOp.value;
-    var target = document.querySelector('.temp_op');
-    target.innerHTML = newOpValue;
-}
-tempOp.addEventListener('input', tempOpValue);
-
-var hotdaysOp = document.querySelector('input[name=hotdays-opacity]');
-var hotdaysOpValue = function(){
-    var newOpValue = hotdaysOp.value;
-    var target = document.querySelector('.hotdays_op');
-    target.innerHTML = newOpValue;
-}
-hotdaysOp.addEventListener('input', hotdaysOpValue);
-
-var precipitationOp = document.querySelector('input[name=precipitation-opacity]');
-var precipitationOpValue = function(){
-    var newOpValue = precipitationOp.value;
-    var target = document.querySelector('.precipitation_op');
-    target.innerHTML = newOpValue;
-}
-precipitationOp.addEventListener('input', precipitationOpValue);
-
-var extremeOp = document.querySelector('input[name=extreme-opacity]');
-var extremeOpValue = function(){
-    var newOpValue = extremeOp.value;
-    var target = document.querySelector('.extreme_op');
-    target.innerHTML = newOpValue;
-}
-extremeOp.addEventListener('input', extremeOpValue);
-
-var dryspellsOp = document.querySelector('input[name=dryspells-opacity]');
-var dryspellsOpValue = function(){
-    var newOpValue = dryspellsOp.value;
-    var target = document.querySelector('.dryspells_op');
-    target.innerHTML = newOpValue;
-}
-dryspellsOp.addEventListener('input', dryspellsOpValue);
-
-// --- ANNUAL TEMPERATURE MODULE ---
+// --- 2. ANNUAL TEMPERATURE MODULE ---
 const annualMaster = document.getElementById('annual_switch');
 
 if (annualMaster) {
@@ -1071,8 +715,9 @@ if (annualMaster) {
         update_map_time(annualMaster, model, year, prefix);
     };
 
-    annualMaster.addEventListener('click', function() {
-        showChekedCli(); // Update Counter
+    // Switched to 'change' to match standard checkbox behaviors symmetrically
+    annualMaster.addEventListener('change', function() {
+        showChekedCli(); // Keep counter synced when changed natively
         if (this.checked) {
             syncAnnualTemp();
         } else {
@@ -1093,7 +738,8 @@ if (annualMaster) {
         });
 }
 
-// --- 2-INPUT CLIMATE MODULE ---
+
+// --- 3. 2-INPUT CLIMATE MODULE ---
 function setupClimateTwoInputs(masterId, modelName, yearName, prefix) {
     const master = document.getElementById(masterId);
     if (!master) return;
@@ -1101,15 +747,21 @@ function setupClimateTwoInputs(masterId, modelName, yearName, prefix) {
     const sync = () => {
         if (!master.checked) return;
         if (!document.querySelector(`input[name="${modelName}"]:checked`)) {
-            document.querySelector(`input[name="${modelName}"]`).checked = true;
+            const defaultModel = document.querySelector(`input[name="${modelName}"]`);
+            if (defaultModel) defaultModel.checked = true;
         }
-        const model = document.querySelector(`input[name="${modelName}"]:checked`).value;
+        
+        const checkedModel = document.querySelector(`input[name="${modelName}"]:checked`);
+        if (!checkedModel) return;
+
+        const model = checkedModel.value;
         const year = document.querySelector(`input[name="${yearName}"]`).value;
         update_map_time(master, model, year, prefix);
     };
 
-    master.addEventListener('click', function() {
-        showChekedCli();
+    master.addEventListener('change', function() {
+        showChekedCli(); // Keep counter synced when changed natively
+        
         if (this.checked) {
             sync();
         } else {
@@ -1122,8 +774,14 @@ function setupClimateTwoInputs(masterId, modelName, yearName, prefix) {
         .forEach(el => el.addEventListener('change', () => { if (master.checked) sync(); }));
 }
 
-// Initialize the 2-input groups
-setupClimateTwoInputs('hotdays_switch', 'hotdays_model', 'hotdays_year', 'hot_days_yr');
-setupClimateTwoInputs('precipitation_switch', 'model_precipitation', 'precipitation_year', 'prec');
-setupClimateTwoInputs('extreme_switch', 'model_extreme', 'extreme_precipitation_annual', 'extreme');
-setupClimateTwoInputs('dryspells_switch', 'model_dry', 'dry_spells_annual', 'dryspells_ch');
+
+// --- 4. MAPBOX EVENT INITIALIZATION ---
+map.on('load', function() {
+    setupClimateTwoInputs('hotdays_switch', 'hotdays_model', 'hotdays_year', 'hot_days_yr');
+    setupClimateTwoInputs('precipitation_switch', 'model_precipitation', 'precipitation_year', 'prec');
+    setupClimateTwoInputs('extreme_switch', 'model_extreme', 'extreme_precipitation_annual', 'extreme');
+    setupClimateTwoInputs('dryspells_switch', 'model_dry', 'dry_spells_annual', 'dryspells_ch');
+    
+    // Catch any pre-checked conditions from the HTML rendering
+    showChekedCli();
+});
