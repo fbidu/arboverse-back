@@ -1,6 +1,20 @@
-{% extends "base.html" %} {% block title %}Page not found{% endblock title %}
+{% extends "base.html" %} {% load static %}
+{% block title %}Lost in the ARBOVERSE? Page Not Found{% endblock title %}
+{% block resources %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/found.css' %}" />
+{% endblock resources %}
 {% block content %}
 <h1>Page not found</h1>
+</div>
+<main>
+<div class="error_wrap">
+    <img src="../static/images/aboverse/satelite.png">
+    <div class="text_content">
+        <h2>Oops</h2>
+        <p>We couldn't find the page you were looking for</p>
+        <a href="{% url 'home' %}">Return to Homepage</a>
+    </div>
+</div>
+</main>
 
-<p>This is not the page you were looking for.</p>
 {% endblock content %}

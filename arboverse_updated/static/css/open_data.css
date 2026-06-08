@@ -1,0 +1,109 @@
+.bannermenu .open_head{
+    width: 90vw;
+}
+.open_data {
+    width: 90%;
+    max-width: 1440px;
+    height: auto;
+    margin: 10vh auto;
+}
+
+.open_data h2 {
+    margin-top: 50px;
+    font-size: 3rem;
+    color: var(--greyFade);
+    font-family: 'montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.open_data p {
+    margin-top: 15px;
+    width: 80%;
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+
+.open_data a {
+    font-family: "Lora", serif;
+    font-weight: 500;
+    text-decoration: underline;
+    color: var(--grey1);
+    font-size: 1.3rem;
+}
+
+.open_data a:hover {
+    color: var(--orange);
+}
+
+table{
+    margin-top: 30px;
+    width: 50%;
+    border-collapse: collapse;
+}
+th, td{
+    border: solid 1px var(--grey1);
+    padding: 8px;
+    text-align: center;
+}
+th{
+    background-color: var(--grey5);
+}
+
+@media screen and (min-width: 300px) and (max-width:600px) {
+    .open_data {
+        margin: 3vh auto;
+    }
+
+    .open_data h2 {
+        margin-top: 20px;
+        font-size: 1.5rem;
+    }
+
+    .open_data p {
+        width: 100%;
+        font-size: 1rem;
+        line-height: 1;
+        margin-top: 10px;
+    }
+
+    .open_data ol {
+        font-size: 1rem;
+    }
+
+    .open_data a {
+        font-size: 1rem;
+    }
+    tabel{
+        width: 100%;
+    }
+
+}
+@media screen and (min-width: 600px) and (max-width:1024px) {
+    .open_data {
+        margin: 5vh auto;
+    }
+
+    .open_data h2 {
+        margin-top: 30px;
+        font-size: 2rem;
+    }
+
+    .open_data p {
+        width: 90%;
+        font-size: 1.2rem;
+        line-height: 1;
+        margin-top: 10px;
+    }
+
+    .open_data ol {
+        font-size: 1.2rem;
+    }
+
+    .open_data a {
+        font-size: 1.2rem;
+    }
+     tabel{
+        width: 80%;
+    }
+
+}

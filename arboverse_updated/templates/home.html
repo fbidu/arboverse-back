@@ -1,131 +1,156 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% block meta_description %}Access comprehensive, open-source data and visualizations to bridge the gap in arbovirus knowledge{% endblock %} 
+{% block meta_keywords %}arbovirus, arboverse, dengue, zika, chikungunya, oroupoche, open-source, global health data{% endblock %}
+{% block title %}ARBOVERSE | Open-Source Arbovirus Data & Visualizations{% endblock title %}
+{% block content %}
+
 <!--Banner information-->
-<h1>ARBOVERSE: a data-driven platform 
-  about arboviruses</h1>
-<h2>Empowering research and public health workers through comprehensive open-source arbovirus data</h2>
+<h1>ARBO<spam class="orange">VERSE</spam>: The Global Open-Access Arbovirus Platform</h1>
+<h2>Providing data visualizations to virologists, ecologists, epidemiologists, public health officials, and citizen scientists</h2>
+<a href="{%url 'arboverse' %}" class="home_banner_btn">View ARBOVERSE</a>
 </div>
 <Section class="arboverse_explain">
   <div class="main_arboverse">
     <div class="explanation_content">
       <h3>OUR GOAL</h3>
-      <p>We provide comprehensive knowledge in a friendly and open-access platform to fight against arboviral disease.</p>
-      <a href="{% url 'contact' %}">Contact us for collaboration</a>
+      <p>To provide comprehensive knowledge and data on arboviruses user-friendly, open-access platform</p>
+      <a href="{% url 'contact' %}">Collaborate with us</a>
     </div>
-    <img src="../static/images/Index/photos/homepage_image_arboverse.jpg">
   </div>
 </Section>
 <section class="our_work">
 <h3>OUR WORK</h3>
-<p>We deliver an interactive resource integrating knowledge and data visualization about arboviruses in a broad context to better prepare, respond, and mitigate arboviral diseases.</p>
-<a href="{% url 'arboverse' %}" class="platform-link">Explore platform</a>
+<p>We have synthesized a century of arbovirus research into an interactive resource, integrating global knowledge and data visualizations within a broad ecological context</p>
 <div class="services_wrap">
   <div class="service_unit">
-    <a href="{%url 'arboverse' %}" class="tool_link"><h4>ARBO<span class="orange">MAP</h4></a>
-      <p>Explore interactive high-resolution maps to investigate risk factors in an ecological context.
-      </p>
-  </div>
-  <div class="service_unit">
     <a href="{%url 'arboverse' %}" class="tool_link"><h4>ARBO<span class="orange">CARD</h4></a>
-      <p>Find information about arboviral vectors for a better understanding of transmission and improve control strategies.
+      <p>Summary information on arboviruses and their associated diseases
       </p>
   </div>
   <div class="service_unit">
     <a href="{%url 'arboverse' %}" class="tool_link"><h4>ARBO<span class="orange">VECTOR</h4></a>
-      <p>Access concise information on arboviruses and their diseases to research studies and informed decision-making.
+      <p>Concise information on arthropod vectors that transmit arboviruses
       </p>
   </div>
   <div class="service_unit">
-    <a href="{%url 'arbodash' %}" class="tool_link"><h4>ARBO<span class="orange">DASH</h4></a>
-      <p>Track, understand, and combat arboviral diseases through clear data visualizations and interactive charts.
+    <a href="{%url 'arboverse' %}" class="tool_link"><h4>ARBO<span class="orange">MAP</h4></a>
+      <p>Interactive, high-resolution maps to investigate arboviruses in an ecological context
       </p>
   </div>
   <div class="service_unit">
     <a href="{%url 'arbodata' %}" class="tool_link"><h4>ARBO<span class="orange">DATA</h4></a>
-      <p>Accelerate your research with comprehensive arbovirus data connected to vector and ecological information.
+      <p>Comprehensive datasets connecting arboviruses, vectors, and ecological factors
       </p>
   </div>
 
 </div>
+<a href="{% url 'arboverse' %}" class="platform-link">Explore our tools</a>
 </section>
 <!--Team-->
 <section class="team_section">
-  <h3>Built by</h3>
+  <h3>OUR TEAM</h3>
   <div class="team_wrapper">
+    <!--William-->
     <div class="person_unit">
       <div class="person_img">
-        <img src="../static/images/people/William-M-De-Souza.png">
+        <img src="../static/images/people/William-M-De-Souza.png" alt="Dr. William M de Souza, Lead Principal Investigator">
       </div>
       <h6>William M. de Souza,</h6>
     </div>
+    <!--Jacqueline-->
     <div class="person_unit">
       <div class="person_img">
-        <img src="../static/images/people/Jacqueline-Tida.png">
+        <img src="../static/images/people/Jacqueline-Tida.png" alt="Jacqueline A Tida, Webdesigner">
       </div>
       <h6>Jacqueline A. Tida,</h6>
     </div>
+    <!--Oswaldo-->
     <div class="person_unit">
       <div class="person_img">
-        <img src="../static/images/people/Oswaldo-Reis.png">
+        <img src="../static/images/people/Oswaldo-Reis.png" alt="Oswaldo Reis Junior, Bioinformatics Developer">
       </div>
       <h6>Oswaldo Reis Jr,</h6>
     </div>
+    <!--Bidu-->
     <div class="person_unit">
       <div class="person_img">
-        <img src="../static/images/people/Felipe-Rodrigues.png">
+        <img src="../static/images/people/Felipe-Rodrigues.png" alt="Felipe Rodrigues, Software Developer">
       </div>
       <h6>Felipe Rodrigues,</h6>
     </div>
+    <!--Xinyi Hua-->
+     <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/Xinyi_Hua_.png" alt="Xinyi Hua (华心怡), Infectious Disease Epidemiologist">
+      </div>
+      <h6>Xinyi Hua (华心怡),</h6>
+    </div>
+    <!--Marcilio-->
     <div class="person_unit">
       <div class="person_img">
-        <img src="../static/images/people/Marcilio-Fumagali.png">
+        <img src="../static/images/people/Marcilio-Fumagali.png" alt="Marcilio Jorge Fumagalli, Virologist">
       </div>
       <h6>Marcilio Fumagalli,</h6>
     </div>
+    <!--Poliana-->
     <div class="person_unit">
       <div class="person_img">
-        <img src="../static/images/people/Poliana_Lemos.png">
+        <img src="../static/images/people/Poliana_Lemos.png" alt="Poliana Silva Lemos, Entomologist">
       </div>
       <h6>Poliana Lemos,</h6>
     </div>
+    <!--Desiree-->
     <div class="person_unit">
       <div class="person_img">
-        <img src="../static/images/people/Desiree_LaBeaud.png">
+        <img src="../static/images/people/Desiree_LaBeaud.png" alt="Desiree LaBeaud, Arboviral Epidemiologist Professor">
       </div>
       <h6>Desiree LaBeaud,</h6>
     </div>
+    <!--Maria Anice-->
     <div class="person_unit">
       <div class="person_img">
-        <img src="../static/images/people/Maria_Anice_Sallum.png">
+        <img src="../static/images/people/Maria_Anice_Sallum.png" alt="Maria Anice Mureb Sallum, Entomologist Professor">
       </div>
       <h6>Maria Anice Sallum,</h6>
     </div>
+    <!--Samir-->
     <div class="person_unit">
       <div class="person_img">
-        <img src="../static/images/people/Samir_Bhatt.png">
+        <img src="../static/images/people/Samir_Bhatt.png" alt="Samir Bhatt, Machine Learning and Public Health Professor">
       </div>
       <h6>Samir Bhatt,</h6>
     </div>
     <div class="person_unit">
       <div class="person_img">
-        <img src="../static/images/people/Seth_Flaxman.png">
+        <img src="../static/images/people/Seth_Flaxman.png" alt="Seth Flaxman, Spatiotemporal Statistics and Bayesian Machine Learning Professor">
       </div>
       <h6>Seth Flaxman,</h6>
     </div>
+    <!--Swapnil-->
     <div class="person_unit">
       <div class="person_img">
-        <img src="../static/images/people/Swapnil_Mishra.png">
+        <img src="../static/images/people/Swapnil_Mishra.png" alt="Swapil Mishra, Public Health, Machine Learning and Bayesian Modelling Professor">
       </div>
       <h6>Swapnil Mishra,</h6>
     </div>
+    <!--Nuno-->
     <div class="person_unit">
       <div class="person_img">
-        <img src="../static/images/people/Nuno_Faria.png">
+        <img src="../static/images/people/Nuno_Faria.png" alt="Nuno Faria, Virus Genomic Epidemiologist Professor">
       </div>
       <h6>Nuno Faria,</h6>
     </div>
+    <!--Ze-->
     <div class="person_unit">
       <div class="person_img">
-        <img src="../static/images/people/Scott_Weaver.png">
+        <img src="../static/images/people/Jose_Luiz_Modena.png" alt="Jose Luiz Proenca-Modena, Arbovirus Pathogenesis Professor">
+      </div>
+      <h6>Jose Luiz Proenca-Modena,</h6>
+    </div>
+    <!--Scott-->
+    <div class="person_unit">
+      <div class="person_img">
+        <img src="../static/images/people/Scott_Weaver.png" alt="Scott Weaver, Arbovirus Virologist Professor">
       </div>
       <h6>Scott C. Weaver.</h6>
     </div>

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}{% load static %}
+{% block resources %}
+<link href="{% static 'css/open_data.css' %}" rel="stylesheet" type="text/css">
+{% endblock resources %}
+{% block meta_description %}Explore ARBOVERSE, an open-source platform designed for virologists, epidemiologists, and citizen scientists to track and analyze arboviruses. View our dataset{% endblock %}
+{% block meta_keywords %}open source, acessibility, data, attribution, arboverse, arbovirus, dataset{% endblock%}
+{% block title %} Open Source Data | ARBOVERSE {% endblock title %}
+{% block content %}
+<h1 class="open_head">ARBOVERSE <span class="orange">open-access data</span></h1>
+<h2>Accelerating global health research in arbovirus</h2>
+</div>
+<main>
+    <section class="open_data"> 
+        <p>ARBOVERSE is a strong advocate of open and free access. All components of our work are available for use by other groups on an open access or unrestricted basis.
+</p>
+<h2>About the data</h2>
+<p>ARBOVERSE serves as a centralized repository for global arbovirus data. While the raw data is sourced from existing public records and institutional databases, ARBOVERSE provides value through data harmonization—unifying disparate formats into a single, standardized, and machine-readable platform.
+</p>
+<h2>Attribution</h2>
+<p>Our arbovirus data and maps are available to all users under The Creative Commons Attribution 4.0 International (CC BY 4.0). We ask that any use of these data provides the correct citation.
+</p>
+<h2>How to cite ARBOVERSE</h2>
+<p>To cite this data, please use: Paper title. Author list. Available at: palace here the DOI
+</p>
+<h2>Our dataset</h2>
+<p>You can find all ARBOVERSE datasets through this link (place link here).</p>
+<table>
+    <tr>
+        <th>Dataset</th>
+        <th>Format</th>
+        <th>Last updated</th>
+    </tr>
+    <tr>
+        <td>ARBOCARD</td>
+        <td>CSV</td>
+        <td>2026</td>
+    </tr>
+      <tr>
+        <td>ARBOVECTOR</td>
+        <td>CSV</td>
+        <td>2026</td>
+    </tr>
+    <tr>
+        <td>ARBOMAP</td>
+        <td>JSON</td>
+        <td>2026</td>
+    </tr>
+</table>
+    </section> 
+</main>
+{% endblock content %}

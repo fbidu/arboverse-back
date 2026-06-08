@@ -28,6 +28,12 @@ exportBtn.addEventListener('click', function () {
 
 // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
+const scale = new mapboxgl.ScaleControl({
+    maxWidth: 100,
+    unit: 'metric' // options: 'metric', 'imperial', 'nautical'
+});
+// Add a scale control to the map
+map.addControl(new mapboxgl.ScaleControl());
 
 // To labels appear on top of the layers
 map.on('load', function () {
@@ -49,6 +55,15 @@ map.on('load', function () {
 //   (url) the raster tile URL to add to the map
 const addTileLayerToMap = (mapVar, title, url, type, paint, source_layer) => {
     //console.log(mapVar, title, url);
+    var layers = map.getStyle().layers;
+    //Find the index of the first symbol layer in the map style
+    var firstSymbolId;
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === 'symbol') {
+            firstSymbolId = layers[i].id;
+            break;
+        }
+    }
     // Need to first add a source
     mapVar.addSource(title, {
         type: 'vector',
@@ -64,7 +79,7 @@ const addTileLayerToMap = (mapVar, title, url, type, paint, source_layer) => {
         'source': title,
         'paint': paint,
         'source-layer': source_layer
-    });
+    }, firstSymbolId);
 
     mapVar.setLayoutProperty(
         title,
@@ -81,6 +96,15 @@ const addTileLayerToMap = (mapVar, title, url, type, paint, source_layer) => {
 //   (url) the raster tile URL to add to the map
 const addRasterTileLayerToMap = (mapVar, title, url, type, source_layer, minzoom, maxzoom) => {
     //console.log(mapVar, title, url)
+    var layers = map.getStyle().layers;
+    //Find the index of the first symbol layer in the map style
+    var firstSymbolId;
+    for (var i = 0; i < layers.length; i++) {
+        if (layers[i].type === 'symbol') {
+            firstSymbolId = layers[i].id;
+            break;
+        }
+    }
     // need to first add a source
     mapVar.addSource(title, {
         type: 'raster',
@@ -97,13 +121,14 @@ const addRasterTileLayerToMap = (mapVar, title, url, type, source_layer, minzoom
         "source-layer": source_layer,
         'minzoom': minzoom,
         'maxzoom': maxzoom
-    });
+    }, firstSymbolId);
 
     mapVar.setLayoutProperty(
         title,
         'visibility',
         'none'
     );
+    firstSymbolId
 }
 //map visibility checked
 function update_map(cb) {
@@ -356,6 +381,8 @@ map.on('load', async () => {
     addTileLayerToMap(map, 'arboverse.rivers', 'mapbox://arboverse.rivers', 'line', { 'line-color': "#81e7ff", 'line-width': ["interpolate", ["linear"], ["zoom"], 0, 1, 22, 2] }, 'rivers');
     addTileLayerToMap(map, 'arboverse.icesheets', 'mapbox://arboverse.icesheets', 'fill', { 'fill-color': "#505f9e" }, 'icesheets');
     addTileLayerToMap(map, 'arboverse.waterbodies', 'mapbox://arboverse.waterbodies', 'fill', { 'fill-color': "#669ed2" }, 'waterbodies');
+    //irrigation
+    addTileLayerToMap(map, 'arboverse.irrigation', 'mapbox://arboverse.irrigation', 'fill', {'fill-color': ["interpolate",["linear"],["get", "PCT_AAI"],0,"#fef2f3",20,"#efd3c0",40,"#bfb199",60,"#6e95a1",80,"#36679d",100,"#1a0c64"]}, 'resistance');
     //aridity
     addRasterTileLayerToMap(map, 'arboverse.aridity_index_5km_modificado', 'mapbox://arboverse.aridity_index_5km_modificado', 'raster', 'mapbox://arboverse.aridity_index_5km_modificado', 0, 19);
     //population density
@@ -673,43 +700,50 @@ const addOpacityTwoRaster = (element, title1, title2) => {
         );
     })
 };
-//Opacity response
+//Opacity response slide selector
 map.on('load', function () {
-    var dryspellsSlider = document.querySelector('input[name=dryspells-opacity]')
-    var extremeSlider = document.querySelector('input[name=extreme-opacity]')
-    var hotdaysSlider = document.querySelector('input[name=hotdays-opacity]')
-    var precSlider = document.querySelector('input[name=precipitation-opacity]')
-    var tempSlider = document.querySelector('input[name=temp-opacity]')
-    var hdiSlider = document.querySelector('input[name=hdi-opacity]')
-    var gdpSlider = document.querySelector('input[name=gdp-opacity]')
-    var mammalsSlider = document.querySelector('input[name=mammals-opacity]')
-    var birdsSlider = document.querySelector('input[name=birds-opacity]')
-    var amphibiansSlider = document.querySelector('input[name=amphibians-opacity]')
-    var resistanceSlider = document.querySelector('input[name=resistance-opacity]')
-    var droughtSlider = document.querySelector('input[name=drought-opacity]')
-    var healthSlider = document.querySelector('input[name=health-opacity]')
-    var citiesSlider = document.querySelector('input[name=cities-opacity]')
-    var biodiversitySlider = document.querySelector('input[name=biodiversity-opacity]')
-    var biomeSlider = document.querySelector('input[name=biome-opacity]')
-    var protectBiomeSlider = document.querySelector('input[name=protect-biome-opacity]')
-    var cliSlider = document.querySelector('input[name=climate-opacity]');
-    var forecastSlider = document.querySelector('input[name=forecast-opacity]');
-    var driveSlider = document.querySelector('input[name=drive-opacity]');
-    var primarySlider = document.querySelector('input[name=primary-opacity]');
-    var heightSlider = document.querySelector('input[name=height-opacity]');
-    var intactSlider = document.querySelector('input[name=intact_opacity]');
-    var indexSlider = document.querySelector('input[name=index-opacity]');
-    var landSlider = document.querySelector('input[name=land-opacity]');
-    var miniSlider = document.querySelector('input[name=mini-opacity]');
-    var logSlider = document.querySelector('input[name=log-opacity]');
-    var damsSlider = document.querySelector('input[name=dams-opacity]')
-    var popSlider = document.querySelector('input[name=pop-opacity]');
-    var arrSlider = document.querySelector('input[name=opacity-Arr]');
-    var depSlider = document.querySelector('input[name=dep-opacity]');
-    var passengersSlider = document.querySelector('input[name=pass-opacity]');
+    var discoverySlider = document.querySelector('input[name=discovery-opacity]');
+    var distributionSlider = document.querySelector('input[name=distribution-opacity]');
+    var resistanceSlider = document.querySelector('input[name=inseticide-opacity]');
+    var vectorSlider = document.querySelector('input[name=vector-opacity]');
+    var forecastSlider = document.querySelector('input[name=aedes-opacity]');
+    var cliSlider = document.querySelector('input[name=kp-opacity]');
+    var tempSlider = document.querySelector('input[name=temperature-opacity]');
+    var hotdaysSlider = document.querySelector('input[name=hot-opacity]');
+    var precSlider = document.querySelector('input[name=precipitation-opacity]');
+    var extremeSlider = document.querySelector('input[name=extremeprecipitation-opacity]');
+    var dryspellsSlider = document.querySelector('input[name=spell-opacity]');
     var ariditySlider = document.querySelector('input[name=aridity-opacity]');
-    var livestockSlider = document.querySelector('input[name=stock-opacity]');
+    var droughtSlider = document.querySelector('input[name=drought-opacity]');
+    var biomeSlider = document.querySelector('input[name=biome-opacity]');
+    var primarySlider = document.querySelector('input[name=primary-opacity]');
+    var heightSlider = document.querySelector('input[name=coverheight-opacity]');
+    var intactSlider = document.querySelector('input[name=landscapes-opacity]');
+    var protectBiomeSlider = document.querySelector('input[name=ecoregion-opacity]');
+    var driveSlider = document.querySelector('input[name=dominant-opacity]');
+    var biodiversitySlider = document.querySelector('input[name=intactness-opacity]');
+    var mammalsSlider = document.querySelector('input[name=mammals-opacity]');
+    var birdsSlider = document.querySelector('input[name=birds-opacity]');
+    var amphibiansSlider = document.querySelector('input[name=amphibians-opacity]');
+    var landSlider = document.querySelector('input[name=landcover-opacity]');
+    var livestockSlider = document.querySelector('input[name=livestock-opacity]');
+    var miniSlider = document.querySelector('input[name=mining-opacity]');
+    var logSlider = document.querySelector('input[name=logging-opacity]');
+    var damsSlider = document.querySelector('input[name=dams-opacity]');
+    var citiesSlider = document.querySelector('input[name=cities-opacity]');
+    var arrSlider = document.querySelector('input[name=arrivals-opacity]');
+    var depSlider = document.querySelector('input[name=departures-opacity]');
+    var passengersSlider = document.querySelector('input[name=passengers-opacity]');
+    var popSlider = document.querySelector('input[name=population-opacity]');
+    var gdpSlider = document.querySelector('input[name=gdp-opacity]');
+    var hdiSlider = document.querySelector('input[name=hdi-opacity]');
+    var healthSlider = document.querySelector('input[name=health-opacity]');
+    var irrigationSlider = document.querySelector('input[name=irrigation-opacity]');
 
+    //Linking opacity slider to map
+    addOpacityCircle(discoverySlider, 'arboverse.6qvctboh');
+    addOpacityVector(distributionSlider, 'arboverse.virusdiscovery');
+    addOpacityCircle(vectorSlider, 'arboverse.vector_distribution')
     addOpacityTwoVector(cliSlider, 'arboverse.presentfull', 'arboverse.koppenfuture');
     addOpacityVector(driveSlider, 'arboverse.drivers');
     addOpacityCircle(resistanceSlider, 'arboverse.resistance');
@@ -723,6 +757,7 @@ map.on('load', function () {
     addOpacityCircle(passengersSlider, 'arboverse.transportation');
     addOpacityRaster(citiesSlider, 'arboverse.cities_accessibility_5km_2015')
     addOpacityTwoRaster(healthSlider, 'arboverse.healthcare_time_motorized', 'arboverse.healthcare_time_walking_5km_2020')
+    addOpacityVector(irrigationSlider, 'arboverse.irrigation');
 
     popSlider.addEventListener('input', function (e) {
         map.setPaintProperty(
@@ -1390,6 +1425,7 @@ map.on('load', function () {
             parseInt(e.target.value, 10) / 100
         );
     });
+    //Logging opacity
     logSlider.addEventListener('input', function (e) {
         map.setPaintProperty(
             'arboverse.logging1',
@@ -1432,6 +1468,7 @@ map.on('load', function () {
             parseInt(e.target.value, 10) / 100
         );
     });
+    //livestock opacity
     livestockSlider.addEventListener('input', function (e) {
         map.setPaintProperty(
             'arboverse.livestock_goat_2010_da_10km',
@@ -1475,6 +1512,7 @@ map.on('load', function () {
             parseInt(e.target.value, 10) / 100
         );
     });
+    //temperature opacity
     tempSlider.addEventListener('input', function (e) {
         map.setPaintProperty(
             'arboverse.temp_min_rcp45_1985_2015',
@@ -2033,8 +2071,8 @@ map.on('load', function () {
             parseInt(e.target.value, 10) / 100
         );
     })
-     //dryspells
-     dryspellsSlider.addEventListener('input', function (e) {
+    //dryspells
+    dryspellsSlider.addEventListener('input', function (e) {
         map.setPaintProperty(
             'arboverse.dryspells_ch_rcp45_1985_2015',
             'raster-opacity',
@@ -2284,7 +2322,7 @@ map.on('load', function () {
     });
     renderListings([]);
 })
-//VIRUS DISCOVERY
+//VIRUS DISCOVERY 
 // holds visible families features for filtering
 let virusFamily = [];
 let virusGenus = [];
@@ -2306,7 +2344,7 @@ const listingSpecies = document.getElementById('species-listing');
 //Render the list of families in the listing box
 function renderListFamily(features) {
     const empty = document.createElement('p');
-    // clear existing linst
+    // clear existing linst 
     listingFamily.innerHTML = '';
     if (features.length) {
         for (const feature of features) {
@@ -2336,7 +2374,7 @@ function renderListFamily(features) {
 //Render the list of genus in the listing box
 function renderListGenus(features) {
     const empty = document.createElement('p');
-    // clear existing linst
+    // clear existing linst 
     listingGenus.innerHTML = '';
     if (features.length) {
         for (const feature of features) {
@@ -2363,7 +2401,174 @@ function renderListGenus(features) {
         map.setFilter('arboverse.6qvctboh', ['has', 'genus'])
     }
 }
+//Render the list of Species in the listing box
+function renderListSpecies(features) {
+    const empty = document.createElement('p');
+    // clear existing linst 
+    listingSpecies.innerHTML = '';
+    if (features.length) {
+        for (const feature of features) {
+            const itemLink = document.createElement('a');
+            itemLink.textContent = feature.properties.species;
+            itemLink.addEventListener('mouseover', () => {
+                // highlight the corresponding feature on the map
+                popupDiscovery
+                    .setLngLat(feature.geometry.coordinates)
+                    .setText(feature.properties.species)
+                    .addTo(map);
+            });
+            listingSpecies.appendChild(itemLink);
+        }
 
+    } else if (features.length === 0 && filterSpecies.value !== '') {
+        empty.textContent = 'No results found';
+        listingSpecies.appendChild(empty);
+    } else {
+        empty.textContent = 'Drag the map to populate results';
+        listingSpecies.appendChild(empty);
+
+        //remove features filter
+        map.setFilter('arboverse.6qvctboh', ['has', 'species'])
+    }
+}
+map.on('load', function () {
+
+    map.addSource('arboverse.6qvctboh', {
+        'type': 'vector',
+        'url': 'mapbox://arboverse.6qvctboh'
+    })
+    map.addLayer({
+        'id': 'arboverse.6qvctboh',
+        'source': 'arboverse.6qvctboh',
+        'source-layer': 'virus_discovery-5quy5w',
+        'type': 'circle',
+        'paint': {
+            'circle-radius': ["interpolate", ["linear"], ["zoom"], 0, 7, 22, 11],
+            'circle-color': ["match", ["get", "family"], ["Nodaviridae"], "#a46267", ["Reoviridae"], "#e99a73", ["Orthomyxoviridae"], "#e57b62", ["Peribunyaviridae"], "#6b5f76", ["Togaviridae"], "#2a4b70", ["Phenuiviridae"], "#85606f", ["Nairoviridae"], "#515b7a", ["Nyamiviridae"], "#c8675f", ["Flaviviridae"], "#0c2e4d", ["Asfarviridae"], "#031326", ["Rhabdoviridae"], "#0f574e", ["unk"], "#e5b589", "#000000"],
+        }
+    })
+    map.setLayoutProperty(
+        'arboverse.6qvctboh',
+        'visibility',
+        'none'
+    );
+    map.on('movestart', () => {
+        // reset features filter as the map starts moving
+        map.setFilter('arboverse.6qvctboh', ['has', 'family']);
+    });
+    map.on('moveend', () => {
+        const features = map.queryRenderedFeatures({ layers: ['arboverse.6qvctboh'] });
+
+        if (features) {
+            const uniqueFeaturesFamily = getUniqueFeatures(features, 'family');
+            renderListFamily(uniqueFeaturesFamily)
+            //clear the input container for family
+            filterFamily.value = '';
+
+            families = uniqueFeaturesFamily;
+
+            const uniqueFeaturesGenus = getUniqueFeatures(features, 'genus');
+            renderListGenus(uniqueFeaturesGenus)
+            //clear the input container for genus
+            filterGenus.value = '';
+
+            genuses = uniqueFeaturesGenus;
+
+            const uniqueFeaturesSpeciesDiscovery = getUniqueFeatures(features, 'species');
+            renderListSpecies(uniqueFeaturesSpeciesDiscovery)
+            //clear the input container for species
+            filterSpecies.value = '';
+
+            speciesDiscovery = uniqueFeaturesSpeciesDiscovery;
+        }
+    });
+    map.on('mousemove', 'arboverse.6qvctboh', (e) => {
+        map.getCanvas().style.cursor = 'pointer';
+
+        const feature = e.features[0];
+        //Popup when hover on virus discovery
+        popupDiscovery
+            .setLngLat(feature.geometry.coordinates)
+            .setHTML(
+                `<strong>${feature.properties.virus_name}</strong> was discovered in ${feature.properties.collection_year} in ${feature.properties.country}. It belongs to ${feature.properties.family} family, ${feature.properties.genus} genus and ${feature.properties.species} species.`
+            )
+            .addTo(map);
+    });
+    map.on('mouseleave', 'arboverse.6qvctboh', () => {
+        map.getCanvas().style.cursor = '';
+        popupDiscovery.remove();
+    });
+    filterFamily.addEventListener('keyup', (e) => {
+        const value = normalize(e.target.value);
+
+        const filteredFamily = families.filter(function (feature) {
+            var family = normalize(feature.properties.family);
+            return family.indexOf(value) > -1;
+
+        })
+
+        //populate the side bar with filtered results
+        renderListFamily(filteredFamily);
+        //set the filter to populate features into the layer
+        if (filteredFamily.length) {
+            map.setFilter('arboverse.6qvctboh', [
+                'match',
+                ['get', 'family'],
+                filteredFamily.map((feature) => {
+                    return feature.properties.family;
+                }),
+                true,
+                false
+            ]);
+        }
+    });
+    filterGenus.addEventListener('keyup', (e) => {
+        const value = normalize(e.target.value);
+
+        const filteredGenus = genuses.filter(function (feature) {
+            var genus = normalize(feature.properties.genus);
+            return genus.indexOf(value) > -1;
+        })
+
+        renderListGenus(filteredGenus);
+        if (filteredGenus.length) {
+            map.setFilter('arboverse.6qvctboh', [
+                'match',
+                ['get', 'genus'],
+                filteredGenus.map((feature) => {
+                    return feature.properties.genus;
+                }),
+                true,
+                false
+            ]);
+        }
+    });
+
+    filterSpecies.addEventListener('keyup', (e) => {
+        const value = normalize(e.target.value);
+
+        const filteredSpeciesDiscovery = speciesDiscovery.filter(function (feature) {
+            var specieDiscover = normalize(feature.properties.species);
+            return specieDiscover.indexOf(value) > -1;
+        })
+
+        renderListSpecies(filteredSpeciesDiscovery);
+        if (filteredSpeciesDiscovery.length) {
+            map.setFilter('arboverse.6qvctboh', [
+                'match',
+                ['get', 'species'],
+                filteredSpeciesDiscovery.map((feature) => {
+                    return feature.properties.species;
+                }),
+                true,
+                false
+            ]);
+        }
+    })
+    renderListFamily([]);
+    renderListGenus([]);
+    renderListSpecies([]);
+})
 //VECTOR Resistance POPUp
 map.on('load', function () {
     var resistancePopup = new mapboxgl.Popup({
@@ -2525,3 +2730,155 @@ map.on('load', function () {
     renderListings([]);
 });
 
+// Wrap everything in a function to ensure the map and DOM are ready
+function setupMapToggleGroup(masterId, radioName, defaultRadioId, updateUI) {
+    const masterSwitch = document.getElementById(masterId);
+    // Use the name attribute to find all radios in this specific group
+    const radioButtons = document.querySelectorAll(`input[name="${radioName}"]`);
+
+    if (!masterSwitch) {
+        console.error(`Master switch with ID ${masterId} not found.`);
+        return;
+    }
+
+    const hideAllInGroup = () => {
+        radioButtons.forEach(rb => {
+            if (map.getLayer(rb.id)) {
+                map.setLayoutProperty(rb.id, 'visibility', 'none');
+            }
+        });
+    };
+
+    // 1. MASTER TOGGLE LOGIC
+    masterSwitch.addEventListener('change', function () {
+        if (this.checked) {
+            // Enable all radios
+            radioButtons.forEach(rb => {
+                rb.disabled = false;
+            });
+
+            // Find and check the default radio
+            const defaultBtn = document.getElementById(defaultRadioId);
+            if (defaultBtn) {
+                defaultBtn.checked = true;
+
+                // Show layer
+                hideAllInGroup();
+                if (map.getLayer(defaultRadioId)) {
+                    map.setLayoutProperty(defaultRadioId, 'visibility', 'visible');
+                }
+
+                // UPDATE LABEL: Pass the default button to the UI function
+                updateUI(defaultBtn);
+            }
+        } else {
+            // Disable all and uncheck
+            radioButtons.forEach(rb => {
+                rb.disabled = true;
+                rb.checked = false;
+            });
+            hideAllInGroup();
+
+            // RESET LABEL: Pass null to reset text
+            updateUI(null);
+        }
+    });
+
+    // 2. RADIO SELECTION LOGIC
+    radioButtons.forEach(radio => {
+        radio.addEventListener('change', function () {
+            if (this.checked) {
+                hideAllInGroup();
+                if (map.getLayer(this.id)) {
+                    map.setLayoutProperty(this.id, 'visibility', 'visible');
+                }
+                // UPDATE LABEL: Pass the clicked button
+                updateUI(this);
+            }
+        });
+    });
+}
+
+// Mammals Label Logic (Already done)
+const updateMammalsUI = (input) => {
+    const target = document.querySelector(".mammals_new_value");
+    if (!target) return;
+    if (!input) { target.textContent = "select data"; return; }
+
+    const gteValues = ["20", "30", "40"];
+    target.textContent = gteValues.includes(input.value) ? `≥${input.value} species` : `${input.value} species`;
+};
+
+// Example 2: Virus/Forecast Label Logic
+const updateBirdsUI = (input) => {
+    const target = document.querySelector(".other_value_birds"); // Make sure this class exists in HTML
+    if (!target) return;
+    if (!input) { target.textContent = "select data"; return; }
+
+    const gteValues = ["20", "30", "40"];
+    target.textContent = gteValues.includes(input.value) ? `≥${input.value} species` : `${input.value} species`;
+};
+
+// Example 3: Socioeconomic Label Logic
+const updateAnphibiansUI = (input) => {
+    const target = document.querySelector(".other_value");
+    if (!target) return;
+    if (!input) { target.textContent = "select data"; return; }
+
+    const gteValues = ["20", "30", "40"];
+    target.textContent = gteValues.includes(input.value) ? `≥${input.value} species` : `${input.value} species`;
+};
+// 4. EXECUTION
+// Ensure this runs AFTER your map is loaded
+map.on('load', function () {
+
+    // Group 1: Mammals
+    setupMapToggleGroup(
+        'mammals_switch',
+        'option_mammals',
+        'arboverse.bio_mammals_carnivora_10km',
+        updateMammalsUI
+    );
+
+    // Group 2: Birds
+    setupMapToggleGroup(
+        'birds_switch_diversity',
+        'option_birds',
+        'arboverse.bio_birds_passeriformes_10km',
+        updateBirdsUI
+    );
+
+    // Group 3: Your Third Toggle
+    setupMapToggleGroup(
+        'amphibians_switch',
+        'option_amphibians',
+        'arboverse.bio_amp_caudata_10km',
+        updateAnphibiansUI
+    );
+
+});
+// A simple fallback UI function if you don't need label updating
+const noopUI = () => { };
+
+map.on('load', function () {
+    // 1. Group 1: Mammals
+    setupMapToggleGroup('mammals_switch', 'option_mammals', 'arboverse.bio_mammals_carnivora_10km', updateMammalsUI);
+
+    // 2. Group 2: Birds
+    setupMapToggleGroup('birds_switch_diversity', 'option_birds', 'arboverse.bio_birds_passeriformes_10km', updateBirdsUI);
+
+    // 3. Group 3: Amphibians
+    setupMapToggleGroup('amphibians_switch', 'option_amphibians', 'arboverse.bio_amp_caudata_10km', updateAnphibiansUI);
+
+    // 4. Group 4: Forecast (Fixed: name string instead of array + noopUI added)
+    setupMapToggleGroup('forecast_switch', 'option_forecast', 'arboverse.c89hazcs', noopUI);
+
+    // 5. Group 5: KP
+    setupMapToggleGroup('kp_switch', 'option_kp', 'arboverse.presentfull', noopUI);
+
+    // 6. Group 6: Livestock
+    setupMapToggleGroup('livestock_switch', 'option_livestock', 'arboverse.livestock_catle_2010_da_10km', noopUI);
+
+    // 7. Group 7: Health
+    setupMapToggleGroup('health_switch', 'option_health', 'arboverse.healthcare_time_walking_5km_2020', noopUI);
+});

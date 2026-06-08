@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     {% block meta %}{% endblock meta %}
+    <meta name="description" content="{% block meta_description %}Bridging the gap in arbovirus knowledge. Arboverse offers comprehensive, open-source data visualizations to support public health officials and researchers worldwide{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}arbovirus, arboverse, dengue, zika, open-source, global health data{% endblock %}">
     {% include "resources.html" %}
     {% block resources %}{% endblock resources %}
     <title>{% block title %}Arboverse Home{% endblock title %}</title>

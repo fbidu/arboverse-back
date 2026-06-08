@@ -1,11 +1,20 @@
-{% extends "base.html" %} {% block title %}Server Error{% endblock title %}
+{% extends "base.html" %} {% load static %}
+{% block title %}Internal Server Error | ARBOVERSE{% endblock title %}
+{% block resources %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/found.css' %}" />
+{% endblock resources %}
 {% block content %}
-<h1>Ooops!!! 500</h1>
+<h1>Something went wrong on our end</h1>
+</div>
+<main>
+<div class="error_wrap">
+    <img src="../static/images/aboverse/satelite.png">
+    <div class="text_content server_error">
+        <h2>Ooops 500!</h2>
+        <p>The server encountered an unexpected error while processing your request. Please try refreshing the page or check back shortly</p>
+        <a href="{% url 'home' %}">Return to Homepage</a>
+    </div>
+</div>
+</main>
 
-<h3>Looks like something went wrong!</h3>
-
-<p>
-  We track these errors automatically, but if the problem persists feel free to
-  contact us. In the meantime, try refreshing.
-</p>
 {% endblock content %}

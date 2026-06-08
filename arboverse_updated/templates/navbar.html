@@ -1,9 +1,8 @@
 {% load static i18n %}
 <div class="bannermenu">
   <nav>
-    <div class="logo">
-      <img src="{% static 'images/logos/logo-arboverse.png' %}" />
-      <h4>ARBO<span>VERSE</span></h4>
+    <div class="logo"><a href="{% url 'home' %}" aria-label="Link for home">
+      <img src="{% static 'images/arboverse_logo/ARBOVERSE_white_orange@2x.png' %}" /></a>
     </div>
     <ul class="nav-links">
       <li>
@@ -11,10 +10,6 @@
       </li>
       <li>
         <a href="{% url 'arboverse' %}" aria-label="Link for arboverse plattform">ARBOVERSE</a>
-      </li>
-      <li>
-        <a href="{% url 'arbodash' %}"
-          aria-label="Link for arbodash, arboverse dashboard">ARBODASH</a>
       </li>
       <li>
         <a href="{% url 'arbodata' %}" aria-label="Link for arbodata, arboverse dataset">ARBODATA</a>
