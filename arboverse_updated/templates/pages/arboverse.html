@@ -128,7 +128,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
                     <span class=" tooltext-1">Classification of the viral genome</span>
                   </div>
-                  <h5>Genome Type:</h5>
+                  <h5>Genome type:</h5>
                   <output id="virus_genome"></output>
                 </div>
                 <!--Envelope-->
@@ -222,7 +222,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
                     <i class="fa fa-info-circle" style="color:#595659; opacity: 0.7"></i>
                     <span class=" tooltext-1">Veterinary diseases and clinical outcomes associated with the virus</span>
                   </div>
-                  <h5>Veterinary Disease:</h5>
+                  <h5>Veterinary disease:</h5>
                   <output id="virus_vet_disease"></output>
                 </div>
                 <!--Affected animals-->
@@ -456,7 +456,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
                     <span class=" tooltext-1">Arboviruses for which the species is a confirmed or presumptive primary
                       vector in natural transmission cycles</span>
                   </div>
-                  <h5>Main Vector:</h5>
+                  <h5>Main vector:</h5>
                   <output id="vector_main"></output>
                 </div>
                 <!--Experimental infection-->
@@ -559,7 +559,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
           </div>
           <h6>Virus discovery</h6>
           <div class="wrapper tooltip">
-            <a href="#demo-modal1.1"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.7;"></i></a>
+            <a href="#virus_dicovery_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.7;"></i></a>
             <span class="tooltext-a">Geolocations of first arbovirus identifications</span>
           </div>
         </div>
@@ -649,7 +649,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
           </div>
           <h6>Virus distribution</h6>
           <div class="wrapper tooltip">
-            <a href="#demo-modal2.1"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.7;"></i></a>
+            <a href="#arbovirus_distribution_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.7;"></i></a>
             <span class="tooltext-a">Global occurrences of arbovirus transmission</span>
           </div>
         </div>
@@ -685,7 +685,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
             </div>
             <h6>Insecticide vector resistance</h6>
             <div class="wrapper tooltip">
-              <a href="#demo-modal3.1"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
+              <a href="#inseticide_resistance_box"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
               <span class="tooltext-a">Documented resistance in vectors to chemical classes</span>
             </div>
           </div>
@@ -721,7 +721,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
           </div>
           <h6>Vector distribution</h6>
           <div class="wrapper tooltip">
-            <a href="#demo-modal3.2"><i class="fa fa-info-circle" style="color:#595659; opacity:0.7"></i></a>
+            <a href="#vector_distribution_box"><i class="fa fa-info-circle" style="color:#595659; opacity:0.7"></i></a>
             <span class="tooltext-a">Geographical occurrences of known arbovirus vectors</span>
           </div>
         </div>
@@ -788,7 +788,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
             </div>
             <h6>Expansion of Aedes-borne virus transmission risk with climate change</h6>
             <div class="wrapper tooltip">
-              <a href="#demo-modal4.1"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.7;"></i></a>
+              <a href="#aedes_expansion_box"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.7;"></i></a>
               <span class="tooltext-a">Projected shifts in Aedes-borne risk under climate change</span>
             </div>
           </div>
@@ -872,7 +872,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
             </div>
             <h6>Köppen-Geiger classification</h6>
             <div class="wrapper tooltip">
-              <a href="#demo-modal4.2"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.7;"></i></a>
+              <a href="#koppen_geiger_box"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.7;"></i></a>
               <span class="tooltext">Present and future global climate classification zones</span>
             </div>
           </div>
@@ -1065,7 +1065,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
             </div>
             <h6>Annual temperature</h6>
             <div class="wrapper tooltip">
-              <a href="#demo-modal4.3"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
+              <a href="#annual_temperature_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
               <span class="tooltext">Projected changes in min, mean, and max temperatures</span>
             </div>
           </div>
@@ -1130,7 +1130,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
             </div>
             <h6>Extreme hot days</h6>
             <div class="wrapper tooltip">
-              <a href="#demo-modal4.4"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
+              <a href="#hot_days_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
               <span class="tooltext">Projected change in the frequency of extreme heat days</span>
             </div>
           </div>
@@ -1181,7 +1181,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
             </div>
             <h6>Precipitation</h6>
             <div class="wrapper tooltip">
-              <a href="#demo-modal4.5"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
+              <a href="#precipitation_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
               <span class="tooltext">Projected change in annual cumulative precipitation</span>
             </div>
           </div>
@@ -1232,7 +1232,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
             </div>
             <h6>Extreme precipitation days</h6>
             <div class="wrapper tooltip">
-              <a href="#demo-modal4.6"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
+              <a href="#extreme_precipitation_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
               <span class="tooltext">Projected change in frequency of extreme rain events</span>
             </div>
           </div>
@@ -1283,7 +1283,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
             </div>
             <h6>Dry spells</h6>
             <div class="wrapper tooltip">
-              <a href="#demo-modal4.7"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
+              <a href="#dry_spells_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
               <span class="tooltext">Projected change in the duration of annual dry periods</span>
             </div>
           </div>
@@ -1334,7 +1334,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
             </div>
             <h6>Aridity index</h6>
             <div class="wrapper tooltip">
-              <a href="#demo-modal4.8"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
+              <a href="#aridity_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
               <span class="tooltext">Ratio of precipitation to potential evapotranspiration</span>
             </div>
           </div>
@@ -1367,7 +1367,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
             </div>
             <h6>Vulnerability to drought and floods</h6>
             <div class="wrapper tooltip">
-              <a href="#demo-modal4.9"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
+              <a href="#drought_vulnerability_box"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
               <span class="tooltext">Sensitivity of groundwater to extreme hydrological events</span>
             </div>
           </div>
@@ -1439,7 +1439,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Biomes</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal5.0"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
+                <a href="#biomes_box"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
                 <span class="tooltext">Global distribution of the 14 terrestrial biomes</span>
               </div>
             </div>
@@ -1518,7 +1518,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Primary forest</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal5.2"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
+                <a href="#primary_forest_box"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
                 <span class="tooltext">Extent of primary pan-tropical humid forests</span>
               </div>
             </div>
@@ -1545,7 +1545,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Tree cover height</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal5.3"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
+                <a href="#tree_height_box"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
                 <span class="tooltext">Global forest canopy height for 2000 and 2020</span>
               </div>
             </div>
@@ -1574,7 +1574,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Intact forest landscapes</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal5.4"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
+                <a href="#intact_landscapes_box"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
                 <span class="tooltext">Remaining unfragmented natural forest ecosystems</span>
               </div>
             </div>
@@ -1608,7 +1608,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Ecoregion protection statuses</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal5.5"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
+                <a href="#ecoregion_box"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
                 <span class="tooltext">Protection and conservation status of global ecoregions</span>
               </div>
             </div>
@@ -1646,7 +1646,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Tree cover loss by dominant driver</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal5.1"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
+                <a href="#tree_cover_loss_box"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
                 <span class="tooltext">Primary causes of forest loss (e.g., fire, agriculture)</span>
               </div>
             </div>
@@ -1695,7 +1695,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Biodiversity intactness index</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal6.1"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
+                <a href="#biodiversity_intactness_box"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
                 <span class="tooltext">Anthropogenic impact on local species community health</span>
               </div>
             </div>
@@ -1727,7 +1727,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Mammal diversity</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal6.2"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
+                <a href="#mammals_diversity_box"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
                 <span class="tooltext">Global richness and status of mammal species</span>
               </div>
             </div>
@@ -1811,7 +1811,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Birds diversity</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal6.3"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
+                <a href="#birds_diversity_box"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
                 <span class="tooltext">Global richness and status of avian species</span>
               </div>
             </div>
@@ -1895,7 +1895,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Amphibians diversity</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal6.4"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
+                <a href="#amphibians_diversity_box"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
                 <span class="tooltext">Global richness and status of amphibian species</span>
               </div>
             </div>
@@ -1971,7 +1971,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Land cover</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal7.0"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
+                <a href="#land_cover_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
                 <span class="tooltext">Global classification of land use and vegetation types</span>
               </div>
             </div>
@@ -2033,7 +2033,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Livestock</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal7.1"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
+                <a href="#livestock_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
                 <span class="tooltext">Global population densities of major livestock species</span>
               </div>
             </div>
@@ -2100,6 +2100,40 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </form>
             </div>
           </div>
+          <!--Irrigation-->
+          <div class="unit-btn2">
+            <div class="unit-toggle">
+              <div class="togglebtn">
+                <label class="switch">
+                  <input type="checkbox" name="land"
+                    id="arboverse.irrigation" />
+                  <span class="slider round"></span>
+                </label>
+              </div>
+              <h6>Crop irrigation</h6>
+              <div class="wrapper tooltip">
+                <a href="#crop_irrigation_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
+                <span class="tooltext">Percentage of area equipped for irrigation</span>
+              </div>
+            </div>
+            <div class="new_opacity_wrapper">
+            <label for="irrigation-slider">Opacity:</label>
+            <input type="range" id="irrigation-slider" name="irrigation-opacity" min="0" max="100"
+              value="100">
+            <span class="val_op">100</span>
+          </div>
+            <div class="measure">
+              <div class="bar-mesur irrigation_label"></div>
+              <div class="indice">
+                <label class="percentage">0%</label>
+                <label class="percentage">20%</label>
+                <label class="percentage">60%</label>
+                <label class="percentage">60%</label>
+                <label class="percentage">80%</label>
+                <label class="percentage">100%</label>
+              </div>
+            </div>
+          </div>
           <!--Mining Concessions-->
           <div class="unit-btn2">
             <div class="unit-toggle">
@@ -2112,7 +2146,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Mining concessions</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal7.2"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
+                <a href="#mining_concessions_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
                 <span class="tooltext">Government-allocated areas for mineral extraction</span>
               </div>
             </div>
@@ -2147,7 +2181,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Logging concessions</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal7.3"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
+                <a href="#logging_concessions_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
                 <span class="tooltext">Government-allocated areas for timber harvesting</span>
               </div>
             </div>
@@ -2183,7 +2217,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Global dams</h6>
               <div class="tooltip">
-                <a href="#demo-modal7.4"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
+                <a href="#dams_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
                 <span class="tooltext">Locations of 38,000+ dams and associated catchments</span>
               </div>
             </div>
@@ -2216,7 +2250,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Cities acessibility</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal8.0"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
+                <a href="#cities_accessibility_box"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
                 <span class="tooltext">Estimated travel time to the nearest urban center</span>
               </div>
             </div>
@@ -2247,7 +2281,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Number of arrivals</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal8.1"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
+                <a href="#arrivals_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
                 <span class="tooltext">Annual international inbound tourist arrivals</span>
               </div>
             </div>
@@ -2288,7 +2322,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Number of departures</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal8.2"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
+                <a href="#departures_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
                 <span class="tooltext">Annual international outbound tourist departures</span>
               </div>
             </div>
@@ -2329,7 +2363,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Number of passengers</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal8.3"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
+                <a href="#passengers_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
                 <span class="tooltext">Total annual air passengers carried by country</span>
               </div>
             </div>
@@ -2378,7 +2412,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Population density</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal9.0"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
+                <a href="#population_density_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
                 <span class="tooltext">Estimates of human population per square kilometer</span>
               </div>
             </div>
@@ -2420,7 +2454,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Global GDP per capita</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal9.1"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
+                <a href="#gdp_box"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
                 <span class="tooltext">Average GDP per capita</span>
               </div>
             </div>
@@ -2457,7 +2491,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               </div>
               <h6>Global HDI</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal9.2"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
+                <a href="#hdi_box"><i class="fa fa-info-circle" style="color: #595659; opacity: 0.8"></i></a>
                 <span class="tooltext">Subnational Human Development Index values</span>
               </div>
             </div>
@@ -2481,7 +2515,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
               <div class="slide_bar hdi_value">Move the slider</div>
             </div>
           </div>
-          <!--Access to health care-->
+          <!--Access to healthcare-->
           <div class="unit-btn2">
             <div class="unit-toggle">
               <div class="togglebtn">
@@ -2490,9 +2524,9 @@ Access interactive tools for advanced virus data analysis{% endblock %}
                   <span class="slider round"></span>
                 </label>
               </div>
-              <h6>Accessibility to health care</h6>
+              <h6>Accessibility to healthcare</h6>
               <div class="wrapper tooltip">
-                <a href="#demo-modal9.3"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
+                <a href="#healthcare_accessibility_box"><i class="fa fa-info-circle" style="color:#595659; opacity: 0.8;"></i></a>
                 <span class="tooltext">Travel time to the nearest healthcare facility</span>
               </div>
             </div>
@@ -2545,7 +2579,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
       interpretation, or the decision to publish the associated datasets</p>
   </div>
   <!-- Discovery Modal Box-->
-  <div id="demo-modal1.1" class="modal">
+  <div id="virus_dicovery_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -2621,7 +2655,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Distribution Modal Box-->
-  <div id="demo-modal2.1" class="modal">
+  <div id="arbovirus_distribution_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -2700,7 +2734,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
   </div>
   <!-- Vector Modal Box-->
   <!--vector resistance inseticide-->
-  <div id="demo-modal3.1" class="modal">
+  <div id="inseticide_resistance_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -2781,7 +2815,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Vector distribution-->
-  <div id="demo-modal3.2" class="modal">
+  <div id="vector_distribution_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -2863,7 +2897,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
   </div>
   <!-- Climate Modal Box-->
   <!-- Expansion of aedes and climate change -->
-  <div id="demo-modal4.1" class="modal">
+  <div id="aedes_expansion_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -2943,7 +2977,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Koppen-geiger classification -->
-  <div id="demo-modal4.2" class="modal">
+  <div id="koppen_geiger_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -3021,7 +3055,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Annual temperature-->
-  <div id="demo-modal4.3" class="modal">
+  <div id="annual_temperature_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -3099,7 +3133,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Extreme hot days-->
-  <div id="demo-modal4.4" class="modal">
+  <div id="hot_days_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -3175,7 +3209,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Precipitation-->
-  <div id="demo-modal4.5" class="modal">
+  <div id="precipitation_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -3250,7 +3284,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Extreme precipitation-->
-  <div id="demo-modal4.6" class="modal">
+  <div id="extreme_precipitation_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -3327,7 +3361,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Dry spells-->
-  <div id="demo-modal4.7" class="modal">
+  <div id="dry_spells_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -3403,7 +3437,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Aridity-->
-  <div id="demo-modal4.8" class="modal">
+  <div id="aridity_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -3481,7 +3515,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Vulnerability to drought and floods-->
-  <div id="demo-modal4.9" class="modal">
+  <div id="drought_vulnerability_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -3560,7 +3594,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
   </div>
   <!--Forest cover and deforestation-->
   <!-- Biomes-->
-  <div id="demo-modal5.0" class="modal">
+  <div id="biomes_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -3637,7 +3671,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Tree cover loss by dominant drivers-->
-  <div id="demo-modal5.1" class="modal">
+  <div id="tree_cover_loss_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -3715,7 +3749,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Primary forest-->
-  <div id="demo-modal5.2" class="modal">
+  <div id="primary_forest_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -3731,7 +3765,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
       <div class="arrow-table">
         <h6>Spatial resolution</h6>
         <div class="p-wrapper">
-          <p>1km<sup>2</sup> (resampled from original 30 m resolution)</p>
+          <p>1km <sup>2</sup> (resampled from original 30 m resolution)</p>
         </div>
       </div>
       <div class="arrow-table">
@@ -3793,7 +3827,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Tree cover height-->
-  <div id="demo-modal5.3" class="modal">
+  <div id="tree_height_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -3869,7 +3903,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Intact forest landscapes-->
-  <div id="demo-modal5.4" class="modal">
+  <div id="intact_landscapes_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -3948,7 +3982,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Protect Statuse Biomes-->
-  <div id="demo-modal5.5" class="modal">
+  <div id="ecoregion_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -4025,7 +4059,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Biodiversity intactness index-->
-  <div id="demo-modal6.1" class="modal">
+  <div id="biodiversity_intactness_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -4102,7 +4136,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Mammals diversity-->
-  <div id="demo-modal6.2" class="modal">
+  <div id="mammals_diversity_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -4181,7 +4215,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Birds diversity-->
-  <div id="demo-modal6.3" class="modal">
+  <div id="birds_diversity_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -4198,7 +4232,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
       <div class="arrow-table">
         <h6>Spatial resolution</h6>
         <div class="p-wrapper">
-          <p>10km<sup>2</sup>></p>
+          <p>10 km<sup>2</sup></p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4259,7 +4293,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Amphibian diversity-->
-  <div id="demo-modal6.4" class="modal">
+  <div id="amphibians_diversity_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -4276,7 +4310,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
       <div class="arrow-table">
         <h6>Spatial resolution</h6>
         <div class="p-wrapper">
-          <p>10km<sup>2</sup>></p>
+          <p>10 km<sup>2</sup></p>
         </div>
       </div>
       <div class="arrow-table">
@@ -4337,7 +4371,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Land cover-->
-  <div id="demo-modal7.0" class="modal">
+  <div id="land_cover_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -4414,7 +4448,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Livestock-->
-  <div id="demo-modal7.1" class="modal">
+  <div id="livestock_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -4490,8 +4524,81 @@ Access interactive tools for advanced virus data analysis{% endblock %}
       <a href="#map" class="modal__close">&times;</a>
     </div>
   </div>
+  <!-- Crop irrigation-->
+  <div id="crop_irrigation_box" class="modal">
+    <div class="modal__content">
+      <!--Title-->
+      <div class="modal-title">
+        <h3>Crop irrigation</h3>
+      </div>
+      <!--Layer Information-->
+      <div class="arrow-table">
+        <h6>Fuction</h6>
+        <div class="p-wrapper">
+          <p>Displays the percentage of the area equipped for irrigation that actually is irrigated</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Spatial resolution</h6>
+        <div class="p-wrapper">
+          <p>Not applicable (Vector/Polygon data)</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Geographic coverage</h6>
+        <div class="p-wrapper">
+          <p>Global</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Update frequency</h6>
+        <div class="p-wrapper">
+          <p>Not updated (Static model)</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Temporal coverage</h6>
+        <div class="p-wrapper">
+          <p>2005</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>License</h6>
+        <div class="p-wrapper">
+          <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>
+        </div>
+      </div>
+      <!--Overview-->
+      <div class="arrow-table">
+        <h6>Overview</h6>
+        <div class="p-wrapper">
+          <p>This dataset provides global agricultural management and measures the space actively utilizing equipped irrigation from both surface and groundwater
+          </p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Modification</h6>
+        <div class="p-wrapper">
+          <p>The layer utilizes the “lapaz” scientific color map developed by Crameri et al. (2020; PMID: 33116149)</p>
+        </div>
+      </div>
+      <div class="arrow-table">
+        <h6>Source</h6>
+        <div class="p-wrapper">
+          <p>Siebert et al. (2013). Global Map of Irrigation Areas version 5. Rheinische Friedrich-Wilhelms-Universität Bonn, Germany</p>
+        </div>
+      </div>
+      <!--Download data button-->
+      <div class="databtn">
+        <button class="download-data"><a href="https://www.fao.org/aquastat/en/geospatial-information/global-maps-irrigated-areas/latest-version"
+            target="_blank">Download
+            Data</a></button>
+      </div>
+      <a href="#map" class="modal__close">&times;</a>
+    </div>
+  </div>
   <!-- Mining-->
-  <div id="demo-modal7.2" class="modal">
+  <div id="mining_concessions_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -4567,7 +4674,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Logging concessions-->
-  <div id="demo-modal7.3" class="modal">
+  <div id="logging_concessions_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -4645,7 +4752,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Dams-->
-  <div id="demo-modal7.4" class="modal">
+  <div id="dams_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -4721,7 +4828,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Cities acessibility-->
-  <div id="demo-modal8.0" class="modal">
+  <div id="cities_accessibility_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -4799,7 +4906,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Number of arrivals-->
-  <div id="demo-modal8.1" class="modal">
+  <div id="arrivals_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -4876,7 +4983,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Number of departures-->
-  <div id="demo-modal8.2" class="modal">
+  <div id="departures_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -4951,7 +5058,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Number of passengers-->
-  <div id="demo-modal8.3" class="modal">
+  <div id="passengers_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -5027,7 +5134,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- Population density-->
-  <div id="demo-modal9.0" class="modal">
+  <div id="population_density_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -5105,7 +5212,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- GDP-->
-  <div id="demo-modal9.1" class="modal">
+  <div id="gdp_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -5182,7 +5289,7 @@ Access interactive tools for advanced virus data analysis{% endblock %}
     </div>
   </div>
   <!-- HDI-->
-  <div id="demo-modal9.2" class="modal">
+  <div id="hdi_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
@@ -5257,12 +5364,12 @@ Access interactive tools for advanced virus data analysis{% endblock %}
       <a href="#map" class="modal__close">&times;</a>
     </div>
   </div>
-  <!-- Accessibility to health care-->
-  <div id="demo-modal9.3" class="modal">
+  <!-- Accessibility to healthcare-->
+  <div id="healthcare_accessibility_box" class="modal">
     <div class="modal__content">
       <!--Title-->
       <div class="modal-title">
-        <h3>Accessibility to health care</h3>
+        <h3>Accessibility to healthcare</h3>
       </div>
       <!--Layer Information-->
       <div class="arrow-table">

@@ -32,8 +32,8 @@ const scale = new mapboxgl.ScaleControl({
     maxWidth: 100,
     unit: 'metric' // options: 'metric', 'imperial', 'nautical'
 });
- // Add a scale control to the map
- map.addControl(new mapboxgl.ScaleControl());
+// Add a scale control to the map
+map.addControl(new mapboxgl.ScaleControl());
 
 // To labels appear on top of the layers
 map.on('load', function () {
@@ -96,7 +96,7 @@ const addTileLayerToMap = (mapVar, title, url, type, paint, source_layer) => {
 //   (url) the raster tile URL to add to the map
 const addRasterTileLayerToMap = (mapVar, title, url, type, source_layer, minzoom, maxzoom) => {
     //console.log(mapVar, title, url)
-     var layers = map.getStyle().layers;
+    var layers = map.getStyle().layers;
     //Find the index of the first symbol layer in the map style
     var firstSymbolId;
     for (var i = 0; i < layers.length; i++) {
@@ -381,6 +381,8 @@ map.on('load', async () => {
     addTileLayerToMap(map, 'arboverse.rivers', 'mapbox://arboverse.rivers', 'line', { 'line-color': "#81e7ff", 'line-width': ["interpolate", ["linear"], ["zoom"], 0, 1, 22, 2] }, 'rivers');
     addTileLayerToMap(map, 'arboverse.icesheets', 'mapbox://arboverse.icesheets', 'fill', { 'fill-color': "#505f9e" }, 'icesheets');
     addTileLayerToMap(map, 'arboverse.waterbodies', 'mapbox://arboverse.waterbodies', 'fill', { 'fill-color': "#669ed2" }, 'waterbodies');
+    //irrigation
+    addTileLayerToMap(map, 'arboverse.irrigation', 'mapbox://arboverse.irrigation', 'fill', {'fill-color': ["interpolate",["linear"],["get", "PCT_AAI"],0,"#fef2f3",20,"#efd3c0",40,"#bfb199",60,"#6e95a1",80,"#36679d",100,"#1a0c64"]}, 'resistance');
     //aridity
     addRasterTileLayerToMap(map, 'arboverse.aridity_index_5km_modificado', 'mapbox://arboverse.aridity_index_5km_modificado', 'raster', 'mapbox://arboverse.aridity_index_5km_modificado', 0, 19);
     //population density
@@ -736,6 +738,7 @@ map.on('load', function () {
     var gdpSlider = document.querySelector('input[name=gdp-opacity]');
     var hdiSlider = document.querySelector('input[name=hdi-opacity]');
     var healthSlider = document.querySelector('input[name=health-opacity]');
+    var irrigationSlider = document.querySelector('input[name=irrigation-opacity]');
 
     //Linking opacity slider to map
     addOpacityCircle(discoverySlider, 'arboverse.6qvctboh');
@@ -754,6 +757,7 @@ map.on('load', function () {
     addOpacityCircle(passengersSlider, 'arboverse.transportation');
     addOpacityRaster(citiesSlider, 'arboverse.cities_accessibility_5km_2015')
     addOpacityTwoRaster(healthSlider, 'arboverse.healthcare_time_motorized', 'arboverse.healthcare_time_walking_5km_2020')
+    addOpacityVector(irrigationSlider, 'arboverse.irrigation');
 
     popSlider.addEventListener('input', function (e) {
         map.setPaintProperty(
@@ -2067,8 +2071,8 @@ map.on('load', function () {
             parseInt(e.target.value, 10) / 100
         );
     })
-     //dryspells
-     dryspellsSlider.addEventListener('input', function (e) {
+    //dryspells
+    dryspellsSlider.addEventListener('input', function (e) {
         map.setPaintProperty(
             'arboverse.dryspells_ch_rcp45_1985_2015',
             'raster-opacity',
@@ -2746,7 +2750,7 @@ function setupMapToggleGroup(masterId, radioName, defaultRadioId, updateUI) {
     };
 
     // 1. MASTER TOGGLE LOGIC
-    masterSwitch.addEventListener('change', function() {
+    masterSwitch.addEventListener('change', function () {
         if (this.checked) {
             // Enable all radios
             radioButtons.forEach(rb => {
@@ -2757,13 +2761,13 @@ function setupMapToggleGroup(masterId, radioName, defaultRadioId, updateUI) {
             const defaultBtn = document.getElementById(defaultRadioId);
             if (defaultBtn) {
                 defaultBtn.checked = true;
-                
+
                 // Show layer
                 hideAllInGroup();
                 if (map.getLayer(defaultRadioId)) {
                     map.setLayoutProperty(defaultRadioId, 'visibility', 'visible');
                 }
-                
+
                 // UPDATE LABEL: Pass the default button to the UI function
                 updateUI(defaultBtn);
             }
@@ -2774,7 +2778,7 @@ function setupMapToggleGroup(masterId, radioName, defaultRadioId, updateUI) {
                 rb.checked = false;
             });
             hideAllInGroup();
-            
+
             // RESET LABEL: Pass null to reset text
             updateUI(null);
         }
@@ -2782,7 +2786,7 @@ function setupMapToggleGroup(masterId, radioName, defaultRadioId, updateUI) {
 
     // 2. RADIO SELECTION LOGIC
     radioButtons.forEach(radio => {
-        radio.addEventListener('change', function() {
+        radio.addEventListener('change', function () {
             if (this.checked) {
                 hideAllInGroup();
                 if (map.getLayer(this.id)) {
@@ -2800,7 +2804,7 @@ const updateMammalsUI = (input) => {
     const target = document.querySelector(".mammals_new_value");
     if (!target) return;
     if (!input) { target.textContent = "select data"; return; }
-    
+
     const gteValues = ["20", "30", "40"];
     target.textContent = gteValues.includes(input.value) ? `≥${input.value} species` : `${input.value} species`;
 };
@@ -2810,7 +2814,7 @@ const updateBirdsUI = (input) => {
     const target = document.querySelector(".other_value_birds"); // Make sure this class exists in HTML
     if (!target) return;
     if (!input) { target.textContent = "select data"; return; }
-    
+
     const gteValues = ["20", "30", "40"];
     target.textContent = gteValues.includes(input.value) ? `≥${input.value} species` : `${input.value} species`;
 };
@@ -2820,43 +2824,43 @@ const updateAnphibiansUI = (input) => {
     const target = document.querySelector(".other_value");
     if (!target) return;
     if (!input) { target.textContent = "select data"; return; }
-    
+
     const gteValues = ["20", "30", "40"];
     target.textContent = gteValues.includes(input.value) ? `≥${input.value} species` : `${input.value} species`;
 };
 // 4. EXECUTION
 // Ensure this runs AFTER your map is loaded
-map.on('load', function() {
-    
+map.on('load', function () {
+
     // Group 1: Mammals
     setupMapToggleGroup(
-        'mammals_switch', 
-        'option_mammals', 
-        'arboverse.bio_mammals_carnivora_10km', 
+        'mammals_switch',
+        'option_mammals',
+        'arboverse.bio_mammals_carnivora_10km',
         updateMammalsUI
     );
 
     // Group 2: Birds
     setupMapToggleGroup(
-        'birds_switch_diversity', 
-        'option_birds', 
-        'arboverse.bio_birds_passeriformes_10km', 
+        'birds_switch_diversity',
+        'option_birds',
+        'arboverse.bio_birds_passeriformes_10km',
         updateBirdsUI
     );
 
     // Group 3: Your Third Toggle
     setupMapToggleGroup(
-        'amphibians_switch', 
-        'option_amphibians', 
-        'arboverse.bio_amp_caudata_10km', 
+        'amphibians_switch',
+        'option_amphibians',
+        'arboverse.bio_amp_caudata_10km',
         updateAnphibiansUI
     );
 
 });
 // A simple fallback UI function if you don't need label updating
-const noopUI = () => {};
+const noopUI = () => { };
 
-map.on('load', function() {
+map.on('load', function () {
     // 1. Group 1: Mammals
     setupMapToggleGroup('mammals_switch', 'option_mammals', 'arboverse.bio_mammals_carnivora_10km', updateMammalsUI);
 

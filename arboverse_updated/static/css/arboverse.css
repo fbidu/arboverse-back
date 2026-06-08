@@ -889,6 +889,7 @@
 .p-wrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   margin-left: 20px;
   font-size: 1rem;
   font-weight: 400;
@@ -898,12 +899,8 @@
   text-align: justify;
 }
 
-.p-wrapper p {
-  padding-bottom: 8px;
-}
-
 .arrow-table a {
-  font-size: 1rem;
+  font-size: 0.9rem;
   text-decoration: none;
   color: var(--orange);
   font-weight: 500;
@@ -978,6 +975,7 @@
 
 .download-data a {
   text-decoration: none;
+  font-size: 1.2rem;
   color: white;
   font-weight: bold;
   padding: 1px;
@@ -1582,6 +1580,15 @@
       #bab3f1,
       #3669ad,
       #2c1aac);
+}
+.irrigation_label {
+  background: linear-gradient(90deg,
+      #FEF2F3,
+      #efd3c0,
+      #BFB199,
+      #6E95A1,
+      #36679D,
+      #1a0c64);
 }
 
 .biodiversity_label {
